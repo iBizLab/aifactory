@@ -765,6 +765,7 @@
     "getAfterPSDEActionLogics" : [ {
       "actionLogicType" : 1,
       "attachMode" : "AFTER",
+      "codeName" : "Ae2c11e781068ee771f",
       "name" : "附加逻辑",
       "getPSDELogic" : {
         "modelref" : true,
@@ -939,6 +940,7 @@
     "getAfterPSDEActionLogics" : [ {
       "actionLogicType" : 1,
       "attachMode" : "AFTER",
+      "codeName" : "Aa4ab484fdebced4a50",
       "name" : "附加逻辑",
       "getPSDELogic" : {
         "modelref" : true,
@@ -2091,6 +2093,7 @@
       "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEDATAQUERIES/valid/PSDEDQCODES/POSTGRESQL.json"
     } ],
     "codeName" : "valid",
+    "dEFGroupType" : "FIELDS",
     "logicName" : "启用知识库",
     "name" : "VALID",
     "getPSDEDQMain" : {
@@ -2113,11 +2116,15 @@
       "name" : "ValidResult",
       "getPSDEMethodDTO" : {
         "modelref" : true,
-        "id" : "ai_knowledge_base_dto"
+        "id" : "ai_knowledge_base_valid_dto"
       },
       "type" : "DTOS"
     },
-    "viewLevel" : 0
+    "getPSDEFGroup" : {
+      "modelref" : true,
+      "id" : "valid"
+    },
+    "viewLevel" : 100
   } ],
   "getAllPSDEDataRelations" : [ {
     "modelref" : true,
@@ -2516,11 +2523,15 @@
       "name" : "ValidResult",
       "getPSDEMethodDTO" : {
         "modelref" : true,
-        "id" : "ai_knowledge_base_dto"
+        "id" : "ai_knowledge_base_valid_dto"
       },
       "type" : "PAGE"
     },
-    "viewLevel" : 0,
+    "getPSDEFGroup" : {
+      "modelref" : true,
+      "id" : "valid"
+    },
+    "viewLevel" : 100,
     "enableBackend" : true,
     "enableFront" : true,
     "enableTempData" : true
@@ -2664,6 +2675,534 @@
         "codeName" : "source_name"
       },
       "stringLength" : 200,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    } ]
+  }, {
+    "codeName" : "valid",
+    "groupType" : "FIELDS",
+    "name" : "valid",
+    "orderValue" : 99999,
+    "getPSDEFGroupDetails" : [ {
+      "codeName" : "id",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.AI_KNOWLEDGE_BASE.ID"
+      },
+      "logicName" : "知识库标识",
+      "orderValue" : 1,
+      "getPSDEField" : {
+        "name" : "ID",
+        "codeName" : "id"
+      },
+      "stringLength" : 100,
+      "allowEmpty" : false,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "name",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.AI_KNOWLEDGE_BASE.NAME"
+      },
+      "logicName" : "知识库名称",
+      "orderValue" : 2,
+      "getPSDEField" : {
+        "name" : "NAME",
+        "codeName" : "name"
+      },
+      "stringLength" : 200,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "create_man",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.CREATE_MAN"
+      },
+      "logicName" : "建立人",
+      "orderValue" : 3,
+      "getPSDEField" : {
+        "name" : "CREATE_MAN",
+        "codeName" : "create_man"
+      },
+      "stringLength" : 100,
+      "allowEmpty" : false,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "create_time",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.CREATE_TIME"
+      },
+      "logicName" : "建立时间",
+      "orderValue" : 4,
+      "getPSDEField" : {
+        "name" : "CREATE_TIME",
+        "codeName" : "create_time"
+      },
+      "allowEmpty" : false,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "update_man",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.UPDATE_MAN"
+      },
+      "logicName" : "更新人",
+      "orderValue" : 5,
+      "getPSDEField" : {
+        "name" : "UPDATE_MAN",
+        "codeName" : "update_man"
+      },
+      "stringLength" : 100,
+      "allowEmpty" : false,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "update_time",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.UPDATE_TIME"
+      },
+      "logicName" : "更新时间",
+      "orderValue" : 6,
+      "getPSDEField" : {
+        "name" : "UPDATE_TIME",
+        "codeName" : "update_time"
+      },
+      "allowEmpty" : false,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "visibility",
+      "logicName" : "可见范围",
+      "orderValue" : 120,
+      "getPSCodeList" : {
+        "modelref" : true,
+        "path" : "PSCODELISTS/visibility.json"
+      },
+      "getPSDEField" : {
+        "name" : "VISIBILITY",
+        "codeName" : "visibility"
+      },
+      "stringLength" : 60,
+      "allowEmpty" : false,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "is_archived",
+      "logicName" : "是否已归档",
+      "orderValue" : 150,
+      "getPSCodeList" : {
+        "modelref" : true,
+        "path" : "PSCODELISTS/YesNo.json"
+      },
+      "getPSDEField" : {
+        "name" : "IS_ARCHIVED",
+        "codeName" : "is_archived"
+      },
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "is_deleted",
+      "logicName" : "是否已删除",
+      "orderValue" : 160,
+      "getPSCodeList" : {
+        "modelref" : true,
+        "path" : "PSCODELISTS/YesNo.json"
+      },
+      "getPSDEField" : {
+        "name" : "IS_DELETED",
+        "codeName" : "is_deleted"
+      },
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "meta_data",
+      "logicName" : "文档元数据",
+      "orderValue" : 210,
+      "getPSDEField" : {
+        "name" : "META_DATA",
+        "codeName" : "meta_data"
+      },
+      "stringLength" : 1048576,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "status",
+      "logicName" : "状态",
+      "orderValue" : 220,
+      "getPSCodeList" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSCODELISTS/slice_status.json"
+      },
+      "getPSDEField" : {
+        "name" : "STATUS",
+        "codeName" : "status"
+      },
+      "stringLength" : 60,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "tag_sets",
+      "logicName" : "标签集",
+      "orderValue" : 240,
+      "getPSCodeList" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSCODELISTS/kb_tag_sets.json"
+      },
+      "getPSDEField" : {
+        "name" : "TAG_SETS",
+        "codeName" : "tag_sets"
+      },
+      "stringLength" : 2000,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "scope_type",
+      "logicName" : "所属",
+      "orderValue" : 250,
+      "getPSCodeList" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Wiki/PSCODELISTS/user_scope_type.json"
+      },
+      "getPSDEField" : {
+        "name" : "SCOPE_TYPE",
+        "codeName" : "scope_type"
+      },
+      "stringLength" : 60,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "guidance_prompt",
+      "logicName" : "引导提示词",
+      "orderValue" : 260,
+      "getPSDEField" : {
+        "name" : "GUIDANCE_PROMPT",
+        "codeName" : "guidance_prompt"
+      },
+      "stringLength" : 2000,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "scope_id",
+      "logicName" : "所属对象",
+      "orderValue" : 260,
+      "getPSDEField" : {
+        "name" : "SCOPE_ID",
+        "codeName" : "scope_id"
+      },
+      "stringLength" : 100,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "chat_model",
+      "logicName" : "交谈模型",
+      "orderValue" : 320,
+      "getPSDEField" : {
+        "name" : "CHAT_MODEL",
+        "codeName" : "chat_model"
+      },
+      "stringLength" : 100,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "rerank_model",
+      "logicName" : "召回重排模型",
+      "orderValue" : 320,
+      "getPSDEField" : {
+        "name" : "RERANK_MODEL",
+        "codeName" : "rerank_model"
+      },
+      "stringLength" : 100,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "description_vector",
+      "logicName" : "描述向量",
+      "orderValue" : 420,
+      "getPSDEField" : {
+        "name" : "DESCRIPTION_VECTOR",
+        "codeName" : "description_vector"
+      },
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "guidance_prompt_vector",
+      "logicName" : "引导词向量",
+      "orderValue" : 430,
+      "getPSDEField" : {
+        "name" : "GUIDANCE_PROMPT_VECTOR",
+        "codeName" : "guidance_prompt_vector"
+      },
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "similarity_threshold",
+      "logicName" : "召回相似度阈值",
+      "orderValue" : 460,
+      "getPSDEField" : {
+        "name" : "SIMILARITY_THRESHOLD",
+        "codeName" : "similarity_threshold"
+      },
+      "precision" : 2,
+      "scale" : 2,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "vector_similarity_weight",
+      "logicName" : "向量相似度权重",
+      "orderValue" : 470,
+      "getPSDEField" : {
+        "name" : "VECTOR_SIMILARITY_WEIGHT",
+        "codeName" : "vector_similarity_weight"
+      },
+      "precision" : 1,
+      "scale" : 1,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "resource",
+      "logicName" : "数据资源",
+      "orderValue" : 480,
+      "getPSDEField" : {
+        "name" : "RESOURCE",
+        "codeName" : "resource"
+      },
+      "stringLength" : 200,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "resource_code",
+      "logicName" : "数据资源",
+      "orderValue" : 480,
+      "getPSDEField" : {
+        "name" : "RESOURCE_CODE",
+        "codeName" : "resource_code"
+      },
+      "stringLength" : 100,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "top_k",
+      "logicName" : "最大召回数量",
+      "orderValue" : 480,
+      "getPSDEField" : {
+        "name" : "TOP_K",
+        "codeName" : "top_k"
+      },
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "rerank",
+      "logicName" : "召回重排",
+      "orderValue" : 490,
+      "getPSCodeList" : {
+        "modelref" : true,
+        "path" : "PSCODELISTS/YesNoAuto.json"
+      },
+      "getPSDEField" : {
+        "name" : "RERANK",
+        "codeName" : "rerank"
+      },
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "key",
+      "logicName" : "业务键值",
+      "orderValue" : 500,
+      "getPSDEField" : {
+        "name" : "KEY",
+        "codeName" : "key"
+      },
+      "stringLength" : 100,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "use_kg",
+      "logicName" : "使用知识图谱",
+      "orderValue" : 510,
+      "getPSCodeList" : {
+        "modelref" : true,
+        "path" : "PSCODELISTS/YesNo.json"
+      },
+      "getPSDEField" : {
+        "name" : "USE_KG",
+        "codeName" : "use_kg"
+      },
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "pageindex",
+      "logicName" : "智能目录索引",
+      "orderValue" : 520,
+      "getPSCodeList" : {
+        "modelref" : true,
+        "path" : "PSCODELISTS/YesNo.json"
+      },
+      "getPSDEField" : {
+        "name" : "PAGEINDEX",
+        "codeName" : "pageindex"
+      },
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "source_type",
+      "logicName" : "资源类型",
+      "orderValue" : 530,
+      "getPSCodeList" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSCODELISTS/ai_kb_document_type.json"
+      },
+      "getPSDEField" : {
+        "name" : "SOURCE_TYPE",
+        "codeName" : "source_type"
+      },
+      "stringLength" : 2000,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "category_id",
+      "logicName" : "目录标识",
+      "orderValue" : 1000,
+      "getPSDEField" : {
+        "name" : "CATEGORY_ID",
+        "codeName" : "category_id"
+      },
+      "stringLength" : 100,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "category_name",
+      "logicName" : "目录",
+      "orderValue" : 1000,
+      "getPSDEField" : {
+        "name" : "CATEGORY_NAME",
+        "codeName" : "category_name"
+      },
+      "stringLength" : 200,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "chat_model_id",
+      "logicName" : "交谈模型标识",
+      "orderValue" : 1000,
+      "getPSDEField" : {
+        "name" : "CHAT_MODEL_ID",
+        "codeName" : "chat_model_id"
+      },
+      "stringLength" : 100,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "chunk_method",
+      "logicName" : "切片方法",
+      "orderValue" : 1000,
+      "getPSCodeList" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSCODELISTS/chunkingstrategy.json"
+      },
+      "getPSDEField" : {
+        "name" : "CHUNK_METHOD",
+        "codeName" : "chunk_method"
+      },
+      "stringLength" : 100,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "code_name",
+      "logicName" : "代码标识",
+      "orderValue" : 1000,
+      "getPSDEField" : {
+        "name" : "CODE_NAME",
+        "codeName" : "code_name"
+      },
+      "stringLength" : 200,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "description",
+      "logicName" : "描述",
+      "orderValue" : 1000,
+      "getPSDEField" : {
+        "name" : "DESCRIPTION",
+        "codeName" : "description"
+      },
+      "stringLength" : 2000,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "embedding_model",
+      "logicName" : "embedding模型",
+      "orderValue" : 1000,
+      "getPSDEField" : {
+        "name" : "EMBEDDING_MODEL",
+        "codeName" : "embedding_model"
+      },
+      "stringLength" : 100,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "embedding_model_id",
+      "logicName" : "嵌入模型标识",
+      "orderValue" : 1000,
+      "getPSDEField" : {
+        "name" : "EMBEDDING_MODEL_ID",
+        "codeName" : "embedding_model_id"
+      },
+      "stringLength" : 100,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "parser_config",
+      "logicName" : "解析配置",
+      "orderValue" : 1000,
+      "getPSDEField" : {
+        "name" : "PARSER_CONFIG",
+        "codeName" : "parser_config"
+      },
+      "stringLength" : 1048576,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "record_id",
+      "logicName" : "数据记录标识",
+      "orderValue" : 1000,
+      "getPSDEField" : {
+        "name" : "RECORD_ID",
+        "codeName" : "record_id"
+      },
+      "stringLength" : 60,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "rerank_model_id",
+      "logicName" : "召回重排模型标识",
+      "orderValue" : 1000,
+      "getPSDEField" : {
+        "name" : "RERANK_MODEL_ID",
+        "codeName" : "rerank_model_id"
+      },
+      "stringLength" : 100,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "resource_id",
+      "logicName" : "资源标识",
+      "orderValue" : 1000,
+      "getPSDEField" : {
+        "name" : "RESOURCE_ID",
+        "codeName" : "resource_id"
+      },
+      "stringLength" : 100,
+      "enableUserInsert" : true,
+      "enableUserUpdate" : true
+    }, {
+      "codeName" : "source_id",
+      "logicName" : "知识库源标识",
+      "orderValue" : 1000,
+      "getPSDEField" : {
+        "name" : "SOURCE_ID",
+        "codeName" : "source_id"
+      },
+      "stringLength" : 100,
       "enableUserInsert" : true,
       "enableUserUpdate" : true
     } ]
@@ -7222,7 +7761,7 @@
       "enableBackend" : true,
       "enableFront" : true
     } ],
-    "codeName" : "RecordTitle",
+    "codeName" : "record_title",
     "dEFType" : 3,
     "dataType" : "PICKUPTEXT",
     "importOrder" : 1000,
@@ -7250,6 +7789,7 @@
       "modelref" : true,
       "path" : "PSMODULES/meta/PSDATAENTITIES/data_record.json"
     },
+    "serviceCodeName" : "record_title",
     "stdDataType" : 25,
     "stringLength" : 1000,
     "valueFormat" : "%1$s",
@@ -7259,8 +7799,7 @@
     },
     "viewLevel" : 0,
     "linkDEField" : true,
-    "phisicalDEField" : false,
-    "serviceCodeName" : "record_title"
+    "phisicalDEField" : false
   }, {
     "getAllPSDEFDTColumns" : [ {
       "columnName" : "CODE_NAME",
@@ -16818,7 +17357,7 @@
       "name" : "record_title",
       "getPSDEField" : {
         "name" : "RECORD_TITLE",
-        "codeName" : "RecordTitle"
+        "codeName" : "record_title"
       },
       "sourceType" : "DEFIELD",
       "stdDataType" : 25,
@@ -17018,7 +17557,7 @@
       },
       "getPSDEField" : {
         "name" : "RECORD_TITLE",
-        "codeName" : "RecordTitle"
+        "codeName" : "record_title"
       },
       "scale" : 0,
       "sourceType" : "DEFSEARCHMODE",
@@ -17033,7 +17572,7 @@
       },
       "getPSDEField" : {
         "name" : "RECORD_TITLE",
-        "codeName" : "RecordTitle"
+        "codeName" : "record_title"
       },
       "scale" : 0,
       "sourceType" : "DEFSEARCHMODE",
@@ -17163,6 +17702,491 @@
     "sourceType" : "DE",
     "type" : "DEFILTER",
     "defaultMode" : true
+  }, {
+    "name" : "ai_knowledge_base_valid_dto",
+    "getPSDEMethodDTOFields" : [ {
+      "logicName" : "知识库标识",
+      "name" : "id",
+      "getPSDEField" : {
+        "name" : "ID",
+        "codeName" : "id"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "logicName" : "知识库名称",
+      "name" : "name",
+      "getPSDEField" : {
+        "name" : "NAME",
+        "codeName" : "name"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "建立人",
+      "name" : "create_man",
+      "getPSDEField" : {
+        "name" : "CREATE_MAN",
+        "codeName" : "create_man"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE",
+      "allowEmpty" : false,
+      "readOnly" : true
+    }, {
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "建立时间",
+      "name" : "create_time",
+      "getPSDEField" : {
+        "name" : "CREATE_TIME",
+        "codeName" : "create_time"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 5,
+      "type" : "SIMPLE",
+      "allowEmpty" : false,
+      "readOnly" : true
+    }, {
+      "logicName" : "更新人",
+      "name" : "update_man",
+      "getPSDEField" : {
+        "name" : "UPDATE_MAN",
+        "codeName" : "update_man"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE",
+      "allowEmpty" : false,
+      "readOnly" : true
+    }, {
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "更新时间",
+      "name" : "update_time",
+      "getPSDEField" : {
+        "name" : "UPDATE_TIME",
+        "codeName" : "update_time"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 5,
+      "type" : "SIMPLE",
+      "allowEmpty" : false,
+      "readOnly" : true
+    }, {
+      "logicName" : "可见范围",
+      "name" : "visibility",
+      "getPSDEField" : {
+        "name" : "VISIBILITY",
+        "codeName" : "visibility"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 60,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "defaultValue" : "0",
+      "logicName" : "是否已归档",
+      "name" : "is_archived",
+      "getPSDEField" : {
+        "name" : "IS_ARCHIVED",
+        "codeName" : "is_archived"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "defaultValue" : "0",
+      "logicName" : "是否已删除",
+      "name" : "is_deleted",
+      "getPSDEField" : {
+        "name" : "IS_DELETED",
+        "codeName" : "is_deleted"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "文档元数据",
+      "name" : "meta_data",
+      "getPSDEField" : {
+        "name" : "META_DATA",
+        "codeName" : "meta_data"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 21,
+      "stringLength" : 1048576,
+      "type" : "SIMPLE"
+    }, {
+      "defaultValue" : "0",
+      "logicName" : "状态",
+      "name" : "status",
+      "getPSDEField" : {
+        "name" : "STATUS",
+        "codeName" : "status"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 60,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "标签集",
+      "name" : "tag_sets",
+      "getPSDEField" : {
+        "name" : "TAG_SETS",
+        "codeName" : "tag_sets"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 2000,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "所属",
+      "name" : "scope_type",
+      "getPSDEField" : {
+        "name" : "SCOPE_TYPE",
+        "codeName" : "scope_type"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 60,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "引导提示词",
+      "name" : "guidance_prompt",
+      "getPSDEField" : {
+        "name" : "GUIDANCE_PROMPT",
+        "codeName" : "guidance_prompt"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 2000,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "所属对象",
+      "name" : "scope_id",
+      "getPSDEField" : {
+        "name" : "SCOPE_ID",
+        "codeName" : "scope_id"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "交谈模型",
+      "name" : "chat_model",
+      "getPSDEField" : {
+        "name" : "CHAT_MODEL",
+        "codeName" : "chat_model"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "召回重排模型",
+      "name" : "rerank_model",
+      "getPSDEField" : {
+        "name" : "RERANK_MODEL",
+        "codeName" : "rerank_model"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "描述向量",
+      "name" : "description_vector",
+      "getPSDEField" : {
+        "name" : "DESCRIPTION_VECTOR",
+        "codeName" : "description_vector"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 30,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "引导词向量",
+      "name" : "guidance_prompt_vector",
+      "getPSDEField" : {
+        "name" : "GUIDANCE_PROMPT_VECTOR",
+        "codeName" : "guidance_prompt_vector"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 30,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "召回相似度阈值",
+      "name" : "similarity_threshold",
+      "getPSDEField" : {
+        "name" : "SIMILARITY_THRESHOLD",
+        "codeName" : "similarity_threshold"
+      },
+      "precision" : 2,
+      "scale" : 2,
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 6,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "向量相似度权重",
+      "name" : "vector_similarity_weight",
+      "getPSDEField" : {
+        "name" : "VECTOR_SIMILARITY_WEIGHT",
+        "codeName" : "vector_similarity_weight"
+      },
+      "precision" : 1,
+      "scale" : 1,
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 6,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "数据资源",
+      "name" : "resource",
+      "getPSDEField" : {
+        "name" : "RESOURCE",
+        "codeName" : "resource"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "数据资源",
+      "name" : "resource_code",
+      "getPSDEField" : {
+        "name" : "RESOURCE_CODE",
+        "codeName" : "resource_code"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "最大召回数量",
+      "name" : "top_k",
+      "getPSDEField" : {
+        "name" : "TOP_K",
+        "codeName" : "top_k"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "召回重排",
+      "name" : "rerank",
+      "getPSDEField" : {
+        "name" : "RERANK",
+        "codeName" : "rerank"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "业务键值",
+      "name" : "key",
+      "getPSDEField" : {
+        "name" : "KEY",
+        "codeName" : "key"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "使用知识图谱",
+      "name" : "use_kg",
+      "getPSDEField" : {
+        "name" : "USE_KG",
+        "codeName" : "use_kg"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "智能目录索引",
+      "name" : "pageindex",
+      "getPSDEField" : {
+        "name" : "PAGEINDEX",
+        "codeName" : "pageindex"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "资源类型",
+      "name" : "source_type",
+      "getPSDEField" : {
+        "name" : "SOURCE_TYPE",
+        "codeName" : "source_type"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 2000,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "目录标识",
+      "name" : "category_id",
+      "getPSDEField" : {
+        "name" : "CATEGORY_ID",
+        "codeName" : "category_id"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "目录",
+      "name" : "category_name",
+      "getPSDEField" : {
+        "name" : "CATEGORY_NAME",
+        "codeName" : "category_name"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "交谈模型标识",
+      "name" : "chat_model_id",
+      "getPSDEField" : {
+        "name" : "CHAT_MODEL_ID",
+        "codeName" : "chat_model_id"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "切片方法",
+      "name" : "chunk_method",
+      "getPSDEField" : {
+        "name" : "CHUNK_METHOD",
+        "codeName" : "chunk_method"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "代码标识",
+      "name" : "code_name",
+      "getPSDEField" : {
+        "name" : "CODE_NAME",
+        "codeName" : "code_name"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "描述",
+      "name" : "description",
+      "getPSDEField" : {
+        "name" : "DESCRIPTION",
+        "codeName" : "description"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 2000,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "embedding模型",
+      "name" : "embedding_model",
+      "getPSDEField" : {
+        "name" : "EMBEDDING_MODEL",
+        "codeName" : "embedding_model"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "嵌入模型标识",
+      "name" : "embedding_model_id",
+      "getPSDEField" : {
+        "name" : "EMBEDDING_MODEL_ID",
+        "codeName" : "embedding_model_id"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "解析配置",
+      "name" : "parser_config",
+      "getPSDEField" : {
+        "name" : "PARSER_CONFIG",
+        "codeName" : "parser_config"
+      },
+      "getPSDER" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunking_strategy/PSDERS/DERCUSTOM_AI_KB_CHUNKING_STRATEGY_AI_KNOWLEDGE_BASE.json"
+      },
+      "getRefPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_kb_chunking_strategy_dto"
+      },
+      "getRefPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunking_strategy.json"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stringLength" : 1048576,
+      "type" : "DTO"
+    }, {
+      "logicName" : "数据记录标识",
+      "name" : "record_id",
+      "getPSDEField" : {
+        "name" : "RECORD_ID",
+        "codeName" : "record_id"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 60,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "召回重排模型标识",
+      "name" : "rerank_model_id",
+      "getPSDEField" : {
+        "name" : "RERANK_MODEL_ID",
+        "codeName" : "rerank_model_id"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "资源标识",
+      "name" : "resource_id",
+      "getPSDEField" : {
+        "name" : "RESOURCE_ID",
+        "codeName" : "resource_id"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "知识库源标识",
+      "name" : "source_id",
+      "getPSDEField" : {
+        "name" : "SOURCE_ID",
+        "codeName" : "source_id"
+      },
+      "sourceType" : "DEFGROUPDETAIL",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFAULT"
   } ],
   "getAllPSDEOPPrivs" : [ {
     "logicName" : "建立",
@@ -18129,7 +19153,7 @@
     },
     "getPSPickupTextDEField" : {
       "name" : "RECORD_TITLE",
-      "codeName" : "RecordTitle"
+      "codeName" : "record_title"
     },
     "pickupDEFName" : "RECORD_ID",
     "removeActionType" : -1,

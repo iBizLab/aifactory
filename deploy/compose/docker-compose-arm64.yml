@@ -114,7 +114,7 @@ services:
 
   #ibiz-ebsx-allinone
   ibiz-ebsx-allinone:
-    image: ${IMAGE_URL}ibiz-ebsx-allinone-rt:8.1.0.578.171-arm64
+    image: ${IMAGE_URL}ibiz-ebsx-allinone-rt:8.1.0.578.183-arm64
     container_name: ibiz-ebsx-allinone
     ports:
       - "30000:30000"
@@ -195,7 +195,7 @@ services:
   #aifactoryservice
   aifactoryservice:
     env_file: .env
-    image: ${IMAGE_URL}ibiz-service-runner:8.1.0.578.171-jdk-arm64
+    image: ${IMAGE_URL}ibiz-service-runner:8.1.0.578.183-jdk-arm64
     container_name: aifactoryservice
     ports:
       - "${SYSTEM_APIPORT}:${SYSTEM_APIPORT}"
@@ -221,7 +221,7 @@ services:
   #aifactoryweb
   aifactoryweb:
     env_file: .env
-    image: ${IMAGE_URL}ibiz-cloud-web-runner:9.0.7.41-alpha.92.aifactory.260518-arm64
+    image: ${IMAGE_URL}ibiz-cloud-web-runner:9.0.7.41-alpha.93.aifactory.260521-arm64
     container_name: aifactoryweb
     ports:
       - ${SYSTEM_WEBPORT}:80

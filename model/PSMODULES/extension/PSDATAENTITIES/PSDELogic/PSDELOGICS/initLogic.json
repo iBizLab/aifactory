@@ -6,7 +6,7 @@
   "name" : "初始化规则",
   "getPSDELogicNodes" : [ {
     "codeName" : "Begin",
-    "leftPos" : 200,
+    "leftPos" : -50,
     "logicNodeType" : "BEGIN",
     "name" : "开始",
     "getPSDELogicLinks" : [ {
@@ -28,6 +28,15 @@
           },
           "logicType" : "SINGLE",
           "name" : "Default[PSDELOGICPARAMS] 值为空(Nil) "
+        }, {
+          "condOP" : "ISNULL",
+          "dstFieldName" : "srclogic",
+          "getDstLogicParam" : {
+            "modelref" : true,
+            "id" : "Default"
+          },
+          "logicType" : "SINGLE",
+          "name" : "Default[srclogic] 值为空(Nil) "
         } ]
       },
       "getSrcPSDELogicNode" : {
@@ -35,7 +44,7 @@
         "id" : "Begin"
       }
     } ],
-    "topPos" : 200,
+    "topPos" : 400,
     "parallelOutput" : true
   }, {
     "codeName" : "APPENDPARAM_01",
@@ -302,6 +311,17 @@
     "topPos" : 516,
     "parallelOutput" : true
   }, {
+    "codeName" : "DEBUGPARAM_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "leftPos" : 60,
+    "logicNodeType" : "DEBUGPARAM",
+    "name" : "查看克隆调试逻辑参数",
+    "topPos" : 640,
+    "parallelOutput" : true
+  }, {
     "codeName" : "PREPAREPARAM_03",
     "leftPos" : 763,
     "logicNodeType" : "PREPAREPARAM",
@@ -334,7 +354,7 @@
     "parallelOutput" : true
   }, {
     "codeName" : "END_01",
-    "leftPos" : 1045,
+    "leftPos" : 480,
     "logicNodeType" : "END",
     "name" : "结束",
     "getReturnParam" : {
@@ -342,7 +362,7 @@
       "id" : "Default"
     },
     "returnType" : "LOGICPARAM",
-    "topPos" : 678,
+    "topPos" : 810,
     "parallelOutput" : true
   } ],
   "getPSDELogicParams" : [ {

@@ -222,6 +222,7 @@
     "getAfterPSDEActionLogics" : [ {
       "actionLogicType" : 1,
       "attachMode" : "AFTER",
+      "codeName" : "Aa8ba79347b8c93a6e1",
       "name" : "附加逻辑",
       "getPSDELogic" : {
         "modelref" : true,
@@ -322,6 +323,7 @@
     "getBeforePSDEActionLogics" : [ {
       "actionLogicType" : 1,
       "attachMode" : "BEFORE",
+      "codeName" : "A676dc11f6f4ab3b1aa",
       "name" : "附加逻辑",
       "getPSDELogic" : {
         "modelref" : true,
@@ -2505,13 +2507,15 @@
       "columnName" : "FLOW_MODE",
       "dBType" : "MYSQL5",
       "name" : "FLOW_MODE",
-      "standardColumnName" : "`FLOW_MODE`"
+      "standardColumnName" : "`FLOW_MODE`",
+      "valueAutoGen" : true
     }, {
       "columnName" : "flow_mode",
       "dBType" : "POSTGRESQL",
       "name" : "FLOW_MODE",
       "queryCodeExp" : "t1.\"flow_mode\"",
-      "standardColumnName" : "\"flow_mode\""
+      "standardColumnName" : "\"flow_mode\"",
+      "valueAutoGen" : true
     } ],
     "getAllPSDEFUIModes" : [ {
       "name" : "默认",
@@ -2564,6 +2568,7 @@
     "codeName" : "flow_mode",
     "dEFType" : 1,
     "dataType" : "SSCODELIST",
+    "defaultValue" : "SKILL",
     "importOrder" : 1000,
     "length" : 60,
     "logicName" : "智能体模式",
@@ -15015,6 +15020,7 @@
       "stringLength" : 60,
       "type" : "SIMPLE"
     }, {
+      "defaultValue" : "SKILL",
       "logicName" : "智能体模式",
       "name" : "flow_mode",
       "getPSDEField" : {

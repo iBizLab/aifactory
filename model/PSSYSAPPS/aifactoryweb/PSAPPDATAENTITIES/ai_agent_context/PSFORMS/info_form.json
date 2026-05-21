@@ -159,11 +159,41 @@
       "codeName" : "description"
     }
   }, {
+    "id" : "scopes",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "SCOPES",
+      "codeName" : "scopes"
+    }
+  }, {
+    "id" : "agent_group_tag",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "AGENT_GROUP_TAG",
+      "codeName" : "agent_group_tag"
+    }
+  }, {
     "id" : "default_system_prompt",
     "dataType" : 21,
     "getPSAppDEField" : {
       "name" : "DEFAULT_SYSTEM_PROMPT",
       "codeName" : "default_system_prompt"
+    }
+  }, {
+    "id" : "skill_load_mode",
+    "dataType" : 25,
+    "createDV" : "specified",
+    "updateDV" : "specified",
+    "getPSAppDEField" : {
+      "name" : "SKILL_LOAD_MODE",
+      "codeName" : "skill_load_mode"
+    }
+  }, {
+    "id" : "skill_tags",
+    "dataType" : 21,
+    "getPSAppDEField" : {
+      "name" : "SKILL_TAGS",
+      "codeName" : "skill_tags"
     }
   }, {
     "id" : "welcome_message",
@@ -220,20 +250,6 @@
     "getPSAppDEField" : {
       "name" : "TOOLS",
       "codeName" : "tools"
-    }
-  }, {
-    "id" : "skill_load_mode",
-    "dataType" : 25,
-    "getPSAppDEField" : {
-      "name" : "SKILL_LOAD_MODE",
-      "codeName" : "skill_load_mode"
-    }
-  }, {
-    "id" : "skill_tags",
-    "dataType" : 21,
-    "getPSAppDEField" : {
-      "name" : "SKILL_TAGS",
-      "codeName" : "skill_tags"
     }
   }, {
     "id" : "ai_model_name",
@@ -409,20 +425,6 @@
     "getPSAppDEField" : {
       "name" : "CUSTOM_CODE",
       "codeName" : "custom_code"
-    }
-  }, {
-    "id" : "scopes",
-    "dataType" : 25,
-    "getPSAppDEField" : {
-      "name" : "SCOPES",
-      "codeName" : "scopes"
-    }
-  }, {
-    "id" : "agent_group_tag",
-    "dataType" : 25,
-    "getPSAppDEField" : {
-      "name" : "AGENT_GROUP_TAG",
-      "codeName" : "agent_group_tag"
     }
   }, {
     "id" : "sequence",
@@ -678,6 +680,100 @@
         "allowEmpty" : true,
         "showCaption" : true
       }, {
+        "caption" : "业务范围",
+        "codeName" : "scopes",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 0,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "scopes",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "SCOPES",
+          "codeName" : "scopes"
+        },
+        "getPSDEFDGroupLogics" : [ {
+          "groupOP" : "AND",
+          "logicCat" : "PANELVISIBLE",
+          "logicType" : "GROUP",
+          "getPSDEFDLogics" : [ {
+            "condOP" : "NOTEQ",
+            "dEFDName" : "flow_mode",
+            "logicType" : "SINGLE",
+            "name" : "flow_mode不等于(<>) HUB",
+            "value" : "HUB"
+          } ],
+          "relatedDetailNames" : [ "flow_mode" ],
+          "notMode" : false
+        } ],
+        "getPSEditor" : {
+          "editorType" : "MDROPDOWNLIST",
+          "name" : "scopes",
+          "getPSAppCodeList" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/Base__ai_agent_context_scopes.json"
+          },
+          "singleSelect" : false
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 16,
+          "colMD" : 16,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "needCodeListConfig" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "Sub-Agent归属",
+        "codeName" : "agent_group_tag",
+        "dataType" : 25,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "agent_group_tag",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "AGENT_GROUP_TAG",
+          "codeName" : "agent_group_tag"
+        },
+        "getPSDEFDGroupLogics" : [ {
+          "groupOP" : "AND",
+          "logicCat" : "PANELVISIBLE",
+          "logicType" : "GROUP",
+          "getPSDEFDLogics" : [ {
+            "condOP" : "NOTEQ",
+            "dEFDName" : "flow_mode",
+            "logicType" : "SINGLE",
+            "name" : "flow_mode不等于(<>) HUB",
+            "value" : "HUB"
+          } ],
+          "relatedDetailNames" : [ "flow_mode" ],
+          "notMode" : false
+        } ],
+        "getPSEditor" : {
+          "editorType" : "MDROPDOWNLIST",
+          "name" : "agent_group_tag",
+          "getPSAppCodeList" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__hub_group_code.json"
+          },
+          "singleSelect" : false
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 8,
+          "colMD" : 8,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "needCodeListConfig" : true,
+        "showCaption" : true
+      }, {
         "caption" : "默认系统提示词",
         "codeName" : "default_system_prompt",
         "dataType" : 21,
@@ -709,6 +805,146 @@
           "cssName" : "md_full_container"
         },
         "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "技能加载",
+        "codeName" : "grouppanel14",
+        "detailStyle" : "DEFAULT",
+        "detailType" : "GROUPPANEL",
+        "name" : "grouppanel14",
+        "getPSDEFDGroupLogics" : [ {
+          "groupOP" : "AND",
+          "logicCat" : "PANELVISIBLE",
+          "logicType" : "GROUP",
+          "getPSDEFDLogics" : [ {
+            "groupOP" : "OR",
+            "logicType" : "GROUP",
+            "name" : "OR",
+            "getPSDEFDLogics" : [ {
+              "condOP" : "EQ",
+              "dEFDName" : "flow_mode",
+              "logicType" : "SINGLE",
+              "name" : "flow_mode等于(=) SKILL",
+              "value" : "SKILL"
+            }, {
+              "condOP" : "EQ",
+              "dEFDName" : "flow_mode",
+              "logicType" : "SINGLE",
+              "name" : "flow_mode等于(=) HUB",
+              "value" : "HUB"
+            } ],
+            "notMode" : false
+          } ],
+          "relatedDetailNames" : [ "flow_mode" ],
+          "notMode" : false
+        } ],
+        "getPSDEFormDetails" : [ {
+          "caption" : "技能加载模式",
+          "codeName" : "skill_load_mode",
+          "createDV" : "specified",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 3,
+          "labelPos" : "LEFT",
+          "labelWidth" : 130,
+          "name" : "skill_load_mode",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "SKILL_LOAD_MODE",
+            "codeName" : "skill_load_mode"
+          },
+          "getPSEditor" : {
+            "editorType" : "SPAN",
+            "name" : "skill_load_mode",
+            "getPSAppCodeList" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__ai_skill_load_mode.json"
+            },
+            "enableLinkView" : false
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 8,
+            "colMD" : 8,
+            "layout" : "TABLE_24COL"
+          },
+          "updateDV" : "specified",
+          "allowEmpty" : true,
+          "convertToCodeItemText" : true,
+          "showCaption" : true
+        }, {
+          "caption" : "激活技能标记",
+          "codeName" : "skill_tags",
+          "dataType" : 21,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 0,
+          "ignoreInput" : 0,
+          "labelPos" : "LEFT",
+          "labelWidth" : 130,
+          "name" : "skill_tags",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "SKILL_TAGS",
+            "codeName" : "skill_tags"
+          },
+          "getPSDEFDGroupLogics" : [ {
+            "groupOP" : "AND",
+            "logicCat" : "PANELVISIBLE",
+            "logicType" : "GROUP",
+            "getPSDEFDLogics" : [ {
+              "groupOP" : "OR",
+              "logicType" : "GROUP",
+              "name" : "OR",
+              "getPSDEFDLogics" : [ {
+                "condOP" : "EQ",
+                "dEFDName" : "skill_load_mode",
+                "logicType" : "SINGLE",
+                "name" : "skill_load_mode等于(=) specified",
+                "value" : "specified"
+              }, {
+                "condOP" : "EQ",
+                "dEFDName" : "skill_load_mode",
+                "logicType" : "SINGLE",
+                "name" : "skill_load_mode等于(=) specified_preload",
+                "value" : "specified_preload"
+              } ],
+              "notMode" : false
+            } ],
+            "relatedDetailNames" : [ "skill_load_mode" ],
+            "notMode" : false
+          } ],
+          "getPSEditor" : {
+            "editorType" : "MDROPDOWNLIST",
+            "name" : "skill_tags",
+            "getPSAppCodeList" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__skill_agent_dynamic.json"
+            },
+            "singleSelect" : false
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 16,
+            "colMD" : 16,
+            "layout" : "TABLE_24COL"
+          },
+          "allowEmpty" : true,
+          "needCodeListConfig" : true,
+          "showCaption" : true
+        } ],
+        "getPSLayout" : {
+          "childColLG" : 24,
+          "childColMD" : 24,
+          "columnCount" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 24,
+          "colMD" : 2,
+          "layout" : "TABLE_24COL"
+        },
+        "infoGroupMode" : true,
         "showCaption" : true
       }, {
         "caption" : "开场白",
@@ -1231,132 +1467,6 @@
         },
         "getPSLayoutPos" : {
           "colMD" : 24,
-          "layout" : "TABLE_24COL"
-        },
-        "infoGroupMode" : true,
-        "showCaption" : true
-      }, {
-        "caption" : "技能加载",
-        "codeName" : "grouppanel14",
-        "detailStyle" : "DEFAULT",
-        "detailType" : "GROUPPANEL",
-        "name" : "grouppanel14",
-        "getPSDEFDGroupLogics" : [ {
-          "groupOP" : "AND",
-          "logicCat" : "PANELVISIBLE",
-          "logicType" : "GROUP",
-          "getPSDEFDLogics" : [ {
-            "groupOP" : "OR",
-            "logicType" : "GROUP",
-            "name" : "OR",
-            "getPSDEFDLogics" : [ {
-              "condOP" : "EQ",
-              "dEFDName" : "flow_mode",
-              "logicType" : "SINGLE",
-              "name" : "flow_mode等于(=) SKILL",
-              "value" : "SKILL"
-            }, {
-              "condOP" : "EQ",
-              "dEFDName" : "flow_mode",
-              "logicType" : "SINGLE",
-              "name" : "flow_mode等于(=) HUB",
-              "value" : "HUB"
-            } ],
-            "notMode" : false
-          } ],
-          "relatedDetailNames" : [ "flow_mode" ],
-          "notMode" : false
-        } ],
-        "getPSDEFormDetails" : [ {
-          "caption" : "技能加载模式",
-          "codeName" : "skill_load_mode",
-          "dataType" : 25,
-          "detailStyle" : "DEFAULT",
-          "detailType" : "FORMITEM",
-          "enableCond" : 3,
-          "ignoreInput" : 3,
-          "labelPos" : "LEFT",
-          "labelWidth" : 130,
-          "name" : "skill_load_mode",
-          "noPrivDisplayMode" : 1,
-          "getPSAppDEField" : {
-            "name" : "SKILL_LOAD_MODE",
-            "codeName" : "skill_load_mode"
-          },
-          "getPSEditor" : {
-            "editorType" : "SPAN",
-            "name" : "skill_load_mode",
-            "getPSAppCodeList" : {
-              "modelref" : true,
-              "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__ai_skill_load_mode.json"
-            },
-            "enableLinkView" : false
-          },
-          "getPSLayoutPos" : {
-            "colLG" : 8,
-            "colMD" : 8,
-            "layout" : "TABLE_24COL"
-          },
-          "allowEmpty" : true,
-          "convertToCodeItemText" : true,
-          "showCaption" : true
-        }, {
-          "caption" : "激活技能标记",
-          "codeName" : "skill_tags",
-          "dataType" : 21,
-          "detailStyle" : "DEFAULT",
-          "detailType" : "FORMITEM",
-          "enableCond" : 0,
-          "ignoreInput" : 0,
-          "labelPos" : "LEFT",
-          "labelWidth" : 130,
-          "name" : "skill_tags",
-          "noPrivDisplayMode" : 1,
-          "getPSAppDEField" : {
-            "name" : "SKILL_TAGS",
-            "codeName" : "skill_tags"
-          },
-          "getPSDEFDGroupLogics" : [ {
-            "groupOP" : "AND",
-            "logicCat" : "PANELVISIBLE",
-            "logicType" : "GROUP",
-            "getPSDEFDLogics" : [ {
-              "condOP" : "EQ",
-              "dEFDName" : "skill_load_mode",
-              "logicType" : "SINGLE",
-              "name" : "skill_load_mode等于(=) specified",
-              "value" : "specified"
-            } ],
-            "relatedDetailNames" : [ "skill_load_mode" ],
-            "notMode" : false
-          } ],
-          "getPSEditor" : {
-            "editorType" : "MDROPDOWNLIST",
-            "name" : "skill_tags",
-            "getPSAppCodeList" : {
-              "modelref" : true,
-              "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__skill_agent_dynamic.json"
-            },
-            "singleSelect" : false
-          },
-          "getPSLayoutPos" : {
-            "colLG" : 16,
-            "colMD" : 16,
-            "layout" : "TABLE_24COL"
-          },
-          "allowEmpty" : true,
-          "needCodeListConfig" : true,
-          "showCaption" : true
-        } ],
-        "getPSLayout" : {
-          "childColLG" : 24,
-          "childColMD" : 24,
-          "columnCount" : 24,
-          "layout" : "TABLE_24COL"
-        },
-        "getPSLayoutPos" : {
-          "colLG" : 24,
-          "colMD" : 2,
           "layout" : "TABLE_24COL"
         },
         "infoGroupMode" : true,
@@ -2487,72 +2597,6 @@
         "detailType" : "GROUPPANEL",
         "name" : "grouppanel5",
         "getPSDEFormDetails" : [ {
-          "caption" : "业务范围",
-          "codeName" : "scopes",
-          "dataType" : 25,
-          "detailStyle" : "DEFAULT",
-          "detailType" : "FORMITEM",
-          "enableCond" : 0,
-          "ignoreInput" : 0,
-          "labelPos" : "LEFT",
-          "labelWidth" : 130,
-          "name" : "scopes",
-          "noPrivDisplayMode" : 1,
-          "getPSAppDEField" : {
-            "name" : "SCOPES",
-            "codeName" : "scopes"
-          },
-          "getPSEditor" : {
-            "editorType" : "MDROPDOWNLIST",
-            "name" : "scopes",
-            "getPSAppCodeList" : {
-              "modelref" : true,
-              "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/Base__ai_agent_context_scopes.json"
-            },
-            "singleSelect" : false
-          },
-          "getPSLayoutPos" : {
-            "colLG" : 16,
-            "colMD" : 16,
-            "layout" : "TABLE_24COL"
-          },
-          "allowEmpty" : true,
-          "needCodeListConfig" : true,
-          "showCaption" : true
-        }, {
-          "caption" : "分组标记",
-          "codeName" : "agent_group_tag",
-          "dataType" : 25,
-          "detailStyle" : "DEFAULT",
-          "detailType" : "FORMITEM",
-          "enableCond" : 3,
-          "ignoreInput" : 0,
-          "labelPos" : "LEFT",
-          "labelWidth" : 130,
-          "name" : "agent_group_tag",
-          "noPrivDisplayMode" : 1,
-          "getPSAppDEField" : {
-            "name" : "AGENT_GROUP_TAG",
-            "codeName" : "agent_group_tag"
-          },
-          "getPSEditor" : {
-            "editorType" : "MDROPDOWNLIST",
-            "name" : "agent_group_tag",
-            "getPSAppCodeList" : {
-              "modelref" : true,
-              "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__hub_group_code.json"
-            },
-            "singleSelect" : false
-          },
-          "getPSLayoutPos" : {
-            "colLG" : 8,
-            "colMD" : 8,
-            "layout" : "TABLE_24COL"
-          },
-          "allowEmpty" : true,
-          "needCodeListConfig" : true,
-          "showCaption" : true
-        }, {
           "caption" : "排序",
           "codeName" : "sequence",
           "dataType" : 9,
@@ -3124,7 +3168,9 @@
       },
       "getPSLayoutPos" : {
         "colLG" : 22,
+        "colLGOffset" : 1,
         "colMD" : 22,
+        "colMDOffset" : 1,
         "layout" : "TABLE_24COL"
       },
       "infoGroupMode" : true,

@@ -2,6 +2,9 @@
   "dBType" : "POSTGRESQL",
   "name" : "PostgreSQL",
   "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"source_name\"",
+    "name" : "SOURCE_NAME"
+  }, {
     "expression" : "t1.\"category_id\"",
     "name" : "CATEGORY_ID"
   }, {
@@ -47,9 +50,6 @@
     "expression" : "t1.\"is_deleted\"",
     "name" : "IS_DELETED"
   }, {
-    "expression" : "(select count(1) from favorite where create_man=#{ctx.sessioncontext.srfpersonid} and OWNER_ID=t1.\"id\" )",
-    "name" : "IS_FAVORITE"
-  }, {
     "expression" : "t1.\"key\"",
     "name" : "KEY"
   }, {
@@ -67,9 +67,6 @@
   }, {
     "expression" : "t1.\"record_id\"",
     "name" : "RECORD_ID"
-  }, {
-    "expression" : "t11.\"_title\"",
-    "name" : "RECORD_TITLE"
   }, {
     "expression" : "t1.\"rerank\"",
     "name" : "RERANK"
@@ -101,9 +98,6 @@
     "expression" : "t1.\"source_id\"",
     "name" : "SOURCE_ID"
   }, {
-    "expression" : "t1.\"source_name\"",
-    "name" : "SOURCE_NAME"
-  }, {
     "expression" : "t1.\"source_type\"",
     "name" : "SOURCE_TYPE"
   }, {
@@ -131,6 +125,6 @@
     "expression" : "t1.\"visibility\"",
     "name" : "VISIBILITY"
   } ],
-  "queryCode" : "SELECT\nt1.\"category_id\",\nt1.\"category_name\",\nt1.\"chat_model\",\nt1.\"chat_model_id\",\nt1.\"chunk_method\",\nt1.\"code_name\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"description\",\nt1.\"embedding_model\",\nt1.\"embedding_model_id\",\nt1.\"guidance_prompt\",\nt1.\"id\",\nt1.\"is_archived\",\nt1.\"is_deleted\",\n(select count(1) from favorite where create_man=#{ctx.sessioncontext.srfpersonid} and OWNER_ID=t1.\"id\" ) AS \"is_favorite\",\nt1.\"key\",\nt1.\"meta_data\",\nt1.\"name\",\nt1.\"pageindex\",\nt1.\"parser_config\",\nt1.\"record_id\",\nt11.\"_title\" AS \"record_title\",\nt1.\"rerank\",\nt1.\"rerank_model\",\nt1.\"rerank_model_id\",\nt1.\"resource\",\nt1.\"resource_code\",\nt1.\"resource_id\",\nt1.\"scope_id\",\nt1.\"scope_type\",\nt1.\"similarity_threshold\",\nt1.\"source_id\",\nt1.\"source_name\",\nt1.\"source_type\",\nt1.\"status\",\nt1.\"tag_sets\",\nt1.\"top_k\",\nt1.\"update_man\",\nt1.\"update_time\",\nt1.\"use_kg\",\nt1.\"vector_similarity_weight\",\nt1.\"visibility\"\nFROM \"ai_knowledge_base\" t1 \nLEFT JOIN \"data_record\" t11 ON t1.\"record_id\" = t11.\"_id\" \n",
+  "queryCode" : "SELECT\nt1.\"category_id\",\nt1.\"category_name\",\nt1.\"chat_model\",\nt1.\"chat_model_id\",\nt1.\"chunk_method\",\nt1.\"code_name\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"description\",\nt1.\"embedding_model\",\nt1.\"embedding_model_id\",\nt1.\"guidance_prompt\",\nt1.\"id\",\nt1.\"is_archived\",\nt1.\"is_deleted\",\nt1.\"key\",\nt1.\"meta_data\",\nt1.\"name\",\nt1.\"pageindex\",\nt1.\"parser_config\",\nt1.\"record_id\",\nt1.\"rerank\",\nt1.\"rerank_model\",\nt1.\"rerank_model_id\",\nt1.\"resource\",\nt1.\"resource_code\",\nt1.\"resource_id\",\nt1.\"scope_id\",\nt1.\"scope_type\",\nt1.\"similarity_threshold\",\nt1.\"source_id\",\nt1.\"source_type\",\nt1.\"status\",\nt1.\"tag_sets\",\nt1.\"top_k\",\nt1.\"update_man\",\nt1.\"update_time\",\nt1.\"use_kg\",\nt1.\"vector_similarity_weight\",\nt1.\"visibility\"\nFROM \"ai_knowledge_base\" t1 \n",
   "id" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEDATAQUERIES/valid/PSDEDQCODES/POSTGRESQL.json"
 }

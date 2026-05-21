@@ -99,7 +99,7 @@ services:
   #ibiz-ebsx-allinone
   ibiz-ebsx-allinone:
     env_file: .lab
-    image: ${IMAGE_URL}ibiz-ebsx-allinone-rt:8.1.0.578.171
+    image: ${IMAGE_URL}ibiz-ebsx-allinone-rt:8.1.0.578.183
     container_name: ibiz-ebsx-allinone
     ports:
       - "30000:30000"
@@ -180,7 +180,7 @@ services:
   #aifactoryservice
   aifactoryservice:
     env_file: .lab
-    image: ${IMAGE_URL}ibiz-service-runner:8.1.0.578.171-jdk
+    image: ${IMAGE_URL}ibiz-service-runner:8.1.0.578.183-jdk
     container_name: aifactoryservice
     ports:
       - "30281:30281"
@@ -207,7 +207,7 @@ services:
   #aifactoryweb
   aifactoryweb:
     env_file: .lab
-    image: ${IMAGE_URL}ibiz-cloud-web-runner:9.0.7.41-alpha.92.aifactory.260518
+    image: ${IMAGE_URL}ibiz-cloud-web-runner:9.0.7.41-alpha.93.aifactory.260521
     container_name: aifactoryweb
     ports:
       - 30280:80

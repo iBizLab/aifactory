@@ -1,4 +1,69 @@
 {
+  "getAllPSAppDEACModes" : [ {
+    "codeName" : "clone_logic",
+    "logicName" : "克隆规则",
+    "name" : "clone_logic",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
+    },
+    "getPSDEACModeDataItems" : [ {
+      "dataType" : 25,
+      "name" : "value",
+      "getPSAppDEField" : {
+        "name" : "PSDELOGICID",
+        "codeName" : "PSDELogicId"
+      },
+      "getPSDEField" : {
+        "name" : "PSDELOGICID",
+        "codeName" : "PSDELogicId"
+      }
+    }, {
+      "dataType" : 25,
+      "name" : "text",
+      "getPSAppDEField" : {
+        "name" : "PSDELOGICNAME",
+        "codeName" : "PSDELogicName"
+      },
+      "getPSDEField" : {
+        "name" : "PSDELOGICNAME",
+        "codeName" : "PSDELogicName"
+      }
+    }, {
+      "dataType" : 25,
+      "name" : "psdeid",
+      "getPSAppDEField" : {
+        "name" : "PSDEID",
+        "codeName" : "PSDEId"
+      },
+      "getPSDEField" : {
+        "name" : "PSDEID",
+        "codeName" : "PSDEId"
+      }
+    }, {
+      "dataType" : 25,
+      "name" : "logicsubtype",
+      "getPSAppDEField" : {
+        "name" : "LOGICSUBTYPE",
+        "codeName" : "LogicSubType"
+      },
+      "getPSDEField" : {
+        "name" : "LOGICSUBTYPE",
+        "codeName" : "LogicSubType"
+      }
+    } ],
+    "pagingSize" : 50,
+    "getTextPSAppDEField" : {
+      "name" : "PSDELOGICNAME",
+      "codeName" : "PSDELogicName"
+    },
+    "getValuePSAppDEField" : {
+      "name" : "PSDELOGICID",
+      "codeName" : "PSDELogicId"
+    },
+    "defaultMode" : false,
+    "enablePagingBar" : false
+  } ],
   "getAllPSAppDEActions" : [ {
     "actionMode" : "CHECKKEY",
     "codeName" : "CheckKey",
@@ -4102,6 +4167,30 @@
     "id" : "apply2@PSDELogic"
   }, {
     "actionTarget" : "NONE",
+    "caption" : "克隆规则",
+    "codeName" : "clone_logic",
+    "getFrontPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/psde_logic_clone_logic_view.json",
+      "viewType" : "DEOPTVIEW"
+    },
+    "frontProcessType" : "WIZARD",
+    "fullCodeName" : "PSDELogic_clone_logic",
+    "name" : "克隆规则",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
+    },
+    "getPSSysImage" : {
+      "glyph" : "xf0c5@FontAwesome",
+      "cssClass" : "fa fa-copy"
+    },
+    "uIActionMode" : "FRONT",
+    "uIActionTag" : "clone_logic",
+    "uIActionType" : "DEUIACTION",
+    "id" : "clone_logic@PSDELogic"
+  }, {
+    "actionTarget" : "NONE",
     "caption" : "自动化规则",
     "codeName" : "create_auto_flow",
     "getFrontPSAppView" : {
@@ -4387,6 +4476,10 @@
     "modelref" : true,
     "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/psde_logic_tab_exp_view.json",
     "viewType" : "DETABEXPVIEW"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/psde_logic_clone_logic_view.json",
+    "viewType" : "DEOPTVIEW"
   } ],
   "getAllPSDEOPPrivs" : [ {
     "logicName" : "建立",

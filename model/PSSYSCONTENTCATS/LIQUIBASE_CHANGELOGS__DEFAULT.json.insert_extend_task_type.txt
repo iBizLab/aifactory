@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.6.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="insert_extend_task_type" author="system" failOnError="false">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM extend_task_type WHERE id = 'SYNC_DOCUMENT'
+            </sqlCheck>
+        </preConditions>
+        <sql>
+INSERT INTO extend_task_type (executor_config, executor_subtype, executor_tag, executor_type, id, max_retry, name, retryable, timeout_sec) VALUES ('1', 'PSDELOGIC', 'ai.AI_KB_DOCUMENT.parsing', 'INTERNAL', 'SYNC_DOCUMENT', 3, '同步空间页面', 1, 10);
+INSERT INTO extend_task_type (executor_config, executor_subtype, executor_tag, executor_type, id, max_retry, name, retryable, timeout_sec) VALUES (null, 'PSDELOGIC', 'ai.AI_KB_DOCUMENT_SYNC.space_parsing', 'INTERNAL', 'SYNC_SPACE', 3, '同步空间', 1, 10);
+INSERT INTO extend_task_type (executor_config, executor_subtype, executor_tag, executor_type, id, max_retry, name, retryable, timeout_sec) VALUES (null, 'PSDELOGIC', 'ai_verify.AI_VERIFY_TASK.execute', 'INTERNAL', 'EXECUTE_VERIFY', 3, '执行核查任务', 1, 10);
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

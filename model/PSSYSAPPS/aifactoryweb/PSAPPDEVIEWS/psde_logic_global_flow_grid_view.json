@@ -194,6 +194,49 @@
         "uIActionTarget" : "NONE",
         "showCaption" : true,
         "showIcon" : true
+      }, {
+        "caption" : "克隆规则",
+        "groupExtractMode" : "ITEM",
+        "itemType" : "DEUIACTION",
+        "name" : "deuiaction3",
+        "noPrivDisplayMode" : 2,
+        "getPSAppViewUIAction" : {
+          "modelref" : true,
+          "id" : "toolbar_deuiaction3"
+        },
+        "getPSSysImage" : {
+          "glyph" : "xf0c5@FontAwesome",
+          "cssClass" : "fa fa-copy"
+        },
+        "getPSUIAction" : {
+          "actionTarget" : "NONE",
+          "caption" : "克隆规则",
+          "codeName" : "clone_logic",
+          "getFrontPSAppView" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/psde_logic_clone_logic_view.json",
+            "viewType" : "DEOPTVIEW"
+          },
+          "frontProcessType" : "WIZARD",
+          "fullCodeName" : "PSDELogic_clone_logic",
+          "name" : "克隆规则",
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
+          },
+          "getPSSysImage" : {
+            "glyph" : "xf0c5@FontAwesome",
+            "cssClass" : "fa fa-copy"
+          },
+          "uIActionMode" : "FRONT",
+          "uIActionTag" : "clone_logic",
+          "uIActionType" : "DEUIACTION",
+          "id" : "clone_logic@PSDELogic"
+        },
+        "tooltip" : "克隆规则",
+        "uIActionTarget" : "NONE",
+        "showCaption" : true,
+        "showIcon" : false
       } ],
       "getPSSysImage" : {
         "glyph" : "xf067@FontAwesome",

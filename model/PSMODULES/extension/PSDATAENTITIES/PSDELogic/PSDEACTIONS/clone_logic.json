@@ -1,0 +1,27 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "DELOGIC",
+  "codeName" : "clone_logic",
+  "dataAccessAction" : "CREATE",
+  "dynaModelFilePath" : "PSMODULES/extension/PSDATAENTITIES/PSDELogic/PSDEACTIONS/clone_logic.json",
+  "logicName" : "克隆规则",
+  "name" : "clone_logic",
+  "getPSDEActionInput" : {
+    "name" : "Clone_logicInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "PSDELogicDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "Clone_logicResult",
+    "type" : "VOID"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/extension/PSDATAENTITIES/PSDELogic/PSDELOGICS/clone_logic.json"
+  },
+  "enableFront" : false
+}

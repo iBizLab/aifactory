@@ -1,0 +1,36 @@
+package cn.ibizlab.extension.logic.psdelogiclogic.clone_logic;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.extension.domain.PSDELogic psdelogicclone_logicdefault;
+        global cn.ibizlab.core.extension.service.IPSDELogicService iBzSysPsdelogicDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "psdelogicclone_logicbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[查看规则调试逻辑参数]
+            rule "debugparam_01"
+            ruleflow-group "psdelogicclone_logicdebugparam_01"
+            when
+            then
+                        update(psdelogicclone_logicdefault);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "psdelogicclone_logicend_01"
+            when
+            then
+                        update(psdelogicclone_logicdefault);//更新fact中变量值
+            end

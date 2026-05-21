@@ -1398,6 +1398,43 @@
     },
     "uniqueTag" : "space__space_index_ext_action"
   }, {
+    "codeName" : "A8038a32c421f8d03d8",
+    "name" : "test最近执行时间",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_log.json"
+    },
+    "getPSUIActionGroupDetails" : [ {
+      "caption" : "test",
+      "detailType" : "DEUIACTION",
+      "name" : "uae459e0",
+      "getPSUIAction" : {
+        "actionTarget" : "NONE",
+        "caption" : "test",
+        "codeName" : "test",
+        "fullCodeName" : "extend_log_test",
+        "name" : "test",
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "last_exec_time"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_log.json"
+        },
+        "timeout" : 60000,
+        "uIActionMode" : "BACKEND",
+        "uIActionTag" : "test",
+        "uIActionType" : "DEUIACTION",
+        "enableConfirm" : true,
+        "id" : "test@extend_log"
+      },
+      "addSeparator" : false,
+      "showCaption" : true,
+      "showIcon" : true
+    } ],
+    "uniqueTag" : "extend_log__A8038a32c421f8d03d8"
+  }, {
     "codeName" : "Usr0126003239",
     "name" : "界面行为组",
     "getPSAppDataEntity" : {

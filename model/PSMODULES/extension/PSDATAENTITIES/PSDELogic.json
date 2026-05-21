@@ -22,6 +22,45 @@
     "defaultMode" : true,
     "enablePagingBar" : false,
     "id" : "PSMODULES/extension/PSDATAENTITIES/PSDELogic/PSDEACMODES/Default.json"
+  }, {
+    "codeName" : "clone_logic",
+    "logicName" : "克隆规则",
+    "name" : "clone_logic",
+    "getPSDEACModeDataItems" : [ {
+      "dataType" : 25,
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "PSDELOGICID",
+        "codeName" : "PSDELogicId"
+      }
+    }, {
+      "dataType" : 25,
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "PSDELOGICNAME",
+        "codeName" : "PSDELogicName"
+      }
+    }, {
+      "format" : "%1$s",
+      "dataType" : 25,
+      "name" : "psdeid",
+      "getPSDEField" : {
+        "name" : "PSDEID",
+        "codeName" : "PSDEId"
+      }
+    }, {
+      "format" : "%1$s",
+      "dataType" : 25,
+      "name" : "logicsubtype",
+      "getPSDEField" : {
+        "name" : "LOGICSUBTYPE",
+        "codeName" : "LogicSubType"
+      }
+    } ],
+    "pagingSize" : 50,
+    "defaultMode" : false,
+    "enablePagingBar" : false,
+    "id" : "PSMODULES/extension/PSDATAENTITIES/PSDELogic/PSDEACMODES/clone_logic.json"
   } ],
   "getAllPSDEActions" : [ {
     "actionMode" : "CREATE",
@@ -5416,7 +5455,7 @@
     "name" : "初始化规则",
     "getPSDELogicNodes" : [ {
       "codeName" : "Begin",
-      "leftPos" : 200,
+      "leftPos" : -50,
       "logicNodeType" : "BEGIN",
       "name" : "开始",
       "getPSDELogicLinks" : [ {
@@ -5438,6 +5477,15 @@
             },
             "logicType" : "SINGLE",
             "name" : "Default[PSDELOGICPARAMS] 值为空(Nil) "
+          }, {
+            "condOP" : "ISNULL",
+            "dstFieldName" : "srclogic",
+            "getDstLogicParam" : {
+              "modelref" : true,
+              "id" : "Default"
+            },
+            "logicType" : "SINGLE",
+            "name" : "Default[srclogic] 值为空(Nil) "
           } ]
         },
         "getSrcPSDELogicNode" : {
@@ -5445,7 +5493,7 @@
           "id" : "Begin"
         }
       } ],
-      "topPos" : 200,
+      "topPos" : 400,
       "parallelOutput" : true
     }, {
       "codeName" : "APPENDPARAM_01",
@@ -5712,6 +5760,17 @@
       "topPos" : 516,
       "parallelOutput" : true
     }, {
+      "codeName" : "DEBUGPARAM_01",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "leftPos" : 60,
+      "logicNodeType" : "DEBUGPARAM",
+      "name" : "查看克隆调试逻辑参数",
+      "topPos" : 640,
+      "parallelOutput" : true
+    }, {
       "codeName" : "PREPAREPARAM_03",
       "leftPos" : 763,
       "logicNodeType" : "PREPAREPARAM",
@@ -5744,7 +5803,7 @@
       "parallelOutput" : true
     }, {
       "codeName" : "END_01",
-      "leftPos" : 1045,
+      "leftPos" : 480,
       "logicNodeType" : "END",
       "name" : "结束",
       "getReturnParam" : {
@@ -5752,7 +5811,7 @@
         "id" : "Default"
       },
       "returnType" : "LOGICPARAM",
-      "topPos" : 678,
+      "topPos" : 810,
       "parallelOutput" : true
     } ],
     "getPSDELogicParams" : [ {
@@ -6728,6 +6787,12 @@
     "realModelSubType" : "DEOPTVIEW",
     "realModelType" : "PSDEVIEWBASE"
   }, {
+    "codeName" : "clone_logic_view",
+    "logicName" : "规则克隆视图",
+    "name" : "规则克隆视图",
+    "realModelSubType" : "DEOPTVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
     "codeName" : "EditView",
     "logicName" : "实体处理逻辑实体编辑视图",
     "modelTag" : "EDITVIEW",
@@ -6827,6 +6892,13 @@
     "logicName" : "配置表单",
     "modelTag2" : "0",
     "name" : "配置表单",
+    "realModelSubType" : "EDITFORM",
+    "realModelType" : "PSDEFORM"
+  }, {
+    "codeName" : "logic_clone",
+    "logicName" : "克隆规则",
+    "modelTag2" : "0",
+    "name" : "克隆规则",
     "realModelSubType" : "EDITFORM",
     "realModelType" : "PSDEFORM"
   }, {
