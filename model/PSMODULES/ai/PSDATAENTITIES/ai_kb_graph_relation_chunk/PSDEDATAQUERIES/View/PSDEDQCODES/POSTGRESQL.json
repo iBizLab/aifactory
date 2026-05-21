@@ -1,0 +1,31 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"chunk_id\"",
+    "name" : "CHUNK_ID"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"relation_id\"",
+    "name" : "RELATION_ID"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"chunk_id\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"id\",\nt1.\"name\",\nt1.\"relation_id\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"ai_kb_graph_relation_chunk\" t1 \n",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_graph_relation_chunk/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

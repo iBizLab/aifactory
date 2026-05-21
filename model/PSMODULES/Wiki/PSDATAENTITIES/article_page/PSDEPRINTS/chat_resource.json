@@ -1,0 +1,13 @@
+{
+  "codeName" : "chat_resource",
+  "dataAccessAction" : "READ",
+  "getGetDataPSDEOPPriv" : {
+    "modelref" : true,
+    "id" : "READ"
+  },
+  "name" : "chat_resource",
+  "reportFile" : "#",
+  "reportModel" : "<#list data as item>\r\n\r\n<#if item.name??>\r\n标题：${item.name}\r\n</#if>\r\n\r\n<#if item.publish_name??>\r\n发布人：${item.publish_name}\r\n</#if>\r\n\r\n<#if item.publish_time??>\r\n发布时间：${item.publish_time}\r\n</#if>\r\n\r\n<#if item.publish_content??>\r\n发布内容：${utils.html2md(item.publish_content!\"\")}\r\n</#if>\r\n\r\n\r\n</#list>\r\n",
+  "reportType" : "CHATRESOURCE",
+  "id" : "PSMODULES/Wiki/PSDATAENTITIES/article_page/PSDEPRINTS/chat_resource.json"
+}

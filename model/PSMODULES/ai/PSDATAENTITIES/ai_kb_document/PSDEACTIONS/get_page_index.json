@@ -1,0 +1,27 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "READ",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "get_page_index",
+  "dataAccessAction" : "READ",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDEACTIONS/get_page_index.json",
+  "logicName" : "获取页面目录",
+  "name" : "GET_PAGE_INDEX",
+  "getPSDEActionInput" : {
+    "getKeyPSDEField" : {
+      "name" : "ID",
+      "codeName" : "id"
+    },
+    "name" : "Get_page_indexInput",
+    "type" : "KEYFIELD"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "Get_page_indexResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_kb_document_dto"
+    },
+    "type" : "DTO"
+  },
+  "enableFront" : false
+}

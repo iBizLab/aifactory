@@ -1,0 +1,46 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"bidimensiontype\"",
+    "name" : "BIDIMENSIONTYPE"
+  }, {
+    "expression" : "t1.\"codename\"",
+    "name" : "CODENAME"
+  }, {
+    "expression" : "t1.\"dimensionformula\"",
+    "name" : "DIMENSIONFORMULA"
+  }, {
+    "expression" : "t1.\"dynamodelflag\"",
+    "name" : "DYNAMODELFLAG"
+  }, {
+    "expression" : "t1.\"memo\"",
+    "name" : "MEMO"
+  }, {
+    "expression" : "t1.\"pscodelistid\"",
+    "name" : "PSCODELISTID"
+  }, {
+    "expression" : "t1.\"pscodelistname\"",
+    "name" : "PSCODELISTNAME"
+  }, {
+    "expression" : "t1.\"pssysbicubedimensionid\"",
+    "name" : "PSSYSBICUBEDIMENSIONID"
+  }, {
+    "expression" : "t1.\"pssysbicubedimensionname\"",
+    "name" : "PSSYSBICUBEDIMENSIONNAME"
+  }, {
+    "expression" : "t1.\"pssysbicubeid\"",
+    "name" : "PSSYSBICUBEID"
+  }, {
+    "expression" : "t1.\"pssysbicubename\"",
+    "name" : "PSSYSBICUBENAME"
+  }, {
+    "expression" : "t1.\"pssysbischemeid\"",
+    "name" : "PSSYSBISCHEMEID"
+  }, {
+    "expression" : "t1.\"validflag\"",
+    "name" : "VALIDFLAG"
+  } ],
+  "queryCode" : "SELECT\nt1.\"bidimensiontype\",\nt1.\"codename\",\nt1.\"dimensionformula\",\nt1.\"dynamodelflag\",\nt1.\"memo\",\nt1.\"pscodelistid\",\nt1.\"pscodelistname\",\nt1.\"pssysbicubedimensionid\",\nt1.\"pssysbicubedimensionname\",\nt1.\"pssysbicubeid\",\nt1.\"pssysbicubename\",\nt1.\"pssysbischemeid\",\nt1.\"validflag\"\nFROM \"\" t1 \n",
+  "id" : "PSMODULES/extension/PSDATAENTITIES/PSSysBICubeDimension/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

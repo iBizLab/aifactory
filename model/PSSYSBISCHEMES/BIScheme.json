@@ -1,0 +1,62 @@
+{
+  "getAllPSSysBICubes" : [ {
+    "getAllPSSysBICubeDimensions" : [ {
+      "codeName" : "create_time",
+      "dimensionType" : "COMMON",
+      "name" : "创建时间",
+      "getPSDEField" : {
+        "name" : "DOC_CREATE_TIME",
+        "codeName" : "doc_create_time"
+      },
+      "stdDataType" : 25
+    }, {
+      "codeName" : "doc_type",
+      "dimensionType" : "COMMON",
+      "name" : "文件类型",
+      "getPSDEField" : {
+        "name" : "FILE_TYPE",
+        "codeName" : "file_type"
+      },
+      "stdDataType" : 25
+    } ],
+    "getAllPSSysBICubeMeasures" : [ {
+      "aggMode" : "SUM",
+      "codeName" : "c_chunk",
+      "measureFormula" : "(select count(1)  from ai_kb_chunk  c  where  c.pid  is not  null and  c.document_id  = dataresult.id )",
+      "measureType" : "CALCULATED",
+      "name" : "子分片数量",
+      "dataItem" : true
+    }, {
+      "codeName" : "size",
+      "jsonFormat" : "[=0]0;##0.00;",
+      "measureFormula" : "sumif(size, 1=2)/(1024*1024)",
+      "measureType" : "CALCULATED",
+      "name" : "文档大小",
+      "valueFormat" : "#.##"
+    }, {
+      "codeName" : "count",
+      "measureFormula" : "countif( 1= 1 )",
+      "measureType" : "CALCULATED",
+      "memo" : "统计所有的文档数。",
+      "name" : "文档数量"
+    }, {
+      "aggMode" : "SUM",
+      "codeName" : "p_chunk",
+      "measureFormula" : "(select count(1)  from ai_kb_chunk  c  where  c.pid  is null and  c.document_id  = dataresult.id )",
+      "measureType" : "CALCULATED",
+      "name" : "父分片数量",
+      "dataItem" : true
+    } ],
+    "codeName" : "kb_document",
+    "name" : "知识库文档",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
+    }
+  } ],
+  "bIEngineType" : "OLAP",
+  "codeName" : "BIScheme",
+  "dynaModelFilePath" : "PSSYSBISCHEMES/BIScheme.json",
+  "name" : "智能报表",
+  "uniqueTag" : "BIScheme"
+}

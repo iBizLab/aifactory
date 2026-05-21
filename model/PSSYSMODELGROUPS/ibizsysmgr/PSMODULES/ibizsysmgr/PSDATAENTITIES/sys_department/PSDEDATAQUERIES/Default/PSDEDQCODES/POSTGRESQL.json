@@ -1,0 +1,78 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "t1.enabled = 1",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"business_category\"",
+    "name" : "BUSINESS_CATEGORY"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"creator\"",
+    "name" : "CREATOR"
+  }, {
+    "expression" : "t1.\"dc\"",
+    "name" : "DC"
+  }, {
+    "expression" : "t1.\"department_name\"",
+    "name" : "DEPARTMENT_NAME"
+  }, {
+    "expression" : "t1.\"department_number\"",
+    "name" : "DEPARTMENT_NUMBER"
+  }, {
+    "expression" : "t1.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "concat_ws(',',t1.\"department_name\",t1.\"parent_name\",t1.\"organization_name\")",
+    "name" : "DN"
+  }, {
+    "expression" : "t1.\"enabled\"",
+    "name" : "ENABLED"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"is_leaf\"",
+    "name" : "IS_LEAF"
+  }, {
+    "expression" : "t1.\"organization_id\"",
+    "name" : "ORGANIZATION_ID"
+  }, {
+    "expression" : "t1.\"organization_name\"",
+    "name" : "ORGANIZATION_NAME"
+  }, {
+    "expression" : "t1.\"organization_number\"",
+    "name" : "ORGANIZATION_NUMBER"
+  }, {
+    "expression" : "t1.\"parent_id\"",
+    "name" : "PARENT_ID"
+  }, {
+    "expression" : "t1.\"parent_name\"",
+    "name" : "PARENT_NAME"
+  }, {
+    "expression" : "case when t1.\"parent_id\" is null or t1.\"parent_id\"='' then t1.\"organization_id\" else t1.\"parent_id\" end",
+    "name" : "PARENT_UNIT_ID"
+  }, {
+    "expression" : "case when t1.\"parent_name\" is null or t1.\"parent_name\"='' then t1.\"organization_name\" else t1.\"parent_name\" end",
+    "name" : "PARENT_UNIT_NAME"
+  }, {
+    "expression" : "t1.\"short_name\"",
+    "name" : "SHORT_NAME"
+  }, {
+    "expression" : "t1.\"sort\"",
+    "name" : "SORT"
+  }, {
+    "expression" : "t1.\"updater\"",
+    "name" : "UPDATER"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"business_category\",\nt1.\"create_time\",\nt1.\"creator\",\nt1.\"dc\",\nt1.\"department_name\",\nt1.\"department_number\",\nt1.\"description\",\nconcat_ws(',',t1.\"department_name\",t1.\"parent_name\",t1.\"organization_name\") AS \"dn\",\nt1.\"enabled\",\nt1.\"id\",\nt1.\"is_leaf\",\nt1.\"organization_id\",\nt1.\"organization_name\",\nt1.\"organization_number\",\nt1.\"parent_id\",\nt1.\"parent_name\",\ncase when t1.\"parent_id\" is null or t1.\"parent_id\"='' then t1.\"organization_id\" else t1.\"parent_id\" end AS \"parent_unit_id\",\ncase when t1.\"parent_name\" is null or t1.\"parent_name\"='' then t1.\"organization_name\" else t1.\"parent_name\" end AS \"parent_unit_name\",\nt1.\"short_name\",\nt1.\"sort\",\nt1.\"updater\",\nt1.\"update_time\"\nFROM \"\" t1 \n",
+  "id" : "PSSYSMODELGROUPS/ibizsysmgr/PSMODULES/ibizsysmgr/PSDATAENTITIES/sys_department/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

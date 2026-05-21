@@ -1,0 +1,26 @@
+{
+  "codeName" : "chunk",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDEDRITEMS/chunk.json",
+  "itemType" : "DER1N",
+  "name" : "知识分片",
+  "getPSDER" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunk/PSDERS/DER1N_AI_KB_CHUNK_AI_KB_DOCUMENT_DOCUMENT_ID.json"
+  },
+  "parentDataJO" : {
+    "SRFPARENTTYPE" : "DER1N",
+    "srfparentdename" : "AI_KB_DOCUMENT",
+    "srfparentmode" : "DER1N_AI_KB_CHUNK_AI_KB_DOCUMENT_DOCUMENT_ID",
+    "srfparentdefname" : "DOCUMENT_ID",
+    "SRFDER1NID" : "DER1N_AI_KB_CHUNK_AI_KB_DOCUMENT_DOCUMENT_ID"
+  },
+  "viewCodeName" : "list_view9",
+  "getViewPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunk.json"
+  },
+  "viewParamJO" : {
+    "SRFPARENTTYPE" : "DER1N",
+    "SRFDER1NID" : "DER1N_AI_KB_CHUNK_AI_KB_DOCUMENT_DOCUMENT_ID"
+  }
+}

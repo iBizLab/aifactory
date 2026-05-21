@@ -1,0 +1,115 @@
+{
+  "codeName" : "get_full_text_info",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDELOGICS/get_full_text_info.json",
+  "logicName" : "获取fullText信息",
+  "name" : "获取fullText信息",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : 200,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : 200,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEACTION_01",
+    "getDstPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDEACTIONS/get_full_text.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
+    },
+    "leftPos" : 10,
+    "logicNodeType" : "DEACTION",
+    "name" : "GET_FULL_TEXT",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_01"
+      }
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "fulltext"
+    },
+    "topPos" : 380,
+    "parallelOutput" : true
+  }, {
+    "code" : "        def defaultEntity = logic.param(\"default\").getReal();\n        def fullText = logic.param(\"fulltext\").getReal()?logic.param(\"fulltext\").getReal().toString():\"\";\n        def summary = defaultEntity.get(\"summary\")?defaultEntity.get(\"summary\").toString():\"\"\n        def sb = \"\"\n\n        if(defaultEntity.get(\"name\")  && fullText) {\n            sb += \"# ${defaultEntity.name}\\n\"\n            if (defaultEntity.get(\"kb_name\")) {\n                sb += \"<details><summary>所属: ${defaultEntity.kb_name}\"\n                if (defaultEntity.get(\"categories\")) {\n                    sb += \"/${defaultEntity.categories}\"\n                }\n                sb += \"</summary>【文档ID】: ${defaultEntity.id}\"\n                sb += \"</details>\\n\\n\"\n            }\n            sb += \"## 正文\\n${fullText}\\n\"\n\n            defaultEntity.set(\"full_text\", sb)\n            if(fullText.length() > 28672 ){\n                if(summary && summary.length() < 28672){\n                    defaultEntity.set(\"analysis_content\", summary + \"\\n---\\n\\n## 部分正文\\n\" + fullText.substring(0,28672-summary.length()) + \"\\n\\n更多内容，略……\")\n                }\n                else {\n                    defaultEntity.set(\"analysis_content\", defaultEntity.get(\"full_text\").substring(0,28672-10)  + \"\\n\\n更多内容，略……\")\n                }\n\n            }\n            else {\n                defaultEntity.set(\"analysis_content\", defaultEntity.get(\"full_text\"))\n            }\n        }\n        else if(summary){\n            defaultEntity.set(\"full_text\", summary)\n            defaultEntity.set(\"analysis_content\", summary)\n        }\n    \n        ",
+    "codeName" : "RAWSFCODE_01",
+    "codeType" : "Groovy",
+    "leftPos" : 230,
+    "logicNodeType" : "RAWSFCODE",
+    "name" : "执行脚本代码",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      }
+    } ],
+    "topPos" : 530,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "END_01",
+    "leftPos" : 280,
+    "logicNodeType" : "END",
+    "name" : "结束",
+    "getReturnParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "returnType" : "LOGICPARAM",
+    "topPos" : 790,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
+    },
+    "default" : true,
+    "entityParam" : true
+  }, {
+    "codeName" : "fulltext",
+    "logicName" : "fulltext",
+    "name" : "fulltext",
+    "stdDataType" : 25,
+    "simpleParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

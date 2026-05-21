@@ -1,0 +1,54 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "t1._enabled = 1",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"_create_time\"",
+    "name" : "_CREATE_TIME"
+  }, {
+    "expression" : "t1.\"_creator\"",
+    "name" : "_CREATOR"
+  }, {
+    "expression" : "t1.\"_enabled\"",
+    "name" : "_ENABLED"
+  }, {
+    "expression" : "t1.\"_id\"",
+    "name" : "_ID"
+  }, {
+    "expression" : "t1.\"_key\"",
+    "name" : "_KEY"
+  }, {
+    "expression" : "t1.\"_ner_flag\"",
+    "name" : "_NER_FLAG"
+  }, {
+    "expression" : "t1.\"_region\"",
+    "name" : "_REGION"
+  }, {
+    "expression" : "t11.\"resource_code\"",
+    "name" : "_RESOURCE_CODE"
+  }, {
+    "expression" : "t1.\"_resource_id\"",
+    "name" : "_RESOURCE_ID"
+  }, {
+    "expression" : "t11.\"name\"",
+    "name" : "_RESOURCE_NAME"
+  }, {
+    "expression" : "t1.\"_summary\"",
+    "name" : "_SUMMARY"
+  }, {
+    "expression" : "t1.\"_title\"",
+    "name" : "_TITLE"
+  }, {
+    "expression" : "t1.\"_updater\"",
+    "name" : "_UPDATER"
+  }, {
+    "expression" : "t1.\"_update_time\"",
+    "name" : "_UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"_create_time\",\nt1.\"_creator\",\nt1.\"_enabled\",\nt1.\"_id\",\nt1.\"_key\",\nt1.\"_ner_flag\",\nt1.\"_region\",\nt11.\"resource_code\" AS \"_resource_code\",\nt1.\"_resource_id\",\nt11.\"name\" AS \"_resource_name\",\nt1.\"_summary\",\nt1.\"_title\",\nt1.\"_updater\",\nt1.\"_update_time\"\nFROM \"data_record\" t1 \nLEFT JOIN \"data_resource\" t11 ON t1.\"_resource_id\" = t11.\"id\" \n",
+  "id" : "PSMODULES/meta/PSDATAENTITIES/data_record/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

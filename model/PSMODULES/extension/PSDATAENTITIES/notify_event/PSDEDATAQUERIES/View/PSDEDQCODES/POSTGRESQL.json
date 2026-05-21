@@ -1,0 +1,19 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"group\"",
+    "name" : "GROUP"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"msg_type\"",
+    "name" : "MSG_TYPE"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"group\",\nt1.\"id\",\nt1.\"msg_type\",\nt1.\"name\"\nFROM \"\" t1 \n",
+  "id" : "PSMODULES/extension/PSDATAENTITIES/notify_event/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

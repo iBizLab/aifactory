@@ -1,0 +1,63 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "( t1.\"is_system\" = 1 )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.\"model\"",
+    "name" : "MODEL"
+  }, {
+    "expression" : "t1.\"appid\"",
+    "name" : "APPID"
+  }, {
+    "expression" : "t1.\"createdate\"",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.\"createman\"",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.\"dynadashboardid\"",
+    "name" : "DYNADASHBOARDID"
+  }, {
+    "expression" : "t1.\"dynadashboardname\"",
+    "name" : "DYNADASHBOARDNAME"
+  }, {
+    "expression" : "t1.\"example_chart\"",
+    "name" : "EXAMPLE_CHART"
+  }, {
+    "expression" : "t1.\"is_system\"",
+    "name" : "IS_SYSTEM"
+  }, {
+    "expression" : "t1.\"modelid\"",
+    "name" : "MODELID"
+  }, {
+    "expression" : "t1.\"owner_id\"",
+    "name" : "OWNER_ID"
+  }, {
+    "expression" : "t1.\"owner_type\"",
+    "name" : "OWNER_TYPE"
+  }, {
+    "expression" : "t1.\"sequences\"",
+    "name" : "SEQUENCES"
+  }, {
+    "expression" : "t1.\"type\"",
+    "name" : "TYPE"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"userid\"",
+    "name" : "USERID"
+  } ],
+  "queryCode" : "SELECT\nt1.\"appid\",\nt1.\"createdate\",\nt1.\"createman\",\nt1.\"dynadashboardid\",\nt1.\"dynadashboardname\",\nt1.\"example_chart\",\nt1.\"is_system\",\nt1.\"modelid\",\nt1.\"owner_id\",\nt1.\"owner_type\",\nt1.\"sequences\",\nt1.\"type\",\nt1.\"update_man\",\nt1.\"update_time\",\nt1.\"userid\"\nFROM \"dynadashboard\" t1 \n",
+  "id" : "PSMODULES/Base/PSDATAENTITIES/dyna_dashboard/PSDEDATAQUERIES/is_system/PSDEDQCODES/POSTGRESQL.json"
+}

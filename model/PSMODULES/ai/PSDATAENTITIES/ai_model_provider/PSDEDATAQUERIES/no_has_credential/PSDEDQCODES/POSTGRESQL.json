@@ -1,0 +1,36 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "( (select count(1) from ai_credential  where id =t1.\"id\") = '0' )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "concat(t1.\"base_url\",t1.\"default_version\")",
+    "name" : "API_BASE_URL"
+  }, {
+    "expression" : "t1.\"base_url\"",
+    "name" : "BASE_URL"
+  }, {
+    "expression" : "t1.\"default_token\"",
+    "name" : "DEFAULT_TOKEN"
+  }, {
+    "expression" : "t1.\"default_version\"",
+    "name" : "DEFAULT_VERSION"
+  }, {
+    "expression" : "(select count(1) from ai_credential  where id =t1.\"id\")",
+    "name" : "HAS_CREDENTIAL"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nconcat(t1.\"base_url\",t1.\"default_version\") AS \"api_base_url\",\nt1.\"base_url\",\nt1.\"default_token\",\nt1.\"default_version\",\n(select count(1) from ai_credential  where id =t1.\"id\") AS \"has_credential\",\nt1.\"id\",\nt1.\"name\",\nt1.\"update_time\"\nFROM \"ai_model_provider\" t1 \n",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_model_provider/PSDEDATAQUERIES/no_has_credential/PSDEDQCODES/POSTGRESQL.json"
+}

@@ -1,0 +1,31 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "DELOGIC",
+  "codeName" : "batch_parse",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDEACTIONS/batch_parse.json",
+  "logicName" : "批量解析",
+  "name" : "batch_parse",
+  "getPSDEActionInput" : {
+    "name" : "Batch_parseInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_kb_document_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "Batch_parseResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_kb_document_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDELOGICS/parse.json"
+  },
+  "enableFront" : false
+}

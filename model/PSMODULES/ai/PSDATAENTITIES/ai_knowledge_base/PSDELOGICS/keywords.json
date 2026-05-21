@@ -1,0 +1,75 @@
+{
+  "codeName" : "keywords",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDELOGICS/keywords.json",
+  "logicName" : "keywords计算",
+  "name" : "keywords计算",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : -10,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : -140,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "END_01",
+    "leftPos" : -10,
+    "logicNodeType" : "END",
+    "name" : "结束",
+    "getReturnParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "returnType" : "LOGICPARAM",
+    "topPos" : 97,
+    "parallelOutput" : true
+  }, {
+    "code" : "def filter = logic.param(\"Default\").getReal();\n\n// 1. 获取三个来源，不做任何假设\ndef kw1 = filter.get(\"keyword\")  // 可能为 String 或 null\ndef kw2 = filter.get(\"keywords\") // 可能为 String[] 或 List 或 null\ndef kw3 = filter.get(\"queries\")    // 可能为 String 或 null\n\ndef allTokens = []\n\n// 2. 逐个手动处理，确保不触发非法转换\n[kw1, kw2, kw3].each { item ->\n    if (item == null) return\n    \n    if (item instanceof Object[]) { \n        // 专门处理 String[] 数组，这是你报错的根源\n        item.each { if (it) allTokens.add(it.toString()) }\n    } else if (item instanceof Collection) {\n        // 专门处理 List\n        item.each { if (it) allTokens.add(it.toString()) }\n    } else if (item instanceof String) {\n        // 专门处理字符串，按空格切分\n        item.split('[,\\\\s]+').each { if (it) allTokens.add(it) }\n    }\n}\n\n// 3. 统一清洗：去掉首尾空格，去掉空字符串\nallTokens = allTokens.collect { it.trim() }.findAll { it != \"\" }.unique()\n\n// 4. 校验与合并\nif (allTokens.isEmpty()) {\n    throw new IllegalArgumentException(\"搜索关键词不能为空\")\n}\n\ndef finalKeyword = allTokens.join(\" \")\n\nfilter.set(\"keyword\",finalKeyword)",
+    "codeName" : "RAWSFCODE_01",
+    "codeType" : "Groovy",
+    "leftPos" : -50,
+    "logicNodeType" : "RAWSFCODE",
+    "name" : "解析keywords",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      }
+    } ],
+    "topPos" : -33,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+    },
+    "default" : true,
+    "filterParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

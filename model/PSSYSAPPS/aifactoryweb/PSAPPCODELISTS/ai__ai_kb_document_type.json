@@ -1,0 +1,40 @@
+{
+  "codeListTag" : "ai__ai_kb_document_type",
+  "codeListType" : "DYNAMIC",
+  "codeName" : "ai__ai_kb_document_type",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__ai_kb_document_type.json",
+  "emptyText" : "未定义",
+  "minorSortDir" : "ASC",
+  "getMinorSortPSAppDEField" : {
+    "name" : "SORT",
+    "codeName" : "sort"
+  },
+  "name" : "知识库文档类型",
+  "getPSAppDEDataSet" : {
+    "modelref" : true,
+    "id" : "fetch_default"
+  },
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/data_resource.json"
+  },
+  "getPSCodeItems" : [ {
+    "codeName" : "file",
+    "text" : "文件",
+    "value" : "file"
+  }, {
+    "codeName" : "space",
+    "text" : "空间",
+    "value" : "space"
+  } ],
+  "getTextPSAppDEField" : {
+    "name" : "NAME",
+    "codeName" : "name"
+  },
+  "getValuePSAppDEField" : {
+    "name" : "ID",
+    "codeName" : "id"
+  },
+  "enableCache" : true
+}

@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="cn.ibizlab.core.ai.service.logic.ai_agent_memory_taskextract_and_store" isClosed="false" isExecutable="true" name="ai_ai_agent_memory_task_extract_and_store_ruleFlow" processType="Private" tns:packageName="cn.ibizlab.core.ai.service.logic.ai_agent_memory_taskextract_and_store">
+            <extensionElements>
+                <tns:import name="java.util.Map" />
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="cn.ibizlab.util.helper.RuleUtils"/>
+                                <tns:metaData express="" name="ai_agent_memory_taskextract_and_storedefault" type="entity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_agent_message()" name="ai_agent_memory_taskextract_and_storeagent_message_filter" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_memory_taskextract_and_storechat_request" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_memory_taskextract_and_storechat_response" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_memory_taskextract_and_storechat_temp" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_memory_taskextract_and_storechat_temp2" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_kb_chunk()" name="ai_agent_memory_taskextract_and_storecheck_queries" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_kb_chunk()" name="ai_agent_memory_taskextract_and_storechunk" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_memory_taskextract_and_storechunk_filter" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_memory_taskextract_and_storedaily_logs" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_agent_memory_task()" name="ai_agent_memory_taskextract_and_storelast_task" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_kb_chunk()" name="ai_agent_memory_taskextract_and_storelatest_chunk_list" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_agent_message()" name="ai_agent_memory_taskextract_and_storemessage_list" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_agent_memory_task()" name="ai_agent_memory_taskextract_and_storetask_filter" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_agent_memory_task()" name="ai_agent_memory_taskextract_and_storetasks" type="refentity"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_agent_memory_taskService))" name="ai_agent_memory_taskservice" type="service"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_agent_messageService))" name="ai_agent_messageservice" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_agent_memory_taskService))" name="iBzSysAi_agent_memory_taskDefaultService" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
+                            <tns:global identifier="ai_agent_memory_taskextract_and_storedefault" type="cn.ibizlab.core.ai.domain.ai_agent_memory_task" />
+                            <tns:global identifier="ai_agent_memory_taskextract_and_storeagent_message_filter" type="cn.ibizlab.core.ai.domain.ai_agent_message" />
+                            <tns:global identifier="ai_agent_memory_taskextract_and_storecheck_queries" type="cn.ibizlab.core.ai.domain.ai_kb_chunk" />
+                            <tns:global identifier="ai_agent_memory_taskextract_and_storechunk" type="cn.ibizlab.core.ai.domain.ai_kb_chunk" />
+                            <tns:global identifier="ai_agent_memory_taskextract_and_storelast_task" type="cn.ibizlab.core.ai.domain.ai_agent_memory_task" />
+                            <tns:global identifier="ai_agent_memory_taskextract_and_storelatest_chunk_list" type="cn.ibizlab.core.ai.domain.ai_kb_chunk" />
+                            <tns:global identifier="ai_agent_memory_taskextract_and_storemessage_list" type="cn.ibizlab.core.ai.domain.ai_agent_message" />
+                            <tns:global identifier="ai_agent_memory_taskextract_and_storetask_filter" type="cn.ibizlab.core.ai.domain.ai_agent_memory_task" />
+                            <tns:global identifier="ai_agent_memory_taskextract_and_storetasks" type="cn.ibizlab.core.ai.domain.ai_agent_memory_task" />
+            </extensionElements>
+                        <startEvent id="begin" isInterrupting="true"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storedeaction_01" id="deaction_01" implementation="http://www.jboss.org/drools/rule" name="获取任务实例"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storerawsfcode_01" id="rawsfcode_01" implementation="http://www.jboss.org/drools/rule" name="记忆提取交谈返回"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storerenewparam_01" id="renewparam_01" implementation="http://www.jboss.org/drools/rule" name="重新建立chat_request"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storeprepareparam_09" id="prepareparam_09" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storedelogic_01" id="delogic_01" implementation="http://www.jboss.org/drools/rule" name="填充默认文档标识"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storeprepareparam_08" id="prepareparam_08" implementation="http://www.jboss.org/drools/rule" name="准备记忆检索参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storesysaichatagent_chatraw_01" id="sysaichatagent_chatraw_01" implementation="http://www.jboss.org/drools/rule" name="记忆提取智能体调用"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storerawsfcode_04" id="rawsfcode_04" implementation="http://www.jboss.org/drools/rule" name="记忆核验返回重新构造切片"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storededataset_01" id="dedataset_01" implementation="http://www.jboss.org/drools/rule" name="最新task后续产生的会话消息"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storebindparam_02" id="bindparam_02" implementation="http://www.jboss.org/drools/rule" name="绑定参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storedelogic_05" id="delogic_05" implementation="http://www.jboss.org/drools/rule" name="更新每日记忆文档"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storesysaichatagent_appendchatrequest_02" id="sysaichatagent_appendchatrequest_02" implementation="http://www.jboss.org/drools/rule" name="附加新提取信息"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storedelogic_02" id="delogic_02" implementation="http://www.jboss.org/drools/rule" name="获取记忆文档"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storeprepareparam_011" id="prepareparam_011" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storedelogic_03" id="delogic_03" implementation="http://www.jboss.org/drools/rule" name="获取记忆分块"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storeprepareparam_04" id="prepareparam_04" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storedelogic_04" id="delogic_04" implementation="http://www.jboss.org/drools/rule" name="保存记忆分块"/>
+                        <endEvent id="delogic_04_end" name="end"/>
+                        <sequenceFlow id="delogic_04_end_line" sourceRef="delogic_04" targetRef="delogic_04_end"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storeprepareparam_03" id="prepareparam_03" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storeprepareparam_02" id="prepareparam_02" implementation="http://www.jboss.org/drools/rule" name="拼接message过滤参数2"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storededataset_02" id="dedataset_02" implementation="http://www.jboss.org/drools/rule" name="查询会话的最新一条task"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storeprepareparam_06" id="prepareparam_06" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storeprepareparam_07" id="prepareparam_07" implementation="http://www.jboss.org/drools/rule" name="任务执行结束"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storedeaction_02" id="deaction_02" implementation="http://www.jboss.org/drools/rule" name="更新智能体记忆任务实例"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storeend_01" id="end_01" implementation="http://www.jboss.org/drools/rule" name="结束"/>
+                        <endEvent id="end_01_end" name="end"/>
+                        <sequenceFlow id="end_01_end_line" sourceRef="end_01" targetRef="end_01_end"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storebindparam_03" id="bindparam_03" implementation="http://www.jboss.org/drools/rule" name="绑定参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storeprepareparam_01" id="prepareparam_01" implementation="http://www.jboss.org/drools/rule" name="准备记忆智能体"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storeprepareparam_010" id="prepareparam_010" implementation="http://www.jboss.org/drools/rule" name="拼接message过滤参数1"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storesysaichatagent_fetchchunks_01" id="sysaichatagent_fetchchunks_01" implementation="http://www.jboss.org/drools/rule" name="记忆检索"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storesysaichatagent_appendchatrequest_03" id="sysaichatagent_appendchatrequest_03" implementation="http://www.jboss.org/drools/rule" name="附加现有记忆块"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storesysaichatagent_chatraw_02" id="sysaichatagent_chatraw_02" implementation="http://www.jboss.org/drools/rule" name="记忆核验智能体调用"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storebindparam_01" id="bindparam_01" implementation="http://www.jboss.org/drools/rule" name="绑定参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storeloopsubcall_01" id="loopsubcall_01" implementation="http://www.jboss.org/drools/rule" name="遍历最新记忆切片块"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_memory_taskextract_and_storesysaichatagent_appendchatrequest_01" id="sysaichatagent_appendchatrequest_01" implementation="http://www.jboss.org/drools/rule" name="附加聊天请求"/>
+                    <sequenceFlow id="begin_deaction_01" sourceRef="begin" targetRef="deaction_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="deaction_01_prepareparam_011" sourceRef="deaction_01" targetRef="prepareparam_011">
+                    </sequenceFlow>
+                    <sequenceFlow id="rawsfcode_01_bindparam_02" sourceRef="rawsfcode_01" targetRef="bindparam_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="renewparam_01_delogic_01" sourceRef="renewparam_01" targetRef="delogic_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_09_delogic_05" sourceRef="prepareparam_09" targetRef="delogic_05">
+                    </sequenceFlow>
+                    <sequenceFlow id="delogic_01_prepareparam_08" sourceRef="delogic_01" targetRef="prepareparam_08">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_08_sysaichatagent_fetchchunks_01" sourceRef="prepareparam_08" targetRef="sysaichatagent_fetchchunks_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatraw_01_prepareparam_03" sourceRef="sysaichatagent_chatraw_01" targetRef="prepareparam_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-rawsfcode_04_delogic_02" sourceRef="gateway-rawsfcode_04" targetRef="delogic_02">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_agent_memory_taskextract_and_storedefault:ai_agent_memory_task();
+                                            $ai_agent_memory_taskextract_and_storeagent_message_filter:ai_agent_message();
+                                            $ai_agent_memory_taskextract_and_storechat_request:Map();
+                                            $ai_agent_memory_taskextract_and_storechat_response:Map();
+                                            $ai_agent_memory_taskextract_and_storechat_temp:Map();
+                                            $ai_agent_memory_taskextract_and_storechat_temp2:Map();
+                                            $ai_agent_memory_taskextract_and_storecheck_queries:ai_kb_chunk();
+                                            $ai_agent_memory_taskextract_and_storechunk:ai_kb_chunk();
+                                            $ai_agent_memory_taskextract_and_storechunk_filter:Map();
+                                            $ai_agent_memory_taskextract_and_storedaily_logs:Map();
+                                            $ai_agent_memory_taskextract_and_storelast_task:ai_agent_memory_task();
+                                            $ai_agent_memory_taskextract_and_storelatest_chunk_list:ai_kb_chunk();
+                                            $ai_agent_memory_taskextract_and_storemessage_list:ai_agent_message();
+                                            $ai_agent_memory_taskextract_and_storetask_filter:ai_agent_memory_task();
+                                            $ai_agent_memory_taskextract_and_storetasks:ai_agent_memory_task();
+                                    eval($ai_agent_memory_taskextract_and_storedefault==ai_agent_memory_taskextract_and_storedefault && $ai_agent_memory_taskextract_and_storeagent_message_filter==ai_agent_memory_taskextract_and_storeagent_message_filter && $ai_agent_memory_taskextract_and_storecheck_queries==ai_agent_memory_taskextract_and_storecheck_queries && $ai_agent_memory_taskextract_and_storechunk==ai_agent_memory_taskextract_and_storechunk && $ai_agent_memory_taskextract_and_storelast_task==ai_agent_memory_taskextract_and_storelast_task && $ai_agent_memory_taskextract_and_storelatest_chunk_list==ai_agent_memory_taskextract_and_storelatest_chunk_list && $ai_agent_memory_taskextract_and_storemessage_list==ai_agent_memory_taskextract_and_storemessage_list && $ai_agent_memory_taskextract_and_storetask_filter==ai_agent_memory_taskextract_and_storetask_filter && $ai_agent_memory_taskextract_and_storetasks==ai_agent_memory_taskextract_and_storetasks);
+                                eval((RuleUtils.test($ai_agent_memory_taskextract_and_storedefault.get("latest_chunks"),"ISNOTNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-rawsfcode_04_prepareparam_07" sourceRef="gateway-rawsfcode_04" targetRef="prepareparam_07">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_agent_memory_taskextract_and_storedefault:ai_agent_memory_task();
+                                            $ai_agent_memory_taskextract_and_storeagent_message_filter:ai_agent_message();
+                                            $ai_agent_memory_taskextract_and_storechat_request:Map();
+                                            $ai_agent_memory_taskextract_and_storechat_response:Map();
+                                            $ai_agent_memory_taskextract_and_storechat_temp:Map();
+                                            $ai_agent_memory_taskextract_and_storechat_temp2:Map();
+                                            $ai_agent_memory_taskextract_and_storecheck_queries:ai_kb_chunk();
+                                            $ai_agent_memory_taskextract_and_storechunk:ai_kb_chunk();
+                                            $ai_agent_memory_taskextract_and_storechunk_filter:Map();
+                                            $ai_agent_memory_taskextract_and_storedaily_logs:Map();
+                                            $ai_agent_memory_taskextract_and_storelast_task:ai_agent_memory_task();
+                                            $ai_agent_memory_taskextract_and_storelatest_chunk_list:ai_kb_chunk();
+                                            $ai_agent_memory_taskextract_and_storemessage_list:ai_agent_message();
+                                            $ai_agent_memory_taskextract_and_storetask_filter:ai_agent_memory_task();
+                                            $ai_agent_memory_taskextract_and_storetasks:ai_agent_memory_task();
+                                    eval($ai_agent_memory_taskextract_and_storedefault==ai_agent_memory_taskextract_and_storedefault && $ai_agent_memory_taskextract_and_storeagent_message_filter==ai_agent_memory_taskextract_and_storeagent_message_filter && $ai_agent_memory_taskextract_and_storecheck_queries==ai_agent_memory_taskextract_and_storecheck_queries && $ai_agent_memory_taskextract_and_storechunk==ai_agent_memory_taskextract_and_storechunk && $ai_agent_memory_taskextract_and_storelast_task==ai_agent_memory_taskextract_and_storelast_task && $ai_agent_memory_taskextract_and_storelatest_chunk_list==ai_agent_memory_taskextract_and_storelatest_chunk_list && $ai_agent_memory_taskextract_and_storemessage_list==ai_agent_memory_taskextract_and_storemessage_list && $ai_agent_memory_taskextract_and_storetask_filter==ai_agent_memory_taskextract_and_storetask_filter && $ai_agent_memory_taskextract_and_storetasks==ai_agent_memory_taskextract_and_storetasks);
+                                eval((RuleUtils.test($ai_agent_memory_taskextract_and_storedefault.get("latest_chunks"),"ISNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="dedataset_01_prepareparam_01" sourceRef="dedataset_01" targetRef="prepareparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-bindparam_02_renewparam_01" sourceRef="gateway-bindparam_02" targetRef="renewparam_01">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_agent_memory_taskextract_and_storedefault:ai_agent_memory_task();
+                                            $ai_agent_memory_taskextract_and_storeagent_message_filter:ai_agent_message();
+                                            $ai_agent_memory_taskextract_and_storechat_request:Map();
+                                            $ai_agent_memory_taskextract_and_storechat_response:Map();
+                                            $ai_agent_memory_taskextract_and_storechat_temp:Map();
+                                            $ai_agent_memory_taskextract_and_storechat_temp2:Map();
+                                            $ai_agent_memory_taskextract_and_storecheck_queries:ai_kb_chunk();
+                                            $ai_agent_memory_taskextract_and_storechunk:ai_kb_chunk();
+                                            $ai_agent_memory_taskextract_and_storechunk_filter:Map();
+                                            $ai_agent_memory_taskextract_and_storedaily_logs:Map();
+                                            $ai_agent_memory_taskextract_and_storelast_task:ai_agent_memory_task();
+                                            $ai_agent_memory_taskextract_and_storelatest_chunk_list:ai_kb_chunk();
+                                            $ai_agent_memory_taskextract_and_storemessage_list:ai_agent_message();
+                                            $ai_agent_memory_taskextract_and_storetask_filter:ai_agent_memory_task();
+                                            $ai_agent_memory_taskextract_and_storetasks:ai_agent_memory_task();
+                                    eval($ai_agent_memory_taskextract_and_storedefault==ai_agent_memory_taskextract_and_storedefault && $ai_agent_memory_taskextract_and_storeagent_message_filter==ai_agent_memory_taskextract_and_storeagent_message_filter && $ai_agent_memory_taskextract_and_storecheck_queries==ai_agent_memory_taskextract_and_storecheck_queries && $ai_agent_memory_taskextract_and_storechunk==ai_agent_memory_taskextract_and_storechunk && $ai_agent_memory_taskextract_and_storelast_task==ai_agent_memory_taskextract_and_storelast_task && $ai_agent_memory_taskextract_and_storelatest_chunk_list==ai_agent_memory_taskextract_and_storelatest_chunk_list && $ai_agent_memory_taskextract_and_storemessage_list==ai_agent_memory_taskextract_and_storemessage_list && $ai_agent_memory_taskextract_and_storetask_filter==ai_agent_memory_taskextract_and_storetask_filter && $ai_agent_memory_taskextract_and_storetasks==ai_agent_memory_taskextract_and_storetasks);
+                                eval((RuleUtils.test($ai_agent_memory_taskextract_and_storechat_temp2.get("fact_source_candidates"),"ISNOTNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-bindparam_02_prepareparam_09" sourceRef="gateway-bindparam_02" targetRef="prepareparam_09">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_agent_memory_taskextract_and_storedefault:ai_agent_memory_task();
+                                            $ai_agent_memory_taskextract_and_storeagent_message_filter:ai_agent_message();
+                                            $ai_agent_memory_taskextract_and_storechat_request:Map();
+                                            $ai_agent_memory_taskextract_and_storechat_response:Map();
+                                            $ai_agent_memory_taskextract_and_storechat_temp:Map();
+                                            $ai_agent_memory_taskextract_and_storechat_temp2:Map();
+                                            $ai_agent_memory_taskextract_and_storecheck_queries:ai_kb_chunk();
+                                            $ai_agent_memory_taskextract_and_storechunk:ai_kb_chunk();
+                                            $ai_agent_memory_taskextract_and_storechunk_filter:Map();
+                                            $ai_agent_memory_taskextract_and_storedaily_logs:Map();
+                                            $ai_agent_memory_taskextract_and_storelast_task:ai_agent_memory_task();
+                                            $ai_agent_memory_taskextract_and_storelatest_chunk_list:ai_kb_chunk();
+                                            $ai_agent_memory_taskextract_and_storemessage_list:ai_agent_message();
+                                            $ai_agent_memory_taskextract_and_storetask_filter:ai_agent_memory_task();
+                                            $ai_agent_memory_taskextract_and_storetasks:ai_agent_memory_task();
+                                    eval($ai_agent_memory_taskextract_and_storedefault==ai_agent_memory_taskextract_and_storedefault && $ai_agent_memory_taskextract_and_storeagent_message_filter==ai_agent_memory_taskextract_and_storeagent_message_filter && $ai_agent_memory_taskextract_and_storecheck_queries==ai_agent_memory_taskextract_and_storecheck_queries && $ai_agent_memory_taskextract_and_storechunk==ai_agent_memory_taskextract_and_storechunk && $ai_agent_memory_taskextract_and_storelast_task==ai_agent_memory_taskextract_and_storelast_task && $ai_agent_memory_taskextract_and_storelatest_chunk_list==ai_agent_memory_taskextract_and_storelatest_chunk_list && $ai_agent_memory_taskextract_and_storemessage_list==ai_agent_memory_taskextract_and_storemessage_list && $ai_agent_memory_taskextract_and_storetask_filter==ai_agent_memory_taskextract_and_storetask_filter && $ai_agent_memory_taskextract_and_storetasks==ai_agent_memory_taskextract_and_storetasks);
+                                eval((RuleUtils.test($ai_agent_memory_taskextract_and_storedaily_logs.get("size"),"GT","0")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="delogic_05_prepareparam_07" sourceRef="delogic_05" targetRef="prepareparam_07">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_appendchatrequest_02_sysaichatagent_appendchatrequest_03" sourceRef="sysaichatagent_appendchatrequest_02" targetRef="sysaichatagent_appendchatrequest_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="delogic_02_bindparam_01" sourceRef="delogic_02" targetRef="bindparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_011_dedataset_02" sourceRef="prepareparam_011" targetRef="dedataset_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="delogic_03_prepareparam_04" sourceRef="delogic_03" targetRef="prepareparam_04">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_04_delogic_04" sourceRef="prepareparam_04" targetRef="delogic_04">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_03_rawsfcode_01" sourceRef="prepareparam_03" targetRef="rawsfcode_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_02_dedataset_01" sourceRef="prepareparam_02" targetRef="dedataset_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-dedataset_02_bindparam_03" sourceRef="gateway-dedataset_02" targetRef="bindparam_03">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_agent_memory_taskextract_and_storedefault:ai_agent_memory_task();
+                                            $ai_agent_memory_taskextract_and_storeagent_message_filter:ai_agent_message();
+                                            $ai_agent_memory_taskextract_and_storechat_request:Map();
+                                            $ai_agent_memory_taskextract_and_storechat_response:Map();
+                                            $ai_agent_memory_taskextract_and_storechat_temp:Map();
+                                            $ai_agent_memory_taskextract_and_storechat_temp2:Map();
+                                            $ai_agent_memory_taskextract_and_storecheck_queries:ai_kb_chunk();
+                                            $ai_agent_memory_taskextract_and_storechunk:ai_kb_chunk();
+                                            $ai_agent_memory_taskextract_and_storechunk_filter:Map();
+                                            $ai_agent_memory_taskextract_and_storedaily_logs:Map();
+                                            $ai_agent_memory_taskextract_and_storelast_task:ai_agent_memory_task();
+                                            $ai_agent_memory_taskextract_and_storelatest_chunk_list:ai_kb_chunk();
+                                            $ai_agent_memory_taskextract_and_storemessage_list:ai_agent_message();
+                                            $ai_agent_memory_taskextract_and_storetask_filter:ai_agent_memory_task();
+                                            $ai_agent_memory_taskextract_and_storetasks:ai_agent_memory_task();
+                                    eval($ai_agent_memory_taskextract_and_storedefault==ai_agent_memory_taskextract_and_storedefault && $ai_agent_memory_taskextract_and_storeagent_message_filter==ai_agent_memory_taskextract_and_storeagent_message_filter && $ai_agent_memory_taskextract_and_storecheck_queries==ai_agent_memory_taskextract_and_storecheck_queries && $ai_agent_memory_taskextract_and_storechunk==ai_agent_memory_taskextract_and_storechunk && $ai_agent_memory_taskextract_and_storelast_task==ai_agent_memory_taskextract_and_storelast_task && $ai_agent_memory_taskextract_and_storelatest_chunk_list==ai_agent_memory_taskextract_and_storelatest_chunk_list && $ai_agent_memory_taskextract_and_storemessage_list==ai_agent_memory_taskextract_and_storemessage_list && $ai_agent_memory_taskextract_and_storetask_filter==ai_agent_memory_taskextract_and_storetask_filter && $ai_agent_memory_taskextract_and_storetasks==ai_agent_memory_taskextract_and_storetasks);
+                                eval((RuleUtils.test($ai_agent_memory_taskextract_and_storetasks.get("length"),"GT","0")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-dedataset_02_prepareparam_02" sourceRef="gateway-dedataset_02" targetRef="prepareparam_02">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_agent_memory_taskextract_and_storedefault:ai_agent_memory_task();
+                                            $ai_agent_memory_taskextract_and_storeagent_message_filter:ai_agent_message();
+                                            $ai_agent_memory_taskextract_and_storechat_request:Map();
+                                            $ai_agent_memory_taskextract_and_storechat_response:Map();
+                                            $ai_agent_memory_taskextract_and_storechat_temp:Map();
+                                            $ai_agent_memory_taskextract_and_storechat_temp2:Map();
+                                            $ai_agent_memory_taskextract_and_storecheck_queries:ai_kb_chunk();
+                                            $ai_agent_memory_taskextract_and_storechunk:ai_kb_chunk();
+                                            $ai_agent_memory_taskextract_and_storechunk_filter:Map();
+                                            $ai_agent_memory_taskextract_and_storedaily_logs:Map();
+                                            $ai_agent_memory_taskextract_and_storelast_task:ai_agent_memory_task();
+                                            $ai_agent_memory_taskextract_and_storelatest_chunk_list:ai_kb_chunk();
+                                            $ai_agent_memory_taskextract_and_storemessage_list:ai_agent_message();
+                                            $ai_agent_memory_taskextract_and_storetask_filter:ai_agent_memory_task();
+                                            $ai_agent_memory_taskextract_and_storetasks:ai_agent_memory_task();
+                                    eval($ai_agent_memory_taskextract_and_storedefault==ai_agent_memory_taskextract_and_storedefault && $ai_agent_memory_taskextract_and_storeagent_message_filter==ai_agent_memory_taskextract_and_storeagent_message_filter && $ai_agent_memory_taskextract_and_storecheck_queries==ai_agent_memory_taskextract_and_storecheck_queries && $ai_agent_memory_taskextract_and_storechunk==ai_agent_memory_taskextract_and_storechunk && $ai_agent_memory_taskextract_and_storelast_task==ai_agent_memory_taskextract_and_storelast_task && $ai_agent_memory_taskextract_and_storelatest_chunk_list==ai_agent_memory_taskextract_and_storelatest_chunk_list && $ai_agent_memory_taskextract_and_storemessage_list==ai_agent_memory_taskextract_and_storemessage_list && $ai_agent_memory_taskextract_and_storetask_filter==ai_agent_memory_taskextract_and_storetask_filter && $ai_agent_memory_taskextract_and_storetasks==ai_agent_memory_taskextract_and_storetasks);
+                                eval((RuleUtils.test($ai_agent_memory_taskextract_and_storetasks.get("length"),"EQ","0")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_06_rawsfcode_04" sourceRef="prepareparam_06" targetRef="rawsfcode_04">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_07_deaction_02" sourceRef="prepareparam_07" targetRef="deaction_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="deaction_02_end_01" sourceRef="deaction_02" targetRef="end_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-bindparam_03_prepareparam_010" sourceRef="gateway-bindparam_03" targetRef="prepareparam_010">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_agent_memory_taskextract_and_storedefault:ai_agent_memory_task();
+                                            $ai_agent_memory_taskextract_and_storeagent_message_filter:ai_agent_message();
+                                            $ai_agent_memory_taskextract_and_storechat_request:Map();
+                                            $ai_agent_memory_taskextract_and_storechat_response:Map();
+                                            $ai_agent_memory_taskextract_and_storechat_temp:Map();
+                                            $ai_agent_memory_taskextract_and_storechat_temp2:Map();
+                                            $ai_agent_memory_taskextract_and_storecheck_queries:ai_kb_chunk();
+                                            $ai_agent_memory_taskextract_and_storechunk:ai_kb_chunk();
+                                            $ai_agent_memory_taskextract_and_storechunk_filter:Map();
+                                            $ai_agent_memory_taskextract_and_storedaily_logs:Map();
+                                            $ai_agent_memory_taskextract_and_storelast_task:ai_agent_memory_task();
+                                            $ai_agent_memory_taskextract_and_storelatest_chunk_list:ai_kb_chunk();
+                                            $ai_agent_memory_taskextract_and_storemessage_list:ai_agent_message();
+                                            $ai_agent_memory_taskextract_and_storetask_filter:ai_agent_memory_task();
+                                            $ai_agent_memory_taskextract_and_storetasks:ai_agent_memory_task();
+                                    eval($ai_agent_memory_taskextract_and_storedefault==ai_agent_memory_taskextract_and_storedefault && $ai_agent_memory_taskextract_and_storeagent_message_filter==ai_agent_memory_taskextract_and_storeagent_message_filter && $ai_agent_memory_taskextract_and_storecheck_queries==ai_agent_memory_taskextract_and_storecheck_queries && $ai_agent_memory_taskextract_and_storechunk==ai_agent_memory_taskextract_and_storechunk && $ai_agent_memory_taskextract_and_storelast_task==ai_agent_memory_taskextract_and_storelast_task && $ai_agent_memory_taskextract_and_storelatest_chunk_list==ai_agent_memory_taskextract_and_storelatest_chunk_list && $ai_agent_memory_taskextract_and_storemessage_list==ai_agent_memory_taskextract_and_storemessage_list && $ai_agent_memory_taskextract_and_storetask_filter==ai_agent_memory_taskextract_and_storetask_filter && $ai_agent_memory_taskextract_and_storetasks==ai_agent_memory_taskextract_and_storetasks);
+                                eval((RuleUtils.test($ai_agent_memory_taskextract_and_storelast_task.get("lastMsgTime"),"ISNOTNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-bindparam_03_prepareparam_02" sourceRef="gateway-bindparam_03" targetRef="prepareparam_02">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_agent_memory_taskextract_and_storedefault:ai_agent_memory_task();
+                                            $ai_agent_memory_taskextract_and_storeagent_message_filter:ai_agent_message();
+                                            $ai_agent_memory_taskextract_and_storechat_request:Map();
+                                            $ai_agent_memory_taskextract_and_storechat_response:Map();
+                                            $ai_agent_memory_taskextract_and_storechat_temp:Map();
+                                            $ai_agent_memory_taskextract_and_storechat_temp2:Map();
+                                            $ai_agent_memory_taskextract_and_storecheck_queries:ai_kb_chunk();
+                                            $ai_agent_memory_taskextract_and_storechunk:ai_kb_chunk();
+                                            $ai_agent_memory_taskextract_and_storechunk_filter:Map();
+                                            $ai_agent_memory_taskextract_and_storedaily_logs:Map();
+                                            $ai_agent_memory_taskextract_and_storelast_task:ai_agent_memory_task();
+                                            $ai_agent_memory_taskextract_and_storelatest_chunk_list:ai_kb_chunk();
+                                            $ai_agent_memory_taskextract_and_storemessage_list:ai_agent_message();
+                                            $ai_agent_memory_taskextract_and_storetask_filter:ai_agent_memory_task();
+                                            $ai_agent_memory_taskextract_and_storetasks:ai_agent_memory_task();
+                                    eval($ai_agent_memory_taskextract_and_storedefault==ai_agent_memory_taskextract_and_storedefault && $ai_agent_memory_taskextract_and_storeagent_message_filter==ai_agent_memory_taskextract_and_storeagent_message_filter && $ai_agent_memory_taskextract_and_storecheck_queries==ai_agent_memory_taskextract_and_storecheck_queries && $ai_agent_memory_taskextract_and_storechunk==ai_agent_memory_taskextract_and_storechunk && $ai_agent_memory_taskextract_and_storelast_task==ai_agent_memory_taskextract_and_storelast_task && $ai_agent_memory_taskextract_and_storelatest_chunk_list==ai_agent_memory_taskextract_and_storelatest_chunk_list && $ai_agent_memory_taskextract_and_storemessage_list==ai_agent_memory_taskextract_and_storemessage_list && $ai_agent_memory_taskextract_and_storetask_filter==ai_agent_memory_taskextract_and_storetask_filter && $ai_agent_memory_taskextract_and_storetasks==ai_agent_memory_taskextract_and_storetasks);
+                                eval((RuleUtils.test($ai_agent_memory_taskextract_and_storelast_task.get("lastMsgTime"),"ISNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_01_sysaichatagent_appendchatrequest_01" sourceRef="prepareparam_01" targetRef="sysaichatagent_appendchatrequest_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_010_prepareparam_02" sourceRef="prepareparam_010" targetRef="prepareparam_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_fetchchunks_01_sysaichatagent_appendchatrequest_02" sourceRef="sysaichatagent_fetchchunks_01" targetRef="sysaichatagent_appendchatrequest_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_appendchatrequest_03_sysaichatagent_chatraw_02" sourceRef="sysaichatagent_appendchatrequest_03" targetRef="sysaichatagent_chatraw_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatraw_02_prepareparam_06" sourceRef="sysaichatagent_chatraw_02" targetRef="prepareparam_06">
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-bindparam_01_loopsubcall_01" sourceRef="gateway-bindparam_01" targetRef="loopsubcall_01">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_agent_memory_taskextract_and_storedefault:ai_agent_memory_task();
+                                            $ai_agent_memory_taskextract_and_storeagent_message_filter:ai_agent_message();
+                                            $ai_agent_memory_taskextract_and_storechat_request:Map();
+                                            $ai_agent_memory_taskextract_and_storechat_response:Map();
+                                            $ai_agent_memory_taskextract_and_storechat_temp:Map();
+                                            $ai_agent_memory_taskextract_and_storechat_temp2:Map();
+                                            $ai_agent_memory_taskextract_and_storecheck_queries:ai_kb_chunk();
+                                            $ai_agent_memory_taskextract_and_storechunk:ai_kb_chunk();
+                                            $ai_agent_memory_taskextract_and_storechunk_filter:Map();
+                                            $ai_agent_memory_taskextract_and_storedaily_logs:Map();
+                                            $ai_agent_memory_taskextract_and_storelast_task:ai_agent_memory_task();
+                                            $ai_agent_memory_taskextract_and_storelatest_chunk_list:ai_kb_chunk();
+                                            $ai_agent_memory_taskextract_and_storemessage_list:ai_agent_message();
+                                            $ai_agent_memory_taskextract_and_storetask_filter:ai_agent_memory_task();
+                                            $ai_agent_memory_taskextract_and_storetasks:ai_agent_memory_task();
+                                    eval($ai_agent_memory_taskextract_and_storedefault==ai_agent_memory_taskextract_and_storedefault && $ai_agent_memory_taskextract_and_storeagent_message_filter==ai_agent_memory_taskextract_and_storeagent_message_filter && $ai_agent_memory_taskextract_and_storecheck_queries==ai_agent_memory_taskextract_and_storecheck_queries && $ai_agent_memory_taskextract_and_storechunk==ai_agent_memory_taskextract_and_storechunk && $ai_agent_memory_taskextract_and_storelast_task==ai_agent_memory_taskextract_and_storelast_task && $ai_agent_memory_taskextract_and_storelatest_chunk_list==ai_agent_memory_taskextract_and_storelatest_chunk_list && $ai_agent_memory_taskextract_and_storemessage_list==ai_agent_memory_taskextract_and_storemessage_list && $ai_agent_memory_taskextract_and_storetask_filter==ai_agent_memory_taskextract_and_storetask_filter && $ai_agent_memory_taskextract_and_storetasks==ai_agent_memory_taskextract_and_storetasks);
+                                eval((RuleUtils.test($ai_agent_memory_taskextract_and_storelatest_chunk_list.get("size"),"GT","0")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="loopsubcall_01_delogic_03" sourceRef="loopsubcall_01" targetRef="delogic_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="loopsubcall_01_prepareparam_07" sourceRef="loopsubcall_01" targetRef="prepareparam_07">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_appendchatrequest_01_sysaichatagent_chatraw_01" sourceRef="sysaichatagent_appendchatrequest_01" targetRef="sysaichatagent_chatraw_01">
+                    </sequenceFlow>
+                            <exclusiveGateway id="gateway-rawsfcode_04" name="Gateway" gatewayDirection="Diverging" default="gateway-rawsfcode_04_end_line"></exclusiveGateway>
+                            <sequenceFlow id="rawsfcode_04_gateway-rawsfcode_04_gatewayline" sourceRef="rawsfcode_04" targetRef="gateway-rawsfcode_04"></sequenceFlow>
+                            <sequenceFlow id="gateway-rawsfcode_04_end_line" sourceRef="gateway-rawsfcode_04" targetRef="gateway-rawsfcode_04_end"/>
+                            <endEvent id="gateway-rawsfcode_04_end" name="end"/>
+                            <exclusiveGateway id="gateway-bindparam_02" name="Gateway" gatewayDirection="Diverging" default="gateway-bindparam_02_end_line"></exclusiveGateway>
+                            <sequenceFlow id="bindparam_02_gateway-bindparam_02_gatewayline" sourceRef="bindparam_02" targetRef="gateway-bindparam_02"></sequenceFlow>
+                            <sequenceFlow id="gateway-bindparam_02_end_line" sourceRef="gateway-bindparam_02" targetRef="gateway-bindparam_02_end"/>
+                            <endEvent id="gateway-bindparam_02_end" name="end"/>
+                            <exclusiveGateway id="gateway-dedataset_02" name="Gateway" gatewayDirection="Diverging" default="gateway-dedataset_02_end_line"></exclusiveGateway>
+                            <sequenceFlow id="dedataset_02_gateway-dedataset_02_gatewayline" sourceRef="dedataset_02" targetRef="gateway-dedataset_02"></sequenceFlow>
+                            <sequenceFlow id="gateway-dedataset_02_end_line" sourceRef="gateway-dedataset_02" targetRef="gateway-dedataset_02_end"/>
+                            <endEvent id="gateway-dedataset_02_end" name="end"/>
+                            <exclusiveGateway id="gateway-bindparam_03" name="Gateway" gatewayDirection="Diverging" default="gateway-bindparam_03_end_line"></exclusiveGateway>
+                            <sequenceFlow id="bindparam_03_gateway-bindparam_03_gatewayline" sourceRef="bindparam_03" targetRef="gateway-bindparam_03"></sequenceFlow>
+                            <sequenceFlow id="gateway-bindparam_03_end_line" sourceRef="gateway-bindparam_03" targetRef="gateway-bindparam_03_end"/>
+                            <endEvent id="gateway-bindparam_03_end" name="end"/>
+                            <exclusiveGateway id="gateway-bindparam_01" name="Gateway" gatewayDirection="Diverging" default="gateway-bindparam_01_end_line"></exclusiveGateway>
+                            <sequenceFlow id="bindparam_01_gateway-bindparam_01_gatewayline" sourceRef="bindparam_01" targetRef="gateway-bindparam_01"></sequenceFlow>
+                            <sequenceFlow id="gateway-bindparam_01_end_line" sourceRef="gateway-bindparam_01" targetRef="gateway-bindparam_01_end"/>
+                            <endEvent id="gateway-bindparam_01_end" name="end"/>
+        </process>
+    </definitions>

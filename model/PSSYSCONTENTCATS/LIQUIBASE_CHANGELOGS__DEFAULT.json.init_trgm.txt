@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.6.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+<changeSet id="init-pg-trgm" author="system" failOnError="false">
+    <sql dbms="postgresql">
+        CREATE EXTENSION IF NOT EXISTS pg_trgm;
+    </sql>
+</changeSet>
+<changeSet id="init-pg-trgm-content-idx" author="system" failOnError="false">
+    <preConditions onFail="MARK_RAN">
+        <not>
+            <indexExists indexName="idx_trgm_content"
+                         tableName="ai_kb_chunk"/>
+        </not>
+    </preConditions>
+
+    <sql dbms="postgresql">
+        CREATE INDEX idx_trgm_content
+        ON ai_kb_chunk
+        USING gin (content gin_trgm_ops);
+    </sql>
+</changeSet>
+
+</databaseChangeLog>

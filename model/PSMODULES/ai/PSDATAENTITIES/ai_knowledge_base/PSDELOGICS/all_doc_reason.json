@@ -1,0 +1,802 @@
+{
+  "codeName" : "all_doc_reason",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDELOGICS/all_doc_reason.json",
+  "logicName" : "all_doc_reason",
+  "memo" : "通过传入知识库标识、智能体，对知识库下文档逐个进行推理",
+  "name" : "all_doc_reason",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : -50,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "BINDPARAM_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : -220,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "BINDPARAM_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "default_temp"
+    },
+    "leftPos" : -90,
+    "logicNodeType" : "BINDPARAM",
+    "name" : "绑定参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_06"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "BINDPARAM_01"
+      }
+    } ],
+    "getSrcPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "topPos" : -90,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEACTION_04",
+    "getDstPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEACTIONS/Get.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "kb"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+    },
+    "leftPos" : 140,
+    "logicNodeType" : "DEACTION",
+    "name" : "查询知识库详情",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_04"
+      }
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "kb"
+    },
+    "topPos" : 20,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_01",
+    "leftPos" : -90,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "设置筛选条件",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEDATASET_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_01"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "n_kb_id_eq",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "doc_filter"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "ID",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "default_temp"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "topPos" : 20,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEDATASET_01",
+    "getDstPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "doc_filter"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
+    },
+    "leftPos" : -90,
+    "logicNodeType" : "DEDATASET",
+    "name" : "查询知识库下文档",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "LOOPSUBCALL_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEDATASET_01"
+      }
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "doc_list"
+    },
+    "topPos" : 127,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEBUGPARAM_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "doc_reason_list"
+    },
+    "leftPos" : 122,
+    "logicNodeType" : "DEBUGPARAM",
+    "name" : "输出审查报告结果集",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEBUGPARAM_01"
+      }
+    } ],
+    "topPos" : 240,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "LOOPSUBCALL_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "doc"
+    },
+    "leftPos" : -90,
+    "logicNodeType" : "LOOPSUBCALL",
+    "name" : "循环子调用",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RENEWPARAM_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "LOOPSUBCALL_01"
+      },
+      "subCallLink" : true
+    }, {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEBUGPARAM_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "LOOPSUBCALL_01"
+      }
+    } ],
+    "getSrcPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "doc_list"
+    },
+    "topPos" : 240,
+    "parallelOutput" : true
+  }, {
+    "code" : "def _all_reason_content = logic.param(\"all_reason_content\").getReal();\r\ndef _doc_reason_list = logic.param(\"doc_reason_list\").getReal();\r\n      \r\n//def dataList = new groovy.json.JsonSlurper().parseText(_doc_reason_list)\r\n//def allContent = _doc_reason_list.collect { it.content ?: '' }.join('\\n')\r\n\r\ndef allContent = _doc_reason_list.collect { item ->\r\n    def docname = item.name ?: 'unknown'\r\n    def content = item.content ?: ''\r\n\"\"\"\\\r\n# 分段资料：${docname}\r\n```\r\n${item.content}\r\n```\r\n---\\\r\n\"\"\"\r\n}.join('\\n')\r\n\r\n_all_reason_content.set('fullcontent',allContent)\r\n\r\nprintln \"------------------------allContent：\" + allContent\r\n",
+    "codeName" : "RAWSFCODE_01",
+    "codeType" : "Groovy",
+    "leftPos" : 354,
+    "logicNodeType" : "RAWSFCODE",
+    "name" : "获取知识库文档推理结果",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_03"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      }
+    } ],
+    "topPos" : 240,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_04",
+    "leftPos" : 840,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "填充智能体参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DELOGIC_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_04"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "CODE_NAME",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "agent"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "agenttag",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    }, {
+      "dstFieldName" : "knowledgebases",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chat_request"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValueType" : "NULLVALUE"
+    }, {
+      "dstFieldName" : "srfaiagenttag",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chat_request"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "agenttag",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "topPos" : 240,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_03",
+    "leftPos" : 354,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "置空知识库标识",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_APPENDCHATREQUEST_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_03"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "knowledgebases",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chat_request_reason"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValueType" : "NULLVALUE"
+    } ],
+    "topPos" : 353,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "RENEWPARAM_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "doc_reason"
+    },
+    "leftPos" : -90,
+    "logicNodeType" : "RENEWPARAM",
+    "name" : "重新建立参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RENEWPARAM_01"
+      }
+    } ],
+    "topPos" : 353,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DELOGIC_01",
+    "getDstPSDELogic" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDELOGICS/get_by_code.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "agent"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    },
+    "leftPos" : 690,
+    "logicNodeType" : "DELOGIC",
+    "name" : "填充智能体",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_APPENDCHATREQUEST_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DELOGIC_01"
+      }
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "agent"
+    },
+    "topPos" : 449,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_02",
+    "leftPos" : -90,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "设置文档标识与智能体",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_02"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "agenttag",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "doc_reason"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "agenttag",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "default_temp"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    }, {
+      "dstFieldName" : "id",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "doc_reason"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "ID",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "doc"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "topPos" : 460,
+    "parallelOutput" : true
+  }, {
+    "chatRequestAppendMode" : "USER",
+    "codeName" : "SYSAICHATAGENT_APPENDCHATREQUEST_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_request_reason"
+    },
+    "leftPos" : 354,
+    "logicNodeType" : "SYSAICHATAGENT_APPENDCHATREQUEST",
+    "message" : "<#if params.all_reason_content.fullcontent?? && params.all_reason_content.fullcontent!= \"\">${params.all_reason_content.fullcontent}</#if>",
+    "name" : "附加聊天请求",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATOUTPUT_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_APPENDCHATREQUEST_01"
+      }
+    } ],
+    "subType" : "APPENDCHATREQUEST",
+    "topPos" : 460
+  }, {
+    "codeName" : "DEACTION_01",
+    "getDstPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDEACTIONS/reason.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "doc_reason"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
+    },
+    "leftPos" : -90,
+    "logicNodeType" : "DEACTION",
+    "name" : "单一文档推理",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "APPENDPARAM_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_01"
+      }
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "doc_reason"
+    },
+    "topPos" : 560,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATOUTPUT_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_request_reason"
+    },
+    "leftPos" : 354,
+    "logicNodeType" : "SYSAICHATAGENT_CHATOUTPUT",
+    "name" : "交谈输出",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_05"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATOUTPUT_01"
+      }
+    } ],
+    "getPSSysAIChatAgent" : {
+      "modelref" : true,
+      "id" : "ContentMerge"
+    },
+    "getPSSysAIFactory" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSSYSAIFACTORIES/iBizIntelligence.json"
+    },
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_response_reason"
+    },
+    "subType" : "CHATOUTPUT",
+    "topPos" : 560
+  }, {
+    "codeName" : "APPENDPARAM_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "doc_reason_list"
+    },
+    "leftPos" : -90,
+    "logicNodeType" : "APPENDPARAM",
+    "name" : "将审查报告内容附加到结果数组",
+    "srcIndex" : 0,
+    "getSrcPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "doc_reason"
+    },
+    "topPos" : 670,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_06",
+    "leftPos" : 140,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "准备知识库标识",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_04"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_06"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "ID",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "kb"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "ID",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "default_temp"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "topPos" : -90,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_05",
+    "leftPos" : 354,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "设置全文推理结果审查报告",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_03"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_05"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "REVIEW_REPORT",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "fullcontent_reason_report"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "content",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chat_response_reason"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    }, {
+      "dstFieldName" : "KB_ID",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "fullcontent_reason_report"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "ID",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    }, {
+      "dstFieldName" : "AGENT_TAG",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "fullcontent_reason_report"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "agenttag",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    }, {
+      "dstFieldName" : "NAME",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "fullcontent_reason_report"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "NAME",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "kb"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "topPos" : 670,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEACTION_03",
+    "getDstPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEACTIONS/upsert.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "fullcontent_reason_report"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report.json"
+    },
+    "leftPos" : 354,
+    "logicNodeType" : "DEACTION",
+    "name" : "创建审查报告",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_03"
+      }
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "fullcontent_reason_report"
+    },
+    "topPos" : 790,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "END_01",
+    "leftPos" : 394,
+    "logicNodeType" : "END",
+    "name" : "结束",
+    "getReturnParam" : {
+      "modelref" : true,
+      "id" : "fullcontent_reason_report"
+    },
+    "returnType" : "LOGICPARAM",
+    "topPos" : 935,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+    },
+    "default" : true,
+    "entityParam" : true
+  }, {
+    "codeName" : "agent",
+    "logicName" : "agent",
+    "name" : "agent",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    },
+    "entityParam" : true
+  }, {
+    "codeName" : "all_reason_content",
+    "logicName" : "all_reason_content",
+    "name" : "all_reason_content",
+    "entityParam" : true
+  }, {
+    "codeName" : "chat_request",
+    "logicName" : "chat_request",
+    "name" : "chat_request",
+    "chatCompletionRequestParam" : true
+  }, {
+    "codeName" : "chat_request_reason",
+    "logicName" : "chat_request_reason",
+    "name" : "chat_request_reason",
+    "chatCompletionRequestParam" : true
+  }, {
+    "codeName" : "chat_response",
+    "logicName" : "chat_response",
+    "name" : "chat_response",
+    "chatCompletionResultParam" : true
+  }, {
+    "codeName" : "chat_response_reason",
+    "logicName" : "chat_response_reason",
+    "name" : "chat_response_reason",
+    "chatCompletionResultParam" : true
+  }, {
+    "codeName" : "default_temp",
+    "logicName" : "default_temp",
+    "name" : "default_temp",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+    },
+    "entityParam" : true
+  }, {
+    "codeName" : "doc",
+    "logicName" : "doc",
+    "name" : "doc",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
+    },
+    "entityParam" : true
+  }, {
+    "codeName" : "doc_filter",
+    "logicName" : "文档筛选条件",
+    "name" : "文档筛选条件",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
+    },
+    "filterParam" : true
+  }, {
+    "codeName" : "doc_list",
+    "logicName" : "文档查询列表",
+    "name" : "文档查询列表",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
+    },
+    "entityPageParam" : true
+  }, {
+    "codeName" : "doc_reason",
+    "logicName" : "doc_reason",
+    "name" : "doc_reason",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
+    },
+    "entityParam" : true
+  }, {
+    "codeName" : "doc_reason_list",
+    "logicName" : "doc_reason_list",
+    "name" : "doc_reason_list",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report.json"
+    },
+    "entityListParam" : true
+  }, {
+    "codeName" : "fullcontent_reason_report",
+    "logicName" : "fullcontent_reason_report",
+    "name" : "fullcontent_reason_report",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report.json"
+    },
+    "entityParam" : true
+  }, {
+    "codeName" : "kb",
+    "logicName" : "kb",
+    "name" : "kb",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+    },
+    "entityParam" : true
+  }, {
+    "codeName" : "report_doc",
+    "logicName" : "report_doc",
+    "name" : "report_doc",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report.json"
+    },
+    "entityParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

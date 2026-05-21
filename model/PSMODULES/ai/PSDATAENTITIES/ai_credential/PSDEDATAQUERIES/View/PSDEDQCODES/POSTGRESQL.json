@@ -1,0 +1,67 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"access_key\"",
+    "name" : "ACCESS_KEY"
+  }, {
+    "expression" : "t1.\"active\"",
+    "name" : "ACTIVE"
+  }, {
+    "expression" : "t1.\"api_key\"",
+    "name" : "API_KEY"
+  }, {
+    "expression" : "t1.\"bearer_token\"",
+    "name" : "BEARER_TOKEN"
+  }, {
+    "expression" : "t1.\"client_id\"",
+    "name" : "CLIENT_ID"
+  }, {
+    "expression" : "t1.\"client_secret\"",
+    "name" : "CLIENT_SECRET"
+  }, {
+    "expression" : "t1.\"code_name\"",
+    "name" : "CODE_NAME"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"credential_type\"",
+    "name" : "CREDENTIAL_TYPE"
+  }, {
+    "expression" : "t1.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"provider\"",
+    "name" : "PROVIDER"
+  }, {
+    "expression" : "t1.\"region\"",
+    "name" : "REGION"
+  }, {
+    "expression" : "t1.\"scope\"",
+    "name" : "SCOPE"
+  }, {
+    "expression" : "t1.\"secret_key\"",
+    "name" : "SECRET_KEY"
+  }, {
+    "expression" : "t1.\"token_url\"",
+    "name" : "TOKEN_URL"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"access_key\",\nt1.\"active\",\nt1.\"api_key\",\nt1.\"bearer_token\",\nt1.\"client_id\",\nt1.\"client_secret\",\nt1.\"code_name\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"credential_type\",\nt1.\"description\",\nt1.\"id\",\nt1.\"name\",\nt1.\"provider\",\nt1.\"region\",\nt1.\"scope\",\nt1.\"secret_key\",\nt1.\"token_url\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"ai_credential\" t1 \n",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_credential/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

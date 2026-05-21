@@ -1,0 +1,74 @@
+package cn.ibizlab.ai.logic.ai_agent_contextlogic.dynamic_agent_dataset;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_agent_context ai_agent_contextdynamic_agent_datasetdefault;
+                global cn.ibizlab.core.ai.domain.ai_agent_context ai_agent_contextdynamic_agent_datasetitem;
+                global cn.ibizlab.core.ai.domain.ai_agent_context ai_agent_contextdynamic_agent_datasetpage;
+                    global cn.ibizlab.core.ai.service.Iai_agent_contextService ai_agent_contextservice;
+        global cn.ibizlab.core.ai.service.Iai_agent_contextService iBzSysAi_agent_contextDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_agent_contextdynamic_agent_datasetbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_01"
+            ruleflow-group "ai_agent_contextdynamic_agent_datasetprepareparam_01"
+            when
+            then
+                            ai_agent_contextdynamic_agent_datasetdefault.set("size","1000");
+                        update(ai_agent_contextdynamic_agent_datasetdefault);//更新fact中变量值
+                        update(ai_agent_contextdynamic_agent_datasetitem);//更新fact中变量值
+                        update(ai_agent_contextdynamic_agent_datasetpage);//更新fact中变量值
+            end
+
+            //逻辑处理节点[实体数据集]
+            rule "dedataset_01"
+            ruleflow-group "ai_agent_contextdynamic_agent_datasetdedataset_01"
+            when
+            then
+                        update(ai_agent_contextdynamic_agent_datasetdefault);//更新fact中变量值
+                        update(ai_agent_contextdynamic_agent_datasetitem);//更新fact中变量值
+                        update(ai_agent_contextdynamic_agent_datasetpage);//更新fact中变量值
+            end
+
+            //逻辑处理节点[循环子调用]
+            rule "loopsubcall_01"
+            ruleflow-group "ai_agent_contextdynamic_agent_datasetloopsubcall_01"
+            when
+            then
+                        update(ai_agent_contextdynamic_agent_datasetdefault);//更新fact中变量值
+                        update(ai_agent_contextdynamic_agent_datasetitem);//更新fact中变量值
+                        update(ai_agent_contextdynamic_agent_datasetpage);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_02"
+            ruleflow-group "ai_agent_contextdynamic_agent_datasetprepareparam_02"
+            when
+            then
+                        update(ai_agent_contextdynamic_agent_datasetdefault);//更新fact中变量值
+                        update(ai_agent_contextdynamic_agent_datasetitem);//更新fact中变量值
+                        update(ai_agent_contextdynamic_agent_datasetpage);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "ai_agent_contextdynamic_agent_datasetend_01"
+            when
+            then
+                        update(ai_agent_contextdynamic_agent_datasetdefault);//更新fact中变量值
+                        update(ai_agent_contextdynamic_agent_datasetitem);//更新fact中变量值
+                        update(ai_agent_contextdynamic_agent_datasetpage);//更新fact中变量值
+            end

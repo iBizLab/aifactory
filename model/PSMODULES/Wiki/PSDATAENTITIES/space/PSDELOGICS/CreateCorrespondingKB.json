@@ -1,0 +1,165 @@
+{
+  "codeName" : "CreateCorrespondingKB",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/Wiki/PSDATAENTITIES/space/PSDELOGICS/CreateCorrespondingKB.json",
+  "logicName" : "创建对应的知识库",
+  "name" : "创建对应的知识库",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : 270,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : 110,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_01",
+    "leftPos" : 230,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "设置知识库数据",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_01"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "ID",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "ai_knowledge_base"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "ID",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    }, {
+      "dstFieldName" : "NAME",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "ai_knowledge_base"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "NAME",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    }, {
+      "dstFieldName" : "VISIBILITY",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "ai_knowledge_base"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "VISIBILITY",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    }, {
+      "dstFieldName" : "PARSER_CONFIG",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "ai_knowledge_base"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValue" : "{\"auto_keywords\":4,\"auto_questions\":5,\"chunk_token_num\":512,\"delimiter\":\"\\n\",\"layout_recognize\":\"DeepDOC\",\"task_page_size\":12,\"raptor\":{\"use_raptor\":1,\"max_token\":\"256\",\"threshold\":\"0.1\",\"max_cluster\":\"64\",\"random_seed\":\"42\",\"prompt\":\"请总结以下段落。 小心数字，不要编造。 段落如下：       {cluster_content} 以上就是你需要总结的内容。\"},\"graphrag\":{\"use_graphrag\":1,\"resolution\":\"1\",\"entity_types\":\"organization,time,event,person,geo,product\",\"method\":\"general\"},\"chunk_overlap\":123,\"chunk_overlap_num\":30,\"chunk_size\":52,\"keep_separator\":1,\"max_chunk_count_per_doc\":111,\"separator\":\"-\",\"data_masking_rules\":[{}],\"method\":\"FIXED\"}",
+      "srcValueType" : "SRCVALUE"
+    }, {
+      "dstFieldName" : "CHUNK_METHOD",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "ai_knowledge_base"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValue" : "FIXED",
+      "srcValueType" : "SRCVALUE"
+    } ],
+    "topPos" : 231,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEACTION_01",
+    "getDstPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEACTIONS/Create.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "ai_knowledge_base"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+    },
+    "leftPos" : 230,
+    "logicNodeType" : "DEACTION",
+    "name" : "创建知识库",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_01"
+      }
+    } ],
+    "topPos" : 358,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_02",
+    "leftPos" : 230,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "准备参数",
+    "topPos" : 490,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Wiki/PSDATAENTITIES/space.json"
+    },
+    "default" : true,
+    "entityParam" : true
+  }, {
+    "codeName" : "ai_knowledge_base",
+    "logicName" : "知识库",
+    "name" : "知识库",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+    },
+    "entityParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

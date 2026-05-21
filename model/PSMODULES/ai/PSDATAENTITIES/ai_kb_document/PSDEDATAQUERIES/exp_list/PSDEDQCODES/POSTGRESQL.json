@@ -1,0 +1,6 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "queryCode" : "SELECT * FROM (\r\nSELECT \r\n    t1.ACTIVE, t1.CATEGORIES, t1.CHUNK_METHOD, t1.CHUNK_NUM, \r\n    t1.CREATE_MAN, t1.CREATE_TIME, t1.CUSTOM_CHUNK, t1.FILE, \r\n    t1.FILE_TYPE, t1.ID, t1.KB_ID, t1.KEY, t1.NAME, t1.RESOURCE, \r\n    t1.SIZE, t1.SOURCE_ID, t1.SOURCE_TYPE, t1.STATUS, \r\n    t1.SYNC_FREQUENCY, t1.SYNC_ID, t11.TAG_SETS, t1.TYPE, \r\n    t1.UPDATE_MAN, t1.UPDATE_TIME ,CASE WHEN t1.ID = #{ctx.datacontext.selected_data} THEN 0 ELSE t1.SEQUENCE END AS SEQUENCE\r\nFROM AI_KB_DOCUMENT t1 \r\nLEFT JOIN AI_KNOWLEDGE_BASE t11 ON t1.KB_ID = t11.ID \r\nWHERE t1.KB_ID = #{ctx.datacontext.ai_knowledge_base}\r\nORDER BY \r\n    CASE WHEN t1.ID = #{ctx.datacontext.selected_data} THEN 0 ELSE 1 END\r\n) t1\r\n",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDEDATAQUERIES/exp_list/PSDEDQCODES/POSTGRESQL.json"
+}

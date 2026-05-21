@@ -1,0 +1,90 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "t1.enable = 1",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"avatar\"",
+    "name" : "AVATAR"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"creator\"",
+    "name" : "CREATOR"
+  }, {
+    "expression" : "t1.\"dc\"",
+    "name" : "DC"
+  }, {
+    "expression" : "t1.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.\"display_name\"",
+    "name" : "DISPLAY_NAME"
+  }, {
+    "expression" : "concat_ws(',',t1.\"display_name\",t1.\"organization_name\")",
+    "name" : "DN"
+  }, {
+    "expression" : "t1.\"employee_number\"",
+    "name" : "EMPLOYEE_NUMBER"
+  }, {
+    "expression" : "t1.\"employee_type\"",
+    "name" : "EMPLOYEE_TYPE"
+  }, {
+    "expression" : "t1.\"enable\"",
+    "name" : "ENABLE"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"identification_number\"",
+    "name" : "IDENTIFICATION_NUMBER"
+  }, {
+    "expression" : "t1.\"mail\"",
+    "name" : "MAIL"
+  }, {
+    "expression" : "t1.\"mdepartment_id\"",
+    "name" : "MDEPARTMENT_ID"
+  }, {
+    "expression" : "t1.\"mdepartment_name\"",
+    "name" : "MDEPARTMENT_NAME"
+  }, {
+    "expression" : "t1.\"mobile\"",
+    "name" : "MOBILE"
+  }, {
+    "expression" : "t1.\"organization_id\"",
+    "name" : "ORGANIZATION_ID"
+  }, {
+    "expression" : "t1.\"organization_name\"",
+    "name" : "ORGANIZATION_NAME"
+  }, {
+    "expression" : "t1.\"postal_address\"",
+    "name" : "POSTAL_ADDRESS"
+  }, {
+    "expression" : "t1.\"status\"",
+    "name" : "STATUS"
+  }, {
+    "expression" : "t1.\"telephone_number\"",
+    "name" : "TELEPHONE_NUMBER"
+  }, {
+    "expression" : "t1.\"title\"",
+    "name" : "TITLE"
+  }, {
+    "expression" : "t1.\"uid\"",
+    "name" : "UID"
+  }, {
+    "expression" : "t1.\"updater\"",
+    "name" : "UPDATER"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"user_password\"",
+    "name" : "USER_PASSWORD"
+  } ],
+  "queryCode" : "SELECT\nt1.\"avatar\",\nt1.\"create_time\",\nt1.\"creator\",\nt1.\"dc\",\nt1.\"description\",\nt1.\"display_name\",\nconcat_ws(',',t1.\"display_name\",t1.\"organization_name\") AS \"dn\",\nt1.\"employee_number\",\nt1.\"employee_type\",\nt1.\"enable\",\nt1.\"id\",\nt1.\"identification_number\",\nt1.\"mail\",\nt1.\"mdepartment_id\",\nt1.\"mdepartment_name\",\nt1.\"mobile\",\nt1.\"organization_id\",\nt1.\"organization_name\",\nt1.\"postal_address\",\nt1.\"status\",\nt1.\"telephone_number\",\nt1.\"title\",\nt1.\"uid\",\nt1.\"updater\",\nt1.\"update_time\",\nt1.\"user_password\"\nFROM \"\" t1 \n",
+  "id" : "PSSYSMODELGROUPS/ibizsysmgr/PSMODULES/ibizsysmgr/PSDATAENTITIES/sys_person/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

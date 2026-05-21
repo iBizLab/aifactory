@@ -1,0 +1,80 @@
+{
+  "codeName" : "get_cloud_config",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_model/PSDELOGICS/get_cloud_config.json",
+  "logicName" : "获取Cloud配置",
+  "name" : "获取Cloud配置",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : 110,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      },
+      "name" : "最后返回",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : 50,
+    "parallelOutput" : true
+  }, {
+    "code" : "def _default = logic.param('Default').getReal()\n        def agentkey = _default.get(\"id\")\n        def _map = logic.param('map').getReal()\n\n        def VERSION_PATTERN = ~/\\/v\\d+$/\n\n        List<String> ENDPOINT_SUFFIXES = [\n                \"/chat/completions\",\n                \"/embeddings\",\n                \"/v1/embeddings\",      // 某些厂商带 v1 的全路径\n                \"/v1/chat/completions\",\n                \"/rerank\",\n                \"/v1/rerank\",\n                \"/services/rerank/text-rerank/text-rerank\",\n                \"/v1/models\",              // 查询模型清单的接口\n                \"/models\"\n        ]\n\n\n        def getBaseUrl = { String userInput, String defaultVer = \"/v1\" ->\n            if (!userInput?.trim()) return \"\"\n\n            String url = userInput.trim().replaceAll(/\\/+$/, \"\")\n\n\n            for (suffix in ENDPOINT_SUFFIXES) {\n                if (url.endsWith(suffix)) {\n                    url = url.substring(0, url.length() - suffix.length()).replaceAll(/\\/+$/, \"\")\n                    break // 匹配到一个就跳出，防止重复切除\n                }\n            }\n\n            if (!(url =~ VERSION_PATTERN) && !url.endsWith(\"/api\")) {\n                String path = defaultVer.startsWith(\"/\") ? defaultVer : \"/${defaultVer}\"\n                url += path\n            }\n\n            return url\n        }\n\n        try {\n\n            def isModelActive = _default.getBoolean(\"ACTIVE\",true)\n            def isEnableDescOssImage = _default.getBoolean(\"DESC_OSS_IMAGE\",false)\n\n            // 字符串类字段保持原有处理\n            def modelCapability = _default.get(\"MODEL_CAPABILITY\")?.toString() ?: \"\"\n            def apiBaseUrl = (_default.get(\"API_BASE_URL\")?.toString() ?: \"\").trim().replaceAll(/\\/+$/, \"\")\n            def baseUrl = getBaseUrl(apiBaseUrl)\n            def modelCategory = _default.get(\"MODEL_CATEGORY\")?.toString() ?: \"\"\n            def codeName = _default.get(\"CODE_NAME\")?.toString() ?: \"\"\n            def ossImageVlPrompt = _default.get(\"OSS_IMAGE_VL_PROMPT\")?.toString()\n            def serviceHub = net.ibizsys.central.cloud.core.spring.rt.ServiceHub.getInstance()\n            org.yaml.snakeyaml.Yaml yaml = new org.yaml.snakeyaml.Yaml();\n\n\n            if (!isModelActive) {\n                _map.set(\"disabled\", true)\n            }\n\n            _map.set(\"serviceurl\", apiBaseUrl)\n\n            _map.set(\"baseurl\", baseUrl)\n\n            if (modelCapability.contains(\"reasoning\")) {\n                _map.set(\"think\", true)\n            }\n\n            if (modelCapability.contains(\"function_calling\")) {\n                _map.set(\"tools\", true)\n                _map.set(\"toolmaxcalls\", 200) // 改为数字类型更规范\n            }\n\n            if (apiBaseUrl.contains(\"https://api.deepseek.com\")) {\n                _map.set(\"aitype\", \"DEEPSEEK\")\n            }\n            else if (modelCategory == \"text_ranking\" && apiBaseUrl.contains(\"/rerank\") && apiBaseUrl != \"https://dashscope.aliyuncs.com/api/v1/services/rerank/text-rerank/text-rerank\") {\n                _map.set(\"aitype\", \"OPENAI\")\n            }\n            else if (modelCategory == \"vision\") {\n                _map.set(\"aitype\", \"QWENVL\")\n            }\n             else if (apiBaseUrl.contains(\"siliconflow.cn\")) {\n                _map.set(\"aitype\", \"SILICONFLOW\")\n            }\n            else {\n                _map.set(\"aitype\", \"QWEN\")\n            }\n\n            if (modelCapability.contains(\"streaming\")) {\n                _map.set(\"stream\", true)\n            }\n            else {\n                _map.set(\"stream\", false)\n            }\n\n            if (modelCategory == \"vision\") {\n                _map.set(\"descossimage\", true)\n                if (ossImageVlPrompt != null) {\n                    _map.set(\"ossimagevlprompt\", ossImageVlPrompt)\n                }\n            }\n\n            if (modelCategory == \"embedding\" ) {\n                _map.set(\"embeddingmodel\", codeName)\n                if(apiBaseUrl.contains(\"embeddings\"))\n                    _map.set(\"embeddingurl\", apiBaseUrl)\n                else\n                    _map.set(\"embeddingurl\", baseUrl+\"/embeddings\")\n            }\n\n            if (modelCategory == \"text_ranking\") {\n                _map.set(\"textrerankmodel\", codeName)\n                if(apiBaseUrl.contains(\"rerank\"))\n                    _map.set(\"textrerankurl\", apiBaseUrl)\n                else\n                    _map.set(\"textrerankurl\", baseUrl+\"/rerank\")\n            }\n\n            if ((modelCategory == \"chat\" || modelCategory == \"vision\") ) {\n\n                if(apiBaseUrl.contains(\"chat/completions\"))\n                    _map.set(\"chatcompletionurl\", apiBaseUrl)\n                else\n                    _map.set(\"chatcompletionurl\", baseUrl+\"/chat/completions\")\n            }\n\n            if (isEnableDescOssImage) {\n                _map.set(\"descossimage\", true)\n                if (ossImageVlPrompt != null) {\n                    _map.set(\"ossimagevlprompt\", ossImageVlPrompt)\n                }\n            }\n\n\n            // ==============================\n            // 系统OSS配置更新逻辑（保持原逻辑，仅增加空安全处理）\n            // ==============================\n            if(modelCategory == \"vision\") {\n                String strConfig = serviceHub.getConfig(\"cloud-oss\");\n                Map config = (!strConfig) ? new HashMap() : yaml.loadAs(strConfig, Map.class);\n\n                Map aiimage = config.getOrDefault(\"aiimage\", new HashMap());\n                aiimage.put(\"agent\", \"${sys.getDeploySystemId()}-ai--${agentkey}\".toString());\n                config.put(\"aiimage\", aiimage);\n\n\n                // 补全文件存储路径\n                if(!config.containsKey(\"filepath\")) {\n                    String filepath = \"/app/file/oss/file\";\n                    String allinone = serviceHub.getConfig(\"servicehub-allinone\");\n                    if(allinone){\n                        Map allinoneConfig = yaml.loadAs(allinone, Map.class);\n                        if(allinoneConfig.containsKey(\"systemsettings\")) {\n                            Map systemsettings  = allinoneConfig.getOrDefault(\"systemsettings\",new HashMap());\n                            if(systemsettings.containsKey(\"cloudossutil\")) {\n                                Map cloudossutil  = systemsettings.getOrDefault(\"cloudossutil\",new HashMap());\n                                if(cloudossutil.containsKey(\"filepath\")) {\n                                    filepath = cloudossutil.remove(\"filepath\")?.toString() ?: filepath\n                                    systemsettings.remove(\"cloudossutil\");\n                                    serviceHub.publishConfig(\"servicehub-allinone\",allinoneConfig)\n                                }\n                            }\n                            else if (!strConfig){\n                                filepath = \"/app/file/datafile/gateway/ibizutil\"\n                            }\n                        }\n                    }\n                    config.put(\"filepath\", filepath)\n                }\n\n                // 补全libreoffice配置\n                if(!config.containsKey(\"libreoffice\")) {\n                    config.put(\"libreoffice\", [path: \"/usr/bin/soffice\"])\n                }\n\n                // 补全7z解压配置\n                if(!config.containsKey(\"unzip_7z\")) {\n                    config.put(\"unzip_7z\", [command: \"7z x {zip_file} -o{unzip_folder}\"])\n                }\n\n                if(!config.containsKey(\"ocr\")) {\n                    // 补全OCR别名配置\n                    if(!config.containsKey(\"osstext\") ) {\n                        config.put(\"osstext\", [aliases: [\"ENGINE.OCR\": \"ENGINE.VLOCR\"]])\n                    }\n                    aiimage.put(\"ocragent\", \"${sys.getDeploySystemId()}-ai--${agentkey}\".toString());\n                }\n            \n\n\n                serviceHub.publishConfig(\"cloud-oss\", config);\n            }\n\n\n\n\n        } catch (Exception e) {\n            e.printStackTrace()\n        }",
+    "codeName" : "RAWSFCODE_01",
+    "codeType" : "Groovy",
+    "leftPos" : 430,
+    "logicNodeType" : "RAWSFCODE",
+    "name" : "计算配置",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      }
+    } ],
+    "topPos" : 120,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "END_01",
+    "leftPos" : 430,
+    "logicNodeType" : "END",
+    "name" : "结束",
+    "getReturnParam" : {
+      "modelref" : true,
+      "id" : "map"
+    },
+    "returnType" : "LOGICPARAM",
+    "topPos" : 340,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_model.json"
+    },
+    "default" : true,
+    "entityParam" : true
+  }, {
+    "codeName" : "map",
+    "logicName" : "map",
+    "name" : "map",
+    "entityParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

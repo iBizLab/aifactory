@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="cn.ibizlab.core.ai.service.logic.ai_knowledge_basedeep_research" isClosed="false" isExecutable="true" name="ai_ai_knowledge_base_deep_research_ruleFlow" processType="Private" tns:packageName="cn.ibizlab.core.ai.service.logic.ai_knowledge_basedeep_research">
+            <extensionElements>
+                <tns:import name="java.util.Map" />
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="cn.ibizlab.util.helper.RuleUtils"/>
+                                <tns:metaData express="" name="ai_knowledge_basedeep_researchdefault" type="entity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_agent_context()" name="ai_knowledge_basedeep_researchagententity" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_knowledge_basedeep_researchagenttag" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_knowledge_base()" name="ai_knowledge_basedeep_researchchat_request" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_knowledge_basedeep_researchchat_response" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_knowledge_basedeep_researchchat_response_entity" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_knowledge_basedeep_researchcontent" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_knowledge_base()" name="ai_knowledge_basedeep_researchdefault_temp" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_knowledge_basedeep_researchexception_entity" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_review_report()" name="ai_knowledge_basedeep_researchexists_report" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_knowledge_basedeep_researchlast" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_knowledge_basedeep_researchqueries" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_kb_chunk()" name="ai_knowledge_basedeep_researchquery_chunk" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_knowledge_basedeep_researchquery_chunk_result" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_review_report()" name="ai_knowledge_basedeep_researchquery_report" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_review_report()" name="ai_knowledge_basedeep_researchreport" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_knowledge_base()" name="ai_knowledge_basedeep_researchret" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_knowledge_basedeep_researchretrieved_chunks" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_knowledge_basedeep_researchsearch_plan" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_knowledge_basedeep_researchsearch_plans" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_knowledge_basedeep_researchsshy_content" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_knowledge_basedeep_researchverification_checklist" type="refentity"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_knowledge_baseService))" name="ai_knowledge_baseservice" type="service"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_agent_contextService))" name="ai_agent_contextservice" type="service"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_review_reportService))" name="ai_review_reportservice" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_knowledge_baseService))" name="iBzSysAi_knowledge_baseDefaultService" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
+                            <tns:global identifier="ai_knowledge_basedeep_researchdefault" type="cn.ibizlab.core.ai.domain.ai_knowledge_base" />
+                            <tns:global identifier="ai_knowledge_basedeep_researchagententity" type="cn.ibizlab.core.ai.domain.ai_agent_context" />
+                            <tns:global identifier="ai_knowledge_basedeep_researchchat_request" type="cn.ibizlab.core.ai.domain.ai_knowledge_base" />
+                            <tns:global identifier="ai_knowledge_basedeep_researchdefault_temp" type="cn.ibizlab.core.ai.domain.ai_knowledge_base" />
+                            <tns:global identifier="ai_knowledge_basedeep_researchexists_report" type="cn.ibizlab.core.ai.domain.ai_review_report" />
+                            <tns:global identifier="ai_knowledge_basedeep_researchquery_chunk" type="cn.ibizlab.core.ai.domain.ai_kb_chunk" />
+                            <tns:global identifier="ai_knowledge_basedeep_researchquery_report" type="cn.ibizlab.core.ai.domain.ai_review_report" />
+                            <tns:global identifier="ai_knowledge_basedeep_researchreport" type="cn.ibizlab.core.ai.domain.ai_review_report" />
+                            <tns:global identifier="ai_knowledge_basedeep_researchret" type="cn.ibizlab.core.ai.domain.ai_knowledge_base" />
+            </extensionElements>
+                        <startEvent id="begin" isInterrupting="true"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchdeaction_01" id="deaction_01" implementation="http://www.jboss.org/drools/rule" name="获取知识库信息"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchprepareparam_015" id="prepareparam_015" implementation="http://www.jboss.org/drools/rule" name="设置lead_tag"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchprepareparam_011" id="prepareparam_011" implementation="http://www.jboss.org/drools/rule" name="设置synthesizer_tag"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchsysaichatagent_chatoutput_01" id="sysaichatagent_chatoutput_01" implementation="http://www.jboss.org/drools/rule" name="交谈输出"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchcopyparam_02" id="copyparam_02" implementation="http://www.jboss.org/drools/rule" name="异常信息"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchloopsubcall_01" id="loopsubcall_01" implementation="http://www.jboss.org/drools/rule" name="循环子调用"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchrawsfcode_02" id="rawsfcode_02" implementation="http://www.jboss.org/drools/rule" name="附加聊天请求"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchrawsfcode_01" id="rawsfcode_01" implementation="http://www.jboss.org/drools/rule" name="添加到retrieved_chunks"/>
+                        <endEvent id="rawsfcode_01_end" name="end"/>
+                        <sequenceFlow id="rawsfcode_01_end_line" sourceRef="rawsfcode_01" targetRef="rawsfcode_01_end"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchcopyparam_01" id="copyparam_01" implementation="http://www.jboss.org/drools/rule" name="拷贝default"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchdelogic_01" id="delogic_01" implementation="http://www.jboss.org/drools/rule" name="查询智能体"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchprepareparam_012" id="prepareparam_012" implementation="http://www.jboss.org/drools/rule" name="设置默认synthesizer_tag"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchprepareparam_02" id="prepareparam_02" implementation="http://www.jboss.org/drools/rule" name="切换lead智能体"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchprepareparam_014" id="prepareparam_014" implementation="http://www.jboss.org/drools/rule" name="准备查询参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchdedataquery_01" id="dedataquery_01" implementation="http://www.jboss.org/drools/rule" name="查询report"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchdeaction_03" id="deaction_03" implementation="http://www.jboss.org/drools/rule" name="更新report"/>
+                        <endEvent id="deaction_03_end" name="end"/>
+                        <sequenceFlow id="deaction_03_end_line" sourceRef="deaction_03" targetRef="deaction_03_end"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchsysaichatagent_appendchatrequest_01" id="sysaichatagent_appendchatrequest_01" implementation="http://www.jboss.org/drools/rule" name="附加聊天请求"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchprepareparam_016" id="prepareparam_016" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchprepareparam_08" id="prepareparam_08" implementation="http://www.jboss.org/drools/rule" name="设置默认lead"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchloopsubcall_02" id="loopsubcall_02" implementation="http://www.jboss.org/drools/rule" name="循环子调用"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchprepareparam_01" id="prepareparam_01" implementation="http://www.jboss.org/drools/rule" name="设置report"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchend_05" id="end_05" implementation="http://www.jboss.org/drools/rule" name="结束"/>
+                        <endEvent id="end_05_end" name="end"/>
+                        <sequenceFlow id="end_05_end_line" sourceRef="end_05" targetRef="end_05_end"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchprepareparam_013" id="prepareparam_013" implementation="http://www.jboss.org/drools/rule" name="设置report"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchdeaction_04" id="deaction_04" implementation="http://www.jboss.org/drools/rule" name="创建report"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchprepareparam_03" id="prepareparam_03" implementation="http://www.jboss.org/drools/rule" name="提取深度研究son对象"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchprepareparam_04" id="prepareparam_04" implementation="http://www.jboss.org/drools/rule" name="设置search_plans，verification_checklist"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchprepareparam_05" id="prepareparam_05" implementation="http://www.jboss.org/drools/rule" name="切换通用事实核验员智能体、请求清除知识库标识"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchsysaichatagent_chatoutput_02" id="sysaichatagent_chatoutput_02" implementation="http://www.jboss.org/drools/rule" name="通用事实核验交谈输出"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchprepareparam_06" id="prepareparam_06" implementation="http://www.jboss.org/drools/rule" name="提取通用事实核验员内容"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchprepareparam_07" id="prepareparam_07" implementation="http://www.jboss.org/drools/rule" name="准备知识检索参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchsysaichatagent_chatoutput_03" id="sysaichatagent_chatoutput_03" implementation="http://www.jboss.org/drools/rule" name="判定交谈输出"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchsysaichatagent_appendchatrequest_03" id="sysaichatagent_appendchatrequest_03" implementation="http://www.jboss.org/drools/rule" name="判定请求"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchprepareparam_09" id="prepareparam_09" implementation="http://www.jboss.org/drools/rule" name="切换判定专家智能体"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchsysaichatagent_fetchchunks_01" id="sysaichatagent_fetchchunks_01" implementation="http://www.jboss.org/drools/rule" name="知识检索"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchprepareparam_010" id="prepareparam_010" implementation="http://www.jboss.org/drools/rule" name="提取判定形成报告"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchrawsfcode_03" id="rawsfcode_03" implementation="http://www.jboss.org/drools/rule" name="执行脚本代码"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchdeaction_02" id="deaction_02" implementation="http://www.jboss.org/drools/rule" name="保存报告"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basedeep_researchend_01" id="end_01" implementation="http://www.jboss.org/drools/rule" name="结束"/>
+                        <endEvent id="end_01_end" name="end"/>
+                        <sequenceFlow id="end_01_end_line" sourceRef="end_01" targetRef="end_01_end"/>
+                    <sequenceFlow id="begin_prepareparam_016" sourceRef="begin" targetRef="prepareparam_016">
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-deaction_01_delogic_01" sourceRef="gateway-deaction_01" targetRef="delogic_01">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_knowledge_basedeep_researchdefault:ai_knowledge_base();
+                                            $ai_knowledge_basedeep_researchagententity:ai_agent_context();
+                                            $ai_knowledge_basedeep_researchagenttag:Map();
+                                            $ai_knowledge_basedeep_researchchat_request:ai_knowledge_base();
+                                            $ai_knowledge_basedeep_researchchat_response:Map();
+                                            $ai_knowledge_basedeep_researchchat_response_entity:Map();
+                                            $ai_knowledge_basedeep_researchcontent:Map();
+                                            $ai_knowledge_basedeep_researchdefault_temp:ai_knowledge_base();
+                                            $ai_knowledge_basedeep_researchexception_entity:Map();
+                                            $ai_knowledge_basedeep_researchexists_report:ai_review_report();
+                                            $ai_knowledge_basedeep_researchlast:Map();
+                                            $ai_knowledge_basedeep_researchqueries:Map();
+                                            $ai_knowledge_basedeep_researchquery_chunk:ai_kb_chunk();
+                                            $ai_knowledge_basedeep_researchquery_chunk_result:Map();
+                                            $ai_knowledge_basedeep_researchquery_report:ai_review_report();
+                                            $ai_knowledge_basedeep_researchreport:ai_review_report();
+                                            $ai_knowledge_basedeep_researchret:ai_knowledge_base();
+                                            $ai_knowledge_basedeep_researchretrieved_chunks:Map();
+                                            $ai_knowledge_basedeep_researchsearch_plan:Map();
+                                            $ai_knowledge_basedeep_researchsearch_plans:Map();
+                                            $ai_knowledge_basedeep_researchsshy_content:Map();
+                                            $ai_knowledge_basedeep_researchverification_checklist:Map();
+                                    eval($ai_knowledge_basedeep_researchdefault==ai_knowledge_basedeep_researchdefault && $ai_knowledge_basedeep_researchagententity==ai_knowledge_basedeep_researchagententity && $ai_knowledge_basedeep_researchchat_request==ai_knowledge_basedeep_researchchat_request && $ai_knowledge_basedeep_researchdefault_temp==ai_knowledge_basedeep_researchdefault_temp && $ai_knowledge_basedeep_researchexists_report==ai_knowledge_basedeep_researchexists_report && $ai_knowledge_basedeep_researchquery_chunk==ai_knowledge_basedeep_researchquery_chunk && $ai_knowledge_basedeep_researchquery_report==ai_knowledge_basedeep_researchquery_report && $ai_knowledge_basedeep_researchreport==ai_knowledge_basedeep_researchreport && $ai_knowledge_basedeep_researchret==ai_knowledge_basedeep_researchret && );
+                                eval((RuleUtils.test($ai_knowledge_basedeep_researchdefault_temp.get("lead_tag"),"ISNULL",""))&&(RuleUtils.test($ai_knowledge_basedeep_researchagententity.get("codeName"),"ISNOTNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-deaction_01_prepareparam_015" sourceRef="gateway-deaction_01" targetRef="prepareparam_015">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_knowledge_basedeep_researchdefault:ai_knowledge_base();
+                                            $ai_knowledge_basedeep_researchagententity:ai_agent_context();
+                                            $ai_knowledge_basedeep_researchagenttag:Map();
+                                            $ai_knowledge_basedeep_researchchat_request:ai_knowledge_base();
+                                            $ai_knowledge_basedeep_researchchat_response:Map();
+                                            $ai_knowledge_basedeep_researchchat_response_entity:Map();
+                                            $ai_knowledge_basedeep_researchcontent:Map();
+                                            $ai_knowledge_basedeep_researchdefault_temp:ai_knowledge_base();
+                                            $ai_knowledge_basedeep_researchexception_entity:Map();
+                                            $ai_knowledge_basedeep_researchexists_report:ai_review_report();
+                                            $ai_knowledge_basedeep_researchlast:Map();
+                                            $ai_knowledge_basedeep_researchqueries:Map();
+                                            $ai_knowledge_basedeep_researchquery_chunk:ai_kb_chunk();
+                                            $ai_knowledge_basedeep_researchquery_chunk_result:Map();
+                                            $ai_knowledge_basedeep_researchquery_report:ai_review_report();
+                                            $ai_knowledge_basedeep_researchreport:ai_review_report();
+                                            $ai_knowledge_basedeep_researchret:ai_knowledge_base();
+                                            $ai_knowledge_basedeep_researchretrieved_chunks:Map();
+                                            $ai_knowledge_basedeep_researchsearch_plan:Map();
+                                            $ai_knowledge_basedeep_researchsearch_plans:Map();
+                                            $ai_knowledge_basedeep_researchsshy_content:Map();
+                                            $ai_knowledge_basedeep_researchverification_checklist:Map();
+                                    eval($ai_knowledge_basedeep_researchdefault==ai_knowledge_basedeep_researchdefault && $ai_knowledge_basedeep_researchagententity==ai_knowledge_basedeep_researchagententity && $ai_knowledge_basedeep_researchchat_request==ai_knowledge_basedeep_researchchat_request && $ai_knowledge_basedeep_researchdefault_temp==ai_knowledge_basedeep_researchdefault_temp && $ai_knowledge_basedeep_researchexists_report==ai_knowledge_basedeep_researchexists_report && $ai_knowledge_basedeep_researchquery_chunk==ai_knowledge_basedeep_researchquery_chunk && $ai_knowledge_basedeep_researchquery_report==ai_knowledge_basedeep_researchquery_report && $ai_knowledge_basedeep_researchreport==ai_knowledge_basedeep_researchreport && $ai_knowledge_basedeep_researchret==ai_knowledge_basedeep_researchret && );
+                                eval((RuleUtils.test($ai_knowledge_basedeep_researchdefault_temp.get("lead_tag"),"ISNOTNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-prepareparam_015_prepareparam_012" sourceRef="gateway-prepareparam_015" targetRef="prepareparam_012">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_knowledge_basedeep_researchdefault:ai_knowledge_base();
+                                            $ai_knowledge_basedeep_researchagententity:ai_agent_context();
+                                            $ai_knowledge_basedeep_researchagenttag:Map();
+                                            $ai_knowledge_basedeep_researchchat_request:ai_knowledge_base();
+                                            $ai_knowledge_basedeep_researchchat_response:Map();
+                                            $ai_knowledge_basedeep_researchchat_response_entity:Map();
+                                            $ai_knowledge_basedeep_researchcontent:Map();
+                                            $ai_knowledge_basedeep_researchdefault_temp:ai_knowledge_base();
+                                            $ai_knowledge_basedeep_researchexception_entity:Map();
+                                            $ai_knowledge_basedeep_researchexists_report:ai_review_report();
+                                            $ai_knowledge_basedeep_researchlast:Map();
+                                            $ai_knowledge_basedeep_researchqueries:Map();
+                                            $ai_knowledge_basedeep_researchquery_chunk:ai_kb_chunk();
+                                            $ai_knowledge_basedeep_researchquery_chunk_result:Map();
+                                            $ai_knowledge_basedeep_researchquery_report:ai_review_report();
+                                            $ai_knowledge_basedeep_researchreport:ai_review_report();
+                                            $ai_knowledge_basedeep_researchret:ai_knowledge_base();
+                                            $ai_knowledge_basedeep_researchretrieved_chunks:Map();
+                                            $ai_knowledge_basedeep_researchsearch_plan:Map();
+                                            $ai_knowledge_basedeep_researchsearch_plans:Map();
+                                            $ai_knowledge_basedeep_researchsshy_content:Map();
+                                            $ai_knowledge_basedeep_researchverification_checklist:Map();
+                                    eval($ai_knowledge_basedeep_researchdefault==ai_knowledge_basedeep_researchdefault && $ai_knowledge_basedeep_researchagententity==ai_knowledge_basedeep_researchagententity && $ai_knowledge_basedeep_researchchat_request==ai_knowledge_basedeep_researchchat_request && $ai_knowledge_basedeep_researchdefault_temp==ai_knowledge_basedeep_researchdefault_temp && $ai_knowledge_basedeep_researchexists_report==ai_knowledge_basedeep_researchexists_report && $ai_knowledge_basedeep_researchquery_chunk==ai_knowledge_basedeep_researchquery_chunk && $ai_knowledge_basedeep_researchquery_report==ai_knowledge_basedeep_researchquery_report && $ai_knowledge_basedeep_researchreport==ai_knowledge_basedeep_researchreport && $ai_knowledge_basedeep_researchret==ai_knowledge_basedeep_researchret && );
+                                eval((RuleUtils.test($ai_knowledge_basedeep_researchdefault_temp.get("synthesizer_tag"),"ISNULL",""))&&(RuleUtils.test($ai_knowledge_basedeep_researchagententity.get("synthesizer"),"ISNOTNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-prepareparam_015_prepareparam_011" sourceRef="gateway-prepareparam_015" targetRef="prepareparam_011">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_knowledge_basedeep_researchdefault:ai_knowledge_base();
+                                            $ai_knowledge_basedeep_researchagententity:ai_agent_context();
+                                            $ai_knowledge_basedeep_researchagenttag:Map();
+                                            $ai_knowledge_basedeep_researchchat_request:ai_knowledge_base();
+                                            $ai_knowledge_basedeep_researchchat_response:Map();
+                                            $ai_knowledge_basedeep_researchchat_response_entity:Map();
+                                            $ai_knowledge_basedeep_researchcontent:Map();
+                                            $ai_knowledge_basedeep_researchdefault_temp:ai_knowledge_base();
+                                            $ai_knowledge_basedeep_researchexception_entity:Map();
+                                            $ai_knowledge_basedeep_researchexists_report:ai_review_report();
+                                            $ai_knowledge_basedeep_researchlast:Map();
+                                            $ai_knowledge_basedeep_researchqueries:Map();
+                                            $ai_knowledge_basedeep_researchquery_chunk:ai_kb_chunk();
+                                            $ai_knowledge_basedeep_researchquery_chunk_result:Map();
+                                            $ai_knowledge_basedeep_researchquery_report:ai_review_report();
+                                            $ai_knowledge_basedeep_researchreport:ai_review_report();
+                                            $ai_knowledge_basedeep_researchret:ai_knowledge_base();
+                                            $ai_knowledge_basedeep_researchretrieved_chunks:Map();
+                                            $ai_knowledge_basedeep_researchsearch_plan:Map();
+                                            $ai_knowledge_basedeep_researchsearch_plans:Map();
+                                            $ai_knowledge_basedeep_researchsshy_content:Map();
+                                            $ai_knowledge_basedeep_researchverification_checklist:Map();
+                                    eval($ai_knowledge_basedeep_researchdefault==ai_knowledge_basedeep_researchdefault && $ai_knowledge_basedeep_researchagententity==ai_knowledge_basedeep_researchagententity && $ai_knowledge_basedeep_researchchat_request==ai_knowledge_basedeep_researchchat_request && $ai_knowledge_basedeep_researchdefault_temp==ai_knowledge_basedeep_researchdefault_temp && $ai_knowledge_basedeep_researchexists_report==ai_knowledge_basedeep_researchexists_report && $ai_knowledge_basedeep_researchquery_chunk==ai_knowledge_basedeep_researchquery_chunk && $ai_knowledge_basedeep_researchquery_report==ai_knowledge_basedeep_researchquery_report && $ai_knowledge_basedeep_researchreport==ai_knowledge_basedeep_researchreport && $ai_knowledge_basedeep_researchret==ai_knowledge_basedeep_researchret && );
+                                eval((RuleUtils.test($ai_knowledge_basedeep_researchdefault_temp.get("synthesizer_tag"),"ISNOTNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_011_prepareparam_02" sourceRef="prepareparam_011" targetRef="prepareparam_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatoutput_01_prepareparam_03" sourceRef="sysaichatagent_chatoutput_01" targetRef="prepareparam_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatoutput_01_copyparam_02" sourceRef="sysaichatagent_chatoutput_01" targetRef="copyparam_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="copyparam_02_prepareparam_014" sourceRef="copyparam_02" targetRef="prepareparam_014">
+                    </sequenceFlow>
+                    <sequenceFlow id="loopsubcall_01_prepareparam_07" sourceRef="loopsubcall_01" targetRef="prepareparam_07">
+                    </sequenceFlow>
+                    <sequenceFlow id="loopsubcall_01_prepareparam_05" sourceRef="loopsubcall_01" targetRef="prepareparam_05">
+                    </sequenceFlow>
+                    <sequenceFlow id="loopsubcall_01_copyparam_02" sourceRef="loopsubcall_01" targetRef="copyparam_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="rawsfcode_02_sysaichatagent_chatoutput_02" sourceRef="rawsfcode_02" targetRef="sysaichatagent_chatoutput_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="copyparam_01_deaction_01" sourceRef="copyparam_01" targetRef="deaction_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="delogic_01_prepareparam_08" sourceRef="delogic_01" targetRef="prepareparam_08">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_012_prepareparam_011" sourceRef="prepareparam_012" targetRef="prepareparam_011">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_02_sysaichatagent_appendchatrequest_01" sourceRef="prepareparam_02" targetRef="sysaichatagent_appendchatrequest_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_014_dedataquery_01" sourceRef="prepareparam_014" targetRef="dedataquery_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-dedataquery_01_loopsubcall_02" sourceRef="gateway-dedataquery_01" targetRef="loopsubcall_02">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_knowledge_basedeep_researchdefault:ai_knowledge_base();
+                                            $ai_knowledge_basedeep_researchagententity:ai_agent_context();
+                                            $ai_knowledge_basedeep_researchagenttag:Map();
+                                            $ai_knowledge_basedeep_researchchat_request:ai_knowledge_base();
+                                            $ai_knowledge_basedeep_researchchat_response:Map();
+                                            $ai_knowledge_basedeep_researchchat_response_entity:Map();
+                                            $ai_knowledge_basedeep_researchcontent:Map();
+                                            $ai_knowledge_basedeep_researchdefault_temp:ai_knowledge_base();
+                                            $ai_knowledge_basedeep_researchexception_entity:Map();
+                                            $ai_knowledge_basedeep_researchexists_report:ai_review_report();
+                                            $ai_knowledge_basedeep_researchlast:Map();
+                                            $ai_knowledge_basedeep_researchqueries:Map();
+                                            $ai_knowledge_basedeep_researchquery_chunk:ai_kb_chunk();
+                                            $ai_knowledge_basedeep_researchquery_chunk_result:Map();
+                                            $ai_knowledge_basedeep_researchquery_report:ai_review_report();
+                                            $ai_knowledge_basedeep_researchreport:ai_review_report();
+                                            $ai_knowledge_basedeep_researchret:ai_knowledge_base();
+                                            $ai_knowledge_basedeep_researchretrieved_chunks:Map();
+                                            $ai_knowledge_basedeep_researchsearch_plan:Map();
+                                            $ai_knowledge_basedeep_researchsearch_plans:Map();
+                                            $ai_knowledge_basedeep_researchsshy_content:Map();
+                                            $ai_knowledge_basedeep_researchverification_checklist:Map();
+                                    eval($ai_knowledge_basedeep_researchdefault==ai_knowledge_basedeep_researchdefault && $ai_knowledge_basedeep_researchagententity==ai_knowledge_basedeep_researchagententity && $ai_knowledge_basedeep_researchchat_request==ai_knowledge_basedeep_researchchat_request && $ai_knowledge_basedeep_researchdefault_temp==ai_knowledge_basedeep_researchdefault_temp && $ai_knowledge_basedeep_researchexists_report==ai_knowledge_basedeep_researchexists_report && $ai_knowledge_basedeep_researchquery_chunk==ai_knowledge_basedeep_researchquery_chunk && $ai_knowledge_basedeep_researchquery_report==ai_knowledge_basedeep_researchquery_report && $ai_knowledge_basedeep_researchreport==ai_knowledge_basedeep_researchreport && $ai_knowledge_basedeep_researchret==ai_knowledge_basedeep_researchret && );
+                                eval((RuleUtils.test($ai_knowledge_basedeep_researchexists_report.get("size"),"GT","0")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-dedataquery_01_prepareparam_013" sourceRef="gateway-dedataquery_01" targetRef="prepareparam_013">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_knowledge_basedeep_researchdefault:ai_knowledge_base();
+                                            $ai_knowledge_basedeep_researchagententity:ai_agent_context();
+                                            $ai_knowledge_basedeep_researchagenttag:Map();
+                                            $ai_knowledge_basedeep_researchchat_request:ai_knowledge_base();
+                                            $ai_knowledge_basedeep_researchchat_response:Map();
+                                            $ai_knowledge_basedeep_researchchat_response_entity:Map();
+                                            $ai_knowledge_basedeep_researchcontent:Map();
+                                            $ai_knowledge_basedeep_researchdefault_temp:ai_knowledge_base();
+                                            $ai_knowledge_basedeep_researchexception_entity:Map();
+                                            $ai_knowledge_basedeep_researchexists_report:ai_review_report();
+                                            $ai_knowledge_basedeep_researchlast:Map();
+                                            $ai_knowledge_basedeep_researchqueries:Map();
+                                            $ai_knowledge_basedeep_researchquery_chunk:ai_kb_chunk();
+                                            $ai_knowledge_basedeep_researchquery_chunk_result:Map();
+                                            $ai_knowledge_basedeep_researchquery_report:ai_review_report();
+                                            $ai_knowledge_basedeep_researchreport:ai_review_report();
+                                            $ai_knowledge_basedeep_researchret:ai_knowledge_base();
+                                            $ai_knowledge_basedeep_researchretrieved_chunks:Map();
+                                            $ai_knowledge_basedeep_researchsearch_plan:Map();
+                                            $ai_knowledge_basedeep_researchsearch_plans:Map();
+                                            $ai_knowledge_basedeep_researchsshy_content:Map();
+                                            $ai_knowledge_basedeep_researchverification_checklist:Map();
+                                    eval($ai_knowledge_basedeep_researchdefault==ai_knowledge_basedeep_researchdefault && $ai_knowledge_basedeep_researchagententity==ai_knowledge_basedeep_researchagententity && $ai_knowledge_basedeep_researchchat_request==ai_knowledge_basedeep_researchchat_request && $ai_knowledge_basedeep_researchdefault_temp==ai_knowledge_basedeep_researchdefault_temp && $ai_knowledge_basedeep_researchexists_report==ai_knowledge_basedeep_researchexists_report && $ai_knowledge_basedeep_researchquery_chunk==ai_knowledge_basedeep_researchquery_chunk && $ai_knowledge_basedeep_researchquery_report==ai_knowledge_basedeep_researchquery_report && $ai_knowledge_basedeep_researchreport==ai_knowledge_basedeep_researchreport && $ai_knowledge_basedeep_researchret==ai_knowledge_basedeep_researchret && );
+                                eval((RuleUtils.test($ai_knowledge_basedeep_researchexists_report.get("size"),"EQ","0")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_appendchatrequest_01_sysaichatagent_chatoutput_01" sourceRef="sysaichatagent_appendchatrequest_01" targetRef="sysaichatagent_chatoutput_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_016_copyparam_01" sourceRef="prepareparam_016" targetRef="copyparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_08_prepareparam_015" sourceRef="prepareparam_08" targetRef="prepareparam_015">
+                    </sequenceFlow>
+                    <sequenceFlow id="loopsubcall_02_prepareparam_01" sourceRef="loopsubcall_02" targetRef="prepareparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="loopsubcall_02_end_05" sourceRef="loopsubcall_02" targetRef="end_05">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_01_deaction_03" sourceRef="prepareparam_01" targetRef="deaction_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_013_deaction_04" sourceRef="prepareparam_013" targetRef="deaction_04">
+                    </sequenceFlow>
+                    <sequenceFlow id="deaction_04_end_05" sourceRef="deaction_04" targetRef="end_05">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_03_prepareparam_04" sourceRef="prepareparam_03" targetRef="prepareparam_04">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_04_loopsubcall_01" sourceRef="prepareparam_04" targetRef="loopsubcall_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_05_rawsfcode_02" sourceRef="prepareparam_05" targetRef="rawsfcode_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatoutput_02_prepareparam_06" sourceRef="sysaichatagent_chatoutput_02" targetRef="prepareparam_06">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatoutput_02_copyparam_02" sourceRef="sysaichatagent_chatoutput_02" targetRef="copyparam_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_06_prepareparam_09" sourceRef="prepareparam_06" targetRef="prepareparam_09">
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-prepareparam_07_sysaichatagent_fetchchunks_01" sourceRef="gateway-prepareparam_07" targetRef="sysaichatagent_fetchchunks_01">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_knowledge_basedeep_researchdefault:ai_knowledge_base();
+                                            $ai_knowledge_basedeep_researchagententity:ai_agent_context();
+                                            $ai_knowledge_basedeep_researchagenttag:Map();
+                                            $ai_knowledge_basedeep_researchchat_request:ai_knowledge_base();
+                                            $ai_knowledge_basedeep_researchchat_response:Map();
+                                            $ai_knowledge_basedeep_researchchat_response_entity:Map();
+                                            $ai_knowledge_basedeep_researchcontent:Map();
+                                            $ai_knowledge_basedeep_researchdefault_temp:ai_knowledge_base();
+                                            $ai_knowledge_basedeep_researchexception_entity:Map();
+                                            $ai_knowledge_basedeep_researchexists_report:ai_review_report();
+                                            $ai_knowledge_basedeep_researchlast:Map();
+                                            $ai_knowledge_basedeep_researchqueries:Map();
+                                            $ai_knowledge_basedeep_researchquery_chunk:ai_kb_chunk();
+                                            $ai_knowledge_basedeep_researchquery_chunk_result:Map();
+                                            $ai_knowledge_basedeep_researchquery_report:ai_review_report();
+                                            $ai_knowledge_basedeep_researchreport:ai_review_report();
+                                            $ai_knowledge_basedeep_researchret:ai_knowledge_base();
+                                            $ai_knowledge_basedeep_researchretrieved_chunks:Map();
+                                            $ai_knowledge_basedeep_researchsearch_plan:Map();
+                                            $ai_knowledge_basedeep_researchsearch_plans:Map();
+                                            $ai_knowledge_basedeep_researchsshy_content:Map();
+                                            $ai_knowledge_basedeep_researchverification_checklist:Map();
+                                    eval($ai_knowledge_basedeep_researchdefault==ai_knowledge_basedeep_researchdefault && $ai_knowledge_basedeep_researchagententity==ai_knowledge_basedeep_researchagententity && $ai_knowledge_basedeep_researchchat_request==ai_knowledge_basedeep_researchchat_request && $ai_knowledge_basedeep_researchdefault_temp==ai_knowledge_basedeep_researchdefault_temp && $ai_knowledge_basedeep_researchexists_report==ai_knowledge_basedeep_researchexists_report && $ai_knowledge_basedeep_researchquery_chunk==ai_knowledge_basedeep_researchquery_chunk && $ai_knowledge_basedeep_researchquery_report==ai_knowledge_basedeep_researchquery_report && $ai_knowledge_basedeep_researchreport==ai_knowledge_basedeep_researchreport && $ai_knowledge_basedeep_researchret==ai_knowledge_basedeep_researchret && );
+                                eval((RuleUtils.test($ai_knowledge_basedeep_researchqueries.get(""),"ISNOTNULL",""))&&(RuleUtils.test($ai_knowledge_basedeep_researchqueries.get("size"),"GT","0")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatoutput_03_prepareparam_010" sourceRef="sysaichatagent_chatoutput_03" targetRef="prepareparam_010">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatoutput_03_copyparam_02" sourceRef="sysaichatagent_chatoutput_03" targetRef="copyparam_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_appendchatrequest_03_sysaichatagent_chatoutput_03" sourceRef="sysaichatagent_appendchatrequest_03" targetRef="sysaichatagent_chatoutput_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_09_sysaichatagent_appendchatrequest_03" sourceRef="prepareparam_09" targetRef="sysaichatagent_appendchatrequest_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_fetchchunks_01_rawsfcode_01" sourceRef="sysaichatagent_fetchchunks_01" targetRef="rawsfcode_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_010_rawsfcode_03" sourceRef="prepareparam_010" targetRef="rawsfcode_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="rawsfcode_03_deaction_02" sourceRef="rawsfcode_03" targetRef="deaction_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="deaction_02_end_01" sourceRef="deaction_02" targetRef="end_01">
+                    </sequenceFlow>
+                            <exclusiveGateway id="gateway-deaction_01" name="Gateway" gatewayDirection="Diverging" default="gateway-deaction_01_end_line"></exclusiveGateway>
+                            <sequenceFlow id="deaction_01_gateway-deaction_01_gatewayline" sourceRef="deaction_01" targetRef="gateway-deaction_01"></sequenceFlow>
+                            <sequenceFlow id="gateway-deaction_01_end_line" sourceRef="gateway-deaction_01" targetRef="gateway-deaction_01_end"/>
+                            <endEvent id="gateway-deaction_01_end" name="end"/>
+                            <exclusiveGateway id="gateway-prepareparam_015" name="Gateway" gatewayDirection="Diverging" default="gateway-prepareparam_015_end_line"></exclusiveGateway>
+                            <sequenceFlow id="prepareparam_015_gateway-prepareparam_015_gatewayline" sourceRef="prepareparam_015" targetRef="gateway-prepareparam_015"></sequenceFlow>
+                            <sequenceFlow id="gateway-prepareparam_015_end_line" sourceRef="gateway-prepareparam_015" targetRef="gateway-prepareparam_015_end"/>
+                            <endEvent id="gateway-prepareparam_015_end" name="end"/>
+                            <exclusiveGateway id="gateway-dedataquery_01" name="Gateway" gatewayDirection="Diverging" default="gateway-dedataquery_01_end_line"></exclusiveGateway>
+                            <sequenceFlow id="dedataquery_01_gateway-dedataquery_01_gatewayline" sourceRef="dedataquery_01" targetRef="gateway-dedataquery_01"></sequenceFlow>
+                            <sequenceFlow id="gateway-dedataquery_01_end_line" sourceRef="gateway-dedataquery_01" targetRef="gateway-dedataquery_01_end"/>
+                            <endEvent id="gateway-dedataquery_01_end" name="end"/>
+                            <exclusiveGateway id="gateway-prepareparam_07" name="Gateway" gatewayDirection="Diverging" default="gateway-prepareparam_07_end_line"></exclusiveGateway>
+                            <sequenceFlow id="prepareparam_07_gateway-prepareparam_07_gatewayline" sourceRef="prepareparam_07" targetRef="gateway-prepareparam_07"></sequenceFlow>
+                            <sequenceFlow id="gateway-prepareparam_07_end_line" sourceRef="gateway-prepareparam_07" targetRef="gateway-prepareparam_07_end"/>
+                            <endEvent id="gateway-prepareparam_07_end" name="end"/>
+        </process>
+    </definitions>

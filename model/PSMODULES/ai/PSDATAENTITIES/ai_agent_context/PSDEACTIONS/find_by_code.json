@@ -1,0 +1,27 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "DELOGIC",
+  "codeName" : "find_by_code",
+  "dataAccessAction" : "READ",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEACTIONS/find_by_code.json",
+  "logicName" : "find_by_code",
+  "name" : "find_by_code",
+  "getPSDEActionInput" : {
+    "name" : "Find_by_codeInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_agent_context_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "Find_by_codeResult",
+    "type" : "VOID"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDELOGICS/get_by_code.json"
+  },
+  "enableFront" : false
+}

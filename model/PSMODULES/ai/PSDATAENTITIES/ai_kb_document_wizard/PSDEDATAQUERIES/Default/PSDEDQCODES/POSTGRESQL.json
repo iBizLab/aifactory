@@ -1,0 +1,67 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"parser_config\"",
+    "name" : "PARSER_CONFIG"
+  }, {
+    "expression" : "t1.\"selected_file_name\"",
+    "name" : "SELECTED_FILE_NAME"
+  }, {
+    "expression" : "t1.\"selected_page_name\"",
+    "name" : "SELECTED_PAGE_NAME"
+  }, {
+    "expression" : "t1.\"selection_file_ids\"",
+    "name" : "SELECTION_FILE_IDS"
+  }, {
+    "expression" : "t1.\"selection_page_ids\"",
+    "name" : "SELECTION_PAGE_IDS"
+  }, {
+    "expression" : "t1.\"selection_page_names\"",
+    "name" : "SELECTION_PAGE_NAMES"
+  }, {
+    "expression" : "t1.\"chunk_method\"",
+    "name" : "CHUNK_METHOD"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"custom_chunk\"",
+    "name" : "CUSTOM_CHUNK"
+  }, {
+    "expression" : "t1.\"enable\"",
+    "name" : "ENABLE"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"import_method\"",
+    "name" : "IMPORT_METHOD"
+  }, {
+    "expression" : "t1.\"is_parse_now\"",
+    "name" : "IS_PARSE_NOW"
+  }, {
+    "expression" : "t1.\"kb_id\"",
+    "name" : "KB_ID"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"space_selection\"",
+    "name" : "SPACE_SELECTION"
+  }, {
+    "expression" : "t1.\"sync_frequency\"",
+    "name" : "SYNC_FREQUENCY"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"chunk_method\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"custom_chunk\",\nt1.\"enable\",\nt1.\"id\",\nt1.\"import_method\",\nt1.\"is_parse_now\",\nt1.\"kb_id\",\nt1.\"name\",\nt1.\"space_selection\",\nt1.\"sync_frequency\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"\" t1 \n",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document_wizard/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

@@ -1,0 +1,27 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "DELOGIC",
+  "codeName" : "reason",
+  "dataAccessAction" : "READ",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEACTIONS/reason.json",
+  "logicName" : "推理",
+  "name" : "reason",
+  "getPSDEActionInput" : {
+    "name" : "ReasonInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_knowledge_base_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "ReasonResult",
+    "type" : "VOID"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDELOGICS/reason.json"
+  },
+  "enableFront" : false
+}

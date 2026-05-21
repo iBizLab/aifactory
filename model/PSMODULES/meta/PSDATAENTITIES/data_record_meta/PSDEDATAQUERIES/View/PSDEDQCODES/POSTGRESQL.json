@@ -1,0 +1,52 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"ban\"",
+    "name" : "BAN"
+  }, {
+    "expression" : "t1.\"dt\"",
+    "name" : "DT"
+  }, {
+    "expression" : "t1.\"email\"",
+    "name" : "EMAIL"
+  }, {
+    "expression" : "t1.\"idn\"",
+    "name" : "IDN"
+  }, {
+    "expression" : "t1.\"loc\"",
+    "name" : "LOC"
+  }, {
+    "expression" : "t1.\"lpn\"",
+    "name" : "LPN"
+  }, {
+    "expression" : "t1.\"org\"",
+    "name" : "ORG"
+  }, {
+    "expression" : "t1.\"owner\"",
+    "name" : "OWNER"
+  }, {
+    "expression" : "t1.\"per\"",
+    "name" : "PER"
+  }, {
+    "expression" : "t1.\"region\"",
+    "name" : "REGION"
+  }, {
+    "expression" : "t1.\"sma\"",
+    "name" : "SMA"
+  }, {
+    "expression" : "t1.\"summary\"",
+    "name" : "SUMMARY"
+  }, {
+    "expression" : "t1.\"tel\"",
+    "name" : "TEL"
+  }, {
+    "expression" : "t1.\"title\"",
+    "name" : "TITLE"
+  }, {
+    "expression" : "t1.\"_id\"",
+    "name" : "_ID"
+  } ],
+  "queryCode" : "SELECT\nt1.\"ban\",\nt1.\"dt\",\nt1.\"email\",\nt1.\"idn\",\nt1.\"loc\",\nt1.\"lpn\",\nt1.\"org\",\nt1.\"owner\",\nt1.\"per\",\nt1.\"region\",\nt1.\"sma\",\nt1.\"summary\",\nt1.\"tel\",\nt1.\"title\",\nt1.\"_id\"\nFROM \"\" t1 \n",
+  "id" : "PSMODULES/meta/PSDATAENTITIES/data_record_meta/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

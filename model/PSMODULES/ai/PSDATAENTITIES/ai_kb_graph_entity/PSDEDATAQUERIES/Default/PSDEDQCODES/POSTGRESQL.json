@@ -1,0 +1,58 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"confidence\"",
+    "name" : "CONFIDENCE"
+  }, {
+    "expression" : "t1.\"context\"",
+    "name" : "CONTEXT"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.\"document_id\"",
+    "name" : "DOCUMENT_ID"
+  }, {
+    "expression" : "t21.\"name\"",
+    "name" : "DOCUMENT_NAME"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"kb_id\"",
+    "name" : "KB_ID"
+  }, {
+    "expression" : "t11.\"name\"",
+    "name" : "KB_NAME"
+  }, {
+    "expression" : "t1.\"keywords\"",
+    "name" : "KEYWORDS"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"normalized_name\"",
+    "name" : "NORMALIZED_NAME"
+  }, {
+    "expression" : "t1.\"reference_type\"",
+    "name" : "REFERENCE_TYPE"
+  }, {
+    "expression" : "t1.\"type\"",
+    "name" : "TYPE"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"confidence\",\nt1.\"context\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"description\",\nt1.\"document_id\",\nt21.\"name\" AS \"document_name\",\nt1.\"id\",\nt1.\"kb_id\",\nt11.\"name\" AS \"kb_name\",\nt1.\"keywords\",\nt1.\"name\",\nt1.\"normalized_name\",\nt1.\"reference_type\",\nt1.\"type\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"ai_kb_graph_entity\" t1 \nLEFT JOIN \"ai_knowledge_base\" t11 ON t1.\"kb_id\" = t11.\"id\" \nLEFT JOIN \"ai_kb_document\" t21 ON t1.\"document_id\" = t21.\"id\" \n",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_graph_entity/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

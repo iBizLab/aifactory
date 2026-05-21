@@ -1,0 +1,90 @@
+{
+  "codeName" : "chat_execute_skill",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDELOGICS/chat_execute_skill.json",
+  "logicName" : "交谈执行技能",
+  "logicSubType" : "AICHAT",
+  "name" : "交谈执行技能",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : -1430,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATINTENTS_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : -260,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATINTENTS_01",
+    "leftPos" : -1780,
+    "logicNodeType" : "SYSAICHATAGENT_CHATINTENTS",
+    "name" : "意图整理",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATEXECUTESKILL_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATINTENTS_01"
+      }
+    } ],
+    "getPSSysAIFactory" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSSYSAIFACTORIES/iBizIntelligence.json"
+    },
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "intentList"
+    },
+    "subType" : "CHATINTENTS"
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATEXECUTESKILL_01",
+    "leftPos" : -1160,
+    "logicNodeType" : "SYSAICHATAGENT_CHATEXECUTESKILL",
+    "name" : "交谈执行技能",
+    "getPSSysAIFactory" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSSYSAIFACTORIES/iBizIntelligence.json"
+    },
+    "getSrcPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "intentList"
+    },
+    "subType" : "CHATEXECUTESKILL",
+    "topPos" : 80
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    },
+    "chatCompletionRequestParam" : true,
+    "default" : true
+  }, {
+    "codeName" : "intentList",
+    "logicName" : "意图列表",
+    "name" : "意图列表",
+    "stdDataType" : 25,
+    "simpleListParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

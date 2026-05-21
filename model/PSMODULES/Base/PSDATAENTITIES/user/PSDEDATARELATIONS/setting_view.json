@@ -1,0 +1,48 @@
+{
+  "codeName" : "setting_view",
+  "dynaModelFilePath" : "PSMODULES/Base/PSDATAENTITIES/user/PSDEDATARELATIONS/setting_view.json",
+  "formCaption" : "企业用户",
+  "name" : "帐号设置_关系界面组",
+  "getPSDEDRDetails" : [ {
+    "caption" : "帐号信息",
+    "detailType" : "DRITEM",
+    "name" : "info",
+    "orderValue" : 100,
+    "originCaption" : "帐号信息",
+    "getPSDEDRItem" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/user/PSDEDRITEMS/UsrDRItem0407241399.json"
+    }
+  }, {
+    "caption" : "修改密码",
+    "detailType" : "DRITEM",
+    "name" : "account",
+    "orderValue" : 110,
+    "originCaption" : "修改密码",
+    "getPSDEDRItem" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/user/PSDEDRITEMS/UsrDRItem0407134195.json"
+    }
+  }, {
+    "caption" : "智能体",
+    "detailType" : "DRITEM",
+    "name" : "agent",
+    "orderValue" : 140,
+    "originCaption" : "智能体",
+    "getPSDEDRItem" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/user/PSDEDRITEMS/UsrDRItem1205920270.json"
+    }
+  }, {
+    "caption" : "AI客户端凭证",
+    "detailType" : "DRITEM",
+    "name" : "client_credential",
+    "orderValue" : 150,
+    "originCaption" : "AI客户端凭证",
+    "getPSDEDRItem" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/user/PSDEDRITEMS/DRItem.json"
+    }
+  } ],
+  "hideEditItem" : true
+}

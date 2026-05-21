@@ -1,0 +1,36 @@
+package cn.ibizlab.ai.logic.ai_agent_memory_tasklogic.update_daily_log;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_agent_memory_task ai_agent_memory_taskupdate_daily_logdefault;
+        global cn.ibizlab.core.ai.service.Iai_agent_memory_taskService iBzSysAi_agent_memory_taskDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_agent_memory_taskupdate_daily_logbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "ai_agent_memory_taskupdate_daily_logend_01"
+            when
+            then
+                        update(ai_agent_memory_taskupdate_daily_logdefault);//更新fact中变量值
+            end
+
+            //逻辑处理节点[更新每日记忆文档]
+            rule "rawsfcode_01"
+            ruleflow-group "ai_agent_memory_taskupdate_daily_lograwsfcode_01"
+            when
+            then
+                        update(ai_agent_memory_taskupdate_daily_logdefault);//更新fact中变量值
+            end

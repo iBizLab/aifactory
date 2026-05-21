@@ -1,0 +1,35 @@
+{
+  "codeListTag" : "ai__hub_group_code",
+  "codeListType" : "DYNAMIC",
+  "codeName" : "hub_group_code",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/ai/PSCODELISTS/hub_group_code.json",
+  "emptyText" : "未定义",
+  "name" : "hub智能体分组",
+  "orMode" : "STR",
+  "getPSDEDataSet" : {
+    "modelref" : true,
+    "id" : "hub_agents"
+  },
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizAIFactory",
+  "textSeparator" : ";",
+  "getValuePSDEField" : {
+    "name" : "CODE_NAME",
+    "codeName" : "code_name"
+  },
+  "valueSeparator" : ",",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

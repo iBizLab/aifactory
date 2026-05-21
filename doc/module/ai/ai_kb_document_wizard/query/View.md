@@ -1,0 +1,108 @@
+## 默认（全部数据）(View) <!-- {docsify-ignore-all} -->
+
+
+
+<p class="panel-title"><b>查看SQL语句</b></p>
+<br>
+
+<el-row>
+&nbsp;<el-tag @click="MYSQL5 = true">MYSQL5</el-tag>
+&nbsp;<el-tag @click="POSTGRESQL = true">POSTGRESQL</el-tag>
+</el-row>
+
+<br>
+<p class="panel-title"><b>是否默认查询</b></p>
+
+* `否`
+
+<p class="panel-title"><b>是否权限使用</b></p>
+
+* `否`
+
+<p class="panel-title"><b>是否自定义SQL</b></p>
+
+* `否`
+
+<p class="panel-title"><b>查询列级别</b></p>
+
+* `全部数据`
+
+
+
+
+
+
+<el-dialog v-model="MYSQL5" title="MYSQL5">
+
+```sql
+SELECT
+t1.`CHUNK_METHOD`,
+t1.`CREATE_MAN`,
+t1.`CREATE_TIME`,
+t1.`CUSTOM_CHUNK`,
+t1.`ENABLE`,
+t1.`ID`,
+t1.`IMPORT_METHOD`,
+t1.`KB_ID`,
+t1.`NAME`,
+t1.`PARSER_CONFIG`,
+t1.`SELECTED_FILE_NAME`,
+t1.`SELECTED_PAGE_NAME`,
+t1.`SELECTION_FILE_IDS`,
+t1.`SELECTION_PAGE_IDS`,
+t1.`SPACE_SELECTION`,
+t1.`SYNC_FREQUENCY`,
+t1.`UPDATE_MAN`,
+t1.`UPDATE_TIME`
+FROM `` t1 
+
+
+```
+
+</el-dialog>
+
+<el-dialog v-model="POSTGRESQL" title="POSTGRESQL">
+
+```sql
+SELECT
+t1."chunk_method",
+t1."create_man",
+t1."create_time",
+t1."custom_chunk",
+t1."enable",
+t1."id",
+t1."import_method",
+t1."is_parse_now",
+t1."kb_id",
+t1."name",
+t1."parser_config",
+t1."selected_file_name",
+t1."selected_page_name",
+t1."selection_file_ids",
+t1."selection_page_ids",
+t1."selection_page_names",
+t1."space_selection",
+t1."sync_frequency",
+t1."update_man",
+t1."update_time"
+FROM "" t1 
+
+
+```
+
+</el-dialog>
+
+<script>
+ const { createApp } = Vue
+  createApp({
+    data() {
+      return {
+                MYSQL5 : false
+                POSTGRESQL : false
+        
+      }
+    },
+    methods: {
+    }
+  }).use(ElementPlus).mount('#app')
+</script>

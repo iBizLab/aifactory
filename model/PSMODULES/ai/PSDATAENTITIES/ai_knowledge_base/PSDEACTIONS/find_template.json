@@ -1,0 +1,27 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "DELOGIC",
+  "codeName" : "find_template",
+  "dataAccessAction" : "READ",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEACTIONS/find_template.json",
+  "logicName" : "查找知识库首页模版",
+  "name" : "find_template",
+  "getPSDEActionInput" : {
+    "name" : "Find_templateInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_knowledge_base_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "Find_templateResult",
+    "type" : "VOID"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDELOGICS/find_template.json"
+  },
+  "enableFront" : false
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.6.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="insert_resource" author="system" failOnError="false">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM data_resource WHERE id = 'file'
+            </sqlCheck>
+        </preConditions>
+        <sql>
+INSERT INTO data_resource (id, name, resource_code, schema, sort, enabled) VALUES ('file', '文件', 'file', '{"id":"8c3f3bf2-ef6e-f55f-858e-82a50fef2921","definition":{"type":"object","properties":{"id":{"type":"string","title":"文件标识"},"name":{"type":"string","title":"文件名称"},"folder":{"type":"string","title":"文件目录"}},"required":[]}}', 1, 1);
+INSERT INTO data_resource (id, name, resource_code, schema, sort, enabled) VALUES ('space', '空间', 'space', '{"id":"803a9b61-3a59-2d79-e93b-832d56399718","definition":{"type":"object","properties":{"id":{"type":"string","title":"标识"},"identifier":{"type":"string","title":"编号"},"name":{"type":"string","title":"标题"}},"required":[]}}', 2, 1);
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,70 @@
+{
+  "codeName" : "update_daily_log",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task/PSDELOGICS/update_daily_log.json",
+  "logicName" : "更新每日记忆文档",
+  "name" : "更新每日记忆文档",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : -280,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : -130,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "END_01",
+    "leftPos" : 20,
+    "logicNodeType" : "END",
+    "name" : "结束",
+    "topPos" : -16,
+    "parallelOutput" : true
+  }, {
+    "code" : "def values = []\r\n//doc_id由知识库标识||日期||业务范围标识||用户标识合成\r\ndef _default = logic.param('default').getReal()\r\ndef kb_tag = _default.get(\"kb_tag\")\r\ndef mode = _default.get(\"memory_isolation_mode\")\r\ndef daily_logs =  _default.get(\"daily_logs\")\r\ndef log = org.apache.commons.logging.LogFactory.getLog(\"cn.ibizlab.central.core.dataentity.logic.DELogicRuntimeBase\")\r\ndef doc_id\r\ndef doc_path\r\n\r\n\r\nprintln\"\\n---过程日志---${daily_logs}\"\r\nif(kb_tag && daily_logs){\r\n    values.add(kb_tag)\r\n    def curdate = net.ibizsys.runtime.util.DateUtils.toDateString(new java.util.Date())\r\n    def user_id = _default.get(\"user_id\")?_default.get(\"user_id\"):\"undefined\"\r\n    def scope = _default.get(\"scope\")?_default.get(\"scope\"):\"undefined\"\r\n    values.add(curdate)\r\n    if (!mode || mode == \"NONE\") {\r\n        values.add(\"__global__\")\r\n        values.add(\"__global__\")\r\n        doc_path=(\"/${curdate}/__global__/__global__/\").toString()\r\n    } \r\n    else if (mode == \"BUSINESS_SCOPE\") {\r\n        values.add(scope)\r\n        values.add(\"__global__\")\r\n        doc_path=(\"/${curdate}/${scope}/__global__/\").toString()\r\n    } \r\n    else if (mode == \"USER_SCOPE\") {\r\n        values.add(\"__global__\")\r\n        values.add(user_id)\r\n        doc_path=(\"/${curdate}/__global__/${user_id}/\").toString()\r\n    } \r\n    else if (mode == \"BUSINESS_USER_SCOPE\") {\r\n        values.add(scope)\r\n        values.add(user_id)\r\n        doc_path= (\"/${curdate}/${scope}/${user_id}/\").toString()\r\n    }  else {\r\n        //未识别按默认处理\r\n        values.add(\"__global__\")\r\n        values.add(\"__global__\")\r\n        doc_path=(\"/${curdate}/__global__/__global__/\").toString()\r\n    }\r\n\r\n    doc_id=net.ibizsys.runtime.util.KeyValueUtils.genUniqueId(values.toArray())\r\n    def _document\r\n    def system_id = sys.getDeploySystemId()\r\n    if(sys instanceof net.ibizsys.central.cloud.core.IServiceSystemRuntime) {\r\n        def iServiceSystemRuntime = (net.ibizsys.central.cloud.core.IServiceSystemRuntime)sys\r\n        if(iServiceSystemRuntime.getMainSystemId()) {\r\n            system_id = iServiceSystemRuntime.getMainSystemId();\r\n        }\r\n    }\r\n    def kb_config = \"${system_id}-kb--${kb_tag}\"\r\n    try{\r\n    _document = sys.getSysKBUtilRuntime(false).getDocument(kb_config, doc_id)\r\n    }catch(Exception e){\r\n        log.debug(\"获取记忆知识库文档失败, ${doc_id}\")\r\n    }\r\n    def new_content = daily_logs.collect { it.content }.join('\\n')\r\n    if(!_document){\r\n        _document = new net.ibizsys.central.cloud.core.util.domain.Document()\r\n        _document.set(\"id\",doc_id)\r\n        _document.set(\"name\",curdate+\".md\")\r\n        _document.set(\"type\",\"file\")\r\n        _document.set(\"kb_id\",kb_tag)\r\n        _document.set(\"categories\",doc_path)\r\n        _document.set(\"content\",new_content)\r\n    }else{\r\n        def origin_content =_document.get(\"content\")\r\n        def final_content = \"${origin_content}\\n${new_content}\"\r\n        _document.set(\"content\",final_content)\r\n    }\r\n    sys.getSysKBUtilRuntime(false).saveDocument(kb_config, doc_id,_document)\r\n}\r\n",
+    "codeName" : "RAWSFCODE_01",
+    "codeType" : "Groovy",
+    "leftPos" : -320,
+    "logicNodeType" : "RAWSFCODE",
+    "name" : "更新每日记忆文档",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      }
+    } ],
+    "topPos" : -16,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task.json"
+    },
+    "default" : true,
+    "entityParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

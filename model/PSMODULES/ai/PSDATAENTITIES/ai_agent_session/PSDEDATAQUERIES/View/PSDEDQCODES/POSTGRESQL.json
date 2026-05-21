@@ -1,0 +1,22 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"context_code_name\"",
+    "name" : "CONTEXT_CODE_NAME"
+  }, {
+    "expression" : "t11.\"context_debug_data\"",
+    "name" : "CONTEXT_DEBUG_DATA"
+  }, {
+    "expression" : "t1.\"context_id\"",
+    "name" : "CONTEXT_ID"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"context_code_name\",\nt11.\"context_debug_data\",\nt1.\"context_id\",\nt1.\"id\",\nt1.\"name\"\nFROM \"\" t1 \nLEFT JOIN \"ai_agent_context\" t11 ON t1.\"context_id\" = t11.\"id\" \n",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_session/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

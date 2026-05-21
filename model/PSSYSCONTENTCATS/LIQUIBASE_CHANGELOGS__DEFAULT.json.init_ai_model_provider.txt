@@ -1,0 +1,66 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.6.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+<changeSet author="jackwang" id="init_ai_model_provider"  failOnError="false">
+<sql>
+
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.z.ai/api/paas', NULL, '/v4', 'z_ai', 'Z.ai', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.x.ai', NULL, '/v1', 'grok', 'Grok', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://deepseek.alayanew.com', NULL, '/v1', 'alaya_new', 'Alaya NeW', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.ocoolai.com', NULL, '/v1', 'ocoolai', 'ocoolAl', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://ark.cn-beijing.volces.com/api', NULL, '/v3', 'volcengine', '火山引擎', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.aiionly.com', NULL, '/v1', 'aionly', '唯一AI (AiOnly)', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.tokenflux.ai/openai', NULL, '/v1', 'tokenflux', 'TokenFlux', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.qnaigc.com', NULL, '/v1', 'qiniu', '七牛云 AI 推理', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.minimaxi.com', NULL, '/v1', 'minimax', 'MiniMax', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.302.ai', NULL, '/v1', '302_ai', '302.AI', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.stepfun.com', NULL, '/v1', 'stepfun', '阶跃星辰', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.hyperbolic.xyz', NULL, '/v1', 'hyperbolic', 'Hyperbolic', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.openai.com', NULL, '/v1', 'openai', 'OpenAI', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.together.xyz', NULL, '/v1', 'together', 'Together', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.groq.com/openai', NULL, '/v1', 'groq', 'Groq', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://wishub-x1.ctyun.cn', NULL, '/v1', 'ctyun', '天翼云息壤', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.voyageai.com', NULL, '/v1', 'voyage', 'Voyage AI', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('http://localhost:8000', NULL, '/v1', 'gpustack', 'GPUStack', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://qianfan.baidubce.com', NULL, '/v2', 'baidu', '百度云千帆', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://cephalon.cloud/user-center/v1/model', NULL, '', 'cephalon', 'Cephalon', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.siliconflow.cn', NULL, '/v1', 'silicon', '硅基流动', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://maas-api.lanyun.net', NULL, '/v1', 'lanrun', '蓝耘科技', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api-inference.modelscope.cn', NULL, '/v1', 'modelscope', 'ModelScope 魔搭', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.xiaomimimo.com', NULL, '/v1', 'mimo', 'Xiaomi MiMo', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.mistral.ai', NULL, '/v1', 'mistral', 'Mistral', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('http://localhost:1234', NULL, '/v1', 'lm_studio', 'LM Studio', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://integrate.api.nvidia.com', NULL, '/v1', 'nvidia', '英伟达', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.longcat.chat/openai', NULL, '/v1', 'dragonfly', '龙猫', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.lkeap.cloud.tencent.com', NULL, '/v1', 'tencent_ti', '腾讯云 TI', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.baichuan-ai.com', NULL, '/v1', 'baichuan', '百川', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://aihubmix.com', NULL, '/v1', 'aihubmix', 'AiHubMix', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://www.sophnet.com/api/open-apis', NULL, '/v1', 'sophnet', 'SophNet', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.fireworks.ai/inference', NULL, '/v1', 'fireworks', 'Fireworks', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://ph8.co', NULL, '/v1', 'ph8', 'PH8', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.lingyiwanwu.com', NULL, '/v1', '01ai', '零一万物', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.minimax.io', NULL, '/v1', 'minimax_intl', 'MiniMax 海外版', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.poe.com', NULL, '/v1', 'poe', 'Poe', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.jina.ai', NULL, '/v1', 'jina', 'Jina', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://cloud.infini-ai.com/maas', NULL, '/v1', 'infinigence', '无问芯穹', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://dashscope.aliyuncs.com/compatible-mode', NULL, '/v1', 'aliyun', '阿里云百炼', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.hunyuan.cloud.tencent.com', NULL, '/v1', 'tencent', '腾讯混元', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.ppinfra.com/v3/openai', NULL, '', 'ppio', 'PPIO 派欧云', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.deepseek.com', NULL, '/v1', 'deepseek', '深度求索', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('http://localhost:11434', NULL, '/v1', 'ollama', 'Ollama兼容模式', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.moonshot.cn', NULL, '/v1', 'moonshot', '月之暗面', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.perplexity.ai', NULL, '', 'perplexity', 'Perplexity', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.anthropic.com', NULL, '/v1', 'anthropic', 'Anthropic', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://api.cerebras.ai', NULL, '/v1', 'cerebras', 'Cerebras AI', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://router.huggingface.co', NULL, '/v1', 'huggingface', 'Hugging Face', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://openrouter.ai/api', NULL, '/v1', 'openrouter', 'OpenRouter', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://open.bigmodel.cn/api/paas', NULL, '/v4', 'zhipu', '智谱开放平台', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://ai.burncloud.com', NULL, '/v1', 'burncloud', 'BurnCloud', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://generativelanguage.googleapis.com', NULL, '/v1beta', 'gemini', 'Gemini', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://dashscope.aliyuncs.com/compatible-mode', NULL, '/v1', 'qwen', '通义千问', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://coding.dashscope.aliyuncs.com', NULL, '/v1', 'aliyun_coding', '阿里云百炼coding', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('https://ark.cn-beijing.volces.com/api/coding', NULL, '/v3', 'volcengine_coding', '火山引擎coding', NULL);
+INSERT INTO "ai_model_provider" ("base_url", "default_token", "default_version", "id", "name", "update_time") VALUES ('124566333333', '123456', NULL, '3aaac91b5612cbd40044fd555dc92bdf', '商汤科技', '2026-04-23 17:50:51.049');
+
+</sql>
+</changeSet>
+</databaseChangeLog>

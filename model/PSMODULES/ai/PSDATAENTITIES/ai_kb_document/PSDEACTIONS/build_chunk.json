@@ -1,0 +1,32 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "DELOGIC",
+  "codeName" : "build_chunk",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDEACTIONS/build_chunk.json",
+  "logicName" : "立即切片",
+  "name" : "build_chunk",
+  "getPSDEActionInput" : {
+    "name" : "Build_chunkInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_kb_document_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "Build_chunkResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_kb_document_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDELOGICS/build_chunk.json"
+  },
+  "transactionMode" : "NONE",
+  "enableFront" : false
+}

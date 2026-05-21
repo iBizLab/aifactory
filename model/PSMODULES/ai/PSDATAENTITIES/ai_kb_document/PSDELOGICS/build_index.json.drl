@@ -1,0 +1,50 @@
+package cn.ibizlab.ai.logic.ai_kb_documentlogic.build_index;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_kb_document ai_kb_documentbuild_indexdefault;
+                    global cn.ibizlab.core.ai.service.Iai_kb_documentService ai_kb_documentservice;
+        global cn.ibizlab.core.ai.service.Iai_kb_documentService iBzSysAi_kb_documentDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_kb_documentbuild_indexbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[准备状态]
+            rule "rawsqlcall_01"
+            ruleflow-group "ai_kb_documentbuild_indexrawsqlcall_01"
+            when
+            then
+    Map param =new HashMap();
+        param.put("param0",ai_kb_documentbuild_indexdefault.get("id"));
+    String strSql="update ai_kb_document t set status =  case when t.status = '4' or t.status='99' then '99' else '1' end where id = #{et.param0}";
+                        iBzSysAi_kb_documentDefaultService.execute(strSql,param);//SQL调用
+                        update(ai_kb_documentbuild_indexdefault);//更新fact中变量值
+            end
+
+            //逻辑处理节点[重建索引]
+            rule "deaction_01"
+            ruleflow-group "ai_kb_documentbuild_indexdeaction_01"
+            when
+            then
+                        ai_kb_documentservice.reindex(ai_kb_documentbuild_indexdefault);
+                        update(ai_kb_documentbuild_indexdefault);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "ai_kb_documentbuild_indexend_01"
+            when
+            then
+                        update(ai_kb_documentbuild_indexdefault);//更新fact中变量值
+            end

@@ -1,0 +1,27 @@
+{
+  "codeListTag" : "ai__conversation_type",
+  "codeListType" : "STATIC",
+  "codeName" : "ai__conversation_type",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__conversation_type.json",
+  "emptyText" : "未定义",
+  "name" : "会话类型",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_conversation.json"
+  },
+  "getPSCodeItems" : [ {
+    "codeName" : "topic",
+    "text" : "话题",
+    "value" : "topic"
+  }, {
+    "codeName" : "temp",
+    "text" : "临时",
+    "value" : "temp"
+  }, {
+    "codeName" : "inline",
+    "text" : "行内补全",
+    "value" : "inline"
+  } ],
+  "enableCache" : true
+}

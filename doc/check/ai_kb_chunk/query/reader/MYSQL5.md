@@ -1,0 +1,41 @@
+```sql
+SELECT
+t1.`ACTIVE`,
+t11.`CATEGORIES`,
+t1.`CHUNK_TYPE`,
+t1.`CONTENT`,
+t1.`CONTENT_PREVIEW`,
+t1.`CREATE_MAN`,
+t1.`CREATE_TIME`,
+t1.`DOCUMENT_ID`,
+t11.`NAME` AS `DOCUMENT_NAME`,
+t11.`SEQUENCE` AS `DOCUMENT_SEQUENCE`,
+t11.`TYPE` AS `DOCUMENT_TYPE`,
+t11.`FILE` AS `DOC_FILE`,
+t11.`NAME` AS `DOC_NAME`,
+t1.`ID`,
+t11.`KB_ID`,
+t21.`NAME` AS `KB_NAME`,
+t1.`KEYWORDS`,
+t1.`KEY_QUESTIONS`,
+t1.`META_DATA`,
+t1.`NAME`,
+t1.`PATH`,
+t1.`PID`,
+t1.`POSITIONS`,
+t1.`SEQUENCE`,
+t1.`SOURCE_COUNT`,
+t1.`TAGS`,
+t1.`TYPE`,
+t1.`UPDATE_MAN`,
+t1.`UPDATE_TIME`,
+t1.`USER_TAG`,
+t1.`USER_TAG2`
+FROM `AI_KB_CHUNK` t1 
+LEFT JOIN `AI_KB_DOCUMENT` t11 ON t1.`DOCUMENT_ID` = t11.`ID` 
+LEFT JOIN `AI_KNOWLEDGE_BASE` t21 ON t11.`KB_ID` = t21.`ID` 
+
+WHERE ( ( t21.`VISIBILITY` = 'public'  OR  ( t21.`SCOPE_TYPE` = 'organization'  AND  t21.`SCOPE_ID` = #{ctx.sessioncontext.srforgid} )  OR  EXISTS(SELECT 1 FROM AI_KB_MEMBER m 
+ WHERE 
+ t21.ID = m.KB_ID  AND  ( m.USER_ID = #{ctx.sessioncontext.srfpersonid} ) ) ) )
+```

@@ -1,0 +1,16 @@
+```sql
+SELECT
+t1.`CONFIDENCE`,
+t1.`CREATE_MAN`,
+t1.`CREATE_TIME`,
+t1.`ID`,
+t1.`KB_ID`,
+t1.`NAME`,
+t1.`NORMALIZED_NAME`,
+t1.`TYPE`,
+t1.`UPDATE_MAN`,
+t1.`UPDATE_TIME`
+FROM `AI_KB_GRAPH_ENTITY` t1 
+
+
+```

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="cn.ibizlab.core.ai.service.logic.ai_agent_contextchat_execute_action" isClosed="false" isExecutable="true" name="ai_ai_agent_context_chat_execute_action_ruleFlow" processType="Private" tns:packageName="cn.ibizlab.core.ai.service.logic.ai_agent_contextchat_execute_action">
+            <extensionElements>
+                <tns:import name="java.util.Map" />
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="cn.ibizlab.util.helper.RuleUtils"/>
+                                <tns:metaData express="" name="ai_agent_contextchat_execute_actiondefault" type="entity"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_agent_contextService))" name="ai_agent_contextservice" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_agent_contextService))" name="iBzSysAi_agent_contextDefaultService" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
+                            <tns:global identifier="ai_agent_contextchat_execute_actiondefault" type="cn.ibizlab.core.ai.domain.ai_agent_context" />
+            </extensionElements>
+                        <startEvent id="begin" isInterrupting="true"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_execute_actionsysaichatagent_chatinput_01" id="sysaichatagent_chatinput_01" implementation="http://www.jboss.org/drools/rule" name="等待输入"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_execute_actionsysaichatagent_chatexecuteaction_01" id="sysaichatagent_chatexecuteaction_01" implementation="http://www.jboss.org/drools/rule" name="交谈执行行为"/>
+                        <endEvent id="sysaichatagent_chatexecuteaction_01_end" name="end"/>
+                        <sequenceFlow id="sysaichatagent_chatexecuteaction_01_end_line" sourceRef="sysaichatagent_chatexecuteaction_01" targetRef="sysaichatagent_chatexecuteaction_01_end"/>
+                    <sequenceFlow id="begin_sysaichatagent_chatinput_01" sourceRef="begin" targetRef="sysaichatagent_chatinput_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatinput_01_sysaichatagent_chatexecuteaction_01" sourceRef="sysaichatagent_chatinput_01" targetRef="sysaichatagent_chatexecuteaction_01">
+                    </sequenceFlow>
+        </process>
+    </definitions>

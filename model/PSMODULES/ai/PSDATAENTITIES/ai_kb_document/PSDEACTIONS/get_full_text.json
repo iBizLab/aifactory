@@ -1,0 +1,27 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "READ",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "get_full_text",
+  "dataAccessAction" : "READ",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDEACTIONS/get_full_text.json",
+  "logicName" : "获取完整文本",
+  "name" : "GET_FULL_TEXT",
+  "getPSDEActionInput" : {
+    "getKeyPSDEField" : {
+      "name" : "ID",
+      "codeName" : "id"
+    },
+    "name" : "Get_full_textInput",
+    "type" : "KEYFIELD"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "Get_full_textResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_kb_document_dto"
+    },
+    "type" : "DTO"
+  },
+  "enableFront" : false
+}

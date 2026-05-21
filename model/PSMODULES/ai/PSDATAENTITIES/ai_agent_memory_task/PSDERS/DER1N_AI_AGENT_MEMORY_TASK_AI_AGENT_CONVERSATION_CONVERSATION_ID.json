@@ -1,0 +1,27 @@
+{
+  "codeName" : "AI_AGENT_CONVERSATION",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task/PSDERS/DER1N_AI_AGENT_MEMORY_TASK_AI_AGENT_CONVERSATION_CONVERSATION_ID.json",
+  "fKeyName" : "F74EEC35FC5E6F03C5",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task.json"
+  },
+  "name" : "DER1N_AI_AGENT_MEMORY_TASK_AI_AGENT_CONVERSATION_CONVERSATION_ID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "CONVERSATION_ID",
+    "codeName" : "conversation_id"
+  },
+  "pickupDEFName" : "CONVERSATION_ID",
+  "removeActionType" : 0,
+  "removeOrder" : 0,
+  "serviceCodeName" : "ai_agent_conversation",
+  "enableFKey" : true
+}

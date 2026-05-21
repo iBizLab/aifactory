@@ -1,0 +1,27 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "DELOGIC",
+  "codeName" : "favorite",
+  "dataAccessAction" : "READ",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEACTIONS/favorite.json",
+  "logicName" : "设置星标",
+  "name" : "favorite",
+  "getPSDEActionInput" : {
+    "name" : "FavoriteInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_knowledge_base_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "FavoriteResult",
+    "type" : "VOID"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDELOGICS/favorite.json"
+  },
+  "enableFront" : false
+}

@@ -1,0 +1,25 @@
+{
+  "codeListTag" : "ai__hub_group_code",
+  "codeListType" : "DYNAMIC",
+  "codeName" : "ai__hub_group_code",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__hub_group_code.json",
+  "emptyText" : "未定义",
+  "name" : "hub智能体分组",
+  "orMode" : "STR",
+  "getPSAppDEDataSet" : {
+    "modelref" : true,
+    "id" : "fetch_hub_agents"
+  },
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
+  },
+  "textSeparator" : ";",
+  "getValuePSAppDEField" : {
+    "name" : "CODE_NAME",
+    "codeName" : "code_name"
+  },
+  "valueSeparator" : ",",
+  "enableCache" : true
+}

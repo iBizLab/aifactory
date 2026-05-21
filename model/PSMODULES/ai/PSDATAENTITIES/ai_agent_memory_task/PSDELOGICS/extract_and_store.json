@@ -1,0 +1,1417 @@
+{
+  "codeName" : "extract_and_store",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task/PSDELOGICS/extract_and_store.json",
+  "logicName" : "记忆提取并存储",
+  "name" : "记忆提取并存储",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : -416,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEACTION_01",
+    "getDstPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task/PSDEACTIONS/Get.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task.json"
+    },
+    "leftPos" : -40,
+    "logicNodeType" : "DEACTION",
+    "name" : "获取任务实例",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_011"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_01"
+      }
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "topPos" : -290,
+    "parallelOutput" : true
+  }, {
+    "code" : "def _chat_temp = logic.param('chat_temp').getReal();\r\ndef _chat_temp2 = logic.param('chat_temp2').getReal();\r\ndef _default = logic.param('Default').getReal();\r\ndef _message_list = logic.param('message_list').getReal();\r\ndef messages = _message_list.content\r\n\r\nif (_chat_temp  && messages){\r\n    //设置会话快照\r\n    def conversation_snapshot = messages.collect { item ->\"[${item.sender_type}]${item.content}\"}.join('\\n')\r\n   _default.conversation_snapshot=conversation_snapshot;\r\n\r\n    def last_message = messages.last()\r\n    //设置最后消息时间\r\n    _default.last_msg_time=last_message.create_time\r\n\r\n    def extract_memory_str = _chat_temp.get('extract_memory')\r\n        //设置提取的新记忆\r\n    _default.extracted_content=extract_memory_str;\r\n    \r\n    def extract_memory_obj= new groovy.json.JsonSlurper().parseText(net.ibizsys.central.cloud.core.ai.util.AIChatUtils.getJsonContent(extract_memory_str))\r\n    def candidates_list = extract_memory_obj['candidates']\r\n    def fact_source_candidates = candidates_list.findAll { it['mem_type'] == 'fact_source' }?: []\r\n    def fact_content_list = fact_source_candidates.collect { it.content }\r\n    def fact_source_str = fact_source_candidates ? net.ibizsys.model.util.JsonUtils.getMapper().writeValueAsString(fact_source_candidates) : null\r\n    _chat_temp2.set(\"fact_source_candidates\", fact_source_str)\r\n    _chat_temp2.set(\"fact_content_list\", fact_content_list)\r\n\r\n     def daily_log_candidates = candidates_list.findAll { it['mem_type'] == 'daily_log' }?: []\r\n     _default.set(\"daily_logs\",daily_log_candidates)\r\n\r\n     println\"\\n---记忆提取的后的default----${_default}\"\r\n }   \r\n",
+    "codeName" : "RAWSFCODE_01",
+    "codeType" : "Groovy",
+    "leftPos" : 296,
+    "logicNodeType" : "RAWSFCODE",
+    "memo" : "存在mem_type=fact_source的数据，封装成list请求核验智能体；\n存在mem_type=daily_log的数据，生成每日记忆文档；",
+    "name" : "记忆提取交谈返回",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "BINDPARAM_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      }
+    } ],
+    "topPos" : 80,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "RENEWPARAM_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_request"
+    },
+    "leftPos" : 16,
+    "logicNodeType" : "RENEWPARAM",
+    "memo" : "防止污染下一个智能体的调用",
+    "name" : "重新建立chat_request",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DELOGIC_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RENEWPARAM_01"
+      }
+    } ],
+    "topPos" : 202,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_09",
+    "leftPos" : 604,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "准备参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DELOGIC_05"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_09"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "daily_logs",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "daily_logs"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "topPos" : 220,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DELOGIC_01",
+    "getDstPSDELogic" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task/PSDELOGICS/fill_default_doc_id.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task.json"
+    },
+    "leftPos" : -200,
+    "logicNodeType" : "DELOGIC",
+    "name" : "填充默认文档标识",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_08"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DELOGIC_01"
+      }
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "topPos" : 230,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_08",
+    "leftPos" : -420,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "准备记忆检索参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_FETCHCHUNKS_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_08"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "size",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chunk_filter"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValue" : "40",
+      "srcValueType" : "SRCVALUE"
+    }, {
+      "dstFieldName" : "n_docid_in",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chunk_filter"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "DOC_ID",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    }, {
+      "dstFieldName" : "n_kbid_eq",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chunk_filter"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "KB_TAG",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    }, {
+      "dstFieldName" : "queries",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chunk_filter"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "fact_content_list",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chat_temp2"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    }, {
+      "dstFieldName" : "srfaiagenttag",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chat_request"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValue" : "memory_verification",
+      "srcValueType" : "SRCVALUE"
+    }, {
+      "dstFieldName" : "n_pageindex_eq",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chunk_filter"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValue" : "0",
+      "srcValueType" : "SRCVALUE"
+    } ],
+    "topPos" : 240,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATRAW_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_request"
+    },
+    "leftPos" : 120,
+    "logicNodeType" : "SYSAICHATAGENT_CHATRAW",
+    "memo" : "调用记忆提取智能体",
+    "name" : "记忆提取智能体调用",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_03"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATRAW_01"
+      }
+    } ],
+    "getPSSysAIChatAgent" : {
+      "modelref" : true,
+      "id" : "DynamicAgent"
+    },
+    "getPSSysAIFactory" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSSYSAIFACTORIES/iBizIntelligence.json"
+    },
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_response"
+    },
+    "subType" : "CHATRAW",
+    "topPos" : -40
+  }, {
+    "code" : "def _checkQueries = logic.param('check_queries').getReal()\r\ndef _default = logic.param('Default').getReal()\r\ndef verification_result_str =null\r\ndef _chat_temp = logic.param('chat_temp').getReal();\r\ndef _log = org.apache.commons.logging.LogFactory.getLog(\"cn.ibizlab.central.core.dataentity.logic.DELogicRuntimeBase\")\r\n\r\nif (_chat_temp){\r\n    verification_result_str = _chat_temp.get('verification_result')\r\n    println(\"核验结果：\"+ verification_result_str)\r\n    _default.update_strategy=verification_result_str//设置更新策略\r\n    \r\n    if (!verification_result_str || verification_result_str.trim() == \"[]\") {\r\n        _default.set(\"latest_chunks\",null)\r\n        return  _default\r\n    } \r\n}   \r\n\r\n// 工具：安全转换实体列表为 Map 列表\r\ndef convertToMapList = { list ->\r\n    if (!list) return []\r\n    list.collect { item ->\r\n        [\r\n            id: item?.id,\r\n            content: (item?.content ? item.content.split(/\\r?\\n/) as List<String> : [])\r\n        ]\r\n    }\r\n}\r\n\r\ndef generateId = { \"chunk_${System.currentTimeMillis()}_${(Math.random() * 1000).toInteger()}\" }\r\n\r\n// 根据行号变化动态计算偏移量\r\ndef applyOperations = { List<String> lines, List<Map> ops ->\r\n    int offset = 0\r\n    // 按行号升序排序，确保偏移量计算正确\r\n    ops.sort { a, b ->\r\n        int posA = (a.operation == 'UPDATE_LINES') ? a.line_range.start : a.insert_after_line\r\n        int posB = (b.operation == 'UPDATE_LINES') ? b.line_range.start : b.insert_after_line\r\n        posA <=> posB\r\n    }\r\n\r\n    ops.each { op ->\r\n        if (op.operation == 'UPDATE_LINES') {\r\n            int start = op.line_range.start + offset\r\n            int end = op.line_range.end + offset\r\n            int size = lines.size()\r\n\r\n            if (start < 1 || end > size) throw new RuntimeException(\"行号越界：${start}-${end}, 当前行数：${size}\")\r\n\r\n            int from = start - 1\r\n            int to = end // subList end is exclusive\r\n\r\n            lines = lines[0..<from] + (op.new_content_lines as List<String>) + lines[to..<size]\r\n            offset += (op.new_content_lines.size() - (end - start + 1))\r\n\r\n        } else if (op.operation == 'INSERT_LINES') {\r\n            int rawIdx = op.insert_after_line + offset\r\n            int idx = Math.max(0, Math.min(rawIdx, lines.size()))\r\n            lines = lines[0..<idx] + (op.new_content_lines as List<String>) + lines[idx..<lines.size()]\r\n            offset += op.new_content_lines.size()\r\n        }\r\n    }\r\n    lines\r\n}\r\n\r\n// 内容块更新处理\r\ndef processChunks = { chunks, opsJson ->\r\n    def existing = convertToMapList(chunks)\r\n    def ops = new groovy.json.JsonSlurper().parseText(opsJson)\r\n    \r\n    // 建立索引方便查找\r\n    def chunkMap = existing.collectEntries { [(it.id): it] }\r\n    def newChunks = []\r\n\r\n    // 1. 处理 CREATE\r\n    ops.findAll { it.operation == 'CREATE' }.each { op ->\r\n        def chunk = [\r\n            id: op.target_chunk_id ?: generateId(),\r\n            content: op.final_content\r\n        ]\r\n        newChunks << chunk\r\n        _log.debug(\"✅ [CREATE] ${chunk.id} \")\r\n    }\r\n\r\n    // 2. 处理 MODIFY (UPDATE/INSERT)\r\n    ops.findAll { it.operation != 'CREATE' }.groupBy { it.target_chunk_id }.each { id, chunkOps ->\r\n        def target = chunkMap[id]\r\n        if (!target) {\r\n            log.debug(\"⚠️ 警告：未找到 Chunk ${id}, 跳过\")\r\n            return\r\n        }\r\n        target.content = applyOperations(target.content, chunkOps)\r\n    }\r\n\r\n    // 合并：原有(已修改) + 新增\r\n    def result = chunkMap.values() + newChunks\r\n        // 将 content 列表重新合并为带换行符的字符串\r\n    return result.collect { chunk ->\r\n        def finalContent = (chunk.content instanceof List) ? chunk.content.join('\\n') : chunk.content  \r\n        return [\r\n            id: chunk.id,\r\n            content: finalContent \r\n        ]\r\n    }\r\n\r\n}\r\n\r\n// 执行入口\r\ntry {\r\n    def latest_chunks = processChunks(_checkQueries, verification_result_str)\r\n    _default.set(\"latest_chunks\", latest_chunks ? latest_chunks : null)\r\n    _default.set(\"status\",\"SUCCESS\")\r\n    _default.set(\"result\", \"执行成功!\")\r\n} catch (Exception e) {\r\n    _default.set(\"status\",\"FAILED\")\r\n    _default.set(\"result\", \"记忆内容块处理发生异常!\")\r\n    _log.debug(\"❌ [ERROR] 内容块更新处理异常,处理 Chunk 失败: ${e.message}\")\r\n}\r\n\r\nreturn  _default\r\n",
+    "codeName" : "RAWSFCODE_04",
+    "codeType" : "Groovy",
+    "leftPos" : 136,
+    "logicNodeType" : "RAWSFCODE",
+    "name" : "记忆核验返回重新构造切片",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DELOGIC_02"
+      },
+      "name" : "返回切片非空",
+      "getPSDELogicLinkGroupCond" : {
+        "groupOP" : "AND",
+        "logicType" : "GROUP",
+        "name" : "连接条件组",
+        "getPSDELogicLinkConds" : [ {
+          "condOP" : "ISNOTNULL",
+          "dstFieldName" : "latest_chunks",
+          "getDstLogicParam" : {
+            "modelref" : true,
+            "id" : "Default"
+          },
+          "logicType" : "SINGLE",
+          "name" : "Default[latest_chunks] 值不为空(NotNil) "
+        } ]
+      },
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_04"
+      }
+    }, {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_07"
+      },
+      "name" : "返回切片为空",
+      "getPSDELogicLinkGroupCond" : {
+        "groupOP" : "AND",
+        "logicType" : "GROUP",
+        "name" : "连接条件组",
+        "getPSDELogicLinkConds" : [ {
+          "condOP" : "ISNULL",
+          "dstFieldName" : "latest_chunks",
+          "getDstLogicParam" : {
+            "modelref" : true,
+            "id" : "Default"
+          },
+          "logicType" : "SINGLE",
+          "name" : "Default[latest_chunks] 值为空(Nil) "
+        } ]
+      },
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_04"
+      }
+    } ],
+    "topPos" : 330
+  }, {
+    "codeName" : "DEDATASET_01",
+    "getDstPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "all"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "agent_message_filter"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_message.json"
+    },
+    "leftPos" : 160,
+    "logicNodeType" : "DEDATASET",
+    "name" : "最新task后续产生的会话消息",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEDATASET_01"
+      }
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "message_list"
+    },
+    "topPos" : -152,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "BINDPARAM_02",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "daily_logs"
+    },
+    "leftPos" : 296,
+    "logicNodeType" : "BINDPARAM",
+    "name" : "绑定参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RENEWPARAM_01"
+      },
+      "name" : "存在事实知识",
+      "getPSDELogicLinkGroupCond" : {
+        "groupOP" : "AND",
+        "logicType" : "GROUP",
+        "name" : "连接条件组",
+        "getPSDELogicLinkConds" : [ {
+          "condOP" : "ISNOTNULL",
+          "dstFieldName" : "fact_source_candidates",
+          "getDstLogicParam" : {
+            "modelref" : true,
+            "id" : "chat_temp2"
+          },
+          "logicType" : "SINGLE",
+          "name" : "chat_temp2[fact_source_candidates] 值不为空(NotNil) "
+        } ]
+      },
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "BINDPARAM_02"
+      }
+    }, {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_09"
+      },
+      "name" : "存在过程日志",
+      "getPSDELogicLinkGroupCond" : {
+        "groupOP" : "AND",
+        "logicType" : "GROUP",
+        "name" : "连接条件组",
+        "getPSDELogicLinkConds" : [ {
+          "condOP" : "GT",
+          "dstFieldName" : "size",
+          "getDstLogicParam" : {
+            "modelref" : true,
+            "id" : "daily_logs"
+          },
+          "logicType" : "SINGLE",
+          "name" : "daily_logs[size] 大于(>) 0",
+          "paramValue" : "0"
+        } ]
+      },
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "BINDPARAM_02"
+      }
+    } ],
+    "srcFieldName" : "daily_logs",
+    "getSrcPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "topPos" : 192,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DELOGIC_05",
+    "getDstPSDELogic" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task/PSDELOGICS/update_daily_log.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task.json"
+    },
+    "leftPos" : 584,
+    "logicNodeType" : "DELOGIC",
+    "name" : "更新每日记忆文档",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_07"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DELOGIC_05"
+      }
+    } ],
+    "topPos" : 360,
+    "parallelOutput" : true
+  }, {
+    "chatRequestAppendMode" : "USER",
+    "codeName" : "SYSAICHATAGENT_APPENDCHATREQUEST_02",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_request"
+    },
+    "leftPos" : -640,
+    "logicNodeType" : "SYSAICHATAGENT_APPENDCHATREQUEST",
+    "message" : "对以下新提取信息进行记忆核验：\n${params.chat_temp2.fact_source_candidates}\n",
+    "name" : "附加新提取信息",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_APPENDCHATREQUEST_03"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_APPENDCHATREQUEST_02"
+      }
+    } ],
+    "subType" : "APPENDCHATREQUEST",
+    "topPos" : 360
+  }, {
+    "codeName" : "DELOGIC_02",
+    "getDstPSDELogic" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task/PSDELOGICS/get_document.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task.json"
+    },
+    "leftPos" : 56,
+    "logicNodeType" : "DELOGIC",
+    "name" : "获取记忆文档",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "BINDPARAM_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DELOGIC_02"
+      }
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "topPos" : 490,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_011",
+    "leftPos" : 176,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "准备参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEDATASET_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_011"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "n_conversation_id_eq",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "task_filter"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "CONVERSATION_ID",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    }, {
+      "dstFieldName" : "sort",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "task_filter"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValue" : "update_time,desc",
+      "srcValueType" : "SRCVALUE"
+    }, {
+      "dstFieldName" : "size",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "task_filter"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValue" : "1",
+      "srcValueType" : "SRCVALUE"
+    }, {
+      "dstFieldName" : "EXECUTED_AT",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "expression" : "new Date().getTime().toString()",
+      "paramAction" : "SETPARAMVALUE",
+      "srcValueType" : "EXPRESSION"
+    }, {
+      "dstFieldName" : "N_STATUS_EQ",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "task_filter"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValue" : "SUCCESS",
+      "srcValueType" : "SRCVALUE"
+    } ],
+    "topPos" : -300,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DELOGIC_03",
+    "getDstPSDELogic" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task/PSDELOGICS/get_chunk.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chunk"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task.json"
+    },
+    "leftPos" : 196,
+    "logicNodeType" : "DELOGIC",
+    "name" : "获取记忆分块",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_04"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DELOGIC_03"
+      }
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chunk"
+    },
+    "topPos" : 710,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_04",
+    "leftPos" : 196,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "准备参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DELOGIC_04"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_04"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "docid",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chunk"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "DOC_ID",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    }, {
+      "dstFieldName" : "kbid",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chunk"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "KB_TAG",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "topPos" : 810,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DELOGIC_04",
+    "getDstPSDELogic" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task/PSDELOGICS/save_chunk.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chunk"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task.json"
+    },
+    "leftPos" : 196,
+    "logicNodeType" : "DELOGIC",
+    "name" : "保存记忆分块",
+    "topPos" : 910,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_03",
+    "leftPos" : 296,
+    "logicNodeType" : "PREPAREPARAM",
+    "memo" : "获取记忆提取智能体的交谈结果",
+    "name" : "准备参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_03"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "extract_memory",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chat_temp"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "content",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chat_response"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "topPos" : -40,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_02",
+    "leftPos" : 370,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "拼接message过滤参数2",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEDATASET_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_02"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "N_CONVERSATION_ID_EQ",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "agent_message_filter"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "CONVERSATION_ID",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    }, {
+      "dstFieldName" : "size",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "agent_message_filter"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValue" : "1000",
+      "srcValueType" : "SRCVALUE"
+    }, {
+      "dstFieldName" : "sort",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "agent_message_filter"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValue" : "create_time,asc",
+      "srcValueType" : "SRCVALUE"
+    } ],
+    "topPos" : -160,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEDATASET_02",
+    "getDstPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "task_filter"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task.json"
+    },
+    "leftPos" : 400,
+    "logicNodeType" : "DEDATASET",
+    "name" : "查询会话的最新一条task",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "BINDPARAM_03"
+      },
+      "name" : "连接名称",
+      "getPSDELogicLinkGroupCond" : {
+        "groupOP" : "AND",
+        "logicType" : "GROUP",
+        "name" : "连接条件组",
+        "getPSDELogicLinkConds" : [ {
+          "condOP" : "GT",
+          "dstFieldName" : "length",
+          "getDstLogicParam" : {
+            "modelref" : true,
+            "id" : "tasks"
+          },
+          "logicType" : "SINGLE",
+          "name" : "tasks[length] 大于(>) 0",
+          "paramValue" : "0"
+        } ]
+      },
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEDATASET_02"
+      }
+    }, {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_02"
+      },
+      "name" : "连接名称",
+      "getPSDELogicLinkGroupCond" : {
+        "groupOP" : "AND",
+        "logicType" : "GROUP",
+        "name" : "连接条件组",
+        "getPSDELogicLinkConds" : [ {
+          "condOP" : "EQ",
+          "dstFieldName" : "length",
+          "getDstLogicParam" : {
+            "modelref" : true,
+            "id" : "tasks"
+          },
+          "logicType" : "SINGLE",
+          "name" : "tasks[length] 等于(=) 0",
+          "paramValue" : "0"
+        } ]
+      },
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEDATASET_02"
+      }
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "tasks"
+    },
+    "topPos" : -300,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_06",
+    "leftPos" : -50,
+    "logicNodeType" : "PREPAREPARAM",
+    "memo" : "获取记忆核验智能体的交谈结果",
+    "name" : "准备参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_04"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_06"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "verification_result",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chat_temp"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "content",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chat_response"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "topPos" : 350,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_07",
+    "leftPos" : 432,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "任务执行结束",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_07"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "END_AT",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "expression" : "new Date().getTime().toString()",
+      "paramAction" : "SETPARAMVALUE",
+      "srcValueType" : "EXPRESSION"
+    } ],
+    "topPos" : 460,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEACTION_02",
+    "getDstPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task/PSDEACTIONS/Update.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task.json"
+    },
+    "leftPos" : 448,
+    "logicNodeType" : "DEACTION",
+    "name" : "更新智能体记忆任务实例",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_02"
+      }
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "topPos" : 600,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "END_01",
+    "leftPos" : 488,
+    "logicNodeType" : "END",
+    "name" : "结束",
+    "getReturnParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "returnType" : "LOGICPARAM",
+    "topPos" : 712,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "BINDPARAM_03",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "last_task"
+    },
+    "leftPos" : 630,
+    "logicNodeType" : "BINDPARAM",
+    "name" : "绑定参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_010"
+      },
+      "name" : "LAST_MSG_TIME不为空",
+      "getPSDELogicLinkGroupCond" : {
+        "groupOP" : "AND",
+        "logicType" : "GROUP",
+        "name" : "连接条件组",
+        "getPSDELogicLinkConds" : [ {
+          "condOP" : "ISNOTNULL",
+          "dstFieldName" : "LAST_MSG_TIME",
+          "getDstLogicParam" : {
+            "modelref" : true,
+            "id" : "last_task"
+          },
+          "logicType" : "SINGLE",
+          "name" : "last_task[LAST_MSG_TIME] 值不为空(NotNil) "
+        } ]
+      },
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "BINDPARAM_03"
+      }
+    }, {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_02"
+      },
+      "name" : "LAST_MSG_TIME为空",
+      "getPSDELogicLinkGroupCond" : {
+        "groupOP" : "AND",
+        "logicType" : "GROUP",
+        "name" : "连接条件组",
+        "getPSDELogicLinkConds" : [ {
+          "condOP" : "ISNULL",
+          "dstFieldName" : "LAST_MSG_TIME",
+          "getDstLogicParam" : {
+            "modelref" : true,
+            "id" : "last_task"
+          },
+          "logicType" : "SINGLE",
+          "name" : "last_task[LAST_MSG_TIME] 值为空(Nil) "
+        } ]
+      },
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "BINDPARAM_03"
+      }
+    } ],
+    "srcFieldName" : "0",
+    "getSrcPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "tasks"
+    },
+    "topPos" : -310,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_01",
+    "leftPos" : -50,
+    "logicNodeType" : "PREPAREPARAM",
+    "memo" : "准备记忆提取智能体标识",
+    "name" : "准备记忆智能体",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_APPENDCHATREQUEST_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_01"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "srfaiagenttag",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chat_request"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValue" : "memory_retrieval",
+      "srcValueType" : "SRCVALUE"
+    } ],
+    "topPos" : -152,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_010",
+    "leftPos" : 690,
+    "logicNodeType" : "PREPAREPARAM",
+    "memo" : "创建消息时间大于最后消息时间",
+    "name" : "拼接message过滤参数1",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_010"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "N_CREATE_TIME_GT",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "agent_message_filter"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "LAST_MSG_TIME",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "last_task"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "topPos" : -140,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "SYSAICHATAGENT_FETCHCHUNKS_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chunk_filter"
+    },
+    "leftPos" : -618,
+    "logicNodeType" : "SYSAICHATAGENT_FETCHCHUNKS",
+    "name" : "记忆检索",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_APPENDCHATREQUEST_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_FETCHCHUNKS_01"
+      }
+    } ],
+    "getPSSysAIChatAgent" : {
+      "modelref" : true,
+      "id" : "DynamicAgent"
+    },
+    "getPSSysAIFactory" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSSYSAIFACTORIES/iBizIntelligence.json"
+    },
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "check_queries"
+    },
+    "subType" : "FETCHCHUNKS",
+    "topPos" : 240
+  }, {
+    "chatRequestAppendMode" : "USER",
+    "codeName" : "SYSAICHATAGENT_APPENDCHATREQUEST_03",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_request"
+    },
+    "leftPos" : -452,
+    "logicNodeType" : "SYSAICHATAGENT_APPENDCHATREQUEST",
+    "message" : "<#if params.check_queries?has_content>\n以下是现有记忆块existing_chunks：\n<#list params.check_queries as query>\n${query.id}${query.content}\n</#list>\n<#else>\n[]\n</#if>",
+    "name" : "附加现有记忆块",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATRAW_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_APPENDCHATREQUEST_03"
+      }
+    } ],
+    "subType" : "APPENDCHATREQUEST",
+    "topPos" : 360
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATRAW_02",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_request"
+    },
+    "leftPos" : -244,
+    "logicNodeType" : "SYSAICHATAGENT_CHATRAW",
+    "memo" : "调用记忆核验智能体，通过它比对旧纪录和新记录后返回数据",
+    "name" : "记忆核验智能体调用",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_06"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATRAW_02"
+      }
+    } ],
+    "getPSSysAIChatAgent" : {
+      "modelref" : true,
+      "id" : "DynamicAgent"
+    },
+    "getPSSysAIFactory" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSSYSAIFACTORIES/iBizIntelligence.json"
+    },
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_response"
+    },
+    "subType" : "CHATRAW",
+    "topPos" : 370
+  }, {
+    "codeName" : "BINDPARAM_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "latest_chunk_list"
+    },
+    "logicNodeType" : "BINDPARAM",
+    "name" : "绑定参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "LOOPSUBCALL_01"
+      },
+      "name" : "连接名称",
+      "getPSDELogicLinkGroupCond" : {
+        "groupOP" : "AND",
+        "logicType" : "GROUP",
+        "name" : "连接条件组",
+        "getPSDELogicLinkConds" : [ {
+          "condOP" : "GT",
+          "dstFieldName" : "size",
+          "getDstLogicParam" : {
+            "modelref" : true,
+            "id" : "latest_chunk_list"
+          },
+          "logicType" : "SINGLE",
+          "name" : "latest_chunk_list[size] 大于(>) 0",
+          "paramValue" : "0"
+        } ]
+      },
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "BINDPARAM_01"
+      }
+    } ],
+    "srcFieldName" : "latest_chunks",
+    "getSrcPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "topPos" : 616,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "LOOPSUBCALL_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chunk"
+    },
+    "leftPos" : 196,
+    "logicNodeType" : "LOOPSUBCALL",
+    "name" : "遍历最新记忆切片块",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DELOGIC_03"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "LOOPSUBCALL_01"
+      },
+      "subCallLink" : true
+    }, {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_07"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "LOOPSUBCALL_01"
+      }
+    } ],
+    "getSrcPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "latest_chunk_list"
+    },
+    "topPos" : 616,
+    "parallelOutput" : true
+  }, {
+    "chatRequestAppendMode" : "USER",
+    "codeName" : "SYSAICHATAGENT_APPENDCHATREQUEST_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_request"
+    },
+    "leftPos" : -50,
+    "logicNodeType" : "SYSAICHATAGENT_APPENDCHATREQUEST",
+    "message" : "根据以下对话内容提取记忆：\n<#list params.message_list.content as item>\n[${item.sender_type}]${item.content}\n</#list>",
+    "name" : "附加聊天请求",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATRAW_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_APPENDCHATREQUEST_01"
+      }
+    } ],
+    "subType" : "APPENDCHATREQUEST",
+    "topPos" : -40
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task.json"
+    },
+    "default" : true,
+    "entityParam" : true
+  }, {
+    "codeName" : "agent_message_filter",
+    "logicName" : "消息过滤器",
+    "name" : "消息过滤器",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_message.json"
+    },
+    "filterParam" : true
+  }, {
+    "codeName" : "chat_request",
+    "logicName" : "交谈请求",
+    "name" : "交谈请求",
+    "chatCompletionRequestParam" : true
+  }, {
+    "codeName" : "chat_response",
+    "logicName" : "交谈反馈",
+    "name" : "交谈反馈",
+    "chatCompletionResultParam" : true
+  }, {
+    "codeName" : "chat_temp",
+    "logicName" : "会话临时变量",
+    "memo" : "记忆提取智能体临时对象",
+    "name" : "会话临时变量",
+    "entityParam" : true
+  }, {
+    "codeName" : "chat_temp2",
+    "logicName" : "会话临时变量2",
+    "memo" : "记忆核验智能体临时对象",
+    "name" : "会话临时变量2",
+    "entityParam" : true
+  }, {
+    "codeName" : "check_queries",
+    "logicName" : "check_queries",
+    "memo" : "原切片列表",
+    "name" : "check_queries",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunk.json"
+    },
+    "entityListParam" : true
+  }, {
+    "codeName" : "chunk",
+    "logicName" : "chunk",
+    "name" : "chunk",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunk.json"
+    },
+    "entityParam" : true
+  }, {
+    "codeName" : "chunk_filter",
+    "logicName" : "知识库检索过滤",
+    "name" : "知识库检索过滤",
+    "filterParam" : true
+  }, {
+    "codeName" : "daily_logs",
+    "logicName" : "daily_logs",
+    "memo" : "过程日志",
+    "name" : "daily_logs",
+    "entityListParam" : true
+  }, {
+    "codeName" : "last_task",
+    "logicName" : "last_task",
+    "name" : "last_task",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task.json"
+    },
+    "entityParam" : true
+  }, {
+    "codeName" : "latest_chunk_list",
+    "logicName" : "最新切片列表",
+    "name" : "最新切片列表",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunk.json"
+    },
+    "entityListParam" : true
+  }, {
+    "codeName" : "message_list",
+    "logicName" : "消息列表",
+    "name" : "消息列表",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_message.json"
+    },
+    "entityPageParam" : true
+  }, {
+    "codeName" : "task_filter",
+    "logicName" : "task_filter",
+    "name" : "task_filter",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task.json"
+    },
+    "filterParam" : true
+  }, {
+    "codeName" : "tasks",
+    "logicName" : "tasks",
+    "name" : "tasks",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task.json"
+    },
+    "entityPageParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="cn.ibizlab.core.base.service.logic.extend_loglast_exec_time" isClosed="false" isExecutable="true" name="base_extend_log_last_exec_time_ruleFlow" processType="Private" tns:packageName="cn.ibizlab.core.base.service.logic.extend_loglast_exec_time">
+            <extensionElements>
+                <tns:import name="java.util.Map" />
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="cn.ibizlab.util.helper.RuleUtils"/>
+                                <tns:metaData express="" name="extend_loglast_exec_timedefault" type="entity"/>
+                                <tns:metaData express="new cn.ibizlab.core.base.domain.extend_log()" name="extend_loglast_exec_timelast_extend_log" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.base.domain.extend_log()" name="extend_loglast_exec_timelog_filter" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.base.domain.extend_log()" name="extend_loglast_exec_timelog_page" type="refentity"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.base.service.Iextend_logService))" name="extend_logservice" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.base.service.Iextend_logService))" name="iBzSysExtend_logDefaultService" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
+                            <tns:global identifier="extend_loglast_exec_timedefault" type="cn.ibizlab.core.base.domain.extend_log" />
+                            <tns:global identifier="extend_loglast_exec_timelast_extend_log" type="cn.ibizlab.core.base.domain.extend_log" />
+                            <tns:global identifier="extend_loglast_exec_timelog_filter" type="cn.ibizlab.core.base.domain.extend_log" />
+                            <tns:global identifier="extend_loglast_exec_timelog_page" type="cn.ibizlab.core.base.domain.extend_log" />
+            </extensionElements>
+                        <startEvent id="begin" isInterrupting="true"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="extend_loglast_exec_timeprepareparam_01" id="prepareparam_01" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="extend_loglast_exec_timededataquery_01" id="dedataquery_01" implementation="http://www.jboss.org/drools/rule" name="查询记录"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="extend_loglast_exec_timebindparam_01" id="bindparam_01" implementation="http://www.jboss.org/drools/rule" name="绑定参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="extend_loglast_exec_timeprepareparam_02" id="prepareparam_02" implementation="http://www.jboss.org/drools/rule" name="赋值最后一次成功执行时间"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="extend_loglast_exec_timeend_01" id="end_01" implementation="http://www.jboss.org/drools/rule" name="结束"/>
+                        <endEvent id="end_01_end" name="end"/>
+                        <sequenceFlow id="end_01_end_line" sourceRef="end_01" targetRef="end_01_end"/>
+                    <sequenceFlow id="begin_prepareparam_01" sourceRef="begin" targetRef="prepareparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_01_dedataquery_01" sourceRef="prepareparam_01" targetRef="dedataquery_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-dedataquery_01_end_01" sourceRef="gateway-dedataquery_01" targetRef="end_01">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $extend_loglast_exec_timedefault:extend_log();
+                                            $extend_loglast_exec_timelast_extend_log:extend_log();
+                                            $extend_loglast_exec_timelog_filter:extend_log();
+                                            $extend_loglast_exec_timelog_page:extend_log();
+                                    eval($extend_loglast_exec_timedefault==extend_loglast_exec_timedefault && $extend_loglast_exec_timelast_extend_log==extend_loglast_exec_timelast_extend_log && $extend_loglast_exec_timelog_filter==extend_loglast_exec_timelog_filter && $extend_loglast_exec_timelog_page==extend_loglast_exec_timelog_page);
+                                eval((RuleUtils.test($extend_loglast_exec_timelog_page.get("size"),"EQ","0")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-dedataquery_01_bindparam_01" sourceRef="gateway-dedataquery_01" targetRef="bindparam_01">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $extend_loglast_exec_timedefault:extend_log();
+                                            $extend_loglast_exec_timelast_extend_log:extend_log();
+                                            $extend_loglast_exec_timelog_filter:extend_log();
+                                            $extend_loglast_exec_timelog_page:extend_log();
+                                    eval($extend_loglast_exec_timedefault==extend_loglast_exec_timedefault && $extend_loglast_exec_timelast_extend_log==extend_loglast_exec_timelast_extend_log && $extend_loglast_exec_timelog_filter==extend_loglast_exec_timelog_filter && $extend_loglast_exec_timelog_page==extend_loglast_exec_timelog_page);
+                                eval((RuleUtils.test($extend_loglast_exec_timelog_page.get("size"),"GT","0")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="bindparam_01_prepareparam_02" sourceRef="bindparam_01" targetRef="prepareparam_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_02_end_01" sourceRef="prepareparam_02" targetRef="end_01">
+                    </sequenceFlow>
+                            <exclusiveGateway id="gateway-dedataquery_01" name="Gateway" gatewayDirection="Diverging" default="gateway-dedataquery_01_end_line"></exclusiveGateway>
+                            <sequenceFlow id="dedataquery_01_gateway-dedataquery_01_gatewayline" sourceRef="dedataquery_01" targetRef="gateway-dedataquery_01"></sequenceFlow>
+                            <sequenceFlow id="gateway-dedataquery_01_end_line" sourceRef="gateway-dedataquery_01" targetRef="gateway-dedataquery_01_end"/>
+                            <endEvent id="gateway-dedataquery_01_end" name="end"/>
+        </process>
+    </definitions>

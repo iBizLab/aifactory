@@ -1,0 +1,46 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"auditinfo\"",
+    "name" : "AUDITINFO"
+  }, {
+    "expression" : "t1.\"audittype\"",
+    "name" : "AUDITTYPE"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"ipaddress\"",
+    "name" : "IPADDRESS"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"objectid\"",
+    "name" : "OBJECTID"
+  }, {
+    "expression" : "t1.\"objecttype\"",
+    "name" : "OBJECTTYPE"
+  }, {
+    "expression" : "t1.\"oppersonid\"",
+    "name" : "OPPERSONID"
+  }, {
+    "expression" : "t1.\"oppersonname\"",
+    "name" : "OPPERSONNAME"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"auditinfo\",\nt1.\"audittype\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"id\",\nt1.\"ipaddress\",\nt1.\"name\",\nt1.\"objectid\",\nt1.\"objecttype\",\nt1.\"oppersonid\",\nt1.\"oppersonname\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"activity\" t1 \n",
+  "id" : "PSMODULES/Base/PSDATAENTITIES/activity/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

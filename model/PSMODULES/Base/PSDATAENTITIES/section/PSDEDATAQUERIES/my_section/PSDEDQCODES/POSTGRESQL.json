@@ -1,0 +1,54 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "( t1.\"create_man\" = #{ctx.sessioncontext.srfpersonid} )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"is_leaf\"",
+    "name" : "IS_LEAF"
+  }, {
+    "expression" : "t1.\"is_leaf2\"",
+    "name" : "IS_LEAF2"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"owner_id\"",
+    "name" : "OWNER_ID"
+  }, {
+    "expression" : "t1.\"owner_subtype\"",
+    "name" : "OWNER_SUBTYPE"
+  }, {
+    "expression" : "t1.\"owner_type\"",
+    "name" : "OWNER_TYPE"
+  }, {
+    "expression" : "t1.\"sequence\"",
+    "name" : "SEQUENCE"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"user_tag\"",
+    "name" : "USER_TAG"
+  }, {
+    "expression" : "t1.\"user_tag2\"",
+    "name" : "USER_TAG2"
+  } ],
+  "queryCode" : "SELECT\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"id\",\nt1.\"is_leaf\",\nt1.\"is_leaf2\",\nt1.\"name\",\nt1.\"owner_id\",\nt1.\"owner_subtype\",\nt1.\"owner_type\",\nt1.\"sequence\",\nt1.\"update_man\",\nt1.\"update_time\",\nt1.\"user_tag\",\nt1.\"user_tag2\"\nFROM \"section\" t1 \n",
+  "id" : "PSMODULES/Base/PSDATAENTITIES/section/PSDEDATAQUERIES/my_section/PSDEDQCODES/POSTGRESQL.json"
+}

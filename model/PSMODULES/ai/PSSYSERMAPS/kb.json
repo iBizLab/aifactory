@@ -1,0 +1,66 @@
+{
+  "codeName" : "kb",
+  "dynaModelFilePath" : "PSMODULES/ai/PSSYSERMAPS/kb.json",
+  "name" : "知识库",
+  "getPSSysERMapNodes" : [ {
+    "leftPos" : 100,
+    "name" : "AI_KB_CHUNK",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunk.json"
+    },
+    "topPos" : 100
+  }, {
+    "leftPos" : 550,
+    "name" : "AI_KB_CHUNKING_STRATEGY",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunking_strategy.json"
+    },
+    "topPos" : 100
+  }, {
+    "leftPos" : 1000,
+    "name" : "AI_KB_DOCUMENT",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
+    },
+    "topPos" : 100
+  }, {
+    "leftPos" : 1450,
+    "name" : "AI_KB_DOCUMENT_SYNC",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document_sync.json"
+    },
+    "topPos" : 100
+  }, {
+    "leftPos" : 100,
+    "name" : "AI_KB_TAG",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_tag.json"
+    },
+    "topPos" : 650
+  }, {
+    "leftPos" : 550,
+    "name" : "AI_KNOWLEDGE_BASE",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+    },
+    "topPos" : 650
+  }, {
+    "leftPos" : 1000,
+    "name" : "AI_KNOWLEDGE_SOURCE",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_source.json"
+    },
+    "topPos" : 650
+  } ],
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai.json"
+  }
+}

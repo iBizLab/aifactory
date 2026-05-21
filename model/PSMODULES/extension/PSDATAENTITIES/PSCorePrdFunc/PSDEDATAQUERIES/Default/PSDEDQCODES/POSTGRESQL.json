@@ -1,0 +1,91 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"changelog\"",
+    "name" : "CHANGELOG"
+  }, {
+    "expression" : "t1.\"info\"",
+    "name" : "INFO"
+  }, {
+    "expression" : "t1.\"avatarurl\"",
+    "name" : "AVATARURL"
+  }, {
+    "expression" : "t1.\"category\"",
+    "name" : "CATEGORY"
+  }, {
+    "expression" : "t1.\"createdate\"",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.\"createman\"",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.\"currentversion\"",
+    "name" : "CURRENTVERSION"
+  }, {
+    "expression" : "t1.\"fullname\"",
+    "name" : "FULLNAME"
+  }, {
+    "expression" : "t1.\"fullpath\"",
+    "name" : "FULLPATH"
+  }, {
+    "expression" : "t1.\"funcsn\"",
+    "name" : "FUNCSN"
+  }, {
+    "expression" : "t1.\"funcstate\"",
+    "name" : "FUNCSTATE"
+  }, {
+    "expression" : "t1.\"functag\"",
+    "name" : "FUNCTAG"
+  }, {
+    "expression" : "t1.\"functag2\"",
+    "name" : "FUNCTAG2"
+  }, {
+    "expression" : "t1.\"functype\"",
+    "name" : "FUNCTYPE"
+  }, {
+    "expression" : "t1.\"funcurl\"",
+    "name" : "FUNCURL"
+  }, {
+    "expression" : "t1.\"httpurltorepo\"",
+    "name" : "HTTPURLTOREPO"
+  }, {
+    "expression" : "t1.\"memo\"",
+    "name" : "MEMO"
+  }, {
+    "expression" : "t1.\"ordervalue\"",
+    "name" : "ORDERVALUE"
+  }, {
+    "expression" : "t1.\"path\"",
+    "name" : "PATH"
+  }, {
+    "expression" : "t1.\"pscoreprdfuncid\"",
+    "name" : "PSCOREPRDFUNCID"
+  }, {
+    "expression" : "t1.\"pscoreprdfuncname\"",
+    "name" : "PSCOREPRDFUNCNAME"
+  }, {
+    "expression" : "t1.\"pscoreprdid\"",
+    "name" : "PSCOREPRDID"
+  }, {
+    "expression" : "t1.\"pscoreprdname\"",
+    "name" : "PSCOREPRDNAME"
+  }, {
+    "expression" : "t1.\"settings\"",
+    "name" : "SETTINGS"
+  }, {
+    "expression" : "t1.\"settingurl\"",
+    "name" : "SETTINGURL"
+  }, {
+    "expression" : "t1.\"updatedate\"",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.\"updateman\"",
+    "name" : "UPDATEMAN"
+  }, {
+    "expression" : "t1.\"vers\"",
+    "name" : "VERS"
+  } ],
+  "queryCode" : "SELECT\nt1.\"avatarurl\",\nt1.\"category\",\nt1.\"createdate\",\nt1.\"createman\",\nt1.\"currentversion\",\nt1.\"fullname\",\nt1.\"fullpath\",\nt1.\"funcsn\",\nt1.\"funcstate\",\nt1.\"functag\",\nt1.\"functag2\",\nt1.\"functype\",\nt1.\"funcurl\",\nt1.\"httpurltorepo\",\nt1.\"memo\",\nt1.\"ordervalue\",\nt1.\"path\",\nt1.\"pscoreprdfuncid\",\nt1.\"pscoreprdfuncname\",\nt1.\"pscoreprdid\",\nt1.\"pscoreprdname\",\nt1.\"settings\",\nt1.\"settingurl\",\nt1.\"updatedate\",\nt1.\"updateman\",\nt1.\"vers\"\nFROM \"\" t1 \n",
+  "id" : "PSMODULES/extension/PSDATAENTITIES/PSCorePrdFunc/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

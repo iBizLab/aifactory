@@ -1,0 +1,136 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"reserver10\"",
+    "name" : "RESERVER10"
+  }, {
+    "expression" : "t1.\"reserver9\"",
+    "name" : "RESERVER9"
+  }, {
+    "expression" : "t1.\"bcode\"",
+    "name" : "BCODE"
+  }, {
+    "expression" : "t1.\"createdate\"",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.\"dddeptid\"",
+    "name" : "DDDEPTID"
+  }, {
+    "expression" : "t1.\"deptcode\"",
+    "name" : "DEPTCODE"
+  }, {
+    "expression" : "t1.\"deptfullname\"",
+    "name" : "DEPTFULLNAME"
+  }, {
+    "expression" : "t1.\"deptid\"",
+    "name" : "DEPTID"
+  }, {
+    "expression" : "t1.\"deptleader\"",
+    "name" : "DEPTLEADER"
+  }, {
+    "expression" : "t1.\"deptleaderid\"",
+    "name" : "DEPTLEADERID"
+  }, {
+    "expression" : "t1.\"deptlevel\"",
+    "name" : "DEPTLEVEL"
+  }, {
+    "expression" : "t1.\"deptname\"",
+    "name" : "DEPTNAME"
+  }, {
+    "expression" : "t1.\"domains\"",
+    "name" : "DOMAINS"
+  }, {
+    "expression" : "t1.\"enable\"",
+    "name" : "ENABLE"
+  }, {
+    "expression" : "t1.\"isvalid\"",
+    "name" : "ISVALID"
+  }, {
+    "expression" : "t1.\"leaderid\"",
+    "name" : "LEADERID"
+  }, {
+    "expression" : "t1.\"leadername\"",
+    "name" : "LEADERNAME"
+  }, {
+    "expression" : "t1.\"orgid\"",
+    "name" : "ORGID"
+  }, {
+    "expression" : "t1.\"orgname\"",
+    "name" : "ORGNAME"
+  }, {
+    "expression" : "t1.\"pdeptid\"",
+    "name" : "PDEPTID"
+  }, {
+    "expression" : "t1.\"pdeptname\"",
+    "name" : "PDEPTNAME"
+  }, {
+    "expression" : "t1.\"reserver\"",
+    "name" : "RESERVER"
+  }, {
+    "expression" : "t1.\"reserver11\"",
+    "name" : "RESERVER11"
+  }, {
+    "expression" : "t1.\"reserver12\"",
+    "name" : "RESERVER12"
+  }, {
+    "expression" : "t1.\"reserver13\"",
+    "name" : "RESERVER13"
+  }, {
+    "expression" : "t1.\"reserver14\"",
+    "name" : "RESERVER14"
+  }, {
+    "expression" : "t1.\"reserver15\"",
+    "name" : "RESERVER15"
+  }, {
+    "expression" : "t1.\"reserver16\"",
+    "name" : "RESERVER16"
+  }, {
+    "expression" : "t1.\"reserver17\"",
+    "name" : "RESERVER17"
+  }, {
+    "expression" : "t1.\"reserver18\"",
+    "name" : "RESERVER18"
+  }, {
+    "expression" : "t1.\"reserver19\"",
+    "name" : "RESERVER19"
+  }, {
+    "expression" : "t1.\"reserver2\"",
+    "name" : "RESERVER2"
+  }, {
+    "expression" : "t1.\"reserver20\"",
+    "name" : "RESERVER20"
+  }, {
+    "expression" : "t1.\"reserver3\"",
+    "name" : "RESERVER3"
+  }, {
+    "expression" : "t1.\"reserver4\"",
+    "name" : "RESERVER4"
+  }, {
+    "expression" : "t1.\"reserver5\"",
+    "name" : "RESERVER5"
+  }, {
+    "expression" : "t1.\"reserver6\"",
+    "name" : "RESERVER6"
+  }, {
+    "expression" : "t1.\"reserver7\"",
+    "name" : "RESERVER7"
+  }, {
+    "expression" : "t1.\"reserver8\"",
+    "name" : "RESERVER8"
+  }, {
+    "expression" : "t1.\"shortname\"",
+    "name" : "SHORTNAME"
+  }, {
+    "expression" : "t1.\"showorder\"",
+    "name" : "SHOWORDER"
+  }, {
+    "expression" : "t1.\"updatedate\"",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.\"wxworkdeptid\"",
+    "name" : "WXWORKDEPTID"
+  } ],
+  "queryCode" : "SELECT\nt1.\"bcode\",\nt1.\"createdate\",\nt1.\"dddeptid\",\nt1.\"deptcode\",\nt1.\"deptfullname\",\nt1.\"deptid\",\nt1.\"deptleader\",\nt1.\"deptleaderid\",\nt1.\"deptlevel\",\nt1.\"deptname\",\nt1.\"domains\",\nt1.\"enable\",\nt1.\"isvalid\",\nt1.\"leaderid\",\nt1.\"leadername\",\nt1.\"orgid\",\nt1.\"orgname\",\nt1.\"pdeptid\",\nt1.\"pdeptname\",\nt1.\"reserver\",\nt1.\"reserver11\",\nt1.\"reserver12\",\nt1.\"reserver13\",\nt1.\"reserver14\",\nt1.\"reserver15\",\nt1.\"reserver16\",\nt1.\"reserver17\",\nt1.\"reserver18\",\nt1.\"reserver19\",\nt1.\"reserver2\",\nt1.\"reserver20\",\nt1.\"reserver3\",\nt1.\"reserver4\",\nt1.\"reserver5\",\nt1.\"reserver6\",\nt1.\"reserver7\",\nt1.\"reserver8\",\nt1.\"shortname\",\nt1.\"showorder\",\nt1.\"updatedate\",\nt1.\"wxworkdeptid\"\nFROM \"\" t1 \n",
+  "id" : "PSSYSMODELGROUPS/ebsx/PSMODULES/ebsx/PSDATAENTITIES/SysDepartment/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

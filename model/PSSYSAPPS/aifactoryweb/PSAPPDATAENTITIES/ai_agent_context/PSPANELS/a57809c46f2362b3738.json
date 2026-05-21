@@ -1,0 +1,231 @@
+{
+  "getAllPSPanelFields" : [ {
+    "id" : "logo"
+  }, {
+    "id" : "name",
+    "viewFieldName" : "name"
+  }, {
+    "id" : "code_name",
+    "viewFieldName" : "code_name"
+  }, {
+    "id" : "ai_model_name",
+    "viewFieldName" : "ai_model_name"
+  }, {
+    "id" : "agent_status",
+    "viewFieldName" : "active"
+  }, {
+    "id" : "update_time",
+    "viewFieldName" : "update_time"
+  } ],
+  "codeName" : "a57809c46f2362b3738",
+  "controlType" : "PANEL",
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context/PSPANELS/a57809c46f2362b3738.json",
+  "hookEventNames" : [ "ONBEFORELOAD" ],
+  "layoutMode" : "FLEX",
+  "logicName" : "card_view_DataView卡片视图",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "onBeforeLoad",
+    "itemName" : "container1",
+    "logicTag" : "itemlayoutpanel",
+    "logicType" : "SCRIPT",
+    "name" : "randomNum",
+    "scriptCode" : "const randomNum = Math.floor (1 + Math.random () * 10);\r\nconsole.log (randomNum);"
+  } ],
+  "getPSLayout" : {
+    "layout" : "FLEX"
+  },
+  "getRootPSPanelItems" : [ {
+    "itemStyle" : "DEFAULT",
+    "itemType" : "CONTAINER",
+    "name" : "container1",
+    "getPSLayout" : {
+      "layout" : "FLEX"
+    },
+    "getPSLayoutPos" : {
+      "grow" : -1,
+      "layout" : "FLEX"
+    },
+    "getPSPanelItems" : [ {
+      "caption" : "文本(动态)",
+      "itemStyle" : "DEFAULT",
+      "itemType" : "FIELD",
+      "name" : "logo",
+      "getPSControlRenders" : [ {
+        "layoutPanelModel" : "(function() { \r\n// 定义7种颜色对应的类名\r\n  const colorClasses = [\r\n    'agent-logo-yellow',\r\n    'agent-logo-blue',\r\n    'agent-logo-green',\r\n    'agent-logo-pink',\r\n    'agent-logo-purple',\r\n    'agent-logo-red',\r\n    'agent-logo-green2'\r\n  ];\r\n  // 生成0-7的随机数\r\n  const randomIndex = Math.floor(Math.random() * 7);\r\n  // 动态返回对应类名的div\r\n  return `<div class=\"${colorClasses[randomIndex]}\"></div>`;\r\n})()",
+        "name" : "logic",
+        "renderType" : "LAYOUTPANEL_MODEL"
+      } ],
+      "getPSEditor" : {
+        "editorType" : "SPAN",
+        "name" : "logo",
+        "predefinedType" : "FIELD_TEXT_DYNAMIC",
+        "renderMode" : "TEXT_DYNAMIC",
+        "enableLinkView" : false
+      },
+      "getPSLayoutPos" : {
+        "grow" : -1,
+        "layout" : "FLEX",
+        "spacingBottom" : "OUTERMEDIUM",
+        "spacingTop" : "OUTERSMALL"
+      }
+    }, {
+      "caption" : "文本(动态)",
+      "itemStyle" : "DEFAULT",
+      "itemType" : "FIELD",
+      "name" : "name",
+      "getPSEditor" : {
+        "editorType" : "SPAN",
+        "name" : "name",
+        "predefinedType" : "FIELD_TEXT_DYNAMIC",
+        "renderMode" : "TEXT_DYNAMIC",
+        "enableLinkView" : false
+      },
+      "getPSLayoutPos" : {
+        "grow" : -1,
+        "layout" : "FLEX",
+        "spacingBottom" : "OUTERSMALL"
+      },
+      "getPSSysCss" : {
+        "cssName" : "agent-title-font-style"
+      },
+      "viewFieldName" : "name"
+    }, {
+      "caption" : "文本(动态)",
+      "itemStyle" : "DEFAULT",
+      "itemType" : "FIELD",
+      "name" : "code_name",
+      "getPSEditor" : {
+        "editorType" : "SPAN",
+        "name" : "code_name",
+        "predefinedType" : "FIELD_TEXT_DYNAMIC",
+        "renderMode" : "TEXT_DYNAMIC",
+        "enableLinkView" : false
+      },
+      "getPSLayoutPos" : {
+        "grow" : -1,
+        "layout" : "FLEX",
+        "spacingBottom" : "OUTERSMALL"
+      },
+      "getPSSysCss" : {
+        "cssName" : "agent-title-font-style2"
+      },
+      "viewFieldName" : "code_name"
+    }, {
+      "caption" : "文本(动态)",
+      "itemStyle" : "DEFAULT",
+      "itemType" : "FIELD",
+      "name" : "ai_model_name",
+      "getPSEditor" : {
+        "editorType" : "SPAN",
+        "name" : "ai_model_name",
+        "predefinedType" : "FIELD_TEXT_DYNAMIC",
+        "renderMode" : "TEXT_DYNAMIC",
+        "enableLinkView" : false
+      },
+      "getPSLayoutPos" : {
+        "grow" : -1,
+        "layout" : "FLEX",
+        "spacingBottom" : "OUTERMEDIUM"
+      },
+      "getPSSysCss" : {
+        "cssName" : "agent-content-font-style"
+      },
+      "viewFieldName" : "ai_model_name"
+    }, {
+      "itemStyle" : "DEFAULT",
+      "itemType" : "CONTAINER",
+      "name" : "container2",
+      "getPSLayout" : {
+        "align" : "space-between",
+        "dir" : "row",
+        "layout" : "FLEX",
+        "vAlign" : "center"
+      },
+      "getPSLayoutPos" : {
+        "grow" : -1,
+        "layout" : "FLEX"
+      },
+      "getPSPanelItems" : [ {
+        "caption" : "容器",
+        "itemStyle" : "DEFAULT",
+        "itemType" : "CONTAINER",
+        "name" : "container",
+        "getPSLayout" : {
+          "dir" : "row",
+          "layout" : "FLEX"
+        },
+        "getPSLayoutPos" : {
+          "grow" : -1,
+          "layout" : "FLEX"
+        },
+        "getPSPanelItems" : [ {
+          "caption" : "文本(动态)",
+          "itemStyle" : "DEFAULT",
+          "itemType" : "FIELD",
+          "name" : "agent_status",
+          "getPSEditor" : {
+            "editorType" : "SPAN",
+            "name" : "agent_status",
+            "getPSAppCodeList" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__agent_status.json"
+            },
+            "predefinedType" : "FIELD_TEXT_DYNAMIC",
+            "renderMode" : "TEXT_DYNAMIC",
+            "enableLinkView" : false
+          },
+          "getPSLayoutPos" : {
+            "grow" : -1,
+            "layout" : "FLEX"
+          },
+          "getPSSysCss" : {
+            "cssName" : "agent-content-font-style"
+          },
+          "viewFieldName" : "active",
+          "convertToCodeItemText" : true
+        } ]
+      }, {
+        "caption" : "容器",
+        "itemStyle" : "DEFAULT",
+        "itemType" : "CONTAINER",
+        "name" : "container3",
+        "getPSLayout" : {
+          "dir" : "row-reverse",
+          "layout" : "FLEX"
+        },
+        "getPSLayoutPos" : {
+          "grow" : -1,
+          "layout" : "FLEX"
+        },
+        "getPSPanelItems" : [ {
+          "caption" : "文本(动态)",
+          "itemStyle" : "DEFAULT",
+          "itemType" : "FIELD",
+          "name" : "update_time",
+          "getPSEditor" : {
+            "editorType" : "SPAN",
+            "name" : "update_time",
+            "renderMode" : "TEXT_DYNAMIC",
+            "enableLinkView" : false
+          },
+          "getPSLayoutPos" : {
+            "grow" : -1,
+            "layout" : "FLEX"
+          },
+          "getPSSysCss" : {
+            "cssName" : "agent-content-font-style"
+          },
+          "valueFormat" : "YYYY-MM-DD",
+          "viewFieldName" : "update_time"
+        } ]
+      } ]
+    } ]
+  } ],
+  "layoutPanel" : true,
+  "modelid" : "57d93ac986cb49c56bbf8a9a328a8c93",
+  "modeltype" : "PSSYSVIEWPANEL"
+}

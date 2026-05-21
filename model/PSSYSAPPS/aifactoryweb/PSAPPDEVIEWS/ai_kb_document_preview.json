@@ -1,0 +1,89 @@
+{
+  "accUserMode" : 2,
+  "getCapPSLanguageRes" : {
+    "lanResTag" : "DE.LNAME.AI_KB_DOCUMENT"
+  },
+  "caption" : "文档预览",
+  "codeName" : "ai_kb_document_preview",
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_kb_document_preview.json",
+  "htmlUrl" : "${context.previewurl}",
+  "name" : "ai_kb_documentpreview",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
+  },
+  "getPSAppModule" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPMODULES/Wiki.json"
+  },
+  "getPSAppViewEngines" : [ {
+    "engineCat" : "VIEW",
+    "engineType" : "HtmlView",
+    "name" : "engine"
+  } ],
+  "getPSControls" : [ {
+    "getCapPSLanguageRes" : {
+      "lanResTag" : "DE.LNAME.AI_KB_DOCUMENT"
+    },
+    "caption" : "文档预览",
+    "codeName" : "preview_captionbar",
+    "controlType" : "CAPTIONBAR",
+    "name" : "captionbar",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
+    },
+    "getPSControlParam" : { }
+  } ],
+  "getPSDEViewCodeName" : "preview",
+  "getPSDEViewId" : "7ee39d11d81632a7db28d0ab4160a252",
+  "getPSViewLayoutPanel" : {
+    "codeName" : "layoutpanel",
+    "controlStyle" : "APPDEHTMLVIEW",
+    "controlType" : "VIEWLAYOUTPANEL",
+    "name" : "layoutpanel",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
+    },
+    "getPSControlParam" : { },
+    "layoutBodyOnly" : true,
+    "layoutPanel" : true,
+    "useDefaultLayout" : true
+  },
+  "refFlag" : false,
+  "title" : "文档预览",
+  "viewStyle" : "DEFAULT",
+  "viewType" : "DEHTMLVIEW",
+  "enableDP" : true,
+  "loadDefault" : true,
+  "modelid" : "eb9fafb9fa486546084c70455753db3c",
+  "modeltype" : "PSAPPDEVIEW",
+  "getPSAppDERSPaths" : [ [ {
+    "actionRSMode" : 1,
+    "codeName" : "ai_kb_documents",
+    "dataRSMode" : 0,
+    "majorDECodeName" : "ai_knowledge_base",
+    "majorDEName" : "AI_KNOWLEDGE_BASE",
+    "getMajorPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
+    },
+    "minorDECodeName" : "ai_kb_document",
+    "minorDEName" : "AI_KB_DOCUMENT",
+    "getMinorPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
+    },
+    "name" : "DER1N_AI_KB_DOCUMENT_AI_KNOWLEDGE_BASE_KB_ID",
+    "getParentPSAppDEField" : {
+      "name" : "KB_ID",
+      "codeName" : "kb_id"
+    },
+    "getParentTextPSAppDEField" : {
+      "name" : "KB_NAME",
+      "codeName" : "kb_name"
+    },
+    "rSMode" : 2
+  } ] ]
+}

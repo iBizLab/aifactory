@@ -1,0 +1,61 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"feedback\"",
+    "name" : "FEEDBACK"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"is_answered\"",
+    "name" : "IS_ANSWERED"
+  }, {
+    "expression" : "t1.\"is_knowledge_gap\"",
+    "name" : "IS_KNOWLEDGE_GAP"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"normalized_query\"",
+    "name" : "NORMALIZED_QUERY"
+  }, {
+    "expression" : "t1.\"raw_query\"",
+    "name" : "RAW_QUERY"
+  }, {
+    "expression" : "t1.\"retrieval_config\"",
+    "name" : "RETRIEVAL_CONFIG"
+  }, {
+    "expression" : "t1.\"source\"",
+    "name" : "SOURCE"
+  }, {
+    "expression" : "t1.\"source_metadata\"",
+    "name" : "SOURCE_METADATA"
+  }, {
+    "expression" : "t1.\"tags\"",
+    "name" : "TAGS"
+  }, {
+    "expression" : "t1.\"total_duration\"",
+    "name" : "TOTAL_DURATION"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"user_id\"",
+    "name" : "USER_ID"
+  }, {
+    "expression" : "t1.\"user_satisfaction\"",
+    "name" : "USER_SATISFACTION"
+  } ],
+  "queryCode" : "SELECT\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"feedback\",\nt1.\"id\",\nt1.\"is_answered\",\nt1.\"is_knowledge_gap\",\nt1.\"name\",\nt1.\"normalized_query\",\nt1.\"raw_query\",\nt1.\"retrieval_config\",\nt1.\"source\",\nt1.\"source_metadata\",\nt1.\"tags\",\nt1.\"total_duration\",\nt1.\"update_man\",\nt1.\"update_time\",\nt1.\"user_id\",\nt1.\"user_satisfaction\"\nFROM \"ai_kb_search_query\" t1 \n",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_search_query/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

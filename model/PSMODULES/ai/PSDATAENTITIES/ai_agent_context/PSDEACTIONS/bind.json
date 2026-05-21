@@ -1,0 +1,27 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "DELOGIC",
+  "codeName" : "bind",
+  "dataAccessAction" : "READ",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEACTIONS/bind.json",
+  "logicName" : "绑定智能体",
+  "name" : "bind",
+  "getPSDEActionInput" : {
+    "name" : "BindInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_agent_context_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "BindResult",
+    "type" : "VOID"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDELOGICS/bind.json"
+  },
+  "enableFront" : false
+}

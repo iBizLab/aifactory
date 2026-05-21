@@ -1,0 +1,40 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"portfolio_id\"",
+    "name" : "PORTFOLIO_ID"
+  }, {
+    "expression" : "t11.\"identifier\"",
+    "name" : "PORTFOLIO_IDENTIFIER"
+  }, {
+    "expression" : "t11.\"name\"",
+    "name" : "PORTFOLIO_NAME"
+  }, {
+    "expression" : "t1.\"role_id\"",
+    "name" : "ROLE_ID"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"user_id\"",
+    "name" : "USER_ID"
+  } ],
+  "queryCode" : "SELECT\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"id\",\nt1.\"name\",\nt1.\"portfolio_id\",\nt11.\"identifier\" AS \"portfolio_identifier\",\nt11.\"name\" AS \"portfolio_name\",\nt1.\"role_id\",\nt1.\"update_man\",\nt1.\"update_time\",\nt1.\"user_id\"\nFROM \"portfolio_member\" t1 \nLEFT JOIN \"portfolio\" t11 ON t1.\"portfolio_id\" = t11.\"id\" \n",
+  "id" : "PSMODULES/Base/PSDATAENTITIES/portfolio_member/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

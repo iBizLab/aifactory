@@ -1,0 +1,52 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"code\"",
+    "name" : "CODE"
+  }, {
+    "expression" : "t1.\"executor_config\"",
+    "name" : "EXECUTOR_CONFIG"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.\"executor_subtype\"",
+    "name" : "EXECUTOR_SUBTYPE"
+  }, {
+    "expression" : "t1.\"executor_tag\"",
+    "name" : "EXECUTOR_TAG"
+  }, {
+    "expression" : "t1.\"executor_type\"",
+    "name" : "EXECUTOR_TYPE"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"max_retry\"",
+    "name" : "MAX_RETRY"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"retryable\"",
+    "name" : "RETRYABLE"
+  }, {
+    "expression" : "t1.\"timeout_sec\"",
+    "name" : "TIMEOUT_SEC"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"description\",\nt1.\"executor_subtype\",\nt1.\"executor_tag\",\nt1.\"executor_type\",\nt1.\"id\",\nt1.\"max_retry\",\nt1.\"name\",\nt1.\"retryable\",\nt1.\"timeout_sec\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"extend_task_type\" t1 \n",
+  "id" : "PSMODULES/Base/PSDATAENTITIES/extend_task_type/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

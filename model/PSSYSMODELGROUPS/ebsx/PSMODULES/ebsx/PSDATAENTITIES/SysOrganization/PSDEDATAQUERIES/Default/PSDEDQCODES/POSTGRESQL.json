@@ -1,0 +1,42 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "t1.enable = 1",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"createdate\"",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.\"enable\"",
+    "name" : "ENABLE"
+  }, {
+    "expression" : "t1.\"isvalid\"",
+    "name" : "ISVALID"
+  }, {
+    "expression" : "t1.\"orgcode\"",
+    "name" : "ORGCODE"
+  }, {
+    "expression" : "t1.\"orgid\"",
+    "name" : "ORGID"
+  }, {
+    "expression" : "t1.\"orgname\"",
+    "name" : "ORGNAME"
+  }, {
+    "expression" : "t1.\"porgid\"",
+    "name" : "PORGID"
+  }, {
+    "expression" : "t1.\"shortname\"",
+    "name" : "SHORTNAME"
+  }, {
+    "expression" : "t1.\"showorder\"",
+    "name" : "SHOWORDER"
+  }, {
+    "expression" : "t1.\"updatedate\"",
+    "name" : "UPDATEDATE"
+  } ],
+  "queryCode" : "SELECT\nt1.\"createdate\",\nt1.\"enable\",\nt1.\"isvalid\",\nt1.\"orgcode\",\nt1.\"orgid\",\nt1.\"orgname\",\nt1.\"porgid\",\nt1.\"shortname\",\nt1.\"showorder\",\nt1.\"updatedate\"\nFROM \"\" t1 \n",
+  "id" : "PSSYSMODELGROUPS/ebsx/PSMODULES/ebsx/PSDATAENTITIES/SysOrganization/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

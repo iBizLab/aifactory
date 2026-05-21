@@ -1,0 +1,73 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"categories\"",
+    "name" : "CATEGORIES"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"is_deleted\"",
+    "name" : "IS_DELETED"
+  }, {
+    "expression" : "t1.\"is_leaf\"",
+    "name" : "IS_LEAF"
+  }, {
+    "expression" : "t1.\"is_leaf2\"",
+    "name" : "IS_LEAF2"
+  }, {
+    "expression" : "t1.\"is_leaf3\"",
+    "name" : "IS_LEAF3"
+  }, {
+    "expression" : "case when t1.\"is_leaf\"+t1.\"is_leaf2\"=2 then 1 else 0 end",
+    "name" : "LEAF_FLAG"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"owner_id\"",
+    "name" : "OWNER_ID"
+  }, {
+    "expression" : "t1.\"owner_subtype\"",
+    "name" : "OWNER_SUBTYPE"
+  }, {
+    "expression" : "t1.\"owner_type\"",
+    "name" : "OWNER_TYPE"
+  }, {
+    "expression" : "t1.\"pid\"",
+    "name" : "PID"
+  }, {
+    "expression" : "t1.\"section_id\"",
+    "name" : "SECTION_ID"
+  }, {
+    "expression" : "t11.\"name\"",
+    "name" : "SECTION_NAME"
+  }, {
+    "expression" : "t1.\"sequence\"",
+    "name" : "SEQUENCE"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"user_tag\"",
+    "name" : "USER_TAG"
+  }, {
+    "expression" : "t1.\"user_tag2\"",
+    "name" : "USER_TAG2"
+  }, {
+    "expression" : "t1.\"wf_version_id\"",
+    "name" : "WF_VERSION_ID"
+  } ],
+  "queryCode" : "SELECT\nt1.\"categories\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"id\",\nt1.\"is_deleted\",\nt1.\"is_leaf\",\nt1.\"is_leaf2\",\nt1.\"is_leaf3\",\ncase when t1.\"is_leaf\"+t1.\"is_leaf2\"=2 then 1 else 0 end AS \"leaf_flag\",\nt1.\"name\",\nt1.\"owner_id\",\nt1.\"owner_subtype\",\nt1.\"owner_type\",\nt1.\"pid\",\nt1.\"section_id\",\nt11.\"name\" AS \"section_name\",\nt1.\"sequence\",\nt1.\"update_man\",\nt1.\"update_time\",\nt1.\"user_tag\",\nt1.\"user_tag2\",\nt1.\"wf_version_id\"\nFROM \"category\" t1 \nLEFT JOIN \"section\" t11 ON t1.\"section_id\" = t11.\"id\" \n",
+  "id" : "PSMODULES/Base/PSDATAENTITIES/category/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

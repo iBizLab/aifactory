@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="cn.ibizlab.core.ai.service.logic.ai_agent_contextbeforefile" isClosed="false" isExecutable="true" name="ai_ai_agent_context_beforefile_ruleFlow" processType="Private" tns:packageName="cn.ibizlab.core.ai.service.logic.ai_agent_contextbeforefile">
+            <extensionElements>
+                <tns:import name="java.util.Map" />
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="cn.ibizlab.util.helper.RuleUtils"/>
+                                <tns:metaData express="" name="ai_agent_contextbeforefiledefault" type="entity"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_agent_contextService))" name="iBzSysAi_agent_contextDefaultService" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
+                            <tns:global identifier="ai_agent_contextbeforefiledefault" type="cn.ibizlab.core.ai.domain.ai_agent_context" />
+            </extensionElements>
+                        <startEvent id="begin" isInterrupting="true"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextbeforefiledebugparam_01" id="debugparam_01" implementation="http://www.jboss.org/drools/rule" name="调试逻辑参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextbeforefilerawsqlcall_01" id="rawsqlcall_01" implementation="http://www.jboss.org/drools/rule" name="直接SQL调用"/>
+                        <endEvent id="rawsqlcall_01_end" name="end"/>
+                        <sequenceFlow id="rawsqlcall_01_end_line" sourceRef="rawsqlcall_01" targetRef="rawsqlcall_01_end"/>
+                    <sequenceFlow id="gateway-begin_debugparam_01" sourceRef="gateway-begin" targetRef="debugparam_01">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_agent_contextbeforefiledefault:ai_agent_context();
+                                    eval($ai_agent_contextbeforefiledefault==ai_agent_contextbeforefiledefault);
+                                eval((RuleUtils.test($ai_agent_contextbeforefiledefault.get("aiAgentId"),"ISNULL",""))&&(RuleUtils.test($ai_agent_contextbeforefiledefault.get("template_id"),"ISNOTNULL",""))&&(RuleUtils.test($ai_agent_contextbeforefiledefault.get("flowMode"),"NOTEQ","DE")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="debugparam_01_rawsqlcall_01" sourceRef="debugparam_01" targetRef="rawsqlcall_01">
+                    </sequenceFlow>
+                            <exclusiveGateway id="gateway-begin" name="Gateway" gatewayDirection="Diverging" default="gateway-begin_end_line"></exclusiveGateway>
+                            <sequenceFlow id="begin_gateway-begin_gatewayline" sourceRef="begin" targetRef="gateway-begin"></sequenceFlow>
+                            <sequenceFlow id="gateway-begin_end_line" sourceRef="gateway-begin" targetRef="gateway-begin_end"/>
+                            <endEvent id="gateway-begin_end" name="end"/>
+        </process>
+    </definitions>

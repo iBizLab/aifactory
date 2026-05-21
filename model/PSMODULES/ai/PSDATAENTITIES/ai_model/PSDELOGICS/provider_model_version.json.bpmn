@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="cn.ibizlab.core.ai.service.logic.ai_modelprovider_model_version" isClosed="false" isExecutable="true" name="ai_ai_model_provider_model_version_ruleFlow" processType="Private" tns:packageName="cn.ibizlab.core.ai.service.logic.ai_modelprovider_model_version">
+            <extensionElements>
+                <tns:import name="java.util.Map" />
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="cn.ibizlab.util.helper.RuleUtils"/>
+                                <tns:metaData express="" name="ai_modelprovider_model_versiondefault" type="entity"/>
+                                <tns:metaData express="new HashMap()" name="ai_modelprovider_model_versionpage_temp" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_model()" name="ai_modelprovider_model_versionprovider_models" type="refentity"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_modelService))" name="iBzSysAi_modelDefaultService" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
+                            <tns:global identifier="ai_modelprovider_model_versiondefault" type="cn.ibizlab.core.ai.domain.ai_model" />
+                            <tns:global identifier="ai_modelprovider_model_versionprovider_models" type="cn.ibizlab.core.ai.domain.ai_model" />
+            </extensionElements>
+                        <startEvent id="begin" isInterrupting="true"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_modelprovider_model_versionbindparam_01" id="bindparam_01" implementation="http://www.jboss.org/drools/rule" name="绑定提供商模型参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_modelprovider_model_versionend_01" id="end_01" implementation="http://www.jboss.org/drools/rule" name="结束"/>
+                        <endEvent id="end_01_end" name="end"/>
+                        <sequenceFlow id="end_01_end_line" sourceRef="end_01" targetRef="end_01_end"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_modelprovider_model_versionrawsfcode_01" id="rawsfcode_01" implementation="http://www.jboss.org/drools/rule" name="调用接口返回模型版本"/>
+                    <sequenceFlow id="begin_rawsfcode_01" sourceRef="begin" targetRef="rawsfcode_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="bindparam_01_end_01" sourceRef="bindparam_01" targetRef="end_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-rawsfcode_01_bindparam_01" sourceRef="gateway-rawsfcode_01" targetRef="bindparam_01">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_modelprovider_model_versiondefault:ai_model();
+                                            $ai_modelprovider_model_versionpage_temp:Map();
+                                            $ai_modelprovider_model_versionprovider_models:ai_model();
+                                    eval($ai_modelprovider_model_versiondefault==ai_modelprovider_model_versiondefault && $ai_modelprovider_model_versionprovider_models==ai_modelprovider_model_versionprovider_models);
+                                eval((RuleUtils.test($ai_modelprovider_model_versionpage_temp.get("provider_models"),"ISNOTNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                            <exclusiveGateway id="gateway-rawsfcode_01" name="Gateway" gatewayDirection="Diverging" default="gateway-rawsfcode_01_end_line"></exclusiveGateway>
+                            <sequenceFlow id="rawsfcode_01_gateway-rawsfcode_01_gatewayline" sourceRef="rawsfcode_01" targetRef="gateway-rawsfcode_01"></sequenceFlow>
+                            <sequenceFlow id="gateway-rawsfcode_01_end_line" sourceRef="gateway-rawsfcode_01" targetRef="gateway-rawsfcode_01_end"/>
+                            <endEvent id="gateway-rawsfcode_01_end" name="end"/>
+        </process>
+    </definitions>

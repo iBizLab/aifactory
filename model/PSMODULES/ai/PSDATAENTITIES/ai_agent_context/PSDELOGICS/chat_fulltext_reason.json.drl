@@ -1,0 +1,1388 @@
+package cn.ibizlab.ai.logic.ai_agent_contextlogic.chat_fulltext_reason;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_agent_context ai_agent_contextchat_fulltext_reasondefault;
+                global cn.ibizlab.core.ai.domain.ai_agent_context ai_agent_contextchat_fulltext_reasonagent;
+                global java.util.Map ai_agent_contextchat_fulltext_reasonall_reason_content;
+                global java.util.Map ai_agent_contextchat_fulltext_reasonchat_request;
+                global java.util.Map ai_agent_contextchat_fulltext_reasonchat_response;
+                global java.util.Map ai_agent_contextchat_fulltext_reasonchunk_reason;
+                global java.util.Map ai_agent_contextchat_fulltext_reasonchunk_reason_list;
+                global cn.ibizlab.core.ai.domain.ai_agent_context ai_agent_contextchat_fulltext_reasondefault_temp;
+                global cn.ibizlab.core.ai.domain.ai_kb_document ai_agent_contextchat_fulltext_reasondoc;
+                global cn.ibizlab.core.ai.domain.ai_kb_document ai_agent_contextchat_fulltext_reasondoc_filter;
+                global java.util.Map ai_agent_contextchat_fulltext_reasondoc_fulltext;
+                global cn.ibizlab.core.ai.domain.ai_kb_document ai_agent_contextchat_fulltext_reasondoc_list;
+                global cn.ibizlab.core.ai.domain.ai_review_report ai_agent_contextchat_fulltext_reasondoc_reason_list;
+                global java.util.Map ai_agent_contextchat_fulltext_reasonfinal_chat_response;
+                global cn.ibizlab.core.ai.domain.ai_kb_document ai_agent_contextchat_fulltext_reasonfull_doc_list;
+                global cn.ibizlab.core.ai.domain.ai_review_report ai_agent_contextchat_fulltext_reasonfullcontent_reason_report;
+                global java.util.Map ai_agent_contextchat_fulltext_reasonfulltext_chunk_list;
+                global cn.ibizlab.core.ai.domain.ai_agent_context ai_agent_contextchat_fulltext_reasonkb;
+                global java.util.Map ai_agent_contextchat_fulltext_reasonobj;
+                global java.util.Map ai_agent_contextchat_fulltext_reasonrefrence_chat_request;
+                global java.util.Map ai_agent_contextchat_fulltext_reasonrefrence_chat_response;
+                global cn.ibizlab.core.ai.domain.ai_review_report ai_agent_contextchat_fulltext_reasonreport_doc;
+                global java.util.Map ai_agent_contextchat_fulltext_reasontext_chunk;
+                global cn.ibizlab.core.ai.domain.ai_kb_document ai_agent_contextchat_fulltext_reasontext_reason;
+                global java.util.Map ai_agent_contextchat_fulltext_reasontextreason_chat_request;
+                global java.util.Map ai_agent_contextchat_fulltext_reasontextreason_chat_response;
+                    global cn.ibizlab.core.ai.service.Iai_agent_contextService ai_agent_contextservice;
+                    global cn.ibizlab.core.ai.service.Iai_kb_documentService ai_kb_documentservice;
+                    global cn.ibizlab.core.ai.service.Iai_knowledge_baseService ai_knowledge_baseservice;
+                    global cn.ibizlab.core.ai.service.Iai_review_reportService ai_review_reportservice;
+        global cn.ibizlab.core.ai.service.Iai_agent_contextService iBzSysAi_agent_contextDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[绑定参数]
+            rule "bindparam_01"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonbindparam_01"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[查询智能体]
+            rule "delogic_02"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasondelogic_02"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[设置筛选条件]
+            rule "prepareparam_01"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonprepareparam_01"
+            when
+            then
+                            ai_agent_contextchat_fulltext_reasondoc_filter.set("n_kb_id_eq",ai_agent_contextchat_fulltext_reasonkb.get("id"));
+                            ai_agent_contextchat_fulltext_reasondoc_filter.set("size","1000");
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[设置交谈参数]
+            rule "prepareparam_09"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonprepareparam_09"
+            when
+            then
+                                ai_agent_contextchat_fulltext_reasonchat_request.set("knowledgebases",null);
+                            ai_agent_contextchat_fulltext_reasonchat_request.set("srfaiagenttag",ai_agent_contextchat_fulltext_reasonagent.get("codename"));
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[循环子调用]
+            rule "loopsubcall_02"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonloopsubcall_02"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[交谈输出]
+            rule "sysaichatagent_chatoutput_02"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonsysaichatagent_chatoutput_02"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[查询知识库文档]
+            rule "sysaichatagent_chatstep_01"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonsysaichatagent_chatstep_01"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备知识库标识]
+            rule "prepareparam_06"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonprepareparam_06"
+            when
+            then
+                            ai_agent_contextchat_fulltext_reasonkb.set("id",ai_agent_contextchat_fulltext_reasondefault_temp.get("knowledgebases"));
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[设置智能体代码标识]
+            rule "prepareparam_07"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonprepareparam_07"
+            when
+            then
+                            ai_agent_contextchat_fulltext_reasonagent.set("codename",ai_agent_contextchat_fulltext_reasondefault_temp.get("srfaiagenttag"));
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[输出合并后大内容]
+            rule "debugparam_03"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasondebugparam_03"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[查询知识库下文档]
+            rule "dedataset_01"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasondedataset_01"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备文档正文]
+            rule "rawsfcode_03"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonrawsfcode_03"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[输出大内容拆分集合]
+            rule "debugparam_04"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasondebugparam_04"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[查询知识库详情]
+            rule "delogic_01"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasondelogic_01"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[将大内容拆分]
+            rule "rawsfcode_05"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonrawsfcode_05"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[重新建立参数]
+            rule "renewparam_04"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonrenewparam_04"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[逐一开始审查]
+            rule "sysaichatagent_chatstep_02"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonsysaichatagent_chatstep_02"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结果过多再次分段审查]
+            rule "debugparam_05"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasondebugparam_05"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[调试逻辑参数]
+            rule "debugparam_01"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasondebugparam_01"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[重新建立交谈请求]
+            rule "renewparam_01"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonrenewparam_01"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[内容总结]
+            rule "sysaichatagent_chatstep_04"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonsysaichatagent_chatstep_04"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[重新建立交谈输出]
+            rule "renewparam_02"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonrenewparam_02"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[置空知识库标识]
+            rule "prepareparam_03"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonprepareparam_03"
+            when
+            then
+                                ai_agent_contextchat_fulltext_reasontextreason_chat_request.set("knowledgebases",null);
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[获取知识库文档推理结果]
+            rule "rawsfcode_01"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonrawsfcode_01"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[只有一条无需总结]
+            rule "debugparam_06"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasondebugparam_06"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[附加聊天请求]
+            rule "sysaichatagent_appendchatrequest_02"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonsysaichatagent_appendchatrequest_02"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[重新建立参数]
+            rule "renewparam_03"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonrenewparam_03"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[待总结片段]
+            rule "debugparam_07"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasondebugparam_07"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[设置全文推理结果审查报告]
+            rule "prepareparam_05"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonprepareparam_05"
+            when
+            then
+                            ai_agent_contextchat_fulltext_reasonfullcontent_reason_report.set("kbid",ai_agent_contextchat_fulltext_reasonkb.get("id"));
+                            ai_agent_contextchat_fulltext_reasonfullcontent_reason_report.set("agenttag",ai_agent_contextchat_fulltext_reasondefault.get("srfaiagenttag"));
+                            ai_agent_contextchat_fulltext_reasonfullcontent_reason_report.set("name",ai_agent_contextchat_fulltext_reasonkb.get("name"));
+                            ai_agent_contextchat_fulltext_reasonfullcontent_reason_report.set("checkinfo",ai_agent_contextchat_fulltext_reasonall_reason_content.get("fullcontent"));
+                            ai_agent_contextchat_fulltext_reasonfullcontent_reason_report.set("reviewresult",ai_agent_contextchat_fulltext_reasonall_reason_content.get("retry"));
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[附加聊天请求]
+            rule "sysaichatagent_appendchatrequest_01"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonsysaichatagent_appendchatrequest_01"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[交谈输出]
+            rule "sysaichatagent_chatoutput_01"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonsysaichatagent_chatoutput_01"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[回填交谈结果]
+            rule "prepareparam_08"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonprepareparam_08"
+            when
+            then
+                            ai_agent_contextchat_fulltext_reasonchunk_reason.set("content",ai_agent_contextchat_fulltext_reasonchat_response.get("content"));
+                            ai_agent_contextchat_fulltext_reasonfinal_chat_response.set("",ai_agent_contextchat_fulltext_reasonchat_response.get(""));
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[创建审查报告]
+            rule "deaction_03"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasondeaction_03"
+            when
+            then
+                        ai_review_reportservice.upsert(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备参数总结智能体]
+            rule "prepareparam_010"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonprepareparam_010"
+            when
+            then
+                            ai_agent_contextchat_fulltext_reasontextreason_chat_request.set("srfaiagenttag",ai_agent_contextchat_fulltext_reasonagent.get("synthesizer"));
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[将交谈结果附加到数组]
+            rule "appendparam_03"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonappendparam_03"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[全文推理完成]
+            rule "sysaichatagent_chatstep_03"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonsysaichatagent_chatstep_03"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[交谈输出]
+            rule "sysaichatagent_chatoutput_03"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonsysaichatagent_chatoutput_03"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_011"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonprepareparam_011"
+            when
+            then
+                            ai_agent_contextchat_fulltext_reasonfullcontent_reason_report.set("reviewreport",ai_agent_contextchat_fulltext_reasontextreason_chat_response.get("content"));
+                            ai_agent_contextchat_fulltext_reasonfinal_chat_response.set("",ai_agent_contextchat_fulltext_reasontextreason_chat_response.get(""));
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[查询知识库详情]
+            rule "deaction_04"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasondeaction_04"
+            when
+            then
+                            cn.ibizlab.util.helper.CachedBeanCopier.copy(ai_knowledge_baseservice.get(ai_agent_contextchat_fulltext_reasonkb.getId()),ai_agent_contextchat_fulltext_reasonkb);
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "ai_agent_contextchat_fulltext_reasonend_01"
+            when
+            then
+                        update(ai_agent_contextchat_fulltext_reasondefault);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonagent);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonall_reason_content);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonchunk_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondefault_temp);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_filter);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_fulltext);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfinal_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfull_doc_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonfulltext_chunk_list);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonkb);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonobj);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonrefrence_chat_response);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasonreport_doc);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_chunk);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontext_reason);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_request);//更新fact中变量值
+                        update(ai_agent_contextchat_fulltext_reasontextreason_chat_response);//更新fact中变量值
+            end

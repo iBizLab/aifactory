@@ -1,0 +1,28 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CREATE",
+  "actionType" : "DELOGIC",
+  "codeName" : "CreateCorrespondingKB",
+  "dataAccessAction" : "CREATE",
+  "dynaModelFilePath" : "PSMODULES/Wiki/PSDATAENTITIES/space/PSDEACTIONS/CreateCorrespondingKB.json",
+  "logicName" : "创建对应的知识库",
+  "name" : "CreateCorrespondingKB",
+  "getPSDEActionInput" : {
+    "name" : "CreateCorrespondingKBInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "space_dto"
+    },
+    "type" : "DTO",
+    "output" : true
+  },
+  "getPSDEActionReturn" : {
+    "name" : "CreateCorrespondingKBResult",
+    "type" : "VOID"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/Wiki/PSDATAENTITIES/space/PSDELOGICS/CreateCorrespondingKB.json"
+  },
+  "enableFront" : false
+}

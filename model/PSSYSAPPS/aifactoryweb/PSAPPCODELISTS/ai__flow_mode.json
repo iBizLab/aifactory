@@ -1,0 +1,35 @@
+{
+  "codeListTag" : "ai__flow_mode",
+  "codeListType" : "STATIC",
+  "codeName" : "ai__flow_mode",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__flow_mode.json",
+  "emptyText" : "未定义",
+  "name" : "智能体工作流模式",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent.json"
+  },
+  "getPSCodeItems" : [ {
+    "codeName" : "default",
+    "text" : "默认",
+    "value" : "DEFAULT"
+  }, {
+    "codeName" : "de",
+    "text" : "逻辑模式",
+    "value" : "DE"
+  }, {
+    "codeName" : "skill",
+    "text" : "技能",
+    "value" : "SKILL"
+  }, {
+    "codeName" : "hub",
+    "text" : "总线",
+    "value" : "HUB"
+  }, {
+    "codeName" : "script",
+    "text" : "脚本代码",
+    "value" : "SCRIPT"
+  } ],
+  "enableCache" : true
+}

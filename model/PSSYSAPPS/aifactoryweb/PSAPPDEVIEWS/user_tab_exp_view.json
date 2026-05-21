@@ -1,0 +1,162 @@
+{
+  "accUserMode" : 2,
+  "caption" : "成员",
+  "codeName" : "user_tab_exp_view",
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/user_tab_exp_view.json",
+  "memo" : "系统自动添加",
+  "name" : "usertab_exp_view",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
+  },
+  "getPSAppModule" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPMODULES/Base.json"
+  },
+  "getPSAppViewEngines" : [ {
+    "engineCat" : "VIEW",
+    "engineType" : "TabExpView",
+    "name" : "engine"
+  } ],
+  "getPSControls" : [ {
+    "codeName" : "tab_exp_view_dr",
+    "controlType" : "DRTAB",
+    "dataRelationTag" : "tab_exp_view_DR",
+    "editItemCaption" : "企业用户",
+    "name" : "tabexppanel",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
+    },
+    "getPSControlHandler" : {
+      "enableDEFieldPrivilege" : false,
+      "id" : "tabexppanel"
+    },
+    "getPSControlParam" : {
+      "autoLoad" : true,
+      "showBusyIndicator" : true,
+      "id" : "TABEXPPANEL"
+    },
+    "getPSDEDRTabPages" : [ {
+      "caption" : "成员管理",
+      "name" : "user",
+      "getPSAppView" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/user_tree_exp_view.json",
+        "viewType" : "DETREEEXPVIEW"
+      },
+      "getPSSysImage" : {
+        "glyph" : "xf007@FontAwesome",
+        "cssClass" : "fa fa-user"
+      }
+    }, {
+      "caption" : "团队管理",
+      "name" : "group",
+      "getPSAppView" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/group_tree_exp_view.json",
+        "viewType" : "DETREEEXPVIEW"
+      },
+      "getPSSysImage" : {
+        "glyph" : "xf0c0@FontAwesome",
+        "cssClass" : "fa fa-group"
+      }
+    } ],
+    "uniqueTag" : "user_tab_exp_view__tabexppanel",
+    "hideEditItem" : true,
+    "modelid" : "26f68a54c0c42c0e964ee1810dba395a",
+    "modeltype" : "PSDEDRTAB"
+  }, {
+    "caption" : "成员",
+    "codeName" : "tab_exp_view_captionbar",
+    "controlType" : "CAPTIONBAR",
+    "name" : "captionbar",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
+    },
+    "getPSControlParam" : { }
+  } ],
+  "getPSDEViewCodeName" : "tab_exp_view",
+  "getPSDEViewId" : "1ecf7ccc8d00b59df4bc34ad09f9bfc8",
+  "getPSViewLayoutPanel" : {
+    "codeName" : "layoutpanel",
+    "controlStyle" : "APPDETABEXPVIEW",
+    "controlType" : "VIEWLAYOUTPANEL",
+    "name" : "layoutpanel",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
+    },
+    "getPSControlParam" : { },
+    "layoutBodyOnly" : true,
+    "layoutPanel" : true,
+    "useDefaultLayout" : true
+  },
+  "tabLayout" : "TOP",
+  "title" : "成员",
+  "viewStyle" : "DEFAULT",
+  "viewType" : "DETABEXPVIEW",
+  "enableDP" : true,
+  "enableQuickSearch" : false,
+  "enableSearch" : false,
+  "expandSearchForm" : false,
+  "loadDefault" : true,
+  "showCaptionBar" : false,
+  "showDataInfoBar" : true,
+  "modelid" : "c7baaa17b09f38c443c58a370cdb4a40",
+  "modeltype" : "PSAPPDEVIEW",
+  "getPSAppDERSPaths" : [ [ {
+    "actionRSMode" : 1,
+    "codeName" : "users",
+    "dataRSMode" : 0,
+    "majorDECodeName" : "organization",
+    "majorDEName" : "ORGANIZATION",
+    "getMajorPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/organization.json"
+    },
+    "minorDECodeName" : "user",
+    "minorDEName" : "USER",
+    "getMinorPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
+    },
+    "name" : "DER1N_USER_ORGANIZATION_ORGANIZATION_ID",
+    "getParentPSAppDEField" : {
+      "name" : "ORGANIZATION_ID",
+      "codeName" : "organization_id"
+    },
+    "getParentTextPSAppDEField" : {
+      "name" : "ORGANIZATION_NAME",
+      "codeName" : "organization_name"
+    },
+    "rSMode" : 2
+  } ], [ {
+    "actionRSMode" : 1,
+    "codeName" : "users",
+    "dataRSMode" : 0,
+    "majorDECodeName" : "department",
+    "majorDEName" : "DEPARTMENT",
+    "getMajorPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/department.json"
+    },
+    "minorDECodeName" : "user",
+    "minorDEName" : "USER",
+    "getMinorPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
+    },
+    "name" : "DER1N_USER_DEPARTMENT_DEPARTMENT_ID",
+    "getParentPSAppDEField" : {
+      "name" : "DEPARTMENT_ID",
+      "codeName" : "department_id"
+    },
+    "getParentTextPSAppDEField" : {
+      "name" : "DEPARTMENT_NAME",
+      "codeName" : "department_name"
+    },
+    "rSMode" : 2
+  } ] ]
+}

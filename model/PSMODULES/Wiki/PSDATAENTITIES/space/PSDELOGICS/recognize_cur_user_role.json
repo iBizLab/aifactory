@@ -1,0 +1,52 @@
+{
+  "codeName" : "recognize_cur_user_role",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/Wiki/PSDATAENTITIES/space/PSDELOGICS/recognize_cur_user_role.json",
+  "logicName" : "判断当前用户角色",
+  "memo" : "判断当前用户角色",
+  "name" : "判断当前用户角色",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : -490,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "topPos" : -80,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Wiki/PSDATAENTITIES/space.json"
+    },
+    "default" : true,
+    "entityParam" : true
+  }, {
+    "codeName" : "for_obj",
+    "logicName" : "循环临时变量",
+    "name" : "循环临时变量",
+    "entityParam" : true
+  }, {
+    "codeName" : "members",
+    "logicName" : "成员",
+    "name" : "成员",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Wiki/PSDATAENTITIES/space_member.json"
+    },
+    "entityPageParam" : true
+  }, {
+    "codeName" : "user",
+    "logicName" : "当前登录人",
+    "name" : "当前登录人",
+    "entityParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

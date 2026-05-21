@@ -1,0 +1,51 @@
+{
+  "codeName" : "LIQUIBASE_CHANGELOGS__DEFAULT",
+  "dynaModelFilePath" : "PSSYSCONTENTCATS/LIQUIBASE_CHANGELOGS__DEFAULT.json",
+  "name" : "默认源",
+  "getPSSysContents" : [ {
+    "codeName" : "insert_category",
+    "contentType" : "RAW",
+    "name" : "初始化目录",
+    "_file" : true
+  }, {
+    "codeName" : "init_ai_model_provider",
+    "contentType" : "RAW",
+    "name" : "初始模型提供商",
+    "_file" : true
+  }, {
+    "codeName" : "init_trgm",
+    "contentType" : "RAW",
+    "name" : "index-trgm",
+    "_file" : true
+  }, {
+    "codeName" : "insert_resource",
+    "contentType" : "RAW",
+    "name" : "初始化资源",
+    "_file" : true
+  }, {
+    "codeName" : "insert_dictionary",
+    "contentType" : "RAW",
+    "name" : "初始化字典",
+    "_file" : true
+  }, {
+    "codeName" : "insert_ai_credential_b",
+    "contentType" : "RAW",
+    "name" : "初始化模型",
+    "_file" : true
+  }, {
+    "codeName" : "insert_dashboard",
+    "contentType" : "RAW",
+    "name" : "初始化视图",
+    "_file" : true
+  }, {
+    "codeName" : "update_agent_suggs",
+    "contentType" : "RAW",
+    "name" : "更新自定义建议",
+    "_file" : true
+  }, {
+    "codeName" : "insert_ai_agent_b",
+    "contentType" : "RAW",
+    "name" : "初始化智能体模版",
+    "_file" : true
+  } ]
+}

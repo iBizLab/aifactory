@@ -1,0 +1,108 @@
+{
+  "codeListTag" : "extension__enable_action",
+  "codeListType" : "STATIC",
+  "codeName" : "enable_action",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/extension/PSCODELISTS/enable_action.json",
+  "dynaSysMode" : 1,
+  "emptyText" : "未定义",
+  "name" : "可供选择的触发器",
+  "getPSCodeItems" : [ {
+    "codeName" : "knowledge",
+    "getPSCodeItems" : [ {
+      "codeName" : "ai_ai_knowledge_base_create_after",
+      "text" : "创建知识库",
+      "value" : "ai.ai_knowledge_base.create:AFTER"
+    }, {
+      "codeName" : "ai_ai_knowledge_base_update_after",
+      "text" : "更新知识库",
+      "value" : "ai.ai_knowledge_base.update:AFTER"
+    }, {
+      "codeName" : "ai_ai_knowledge_base_update_status_after",
+      "text" : "更新知识库状态",
+      "value" : "ai.ai_knowledge_base.update_status:AFTER"
+    }, {
+      "codeName" : "ai_ai_document_create_after",
+      "text" : "创建文档",
+      "value" : "ai.ai_document.create:AFTER"
+    }, {
+      "codeName" : "ai_ai_document_update_after",
+      "text" : "更新文档",
+      "value" : "ai.ai_document.update:AFTER"
+    }, {
+      "codeName" : "ai_ai_document_delete_after",
+      "text" : "删除文档",
+      "value" : "ai.ai_document.delete:AFTER"
+    }, {
+      "codeName" : "ai_ai_document_update_status_after",
+      "text" : "更新文档状态",
+      "value" : "ai.ai_document.update_status:AFTER"
+    }, {
+      "codeName" : "ai_ai_document_chunk_after",
+      "text" : "文档切片",
+      "value" : "ai.ai_document.chunk:AFTER"
+    } ],
+    "text" : "知识库",
+    "value" : "knowledge",
+    "disableSelect" : true
+  }, {
+    "codeName" : "meta",
+    "getPSCodeItems" : [ {
+      "codeName" : "meta_data_resource_create_after",
+      "text" : "新增资源类型",
+      "value" : "meta.data_resource.create:AFTER"
+    }, {
+      "codeName" : "meta_data_resource_update_after",
+      "text" : "更新资源类型",
+      "value" : "meta.data_resource.update:AFTER"
+    }, {
+      "codeName" : "meta_data_record_upsert_after",
+      "text" : "资源数据变更",
+      "value" : "meta.data_record.upsert:AFTER"
+    } ],
+    "text" : "资源数据",
+    "value" : "meta",
+    "disableSelect" : true
+  }, {
+    "codeName" : "wiki",
+    "getPSCodeItems" : [ {
+      "codeName" : "wiki_space_create_after",
+      "text" : "创建空间",
+      "value" : "Wiki.space.create:AFTER"
+    }, {
+      "codeName" : "wiki_space_archive_after",
+      "text" : "归档空间",
+      "value" : "Wiki.space.archive:AFTER"
+    }, {
+      "codeName" : "wiki_space_delete_after",
+      "text" : "删除空间",
+      "value" : "Wiki.space.delete:AFTER"
+    }, {
+      "codeName" : "wiki_article_page_publish_page_after",
+      "text" : "发布页面",
+      "value" : "Wiki.article_page.publish_page:AFTER"
+    }, {
+      "codeName" : "wiki_article_page_delete_after",
+      "text" : "删除页面",
+      "value" : "Wiki.article_page.delete:AFTER"
+    } ],
+    "text" : "空间",
+    "value" : "wiki",
+    "disableSelect" : true
+  } ],
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/extension/PSDATAENTITIES/PSDELogic.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/extension.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizAIFactory",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

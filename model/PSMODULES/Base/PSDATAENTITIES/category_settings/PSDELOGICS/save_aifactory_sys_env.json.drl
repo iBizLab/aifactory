@@ -1,0 +1,46 @@
+package cn.ibizlab.base.logic.category_settingslogic.save_aifactory_sys_env;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.base.domain.category_settings category_settingssave_aifactory_sys_envdefault;
+                    global cn.ibizlab.core.base.service.Icategory_settingsService category_settingsservice;
+        global cn.ibizlab.core.base.service.Icategory_settingsService iBzSysCategory_settingsDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "category_settingssave_aifactory_sys_envbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[更新env]
+            rule "rawsfcode_01"
+            ruleflow-group "category_settingssave_aifactory_sys_envrawsfcode_01"
+            when
+            then
+                        update(category_settingssave_aifactory_sys_envdefault);//更新fact中变量值
+            end
+
+            //逻辑处理节点[update]
+            rule "deaction_01"
+            ruleflow-group "category_settingssave_aifactory_sys_envdeaction_01"
+            when
+            then
+                        category_settingsservice.update(category_settingssave_aifactory_sys_envdefault);
+                        update(category_settingssave_aifactory_sys_envdefault);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "category_settingssave_aifactory_sys_envend_01"
+            when
+            then
+                        update(category_settingssave_aifactory_sys_envdefault);//更新fact中变量值
+            end

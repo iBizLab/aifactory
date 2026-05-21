@@ -1,0 +1,344 @@
+package cn.ibizlab.ai.logic.ai_agent_contextlogic.create_ai_agent_context;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_agent_context ai_agent_contextcreate_ai_agent_contextdefault;
+                global cn.ibizlab.core.ai.domain.ai_agent_context ai_agent_contextcreate_ai_agent_contextai_agent_context;
+                global java.util.Map ai_agent_contextcreate_ai_agent_contextchat_response;
+                global java.util.Map ai_agent_contextcreate_ai_agent_contextlast_return;
+                global cn.ibizlab.core.ai.domain.ai_agent_context ai_agent_contextcreate_ai_agent_contextsrfextparams;
+                global java.util.Map ai_agent_contextcreate_ai_agent_contexttemp;
+                    global cn.ibizlab.core.ai.service.Iai_agent_contextService ai_agent_contextservice;
+        global cn.ibizlab.core.ai.service.Iai_agent_contextService iBzSysAi_agent_contextDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[输出default参数]
+            rule "debugparam_01"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextdebugparam_01"
+            when
+            then
+                        update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextai_agent_context);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextchat_response);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextlast_return);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextsrfextparams);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[附加聊天请求]
+            rule "sysaichatagent_appendchatrequest_01"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextsysaichatagent_appendchatrequest_01"
+            when
+            then
+                        update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextai_agent_context);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextchat_response);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextlast_return);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextsrfextparams);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[交谈输出]
+            rule "sysaichatagent_chatoutput_01"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextsysaichatagent_chatoutput_01"
+            when
+            then
+                        update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextai_agent_context);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextchat_response);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextlast_return);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextsrfextparams);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[步骤消息]
+            rule "sysaichatagent_chatstep_01"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextsysaichatagent_chatstep_01"
+            when
+            then
+                        update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextai_agent_context);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextchat_response);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextlast_return);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextsrfextparams);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_04"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextprepareparam_04"
+            when
+            then
+                            ai_agent_contextcreate_ai_agent_contextsrfextparams.set("",ai_agent_contextcreate_ai_agent_contextdefault.get("srfextparams"));
+                        update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextai_agent_context);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextchat_response);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextlast_return);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextsrfextparams);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[交谈输出]
+            rule "sysaichatagent_chatoutput_03"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextsysaichatagent_chatoutput_03"
+            when
+            then
+                        update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextai_agent_context);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextchat_response);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextlast_return);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextsrfextparams);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[交谈输出]
+            rule "sysaichatagent_chatoutput_02"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextsysaichatagent_chatoutput_02"
+            when
+            then
+                        update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextai_agent_context);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextchat_response);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextlast_return);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextsrfextparams);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[问题分类]
+            rule "sysaichatagent_chatcategory_03"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextsysaichatagent_chatcategory_03"
+            when
+            then
+                        update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextai_agent_context);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextchat_response);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextlast_return);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextsrfextparams);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[提取json]
+            rule "prepareparam_01"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextprepareparam_01"
+            when
+            then
+                            ai_agent_contextcreate_ai_agent_contextai_agent_context.set("",ai_agent_contextcreate_ai_agent_contextchat_response.get("json"));
+                            ai_agent_contextcreate_ai_agent_contextai_agent_context.set("aiagentid",ai_agent_contextcreate_ai_agent_contextsrfextparams.get("aiagentid"));
+                        update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextai_agent_context);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextchat_response);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextlast_return);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextsrfextparams);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[路径选择]
+            rule "sysaichatagent_chatdecision_01"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextsysaichatagent_chatdecision_01"
+            when
+            then
+                        update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextai_agent_context);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextchat_response);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextlast_return);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextsrfextparams);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[界面行为反馈]
+            rule "sysaichatagent_chatuiaction_02"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextsysaichatagent_chatuiaction_02"
+            when
+            then
+                        update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextai_agent_context);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextchat_response);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextlast_return);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextsrfextparams);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[附加聊天请求]
+            rule "sysaichatagent_appendchatrequest_02"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextsysaichatagent_appendchatrequest_02"
+            when
+            then
+                        update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextai_agent_context);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextchat_response);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextlast_return);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextsrfextparams);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[获取智能体默认参数]
+            rule "deaction_01"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextdeaction_01"
+            when
+            then
+                        ai_agent_contextservice.getDraft(ai_agent_contextcreate_ai_agent_contextai_agent_context);
+                        update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextai_agent_context);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextchat_response);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextlast_return);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextsrfextparams);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_03"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextprepareparam_03"
+            when
+            then
+                        update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextai_agent_context);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextchat_response);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextlast_return);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextsrfextparams);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[步骤消息]
+            rule "sysaichatagent_chatstep_02"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextsysaichatagent_chatstep_02"
+            when
+            then
+                        update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextai_agent_context);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextchat_response);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextlast_return);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextsrfextparams);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[创建异常]
+            rule "sysaichatagent_chatstep_03"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextsysaichatagent_chatstep_03"
+            when
+            then
+                        update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextai_agent_context);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextchat_response);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextlast_return);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextsrfextparams);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[建立智能体]
+            rule "deaction_03"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextdeaction_03"
+            when
+            then
+                        ai_agent_contextservice.create(ai_agent_contextcreate_ai_agent_contextai_agent_context);
+                        update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextai_agent_context);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextchat_response);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextlast_return);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextsrfextparams);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[下一步或重新生成]
+            rule "sysaichatagent_chatinput_02"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextsysaichatagent_chatinput_02"
+            when
+            then
+                        update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextai_agent_context);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextchat_response);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextlast_return);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextsrfextparams);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[回写查看建立数据的按钮]
+            rule "sysaichatagent_chatuiaction_01"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextsysaichatagent_chatuiaction_01"
+            when
+            then
+                        update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextai_agent_context);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextchat_response);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextlast_return);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextsrfextparams);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[写入错误信息]
+            rule "prepareparam_02"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextprepareparam_02"
+            when
+            then
+                            ai_agent_contextcreate_ai_agent_contexttemp.set("error",ai_agent_contextcreate_ai_agent_contextlast_return.get(""));
+                        update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextai_agent_context);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextchat_response);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextlast_return);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextsrfextparams);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[问题分类]
+            rule "sysaichatagent_chatcategory_05"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextsysaichatagent_chatcategory_05"
+            when
+            then
+                        update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextai_agent_context);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextchat_response);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextlast_return);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextsrfextparams);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[等待输入]
+            rule "sysaichatagent_chatinput_04"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextsysaichatagent_chatinput_04"
+            when
+            then
+                        update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextai_agent_context);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextchat_response);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextlast_return);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextsrfextparams);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[步骤消息]
+            rule "sysaichatagent_chatstep_04"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextsysaichatagent_chatstep_04"
+            when
+            then
+                        update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextai_agent_context);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextchat_response);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextlast_return);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextsrfextparams);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextend_01"
+            when
+            then
+                        update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextai_agent_context);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextchat_response);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextlast_return);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextsrfextparams);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
+            end

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="cn.ibizlab.core.ai.service.logic.ai_agent_contextdeep_research" isClosed="false" isExecutable="true" name="ai_ai_agent_context_deep_research_ruleFlow" processType="Private" tns:packageName="cn.ibizlab.core.ai.service.logic.ai_agent_contextdeep_research">
+            <extensionElements>
+                <tns:import name="java.util.Map" />
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="cn.ibizlab.util.helper.RuleUtils"/>
+                                <tns:metaData express="" name="ai_agent_contextdeep_researchdefault" type="entity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_agent_context()" name="ai_agent_contextdeep_researchagententity" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextdeep_researchagenttag" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextdeep_researchagenttag2" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextdeep_researchchat_response" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextdeep_researchchat_response_entity" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextdeep_researchcontent" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_knowledge_base()" name="ai_agent_contextdeep_researchkb" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextdeep_researchqueries" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_kb_chunk()" name="ai_agent_contextdeep_researchquery_chunk" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextdeep_researchquery_chunk_result" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextdeep_researchretrieved_chunks" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextdeep_researchsearch_plan" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextdeep_researchsearch_plans" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextdeep_researchsshy_content" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextdeep_researchverification_checklist" type="refentity"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_knowledge_baseService))" name="ai_knowledge_baseservice" type="service"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_agent_contextService))" name="ai_agent_contextservice" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_agent_contextService))" name="iBzSysAi_agent_contextDefaultService" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
+                            <tns:global identifier="ai_agent_contextdeep_researchdefault" type="cn.ibizlab.core.ai.domain.ai_agent_context" />
+                            <tns:global identifier="ai_agent_contextdeep_researchagententity" type="cn.ibizlab.core.ai.domain.ai_agent_context" />
+                            <tns:global identifier="ai_agent_contextdeep_researchkb" type="cn.ibizlab.core.ai.domain.ai_knowledge_base" />
+                            <tns:global identifier="ai_agent_contextdeep_researchquery_chunk" type="cn.ibizlab.core.ai.domain.ai_kb_chunk" />
+            </extensionElements>
+                        <startEvent id="begin" isInterrupting="true"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchprepareparam_01" id="prepareparam_01" implementation="http://www.jboss.org/drools/rule" name="准备知识库id"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchdebugparam_02" id="debugparam_02" implementation="http://www.jboss.org/drools/rule" name="调试逻辑参数RESEARCH"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchdelogic_02" id="delogic_02" implementation="http://www.jboss.org/drools/rule" name="获取知识库信息"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchend_02" id="end_02" implementation="http://www.jboss.org/drools/rule" name="结束"/>
+                        <endEvent id="end_02_end" name="end"/>
+                        <sequenceFlow id="end_02_end_line" sourceRef="end_02" targetRef="end_02_end"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchdeaction_01" id="deaction_01" implementation="http://www.jboss.org/drools/rule" name="获取知识库信息"/>
+                        <endEvent id="deaction_01_end" name="end"/>
+                        <sequenceFlow id="deaction_01_end_line" sourceRef="deaction_01" targetRef="deaction_01_end"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchprepareparam_02" id="prepareparam_02" implementation="http://www.jboss.org/drools/rule" name="切换深度研究智能体"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchsysaichatagent_chatstep_02" id="sysaichatagent_chatstep_02" implementation="http://www.jboss.org/drools/rule" name="1.提示生成研究策略"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchsysaichatagent_appendchatrequest_01" id="sysaichatagent_appendchatrequest_01" implementation="http://www.jboss.org/drools/rule" name="附加聊天请求"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchsysaichatagent_chatoutput_01" id="sysaichatagent_chatoutput_01" implementation="http://www.jboss.org/drools/rule" name="交谈输出"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchprepareparam_03" id="prepareparam_03" implementation="http://www.jboss.org/drools/rule" name="提取j深度研究son对象"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchsysaichatagent_chatstep_04" id="sysaichatagent_chatstep_04" implementation="http://www.jboss.org/drools/rule" name="提示提取json对象异常"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchend_03" id="end_03" implementation="http://www.jboss.org/drools/rule" name="结束"/>
+                        <endEvent id="end_03_end" name="end"/>
+                        <sequenceFlow id="end_03_end_line" sourceRef="end_03" targetRef="end_03_end"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchprepareparam_04" id="prepareparam_04" implementation="http://www.jboss.org/drools/rule" name="设置search_plans，verification_checklist"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchsysaichatagent_chatstep_03" id="sysaichatagent_chatstep_03" implementation="http://www.jboss.org/drools/rule" name="提示研究策略内容"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchloopsubcall_01" id="loopsubcall_01" implementation="http://www.jboss.org/drools/rule" name="循环子调用"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchprepareparam_05" id="prepareparam_05" implementation="http://www.jboss.org/drools/rule" name="切换通用事实核验员智能体、请求清除知识库标识"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchrawsfcode_02" id="rawsfcode_02" implementation="http://www.jboss.org/drools/rule" name="附加聊天请求"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchsysaichatagent_chatstep_07" id="sysaichatagent_chatstep_07" implementation="http://www.jboss.org/drools/rule" name="2.提示根据检索信息进行事实核验"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchsysaichatagent_chatoutput_02" id="sysaichatagent_chatoutput_02" implementation="http://www.jboss.org/drools/rule" name="通用事实核验交谈输出"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchprepareparam_06" id="prepareparam_06" implementation="http://www.jboss.org/drools/rule" name="提取通用事实核验员内容"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchsysaichatagent_chatstep_06" id="sysaichatagent_chatstep_06" implementation="http://www.jboss.org/drools/rule" name="提示事实核验内容"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchprepareparam_08" id="prepareparam_08" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchprepareparam_07" id="prepareparam_07" implementation="http://www.jboss.org/drools/rule" name="准备知识检索参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchdebugparam_01" id="debugparam_01" implementation="http://www.jboss.org/drools/rule" name="调试逻辑参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchsysaichatagent_chatoutput_03" id="sysaichatagent_chatoutput_03" implementation="http://www.jboss.org/drools/rule" name="判定交谈输出"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchsysaichatagent_appendchatrequest_03" id="sysaichatagent_appendchatrequest_03" implementation="http://www.jboss.org/drools/rule" name="判定请求"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchsysaichatagent_chatstep_09" id="sysaichatagent_chatstep_09" implementation="http://www.jboss.org/drools/rule" name="3.提示判定"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchprepareparam_09" id="prepareparam_09" implementation="http://www.jboss.org/drools/rule" name="切换判定专家智能体"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchdelogic_01" id="delogic_01" implementation="http://www.jboss.org/drools/rule" name="实体处理逻辑"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchsysaichatagent_chatstep_08" id="sysaichatagent_chatstep_08" implementation="http://www.jboss.org/drools/rule" name="提示知识库检索"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchprepareparam_010" id="prepareparam_010" implementation="http://www.jboss.org/drools/rule" name="提取判定内容"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchdebugparam_03" id="debugparam_03" implementation="http://www.jboss.org/drools/rule" name="调试逻辑参数RESEARCH3"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchsysaichatagent_fetchchunks_01" id="sysaichatagent_fetchchunks_01" implementation="http://www.jboss.org/drools/rule" name="知识检索"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchsysaichatagent_chatstep_010" id="sysaichatagent_chatstep_010" implementation="http://www.jboss.org/drools/rule" name="提示判定"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchrawsfcode_01" id="rawsfcode_01" implementation="http://www.jboss.org/drools/rule" name="添加到retrieved_chunks"/>
+                        <endEvent id="rawsfcode_01_end" name="end"/>
+                        <sequenceFlow id="rawsfcode_01_end_line" sourceRef="rawsfcode_01" targetRef="rawsfcode_01_end"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchsysaichatagent_appendchatresult_01" id="sysaichatagent_appendchatresult_01" implementation="http://www.jboss.org/drools/rule" name="最终显示结果"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextdeep_researchend_01" id="end_01" implementation="http://www.jboss.org/drools/rule" name="结束"/>
+                        <endEvent id="end_01_end" name="end"/>
+                        <sequenceFlow id="end_01_end_line" sourceRef="end_01" targetRef="end_01_end"/>
+                    <sequenceFlow id="gateway-begin_prepareparam_01" sourceRef="gateway-begin" targetRef="prepareparam_01">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_agent_contextdeep_researchdefault:ai_agent_context();
+                                            $ai_agent_contextdeep_researchagententity:ai_agent_context();
+                                            $ai_agent_contextdeep_researchagenttag:Map();
+                                            $ai_agent_contextdeep_researchagenttag2:Map();
+                                            $ai_agent_contextdeep_researchchat_response:Map();
+                                            $ai_agent_contextdeep_researchchat_response_entity:Map();
+                                            $ai_agent_contextdeep_researchcontent:Map();
+                                            $ai_agent_contextdeep_researchkb:ai_knowledge_base();
+                                            $ai_agent_contextdeep_researchqueries:Map();
+                                            $ai_agent_contextdeep_researchquery_chunk:ai_kb_chunk();
+                                            $ai_agent_contextdeep_researchquery_chunk_result:Map();
+                                            $ai_agent_contextdeep_researchretrieved_chunks:Map();
+                                            $ai_agent_contextdeep_researchsearch_plan:Map();
+                                            $ai_agent_contextdeep_researchsearch_plans:Map();
+                                            $ai_agent_contextdeep_researchsshy_content:Map();
+                                            $ai_agent_contextdeep_researchverification_checklist:Map();
+                                    eval($ai_agent_contextdeep_researchdefault==ai_agent_contextdeep_researchdefault && $ai_agent_contextdeep_researchagententity==ai_agent_contextdeep_researchagententity && $ai_agent_contextdeep_researchkb==ai_agent_contextdeep_researchkb && $ai_agent_contextdeep_researchquery_chunk==ai_agent_contextdeep_researchquery_chunk && );
+                                eval((RuleUtils.test($ai_agent_contextdeep_researchdefault.get("knowledgebases"),"ISNOTNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_01_debugparam_02" sourceRef="prepareparam_01" targetRef="debugparam_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="debugparam_02_delogic_02" sourceRef="debugparam_02" targetRef="delogic_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="delogic_02_prepareparam_02" sourceRef="delogic_02" targetRef="prepareparam_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="delogic_02_end_02" sourceRef="delogic_02" targetRef="end_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_02_sysaichatagent_chatstep_02" sourceRef="prepareparam_02" targetRef="sysaichatagent_chatstep_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatstep_02_sysaichatagent_appendchatrequest_01" sourceRef="sysaichatagent_chatstep_02" targetRef="sysaichatagent_appendchatrequest_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_appendchatrequest_01_sysaichatagent_chatoutput_01" sourceRef="sysaichatagent_appendchatrequest_01" targetRef="sysaichatagent_chatoutput_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatoutput_01_prepareparam_03" sourceRef="sysaichatagent_chatoutput_01" targetRef="prepareparam_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_03_prepareparam_04" sourceRef="prepareparam_03" targetRef="prepareparam_04">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_03_sysaichatagent_chatstep_04" sourceRef="prepareparam_03" targetRef="sysaichatagent_chatstep_04">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatstep_04_end_03" sourceRef="sysaichatagent_chatstep_04" targetRef="end_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_04_sysaichatagent_chatstep_03" sourceRef="prepareparam_04" targetRef="sysaichatagent_chatstep_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatstep_03_loopsubcall_01" sourceRef="sysaichatagent_chatstep_03" targetRef="loopsubcall_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="loopsubcall_01_prepareparam_05" sourceRef="loopsubcall_01" targetRef="prepareparam_05">
+                    </sequenceFlow>
+                    <sequenceFlow id="loopsubcall_01_prepareparam_07" sourceRef="loopsubcall_01" targetRef="prepareparam_07">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_05_debugparam_01" sourceRef="prepareparam_05" targetRef="debugparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="rawsfcode_02_sysaichatagent_chatstep_07" sourceRef="rawsfcode_02" targetRef="sysaichatagent_chatstep_07">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatstep_07_sysaichatagent_chatoutput_02" sourceRef="sysaichatagent_chatstep_07" targetRef="sysaichatagent_chatoutput_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatoutput_02_prepareparam_06" sourceRef="sysaichatagent_chatoutput_02" targetRef="prepareparam_06">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_06_sysaichatagent_chatstep_06" sourceRef="prepareparam_06" targetRef="sysaichatagent_chatstep_06">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatstep_06_prepareparam_08" sourceRef="sysaichatagent_chatstep_06" targetRef="prepareparam_08">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_08_delogic_01" sourceRef="prepareparam_08" targetRef="delogic_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-prepareparam_07_sysaichatagent_chatstep_08" sourceRef="gateway-prepareparam_07" targetRef="sysaichatagent_chatstep_08">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_agent_contextdeep_researchdefault:ai_agent_context();
+                                            $ai_agent_contextdeep_researchagententity:ai_agent_context();
+                                            $ai_agent_contextdeep_researchagenttag:Map();
+                                            $ai_agent_contextdeep_researchagenttag2:Map();
+                                            $ai_agent_contextdeep_researchchat_response:Map();
+                                            $ai_agent_contextdeep_researchchat_response_entity:Map();
+                                            $ai_agent_contextdeep_researchcontent:Map();
+                                            $ai_agent_contextdeep_researchkb:ai_knowledge_base();
+                                            $ai_agent_contextdeep_researchqueries:Map();
+                                            $ai_agent_contextdeep_researchquery_chunk:ai_kb_chunk();
+                                            $ai_agent_contextdeep_researchquery_chunk_result:Map();
+                                            $ai_agent_contextdeep_researchretrieved_chunks:Map();
+                                            $ai_agent_contextdeep_researchsearch_plan:Map();
+                                            $ai_agent_contextdeep_researchsearch_plans:Map();
+                                            $ai_agent_contextdeep_researchsshy_content:Map();
+                                            $ai_agent_contextdeep_researchverification_checklist:Map();
+                                    eval($ai_agent_contextdeep_researchdefault==ai_agent_contextdeep_researchdefault && $ai_agent_contextdeep_researchagententity==ai_agent_contextdeep_researchagententity && $ai_agent_contextdeep_researchkb==ai_agent_contextdeep_researchkb && $ai_agent_contextdeep_researchquery_chunk==ai_agent_contextdeep_researchquery_chunk && );
+                                eval((RuleUtils.test($ai_agent_contextdeep_researchqueries.get(""),"ISNOTNULL",""))&&(RuleUtils.test($ai_agent_contextdeep_researchqueries.get("size"),"GT","0")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="debugparam_01_rawsfcode_02" sourceRef="debugparam_01" targetRef="rawsfcode_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatoutput_03_prepareparam_010" sourceRef="sysaichatagent_chatoutput_03" targetRef="prepareparam_010">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_appendchatrequest_03_sysaichatagent_chatoutput_03" sourceRef="sysaichatagent_appendchatrequest_03" targetRef="sysaichatagent_chatoutput_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatstep_09_sysaichatagent_appendchatrequest_03" sourceRef="sysaichatagent_chatstep_09" targetRef="sysaichatagent_appendchatrequest_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_09_debugparam_03" sourceRef="prepareparam_09" targetRef="debugparam_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="delogic_01_prepareparam_09" sourceRef="delogic_01" targetRef="prepareparam_09">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatstep_08_sysaichatagent_fetchchunks_01" sourceRef="sysaichatagent_chatstep_08" targetRef="sysaichatagent_fetchchunks_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_010_sysaichatagent_chatstep_010" sourceRef="prepareparam_010" targetRef="sysaichatagent_chatstep_010">
+                    </sequenceFlow>
+                    <sequenceFlow id="debugparam_03_sysaichatagent_chatstep_09" sourceRef="debugparam_03" targetRef="sysaichatagent_chatstep_09">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_fetchchunks_01_rawsfcode_01" sourceRef="sysaichatagent_fetchchunks_01" targetRef="rawsfcode_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatstep_010_sysaichatagent_appendchatresult_01" sourceRef="sysaichatagent_chatstep_010" targetRef="sysaichatagent_appendchatresult_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_appendchatresult_01_end_01" sourceRef="sysaichatagent_appendchatresult_01" targetRef="end_01">
+                    </sequenceFlow>
+                            <exclusiveGateway id="gateway-begin" name="Gateway" gatewayDirection="Diverging" default="gateway-begin_end_line"></exclusiveGateway>
+                            <sequenceFlow id="begin_gateway-begin_gatewayline" sourceRef="begin" targetRef="gateway-begin"></sequenceFlow>
+                            <sequenceFlow id="gateway-begin_end_line" sourceRef="gateway-begin" targetRef="gateway-begin_end"/>
+                            <endEvent id="gateway-begin_end" name="end"/>
+                            <exclusiveGateway id="gateway-prepareparam_07" name="Gateway" gatewayDirection="Diverging" default="gateway-prepareparam_07_end_line"></exclusiveGateway>
+                            <sequenceFlow id="prepareparam_07_gateway-prepareparam_07_gatewayline" sourceRef="prepareparam_07" targetRef="gateway-prepareparam_07"></sequenceFlow>
+                            <sequenceFlow id="gateway-prepareparam_07_end_line" sourceRef="gateway-prepareparam_07" targetRef="gateway-prepareparam_07_end"/>
+                            <endEvent id="gateway-prepareparam_07_end" name="end"/>
+        </process>
+    </definitions>

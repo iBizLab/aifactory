@@ -1,0 +1,57 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "( t1.\"is_deleted\" = 0  AND  (select count(1) from favorite where create_man=#{ctx.sessioncontext.srfpersonid} and OWNER_ID=t1.\"id\" ) = '1' )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"assignee_id\"",
+    "name" : "ASSIGNEE_ID"
+  }, {
+    "expression" : "t1.\"assignee_name\"",
+    "name" : "ASSIGNEE_NAME"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.\"end_at\"",
+    "name" : "END_AT"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"identifier\"",
+    "name" : "IDENTIFIER"
+  }, {
+    "expression" : "t1.\"is_deleted\"",
+    "name" : "IS_DELETED"
+  }, {
+    "expression" : "(select count(1) from favorite where create_man=#{ctx.sessioncontext.srfpersonid} and OWNER_ID=t1.\"id\" )",
+    "name" : "IS_FAVORITE"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"start_at\"",
+    "name" : "START_AT"
+  }, {
+    "expression" : "t1.\"state\"",
+    "name" : "STATE"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"assignee_id\",\nt1.\"assignee_name\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"description\",\nt1.\"end_at\",\nt1.\"id\",\nt1.\"identifier\",\nt1.\"is_deleted\",\n(select count(1) from favorite where create_man=#{ctx.sessioncontext.srfpersonid} and OWNER_ID=t1.\"id\" ) AS \"is_favorite\",\nt1.\"name\",\nt1.\"start_at\",\nt1.\"state\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"portfolio\" t1 \n",
+  "id" : "PSMODULES/Base/PSDATAENTITIES/portfolio/PSDEDATAQUERIES/favorite/PSDEDQCODES/POSTGRESQL.json"
+}

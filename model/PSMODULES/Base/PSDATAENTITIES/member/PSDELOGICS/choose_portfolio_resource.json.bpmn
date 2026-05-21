@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="cn.ibizlab.core.base.service.logic.memberchoose_portfolio_resource" isClosed="false" isExecutable="true" name="base_member_choose_portfolio_resource_ruleFlow" processType="Private" tns:packageName="cn.ibizlab.core.base.service.logic.memberchoose_portfolio_resource">
+            <extensionElements>
+                <tns:import name="java.util.Map" />
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="cn.ibizlab.util.helper.RuleUtils"/>
+                                <tns:metaData express="" name="memberchoose_portfolio_resourcedefault" type="entity"/>
+                                <tns:metaData express="new cn.ibizlab.core.base.domain.member()" name="memberchoose_portfolio_resourcefor_member" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.base.domain.portfolio_member()" name="memberchoose_portfolio_resourcefor_portfolio_member" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.base.domain.user()" name="memberchoose_portfolio_resourcefor_user_obj" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.base.domain.member()" name="memberchoose_portfolio_resourcegroup_page" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.base.domain.portfolio_member()" name="memberchoose_portfolio_resourceportfolio_member_filter" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.base.domain.portfolio_member()" name="memberchoose_portfolio_resourceportfolio_member_page" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.base.domain.user()" name="memberchoose_portfolio_resourceuser_filter" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.base.domain.user()" name="memberchoose_portfolio_resourceuser_page" type="refentity"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.base.service.ImemberService))" name="iBzSysMemberDefaultService" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
+                            <tns:global identifier="memberchoose_portfolio_resourcedefault" type="cn.ibizlab.core.base.domain.member" />
+                            <tns:global identifier="memberchoose_portfolio_resourcefor_member" type="cn.ibizlab.core.base.domain.member" />
+                            <tns:global identifier="memberchoose_portfolio_resourcefor_portfolio_member" type="cn.ibizlab.core.base.domain.portfolio_member" />
+                            <tns:global identifier="memberchoose_portfolio_resourcefor_user_obj" type="cn.ibizlab.core.base.domain.user" />
+                            <tns:global identifier="memberchoose_portfolio_resourcegroup_page" type="cn.ibizlab.core.base.domain.member" />
+                            <tns:global identifier="memberchoose_portfolio_resourceportfolio_member_filter" type="cn.ibizlab.core.base.domain.portfolio_member" />
+                            <tns:global identifier="memberchoose_portfolio_resourceportfolio_member_page" type="cn.ibizlab.core.base.domain.portfolio_member" />
+                            <tns:global identifier="memberchoose_portfolio_resourceuser_filter" type="cn.ibizlab.core.base.domain.user" />
+                            <tns:global identifier="memberchoose_portfolio_resourceuser_page" type="cn.ibizlab.core.base.domain.user" />
+            </extensionElements>
+                        <startEvent id="begin" isInterrupting="true"/>
+                        <endEvent id="begin_end" name="end"/>
+                        <sequenceFlow id="begin_end_line" sourceRef="begin" targetRef="begin_end"/>
+        </process>
+    </definitions>

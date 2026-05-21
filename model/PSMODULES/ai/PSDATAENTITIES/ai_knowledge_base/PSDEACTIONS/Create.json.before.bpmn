@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="cn.ibizlab.core.extensions.service.logic.before" isClosed="false" isExecutable="true" name="ai_ai_knowledge_base_create_beforeLogic" processType="Private" tns:packageName="cn.ibizlab.core.extensions.service.logic.before">
+            <extensionElements>
+                <tns:import name="java.util.Map"/>
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="cn.ibizlab.util.helper.RuleUtils"/>
+                <tns:import name="cn.ibizlab.core.ai.domain.ai_knowledge_base"/>
+            </extensionElements>
+                <startEvent id="begin" isInterrupting="true"/>
+                <endEvent id="prepareparam1_end" name="end"/>
+                            <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.core.ai.service.logic.ai_knowledge_basefill_category_config" id="89c4e38db469f02ce9f5d78f2a6b30b9" name="fill_category_config.json.bpmn"/>
+                        <sequenceFlow id="begin_89c4e38db469f02ce9f5d78f2a6b30b9" sourceRef="begin" targetRef="89c4e38db469f02ce9f5d78f2a6b30b9"/>
+                            <sequenceFlow id="89c4e38db469f02ce9f5d78f2a6b30b9_prepareparam1_end" sourceRef="89c4e38db469f02ce9f5d78f2a6b30b9" targetRef="prepareparam1_end"/>
+        </process>
+    </definitions>

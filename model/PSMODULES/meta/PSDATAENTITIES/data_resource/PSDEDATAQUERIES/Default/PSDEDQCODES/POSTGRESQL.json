@@ -1,0 +1,36 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "t1.enabled = 1",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"schema\"",
+    "name" : "SCHEMA"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"enabled\"",
+    "name" : "ENABLED"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"resource_code\"",
+    "name" : "RESOURCE_CODE"
+  }, {
+    "expression" : "t1.\"sort\"",
+    "name" : "SORT"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"create_time\",\nt1.\"enabled\",\nt1.\"id\",\nt1.\"name\",\nt1.\"resource_code\",\nt1.\"sort\",\nt1.\"update_time\"\nFROM \"data_resource\" t1 \n",
+  "id" : "PSMODULES/meta/PSDATAENTITIES/data_resource/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

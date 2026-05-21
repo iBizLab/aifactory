@@ -1,0 +1,110 @@
+{
+  "accUserMode" : 2,
+  "caption" : "二次开发",
+  "codeName" : "ps_core_prd_func_second_dev_tav_exp_view",
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ps_core_prd_func_second_dev_tav_exp_view.json",
+  "name" : "PSCorePrdFuncsecond_dev_tav_exp_view",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc.json"
+  },
+  "getPSAppModule" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPMODULES/extension.json"
+  },
+  "getPSAppViewEngines" : [ {
+    "engineCat" : "VIEW",
+    "engineType" : "TabExpView",
+    "name" : "engine"
+  } ],
+  "getPSControls" : [ {
+    "codeName" : "second_dev_tab_exp_view_dr",
+    "controlType" : "DRTAB",
+    "dataRelationTag" : "second_dev_tab_exp_view_DR",
+    "editItemCaption" : "核心产品功能",
+    "name" : "tabexppanel",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc.json"
+    },
+    "getPSControlHandler" : {
+      "enableDEFieldPrivilege" : false,
+      "id" : "tabexppanel"
+    },
+    "getPSControlParam" : {
+      "autoLoad" : true,
+      "showBusyIndicator" : true,
+      "id" : "TABEXPPANEL"
+    },
+    "getPSDEDRTabPages" : [ {
+      "caption" : "接口说明",
+      "name" : "api_show",
+      "getPSAppView" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ps_core_prd_func_api_show_html_view.json",
+        "viewType" : "DEHTMLVIEW"
+      }
+    }, {
+      "caption" : "数据模型",
+      "name" : "data_model",
+      "getPSAppView" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ps_core_prd_func_data_model_html_view.json",
+        "viewType" : "DEHTMLVIEW"
+      }
+    }, {
+      "caption" : "Modeling IDE",
+      "name" : "modeling",
+      "getPSAppView" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ps_core_prd_func_modeling_ide_html_view.json",
+        "viewType" : "DEHTMLVIEW"
+      }
+    } ],
+    "uniqueTag" : "ps_core_prd_func_second_dev_tav_exp_view__tabexppanel",
+    "modelid" : "1f8a922a4af74e38c4813891a047545f",
+    "modeltype" : "PSDEDRTAB"
+  }, {
+    "caption" : "二次开发",
+    "codeName" : "second_dev_tav_exp_view_captionbar",
+    "controlType" : "CAPTIONBAR",
+    "name" : "captionbar",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc.json"
+    },
+    "getPSControlParam" : { }
+  } ],
+  "getPSDEViewCodeName" : "second_dev_tav_exp_view",
+  "getPSDEViewId" : "708bde8f961ca4347d6b009a80d7209c",
+  "getPSSysCss" : {
+    "cssName" : "second_dev_tab_style"
+  },
+  "getPSViewLayoutPanel" : {
+    "codeName" : "layoutpanel",
+    "controlStyle" : "APPDETABEXPVIEW",
+    "controlType" : "VIEWLAYOUTPANEL",
+    "name" : "layoutpanel",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc.json"
+    },
+    "getPSControlParam" : { },
+    "layoutBodyOnly" : true,
+    "layoutPanel" : true,
+    "useDefaultLayout" : true
+  },
+  "refFlag" : false,
+  "tabLayout" : "TOP",
+  "title" : "二次开发分页导航",
+  "viewStyle" : "DEFAULT",
+  "viewType" : "DETABEXPVIEW",
+  "enableDP" : true,
+  "enableQuickSearch" : false,
+  "enableSearch" : false,
+  "expandSearchForm" : false,
+  "loadDefault" : true,
+  "showDataInfoBar" : true,
+  "modelid" : "35ffc8e8ddcba3fcf191bcaa2ebcd71f",
+  "modeltype" : "PSAPPDEVIEW"
+}

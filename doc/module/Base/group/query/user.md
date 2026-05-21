@@ -1,0 +1,107 @@
+## 团队成员(user) <!-- {docsify-ignore-all} -->
+
+
+
+<p class="panel-title"><b>查看SQL语句</b></p>
+<br>
+
+<el-row>
+&nbsp;<el-tag @click="MYSQL5 = true">MYSQL5</el-tag>
+&nbsp;<el-tag @click="POSTGRESQL = true">POSTGRESQL</el-tag>
+</el-row>
+
+<br>
+<p class="panel-title"><b>是否默认查询</b></p>
+
+* `否`
+
+<p class="panel-title"><b>是否权限使用</b></p>
+
+* `否`
+
+<p class="panel-title"><b>是否自定义SQL</b></p>
+
+* `否`
+
+<p class="panel-title"><b>查询列级别</b></p>
+
+* `默认（全部查询列）`
+
+
+
+
+### 查询连接
+* **MEMBER存在1:N（EXISTS (SELECT)）DERCUSTOM_MEMBER_GROUP_OWNER_ID**<br>
+连接关系：[DERCUSTOM_MEMBER_GROUP_OWNER_ID](der/DERCUSTOM_MEMBER_GROUP_OWNER_ID)<br>
+连接实体：[团队](module/Base/group)<br>
+连接条件：(`USER_ID(登录名)` EQ `用户上下文.srfpersonid` AND `OWNER_TYPE(所属数据对象)` EQ `'GROUP'`)<br>
+
+
+
+
+<el-dialog v-model="MYSQL5" title="MYSQL5">
+
+```sql
+SELECT
+t1.`AVATAR`,
+t1.`CREATE_MAN`,
+t1.`CREATE_TIME`,
+t1.`DESCRIPTION`,
+t1.`ID`,
+t1.`NAME`,
+t1.`SECTION_ID`,
+t11.`NAME` AS `SECTION_NAME`,
+t1.`SEQUENCE`,
+t1.`UPDATE_MAN`,
+t1.`UPDATE_TIME`,
+t1.`VISIBILITY`
+FROM `USER_GROUP` t1 
+LEFT JOIN `SECTION` t11 ON t1.`SECTION_ID` = t11.`ID` 
+
+WHERE EXISTS(SELECT * FROM `MEMBER` t21 
+ WHERE 
+ t1.`ID` = t21.`OWNER_ID`  AND  t21.`OWNER_TYPE` = 'GROUP'  AND  t21.`OWNER_SUBTYPE` = 'GROUP'  AND  ( t21.`USER_ID` = #{ctx.sessioncontext.srfpersonid}  AND  t21.`OWNER_TYPE` = 'GROUP' ) )
+```
+
+</el-dialog>
+
+<el-dialog v-model="POSTGRESQL" title="POSTGRESQL">
+
+```sql
+SELECT
+t1."avatar",
+t1."create_man",
+t1."create_time",
+t1."description",
+t1."id",
+t1."name",
+t1."section_id",
+t11."name" AS "section_name",
+t1."sequence",
+t1."update_man",
+t1."update_time",
+t1."visibility"
+FROM "user_group" t1 
+LEFT JOIN "section" t11 ON t1."section_id" = t11."id" 
+
+WHERE EXISTS(SELECT * FROM "member" t21 
+ WHERE 
+ t1."id" = t21."owner_id"  AND  t21."owner_type" = 'GROUP'  AND  t21."owner_subtype" = 'GROUP'  AND  ( t21."user_id" = #{ctx.sessioncontext.srfpersonid}  AND  t21."owner_type" = 'GROUP' ) )
+```
+
+</el-dialog>
+
+<script>
+ const { createApp } = Vue
+  createApp({
+    data() {
+      return {
+                MYSQL5 : false
+                POSTGRESQL : false
+        
+      }
+    },
+    methods: {
+    }
+  }).use(ElementPlus).mount('#app')
+</script>

@@ -1,0 +1,43 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"ai_agent_id\"",
+    "name" : "AI_AGENT_ID"
+  }, {
+    "expression" : "t21.\"name\"",
+    "name" : "AI_AGENT_NAME"
+  }, {
+    "expression" : "t1.\"ai_tool_id\"",
+    "name" : "AI_TOOL_ID"
+  }, {
+    "expression" : "t11.\"name\"",
+    "name" : "AI_TOOL_NAME"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t11.\"tool_tag\"",
+    "name" : "TOOL_TAG"
+  }, {
+    "expression" : "t11.\"tool_type\"",
+    "name" : "TOOL_TYPE"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"ai_agent_id\",\nt21.\"name\" AS \"ai_agent_name\",\nt1.\"ai_tool_id\",\nt11.\"name\" AS \"ai_tool_name\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"id\",\nt1.\"name\",\nt11.\"tool_tag\",\nt11.\"tool_type\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"ai_agent_tool_rel\" t1 \nLEFT JOIN \"ai_tool\" t11 ON t1.\"ai_tool_id\" = t11.\"id\" \nLEFT JOIN \"ai_agent\" t21 ON t1.\"ai_agent_id\" = t21.\"id\" \n",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_tool_rel/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

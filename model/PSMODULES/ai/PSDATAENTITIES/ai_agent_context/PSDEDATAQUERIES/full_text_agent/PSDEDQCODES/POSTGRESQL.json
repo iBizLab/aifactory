@@ -1,0 +1,210 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "( t1.\"use_fulltext\" = 1 )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"active\"",
+    "name" : "ACTIVE"
+  }, {
+    "expression" : "t1.\"agent_group_tag\"",
+    "name" : "AGENT_GROUP_TAG"
+  }, {
+    "expression" : "t1.\"ai_agent_id\"",
+    "name" : "AI_AGENT_ID"
+  }, {
+    "expression" : "t1.\"ai_agent_knowledge_rels\"",
+    "name" : "AI_AGENT_KNOWLEDGE_RELS"
+  }, {
+    "expression" : "t31.\"name\"",
+    "name" : "AI_AGENT_NAME"
+  }, {
+    "expression" : "t1.\"ai_model_id\"",
+    "name" : "AI_MODEL_ID"
+  }, {
+    "expression" : "t21.\"name\"",
+    "name" : "AI_MODEL_NAME"
+  }, {
+    "expression" : "t1.\"allow_any_knowledge_base\"",
+    "name" : "ALLOW_ANY_KNOWLEDGE_BASE"
+  }, {
+    "expression" : "t1.\"code_name\"",
+    "name" : "CODE_NAME"
+  }, {
+    "expression" : "t1.\"context_debug_data\"",
+    "name" : "CONTEXT_DEBUG_DATA"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"custom_code\"",
+    "name" : "CUSTOM_CODE"
+  }, {
+    "expression" : "t1.\"custom_suggestion_prompt\"",
+    "name" : "CUSTOM_SUGGESTION_PROMPT"
+  }, {
+    "expression" : "case when t1.\"scopes\" like '%deep_research%'  and t1.\"synthesizer\" is not null then 1  else 0 end",
+    "name" : "DEEP_RESEARCH"
+  }, {
+    "expression" : "t1.\"default_system_prompt\"",
+    "name" : "DEFAULT_SYSTEM_PROMPT"
+  }, {
+    "expression" : "t1.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.\"enable_searching\"",
+    "name" : "ENABLE_SEARCHING"
+  }, {
+    "expression" : "t1.\"enable_suggested_questions\"",
+    "name" : "ENABLE_SUGGESTED_QUESTIONS"
+  }, {
+    "expression" : "t1.\"enable_thinking\"",
+    "name" : "ENABLE_THINKING"
+  }, {
+    "expression" : "t1.\"enable_tools\"",
+    "name" : "ENABLE_TOOLS"
+  }, {
+    "expression" : "t1.\"flow_mode\"",
+    "name" : "FLOW_MODE"
+  }, {
+    "expression" : "t1.\"generation_mode\"",
+    "name" : "GENERATION_MODE"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"is_default\"",
+    "name" : "IS_DEFAULT"
+  }, {
+    "expression" : "t1.\"kbs\"",
+    "name" : "KBS"
+  }, {
+    "expression" : "t1.\"kb_mode\"",
+    "name" : "KB_MODE"
+  }, {
+    "expression" : "t1.\"max_input_tokens\"",
+    "name" : "MAX_INPUT_TOKENS"
+  }, {
+    "expression" : "t1.\"memory_doc_tag\"",
+    "name" : "MEMORY_DOC_TAG"
+  }, {
+    "expression" : "t1.\"memory_isolation_mode\"",
+    "name" : "MEMORY_ISOLATION_MODE"
+  }, {
+    "expression" : "t1.\"memory_kb_tag\"",
+    "name" : "MEMORY_KB_TAG"
+  }, {
+    "expression" : "t1.\"memory_max_turns\"",
+    "name" : "MEMORY_MAX_TURNS"
+  }, {
+    "expression" : "t1.\"memory_mode\"",
+    "name" : "MEMORY_MODE"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"page_index\"",
+    "name" : "PAGE_INDEX"
+  }, {
+    "expression" : "t1.\"publish_skill\"",
+    "name" : "PUBLISH_SKILL"
+  }, {
+    "expression" : "t1.\"rerank\"",
+    "name" : "RERANK"
+  }, {
+    "expression" : "t1.\"rerank_model\"",
+    "name" : "RERANK_MODEL"
+  }, {
+    "expression" : "t1.\"rerank_model_id\"",
+    "name" : "RERANK_MODEL_ID"
+  }, {
+    "expression" : "t1.\"scopes\"",
+    "name" : "SCOPES"
+  }, {
+    "expression" : "t1.\"sequence\"",
+    "name" : "SEQUENCE"
+  }, {
+    "expression" : "t1.\"similarity_threshold\"",
+    "name" : "SIMILARITY_THRESHOLD"
+  }, {
+    "expression" : "t1.\"skill_load_mode\"",
+    "name" : "SKILL_LOAD_MODE"
+  }, {
+    "expression" : "t1.\"skill_prompt\"",
+    "name" : "SKILL_PROMPT"
+  }, {
+    "expression" : "t1.\"skill_readme\"",
+    "name" : "SKILL_README"
+  }, {
+    "expression" : "t1.\"skill_tags\"",
+    "name" : "SKILL_TAGS"
+  }, {
+    "expression" : "t1.\"spec_kb_id\"",
+    "name" : "SPEC_KB_ID"
+  }, {
+    "expression" : "t11.\"name\"",
+    "name" : "SPEC_KB_NAME"
+  }, {
+    "expression" : "t1.\"stream\"",
+    "name" : "STREAM"
+  }, {
+    "expression" : "t1.\"suggested_questions\"",
+    "name" : "SUGGESTED_QUESTIONS"
+  }, {
+    "expression" : "t1.\"synthesizer\"",
+    "name" : "SYNTHESIZER"
+  }, {
+    "expression" : "t1.\"system_flag\"",
+    "name" : "SYSTEM_FLAG"
+  }, {
+    "expression" : "t1.\"temperature\"",
+    "name" : "TEMPERATURE"
+  }, {
+    "expression" : "t1.\"tools\"",
+    "name" : "TOOLS"
+  }, {
+    "expression" : "t1.\"tool_exceed_message\"",
+    "name" : "TOOL_EXCEED_MESSAGE"
+  }, {
+    "expression" : "t1.\"tool_max_calls\"",
+    "name" : "TOOL_MAX_CALLS"
+  }, {
+    "expression" : "t1.\"top_k\"",
+    "name" : "TOP_K"
+  }, {
+    "expression" : "t1.\"top_p\"",
+    "name" : "TOP_P"
+  }, {
+    "expression" : "t1.\"trimming_strategy\"",
+    "name" : "TRIMMING_STRATEGY"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"use_fulltext\"",
+    "name" : "USE_FULLTEXT"
+  }, {
+    "expression" : "t1.\"use_kg\"",
+    "name" : "USE_KG"
+  }, {
+    "expression" : "t1.\"vector_similarity_weight\"",
+    "name" : "VECTOR_SIMILARITY_WEIGHT"
+  }, {
+    "expression" : "t1.\"vlm_prompt\"",
+    "name" : "VLM_PROMPT"
+  }, {
+    "expression" : "t1.\"welcome_message\"",
+    "name" : "WELCOME_MESSAGE"
+  } ],
+  "queryCode" : "SELECT\nt1.\"active\",\nt1.\"agent_group_tag\",\nt1.\"ai_agent_id\",\nt1.\"ai_agent_knowledge_rels\",\nt31.\"name\" AS \"ai_agent_name\",\nt1.\"ai_model_id\",\nt21.\"name\" AS \"ai_model_name\",\nt1.\"allow_any_knowledge_base\",\nt1.\"code_name\",\nt1.\"context_debug_data\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"custom_code\",\nt1.\"custom_suggestion_prompt\",\ncase when t1.\"scopes\" like '%deep_research%'  and t1.\"synthesizer\" is not null then 1  else 0 end AS \"deep_research\",\nt1.\"default_system_prompt\",\nt1.\"description\",\nt1.\"enable_searching\",\nt1.\"enable_suggested_questions\",\nt1.\"enable_thinking\",\nt1.\"enable_tools\",\nt1.\"flow_mode\",\nt1.\"generation_mode\",\nt1.\"id\",\nt1.\"is_default\",\nt1.\"kbs\",\nt1.\"kb_mode\",\nt1.\"max_input_tokens\",\nt1.\"memory_doc_tag\",\nt1.\"memory_isolation_mode\",\nt1.\"memory_kb_tag\",\nt1.\"memory_max_turns\",\nt1.\"memory_mode\",\nt1.\"name\",\nt1.\"page_index\",\nt1.\"publish_skill\",\nt1.\"rerank\",\nt1.\"rerank_model\",\nt1.\"rerank_model_id\",\nt1.\"scopes\",\nt1.\"sequence\",\nt1.\"similarity_threshold\",\nt1.\"skill_load_mode\",\nt1.\"skill_prompt\",\nt1.\"skill_readme\",\nt1.\"skill_tags\",\nt1.\"spec_kb_id\",\nt11.\"name\" AS \"spec_kb_name\",\nt1.\"stream\",\nt1.\"suggested_questions\",\nt1.\"synthesizer\",\nt1.\"system_flag\",\nt1.\"temperature\",\nt1.\"tools\",\nt1.\"tool_exceed_message\",\nt1.\"tool_max_calls\",\nt1.\"top_k\",\nt1.\"top_p\",\nt1.\"trimming_strategy\",\nt1.\"update_man\",\nt1.\"update_time\",\nt1.\"use_fulltext\",\nt1.\"use_kg\",\nt1.\"vector_similarity_weight\",\nt1.\"vlm_prompt\",\nt1.\"welcome_message\"\nFROM \"ai_agent_context\" t1 \nLEFT JOIN \"ai_knowledge_base\" t11 ON t1.\"spec_kb_id\" = t11.\"id\" \nLEFT JOIN \"ai_model\" t21 ON t1.\"ai_model_id\" = t21.\"id\" \nLEFT JOIN \"ai_agent\" t31 ON t1.\"ai_agent_id\" = t31.\"id\" \n",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEDATAQUERIES/full_text_agent/PSDEDQCODES/POSTGRESQL.json"
+}

@@ -1,0 +1,34 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.\"icon\"",
+    "name" : "ICON"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"value\"",
+    "name" : "VALUE"
+  } ],
+  "queryCode" : "SELECT\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"description\",\nt1.\"icon\",\nt1.\"id\",\nt1.\"name\",\nt1.\"update_man\",\nt1.\"update_time\",\nt1.\"value\"\nFROM \"ai_kb_graph_entity_type\" t1 \n",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_graph_entity_type/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

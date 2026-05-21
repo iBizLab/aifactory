@@ -1,0 +1,88 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"access_key\"",
+    "name" : "ACCESS_KEY"
+  }, {
+    "expression" : "t1.\"bearer_token\"",
+    "name" : "BEARER_TOKEN"
+  }, {
+    "expression" : "t1.\"client_secret\"",
+    "name" : "CLIENT_SECRET"
+  }, {
+    "expression" : "t1.\"input_schema\"",
+    "name" : "INPUT_SCHEMA"
+  }, {
+    "expression" : "t1.\"secret_key\"",
+    "name" : "SECRET_KEY"
+  }, {
+    "expression" : "t1.\"skill_prompt\"",
+    "name" : "SKILL_PROMPT"
+  }, {
+    "expression" : "t1.\"skill_references\"",
+    "name" : "SKILL_REFERENCES"
+  }, {
+    "expression" : "t1.\"skill_scripts\"",
+    "name" : "SKILL_SCRIPTS"
+  }, {
+    "expression" : "t1.\"active\"",
+    "name" : "ACTIVE"
+  }, {
+    "expression" : "t1.\"api_auth_type\"",
+    "name" : "API_AUTH_TYPE"
+  }, {
+    "expression" : "t1.\"api_headers\"",
+    "name" : "API_HEADERS"
+  }, {
+    "expression" : "t1.\"api_key\"",
+    "name" : "API_KEY"
+  }, {
+    "expression" : "t1.\"api_method\"",
+    "name" : "API_METHOD"
+  }, {
+    "expression" : "t1.\"api_url\"",
+    "name" : "API_URL"
+  }, {
+    "expression" : "t1.\"client_id\"",
+    "name" : "CLIENT_ID"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.\"expiration_date\"",
+    "name" : "EXPIRATION_DATE"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"timeout\"",
+    "name" : "TIMEOUT"
+  }, {
+    "expression" : "t1.\"token_url\"",
+    "name" : "TOKEN_URL"
+  }, {
+    "expression" : "t1.\"tool_tag\"",
+    "name" : "TOOL_TAG"
+  }, {
+    "expression" : "t1.\"tool_type\"",
+    "name" : "TOOL_TYPE"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"active\",\nt1.\"api_auth_type\",\nt1.\"api_headers\",\nt1.\"api_key\",\nt1.\"api_method\",\nt1.\"api_url\",\nt1.\"client_id\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"description\",\nt1.\"expiration_date\",\nt1.\"id\",\nt1.\"name\",\nt1.\"timeout\",\nt1.\"token_url\",\nt1.\"tool_tag\",\nt1.\"tool_type\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"ai_tool\" t1 \n",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_tool/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

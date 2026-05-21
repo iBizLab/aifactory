@@ -1,0 +1,46 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"bireportmodel\"",
+    "name" : "BIREPORTMODEL"
+  }, {
+    "expression" : "t1.\"bireportuimodel\"",
+    "name" : "BIREPORTUIMODEL"
+  }, {
+    "expression" : "t1.\"bireporttag\"",
+    "name" : "BIREPORTTAG"
+  }, {
+    "expression" : "t1.\"bireporttag2\"",
+    "name" : "BIREPORTTAG2"
+  }, {
+    "expression" : "t1.\"codename\"",
+    "name" : "CODENAME"
+  }, {
+    "expression" : "t1.\"memo\"",
+    "name" : "MEMO"
+  }, {
+    "expression" : "t1.\"pssysbicubeid\"",
+    "name" : "PSSYSBICUBEID"
+  }, {
+    "expression" : "t1.\"pssysbicubename\"",
+    "name" : "PSSYSBICUBENAME"
+  }, {
+    "expression" : "t1.\"pssysbireportid\"",
+    "name" : "PSSYSBIREPORTID"
+  }, {
+    "expression" : "t1.\"pssysbireportname\"",
+    "name" : "PSSYSBIREPORTNAME"
+  }, {
+    "expression" : "t1.\"pssysbischemeid\"",
+    "name" : "PSSYSBISCHEMEID"
+  }, {
+    "expression" : "t1.\"pssysbischemename\"",
+    "name" : "PSSYSBISCHEMENAME"
+  }, {
+    "expression" : "t1.\"validflag\"",
+    "name" : "VALIDFLAG"
+  } ],
+  "queryCode" : "SELECT\nt1.\"bireporttag\",\nt1.\"bireporttag2\",\nt1.\"codename\",\nt1.\"memo\",\nt1.\"pssysbicubeid\",\nt1.\"pssysbicubename\",\nt1.\"pssysbireportid\",\nt1.\"pssysbireportname\",\nt1.\"pssysbischemeid\",\nt1.\"pssysbischemename\",\nt1.\"validflag\"\nFROM \"\" t1 \n",
+  "id" : "PSMODULES/extension/PSDATAENTITIES/PSSysBIReport/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

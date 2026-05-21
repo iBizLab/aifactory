@@ -1,0 +1,22 @@
+{
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEUSERROLES/USER_R.json",
+  "memo" : "公共知识库，设置了归属本单位的知识库，成员中设置了只读用户为自己的",
+  "name" : "只读用户（读）",
+  "getPSDEDataSet" : {
+    "modelref" : true,
+    "id" : "reader"
+  },
+  "getPSDEUserRoleOPPrivs" : [ {
+    "dataAccessAction" : "READ",
+    "name" : "READ",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "READ"
+    }
+  } ],
+  "roleTag" : "USER_R",
+  "userCat" : "CAT1",
+  "userDRAction" : "READ",
+  "enableUserDR" : true,
+  "systemReserved" : true
+}

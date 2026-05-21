@@ -1,0 +1,122 @@
+## 数据查询(Default) <!-- {docsify-ignore-all} -->
+
+
+
+<p class="panel-title"><b>查看SQL语句</b></p>
+<br>
+
+<el-row>
+&nbsp;<el-tag @click="MYSQL5 = true">MYSQL5</el-tag>
+&nbsp;<el-tag @click="POSTGRESQL = true">POSTGRESQL</el-tag>
+</el-row>
+
+<br>
+<p class="panel-title"><b>是否默认查询</b></p>
+
+* `是`
+
+<p class="panel-title"><b>是否权限使用</b></p>
+
+* `否`
+
+<p class="panel-title"><b>是否自定义SQL</b></p>
+
+* `否`
+
+<p class="panel-title"><b>查询列级别</b></p>
+
+* `默认（全部查询列）`
+
+
+
+
+
+
+<el-dialog v-model="MYSQL5" title="MYSQL5">
+
+```sql
+SELECT
+t1.`AVATAR`,
+t1.`CREATE_TIME`,
+t1.`CREATOR`,
+t1.`DC`,
+t1.`DESCRIPTION`,
+t1.`DISPLAY_NAME`,
+concat_ws(',',t1.`DISPLAY_NAME`,t1.`ORGANIZATION_NAME`) AS `DN`,
+t1.`EMPLOYEE_NUMBER`,
+t1.`EMPLOYEE_TYPE`,
+t1.`ENABLE`,
+t1.`ID`,
+t1.`IDENTIFICATION_NUMBER`,
+t1.`MAIL`,
+t1.`MDEPARTMENT_ID`,
+t1.`MDEPARTMENT_NAME`,
+t1.`MOBILE`,
+t1.`ORGANIZATION_ID`,
+t1.`ORGANIZATION_NAME`,
+t1.`POSTAL_ADDRESS`,
+t1.`STATUS`,
+t1.`TELEPHONE_NUMBER`,
+t1.`TITLE`,
+t1.`UID`,
+t1.`UPDATER`,
+t1.`UPDATE_TIME`,
+t1.`USER_PASSWORD`
+FROM `` t1 
+
+WHERE t1.ENABLE = 1
+```
+
+</el-dialog>
+
+<el-dialog v-model="POSTGRESQL" title="POSTGRESQL">
+
+```sql
+SELECT
+t1."avatar",
+t1."create_time",
+t1."creator",
+t1."dc",
+t1."description",
+t1."display_name",
+concat_ws(',',t1."display_name",t1."organization_name") AS "dn",
+t1."employee_number",
+t1."employee_type",
+t1."enable",
+t1."id",
+t1."identification_number",
+t1."mail",
+t1."mdepartment_id",
+t1."mdepartment_name",
+t1."mobile",
+t1."organization_id",
+t1."organization_name",
+t1."postal_address",
+t1."status",
+t1."telephone_number",
+t1."title",
+t1."uid",
+t1."updater",
+t1."update_time",
+t1."user_password"
+FROM "" t1 
+
+WHERE t1.enable = 1
+```
+
+</el-dialog>
+
+<script>
+ const { createApp } = Vue
+  createApp({
+    data() {
+      return {
+                MYSQL5 : false
+                POSTGRESQL : false
+        
+      }
+    },
+    methods: {
+    }
+  }).use(ElementPlus).mount('#app')
+</script>

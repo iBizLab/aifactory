@@ -1,0 +1,56 @@
+{
+  "accUserMode" : 2,
+  "caption" : "核心产品功能",
+  "codeName" : "ps_core_prd_func_data_model_html_view",
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ps_core_prd_func_data_model_html_view.json",
+  "htmlUrl" : "https://plm.ibizlab.cn/doc#/",
+  "name" : "PSCorePrdFuncdata_model_html_view",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc.json"
+  },
+  "getPSAppModule" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPMODULES/extension.json"
+  },
+  "getPSAppViewEngines" : [ {
+    "engineCat" : "VIEW",
+    "engineType" : "HtmlView",
+    "name" : "engine"
+  } ],
+  "getPSControls" : [ {
+    "caption" : "核心产品功能",
+    "codeName" : "data_model_html_view_captionbar",
+    "controlType" : "CAPTIONBAR",
+    "name" : "captionbar",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc.json"
+    },
+    "getPSControlParam" : { }
+  } ],
+  "getPSDEViewCodeName" : "data_model_html_view",
+  "getPSDEViewId" : "598eaf3a6fe88dcd5e59a6e37331b41f",
+  "getPSViewLayoutPanel" : {
+    "codeName" : "layoutpanel",
+    "controlStyle" : "APPDEHTMLVIEW",
+    "controlType" : "VIEWLAYOUTPANEL",
+    "name" : "layoutpanel",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc.json"
+    },
+    "getPSControlParam" : { },
+    "layoutBodyOnly" : true,
+    "layoutPanel" : true,
+    "useDefaultLayout" : true
+  },
+  "refFlag" : false,
+  "title" : "数据模型HTML",
+  "viewStyle" : "DEFAULT",
+  "viewType" : "DEHTMLVIEW",
+  "enableDP" : true,
+  "loadDefault" : true,
+  "modelid" : "b3799f98ab0a3df5dd152d1e20220689",
+  "modeltype" : "PSAPPDEVIEW"
+}

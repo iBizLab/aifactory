@@ -1,0 +1,51 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "( t1.\"role_id\" = 'admin'  AND  t1.\"owner_type\" = 'GROUP' )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"owner_id\"",
+    "name" : "OWNER_ID"
+  }, {
+    "expression" : "t1.\"owner_subtype\"",
+    "name" : "OWNER_SUBTYPE"
+  }, {
+    "expression" : "t1.\"owner_type\"",
+    "name" : "OWNER_TYPE"
+  }, {
+    "expression" : "t1.\"position_id\"",
+    "name" : "POSITION_ID"
+  }, {
+    "expression" : "t1.\"role_id\"",
+    "name" : "ROLE_ID"
+  }, {
+    "expression" : "t1.\"title\"",
+    "name" : "TITLE"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"user_id\"",
+    "name" : "USER_ID"
+  } ],
+  "queryCode" : "SELECT\nt1.\"id\",\nt1.\"user_id\"\nFROM \"member\" t1 \n",
+  "id" : "PSMODULES/Base/PSDATAENTITIES/member/PSDEDATAQUERIES/user_group_admin/PSDEDQCODES/POSTGRESQL.json"
+}

@@ -1,0 +1,314 @@
+{
+  "codeName" : "tree_exp_view_tree_view",
+  "controlStyle" : "GROUP_TREE",
+  "controlType" : "TREEVIEW",
+  "getCreatePSControlAction" : {
+    "modelref" : true,
+    "id" : "create",
+    "actionName" : "Create",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "CREATE",
+    "name" : "create",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "create"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model_provider.json"
+    }
+  },
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model_provider/PSTREEVIEWS/tree_exp_view_tree_view.json",
+  "getFetchPSControlAction" : {
+    "modelref" : true,
+    "id" : "fetch",
+    "actionType" : "DEDATASET",
+    "name" : "fetch",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model_provider.json"
+    }
+  },
+  "getGetPSControlAction" : {
+    "modelref" : true,
+    "id" : "load",
+    "actionName" : "Get",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "READ",
+    "name" : "load",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "get"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model_provider.json"
+    }
+  },
+  "hookEventNames" : [ "SELECTIONCHANGE", "LOAD" ],
+  "logicName" : "模型提供商实体树导航视图_树视图",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model_provider.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "SELECTIONCHANGE",
+    "logicTag" : "treeexpbar_tree",
+    "logicType" : "CUSTOM",
+    "name" : "treeexpbar_selectionchange"
+  }, {
+    "eventNames" : "LOAD",
+    "logicTag" : "treeexpbar_tree",
+    "logicType" : "CUSTOM",
+    "name" : "treeexpbar_load"
+  } ],
+  "getPSDETreeNodeRSs" : [ {
+    "getChildPSDETreeNode" : {
+      "modelref" : true,
+      "id" : "model_providers"
+    },
+    "name" : "默认根节点（ROOT）-模型提供商（动态）（model_providers）",
+    "getParentPSDETreeNode" : {
+      "modelref" : true,
+      "id" : "ROOT"
+    },
+    "parentValueLevel" : 1,
+    "searchMode" : 3
+  } ],
+  "getPSDETreeNodes" : [ {
+    "counterMode" : 0,
+    "name" : "默认根节点",
+    "nodeType" : "ROOT",
+    "text" : "默认根节点",
+    "treeNodeType" : "STATIC",
+    "hasPSDETreeNodeRSs" : true,
+    "appendPNodeId" : false,
+    "disableSelect" : false,
+    "enableCheck" : false,
+    "enableEditData" : false,
+    "enableNewData" : false,
+    "enableQuickCreate" : false,
+    "enableQuickSearch" : true,
+    "enableRemoveData" : false,
+    "enableViewData" : false,
+    "expandFirstOnly" : false,
+    "expanded" : false,
+    "rootNode" : true,
+    "selectFirstOnly" : false,
+    "selected" : false,
+    "id" : "ROOT"
+  }, {
+    "counterMode" : 0,
+    "dataSourceType" : "DEDATASET",
+    "getIdPSAppDEField" : {
+      "name" : "ID",
+      "codeName" : "id"
+    },
+    "maxSize" : -1,
+    "name" : "模型提供商（动态）",
+    "getNavPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_model_provider_tree_node_edit_view.json",
+      "viewType" : "DEEDITVIEW"
+    },
+    "nodeType" : "model_providers",
+    "getPSAppDEDataSet" : {
+      "modelref" : true,
+      "id" : "fetch_credential_state"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model_provider.json"
+    },
+    "getPSControlRenders" : [ {
+      "name" : "model_providers_layout",
+      "getPSLayoutPanel" : {
+        "getAllPSPanelFields" : [ {
+          "id" : "name",
+          "viewFieldName" : "name"
+        }, {
+          "id" : "has_credential",
+          "hidden" : true,
+          "viewFieldName" : "has_credential"
+        } ],
+        "codeName" : "model_provider_tree_node_panel",
+        "controlType" : "PANEL",
+        "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model_provider/PSPANELS/model_provider_tree_node_panel.json",
+        "layoutMode" : "FLEX",
+        "logicName" : "模型提供商树节点绘制面板",
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model_provider.json"
+        },
+        "getPSControlParam" : { },
+        "getPSLayout" : {
+          "layout" : "FLEX"
+        },
+        "getRootPSPanelItems" : [ {
+          "caption" : "容器",
+          "contentHeight" : 32.0,
+          "cssStyle" : "--ibiz-panel-scroll: hidden;",
+          "height" : 32.0,
+          "itemStyle" : "DEFAULT",
+          "itemType" : "CONTAINER",
+          "name" : "container",
+          "getPSLayout" : {
+            "align" : "space-between",
+            "dir" : "row",
+            "layout" : "FLEX",
+            "vAlign" : "center"
+          },
+          "getPSLayoutPos" : {
+            "grow" : -1,
+            "height" : 32,
+            "heightMode" : "PX",
+            "layout" : "FLEX"
+          },
+          "getPSPanelItems" : [ {
+            "caption" : "文本(动态)",
+            "itemStyle" : "DEFAULT",
+            "itemType" : "FIELD",
+            "name" : "name",
+            "getPSEditor" : {
+              "editorType" : "SPAN",
+              "name" : "name",
+              "predefinedType" : "FIELD_TEXT_DYNAMIC",
+              "renderMode" : "TEXT_DYNAMIC",
+              "enableLinkView" : false
+            },
+            "getPSLayoutPos" : {
+              "grow" : -1,
+              "layout" : "FLEX",
+              "spacingLeft" : "OUTERSMALL"
+            },
+            "viewFieldName" : "name"
+          }, {
+            "caption" : "图片",
+            "contentType" : "IMAGE",
+            "itemStyle" : "DEFAULT",
+            "itemType" : "RAWITEM",
+            "name" : "static_image",
+            "getPSLayoutPos" : {
+              "grow" : -1,
+              "layout" : "FLEX",
+              "spacingRight" : "OUTERSMALL"
+            },
+            "getPSPanelItemGroupLogics" : [ {
+              "groupOP" : "AND",
+              "logicCat" : "PANELVISIBLE",
+              "logicType" : "GROUP",
+              "getPSPanelItemLogics" : [ {
+                "condOp" : "NOTEQ",
+                "dstModelField" : "has_credential",
+                "logicType" : "SINGLE",
+                "name" : "has_credential 不等于(<>) 0",
+                "value" : "0"
+              } ],
+              "relatedItemNames" : [ "has_credential" ],
+              "notMode" : false
+            } ],
+            "getPSRawItem" : {
+              "contentType" : "IMAGE",
+              "cssStyle" : "margin-top: 5px;",
+              "name" : "static_image",
+              "getPSSysImage" : {
+                "rawContent" : "<?xml version=\"1.0\" standalone=\"no\"?><!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\"><svg t=\"1778225512156\" class=\"icon\" viewBox=\"0 0 1609 1024\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" p-id=\"143970\" width=\"26.7119140625\" height=\"17\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><path d=\"M0 0m469.613061 0l536.70064 0q469.613061 0 469.613061 469.613061l0 0q0 469.613061-469.613061 469.61306l-536.70064 0q-469.613061 0-469.613061-469.61306l0 0q0-469.613061 469.613061-469.613061Z\" fill=\"#e6e6e6\" p-id=\"143971\" data-spm-anchor-id=\"a313x.search_index.0.i41.67f53a81YgrAHV\" class=\"selected\"></path><path d=\"M452.237377 201.26274c-79.56587 0-141.756057 25.292018-186.57056 77.419068C222.261153 327.857004 201.26274 391.523117 201.26274 470.283936c0 78.089943 20.998413 141.756057 64.404077 190.931253C310.481321 711.9334 372.671507 737.963381 452.17029 737.963381c78.827907 0 141.085181-25.292018 186.637648-75.943141 43.405664-48.437233 65.074953-112.103346 65.074952-191.669216 0-79.56587-21.669288-143.969947-65.074952-192.40718C593.255471 226.554758 531.065284 201.26274 452.17029 201.26274z m0 74.467214c53.535889 0 94.794751 16.63772 123.709498 51.389086 28.176784 34.751366 42.667701 82.517724 42.667701 143.231984 0 60.71426-14.490917 107.742654-42.667701 141.756057-28.914747 34.013403-70.173609 51.321999-123.709498 51.321998s-95.465626-18.113647-124.380373-53.468801c-28.176784-34.751366-41.996825-81.041797-41.996825-139.609254 0-59.305421 13.752954-105.595851 41.996825-140.347218 29.65271-36.160206 70.844485-54.206765 124.380373-54.206764zM816.45585 211.325877v516.574367h84.530351V350.197168h2.951853l258.220096 377.568901h82.517723V211.392965H1159.273384v372.537332h-2.884766L900.986201 211.325877z\" fill=\"#52C41A\" p-id=\"143972\" data-spm-anchor-id=\"a313x.search_index.0.i42.67f53a81YgrAHV\" class=\"\"></path></svg>"
+              },
+              "predefinedType" : "STATIC_IMAGE"
+            },
+            "getPSSysImage" : {
+              "rawContent" : "<?xml version=\"1.0\" standalone=\"no\"?><!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\"><svg t=\"1778225512156\" class=\"icon\" viewBox=\"0 0 1609 1024\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" p-id=\"143970\" width=\"26.7119140625\" height=\"17\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><path d=\"M0 0m469.613061 0l536.70064 0q469.613061 0 469.613061 469.613061l0 0q0 469.613061-469.613061 469.61306l-536.70064 0q-469.613061 0-469.613061-469.61306l0 0q0-469.613061 469.613061-469.613061Z\" fill=\"#e6e6e6\" p-id=\"143971\" data-spm-anchor-id=\"a313x.search_index.0.i41.67f53a81YgrAHV\" class=\"selected\"></path><path d=\"M452.237377 201.26274c-79.56587 0-141.756057 25.292018-186.57056 77.419068C222.261153 327.857004 201.26274 391.523117 201.26274 470.283936c0 78.089943 20.998413 141.756057 64.404077 190.931253C310.481321 711.9334 372.671507 737.963381 452.17029 737.963381c78.827907 0 141.085181-25.292018 186.637648-75.943141 43.405664-48.437233 65.074953-112.103346 65.074952-191.669216 0-79.56587-21.669288-143.969947-65.074952-192.40718C593.255471 226.554758 531.065284 201.26274 452.17029 201.26274z m0 74.467214c53.535889 0 94.794751 16.63772 123.709498 51.389086 28.176784 34.751366 42.667701 82.517724 42.667701 143.231984 0 60.71426-14.490917 107.742654-42.667701 141.756057-28.914747 34.013403-70.173609 51.321999-123.709498 51.321998s-95.465626-18.113647-124.380373-53.468801c-28.176784-34.751366-41.996825-81.041797-41.996825-139.609254 0-59.305421 13.752954-105.595851 41.996825-140.347218 29.65271-36.160206 70.844485-54.206765 124.380373-54.206764zM816.45585 211.325877v516.574367h84.530351V350.197168h2.951853l258.220096 377.568901h82.517723V211.392965H1159.273384v372.537332h-2.884766L900.986201 211.325877z\" fill=\"#52C41A\" p-id=\"143972\" data-spm-anchor-id=\"a313x.search_index.0.i42.67f53a81YgrAHV\" class=\"\"></path></svg>"
+            },
+            "showCaption" : true
+          } ]
+        }, {
+          "caption" : "文本(动态)",
+          "itemType" : "FIELD",
+          "name" : "has_credential",
+          "getPSEditor" : {
+            "editorType" : "HIDDEN",
+            "name" : "has_credential",
+            "predefinedType" : "FIELD_TEXT_DYNAMIC"
+          },
+          "getPSLayoutPos" : {
+            "grow" : -1,
+            "hAlignSelf" : "LEFT",
+            "layout" : "FLEX"
+          },
+          "viewFieldName" : "has_credential",
+          "hidden" : true
+        } ],
+        "layoutPanel" : true,
+        "mobilePanel" : true,
+        "name" : "model_providers_layout",
+        "modelid" : "62d4ab741c6724699031bc2ab3a57d85",
+        "modeltype" : "PSSYSVIEWPANEL"
+      },
+      "renderType" : "LAYOUTPANEL"
+    } ],
+    "getTextPSAppDEField" : {
+      "name" : "NAME",
+      "codeName" : "name"
+    },
+    "treeNodeType" : "DE",
+    "hasPSDETreeNodeRSs" : false,
+    "appendPNodeId" : false,
+    "disableSelect" : false,
+    "enableCheck" : false,
+    "enableEditData" : false,
+    "enableNewData" : false,
+    "enableQuickCreate" : false,
+    "enableQuickSearch" : true,
+    "enableRemoveData" : false,
+    "enableViewData" : false,
+    "expandFirstOnly" : false,
+    "expanded" : true,
+    "rootNode" : false,
+    "selectFirstOnly" : false,
+    "selected" : false,
+    "id" : "model_providers"
+  } ],
+  "getPSSysPFPlugin" : {
+    "pluginType" : "TREE_RENDER",
+    "pluginCode" : "GROUP_TREE",
+    "runtimeObject" : true
+  },
+  "getRemovePSControlAction" : {
+    "modelref" : true,
+    "id" : "remove",
+    "actionName" : "Remove",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "DELETE",
+    "name" : "remove",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "remove"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model_provider.json"
+    }
+  },
+  "treeGridMode" : 0,
+  "getUpdatePSControlAction" : {
+    "modelref" : true,
+    "id" : "update",
+    "actionName" : "Update",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "UPDATE",
+    "name" : "update",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "update"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model_provider.json"
+    }
+  },
+  "enableRootSelect" : false,
+  "outputIconDefault" : true,
+  "rootVisible" : false,
+  "modelid" : "acac4f5d744c27f6284904aeeef4f9f5",
+  "modeltype" : "PSDETREEVIEW"
+}

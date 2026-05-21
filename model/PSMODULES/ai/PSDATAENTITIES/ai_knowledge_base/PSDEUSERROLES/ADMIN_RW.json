@@ -1,0 +1,49 @@
+{
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEUSERROLES/ADMIN_RW.json",
+  "name" : "成员中设置的管理员（读写）",
+  "getPSDEDataSet" : {
+    "modelref" : true,
+    "id" : "admin"
+  },
+  "getPSDEUserRoleOPPrivs" : [ {
+    "dataAccessAction" : "DELETE",
+    "name" : "DELETE",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "DELETE"
+    }
+  }, {
+    "dataAccessAction" : "READ",
+    "name" : "READ",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "READ"
+    }
+  }, {
+    "dataAccessAction" : "UPDATE",
+    "name" : "UPDATE",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "UPDATE"
+    }
+  }, {
+    "dataAccessAction" : "CREATE",
+    "name" : "CREATE",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "CREATE"
+    }
+  }, {
+    "dataAccessAction" : "SUBDATA",
+    "name" : "SUBDATA",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "SUBDATA"
+    }
+  } ],
+  "roleTag" : "ADMIN_RW",
+  "userCat" : "CAT1",
+  "userDRAction" : "READ",
+  "enableUserDR" : true,
+  "systemReserved" : true
+}

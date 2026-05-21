@@ -1,0 +1,31 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"current_value\"",
+    "name" : "CURRENT_VALUE"
+  }, {
+    "expression" : "t1.\"group_tag\"",
+    "name" : "GROUP_TAG"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"current_value\",\nt1.\"group_tag\",\nt1.\"id\",\nt1.\"name\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"sequence_generator\" t1 \n",
+  "id" : "PSMODULES/Base/PSDATAENTITIES/sequence_generator/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

@@ -1,0 +1,82 @@
+package cn.ibizlab.ai.logic.ai_knowledge_baselogic.find_template;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_knowledge_base ai_knowledge_basefind_templatedefault;
+                global cn.ibizlab.core.base.domain.dyna_dashboard ai_knowledge_basefind_templatefilter;
+                global cn.ibizlab.core.base.domain.dyna_dashboard ai_knowledge_basefind_templatepage_board;
+                global cn.ibizlab.core.base.domain.dyna_dashboard ai_knowledge_basefind_templateresult_board;
+                    global cn.ibizlab.core.base.service.Idyna_dashboardService dyna_dashboardservice;
+        global cn.ibizlab.core.ai.service.Iai_knowledge_baseService iBzSysAi_knowledge_baseDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_knowledge_basefind_templatebegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[结束]
+            rule "end1"
+            ruleflow-group "ai_knowledge_basefind_templateend1"
+            when
+            then
+                        update(ai_knowledge_basefind_templatedefault);//更新fact中变量值
+                        update(ai_knowledge_basefind_templatefilter);//更新fact中变量值
+                        update(ai_knowledge_basefind_templatepage_board);//更新fact中变量值
+                        update(ai_knowledge_basefind_templateresult_board);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam1"
+            ruleflow-group "ai_knowledge_basefind_templateprepareparam1"
+            when
+            then
+                            ai_knowledge_basefind_templatefilter.set("n_dynadashboardname_eq","知识库首页");
+                            ai_knowledge_basefind_templatefilter.set("n_is_system_eq","1");
+                        update(ai_knowledge_basefind_templatedefault);//更新fact中变量值
+                        update(ai_knowledge_basefind_templatefilter);//更新fact中变量值
+                        update(ai_knowledge_basefind_templatepage_board);//更新fact中变量值
+                        update(ai_knowledge_basefind_templateresult_board);//更新fact中变量值
+            end
+
+            //逻辑处理节点[实体数据集]
+            rule "dedataset1"
+            ruleflow-group "ai_knowledge_basefind_templatededataset1"
+            when
+            then
+                        update(ai_knowledge_basefind_templatedefault);//更新fact中变量值
+                        update(ai_knowledge_basefind_templatefilter);//更新fact中变量值
+                        update(ai_knowledge_basefind_templatepage_board);//更新fact中变量值
+                        update(ai_knowledge_basefind_templateresult_board);//更新fact中变量值
+            end
+
+            //逻辑处理节点[调试逻辑参数]
+            rule "debugparam1"
+            ruleflow-group "ai_knowledge_basefind_templatedebugparam1"
+            when
+            then
+                        update(ai_knowledge_basefind_templatedefault);//更新fact中变量值
+                        update(ai_knowledge_basefind_templatefilter);//更新fact中变量值
+                        update(ai_knowledge_basefind_templatepage_board);//更新fact中变量值
+                        update(ai_knowledge_basefind_templateresult_board);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam2"
+            ruleflow-group "ai_knowledge_basefind_templateprepareparam2"
+            when
+            then
+                            ai_knowledge_basefind_templateresult_board.set("",ai_knowledge_basefind_templatepage_board.get("0"));
+                        update(ai_knowledge_basefind_templatedefault);//更新fact中变量值
+                        update(ai_knowledge_basefind_templatefilter);//更新fact中变量值
+                        update(ai_knowledge_basefind_templatepage_board);//更新fact中变量值
+                        update(ai_knowledge_basefind_templateresult_board);//更新fact中变量值
+            end

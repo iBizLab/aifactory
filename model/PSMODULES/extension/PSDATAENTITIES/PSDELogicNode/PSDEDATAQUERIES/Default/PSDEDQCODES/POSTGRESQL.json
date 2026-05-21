@@ -1,0 +1,112 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"param4\"",
+    "name" : "PARAM4"
+  }, {
+    "expression" : "t1.\"aiagenttag\"",
+    "name" : "AIAGENTTAG"
+  }, {
+    "expression" : "t1.\"codename\"",
+    "name" : "CODENAME"
+  }, {
+    "expression" : "t1.\"content\"",
+    "name" : "CONTENT"
+  }, {
+    "expression" : "t1.\"dstpsdlparamid\"",
+    "name" : "DSTPSDLPARAMID"
+  }, {
+    "expression" : "t1.\"dstpsdlparamname\"",
+    "name" : "DSTPSDLPARAMNAME"
+  }, {
+    "expression" : "t1.\"ispsdlparamid\"",
+    "name" : "ISPSDLPARAMID"
+  }, {
+    "expression" : "t1.\"ispsdlparamname\"",
+    "name" : "ISPSDLPARAMNAME"
+  }, {
+    "expression" : "t1.\"logicnodesubtype\"",
+    "name" : "LOGICNODESUBTYPE"
+  }, {
+    "expression" : "t1.\"logicnodetype\"",
+    "name" : "LOGICNODETYPE"
+  }, {
+    "expression" : "t1.\"ordervalue\"",
+    "name" : "ORDERVALUE"
+  }, {
+    "expression" : "t1.\"ospsdlparamid\"",
+    "name" : "OSPSDLPARAMID"
+  }, {
+    "expression" : "t1.\"ospsdlparamname\"",
+    "name" : "OSPSDLPARAMNAME"
+  }, {
+    "expression" : "t1.\"paralleloutput\"",
+    "name" : "PARALLELOUTPUT"
+  }, {
+    "expression" : "t1.\"param1\"",
+    "name" : "PARAM1"
+  }, {
+    "expression" : "t1.\"param10\"",
+    "name" : "PARAM10"
+  }, {
+    "expression" : "t1.\"param11\"",
+    "name" : "PARAM11"
+  }, {
+    "expression" : "t1.\"param12\"",
+    "name" : "PARAM12"
+  }, {
+    "expression" : "t1.\"param13\"",
+    "name" : "PARAM13"
+  }, {
+    "expression" : "t1.\"param7\"",
+    "name" : "PARAM7"
+  }, {
+    "expression" : "t1.\"param8\"",
+    "name" : "PARAM8"
+  }, {
+    "expression" : "t1.\"param9\"",
+    "name" : "PARAM9"
+  }, {
+    "expression" : "t1.\"psdelogicid\"",
+    "name" : "PSDELOGICID"
+  }, {
+    "expression" : "t1.\"psdelogicnodeid\"",
+    "name" : "PSDELOGICNODEID"
+  }, {
+    "expression" : "t1.\"psdelogicnodename\"",
+    "name" : "PSDELOGICNODENAME"
+  }, {
+    "expression" : "t1.\"pssysaichatagentid\"",
+    "name" : "PSSYSAICHATAGENTID"
+  }, {
+    "expression" : "t1.\"pssysaifactoryid\"",
+    "name" : "PSSYSAIFACTORYID"
+  }, {
+    "expression" : "t1.\"pssysmsgtemplid\"",
+    "name" : "PSSYSMSGTEMPLID"
+  }, {
+    "expression" : "t1.\"retpsdlparamid\"",
+    "name" : "RETPSDLPARAMID"
+  }, {
+    "expression" : "t1.\"retpsdlparamname\"",
+    "name" : "RETPSDLPARAMNAME"
+  }, {
+    "expression" : "t1.\"srcpsdlparamid\"",
+    "name" : "SRCPSDLPARAMID"
+  }, {
+    "expression" : "t1.\"srcpsdlparamname\"",
+    "name" : "SRCPSDLPARAMNAME"
+  }, {
+    "expression" : "t1.\"title\"",
+    "name" : "TITLE"
+  }, {
+    "expression" : "t1.\"work_item_type_id\"",
+    "name" : "WORK_ITEM_TYPE_ID"
+  }, {
+    "expression" : "t1.\"work_item_type_name\"",
+    "name" : "WORK_ITEM_TYPE_NAME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"aiagenttag\",\nt1.\"codename\",\nt1.\"content\",\nt1.\"dstpsdlparamid\",\nt1.\"dstpsdlparamname\",\nt1.\"ispsdlparamid\",\nt1.\"ispsdlparamname\",\nt1.\"logicnodesubtype\",\nt1.\"logicnodetype\",\nt1.\"ordervalue\",\nt1.\"ospsdlparamid\",\nt1.\"ospsdlparamname\",\nt1.\"paralleloutput\",\nt1.\"param1\",\nt1.\"param10\",\nt1.\"param11\",\nt1.\"param12\",\nt1.\"param13\",\nt1.\"param7\",\nt1.\"param8\",\nt1.\"param9\",\nt1.\"psdelogicid\",\nt1.\"psdelogicnodeid\",\nt1.\"psdelogicnodename\",\nt1.\"pssysaichatagentid\",\nt1.\"pssysaifactoryid\",\nt1.\"pssysmsgtemplid\",\nt1.\"retpsdlparamid\",\nt1.\"retpsdlparamname\",\nt1.\"srcpsdlparamid\",\nt1.\"srcpsdlparamname\",\nt1.\"title\",\nt1.\"work_item_type_id\",\nt1.\"work_item_type_name\"\nFROM \"\" t1 \n",
+  "id" : "PSMODULES/extension/PSDATAENTITIES/PSDELogicNode/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

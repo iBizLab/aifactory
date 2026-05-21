@@ -1,0 +1,54 @@
+package cn.ibizlab.ai.logic.ai_knowledge_baselogic.get_by_code;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_knowledge_base ai_knowledge_baseget_by_codedefault;
+                global cn.ibizlab.core.ai.domain.ai_knowledge_base ai_knowledge_baseget_by_codefilter;
+                global java.util.Map ai_knowledge_baseget_by_codekbids;
+                    global cn.ibizlab.core.ai.service.Iai_knowledge_baseService ai_knowledge_baseservice;
+        global cn.ibizlab.core.ai.service.Iai_knowledge_baseService iBzSysAi_knowledge_baseDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_knowledge_baseget_by_codebegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[执行脚本代码]
+            rule "rawsfcode_01"
+            ruleflow-group "ai_knowledge_baseget_by_coderawsfcode_01"
+            when
+            then
+                        update(ai_knowledge_baseget_by_codedefault);//更新fact中变量值
+                        update(ai_knowledge_baseget_by_codefilter);//更新fact中变量值
+                        update(ai_knowledge_baseget_by_codekbids);//更新fact中变量值
+            end
+
+            //逻辑处理节点[实体行为]
+            rule "deaction_01"
+            ruleflow-group "ai_knowledge_baseget_by_codedeaction_01"
+            when
+            then
+                            cn.ibizlab.util.helper.CachedBeanCopier.copy(ai_knowledge_baseservice.get(ai_knowledge_baseget_by_codedefault.getId()),ai_knowledge_baseget_by_codedefault);
+                        update(ai_knowledge_baseget_by_codedefault);//更新fact中变量值
+                        update(ai_knowledge_baseget_by_codefilter);//更新fact中变量值
+                        update(ai_knowledge_baseget_by_codekbids);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "ai_knowledge_baseget_by_codeend_01"
+            when
+            then
+                        update(ai_knowledge_baseget_by_codedefault);//更新fact中变量值
+                        update(ai_knowledge_baseget_by_codefilter);//更新fact中变量值
+                        update(ai_knowledge_baseget_by_codekbids);//更新fact中变量值
+            end

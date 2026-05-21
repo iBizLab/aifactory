@@ -1,0 +1,152 @@
+package cn.ibizlab.ai.logic.ai_modellogic.generate_provider_model;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_model ai_modelgenerate_provider_modeldefault;
+                global cn.ibizlab.core.ai.domain.ai_model ai_modelgenerate_provider_modelai_models;
+                global cn.ibizlab.core.ai.domain.ai_model ai_modelgenerate_provider_modelcreate_obj;
+                global cn.ibizlab.core.ai.domain.ai_model ai_modelgenerate_provider_modelmodel_filter;
+                global java.util.Map ai_modelgenerate_provider_modelsrfactionparam;
+                global java.util.Map ai_modelgenerate_provider_modeltemp_obj;
+                    global cn.ibizlab.core.ai.service.Iai_modelService ai_modelservice;
+        global cn.ibizlab.core.ai.service.Iai_modelService iBzSysAi_modelDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_modelgenerate_provider_modelbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[获取选中模型]
+            rule "bindparam_01"
+            ruleflow-group "ai_modelgenerate_provider_modelbindparam_01"
+            when
+            then
+                        update(ai_modelgenerate_provider_modeldefault);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelai_models);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelcreate_obj);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelmodel_filter);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelsrfactionparam);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modeltemp_obj);//更新fact中变量值
+            end
+
+            //逻辑处理节点[是否已存在该模型]
+            rule "dedataset_01"
+            ruleflow-group "ai_modelgenerate_provider_modeldedataset_01"
+            when
+            then
+                        update(ai_modelgenerate_provider_modeldefault);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelai_models);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelcreate_obj);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelmodel_filter);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelsrfactionparam);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modeltemp_obj);//更新fact中变量值
+            end
+
+            //逻辑处理节点[重置参数]
+            rule "resetparam_01"
+            ruleflow-group "ai_modelgenerate_provider_modelresetparam_01"
+            when
+            then
+                        update(ai_modelgenerate_provider_modeldefault);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelai_models);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelcreate_obj);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelmodel_filter);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelsrfactionparam);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modeltemp_obj);//更新fact中变量值
+            end
+
+            //逻辑处理节点[循环子调用]
+            rule "loopsubcall_01"
+            ruleflow-group "ai_modelgenerate_provider_modelloopsubcall_01"
+            when
+            then
+                        update(ai_modelgenerate_provider_modeldefault);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelai_models);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelcreate_obj);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelmodel_filter);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelsrfactionparam);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modeltemp_obj);//更新fact中变量值
+            end
+
+            //逻辑处理节点[设置凭证id]
+            rule "prepareparam_03"
+            ruleflow-group "ai_modelgenerate_provider_modelprepareparam_03"
+            when
+            then
+                            ai_modelgenerate_provider_modelcreate_obj.set("aicredentialid",ai_modelgenerate_provider_modeldefault.get("ai_model_provider"));
+                        update(ai_modelgenerate_provider_modeldefault);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelai_models);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelcreate_obj);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelmodel_filter);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelsrfactionparam);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modeltemp_obj);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_02"
+            ruleflow-group "ai_modelgenerate_provider_modelprepareparam_02"
+            when
+            then
+                            ai_modelgenerate_provider_modelcreate_obj.set("base_url",ai_modelgenerate_provider_modeldefault.get("base_url"));
+                            ai_modelgenerate_provider_modelcreate_obj.set("codename",ai_modelgenerate_provider_modeltemp_obj.get("id"));
+                            ai_modelgenerate_provider_modelcreate_obj.set("name",ai_modelgenerate_provider_modeltemp_obj.get("id"));
+                            ai_modelgenerate_provider_modelcreate_obj.set("provider",ai_modelgenerate_provider_modeldefault.get("ai_model_provider"));
+                            ai_modelgenerate_provider_modelcreate_obj.set("default_version",ai_modelgenerate_provider_modeldefault.get("default_version"));
+                        update(ai_modelgenerate_provider_modeldefault);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelai_models);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelcreate_obj);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelmodel_filter);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelsrfactionparam);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modeltemp_obj);//更新fact中变量值
+            end
+
+            //逻辑处理节点[创建模型]
+            rule "deaction_01"
+            ruleflow-group "ai_modelgenerate_provider_modeldeaction_01"
+            when
+            then
+                        ai_modelservice.create(ai_modelgenerate_provider_modelcreate_obj);
+                        update(ai_modelgenerate_provider_modeldefault);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelai_models);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelcreate_obj);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelmodel_filter);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelsrfactionparam);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modeltemp_obj);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_01"
+            ruleflow-group "ai_modelgenerate_provider_modelprepareparam_01"
+            when
+            then
+                            ai_modelgenerate_provider_modelmodel_filter.set("n_code_name_eq",ai_modelgenerate_provider_modeltemp_obj.get("id"));
+                            ai_modelgenerate_provider_modelmodel_filter.set("n_provider_eq",ai_modelgenerate_provider_modeldefault.get("ai_model_provider"));
+                        update(ai_modelgenerate_provider_modeldefault);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelai_models);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelcreate_obj);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelmodel_filter);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelsrfactionparam);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modeltemp_obj);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "ai_modelgenerate_provider_modelend_01"
+            when
+            then
+                        update(ai_modelgenerate_provider_modeldefault);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelai_models);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelcreate_obj);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelmodel_filter);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modelsrfactionparam);//更新fact中变量值
+                        update(ai_modelgenerate_provider_modeltemp_obj);//更新fact中变量值
+            end

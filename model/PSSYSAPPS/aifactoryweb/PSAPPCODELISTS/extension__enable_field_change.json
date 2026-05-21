@@ -1,0 +1,25 @@
+{
+  "codeListTag" : "extension__enable_field_change",
+  "codeListType" : "STATIC",
+  "codeName" : "extension__enable_field_change",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/extension__enable_field_change.json",
+  "emptyText" : "未定义",
+  "name" : "可供选择的属性变更",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
+  },
+  "getPSCodeItems" : [ {
+    "codeName" : "ai_ai_knowledge_base_status",
+    "data" : "{\"is_dropdown_list\": true ,\"codelist_tag\":\"slice_status\",\"allow_empty\":\"true\"}",
+    "text" : "变更知识库状态",
+    "value" : "ai.ai_knowledge_base.status"
+  }, {
+    "codeName" : "ai_ai_document_status",
+    "data" : "{\"is_dropdown_list\": true ,\"codelist_tag\":\"slice_status\",\"allow_empty\":\"true\"}",
+    "text" : "变更文档状态",
+    "value" : "ai.ai_document.status"
+  } ],
+  "enableCache" : true
+}

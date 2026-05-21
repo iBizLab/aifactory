@@ -1,0 +1,2254 @@
+{
+  "getAllPSAppDEActions" : [ {
+    "actionMode" : "CHECKKEY",
+    "actionTag" : "CheckKey",
+    "codeName" : "check_key",
+    "methodType" : "DEACTION",
+    "name" : "CheckKey",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEACTIONS/CheckKey.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "CREATE"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "check_key"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/check_key",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CREATE",
+    "actionTag" : "Create",
+    "codeName" : "create",
+    "methodType" : "DEACTION",
+    "name" : "Create",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_dto"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEACTIONS/Create.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "CREATE"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "Create"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "READ",
+    "actionTag" : "Get",
+    "codeName" : "get",
+    "methodType" : "DEACTION",
+    "name" : "Get",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "ID",
+        "codeName" : "id"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEACTIONS/Get.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "READ"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "Get"
+    },
+    "requestField" : "ID",
+    "requestMethod" : "GET",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "actionTag" : "GetDraft",
+    "codeName" : "get_draft",
+    "methodType" : "DEACTION",
+    "name" : "GetDraft",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEACTIONS/GetDraft.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "CREATE"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "get_draft"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "NONE",
+    "requestPath" : "/get_draft",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "DELETE",
+    "actionTag" : "Remove",
+    "batchActionMode" : 1,
+    "codeName" : "remove",
+    "methodType" : "DEACTION",
+    "name" : "Remove",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "ID",
+        "codeName" : "id"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELDS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEACTIONS/Remove.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "DELETE"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "Remove"
+    },
+    "requestField" : "ID",
+    "requestMethod" : "DELETE",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "enableBatchAction" : true,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "SAVE",
+    "actionTag" : "Save",
+    "codeName" : "save",
+    "methodType" : "DEACTION",
+    "name" : "Save",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_dto"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEACTIONS/Save.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "CREATE"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "save"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/save",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "UPDATE",
+    "actionTag" : "Update",
+    "codeName" : "update",
+    "methodType" : "DEACTION",
+    "name" : "Update",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_dto"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEACTIONS/Update.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "UPDATE"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "Update"
+    },
+    "requestMethod" : "PUT",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "upsert",
+    "methodType" : "DEACTION",
+    "name" : "upsert",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEACTIONS/upsert.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "CREATE"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "upsert"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/upsert",
+    "builtinMethod" : false
+  } ],
+  "getAllPSAppDEDataSets" : [ {
+    "codeName" : "fetch_default",
+    "dataSetName" : "DEFAULT",
+    "dataSetTag" : "Default",
+    "methodType" : "FETCH",
+    "name" : "fetch_default",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_filter_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_dto"
+      },
+      "type" : "PAGE"
+    },
+    "getPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "READ"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "fetch_default"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetch_default",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "fetch_reader",
+    "dataSetName" : "reader",
+    "dataSetTag" : "reader",
+    "methodType" : "FETCH",
+    "name" : "fetch_reader",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_filter_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_dto"
+      },
+      "type" : "PAGE"
+    },
+    "getPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "reader"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "READ"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "fetch_reader"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetch_reader",
+    "builtinMethod" : false
+  } ],
+  "getAllPSAppDEFields" : [ {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[ID][标识]",
+      "getPSDEFFormItem" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "DEF.LNAME.AI_REVIEW_REPORT.ID"
+        },
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[ID][标识]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT",
+        "allowEmpty" : false
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[ID][标识]移动端默认",
+      "getPSDEFFormItem" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "DEF.LNAME.AI_REVIEW_REPORT.ID"
+        },
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[ID][标识]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "allowEmpty" : false,
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "codeName" : "id",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "DEF.LNAME.AI_REVIEW_REPORT.ID"
+    },
+    "logicName" : "标识",
+    "name" : "ID",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "keyField" : true
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[NAME][名称]移动端默认",
+      "getPSDEFFormItem" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "DEF.LNAME.AI_REVIEW_REPORT.NAME"
+        },
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[NAME][名称]移动端默认",
+        "stringLength" : 200,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[NAME][名称]",
+      "getPSDEFFormItem" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "DEF.LNAME.AI_REVIEW_REPORT.NAME"
+        },
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[NAME][名称]",
+        "stringLength" : 200,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "codeName" : "name",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "DEF.LNAME.AI_REVIEW_REPORT.NAME"
+    },
+    "logicName" : "审查对象",
+    "name" : "NAME",
+    "stdDataType" : 25,
+    "stringLength" : 200,
+    "enableQuickSearch" : true,
+    "majorField" : true
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[CREATE_MAN][创建人]移动端默认",
+      "getPSDEFFormItem" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "DEF.LNAME.CREATE_MAN"
+        },
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[CREATE_MAN][创建人]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "allowEmpty" : false,
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[CREATE_MAN][创建人]",
+      "getPSDEFFormItem" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "DEF.LNAME.CREATE_MAN"
+        },
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[CREATE_MAN][创建人]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT",
+        "allowEmpty" : false
+      },
+      "type" : "DEFAULT"
+    } ],
+    "codeName" : "create_man",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "DEF.LNAME.CREATE_MAN"
+    },
+    "logicName" : "创建人",
+    "name" : "CREATE_MAN",
+    "predefinedType" : "CREATEMAN",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[CREATE_TIME][创建时间]",
+      "getPSDEFFormItem" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "DEF.LNAME.CREATE_TIME"
+        },
+        "codeName" : "Default",
+        "editorType" : "DATEPICKER",
+        "name" : "[CREATE_TIME][创建时间]",
+        "uIMode" : "DEFAULT",
+        "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS",
+        "allowEmpty" : false
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[CREATE_TIME][创建时间]移动端默认",
+      "getPSDEFFormItem" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "DEF.LNAME.CREATE_TIME"
+        },
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBDATE",
+        "name" : "[CREATE_TIME][创建时间]移动端默认",
+        "uIMode" : "MOBILEDEFAULT",
+        "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS",
+        "allowEmpty" : false,
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "codeName" : "create_time",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "DEF.LNAME.CREATE_TIME"
+    },
+    "logicName" : "创建时间",
+    "name" : "CREATE_TIME",
+    "predefinedType" : "CREATEDATE",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[UPDATE_MAN][更新人]移动端默认",
+      "getPSDEFFormItem" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "DEF.LNAME.UPDATE_MAN"
+        },
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[UPDATE_MAN][更新人]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "allowEmpty" : false,
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[UPDATE_MAN][更新人]",
+      "getPSDEFFormItem" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "DEF.LNAME.UPDATE_MAN"
+        },
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[UPDATE_MAN][更新人]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT",
+        "allowEmpty" : false
+      },
+      "type" : "DEFAULT"
+    } ],
+    "codeName" : "update_man",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "DEF.LNAME.UPDATE_MAN"
+    },
+    "logicName" : "更新人",
+    "name" : "UPDATE_MAN",
+    "predefinedType" : "UPDATEMAN",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[UPDATE_TIME][更新时间]",
+      "getPSDEFFormItem" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "DEF.LNAME.UPDATE_TIME"
+        },
+        "codeName" : "Default",
+        "editorType" : "DATEPICKER",
+        "name" : "[UPDATE_TIME][更新时间]",
+        "uIMode" : "DEFAULT",
+        "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS",
+        "allowEmpty" : false
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[UPDATE_TIME][更新时间]移动端默认",
+      "getPSDEFFormItem" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "DEF.LNAME.UPDATE_TIME"
+        },
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBDATE",
+        "name" : "[UPDATE_TIME][更新时间]移动端默认",
+        "uIMode" : "MOBILEDEFAULT",
+        "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS",
+        "allowEmpty" : false,
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "codeName" : "update_time",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "DEF.LNAME.UPDATE_TIME"
+    },
+    "logicName" : "更新时间",
+    "name" : "UPDATE_TIME",
+    "predefinedType" : "UPDATEDATE",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[AGENT_TAG][智能体标记]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "DROPDOWNLIST",
+        "name" : "[AGENT_TAG][智能体标记]",
+        "stringLength" : 200,
+        "uIMode" : "DEFAULT",
+        "needCodeListConfig" : true
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[AGENT_TAG][智能体标记]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBDROPDOWNLIST",
+        "name" : "[AGENT_TAG][智能体标记]移动端默认",
+        "stringLength" : 200,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true,
+        "needCodeListConfig" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "codeName" : "agent_tag",
+    "logicName" : "智能体标记",
+    "name" : "AGENT_TAG",
+    "stdDataType" : 25,
+    "stringLength" : 200
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[REVIEW_RESULT][审查结果]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXTAREA",
+        "name" : "[REVIEW_RESULT][审查结果]移动端默认",
+        "stringLength" : 2000,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[REVIEW_RESULT][审查结果]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTAREA_10",
+        "name" : "[REVIEW_RESULT][审查结果]",
+        "stringLength" : 2000,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "codeName" : "review_result",
+    "logicName" : "审查结果",
+    "name" : "REVIEW_RESULT",
+    "stdDataType" : 25,
+    "stringLength" : 2000
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[REVIEW_REPORT][报告]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTAREA_10",
+        "name" : "[REVIEW_REPORT][报告]",
+        "stringLength" : 1048576,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[REVIEW_REPORT][报告]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXTAREA",
+        "name" : "[REVIEW_REPORT][报告]移动端默认",
+        "stringLength" : 1048576,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "codeName" : "review_report",
+    "logicName" : "报告",
+    "name" : "REVIEW_REPORT",
+    "stdDataType" : 21,
+    "stringLength" : 1048576
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[CHECK_INFO][校验信息]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTAREA_10",
+        "name" : "[CHECK_INFO][校验信息]",
+        "stringLength" : 1048576,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[CHECK_INFO][校验信息]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXTAREA",
+        "name" : "[CHECK_INFO][校验信息]移动端默认",
+        "stringLength" : 1048576,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "codeName" : "check_info",
+    "logicName" : "校验信息",
+    "name" : "CHECK_INFO",
+    "stdDataType" : 21,
+    "stringLength" : 1048576
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[KB_NAME][知识库]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBPICKER",
+        "name" : "[KB_NAME][知识库]移动端默认",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+        },
+        "refPickupPSDEViewCodeName" : "PickupView",
+        "stringLength" : 200,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[KB_NAME][知识库]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "PICKER",
+        "name" : "[KB_NAME][知识库]",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+        },
+        "refPickupPSDEViewCodeName" : "PickupView",
+        "stringLength" : 200,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "codeName" : "kb_name",
+    "logicName" : "知识库",
+    "name" : "KB_NAME",
+    "stdDataType" : 25,
+    "stringLength" : 200
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[REVIEW_REPORT_HTML][review_report_html]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXTAREA",
+        "name" : "[REVIEW_REPORT_HTML][review_report_html]移动端默认",
+        "stringLength" : 1048576,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[REVIEW_REPORT_HTML][review_report_html]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTAREA_10",
+        "name" : "[REVIEW_REPORT_HTML][review_report_html]",
+        "stringLength" : 1048576,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "codeName" : "review_report_html",
+    "logicName" : "review_report_html",
+    "name" : "REVIEW_REPORT_HTML",
+    "stdDataType" : 21,
+    "stringLength" : 1048576
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[KB_ID][知识库标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "HIDDEN",
+        "name" : "[KB_ID][知识库标识]",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[KB_ID][知识库标识]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "HIDDEN",
+        "name" : "[KB_ID][知识库标识]移动端默认",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "codeName" : "kb_id",
+    "logicName" : "知识库标识",
+    "name" : "KB_ID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[RECORD_ID][标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "HIDDEN",
+        "name" : "[RECORD_ID][标识]",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/meta/PSDATAENTITIES/data_record.json"
+        },
+        "stringLength" : 60,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[RECORD_ID][标识]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "HIDDEN",
+        "name" : "[RECORD_ID][标识]移动端默认",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/meta/PSDATAENTITIES/data_record.json"
+        },
+        "stringLength" : 60,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "codeName" : "record_id",
+    "logicName" : "记录标识",
+    "name" : "RECORD_ID",
+    "stdDataType" : 25,
+    "stringLength" : 60
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[DOCUMENT_ID][知识库文档标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "HIDDEN",
+        "name" : "[DOCUMENT_ID][知识库文档标识]",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[DOCUMENT_ID][知识库文档标识]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "HIDDEN",
+        "name" : "[DOCUMENT_ID][知识库文档标识]移动端默认",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "codeName" : "document_id",
+    "logicName" : "知识库文档标识",
+    "name" : "DOCUMENT_ID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[DOCUMENT_NAME][知识库文档]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "PICKER",
+        "name" : "[DOCUMENT_NAME][知识库文档]",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
+        },
+        "refPickupPSDEViewCodeName" : "PickupView",
+        "stringLength" : 200,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[DOCUMENT_NAME][知识库文档]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBPICKER",
+        "name" : "[DOCUMENT_NAME][知识库文档]移动端默认",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
+        },
+        "refPickupPSDEViewCodeName" : "PickupView",
+        "stringLength" : 200,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "codeName" : "document_name",
+    "logicName" : "知识库文档",
+    "name" : "DOCUMENT_NAME",
+    "stdDataType" : 25,
+    "stringLength" : 200
+  } ],
+  "getAllPSAppDEMethodDTOs" : [ {
+    "codeName" : "ai_review_report_dto",
+    "name" : "ai_review_report_dto",
+    "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "id",
+      "logicName" : "标识",
+      "name" : "id",
+      "getPSAppDEField" : {
+        "name" : "ID",
+        "codeName" : "id"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "name",
+      "logicName" : "审查对象",
+      "name" : "name",
+      "getPSAppDEField" : {
+        "name" : "NAME",
+        "codeName" : "name"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "create_man",
+      "logicName" : "创建人",
+      "name" : "create_man",
+      "getPSAppDEField" : {
+        "name" : "CREATE_MAN",
+        "codeName" : "create_man"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "create_time",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "创建时间",
+      "name" : "create_time",
+      "getPSAppDEField" : {
+        "name" : "CREATE_TIME",
+        "codeName" : "create_time"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "update_man",
+      "logicName" : "更新人",
+      "name" : "update_man",
+      "getPSAppDEField" : {
+        "name" : "UPDATE_MAN",
+        "codeName" : "update_man"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "update_time",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "更新时间",
+      "name" : "update_time",
+      "getPSAppDEField" : {
+        "name" : "UPDATE_TIME",
+        "codeName" : "update_time"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "agent_tag",
+      "logicName" : "智能体标记",
+      "name" : "agent_tag",
+      "getPSAppDEField" : {
+        "name" : "AGENT_TAG",
+        "codeName" : "agent_tag"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "review_result",
+      "logicName" : "审查结果",
+      "name" : "review_result",
+      "getPSAppDEField" : {
+        "name" : "REVIEW_RESULT",
+        "codeName" : "review_result"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "review_report",
+      "logicName" : "报告",
+      "name" : "review_report",
+      "getPSAppDEField" : {
+        "name" : "REVIEW_REPORT",
+        "codeName" : "review_report"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 21,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "check_info",
+      "logicName" : "校验信息",
+      "name" : "check_info",
+      "getPSAppDEField" : {
+        "name" : "CHECK_INFO",
+        "codeName" : "check_info"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 21,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "kb_name",
+      "logicName" : "知识库",
+      "name" : "kb_name",
+      "getPSAppDEField" : {
+        "name" : "KB_NAME",
+        "codeName" : "kb_name"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "review_report_html",
+      "logicName" : "review_report_html",
+      "name" : "review_report_html",
+      "getPSAppDEField" : {
+        "name" : "REVIEW_REPORT_HTML",
+        "codeName" : "review_report_html"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 21,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "document_id",
+      "logicName" : "知识库文档标识",
+      "name" : "document_id",
+      "getPSAppDEField" : {
+        "name" : "DOCUMENT_ID",
+        "codeName" : "document_id"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "document_name",
+      "logicName" : "知识库文档",
+      "name" : "document_name",
+      "getPSAppDEField" : {
+        "name" : "DOCUMENT_NAME",
+        "codeName" : "document_name"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "kb_id",
+      "logicName" : "知识库标识",
+      "name" : "kb_id",
+      "getPSAppDEField" : {
+        "name" : "KB_ID",
+        "codeName" : "kb_id"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "record_id",
+      "logicName" : "记录标识",
+      "name" : "record_id",
+      "getPSAppDEField" : {
+        "name" : "RECORD_ID",
+        "codeName" : "record_id"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFAULT"
+  }, {
+    "codeName" : "ai_review_report_filter_dto",
+    "name" : "ai_review_report_filter_dto",
+    "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "n_agent_tag_eq",
+      "logicName" : "智能体标记",
+      "name" : "n_agent_tag_eq",
+      "getPSAppDEField" : {
+        "name" : "AGENT_TAG",
+        "codeName" : "agent_tag"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "n_agent_tag_in",
+      "logicName" : "智能体标记",
+      "name" : "n_agent_tag_in",
+      "getPSAppDEField" : {
+        "name" : "AGENT_TAG",
+        "codeName" : "agent_tag"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLES"
+    }, {
+      "codeName" : "n_agent_tag_like",
+      "logicName" : "智能体标记",
+      "name" : "n_agent_tag_like",
+      "getPSAppDEField" : {
+        "name" : "AGENT_TAG",
+        "codeName" : "agent_tag"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "n_document_id_eq",
+      "logicName" : "知识库文档标识",
+      "name" : "n_document_id_eq",
+      "getPSAppDEField" : {
+        "name" : "DOCUMENT_ID",
+        "codeName" : "document_id"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "n_document_name_eq",
+      "logicName" : "知识库文档",
+      "name" : "n_document_name_eq",
+      "getPSAppDEField" : {
+        "name" : "DOCUMENT_NAME",
+        "codeName" : "document_name"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "n_document_name_like",
+      "logicName" : "知识库文档",
+      "name" : "n_document_name_like",
+      "getPSAppDEField" : {
+        "name" : "DOCUMENT_NAME",
+        "codeName" : "document_name"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "n_id_eq",
+      "logicName" : "标识",
+      "name" : "n_id_eq",
+      "getPSAppDEField" : {
+        "name" : "ID",
+        "codeName" : "id"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "n_kb_id_eq",
+      "logicName" : "知识库标识",
+      "name" : "n_kb_id_eq",
+      "getPSAppDEField" : {
+        "name" : "KB_ID",
+        "codeName" : "kb_id"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "n_kb_name_eq",
+      "logicName" : "知识库",
+      "name" : "n_kb_name_eq",
+      "getPSAppDEField" : {
+        "name" : "KB_NAME",
+        "codeName" : "kb_name"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "n_kb_name_like",
+      "logicName" : "知识库",
+      "name" : "n_kb_name_like",
+      "getPSAppDEField" : {
+        "name" : "KB_NAME",
+        "codeName" : "kb_name"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "n_name_like",
+      "logicName" : "审查对象",
+      "name" : "n_name_like",
+      "getPSAppDEField" : {
+        "name" : "NAME",
+        "codeName" : "name"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "n_record_id_eq",
+      "logicName" : "记录标识",
+      "name" : "n_record_id_eq",
+      "getPSAppDEField" : {
+        "name" : "RECORD_ID",
+        "codeName" : "record_id"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "n_review_report_like",
+      "logicName" : "报告",
+      "name" : "n_review_report_like",
+      "getPSAppDEField" : {
+        "name" : "REVIEW_REPORT",
+        "codeName" : "review_report"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 21,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "n_review_result_eq",
+      "logicName" : "审查结果",
+      "name" : "n_review_result_eq",
+      "getPSAppDEField" : {
+        "name" : "REVIEW_RESULT",
+        "codeName" : "review_result"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "n_update_time_gtandeq",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "更新时间",
+      "name" : "n_update_time_gtandeq",
+      "getPSAppDEField" : {
+        "name" : "UPDATE_TIME",
+        "codeName" : "update_time"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 5,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "n_update_time_ltandeq",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "更新时间",
+      "name" : "n_update_time_ltandeq",
+      "getPSAppDEField" : {
+        "name" : "UPDATE_TIME",
+        "codeName" : "update_time"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 5,
+      "type" : "SIMPLE"
+    } ],
+    "sourceType" : "DE",
+    "type" : "DEFILTER"
+  } ],
+  "getAllPSAppDEMethods" : [ {
+    "actionMode" : "CHECKKEY",
+    "actionTag" : "CheckKey",
+    "codeName" : "check_key",
+    "methodType" : "DEACTION",
+    "name" : "CheckKey",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEACTIONS/CheckKey.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "CREATE"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "check_key"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/check_key",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CREATE",
+    "actionTag" : "Create",
+    "codeName" : "create",
+    "methodType" : "DEACTION",
+    "name" : "Create",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_dto"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEACTIONS/Create.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "CREATE"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "Create"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "READ",
+    "actionTag" : "Get",
+    "codeName" : "get",
+    "methodType" : "DEACTION",
+    "name" : "Get",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "ID",
+        "codeName" : "id"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELD"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEACTIONS/Get.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "READ"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "Get"
+    },
+    "requestField" : "ID",
+    "requestMethod" : "GET",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "GETDRAFT",
+    "actionTag" : "GetDraft",
+    "codeName" : "get_draft",
+    "methodType" : "DEACTION",
+    "name" : "GetDraft",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEACTIONS/GetDraft.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "CREATE"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "get_draft"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "NONE",
+    "requestPath" : "/get_draft",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "DELETE",
+    "actionTag" : "Remove",
+    "batchActionMode" : 1,
+    "codeName" : "remove",
+    "methodType" : "DEACTION",
+    "name" : "Remove",
+    "getPSAppDEMethodInput" : {
+      "getKeyPSAppDEField" : {
+        "name" : "ID",
+        "codeName" : "id"
+      },
+      "name" : "输入对象",
+      "type" : "KEYFIELDS"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEACTIONS/Remove.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "DELETE"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "Remove"
+    },
+    "requestField" : "ID",
+    "requestMethod" : "DELETE",
+    "requestParamType" : "FIELD",
+    "builtinMethod" : false,
+    "enableBatchAction" : true,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "SAVE",
+    "actionTag" : "Save",
+    "codeName" : "save",
+    "methodType" : "DEACTION",
+    "name" : "Save",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_dto"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEACTIONS/Save.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "CREATE"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "save"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/save",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "UPDATE",
+    "actionTag" : "Update",
+    "codeName" : "update",
+    "methodType" : "DEACTION",
+    "name" : "Update",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_dto"
+      },
+      "type" : "DTO",
+      "output" : true
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEACTIONS/Update.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "UPDATE"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "Update"
+    },
+    "requestMethod" : "PUT",
+    "requestParamType" : "ENTITY",
+    "builtinMethod" : false,
+    "needResourceKey" : true,
+    "noServiceCodeName" : true
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "upsert",
+    "methodType" : "DEACTION",
+    "name" : "upsert",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEACTIONS/upsert.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "CREATE"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "upsert"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/upsert",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "fetch_default",
+    "dataSetName" : "DEFAULT",
+    "dataSetTag" : "Default",
+    "methodType" : "FETCH",
+    "name" : "fetch_default",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_filter_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_dto"
+      },
+      "type" : "PAGE"
+    },
+    "getPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "READ"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "fetch_default"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetch_default",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "fetch_reader",
+    "dataSetName" : "reader",
+    "dataSetTag" : "reader",
+    "methodType" : "FETCH",
+    "name" : "fetch_reader",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_filter_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_review_report_dto"
+      },
+      "type" : "PAGE"
+    },
+    "getPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "reader"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "READ"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "fetch_reader"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetch_reader",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FilterCreate",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERCREATE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterFetch",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERFETCH",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterGet",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERGET",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterGetDraft",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERGETDRAFT",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterRemove",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERREMOVE",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterSearch",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERSEARCH",
+    "builtinMethod" : true
+  }, {
+    "codeName" : "FilterUpdate",
+    "methodType" : "FILTERACTION",
+    "name" : "FILTERUPDATE",
+    "builtinMethod" : true
+  } ],
+  "getAllPSAppDEPrints" : [ {
+    "codeName" : "Print",
+    "contentType" : "PDF",
+    "dataAccessAction" : "READ",
+    "getGetDataPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEACTIONS/Get.json"
+    },
+    "getGetDataPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "READ"
+    },
+    "name" : "PRINT",
+    "reportFile" : "print_template.docx",
+    "reportModel" : "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",
+    "reportType" : "POI_TL"
+  } ],
+  "getAllPSAppDEUIActions" : [ {
+    "actionTarget" : "SINGLEDATA",
+    "caption" : "AI添加审查报告",
+    "codeName" : "ai_add",
+    "frontProcessType" : "OTHER",
+    "fullCodeName" : "ai_review_report_ai_add",
+    "name" : "AI添加审查报告",
+    "getPSAppDEUILogic" : {
+      "modelref" : true,
+      "id" : "ai_add"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_review_report.json"
+    },
+    "refreshMode" : 1,
+    "uIActionMode" : "FRONT",
+    "uIActionTag" : "ai_add",
+    "uIActionType" : "DEUIACTION",
+    "uILogicAttachMode" : "REPLACE",
+    "reloadData" : true,
+    "id" : "ai_add@ai_review_report"
+  }, {
+    "actionTarget" : "SINGLEDATA",
+    "caption" : "打印",
+    "codeName" : "export_pdf",
+    "frontProcessType" : "OTHER",
+    "fullCodeName" : "ai_review_report_export_pdf",
+    "name" : "打印",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_review_report.json"
+    },
+    "getPSSysImage" : {
+      "glyph" : "xf02f@FontAwesome",
+      "cssClass" : "fa fa-print"
+    },
+    "scriptCode" : "const content = data[0].review_report_html;\r\nconst filename = `${data[0].name}.pdf`;\r\nawait new Promise(r => setTimeout(r, 0));\r\nawait ibiz.printPreview.printPdf(filename, content, { isHtml: true });",
+    "uIActionMode" : "FRONT",
+    "uIActionTag" : "export_pdf",
+    "uIActionType" : "DEUIACTION",
+    "id" : "export_pdf@ai_review_report"
+  } ],
+  "getAllPSAppDEUILogics" : [ {
+    "codeName" : "ai_add",
+    "defaultParamName" : "Default",
+    "logicName" : "AI添加审查报告",
+    "name" : "AI添加审查报告",
+    "getPSDEUILogicNodes" : [ {
+      "codeName" : "Begin",
+      "leftPos" : 200,
+      "logicNodeType" : "BEGIN",
+      "name" : "开始",
+      "getPSDEUILogicLinks" : [ {
+        "getDstPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "RAWJSCODE_01"
+        },
+        "linkMode" : 0,
+        "name" : "连接名称",
+        "getSrcPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "Begin"
+        }
+      } ],
+      "topPos" : 200,
+      "parallelOutput" : true
+    }, {
+      "codeName" : "END_01",
+      "leftPos" : 200,
+      "logicNodeType" : "END",
+      "name" : "结束",
+      "getReturnParam" : {
+        "modelref" : true,
+        "id" : "result"
+      },
+      "returnType" : "LOGICPARAM",
+      "topPos" : 676,
+      "parallelOutput" : true
+    }, {
+      "code" : "ibiz.message.success('添加到审查报告成功');\r\nuiLogic.result={content: \"已添加到审查报告\"};",
+      "codeName" : "RAWJSCODE_02",
+      "leftPos" : 160,
+      "logicNodeType" : "RAWJSCODE",
+      "name" : "完成提示",
+      "getPSDEUILogicLinks" : [ {
+        "getDstPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "END_01"
+        },
+        "linkMode" : 0,
+        "name" : "连接名称",
+        "getSrcPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "RAWJSCODE_02"
+        }
+      } ],
+      "topPos" : 561,
+      "parallelOutput" : true
+    }, {
+      "codeName" : "PREPAREJSPARAM_01",
+      "leftPos" : -230,
+      "logicNodeType" : "PREPAREJSPARAM",
+      "name" : "回填知识库名称",
+      "getPSDEUILogicLinks" : [ {
+        "getDstPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "DEACTION_01"
+        },
+        "linkMode" : 0,
+        "name" : "连接名称",
+        "getSrcPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "PREPAREJSPARAM_01"
+        }
+      } ],
+      "getPSDEUILogicNodeParams" : [ {
+        "dstFieldName" : "name",
+        "getDstPSDEUILogicParam" : {
+          "modelref" : true,
+          "id" : "aireport"
+        },
+        "paramAction" : "SETPARAMVALUE",
+        "srcFieldName" : "name",
+        "getSrcPSDEUILogicParam" : {
+          "modelref" : true,
+          "id" : "kb"
+        },
+        "srcValueType" : "SRCDLPARAM"
+      } ],
+      "topPos" : 410,
+      "parallelOutput" : true
+    }, {
+      "codeName" : "DEACTION_02",
+      "getDstPSAppDEAction" : {
+        "modelref" : true,
+        "id" : "get"
+      },
+      "getDstPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
+      },
+      "getDstPSDEUILogicParam" : {
+        "modelref" : true,
+        "id" : "kb"
+      },
+      "leftPos" : -40,
+      "logicNodeType" : "DEACTION",
+      "name" : "获取知识库信息",
+      "getPSDEUILogicLinks" : [ {
+        "getDstPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "PREPAREJSPARAM_01"
+        },
+        "linkMode" : 0,
+        "name" : "连接名称",
+        "getSrcPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "DEACTION_02"
+        }
+      } ],
+      "getRetPSDEUILogicParam" : {
+        "modelref" : true,
+        "id" : "kb"
+      },
+      "topPos" : 363,
+      "parallelOutput" : true
+    }, {
+      "code" : "console.info(\"ai callback\");\r\n//var formController = realView.getController(\"form\");\r\nvar report_id = \"\";\r\nvar kb_id = \"\";\r\nvar kb_name = \"\";\r\nvar agent_code = \"\";\r\n//var agent_name = \"\";\r\nvar report = \"\";\r\nif(uiLogic.default.topic.aiChat && \r\n    uiLogic.default.topic.aiChat.appendCurData &&\r\n    uiLogic.default.topic.aiChat.appendCurData.context_code_name) {\r\n    agent_code = uiLogic.default.topic.aiChat.appendCurData.context_code_name;\r\n    if(uiLogic.default.topic.aiChat.appendCurData.kb_id &&\r\n    uiLogic.default.topic.aiChat.appendCurData.kb_name)\r\n    {\r\n        kb_id = uiLogic.default.topic.aiChat.appendCurData.kb_id;\r\n        kb_name = uiLogic.default.topic.aiChat.appendCurData.kb_name;\r\n    }\r\n}\r\nif(uiLogic.default.topic.aiChat && \r\n    uiLogic.default.topic.aiChat.params &&\r\n    uiLogic.default.topic.aiChat.params.knowledgebases) {\r\n    kb_id = uiLogic.default.topic.aiChat.params.knowledgebases;\r\n}\r\nif(uiLogic.default.msg &&\r\n    uiLogic.default.msg.realcontent){\r\n    report = uiLogic.default.msg.realcontent;\r\n}\r\nif(kb_id && agent_code){\r\n    report_id = agent_code+kb_id;\r\n}\r\n\r\nuiLogic.kb = {};\r\nuiLogic.kb.id = kb_id;\r\n\r\nuiLogic.aireport = {};\r\nuiLogic.aireport.id= report_id;\r\nuiLogic.aireport.name= kb_name;\r\nuiLogic.aireport.kb_id= kb_id;\r\nuiLogic.aireport.agent_tag= agent_code;\r\nuiLogic.aireport.review_report = report;\r\n",
+      "codeName" : "RAWJSCODE_01",
+      "leftPos" : 160,
+      "logicNodeType" : "RAWJSCODE",
+      "name" : "注入脚本代码",
+      "getPSDEUILogicLinks" : [ {
+        "getDstPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "DEACTION_02"
+        },
+        "linkMode" : 0,
+        "name" : "连接名称",
+        "getPSDEUILogicLinkGroupCond" : {
+          "groupOP" : "AND",
+          "logicType" : "GROUP",
+          "getPSDEUILogicLinkConds" : [ {
+            "condOP" : "ISNOTNULL",
+            "dstFieldName" : "review_report",
+            "getDstLogicParam" : {
+              "modelref" : true,
+              "id" : "aireport"
+            },
+            "logicType" : "SINGLE",
+            "name" : "aireport[review_report] 值不为空(NotNil) "
+          }, {
+            "condOP" : "ISNOTNULL",
+            "dstFieldName" : "id",
+            "getDstLogicParam" : {
+              "modelref" : true,
+              "id" : "kb"
+            },
+            "logicType" : "SINGLE",
+            "name" : "kb[id] 值不为空(NotNil) "
+          } ]
+        },
+        "getSrcPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "RAWJSCODE_01"
+        }
+      } ],
+      "topPos" : 318,
+      "parallelOutput" : true
+    }, {
+      "codeName" : "DEACTION_01",
+      "getDstPSAppDEAction" : {
+        "modelref" : true,
+        "id" : "save"
+      },
+      "getDstPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_review_report.json"
+      },
+      "getDstPSDEUILogicParam" : {
+        "modelref" : true,
+        "id" : "aireport"
+      },
+      "leftPos" : -40,
+      "logicNodeType" : "DEACTION",
+      "name" : "保存报告",
+      "getPSDEUILogicLinks" : [ {
+        "getDstPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "RAWJSCODE_02"
+        },
+        "linkMode" : 0,
+        "name" : "连接名称",
+        "getSrcPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "DEACTION_01"
+        }
+      } ],
+      "topPos" : 470,
+      "parallelOutput" : true
+    } ],
+    "getPSDEUILogicParams" : [ {
+      "codeName" : "Default",
+      "logicName" : "传入变量",
+      "name" : "传入变量",
+      "default" : true,
+      "entityParam" : true
+    }, {
+      "codeName" : "aireport",
+      "logicName" : "aireport",
+      "name" : "aireport",
+      "entityParam" : true
+    }, {
+      "codeName" : "kb",
+      "logicName" : "kb",
+      "name" : "kb",
+      "entityParam" : true
+    }, {
+      "codeName" : "result",
+      "logicName" : "result",
+      "name" : "result",
+      "entityParam" : true
+    } ],
+    "getStartPSDEUILogicNode" : {
+      "modelref" : true,
+      "id" : "Begin"
+    }
+  } ],
+  "getAllPSAppViews" : [ {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_review_report_review_grid.json",
+    "viewType" : "DEGRIDVIEW"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_review_report_grid_view.json",
+    "viewType" : "DEGRIDVIEW"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_review_report_edit_view.json",
+    "viewType" : "DEEDITVIEW"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_review_report_main_view.json",
+    "viewType" : "DEEDITVIEW"
+  } ],
+  "getAllPSDEOPPrivs" : [ {
+    "logicName" : "CREATE继承自知识库",
+    "mapPSDEName" : "AI_KNOWLEDGE_BASE",
+    "mapPSDEOPPrivName" : "SUBDATA",
+    "getMapPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDERS/DER1N_AI_REVIEW_REPORT_AI_KNOWLEDGE_BASE_KB_ID.json"
+    },
+    "getMapPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+    },
+    "name" : "CREATE",
+    "id" : "kb__CREATE"
+  }, {
+    "logicName" : "建立",
+    "name" : "CREATE"
+  }, {
+    "logicName" : "删除",
+    "name" : "DELETE"
+  }, {
+    "logicName" : "DELETE继承自知识库",
+    "mapPSDEName" : "AI_KNOWLEDGE_BASE",
+    "mapPSDEOPPrivName" : "SUBDATA",
+    "getMapPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDERS/DER1N_AI_REVIEW_REPORT_AI_KNOWLEDGE_BASE_KB_ID.json"
+    },
+    "getMapPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+    },
+    "name" : "DELETE",
+    "id" : "kb__DELETE"
+  }, {
+    "logicName" : "读取",
+    "name" : "READ"
+  }, {
+    "logicName" : "READ继承自知识库",
+    "mapPSDEName" : "AI_KNOWLEDGE_BASE",
+    "mapPSDEOPPrivName" : "READ",
+    "getMapPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDERS/DER1N_AI_REVIEW_REPORT_AI_KNOWLEDGE_BASE_KB_ID.json"
+    },
+    "getMapPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+    },
+    "name" : "READ",
+    "id" : "kb__READ"
+  }, {
+    "logicName" : "更新",
+    "name" : "UPDATE"
+  }, {
+    "logicName" : "UPDATE继承自知识库",
+    "mapPSDEName" : "AI_KNOWLEDGE_BASE",
+    "mapPSDEOPPrivName" : "SUBDATA",
+    "getMapPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDERS/DER1N_AI_REVIEW_REPORT_AI_KNOWLEDGE_BASE_KB_ID.json"
+    },
+    "getMapPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+    },
+    "name" : "UPDATE",
+    "id" : "kb__UPDATE"
+  } ],
+  "codeName" : "ai_review_report",
+  "dEAPICodeName" : "ai_review_report",
+  "dEAPICodeName2" : "ai_review_reports",
+  "dEAPITag" : "AI_REVIEW_REPORT",
+  "dataAccCtrlArch" : 1,
+  "dataAccCtrlMode" : 3,
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_review_report.json",
+  "enableUIActions" : 15,
+  "getKeyPSAppDEField" : {
+    "name" : "ID",
+    "codeName" : "id"
+  },
+  "getLNPSLanguageRes" : {
+    "lanResTag" : "DE.LNAME.AI_REVIEW_REPORT"
+  },
+  "logicName" : "智能审查报告",
+  "getMajorPSAppDEField" : {
+    "name" : "NAME",
+    "codeName" : "name"
+  },
+  "getMinorPSAppDERSs" : [ {
+    "actionRSMode" : 1,
+    "codeName" : "ai_review_reports",
+    "dataRSMode" : 0,
+    "majorDECodeName" : "ai_knowledge_base",
+    "majorDEName" : "AI_KNOWLEDGE_BASE",
+    "getMajorPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
+    },
+    "minorDECodeName" : "ai_review_report",
+    "minorDEName" : "AI_REVIEW_REPORT",
+    "getMinorPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_review_report.json"
+    },
+    "name" : "DER1N_AI_REVIEW_REPORT_AI_KNOWLEDGE_BASE_KB_ID",
+    "getParentPSAppDEField" : {
+      "name" : "KB_ID",
+      "codeName" : "kb_id"
+    },
+    "getParentTextPSAppDEField" : {
+      "name" : "KB_NAME",
+      "codeName" : "kb_name"
+    },
+    "rSMode" : 2
+  } ],
+  "name" : "AI_REVIEW_REPORT",
+  "getPSDEName" : "AI_REVIEW_REPORT",
+  "getPSDEServiceAPI" : {
+    "modelref" : true,
+    "id" : "ai_review_report"
+  },
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report.json"
+  },
+  "getPSSysServiceAPI" : {
+    "modelref" : true,
+    "path" : "PSSYSSERVICEAPIS/ServiceAPI.json"
+  },
+  "getQuickSearchPSAppDEFields" : [ {
+    "name" : "NAME",
+    "codeName" : "name"
+  } ],
+  "storageMode" : 0,
+  "sysAPITag" : "ServiceAPI",
+  "defaultMode" : true,
+  "enableFilterActions" : true,
+  "enableUICreate" : true,
+  "enableUIModify" : true,
+  "enableUIRemove" : true,
+  "enableWFActions" : false,
+  "major" : true
+}

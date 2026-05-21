@@ -1,0 +1,29 @@
+{
+  "codeListTag" : "ai__agent_status",
+  "codeListType" : "STATIC",
+  "codeName" : "agent_status",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/ai/PSCODELISTS/agent_status.json",
+  "emptyText" : "未定义",
+  "name" : "智能体状态",
+  "getPSCodeItems" : [ {
+    "codeName" : "item_1",
+    "text" : "使用中",
+    "value" : "1"
+  }, {
+    "codeName" : "item_0",
+    "text" : "停用",
+    "value" : "0"
+  } ],
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizAIFactory",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

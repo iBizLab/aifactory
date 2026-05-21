@@ -1,0 +1,79 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.\"enable\"",
+    "name" : "ENABLE"
+  }, {
+    "expression" : "t11.\"executor_tag\"",
+    "name" : "EXECUTOR_TAG"
+  }, {
+    "expression" : "t1.\"finished_at\"",
+    "name" : "FINISHED_AT"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"max_retry\"",
+    "name" : "MAX_RETRY"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"payload\"",
+    "name" : "PAYLOAD"
+  }, {
+    "expression" : "t1.\"principal_id\"",
+    "name" : "PRINCIPAL_ID"
+  }, {
+    "expression" : "t1.\"principal_name\"",
+    "name" : "PRINCIPAL_NAME"
+  }, {
+    "expression" : "t1.\"principal_type\"",
+    "name" : "PRINCIPAL_TYPE"
+  }, {
+    "expression" : "t1.\"result\"",
+    "name" : "RESULT"
+  }, {
+    "expression" : "t1.\"result_message\"",
+    "name" : "RESULT_MESSAGE"
+  }, {
+    "expression" : "t1.\"retry_count\"",
+    "name" : "RETRY_COUNT"
+  }, {
+    "expression" : "t1.\"scheduled_at\"",
+    "name" : "SCHEDULED_AT"
+  }, {
+    "expression" : "t1.\"schedule_id\"",
+    "name" : "SCHEDULE_ID"
+  }, {
+    "expression" : "t1.\"started_at\"",
+    "name" : "STARTED_AT"
+  }, {
+    "expression" : "t1.\"status\"",
+    "name" : "STATUS"
+  }, {
+    "expression" : "t1.\"task_type\"",
+    "name" : "TASK_TYPE"
+  }, {
+    "expression" : "t11.\"name\"",
+    "name" : "TASK_TYPE_NAME"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"description\",\nt1.\"enable\",\nt11.\"executor_tag\",\nt1.\"finished_at\",\nt1.\"id\",\nt1.\"max_retry\",\nt1.\"name\",\nt1.\"payload\",\nt1.\"principal_id\",\nt1.\"principal_name\",\nt1.\"principal_type\",\nt1.\"result\",\nt1.\"result_message\",\nt1.\"retry_count\",\nt1.\"scheduled_at\",\nt1.\"schedule_id\",\nt1.\"started_at\",\nt1.\"status\",\nt1.\"task_type\",\nt11.\"name\" AS \"task_type_name\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"extend_scheduled_task\" t1 \nLEFT JOIN \"extend_task_type\" t11 ON t1.\"task_type\" = t11.\"id\" \n",
+  "id" : "PSMODULES/Base/PSDATAENTITIES/extend_scheduled_task/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

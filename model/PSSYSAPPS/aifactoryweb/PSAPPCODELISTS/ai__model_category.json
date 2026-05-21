@@ -1,0 +1,45 @@
+{
+  "codeListTag" : "ai__model_category",
+  "codeListType" : "STATIC",
+  "codeName" : "ai__model_category",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__model_category.json",
+  "emptyText" : "未定义",
+  "name" : "模型类别",
+  "getPSCodeItems" : [ {
+    "codeName" : "chat",
+    "text" : "对话",
+    "value" : "chat"
+  }, {
+    "codeName" : "embedding",
+    "text" : "向量",
+    "value" : "embedding"
+  }, {
+    "codeName" : "text_ranking",
+    "text" : "重排序",
+    "value" : "text_ranking"
+  }, {
+    "codeName" : "vision",
+    "text" : "多模态",
+    "value" : "vision"
+  }, {
+    "codeName" : "stt",
+    "text" : "语音识别",
+    "tooltip" : "语音转文本",
+    "value" : "stt"
+  }, {
+    "codeName" : "tts",
+    "text" : "语音合成",
+    "tooltip" : "文本转语音",
+    "value" : "tts"
+  }, {
+    "codeName" : "txt2img",
+    "text" : "文生图",
+    "value" : "txt2img"
+  }, {
+    "codeName" : "t2v",
+    "text" : "视频生成",
+    "value" : "t2v"
+  } ],
+  "enableCache" : true
+}

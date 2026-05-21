@@ -1,0 +1,23 @@
+package cn.ibizlab.wiki.logic.spacelogic.recognize_cur_user_role;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.wiki.domain.space spacerecognize_cur_user_roledefault;
+                global java.util.Map spacerecognize_cur_user_rolefor_obj;
+                global cn.ibizlab.core.wiki.domain.space_member spacerecognize_cur_user_rolemembers;
+                global java.util.Map spacerecognize_cur_user_roleuser;
+        global cn.ibizlab.core.wiki.service.IspaceService iBzSysSpaceDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "spacerecognize_cur_user_rolebegin"
+            when
+            then
+            end

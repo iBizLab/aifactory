@@ -1,0 +1,67 @@
+{
+  "codeName" : "index_view_relation",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEDATARELATIONS/index_view_relation.json",
+  "getFormCapPSLanguageRes" : {
+    "lanResTag" : "DE.LNAME.AI_KNOWLEDGE_BASE"
+  },
+  "formCaption" : "知识库",
+  "name" : "知识库首页视图_关系界面组",
+  "getPSDEDRDetails" : [ {
+    "caption" : "文档",
+    "detailType" : "DRITEM",
+    "name" : "ai_kb_doc",
+    "orderValue" : 110,
+    "originCaption" : "文档",
+    "getPSDEDRItem" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEDRITEMS/DRItem2.json"
+    }
+  }, {
+    "caption" : "图谱",
+    "detailType" : "DRITEM",
+    "enableMode" : "SCRIPT",
+    "name" : "graph",
+    "orderValue" : 120,
+    "originCaption" : "图谱",
+    "getPSDEDRItem" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEDRITEMS/DRItem5.json"
+    },
+    "testScriptCode" : "data.parser_config && data.parser_config.graphrag && data.parser_config.graphrag.use_graphrag == 1"
+  }, {
+    "caption" : "设置",
+    "detailType" : "DRITEM",
+    "enableMode" : "DEOPPRIV",
+    "name" : "setting",
+    "orderValue" : 130,
+    "originCaption" : "设置",
+    "getPSDEDRItem" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEDRITEMS/DRItem3.json"
+    },
+    "getTestPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "UPDATE"
+    }
+  }, {
+    "caption" : "检索测试",
+    "detailType" : "DRITEM",
+    "name" : "retrieval_test",
+    "orderValue" : 140,
+    "originCaption" : "检索测试",
+    "getPSDEDRItem" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEDRITEMS/DRItem4.json"
+    }
+  }, {
+    "caption" : "审查",
+    "detailType" : "DRITEM",
+    "name" : "review",
+    "orderValue" : 1000,
+    "originCaption" : "审查",
+    "getPSDEDRItem" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEDRITEMS/review.json"
+    }
+  } ]
+}

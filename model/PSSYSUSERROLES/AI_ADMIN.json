@@ -1,0 +1,38 @@
+{
+  "codeName" : "AI_ADMIN",
+  "dynaModelFilePath" : "PSSYSUSERROLES/AI_ADMIN.json",
+  "name" : "智能管理员",
+  "getPSSysUserRoleDatas" : [ {
+    "name" : "智能管理员-CATEGORY_SETTINGS[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/category_settings/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/category_settings.json"
+    }
+  }, {
+    "name" : "智能管理员-AI_REVIEW_REPORT[操作角色]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEUSERROLES/ALL_R.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report.json"
+    }
+  }, {
+    "name" : "智能管理员-AI_KNOWLEDGE_BASE[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+    }
+  } ],
+  "roleTag" : "AI_ADMIN",
+  "roleType" : "CUSTOM"
+}

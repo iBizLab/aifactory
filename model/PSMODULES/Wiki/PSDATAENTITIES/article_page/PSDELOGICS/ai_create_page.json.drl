@@ -1,0 +1,20 @@
+package cn.ibizlab.wiki.logic.article_pagelogic.ai_create_page;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.wiki.domain.article_page article_pageai_create_pagedefault;
+        global cn.ibizlab.core.wiki.service.Iarticle_pageService iBzSysArticle_pageDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "article_pageai_create_pagebegin"
+            when
+            then
+            end

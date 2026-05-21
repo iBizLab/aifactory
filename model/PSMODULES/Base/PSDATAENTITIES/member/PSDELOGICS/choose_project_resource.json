@@ -1,0 +1,78 @@
+{
+  "codeName" : "choose_project_resource",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/Base/PSDATAENTITIES/member/PSDELOGICS/choose_project_resource.json",
+  "logicName" : "选择项目资源成员",
+  "memo" : "项目资源分配下设置成员：当前项目下成员/部门/团队",
+  "name" : "选择项目资源成员",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : 340,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "topPos" : 110,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/member.json"
+    },
+    "default" : true,
+    "filterParam" : true
+  }, {
+    "codeName" : "for_member",
+    "logicName" : "成员循环变量",
+    "name" : "成员循环变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/member.json"
+    },
+    "entityParam" : true
+  }, {
+    "codeName" : "for_user_obj",
+    "logicName" : "部门成员循环临时变量",
+    "name" : "部门成员循环临时变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/user.json"
+    },
+    "entityParam" : true
+  }, {
+    "codeName" : "group_page",
+    "logicName" : "团队成员分页查询结果变量",
+    "name" : "团队成员分页查询结果变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/member.json"
+    },
+    "entityPageParam" : true
+  }, {
+    "codeName" : "user_filter",
+    "logicName" : "用户过滤器",
+    "name" : "用户过滤器",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/user.json"
+    },
+    "filterParam" : true
+  }, {
+    "codeName" : "user_page",
+    "logicName" : "部门成员分页查询结果变量",
+    "name" : "部门成员分页查询结果变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/user.json"
+    },
+    "entityPageParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

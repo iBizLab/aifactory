@@ -1,0 +1,91 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"chunk_extraction_prompt\"",
+    "name" : "CHUNK_EXTRACTION_PROMPT"
+  }, {
+    "expression" : "t1.\"chunk_extraction_sub_pnompt\"",
+    "name" : "CHUNK_EXTRACTION_SUB_PNOMPT"
+  }, {
+    "expression" : "t1.\"disambiguation_prompt\"",
+    "name" : "DISAMBIGUATION_PROMPT"
+  }, {
+    "expression" : "t1.\"fielddisambiguation_sub_prompt\"",
+    "name" : "FIELDDISAMBIGUATION_SUB_PROMPT"
+  }, {
+    "expression" : "t1.\"graphrag\"",
+    "name" : "GRAPHRAG"
+  }, {
+    "expression" : "t1.\"raptor\"",
+    "name" : "RAPTOR"
+  }, {
+    "expression" : "t1.\"redaction_rules\"",
+    "name" : "REDACTION_RULES"
+  }, {
+    "expression" : "t1.\"relation_disambiguation_prompt\"",
+    "name" : "RELATION_DISAMBIGUATION_PROMPT"
+  }, {
+    "expression" : "t1.\"relation_disambiguation_sub_prompt\"",
+    "name" : "RELATION_DISAMBIGUATION_SUB_PROMPT"
+  }, {
+    "expression" : "t1.\"auto_keywords\"",
+    "name" : "AUTO_KEYWORDS"
+  }, {
+    "expression" : "t1.\"auto_questions\"",
+    "name" : "AUTO_QUESTIONS"
+  }, {
+    "expression" : "t1.\"chunk_overlap\"",
+    "name" : "CHUNK_OVERLAP"
+  }, {
+    "expression" : "t1.\"chunk_overlap_num\"",
+    "name" : "CHUNK_OVERLAP_NUM"
+  }, {
+    "expression" : "t1.\"chunk_size\"",
+    "name" : "CHUNK_SIZE"
+  }, {
+    "expression" : "t1.\"chunk_token_num\"",
+    "name" : "CHUNK_TOKEN_NUM"
+  }, {
+    "expression" : "t1.\"delimiter\"",
+    "name" : "DELIMITER"
+  }, {
+    "expression" : "t1.\"extraction_sub_prompt\"",
+    "name" : "EXTRACTION_SUB_PROMPT"
+  }, {
+    "expression" : "t1.\"html4excel\"",
+    "name" : "HTML4EXCEL"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"ignore_parsing_image\"",
+    "name" : "IGNORE_PARSING_IMAGE"
+  }, {
+    "expression" : "t1.\"ignore_parsing_oss_link\"",
+    "name" : "IGNORE_PARSING_OSS_LINK"
+  }, {
+    "expression" : "t1.\"keep_separator\"",
+    "name" : "KEEP_SEPARATOR"
+  }, {
+    "expression" : "t1.\"layout_recognize\"",
+    "name" : "LAYOUT_RECOGNIZE"
+  }, {
+    "expression" : "t1.\"max_chunk_count_per_doc\"",
+    "name" : "MAX_CHUNK_COUNT_PER_DOC"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"pre_process_rules\"",
+    "name" : "PRE_PROCESS_RULES"
+  }, {
+    "expression" : "t1.\"separator\"",
+    "name" : "SEPARATOR"
+  }, {
+    "expression" : "t1.\"task_page_size\"",
+    "name" : "TASK_PAGE_SIZE"
+  } ],
+  "queryCode" : "SELECT\nt1.\"auto_keywords\",\nt1.\"auto_questions\",\nt1.\"chunk_overlap\",\nt1.\"chunk_overlap_num\",\nt1.\"chunk_size\",\nt1.\"chunk_token_num\",\nt1.\"delimiter\",\nt1.\"extraction_sub_prompt\",\nt1.\"html4excel\",\nt1.\"id\",\nt1.\"ignore_parsing_image\",\nt1.\"ignore_parsing_oss_link\",\nt1.\"keep_separator\",\nt1.\"layout_recognize\",\nt1.\"max_chunk_count_per_doc\",\nt1.\"name\",\nt1.\"pre_process_rules\",\nt1.\"separator\",\nt1.\"task_page_size\"\nFROM \"\" t1 \n",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunking_strategy/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

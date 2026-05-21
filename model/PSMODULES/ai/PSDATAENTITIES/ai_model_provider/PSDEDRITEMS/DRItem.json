@@ -1,0 +1,27 @@
+{
+  "codeName" : "DRItem",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_model_provider/PSDEDRITEMS/DRItem.json",
+  "itemType" : "CUSTOM",
+  "name" : "AI大模型实体嵌入模型提供商表格视图",
+  "getPSNavigateContexts" : [ {
+    "key" : "DEFAULT_TOKEN",
+    "name" : "DEFAULT_TOKEN",
+    "value" : "default_token",
+    "rawValue" : false
+  }, {
+    "key" : "DEFAULT_VERSION",
+    "name" : "DEFAULT_VERSION",
+    "value" : "default_version",
+    "rawValue" : false
+  }, {
+    "key" : "BASE_URL",
+    "name" : "BASE_URL",
+    "value" : "base_url",
+    "rawValue" : false
+  } ],
+  "parentDataJO" : {
+    "srfparentdename" : "AI_MODEL_PROVIDER",
+    "SRFPARENTTYPE" : "CUSTOM"
+  },
+  "viewCodeName" : "embedding_provider_grid_view"
+}

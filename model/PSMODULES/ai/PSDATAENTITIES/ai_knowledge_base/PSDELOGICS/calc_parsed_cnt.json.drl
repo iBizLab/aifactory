@@ -1,0 +1,79 @@
+package cn.ibizlab.ai.logic.ai_knowledge_baselogic.calc_parsed_cnt;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_knowledge_base ai_knowledge_basecalc_parsed_cntdefault;
+                global cn.ibizlab.core.ai.domain.ai_knowledge_base ai_knowledge_basecalc_parsed_cntgd;
+                    global cn.ibizlab.core.ai.service.Iai_knowledge_baseService ai_knowledge_baseservice;
+        global cn.ibizlab.core.ai.service.Iai_knowledge_baseService iBzSysAi_knowledge_baseDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_knowledge_basecalc_parsed_cntbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_01"
+            ruleflow-group "ai_knowledge_basecalc_parsed_cntprepareparam_01"
+            when
+            then
+                            ai_knowledge_basecalc_parsed_cntgd.set("id",ai_knowledge_basecalc_parsed_cntdefault.get("id"));
+                        update(ai_knowledge_basecalc_parsed_cntdefault);//更新fact中变量值
+                        update(ai_knowledge_basecalc_parsed_cntgd);//更新fact中变量值
+            end
+
+            //逻辑处理节点[ai_kb_document数量]
+            rule "rawsqlcall_01"
+            ruleflow-group "ai_knowledge_basecalc_parsed_cntrawsqlcall_01"
+            when
+            then
+    Map param =new HashMap();
+        param.put("param0",ai_knowledge_basecalc_parsed_cntdefault.get("id"));
+    String strSql="select count(1) as document_cnt, count(1) FILTER (WHERE status = '1') AS parsed_cnt  from AI_KB_DOCUMENT where kb_id = #{et.param0}";
+                        java.util.List<JSONObject> entities=iBzSysAi_knowledge_baseDefaultService.select(strSql,param);//SQL调用
+                            if(entities.size()>0){
+                            JSONObject entity=entities.get(0);
+                                    for (Map.Entry entry : entity.entrySet()) {
+                                    ai_knowledge_basecalc_parsed_cntdefault.set(String.valueOf(entry.getKey()),entry.getValue());
+                                    }
+                            }
+                        update(ai_knowledge_basecalc_parsed_cntdefault);//更新fact中变量值
+                        update(ai_knowledge_basecalc_parsed_cntgd);//更新fact中变量值
+            end
+
+            //逻辑处理节点[生成引导词]
+            rule "delogic_01"
+            ruleflow-group "ai_knowledge_basecalc_parsed_cntdelogic_01"
+            when
+            then
+                        update(ai_knowledge_basecalc_parsed_cntdefault);//更新fact中变量值
+                        update(ai_knowledge_basecalc_parsed_cntgd);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_02"
+            ruleflow-group "ai_knowledge_basecalc_parsed_cntprepareparam_02"
+            when
+            then
+                            ai_knowledge_basecalc_parsed_cntdefault.set("guidanceprompt",ai_knowledge_basecalc_parsed_cntgd.get("guidanceprompt"));
+                        update(ai_knowledge_basecalc_parsed_cntdefault);//更新fact中变量值
+                        update(ai_knowledge_basecalc_parsed_cntgd);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "ai_knowledge_basecalc_parsed_cntend_01"
+            when
+            then
+                        update(ai_knowledge_basecalc_parsed_cntdefault);//更新fact中变量值
+                        update(ai_knowledge_basecalc_parsed_cntgd);//更新fact中变量值
+            end

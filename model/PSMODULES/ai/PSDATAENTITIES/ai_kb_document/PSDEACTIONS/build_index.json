@@ -1,0 +1,32 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "DELOGIC",
+  "codeName" : "build_index",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDEACTIONS/build_index.json",
+  "logicName" : "立即索引",
+  "name" : "build_index",
+  "getPSDEActionInput" : {
+    "name" : "Build_indexInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_kb_document_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "Build_indexResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_kb_document_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDELOGICS/build_index.json"
+  },
+  "transactionMode" : "NOT_SUPPORTED",
+  "enableFront" : false
+}

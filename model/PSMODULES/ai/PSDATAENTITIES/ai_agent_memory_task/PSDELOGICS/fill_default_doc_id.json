@@ -1,0 +1,90 @@
+{
+  "codeName" : "fill_default_doc_id",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task/PSDELOGICS/fill_default_doc_id.json",
+  "logicName" : "填充默认文档标识",
+  "name" : "填充默认文档标识",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : -290,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      },
+      "name" : "doc_id未指定时填充",
+      "getPSDELogicLinkGroupCond" : {
+        "groupOP" : "AND",
+        "logicType" : "GROUP",
+        "name" : "连接条件组",
+        "getPSDELogicLinkConds" : [ {
+          "condOP" : "ISNULL",
+          "dstFieldName" : "DOC_ID",
+          "getDstLogicParam" : {
+            "modelref" : true,
+            "id" : "Default"
+          },
+          "logicType" : "SINGLE",
+          "name" : "Default[DOC_ID] 值为空(Nil) "
+        } ]
+      },
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : -130,
+    "parallelOutput" : true
+  }, {
+    "code" : "def values = []\r\n//doc_id为知识库标识||业务范围标识||用户标识合成\r\ndef _default = logic.param('default').getReal()\r\ndef kb_tag = _default.get(\"kb_tag\")\r\ndef mode = _default.get(\"memory_isolation_mode\")\r\nif(kb_tag){\r\n    values.add(kb_tag)\r\n    def user_id = _default.get(\"user_id\")?_default.get(\"user_id\"):\"undefined\"\r\n    def scope = _default.get(\"scope\")?_default.get(\"scope\"):\"undefined\"\r\n    if (!mode || mode == \"NONE\") {\r\n        values.add(\"__global__\")\r\n        values.add(\"__global__\")\r\n        _default.set(\"doc_path\", \"/__global__/__global__/\")\r\n    } \r\n    else if (mode == \"BUSINESS_SCOPE\") {\r\n        values.add(scope)\r\n        values.add(\"__global__\")\r\n        _default.set(\"doc_path\", \"/${scope}/__global__/\")\r\n    } \r\n    else if (mode == \"USER_SCOPE\") {\r\n        values.add(\"__global__\")\r\n        values.add(user_id)\r\n        _default.set(\"doc_path\", \"/__global__/${user_id}/\")\r\n    } \r\n    else if (mode == \"BUSINESS_USER_SCOPE\") {\r\n        values.add(scope)\r\n        values.add(user_id)\r\n        _default.set(\"doc_path\", \"/${scope}/${user_id}/\")\r\n    }  else {\r\n        //未识别按默认处理\r\n        values.add(\"__global__\")\r\n        values.add(\"__global__\")\r\n        _default.set(\"doc_path\", \"/__global__/__global__/\")\r\n    }\r\n    _default.set(\"doc_id\",net.ibizsys.runtime.util.KeyValueUtils.genUniqueId(values.toArray()))\r\n    }",
+    "codeName" : "RAWSFCODE_01",
+    "codeType" : "Groovy",
+    "leftPos" : -330,
+    "logicNodeType" : "RAWSFCODE",
+    "name" : "根据类型填充文档标识",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      }
+    } ],
+    "topPos" : 108,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "END_01",
+    "leftPos" : 11,
+    "logicNodeType" : "END",
+    "name" : "结束",
+    "getReturnParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "returnType" : "LOGICPARAM",
+    "topPos" : 110,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task.json"
+    },
+    "default" : true,
+    "entityParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

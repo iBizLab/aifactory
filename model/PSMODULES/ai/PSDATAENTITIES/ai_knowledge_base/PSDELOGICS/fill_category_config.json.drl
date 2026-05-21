@@ -1,0 +1,76 @@
+package cn.ibizlab.ai.logic.ai_knowledge_baselogic.fill_category_config;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_knowledge_base ai_knowledge_basefill_category_configdefault;
+                global cn.ibizlab.core.base.domain.category ai_knowledge_basefill_category_configcategory;
+                global cn.ibizlab.core.base.domain.category_settings ai_knowledge_basefill_category_configsetting;
+                    global cn.ibizlab.core.base.service.IcategoryService categoryservice;
+        global cn.ibizlab.core.ai.service.Iai_knowledge_baseService iBzSysAi_knowledge_baseDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_knowledge_basefill_category_configbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[获取选择的分类id]
+            rule "prepareparam_01"
+            ruleflow-group "ai_knowledge_basefill_category_configprepareparam_01"
+            when
+            then
+                            ai_knowledge_basefill_category_configcategory.set("id",ai_knowledge_basefill_category_configdefault.get("categoryid"));
+                        update(ai_knowledge_basefill_category_configdefault);//更新fact中变量值
+                        update(ai_knowledge_basefill_category_configcategory);//更新fact中变量值
+                        update(ai_knowledge_basefill_category_configsetting);//更新fact中变量值
+            end
+
+            //逻辑处理节点[查询分类配置]
+            rule "deaction_01"
+            ruleflow-group "ai_knowledge_basefill_category_configdeaction_01"
+            when
+            then
+                            cn.ibizlab.util.helper.CachedBeanCopier.copy(categoryservice.get(ai_knowledge_basefill_category_configcategory.getId()),ai_knowledge_basefill_category_configcategory);
+                        update(ai_knowledge_basefill_category_configdefault);//更新fact中变量值
+                        update(ai_knowledge_basefill_category_configcategory);//更新fact中变量值
+                        update(ai_knowledge_basefill_category_configsetting);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "ai_knowledge_basefill_category_configend_01"
+            when
+            then
+                        update(ai_knowledge_basefill_category_configdefault);//更新fact中变量值
+                        update(ai_knowledge_basefill_category_configcategory);//更新fact中变量值
+                        update(ai_knowledge_basefill_category_configsetting);//更新fact中变量值
+            end
+
+            //逻辑处理节点[填充分类配置]
+            rule "prepareparam_03"
+            ruleflow-group "ai_knowledge_basefill_category_configprepareparam_03"
+            when
+            then
+                            ai_knowledge_basefill_category_configsetting.set("",ai_knowledge_basefill_category_configcategory.get("setting"));
+                        update(ai_knowledge_basefill_category_configdefault);//更新fact中变量值
+                        update(ai_knowledge_basefill_category_configcategory);//更新fact中变量值
+                        update(ai_knowledge_basefill_category_configsetting);//更新fact中变量值
+            end
+
+            //逻辑处理节点[拷贝参数]
+            rule "copyparam_01"
+            ruleflow-group "ai_knowledge_basefill_category_configcopyparam_01"
+            when
+            then
+                        update(ai_knowledge_basefill_category_configdefault);//更新fact中变量值
+                        update(ai_knowledge_basefill_category_configcategory);//更新fact中变量值
+                        update(ai_knowledge_basefill_category_configsetting);//更新fact中变量值
+            end

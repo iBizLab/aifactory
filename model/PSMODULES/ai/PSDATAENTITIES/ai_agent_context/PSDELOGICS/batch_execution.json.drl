@@ -1,0 +1,94 @@
+package cn.ibizlab.ai.logic.ai_agent_contextlogic.batch_execution;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_agent_context ai_agent_contextbatch_executiondefault;
+                global cn.ibizlab.core.ai.domain.ai_knowledge_base ai_agent_contextbatch_executionkb_list;
+                global cn.ibizlab.core.ai.domain.ai_knowledge_base ai_agent_contextbatch_executionkb_temp;
+                    global cn.ibizlab.core.ai.service.Iai_knowledge_baseService ai_knowledge_baseservice;
+        global cn.ibizlab.core.ai.service.Iai_agent_contextService iBzSysAi_agent_contextDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_agent_contextbatch_executionbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[知识库推理]
+            rule "deaction_01"
+            ruleflow-group "ai_agent_contextbatch_executiondeaction_01"
+            when
+            then
+                        ai_knowledge_baseservice.reason(ai_agent_contextbatch_executionkb_temp);
+                        update(ai_agent_contextbatch_executiondefault);//更新fact中变量值
+                        update(ai_agent_contextbatch_executionkb_list);//更新fact中变量值
+                        update(ai_agent_contextbatch_executionkb_temp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[解析所选择的知识库]
+            rule "rawsfcode_01"
+            ruleflow-group "ai_agent_contextbatch_executionrawsfcode_01"
+            when
+            then
+                        update(ai_agent_contextbatch_executiondefault);//更新fact中变量值
+                        update(ai_agent_contextbatch_executionkb_list);//更新fact中变量值
+                        update(ai_agent_contextbatch_executionkb_temp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_01"
+            ruleflow-group "ai_agent_contextbatch_executionprepareparam_01"
+            when
+            then
+                        update(ai_agent_contextbatch_executiondefault);//更新fact中变量值
+                        update(ai_agent_contextbatch_executionkb_list);//更新fact中变量值
+                        update(ai_agent_contextbatch_executionkb_temp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[知识库研究]
+            rule "delogic_01"
+            ruleflow-group "ai_agent_contextbatch_executiondelogic_01"
+            when
+            then
+                        update(ai_agent_contextbatch_executiondefault);//更新fact中变量值
+                        update(ai_agent_contextbatch_executionkb_list);//更新fact中变量值
+                        update(ai_agent_contextbatch_executionkb_temp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[循环子调用]
+            rule "loopsubcall_01"
+            ruleflow-group "ai_agent_contextbatch_executionloopsubcall_01"
+            when
+            then
+                        update(ai_agent_contextbatch_executiondefault);//更新fact中变量值
+                        update(ai_agent_contextbatch_executionkb_list);//更新fact中变量值
+                        update(ai_agent_contextbatch_executionkb_temp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[知识库全文推理]
+            rule "delogic_02"
+            ruleflow-group "ai_agent_contextbatch_executiondelogic_02"
+            when
+            then
+                        update(ai_agent_contextbatch_executiondefault);//更新fact中变量值
+                        update(ai_agent_contextbatch_executionkb_list);//更新fact中变量值
+                        update(ai_agent_contextbatch_executionkb_temp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "ai_agent_contextbatch_executionend_01"
+            when
+            then
+                        update(ai_agent_contextbatch_executiondefault);//更新fact中变量值
+                        update(ai_agent_contextbatch_executionkb_list);//更新fact中变量值
+                        update(ai_agent_contextbatch_executionkb_temp);//更新fact中变量值
+            end

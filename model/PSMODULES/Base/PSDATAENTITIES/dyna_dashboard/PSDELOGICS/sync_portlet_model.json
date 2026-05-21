@@ -1,0 +1,70 @@
+{
+  "codeName" : "sync_portlet_model",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/Base/PSDATAENTITIES/dyna_dashboard/PSDELOGICS/sync_portlet_model.json",
+  "logicName" : "更新看板部件模型",
+  "memo" : "更新看板部件模型",
+  "name" : "更新看板部件模型",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : 100,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE1"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : 372,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "END1",
+    "leftPos" : 563,
+    "logicNodeType" : "END",
+    "name" : "结束",
+    "topPos" : 372,
+    "parallelOutput" : true
+  }, {
+    "code" : "var _default = logic.getParam(\"default\");\nvar strModel = _default.get(\"model\");\nvar modeljO = JSON.parse(strModel);\nvar modeljArray = modeljO.model;\nvar biPortletIds = [];\nvar replaceIds ={};\nvar biPortletDigest ={};\nfor(var i=0; i<modeljArray.length; i++){\n  var reportModel = modeljArray[i];\n  var dynamodelFlag =  reportModel.dynamodelFlag;\n  if(dynamodelFlag && dynamodelFlag == 1){\n    var portletId =  reportModel.portletId;\n    var portletDigest = reportModel.controlmodeldigest?reportModel.controlmodeldigest:\"__needRefresh__\";\n    biPortletIds.push(portletId);\n    biPortletDigest[portletId] = portletDigest;\n  }\n}\nvar portletSearchContext = sys.filter(\"psappportlet\");\nvar viewPortlets = portletSearchContext.in(\"psappportletid\",biPortletIds.join(\",\")).eq(\"pssysappid\",\"web\").ne(\"dynamodelflag\",0).pageable(0,200).select();\nfor(var i=0; i<viewPortlets.length; i++){\n    var biPortlet = viewPortlets.get(i);\n    var biPortletId = biPortlet.get(\"psappportletid\");\n    var curPortletDigest = biPortlet.get(\"controlmodeldigest\");\n    if(biPortletDigest[biPortletId] && biPortletDigest[biPortletId] != curPortletDigest){\n        var  lastBIPortlet = biPortlet.last();\n        replaceIds[biPortletId] = lastBIPortlet;\n    }\n}\nfor(var j=0; j<modeljArray.length; j++){\n  var reportModel2 = modeljArray[j];\n  var dynamodelFlag =  reportModel2.dynamodelFlag;    \n  if(dynamodelFlag != 1){\n      continue;\n  }\n  var portletId2 = reportModel2.portletId;\n  reportModel2[\"orignModel\"] = false;\n\n  if(replaceIds[portletId2] != null){\n        reportModel2.portletModel = JSON.parse(replaceIds[portletId2].get(\"controlmodel\"))\n        reportModel2[\"orignModel\"] = true;\n        reportModel2[\"controlmodeldigest\"] = replaceIds[portletId2].get(\"controlmodeldigest\");\n  }\n  if(reportModel2.portletModel.controlmodeldigest){\n        reportModel2[\"orignModel\"] = true;\n  }\n}\n_default.set(\"model\",JSON.stringify(modeljO));",
+    "codeName" : "RAWSFCODE1",
+    "codeType" : "JavaScript",
+    "leftPos" : 306,
+    "logicNodeType" : "RAWSFCODE",
+    "name" : "更新看板部件模型",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END1"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE1"
+      }
+    } ],
+    "topPos" : 380
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/dyna_dashboard.json"
+    },
+    "default" : true,
+    "entityParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

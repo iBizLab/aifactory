@@ -1,0 +1,183 @@
+package cn.ibizlab.ai.logic.ai_knowledge_baselogic.query_references;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_knowledge_base ai_knowledge_basequery_referencesdefault;
+                global java.util.Map ai_knowledge_basequery_referenceschat_request;
+                global java.util.Map ai_knowledge_basequery_referenceschat_response;
+                global cn.ibizlab.core.ai.domain.ai_kb_chunk ai_knowledge_basequery_referenceschunk_list;
+                global cn.ibizlab.core.ai.domain.ai_kb_chunk ai_knowledge_basequery_referenceschunk_page;
+                global cn.ibizlab.core.ai.domain.ai_kb_chunk ai_knowledge_basequery_referenceschunk_query;
+        global cn.ibizlab.core.ai.service.Iai_knowledge_baseService iBzSysAi_knowledge_baseDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_knowledge_basequery_referencesbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[绑定chunk_list参数]
+            rule "bindparam_01"
+            ruleflow-group "ai_knowledge_basequery_referencesbindparam_01"
+            when
+            then
+                        update(ai_knowledge_basequery_referencesdefault);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschat_request);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschat_response);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_list);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_page);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_query);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备查询知识库参数]
+            rule "prepareparam_02"
+            ruleflow-group "ai_knowledge_basequery_referencesprepareparam_02"
+            when
+            then
+                            ai_knowledge_basequery_referenceschunk_query.set("n_kbid_eq",ai_knowledge_basequery_referencesdefault.get("id"));
+                            ai_knowledge_basequery_referenceschunk_query.set("query",ai_knowledge_basequery_referencesdefault.get("query"));
+                            ai_knowledge_basequery_referenceschunk_query.set("n_vector_similarity_gtandeq","0.7");
+                            ai_knowledge_basequery_referenceschunk_query.set("n_rerank_eq","2");
+                            ai_knowledge_basequery_referenceschunk_query.set("size","10");
+                            ai_knowledge_basequery_referenceschunk_query.set("n_similarity_gtandeq","0.2");
+                            ai_knowledge_basequery_referenceschunk_query.set("chunksnprefix","片段A");
+                            ai_knowledge_basequery_referenceschunk_query.set("chunkviewurl","chunkview://{id}");
+                            ai_knowledge_basequery_referenceschunk_query.set("n_pageindex_eq","2");
+                        update(ai_knowledge_basequery_referencesdefault);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschat_request);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschat_response);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_list);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_page);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_query);//更新fact中变量值
+            end
+
+            //逻辑处理节点[附加聊天请求]
+            rule "sysaichatagent_appendchatrequest_02"
+            ruleflow-group "ai_knowledge_basequery_referencessysaichatagent_appendchatrequest_02"
+            when
+            then
+                        update(ai_knowledge_basequery_referencesdefault);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschat_request);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschat_response);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_list);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_page);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_query);//更新fact中变量值
+            end
+
+            //逻辑处理节点[附加聊天请求]
+            rule "sysaichatagent_appendchatrequest_01"
+            ruleflow-group "ai_knowledge_basequery_referencessysaichatagent_appendchatrequest_01"
+            when
+            then
+                        update(ai_knowledge_basequery_referencesdefault);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschat_request);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschat_response);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_list);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_page);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_query);//更新fact中变量值
+            end
+
+            //逻辑处理节点[交谈输出]
+            rule "sysaichatagent_chatoutput_02"
+            ruleflow-group "ai_knowledge_basequery_referencessysaichatagent_chatoutput_02"
+            when
+            then
+                        update(ai_knowledge_basequery_referencesdefault);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschat_request);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschat_response);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_list);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_page);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_query);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备聊天请求参数]
+            rule "prepareparam_03"
+            ruleflow-group "ai_knowledge_basequery_referencesprepareparam_03"
+            when
+            then
+                            ai_knowledge_basequery_referenceschat_request.set("chunksection","no");
+                            ai_knowledge_basequery_referenceschat_request.set("chunkprompt","no");
+                            ai_knowledge_basequery_referenceschat_request.set("chunks",ai_knowledge_basequery_referenceschunk_list.get(""));
+                        update(ai_knowledge_basequery_referencesdefault);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschat_request);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschat_response);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_list);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_page);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_query);//更新fact中变量值
+            end
+
+            //逻辑处理节点[交谈输出]
+            rule "sysaichatagent_chatoutput_01"
+            ruleflow-group "ai_knowledge_basequery_referencessysaichatagent_chatoutput_01"
+            when
+            then
+                        update(ai_knowledge_basequery_referencesdefault);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschat_request);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschat_response);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_list);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_page);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_query);//更新fact中变量值
+            end
+
+            //逻辑处理节点[设置聊天返回]
+            rule "prepareparam_01"
+            ruleflow-group "ai_knowledge_basequery_referencesprepareparam_01"
+            when
+            then
+                            ai_knowledge_basequery_referencesdefault.set("result",ai_knowledge_basequery_referenceschat_response.get("content"));
+                        update(ai_knowledge_basequery_referencesdefault);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschat_request);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschat_response);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_list);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_page);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_query);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "ai_knowledge_basequery_referencesend_01"
+            when
+            then
+                        update(ai_knowledge_basequery_referencesdefault);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschat_request);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschat_response);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_list);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_page);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_query);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备聊天请求参数]
+            rule "prepareparam_04"
+            ruleflow-group "ai_knowledge_basequery_referencesprepareparam_04"
+            when
+            then
+                            ai_knowledge_basequery_referenceschat_request.set("knowledgebases",ai_knowledge_basequery_referencesdefault.get("id"));
+                            ai_knowledge_basequery_referenceschat_request.set("chunkqueries",ai_knowledge_basequery_referencesdefault.get("query"));
+                        update(ai_knowledge_basequery_referencesdefault);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschat_request);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschat_response);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_list);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_page);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_query);//更新fact中变量值
+            end
+
+            //逻辑处理节点[知识检索]
+            rule "sysaichatagent_fetchchunks_01"
+            ruleflow-group "ai_knowledge_basequery_referencessysaichatagent_fetchchunks_01"
+            when
+            then
+                        update(ai_knowledge_basequery_referencesdefault);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschat_request);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschat_response);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_list);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_page);//更新fact中变量值
+                        update(ai_knowledge_basequery_referenceschunk_query);//更新fact中变量值
+            end

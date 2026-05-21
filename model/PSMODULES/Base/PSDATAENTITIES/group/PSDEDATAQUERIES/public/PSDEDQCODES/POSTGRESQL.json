@@ -1,0 +1,48 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "( t1.\"visibility\" = 'public' )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"avatar\"",
+    "name" : "AVATAR"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"section_id\"",
+    "name" : "SECTION_ID"
+  }, {
+    "expression" : "t11.\"name\"",
+    "name" : "SECTION_NAME"
+  }, {
+    "expression" : "t1.\"sequence\"",
+    "name" : "SEQUENCE"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"visibility\"",
+    "name" : "VISIBILITY"
+  } ],
+  "queryCode" : "SELECT\nt1.\"avatar\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"description\",\nt1.\"id\",\nt1.\"name\",\nt1.\"section_id\",\nt11.\"name\" AS \"section_name\",\nt1.\"sequence\",\nt1.\"update_man\",\nt1.\"update_time\",\nt1.\"visibility\"\nFROM \"user_group\" t1 \nLEFT JOIN \"section\" t11 ON t1.\"section_id\" = t11.\"id\" \n",
+  "id" : "PSMODULES/Base/PSDATAENTITIES/group/PSDEDATAQUERIES/public/PSDEDQCODES/POSTGRESQL.json"
+}

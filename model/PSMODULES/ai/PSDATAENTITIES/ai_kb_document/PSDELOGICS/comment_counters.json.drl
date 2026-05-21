@@ -1,0 +1,47 @@
+package cn.ibizlab.ai.logic.ai_kb_documentlogic.comment_counters;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_kb_document ai_kb_documentcomment_countersdefault;
+                global java.util.Map ai_kb_documentcomment_counterscomment_num;
+        global cn.ibizlab.core.ai.service.Iai_kb_documentService iBzSysAi_kb_documentDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_kb_documentcomment_countersbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[统计知识库文档评论数]
+            rule "rawsqlcall1"
+            ruleflow-group "ai_kb_documentcomment_countersrawsqlcall1"
+            when
+            then
+    Map param =new HashMap();
+        param.put("param0",ai_kb_documentcomment_countersdefault.get("ai_kb_document"));
+    String strSql="SELECT COUNT(*) AS total FROM comment WHERE PRINCIPAL_TYPE = 'AI_KB_DOCUMENT' AND CONTENT <> '<p><del>该评论已删除</del></p>' AND PRINCIPAL_ID = #{et.param0}";
+                        java.util.List<JSONObject> entities=iBzSysAi_kb_documentDefaultService.select(strSql,param);//SQL调用
+                            if(entities.size()>0){
+                            JSONObject entity=entities.get(0);
+                                ai_kb_documentcomment_counterscomment_num.putAll(entity);
+                            }
+                        update(ai_kb_documentcomment_countersdefault);//更新fact中变量值
+                        update(ai_kb_documentcomment_counterscomment_num);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end1"
+            ruleflow-group "ai_kb_documentcomment_countersend1"
+            when
+            then
+                        update(ai_kb_documentcomment_countersdefault);//更新fact中变量值
+                        update(ai_kb_documentcomment_counterscomment_num);//更新fact中变量值
+            end

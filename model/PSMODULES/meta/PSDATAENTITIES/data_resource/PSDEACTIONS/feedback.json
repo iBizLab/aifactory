@@ -1,0 +1,23 @@
+{
+  "actionMode" : "UPDATE",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "feedback",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/meta/PSDATAENTITIES/data_resource/PSDEACTIONS/feedback.json",
+  "logicName" : "反馈资源状态feedback",
+  "memo" : "反馈资源状态",
+  "name" : "feedback",
+  "getPSDEActionInput" : {
+    "name" : "FeedbackInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "data_resource_dto"
+    },
+    "type" : "DTO",
+    "output" : true
+  },
+  "getPSDEActionReturn" : {
+    "name" : "FeedbackResult",
+    "type" : "VOID"
+  }
+}

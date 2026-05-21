@@ -1,0 +1,51 @@
+{
+  "codeName" : "report_flag_filter",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/Base/PSDATAENTITIES/user/PSDELOGICS/report_flag_filter.json",
+  "logicName" : "统计过滤",
+  "memo" : "排除非统计用户",
+  "name" : "统计过滤",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : 470,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "topPos" : 80,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/user.json"
+    },
+    "default" : true,
+    "filterParam" : true
+  }, {
+    "codeName" : "user_filter",
+    "logicName" : "用户过滤器",
+    "name" : "用户过滤器",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/user.json"
+    },
+    "filterParam" : true
+  }, {
+    "codeName" : "user_page",
+    "logicName" : "用户结果",
+    "name" : "用户结果",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/user.json"
+    },
+    "entityPageParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

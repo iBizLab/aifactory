@@ -1,0 +1,567 @@
+{
+  "accUserMode" : 2,
+  "getCapPSLanguageRes" : {
+    "lanResTag" : "DE.LNAME.AI_KNOWLEDGE_BASE"
+  },
+  "caption" : "主页",
+  "codeName" : "ai_knowledge_base_over_view",
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_knowledge_base_over_view.json",
+  "name" : "ai_knowledge_baseover_view",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
+  },
+  "getPSAppModule" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPMODULES/Wiki.json"
+  },
+  "getPSAppViewNavContexts" : [ {
+    "key" : "SRFDYNADASHBOARDID",
+    "name" : "SRFDYNADASHBOARDID",
+    "value" : "dyna_dashboard",
+    "rawValue" : false
+  }, {
+    "key" : "DYNA_DASHBOARD",
+    "name" : "DYNA_DASHBOARD",
+    "value" : "dyna_dashboard",
+    "rawValue" : false
+  } ],
+  "getPSDEViewCodeName" : "over_view",
+  "getPSDEViewId" : "9785fa87c3008bb0bf7564bbcae8478a",
+  "getPSViewLayoutPanel" : {
+    "getAllPSPanelFields" : [ {
+      "id" : "field_textbox",
+      "hidden" : true
+    } ],
+    "codeName" : "usr0129300809",
+    "controlType" : "VIEWLAYOUTPANEL",
+    "layoutMode" : "FLEX",
+    "logicName" : "over_viewDEDASHBORADVIEW",
+    "memo" : "日历视图",
+    "name" : "layoutpanel",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
+    },
+    "getPSControlParam" : { },
+    "getPSLayout" : {
+      "layout" : "FLEX"
+    },
+    "getRootPSPanelItems" : [ {
+      "caption" : "容器",
+      "itemStyle" : "DEFAULT",
+      "itemType" : "CONTAINER",
+      "name" : "page_container",
+      "getPSLayout" : {
+        "dir" : "column",
+        "layout" : "FLEX"
+      },
+      "getPSLayoutPos" : {
+        "grow" : -1,
+        "layout" : "FLEX"
+      },
+      "getPSPanelItems" : [ {
+        "caption" : "栅格容器",
+        "itemStyle" : "DEFAULT",
+        "itemType" : "CONTAINER",
+        "name" : "container_grid1",
+        "getPSLayout" : {
+          "layout" : "SIMPLEFLEX"
+        },
+        "getPSLayoutPos" : {
+          "grow" : -1,
+          "layout" : "FLEX"
+        },
+        "getPSPanelItems" : [ {
+          "caption" : "面板容器",
+          "itemStyle" : "DEFAULT",
+          "itemType" : "CONTAINER",
+          "name" : "container1",
+          "getPSLayout" : {
+            "childColMD" : 24,
+            "columnCount" : 24,
+            "layout" : "TABLE_24COL"
+          },
+          "getPSLayoutPos" : {
+            "grow" : 12,
+            "layout" : "SIMPLEFLEX"
+          },
+          "getPSPanelItems" : [ {
+            "caption" : "DASHBOARD",
+            "itemStyle" : "DEFAULT",
+            "itemType" : "CTRLPOS",
+            "name" : "dashboard",
+            "getPSLayoutPos" : {
+              "colMD" : 24,
+              "heightMode" : "FULL",
+              "layout" : "TABLE_24COL"
+            },
+            "showCaption" : true
+          }, {
+            "caption" : "文本框",
+            "itemType" : "FIELD",
+            "name" : "field_textbox",
+            "getPSEditor" : {
+              "editorType" : "HIDDEN",
+              "name" : "field_textbox"
+            },
+            "getPSLayoutPos" : {
+              "colMD" : 24,
+              "layout" : "TABLE_24COL"
+            },
+            "hidden" : true
+          } ]
+        } ],
+        "predefinedType" : "CONTAINER_GRID"
+      } ],
+      "predefinedType" : "CONTAINER"
+    } ],
+    "layoutBodyOnly" : false,
+    "layoutPanel" : true,
+    "useDefaultLayout" : false,
+    "viewProxyMode" : true,
+    "modelid" : "272EF9B5-714A-486B-9E5A-70A4CBF904D1",
+    "modeltype" : "PSSYSVIEWLAYOUTPANEL",
+    "getPSAppViewEngines" : [ {
+      "engineCat" : "VIEW",
+      "engineType" : "PortalView",
+      "name" : "engine"
+    } ],
+    "getPSControls" : [ {
+      "codeName" : "dashboard",
+      "controlType" : "DASHBOARD",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base/PSDASHBOARDS/dashboard.json",
+      "logicName" : "主页_数据看板",
+      "getPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
+      },
+      "getPSControlHandler" : {
+        "enableDEFieldPrivilege" : false,
+        "id" : "dashboard"
+      },
+      "getPSControlParam" : {
+        "autoLoad" : true,
+        "showBusyIndicator" : true,
+        "id" : "DASHBOARD"
+      },
+      "getPSLayout" : {
+        "childColMD" : 24,
+        "columnCount" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "getPSControls" : [ {
+        "codeName" : "base",
+        "controlType" : "PORTLET",
+        "height" : 950.0,
+        "name" : "dashboard_sysportlet1",
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
+        },
+        "getPSControlHandler" : {
+          "enableDEFieldPrivilege" : false,
+          "id" : "dashboard_sysportlet1"
+        },
+        "getPSControlParam" : {
+          "height" : 950.0,
+          "autoLoad" : true,
+          "showBusyIndicator" : true
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "height" : 950,
+          "heightMode" : "PX",
+          "layout" : "TABLE_24COL"
+        },
+        "getPortletPSAppView" : {
+          "accUserMode" : 2,
+          "caption" : "仪表盘",
+          "codeName" : "insight_view_custom_view",
+          "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/insight_view_custom_view.json",
+          "memo" : "系统自动添加",
+          "name" : "insight_viewcustom_view",
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_view.json"
+          },
+          "getPSAppModule" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPMODULES/Ungroup.json"
+          },
+          "getPSAppViewNavContexts" : [ {
+            "key" : "SRFDYNADASHBOARDID",
+            "name" : "SRFDYNADASHBOARDID",
+            "value" : "dyna_dashboard",
+            "rawValue" : false
+          }, {
+            "key" : "DYNA_DASHBOARD",
+            "name" : "DYNA_DASHBOARD",
+            "value" : "dyna_dashboard",
+            "rawValue" : false
+          } ],
+          "getPSDEViewCodeName" : "custom_view",
+          "getPSDEViewId" : "0eea567c46fae7dd2120dfa3607b1012",
+          "getPSViewLayoutPanel" : {
+            "getAllPSPanelFields" : [ {
+              "id" : "field_dropdownlist"
+            } ],
+            "codeName" : "usr0621731521",
+            "controlType" : "VIEWLAYOUTPANEL",
+            "layoutMode" : "FLEX",
+            "logicName" : "效能度量仪表盘自定义视图布局面板",
+            "name" : "layoutpanel",
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_view.json"
+            },
+            "getPSControlParam" : { },
+            "getPSLayout" : {
+              "layout" : "FLEX"
+            },
+            "getRootPSPanelItems" : [ {
+              "caption" : "容器",
+              "contentHeight" : 56.0,
+              "height" : 56.0,
+              "itemStyle" : "DEFAULT",
+              "itemType" : "CONTAINER",
+              "name" : "container",
+              "getPSLayout" : {
+                "align" : "space-between",
+                "dir" : "row",
+                "layout" : "FLEX"
+              },
+              "getPSLayoutPos" : {
+                "grow" : -1,
+                "height" : 56,
+                "heightMode" : "PX",
+                "layout" : "FLEX"
+              },
+              "getPSPanelItems" : [ {
+                "caption" : "容器",
+                "itemStyle" : "DEFAULT",
+                "itemType" : "CONTAINER",
+                "name" : "container1",
+                "getPSLayout" : {
+                  "dir" : "row",
+                  "layout" : "FLEX",
+                  "vAlign" : "center"
+                },
+                "getPSLayoutPos" : {
+                  "grow" : -1,
+                  "layout" : "FLEX"
+                },
+                "getPSPanelItems" : [ {
+                  "caption" : "下拉列表框",
+                  "itemStyle" : "DEFAULT",
+                  "itemType" : "FIELD",
+                  "name" : "field_dropdownlist",
+                  "getPSEditor" : {
+                    "editorParams" : {
+                      "SRFNAVPARAM.N_OWNER_ID_EQ" : "%insight_view%",
+                      "MODE" : "CONTEXTCHANGE",
+                      "ENABLESEARCH" : "FALSE",
+                      "AC" : "TRUE",
+                      "SUFFIX" : "chevron-down-outline",
+                      "IMMEDIATE" : "TRUE",
+                      "PICKUPVIEW" : "TRUE",
+                      "ENABLECACHE" : "TRUE"
+                    },
+                    "editorStyle" : "ROUTE",
+                    "editorType" : "PICKER",
+                    "name" : "field_dropdownlist",
+                    "getPSAppDEACMode" : {
+                      "modelref" : true,
+                      "id" : "create_dynadashboard"
+                    },
+                    "getPSAppDEDataSet" : {
+                      "modelref" : true,
+                      "id" : "fetch_normal"
+                    },
+                    "getPSAppDataEntity" : {
+                      "modelref" : true,
+                      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dyna_dashboard.json"
+                    },
+                    "getPSNavigateParams" : [ {
+                      "key" : "n_owner_id_eq",
+                      "name" : "n_owner_id_eq",
+                      "value" : "insight_view",
+                      "rawValue" : false
+                    } ],
+                    "getPSSysPFPlugin" : {
+                      "pluginType" : "EDITOR_CUSTOMSTYLE",
+                      "pluginCode" : "ROUTE",
+                      "runtimeObject" : true
+                    },
+                    "getPSUIActionGroup" : {
+                      "codeName" : "Usr0620736484",
+                      "name" : "自填界面行为组",
+                      "getPSAppDataEntity" : {
+                        "modelref" : true,
+                        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dyna_dashboard.json"
+                      },
+                      "getPSUIActionGroupDetails" : [ {
+                        "caption" : "新建仪表盘",
+                        "detailType" : "DEUIACTION",
+                        "name" : "ubd671b5",
+                        "getPSSysImage" : {
+                          "glyph" : "xf067@FontAwesome",
+                          "cssClass" : "fa fa-plus"
+                        },
+                        "getPSUIAction" : {
+                          "actionTarget" : "NONE",
+                          "noPrivDisplayMode" : 1,
+                          "caption" : "新建仪表盘",
+                          "codeName" : "new_dynadashboard",
+                          "dataAccessAction" : "UPDATE",
+                          "getFrontPSAppView" : {
+                            "modelref" : true,
+                            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/dyna_dashboard_list_exp_view2.json",
+                            "viewType" : "DELISTEXPVIEW"
+                          },
+                          "frontProcessType" : "WIZARD",
+                          "fullCodeName" : "dyna_dashboard_new_dynadashboard",
+                          "name" : "新建仪表盘",
+                          "getNextPSUIAction" : {
+                            "getPSAppDataEntity" : {
+                              "modelref" : true,
+                              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dyna_dashboard.json"
+                            },
+                            "modelref" : true,
+                            "id" : "open_new_board@dyna_dashboard"
+                          },
+                          "getPSAppDataEntity" : {
+                            "modelref" : true,
+                            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dyna_dashboard.json"
+                          },
+                          "getPSDEOPPriv" : {
+                            "modelref" : true,
+                            "id" : "INSIGHT_VIEW__UPDATE"
+                          },
+                          "getPSNavigateParams" : [ {
+                            "key" : "only_get",
+                            "name" : "only_get",
+                            "value" : "true",
+                            "rawValue" : true
+                          } ],
+                          "getPSSysImage" : {
+                            "glyph" : "xf067@FontAwesome",
+                            "cssClass" : "fa fa-plus"
+                          },
+                          "refreshMode" : 1,
+                          "uIActionMode" : "FRONT",
+                          "uIActionTag" : "new_dynadashboard",
+                          "uIActionType" : "DEUIACTION",
+                          "reloadData" : true,
+                          "id" : "new_dynadashboard@dyna_dashboard"
+                        },
+                        "addSeparator" : false,
+                        "showCaption" : true,
+                        "showIcon" : true
+                      }, {
+                        "caption" : "仪表盘管理",
+                        "detailType" : "DEUIACTION",
+                        "name" : "uea3a05a",
+                        "getPSSysImage" : {
+                          "glyph" : "xf013@FontAwesome",
+                          "cssClass" : "fa fa-gear"
+                        },
+                        "getPSUIAction" : {
+                          "actionTarget" : "NONE",
+                          "noPrivDisplayMode" : 1,
+                          "caption" : "仪表盘管理",
+                          "codeName" : "board_management",
+                          "dataAccessAction" : "UPDATE",
+                          "getFrontPSAppView" : {
+                            "modelref" : true,
+                            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/dyna_dashboard_insight_view_grid_view.json",
+                            "viewType" : "DEGRIDVIEW"
+                          },
+                          "frontProcessType" : "WIZARD",
+                          "fullCodeName" : "dyna_dashboard_board_management",
+                          "name" : "仪表盘管理",
+                          "getPSAppDataEntity" : {
+                            "modelref" : true,
+                            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dyna_dashboard.json"
+                          },
+                          "getPSDEOPPriv" : {
+                            "modelref" : true,
+                            "id" : "INSIGHT_VIEW__UPDATE"
+                          },
+                          "getPSSysImage" : {
+                            "glyph" : "xf013@FontAwesome",
+                            "cssClass" : "fa fa-gear"
+                          },
+                          "uIActionMode" : "FRONT",
+                          "uIActionTag" : "board_management",
+                          "uIActionType" : "DEUIACTION",
+                          "id" : "board_management@dyna_dashboard"
+                        },
+                        "addSeparator" : false,
+                        "showCaption" : true,
+                        "showIcon" : true
+                      } ],
+                      "uniqueTag" : "dyna_dashboard__Usr0620736484"
+                    },
+                    "predefinedType" : "FIELD_DROPDOWNLIST",
+                    "enableAC" : true,
+                    "enablePickupView" : true,
+                    "forceSelection" : true,
+                    "showTrigger" : true,
+                    "singleSelect" : true
+                  },
+                  "getPSLayoutPos" : {
+                    "grow" : -1,
+                    "layout" : "FLEX"
+                  }
+                } ]
+              } ]
+            }, {
+              "itemStyle" : "DEFAULT",
+              "itemType" : "CONTAINER",
+              "name" : "page_container",
+              "getPSLayout" : {
+                "dir" : "column",
+                "layout" : "FLEX"
+              },
+              "getPSLayoutPos" : {
+                "grow" : 1,
+                "layout" : "FLEX"
+              },
+              "getPSPanelItems" : [ {
+                "caption" : "看板部件",
+                "itemStyle" : "DEFAULT",
+                "itemType" : "CTRLPOS",
+                "name" : "dashboard",
+                "getPSLayoutPos" : {
+                  "grow" : -1,
+                  "heightMode" : "FULL",
+                  "layout" : "FLEX"
+                },
+                "showCaption" : true
+              } ]
+            } ],
+            "layoutBodyOnly" : false,
+            "layoutPanel" : true,
+            "useDefaultLayout" : false,
+            "viewProxyMode" : true,
+            "modelid" : "fbe920ac84bd5fadcb293d2e7299fd7d",
+            "modeltype" : "PSSYSVIEWLAYOUTPANEL",
+            "getPSControls" : [ {
+              "codeName" : "dashboard_view_dashboard",
+              "controlType" : "DASHBOARD",
+              "customizeMode" : 2,
+              "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_view/PSDASHBOARDS/dashboard_view_dashboard.json",
+              "logicName" : "效能视图实体看板视图_数据看板",
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_view.json"
+              },
+              "getPSAppDynaDashboardUtil" : {
+                "modelref" : true,
+                "id" : "DynaDashboard"
+              },
+              "getPSControlHandler" : {
+                "enableDEFieldPrivilege" : false,
+                "id" : "dashboard"
+              },
+              "getPSControlParam" : {
+                "autoLoad" : true,
+                "showBusyIndicator" : true,
+                "ctrlParams" : {
+                  "DYNAMICCODELIST" : "aifactoryweb.insight__insight_report",
+                  "MULTIMODE" : "true",
+                  "OWNER_ID" : "insight_view",
+                  "OWNER_TYPE" : "insight_view",
+                  "TYPE" : "data"
+                },
+                "id" : "DASHBOARD"
+              },
+              "getPSLayout" : {
+                "childColMD" : 24,
+                "columnCount" : 24,
+                "layout" : "TABLE_24COL"
+              },
+              "getPSSysCss" : {
+                "cssName" : "recentcustom_dashboard_view_style"
+              },
+              "enableCustomized" : true,
+              "name" : "dashboard",
+              "modelid" : "8e8696d5f281a9da10a90442e6c31ee3",
+              "modeltype" : "PSSYSDASHBOARD"
+            }, {
+              "caption" : "仪表盘",
+              "codeName" : "custom_view_captionbar",
+              "controlType" : "CAPTIONBAR",
+              "name" : "captionbar",
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_view.json"
+              },
+              "getPSControlParam" : { }
+            } ]
+          },
+          "title" : "效能度量仪表盘",
+          "viewStyle" : "DEFAULT",
+          "viewType" : "DECUSTOMVIEW",
+          "enableDP" : true,
+          "modelid" : "9e0831bdc5160df7ea49e675d5dc6255",
+          "modeltype" : "PSAPPDEVIEW"
+        },
+        "portletType" : "VIEW",
+        "title" : "资产全景：知识库家底",
+        "showTitleBar" : false,
+        "modelid" : "c9fc49e7fc18c60cfaaa46a0bb3ac6a5",
+        "modeltype" : "PSSYSDBPART"
+      } ],
+      "enableCustomized" : false,
+      "name" : "dashboard",
+      "modelid" : "6d99c9946388de5ed15fe3ed5d9b8f7e",
+      "modeltype" : "PSSYSDASHBOARD"
+    }, {
+      "controlType" : "SEARCHBAR",
+      "name" : "searchbar",
+      "getPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
+      },
+      "getPSControlParam" : {
+        "id" : "searchbar"
+      },
+      "quickGroupCount" : -1,
+      "quickSearchMode" : 0,
+      "quickSearchWidth" : 0,
+      "enableFilter" : false,
+      "enableGroup" : false,
+      "enableQuickSearch" : false,
+      "mobileSearchBar" : false
+    }, {
+      "getCapPSLanguageRes" : {
+        "lanResTag" : "DE.LNAME.AI_KNOWLEDGE_BASE"
+      },
+      "caption" : "主页",
+      "codeName" : "over_view_captionbar",
+      "controlType" : "CAPTIONBAR",
+      "name" : "captionbar",
+      "getPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
+      },
+      "getPSControlParam" : { }
+    } ]
+  },
+  "refFlag" : false,
+  "title" : "主页",
+  "viewStyle" : "DEFAULT",
+  "viewType" : "DEPORTALVIEW",
+  "enableDP" : true,
+  "enableQuickGroup" : false,
+  "enableQuickSearch" : false,
+  "enableSearch" : true,
+  "expandSearchForm" : true,
+  "loadDefault" : true,
+  "showCaptionBar" : false,
+  "showDataInfoBar" : true,
+  "modelid" : "d6c2753ecfa9b7563002f7f7c4350f45",
+  "modeltype" : "PSAPPDEVIEW"
+}

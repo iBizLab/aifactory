@@ -1,0 +1,135 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "( t1.\"is_deleted\" = 0  AND  t1.\"is_published\" = 1  AND  t1.\"type\" = '1'  AND  t1.\"categories\" LIKE #{ctx.webcontext.shared_page} )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"access_password\"",
+    "name" : "ACCESS_PASSWORD"
+  }, {
+    "expression" : "t1.\"content\"",
+    "name" : "CONTENT"
+  }, {
+    "expression" : "t1.\"expiration_date\"",
+    "name" : "EXPIRATION_DATE"
+  }, {
+    "expression" : "t1.\"publish_content\"",
+    "name" : "PUBLISH_CONTENT"
+  }, {
+    "expression" : "t1.\"shared_by\"",
+    "name" : "SHARED_BY"
+  }, {
+    "expression" : "t1.\"shared_time\"",
+    "name" : "SHARED_TIME"
+  }, {
+    "expression" : "t1.\"categories\"",
+    "name" : "CATEGORIES"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"cur_version_id\"",
+    "name" : "CUR_VERSION_ID"
+  }, {
+    "expression" : "t1.\"cur_version_name\"",
+    "name" : "CUR_VERSION_NAME"
+  }, {
+    "expression" : "t1.\"format_type\"",
+    "name" : "FORMAT_TYPE"
+  }, {
+    "expression" : "t1.\"icon\"",
+    "name" : "ICON"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"identifier\"",
+    "name" : "IDENTIFIER"
+  }, {
+    "expression" : "t1.\"is_archived\"",
+    "name" : "IS_ARCHIVED"
+  }, {
+    "expression" : "t1.\"is_deleted\"",
+    "name" : "IS_DELETED"
+  }, {
+    "expression" : "(select count(1) from favorite where create_man=#{ctx.sessioncontext.srfpersonid} and OWNER_ID=t1.\"id\" )",
+    "name" : "IS_FAVORITE"
+  }, {
+    "expression" : "t1.\"is_leaf\"",
+    "name" : "IS_LEAF"
+  }, {
+    "expression" : "t1.\"is_lock\"",
+    "name" : "IS_LOCK"
+  }, {
+    "expression" : "t1.\"is_published\"",
+    "name" : "IS_PUBLISHED"
+  }, {
+    "expression" : "t1.\"is_shared\"",
+    "name" : "IS_SHARED"
+  }, {
+    "expression" : "t1.\"is_shared_subset\"",
+    "name" : "IS_SHARED_SUBSET"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"parent_id\"",
+    "name" : "PARENT_ID"
+  }, {
+    "expression" : "t1.\"published\"",
+    "name" : "PUBLISHED"
+  }, {
+    "expression" : "t1.\"publish_man\"",
+    "name" : "PUBLISH_MAN"
+  }, {
+    "expression" : "t1.\"publish_name\"",
+    "name" : "PUBLISH_NAME"
+  }, {
+    "expression" : "t1.\"publish_time\"",
+    "name" : "PUBLISH_TIME"
+  }, {
+    "expression" : "CURRENT_DATE - t1.\"create_time\"::date",
+    "name" : "RECENT_CREATE_DAYS"
+  }, {
+    "expression" : "t1.\"review_result_state\"",
+    "name" : "REVIEW_RESULT_STATE"
+  }, {
+    "expression" : "t1.\"sequence\"",
+    "name" : "SEQUENCE"
+  }, {
+    "expression" : "concat(t11.\"identifier\",'-',t1.\"identifier\")",
+    "name" : "SHOW_IDENTIFIER"
+  }, {
+    "expression" : "t1.\"space_id\"",
+    "name" : "SPACE_ID"
+  }, {
+    "expression" : "t11.\"identifier\"",
+    "name" : "SPACE_IDENTIFIER"
+  }, {
+    "expression" : "t11.\"name\"",
+    "name" : "SPACE_NAME"
+  }, {
+    "expression" : "t1.\"type\"",
+    "name" : "TYPE"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"user_tag\"",
+    "name" : "USER_TAG"
+  }, {
+    "expression" : "t1.\"user_tag2\"",
+    "name" : "USER_TAG2"
+  } ],
+  "queryCode" : "SELECT\nt1.\"categories\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"cur_version_id\",\nt1.\"cur_version_name\",\nt1.\"format_type\",\nt1.\"icon\",\nt1.\"id\",\nt1.\"identifier\",\nt1.\"is_archived\",\nt1.\"is_deleted\",\n(select count(1) from favorite where create_man=#{ctx.sessioncontext.srfpersonid} and OWNER_ID=t1.\"id\" ) AS \"is_favorite\",\nt1.\"is_leaf\",\nt1.\"is_lock\",\nt1.\"is_published\",\nt1.\"is_shared\",\nt1.\"is_shared_subset\",\nt1.\"name\",\nt1.\"parent_id\",\nt1.\"published\",\nt1.\"publish_man\",\nt1.\"publish_name\",\nt1.\"publish_time\",\nCURRENT_DATE - t1.\"create_time\"::date AS \"recent_create_days\",\nt1.\"review_result_state\",\nt1.\"sequence\",\nconcat(t11.\"identifier\",'-',t1.\"identifier\") AS \"show_identifier\",\nt1.\"space_id\",\nt11.\"identifier\" AS \"space_identifier\",\nt11.\"name\" AS \"space_name\",\nt1.\"type\",\nt1.\"update_man\",\nt1.\"update_time\",\nt1.\"user_tag\",\nt1.\"user_tag2\"\nFROM \"page\" t1 \nLEFT JOIN \"space\" t11 ON t1.\"space_id\" = t11.\"id\" \n",
+  "id" : "PSMODULES/Wiki/PSDATAENTITIES/article_page/PSDEDATAQUERIES/shared_search/PSDEDQCODES/POSTGRESQL.json"
+}

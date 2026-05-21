@@ -1,0 +1,28 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"defaultparam\"",
+    "name" : "DEFAULTPARAM"
+  }, {
+    "expression" : "t1.\"globalparam\"",
+    "name" : "GLOBALPARAM"
+  }, {
+    "expression" : "t1.\"logicname\"",
+    "name" : "LOGICNAME"
+  }, {
+    "expression" : "t1.\"originentityflag\"",
+    "name" : "ORIGINENTITYFLAG"
+  }, {
+    "expression" : "t1.\"psdelogicid\"",
+    "name" : "PSDELOGICID"
+  }, {
+    "expression" : "t1.\"psdelogicparamid\"",
+    "name" : "PSDELOGICPARAMID"
+  }, {
+    "expression" : "t1.\"psdelogicparamname\"",
+    "name" : "PSDELOGICPARAMNAME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"defaultparam\",\nt1.\"globalparam\",\nt1.\"logicname\",\nt1.\"originentityflag\",\nt1.\"psdelogicid\",\nt1.\"psdelogicparamid\",\nt1.\"psdelogicparamname\"\nFROM \"\" t1 \n",
+  "id" : "PSMODULES/extension/PSDATAENTITIES/PSDELogicParam/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

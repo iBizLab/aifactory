@@ -1,0 +1,48 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "t1.enable = 1",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.\"enable\"",
+    "name" : "ENABLE"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"organization_number\"",
+    "name" : "ORGANIZATION_NUMBER"
+  }, {
+    "expression" : "t1.\"pid\"",
+    "name" : "PID"
+  }, {
+    "expression" : "t1.\"short_name\"",
+    "name" : "SHORT_NAME"
+  }, {
+    "expression" : "t1.\"sort\"",
+    "name" : "SORT"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"description\",\nt1.\"enable\",\nt1.\"id\",\nt1.\"name\",\nt1.\"organization_number\",\nt1.\"pid\",\nt1.\"short_name\",\nt1.\"sort\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"\" t1 \n",
+  "id" : "PSMODULES/Base/PSDATAENTITIES/organization/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

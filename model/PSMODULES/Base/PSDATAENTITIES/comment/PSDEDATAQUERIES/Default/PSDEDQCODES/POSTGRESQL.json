@@ -1,0 +1,52 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"content\"",
+    "name" : "CONTENT"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"is_top\"",
+    "name" : "IS_TOP"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"owner_type\"",
+    "name" : "OWNER_TYPE"
+  }, {
+    "expression" : "t11.\"content\"",
+    "name" : "PCONTENT"
+  }, {
+    "expression" : "t11.\"create_man\"",
+    "name" : "PCREATE_MAN"
+  }, {
+    "expression" : "t1.\"pid\"",
+    "name" : "PID"
+  }, {
+    "expression" : "t1.\"principal_id\"",
+    "name" : "PRINCIPAL_ID"
+  }, {
+    "expression" : "t1.\"principal_name\"",
+    "name" : "PRINCIPAL_NAME"
+  }, {
+    "expression" : "t1.\"principal_type\"",
+    "name" : "PRINCIPAL_TYPE"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"content\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"id\",\nt1.\"is_top\",\nt1.\"name\",\nt1.\"owner_type\",\nt11.\"content\" AS \"pcontent\",\nt11.\"create_man\" AS \"pcreate_man\",\nt1.\"pid\",\nt1.\"principal_id\",\nt1.\"principal_name\",\nt1.\"principal_type\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"comment\" t1 \nLEFT JOIN \"comment\" t11 ON t1.\"pid\" = t11.\"id\" \n",
+  "id" : "PSMODULES/Base/PSDATAENTITIES/comment/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

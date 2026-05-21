@@ -1,0 +1,57 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "( ( t11.\"visibility\" = 'public'  OR  ( t11.\"scope_id\" = #{ctx.sessioncontext.srforgid}  AND  t11.\"scope_type\" = 'organization' )  OR  EXISTS(SELECT 1 FROM AI_KB_MEMBER m \n WHERE \n t11.ID = m.KB_ID  AND  ( m.USER_ID = #{ctx.sessioncontext.srfpersonid} ) ) ) )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"check_info\"",
+    "name" : "CHECK_INFO"
+  }, {
+    "expression" : "t1.\"review_report\"",
+    "name" : "REVIEW_REPORT"
+  }, {
+    "expression" : "t1.\"agent_tag\"",
+    "name" : "AGENT_TAG"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"document_id\"",
+    "name" : "DOCUMENT_ID"
+  }, {
+    "expression" : "t21.\"name\"",
+    "name" : "DOCUMENT_NAME"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"kb_id\"",
+    "name" : "KB_ID"
+  }, {
+    "expression" : "t11.\"name\"",
+    "name" : "KB_NAME"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"record_id\"",
+    "name" : "RECORD_ID"
+  }, {
+    "expression" : "t1.\"review_result\"",
+    "name" : "REVIEW_RESULT"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"agent_tag\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"document_id\",\nt21.\"name\" AS \"document_name\",\nt1.\"id\",\nt1.\"kb_id\",\nt11.\"name\" AS \"kb_name\",\nt1.\"name\",\nt1.\"record_id\",\nt1.\"review_result\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"ai_review_report\" t1 \nLEFT JOIN \"ai_knowledge_base\" t11 ON t1.\"kb_id\" = t11.\"id\" \nLEFT JOIN \"ai_kb_document\" t21 ON t1.\"document_id\" = t21.\"id\" \n",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEDATAQUERIES/reader/PSDEDQCODES/POSTGRESQL.json"
+}

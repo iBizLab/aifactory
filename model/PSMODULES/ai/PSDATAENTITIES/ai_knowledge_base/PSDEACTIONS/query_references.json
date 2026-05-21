@@ -1,0 +1,27 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "DELOGIC",
+  "codeName" : "query_references",
+  "dataAccessAction" : "READ",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEACTIONS/query_references.json",
+  "logicName" : "获取参考资料",
+  "name" : "query_references",
+  "getPSDEActionInput" : {
+    "name" : "Query_referencesInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_knowledge_base_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "Query_referencesResult",
+    "type" : "VOID"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDELOGICS/query_references.json"
+  },
+  "enableFront" : false
+}

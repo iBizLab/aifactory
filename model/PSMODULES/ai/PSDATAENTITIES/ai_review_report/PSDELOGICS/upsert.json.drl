@@ -1,0 +1,125 @@
+package cn.ibizlab.ai.logic.ai_review_reportlogic.upsert;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_review_report ai_review_reportupsertdefault;
+                global java.util.Map ai_review_reportupsertcheckkeyresult;
+                    global cn.ibizlab.core.ai.service.Iai_review_reportService ai_review_reportservice;
+        global cn.ibizlab.core.ai.service.Iai_review_reportService iBzSysAi_review_reportDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_review_reportupsertbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[处理联合键值]
+            rule "rawsfcode_02"
+            ruleflow-group "ai_review_reportupsertrawsfcode_02"
+            when
+            then
+                        update(ai_review_reportupsertdefault);//更新fact中变量值
+                        update(ai_review_reportupsertcheckkeyresult);//更新fact中变量值
+            end
+
+            //逻辑处理节点[设置报告]
+            rule "prepareparam_01"
+            ruleflow-group "ai_review_reportupsertprepareparam_01"
+            when
+            then
+                        update(ai_review_reportupsertdefault);//更新fact中变量值
+                        update(ai_review_reportupsertcheckkeyresult);//更新fact中变量值
+            end
+
+            //逻辑处理节点[查看报告数据]
+            rule "debugparam_01"
+            ruleflow-group "ai_review_reportupsertdebugparam_01"
+            when
+            then
+                        update(ai_review_reportupsertdefault);//更新fact中变量值
+                        update(ai_review_reportupsertcheckkeyresult);//更新fact中变量值
+            end
+
+            //逻辑处理节点[填充联合键值]
+            rule "rawsfcode_01"
+            ruleflow-group "ai_review_reportupsertrawsfcode_01"
+            when
+            then
+                        update(ai_review_reportupsertdefault);//更新fact中变量值
+                        update(ai_review_reportupsertcheckkeyresult);//更新fact中变量值
+            end
+
+            //逻辑处理节点[检查数据]
+            rule "deaction_02"
+            ruleflow-group "ai_review_reportupsertdeaction_02"
+            when
+            then
+                        ai_review_reportservice.checkKey(ai_review_reportupsertdefault);
+                        update(ai_review_reportupsertdefault);//更新fact中变量值
+                        update(ai_review_reportupsertcheckkeyresult);//更新fact中变量值
+            end
+
+            //逻辑处理节点[检查结果]
+            rule "debugparam_02"
+            ruleflow-group "ai_review_reportupsertdebugparam_02"
+            when
+            then
+                        update(ai_review_reportupsertdefault);//更新fact中变量值
+                        update(ai_review_reportupsertcheckkeyresult);//更新fact中变量值
+            end
+
+            //逻辑处理节点[保存自动判断]
+            rule "deaction_01"
+            ruleflow-group "ai_review_reportupsertdeaction_01"
+            when
+            then
+                        ai_review_reportservice.save(ai_review_reportupsertdefault);
+                        update(ai_review_reportupsertdefault);//更新fact中变量值
+                        update(ai_review_reportupsertcheckkeyresult);//更新fact中变量值
+            end
+
+            //逻辑处理节点[创建报告]
+            rule "deaction_03"
+            ruleflow-group "ai_review_reportupsertdeaction_03"
+            when
+            then
+                        ai_review_reportservice.create(ai_review_reportupsertdefault);
+                        update(ai_review_reportupsertdefault);//更新fact中变量值
+                        update(ai_review_reportupsertcheckkeyresult);//更新fact中变量值
+            end
+
+            //逻辑处理节点[保存报告]
+            rule "deaction_04"
+            ruleflow-group "ai_review_reportupsertdeaction_04"
+            when
+            then
+                        ai_review_reportservice.update(ai_review_reportupsertdefault);
+                        update(ai_review_reportupsertdefault);//更新fact中变量值
+                        update(ai_review_reportupsertcheckkeyresult);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "ai_review_reportupsertend_01"
+            when
+            then
+                        update(ai_review_reportupsertdefault);//更新fact中变量值
+                        update(ai_review_reportupsertcheckkeyresult);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_02"
+            ruleflow-group "ai_review_reportupsertend_02"
+            when
+            then
+                        update(ai_review_reportupsertdefault);//更新fact中变量值
+                        update(ai_review_reportupsertcheckkeyresult);//更新fact中变量值
+            end

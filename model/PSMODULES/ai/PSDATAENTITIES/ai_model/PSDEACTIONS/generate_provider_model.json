@@ -1,0 +1,27 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "DELOGIC",
+  "codeName" : "generate_provider_model",
+  "dataAccessAction" : "CREATE",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_model/PSDEACTIONS/generate_provider_model.json",
+  "logicName" : "生成提供商模型",
+  "name" : "generate_provider_model",
+  "getPSDEActionInput" : {
+    "name" : "Generate_provider_modelInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_model_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "Generate_provider_modelResult",
+    "type" : "VOID"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_model/PSDELOGICS/generate_provider_model.json"
+  },
+  "enableFront" : false
+}

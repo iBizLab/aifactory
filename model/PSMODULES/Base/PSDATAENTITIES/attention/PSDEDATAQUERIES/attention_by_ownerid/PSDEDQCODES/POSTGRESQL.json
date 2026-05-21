@@ -1,0 +1,48 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "( t1.\"owner_id\" = #{ctx.webcontext.id}  AND  <choose><when test=\"ctx.webcontext.principal_id !=null \">  t1.\"owner_id\" = #{ctx.webcontext.principal_id}  </when><otherwise>1=1</otherwise></choose>  AND  ( t1.\"type\" = '30'  OR  t1.\"type\" = '40' )  AND  t1.\"user_id\" <> #{ctx.sessioncontext.srfpersonid} )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"owner_id\"",
+    "name" : "OWNER_ID"
+  }, {
+    "expression" : "t1.\"owner_subtype\"",
+    "name" : "OWNER_SUBTYPE"
+  }, {
+    "expression" : "t1.\"owner_type\"",
+    "name" : "OWNER_TYPE"
+  }, {
+    "expression" : "t1.\"title\"",
+    "name" : "TITLE"
+  }, {
+    "expression" : "t1.\"type\"",
+    "name" : "TYPE"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"user_id\"",
+    "name" : "USER_ID"
+  } ],
+  "queryCode" : "SELECT\nt1.\"id\",\nt1.\"user_id\"\nFROM \"attention\" t1 \n",
+  "id" : "PSMODULES/Base/PSDATAENTITIES/attention/PSDEDATAQUERIES/attention_by_ownerid/PSDEDQCODES/POSTGRESQL.json"
+}

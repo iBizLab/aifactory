@@ -1,0 +1,1710 @@
+{
+  "codeName" : "sys_env",
+  "controlType" : "FORM",
+  "getCreatePSControlAction" : {
+    "modelref" : true,
+    "id" : "create",
+    "actionName" : "save_aifactory_sys_env",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "CREATE",
+    "name" : "create",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "save_aifactory_sys_env"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/category_settings.json"
+    }
+  },
+  "defaultLabelWidth" : 130,
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/category_settings/PSFORMS/sys_env.json",
+  "getGetDraftFromPSControlAction" : {
+    "modelref" : true,
+    "id" : "loaddraftfrom",
+    "actionName" : "GETDRAFTFROM",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "CREATE",
+    "name" : "loaddraftfrom",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/category_settings.json"
+    }
+  },
+  "getGetDraftPSControlAction" : {
+    "modelref" : true,
+    "id" : "loaddraft",
+    "actionName" : "GetDraft",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "CREATE",
+    "name" : "loaddraft",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "get_draft"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/category_settings.json"
+    }
+  },
+  "getGetPSControlAction" : {
+    "modelref" : true,
+    "id" : "load",
+    "actionName" : "find_aifactory_sys_env",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "READ",
+    "name" : "load",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "find_aifactory_sys_env"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/category_settings.json"
+    }
+  },
+  "logicName" : "系统配置信息_表单",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/category_settings.json"
+  },
+  "getPSDEFormItems" : [ {
+    "id" : "srfupdatedate",
+    "hidden" : true,
+    "dataType" : 5,
+    "getPSAppDEField" : {
+      "name" : "UPDATE_TIME",
+      "codeName" : "update_time"
+    }
+  }, {
+    "id" : "srforikey",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfkey",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "ID",
+      "codeName" : "category_id"
+    }
+  }, {
+    "id" : "srfmajortext",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "NAME",
+      "codeName" : "category_name"
+    }
+  }, {
+    "id" : "srftempmode",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfuf",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfdeid",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "srfsourcekey",
+    "hidden" : true,
+    "dataType" : 25
+  }, {
+    "id" : "chat_model",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "CHAT_MODEL",
+      "codeName" : "chat_model"
+    }
+  }, {
+    "id" : "flash_model",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "FLASH_MODEL",
+      "codeName" : "flash_model"
+    }
+  }, {
+    "id" : "intent_model",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "INTENT_MODEL",
+      "codeName" : "intent_model"
+    }
+  }, {
+    "id" : "vl_model",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "VL_MODEL",
+      "codeName" : "vl_model"
+    }
+  }, {
+    "id" : "embedding_model",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "EMBEDDING_MODEL",
+      "codeName" : "embedding_model"
+    }
+  }, {
+    "id" : "rerank_model",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "RERANK_MODEL",
+      "codeName" : "rerank_model"
+    }
+  }, {
+    "id" : "vl_model_id",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "VL_MODEL_ID",
+      "codeName" : "vl_model_id"
+    }
+  }, {
+    "id" : "intent_model_id",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "INTENT_MODEL_ID",
+      "codeName" : "intent_model_id"
+    }
+  }, {
+    "id" : "flash_model_id",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "FLASH_MODEL_ID",
+      "codeName" : "flash_model_id"
+    }
+  }, {
+    "id" : "chat_model_id",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "CHAT_MODEL_ID",
+      "codeName" : "chat_model_id"
+    }
+  }, {
+    "id" : "embedding_model_id",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "EMBEDDING_MODEL_ID",
+      "codeName" : "embedding_model_id"
+    }
+  }, {
+    "id" : "rerank_model_id",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "RERANK_MODEL_ID",
+      "codeName" : "rerank_model_id"
+    }
+  }, {
+    "id" : "id",
+    "hidden" : true,
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "ID",
+      "codeName" : "category_id"
+    }
+  } ],
+  "getPSDEFormPages" : [ {
+    "caption" : "基本信息",
+    "codeName" : "formpage1",
+    "detailStyle" : "DEFAULT",
+    "detailType" : "FORMPAGE",
+    "name" : "formpage1",
+    "getPSDEFormDetails" : [ {
+      "codeName" : "grouppanel2",
+      "detailStyle" : "DEFAULT",
+      "detailType" : "GROUPPANEL",
+      "name" : "grouppanel2",
+      "getPSDEFormDetails" : [ {
+        "caption" : "默认模型设置",
+        "codeName" : "group1",
+        "detailStyle" : "DEFAULT",
+        "detailType" : "GROUPPANEL",
+        "name" : "group1",
+        "getPSDEFormDetails" : [ {
+          "caption" : "Default 主模型",
+          "codeName" : "chat_model",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "labelPos" : "LEFT",
+          "labelWidth" : 130,
+          "name" : "chat_model",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "CHAT_MODEL",
+            "codeName" : "chat_model"
+          },
+          "getPSEditor" : {
+            "editorParams" : {
+              "SRFNAVPARAM.n_model_category_eq" : "chat",
+              "LINKVIEW" : "TRUE",
+              "AC" : "TRUE",
+              "TRIGGER" : "TRUE",
+              "PICKUPVIEW" : "FALSE"
+            },
+            "editorType" : "PICKEREX_TRIGGER_LINK",
+            "handlerType" : "PickupText",
+            "getLinkPSAppView" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_model_redirect_view.json",
+              "viewType" : "DEREDIRECTVIEW"
+            },
+            "name" : "chat_model",
+            "getPSAppDEACMode" : {
+              "modelref" : true,
+              "id" : "Default"
+            },
+            "getPSAppDEDataSet" : {
+              "modelref" : true,
+              "id" : "fetch_default"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+            },
+            "getPSEditorItems" : [ {
+              "name" : "chat_model_id"
+            } ],
+            "getPSNavigateParams" : [ {
+              "key" : "n_model_category_eq",
+              "name" : "n_model_category_eq",
+              "value" : "chat",
+              "rawValue" : true
+            } ],
+            "placeHolder" : "全局默认对话主模型",
+            "valueItemName" : "chat_model_id",
+            "enableAC" : true,
+            "enableLinkView" : true,
+            "enablePickupView" : false,
+            "forceSelection" : true,
+            "showTrigger" : true,
+            "singleSelect" : true
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 8,
+            "colMD" : 8,
+            "layout" : "TABLE_24COL"
+          },
+          "valueItemName" : "chat_model_id",
+          "allowEmpty" : false,
+          "showCaption" : true
+        }, {
+          "caption" : "Flash 快速模型",
+          "codeName" : "flash_model",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "labelPos" : "LEFT",
+          "labelWidth" : 130,
+          "name" : "flash_model",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "FLASH_MODEL",
+            "codeName" : "flash_model"
+          },
+          "getPSEditor" : {
+            "editorParams" : {
+              "SRFNAVPARAM.n_model_category_eq" : "chat",
+              "LINKVIEW" : "TRUE",
+              "AC" : "TRUE",
+              "TRIGGER" : "TRUE",
+              "PICKUPVIEW" : "FALSE"
+            },
+            "editorType" : "PICKEREX_TRIGGER_LINK",
+            "handlerType" : "PickupText",
+            "getLinkPSAppView" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_model_redirect_view.json",
+              "viewType" : "DEREDIRECTVIEW"
+            },
+            "name" : "flash_model",
+            "getPSAppDEACMode" : {
+              "modelref" : true,
+              "id" : "Default"
+            },
+            "getPSAppDEDataSet" : {
+              "modelref" : true,
+              "id" : "fetch_default"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+            },
+            "getPSEditorItems" : [ {
+              "name" : "flash_model_id"
+            } ],
+            "getPSNavigateParams" : [ {
+              "key" : "n_model_category_eq",
+              "name" : "n_model_category_eq",
+              "value" : "chat",
+              "rawValue" : true
+            } ],
+            "placeHolder" : "切片推荐等快速任务，未指定时使用默认主模型",
+            "valueItemName" : "flash_model_id",
+            "enableAC" : true,
+            "enableLinkView" : true,
+            "enablePickupView" : false,
+            "forceSelection" : true,
+            "showTrigger" : true,
+            "singleSelect" : true
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 8,
+            "colMD" : 8,
+            "layout" : "TABLE_24COL"
+          },
+          "valueItemName" : "flash_model_id",
+          "allowEmpty" : true,
+          "showCaption" : true
+        }, {
+          "caption" : "意图分析模型",
+          "codeName" : "intent_model",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "labelPos" : "LEFT",
+          "labelWidth" : 130,
+          "name" : "intent_model",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "INTENT_MODEL",
+            "codeName" : "intent_model"
+          },
+          "getPSEditor" : {
+            "editorParams" : {
+              "SRFNAVPARAM.n_model_category_eq" : "chat",
+              "LINKVIEW" : "TRUE",
+              "AC" : "TRUE",
+              "TRIGGER" : "TRUE",
+              "PICKUPVIEW" : "FALSE"
+            },
+            "editorType" : "PICKEREX_TRIGGER_LINK",
+            "handlerType" : "PickupText",
+            "getLinkPSAppView" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_model_redirect_view.json",
+              "viewType" : "DEREDIRECTVIEW"
+            },
+            "name" : "intent_model",
+            "getPSAppDEACMode" : {
+              "modelref" : true,
+              "id" : "Default"
+            },
+            "getPSAppDEDataSet" : {
+              "modelref" : true,
+              "id" : "fetch_default"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+            },
+            "getPSEditorItems" : [ {
+              "name" : "intent_model_id"
+            } ],
+            "getPSNavigateParams" : [ {
+              "key" : "n_model_category_eq",
+              "name" : "n_model_category_eq",
+              "value" : "chat",
+              "rawValue" : true
+            } ],
+            "placeHolder" : "query等意图分析，未指定时使用Flash快速模型",
+            "valueItemName" : "intent_model_id",
+            "enableAC" : true,
+            "enableLinkView" : true,
+            "enablePickupView" : false,
+            "forceSelection" : true,
+            "showTrigger" : true,
+            "singleSelect" : true
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 8,
+            "colMD" : 8,
+            "layout" : "TABLE_24COL"
+          },
+          "valueItemName" : "intent_model_id",
+          "allowEmpty" : true,
+          "showCaption" : true
+        }, {
+          "caption" : "多模态模型",
+          "codeName" : "vl_model",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "labelPos" : "LEFT",
+          "labelWidth" : 130,
+          "name" : "vl_model",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "VL_MODEL",
+            "codeName" : "vl_model"
+          },
+          "getPSEditor" : {
+            "editorParams" : {
+              "SRFNAVPARAM.n_model_category_in" : "chat,vision",
+              "LINKVIEW" : "TRUE",
+              "AC" : "TRUE",
+              "TRIGGER" : "TRUE",
+              "PICKUPVIEW" : "FALSE"
+            },
+            "editorType" : "PICKEREX_TRIGGER_LINK",
+            "handlerType" : "PickupText",
+            "getLinkPSAppView" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_model_redirect_view.json",
+              "viewType" : "DEREDIRECTVIEW"
+            },
+            "name" : "vl_model",
+            "getPSAppDEACMode" : {
+              "modelref" : true,
+              "id" : "Default"
+            },
+            "getPSAppDEDataSet" : {
+              "modelref" : true,
+              "id" : "fetch_default"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+            },
+            "getPSEditorItems" : [ {
+              "name" : "vl_model_id"
+            } ],
+            "getPSNavigateParams" : [ {
+              "key" : "n_model_category_in",
+              "name" : "n_model_category_in",
+              "value" : "chat,vision",
+              "rawValue" : true
+            } ],
+            "placeHolder" : "图片识别等，未指定时使用Flash快速模型",
+            "valueItemName" : "vl_model_id",
+            "enableAC" : true,
+            "enableLinkView" : true,
+            "enablePickupView" : false,
+            "forceSelection" : true,
+            "showTrigger" : true,
+            "singleSelect" : true
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 8,
+            "colMD" : 8,
+            "layout" : "TABLE_24COL"
+          },
+          "valueItemName" : "vl_model_id",
+          "allowEmpty" : true,
+          "showCaption" : true
+        }, {
+          "caption" : "Embedding 模型",
+          "codeName" : "embedding_model",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "labelPos" : "LEFT",
+          "labelWidth" : 130,
+          "name" : "embedding_model",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "EMBEDDING_MODEL",
+            "codeName" : "embedding_model"
+          },
+          "getPSEditor" : {
+            "editorParams" : {
+              "SRFNAVPARAM.n_model_category_eq" : "embedding",
+              "LINKVIEW" : "TRUE",
+              "AC" : "TRUE",
+              "TRIGGER" : "TRUE",
+              "PICKUPVIEW" : "FALSE"
+            },
+            "editorType" : "PICKEREX_TRIGGER_LINK",
+            "handlerType" : "PickupText",
+            "getLinkPSAppView" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_model_redirect_view.json",
+              "viewType" : "DEREDIRECTVIEW"
+            },
+            "name" : "embedding_model",
+            "getPSAppDEACMode" : {
+              "modelref" : true,
+              "id" : "Default"
+            },
+            "getPSAppDEDataSet" : {
+              "modelref" : true,
+              "id" : "fetch_default"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+            },
+            "getPSEditorItems" : [ {
+              "name" : "embedding_model_id"
+            } ],
+            "getPSNavigateParams" : [ {
+              "key" : "n_model_category_eq",
+              "name" : "n_model_category_eq",
+              "value" : "embedding",
+              "rawValue" : true
+            } ],
+            "placeHolder" : "未指定时使用全局默认",
+            "valueItemName" : "embedding_model_id",
+            "enableAC" : true,
+            "enableLinkView" : true,
+            "enablePickupView" : false,
+            "forceSelection" : true,
+            "showTrigger" : true,
+            "singleSelect" : true
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 8,
+            "colMD" : 8,
+            "layout" : "TABLE_24COL"
+          },
+          "valueItemName" : "embedding_model_id",
+          "allowEmpty" : true,
+          "showCaption" : true
+        }, {
+          "caption" : "Rerank 模型",
+          "codeName" : "rerank_model",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "labelPos" : "LEFT",
+          "labelWidth" : 130,
+          "name" : "rerank_model",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "RERANK_MODEL",
+            "codeName" : "rerank_model"
+          },
+          "getPSEditor" : {
+            "editorParams" : {
+              "SRFNAVPARAM.n_model_category_eq" : "text_ranking",
+              "LINKVIEW" : "TRUE",
+              "AC" : "TRUE",
+              "TRIGGER" : "TRUE",
+              "PICKUPVIEW" : "FALSE"
+            },
+            "editorType" : "PICKEREX_TRIGGER_LINK",
+            "handlerType" : "PickupText",
+            "getLinkPSAppView" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_model_redirect_view.json",
+              "viewType" : "DEREDIRECTVIEW"
+            },
+            "name" : "rerank_model",
+            "getPSAppDEACMode" : {
+              "modelref" : true,
+              "id" : "Default"
+            },
+            "getPSAppDEDataSet" : {
+              "modelref" : true,
+              "id" : "fetch_default"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+            },
+            "getPSEditorItems" : [ {
+              "name" : "rerank_model_id"
+            } ],
+            "getPSNavigateParams" : [ {
+              "key" : "n_model_category_eq",
+              "name" : "n_model_category_eq",
+              "value" : "text_ranking",
+              "rawValue" : true
+            } ],
+            "placeHolder" : "未指定时使用全局默认",
+            "valueItemName" : "rerank_model_id",
+            "enableAC" : true,
+            "enableLinkView" : true,
+            "enablePickupView" : false,
+            "forceSelection" : true,
+            "showTrigger" : true,
+            "singleSelect" : true
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 8,
+            "colMD" : 8,
+            "layout" : "TABLE_24COL"
+          },
+          "resetItemName" : "rerank",
+          "resetItemNames" : [ "rerank" ],
+          "valueItemName" : "rerank_model_id",
+          "allowEmpty" : true,
+          "showCaption" : true
+        }, {
+          "caption" : "多模态模型标识",
+          "codeName" : "vl_model_id",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "labelPos" : "LEFT",
+          "labelWidth" : 130,
+          "name" : "vl_model_id",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "VL_MODEL_ID",
+            "codeName" : "vl_model_id"
+          },
+          "getPSEditor" : {
+            "editorType" : "HIDDEN",
+            "name" : "vl_model_id"
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 8,
+            "colMD" : 8,
+            "layout" : "TABLE_24COL"
+          },
+          "allowEmpty" : true,
+          "hidden" : true
+        }, {
+          "caption" : "模型标识",
+          "codeName" : "intent_model_id",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "labelPos" : "LEFT",
+          "labelWidth" : 130,
+          "name" : "intent_model_id",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "INTENT_MODEL_ID",
+            "codeName" : "intent_model_id"
+          },
+          "getPSEditor" : {
+            "editorType" : "HIDDEN",
+            "name" : "intent_model_id"
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 8,
+            "colMD" : 8,
+            "layout" : "TABLE_24COL"
+          },
+          "allowEmpty" : true,
+          "hidden" : true
+        }, {
+          "caption" : "快速交谈模型标识",
+          "codeName" : "flash_model_id",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "labelPos" : "LEFT",
+          "labelWidth" : 130,
+          "name" : "flash_model_id",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "FLASH_MODEL_ID",
+            "codeName" : "flash_model_id"
+          },
+          "getPSEditor" : {
+            "editorType" : "HIDDEN",
+            "name" : "flash_model_id"
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 8,
+            "colMD" : 8,
+            "layout" : "TABLE_24COL"
+          },
+          "allowEmpty" : true,
+          "hidden" : true
+        }, {
+          "caption" : "交谈模型标识",
+          "codeName" : "chat_model_id",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "labelPos" : "LEFT",
+          "labelWidth" : 130,
+          "name" : "chat_model_id",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "CHAT_MODEL_ID",
+            "codeName" : "chat_model_id"
+          },
+          "getPSEditor" : {
+            "editorType" : "HIDDEN",
+            "name" : "chat_model_id"
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 8,
+            "colMD" : 8,
+            "layout" : "TABLE_24COL"
+          },
+          "allowEmpty" : true,
+          "hidden" : true
+        }, {
+          "caption" : "嵌入模型标识",
+          "codeName" : "embedding_model_id",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "labelPos" : "LEFT",
+          "labelWidth" : 130,
+          "name" : "embedding_model_id",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "EMBEDDING_MODEL_ID",
+            "codeName" : "embedding_model_id"
+          },
+          "getPSEditor" : {
+            "editorType" : "HIDDEN",
+            "name" : "embedding_model_id"
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 8,
+            "colMD" : 8,
+            "layout" : "TABLE_24COL"
+          },
+          "allowEmpty" : true,
+          "hidden" : true
+        }, {
+          "caption" : "召回重排模型标识",
+          "codeName" : "rerank_model_id",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "labelPos" : "LEFT",
+          "labelWidth" : 130,
+          "name" : "rerank_model_id",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "RERANK_MODEL_ID",
+            "codeName" : "rerank_model_id"
+          },
+          "getPSEditor" : {
+            "editorType" : "HIDDEN",
+            "name" : "rerank_model_id"
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 8,
+            "colMD" : 8,
+            "layout" : "TABLE_24COL"
+          },
+          "resetItemName" : "rerank",
+          "resetItemNames" : [ "rerank" ],
+          "allowEmpty" : true,
+          "hidden" : true
+        }, {
+          "codeName" : "grouppanel1",
+          "detailStyle" : "DEFAULT",
+          "detailType" : "GROUPPANEL",
+          "name" : "grouppanel1",
+          "getPSDEFormDetails" : [ {
+            "actionType" : "UIACTION",
+            "getCapPSLanguageRes" : {
+              "lanResTag" : "TBB.TEXT.*.SAVE"
+            },
+            "caption" : "发布配置",
+            "codeName" : "button1",
+            "detailStyle" : "DEFAULT",
+            "detailType" : "BUTTON",
+            "name" : "button1",
+            "getPSAppViewUIAction" : {
+              "modelref" : true,
+              "id" : "form_button1"
+            },
+            "getPSLayoutPos" : {
+              "grow" : -1,
+              "layout" : "FLEX"
+            },
+            "getPSSysImage" : {
+              "glyph" : "xf0c7@FontAwesome",
+              "cssClass" : "fa fa-save"
+            },
+            "getPSUIAction" : {
+              "getCapPSLanguageRes" : {
+                "lanResTag" : "TBB.TEXT.*.SAVE"
+              },
+              "caption" : "保存",
+              "codeName" : "Save",
+              "fullCodeName" : "Save",
+              "name" : "编辑界面_保存操作",
+              "getPSSysImage" : {
+                "glyph" : "xf0c7@FontAwesome",
+                "cssClass" : "fa fa-save"
+              },
+              "predefinedType" : "EDITVIEW_SAVEACTION",
+              "timeout" : 60000,
+              "getTooltipPSLanguageRes" : {
+                "lanResTag" : "TBB.TOOLTIP.*.SAVE"
+              },
+              "uIActionMode" : "SYS",
+              "uIActionTag" : "Save",
+              "uIActionType" : "DEUIACTION"
+            },
+            "tooltip" : "发布配置",
+            "showCaption" : true
+          } ],
+          "getPSLayout" : {
+            "align" : "center",
+            "dir" : "row",
+            "layout" : "FLEX",
+            "vAlign" : "center"
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 24,
+            "colMD" : 24,
+            "layout" : "TABLE_24COL"
+          },
+          "infoGroupMode" : false,
+          "showCaption" : false
+        } ],
+        "getPSLayout" : {
+          "childColLG" : 8,
+          "childColMD" : 8,
+          "columnCount" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "infoGroupMode" : false,
+        "showCaption" : true
+      } ],
+      "getPSLayout" : {
+        "childColMD" : 24,
+        "columnCount" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "getPSLayoutPos" : {
+        "colLG" : 24,
+        "colMD" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "infoGroupMode" : false,
+      "showCaption" : false
+    }, {
+      "codeName" : "druipart1",
+      "dRItemTag" : "DRItem",
+      "detailStyle" : "DEFAULT",
+      "detailType" : "DRUIPART",
+      "name" : "druipart1",
+      "getPSAppView" : {
+        "accUserMode" : 2,
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "DE.LNAME.AI_MODEL"
+        },
+        "caption" : "已接入模型",
+        "codeName" : "ai_model_grid_view",
+        "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_model_grid_view.json",
+        "funcViewMode" : "MDATAVIEW",
+        "gridRowActiveMode" : 1,
+        "memo" : "系统自动添加",
+        "name" : "ai_modelGridView",
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+        },
+        "getPSAppModule" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPMODULES/ai.json"
+        },
+        "getPSAppViewEngines" : [ {
+          "engineCat" : "VIEW",
+          "engineType" : "GridView",
+          "name" : "engine"
+        } ],
+        "getPSAppViewLogics" : [ {
+          "logicTrigger" : "CUSTOM",
+          "logicType" : "APPUILOGIC",
+          "name" : "newdata",
+          "getPSAppUILogic" : {
+            "actionAfterWizard" : "DEFAULT",
+            "logicType" : "PREDEFINED",
+            "name" : "新建数据",
+            "getNewDataPSAppView" : {
+              "openMode" : "POPUPMODAL",
+              "getRefPSAppView" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_model_quick_create_view.json",
+                "viewType" : "DEEDITVIEW"
+              }
+            },
+            "getPSAppUILogicRefViews" : [ {
+              "openMode" : "POPUPMODAL",
+              "getRefPSAppView" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_model_quick_create_view.json",
+                "viewType" : "DEEDITVIEW"
+              }
+            } ],
+            "viewLogicType" : "APP_NEWDATA",
+            "batchAddOnly" : false,
+            "enableBatchAdd" : false,
+            "enableWizardAdd" : false
+          }
+        }, {
+          "logicTrigger" : "CUSTOM",
+          "logicType" : "APPUILOGIC",
+          "name" : "opendata",
+          "getPSAppUILogic" : {
+            "logicType" : "PREDEFINED",
+            "name" : "打开数据",
+            "getOpenDataPSAppView" : {
+              "openMode" : "POPUPMODAL",
+              "getRefPSAppView" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_model_edit_view.json",
+                "viewType" : "DEEDITVIEW"
+              }
+            },
+            "getPSAppUILogicRefViews" : [ {
+              "openMode" : "POPUPMODAL",
+              "getRefPSAppView" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_model_edit_view.json",
+                "viewType" : "DEEDITVIEW"
+              }
+            } ],
+            "viewLogicType" : "APP_OPENDATA",
+            "editMode" : true
+          }
+        } ],
+        "getPSAppViewRefs" : [ {
+          "name" : "EDITDATA",
+          "realOpenMode" : "POPUPMODAL",
+          "realTitle" : "AI大模型编辑视图",
+          "getRefPSAppView" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_model_edit_view.json",
+            "viewType" : "DEEDITVIEW"
+          }
+        }, {
+          "name" : "NEWDATA",
+          "realOpenMode" : "POPUPMODAL",
+          "realTitle" : "AI大模型",
+          "getRefPSAppView" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_model_quick_create_view.json",
+            "viewType" : "DEEDITVIEW"
+          }
+        }, {
+          "name" : "OPENDATA",
+          "realTitle" : "AI大模型",
+          "getRefPSAppView" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_model_main_view.json",
+            "viewType" : "DEEDITVIEW"
+          }
+        } ],
+        "getPSControls" : [ {
+          "aggMode" : "NONE",
+          "codeName" : "main",
+          "columnEnableFilter" : 2,
+          "columnEnableLink" : 2,
+          "controlType" : "GRID",
+          "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model/PSGRIDS/main.json",
+          "getFetchPSControlAction" : {
+            "modelref" : true,
+            "id" : "fetch",
+            "actionType" : "DEDATASET",
+            "name" : "fetch",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "fetch_default"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+            }
+          },
+          "groupMode" : "NONE",
+          "logicName" : "主表格",
+          "minorSortDir" : "DESC",
+          "getMinorSortPSAppDEField" : {
+            "name" : "UPDATE_TIME",
+            "codeName" : "update_time"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+          },
+          "getPSControlHandler" : {
+            "getPSHandlerActions" : [ {
+              "actionName" : "Get",
+              "actionType" : "DEACTION",
+              "dataAccessAction" : "READ",
+              "name" : "load",
+              "getPSAppDEMethod" : {
+                "modelref" : true,
+                "id" : "get"
+              },
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+              }
+            }, {
+              "actionName" : "Create",
+              "actionType" : "DEACTION",
+              "dataAccessAction" : "CREATE",
+              "name" : "create",
+              "getPSAppDEMethod" : {
+                "modelref" : true,
+                "id" : "create"
+              },
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+              }
+            }, {
+              "actionName" : "Update",
+              "actionType" : "DEACTION",
+              "dataAccessAction" : "UPDATE",
+              "name" : "update",
+              "getPSAppDEMethod" : {
+                "modelref" : true,
+                "id" : "update"
+              },
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+              }
+            }, {
+              "actionName" : "Remove",
+              "actionType" : "DEACTION",
+              "dataAccessAction" : "DELETE",
+              "name" : "remove",
+              "getPSAppDEMethod" : {
+                "modelref" : true,
+                "id" : "remove"
+              },
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+              }
+            }, {
+              "actionName" : "GetDraft",
+              "actionType" : "DEACTION",
+              "dataAccessAction" : "CREATE",
+              "name" : "loaddraft",
+              "getPSAppDEMethod" : {
+                "modelref" : true,
+                "id" : "get_draft"
+              },
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+              }
+            }, {
+              "actionType" : "DEDATASET",
+              "name" : "fetch",
+              "getPSAppDEMethod" : {
+                "modelref" : true,
+                "id" : "fetch_default"
+              },
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+              }
+            } ],
+            "userDRAction" : "READ",
+            "enableDEFieldPrivilege" : false,
+            "id" : "数据表格处理器"
+          },
+          "getPSControlParam" : {
+            "autoLoad" : true,
+            "showBusyIndicator" : true,
+            "id" : "GRID"
+          },
+          "getPSDEGridColumns" : [ {
+            "align" : "LEFT",
+            "cLConvertMode" : "NONE",
+            "getCapPSLanguageRes" : {
+              "lanResTag" : "DEF.LNAME.AI_MODEL.NAME"
+            },
+            "caption" : "模型名称",
+            "codeName" : "name",
+            "columnType" : "DEFGRIDCOLUMN",
+            "dataItemName" : "name",
+            "excelCaption" : "模型名称",
+            "name" : "name",
+            "noPrivDisplayMode" : 1,
+            "getPSAppDEField" : {
+              "name" : "NAME",
+              "codeName" : "name"
+            },
+            "getPSDEUIActionGroup" : {
+              "codeName" : "ai_grid_action",
+              "name" : "智能协同通用表格操作列",
+              "getPSUIActionGroupDetails" : [ {
+                "getCapPSLanguageRes" : {
+                  "lanResTag" : "TBB.TEXT.*.REMOVE"
+                },
+                "caption" : "删除",
+                "detailType" : "DEUIACTION",
+                "name" : "u4e6940d",
+                "getPSSysImage" : {
+                  "glyph" : "xf00d@FontAwesome",
+                  "cssClass" : "fa fa-remove"
+                },
+                "getPSUIAction" : {
+                  "actionTarget" : "MULTIKEY",
+                  "getCapPSLanguageRes" : {
+                    "lanResTag" : "TBB.TEXT.*.REMOVE"
+                  },
+                  "caption" : "删除",
+                  "codeName" : "Remove",
+                  "fullCodeName" : "Remove",
+                  "name" : "表格界面_删除操作",
+                  "getPSSysImage" : {
+                    "glyph" : "xf00d@FontAwesome",
+                    "cssClass" : "fa fa-remove"
+                  },
+                  "predefinedType" : "GRIDVIEW_REMOVEACTION",
+                  "timeout" : 60000,
+                  "tooltip" : "删除",
+                  "getTooltipPSLanguageRes" : {
+                    "lanResTag" : "TBB.TOOLTIP.*.REMOVE"
+                  },
+                  "uIActionMode" : "SYS",
+                  "uIActionTag" : "Remove",
+                  "uIActionType" : "DEUIACTION"
+                },
+                "tooltip" : "删除",
+                "getTooltipPSLanguageRes" : {
+                  "lanResTag" : "TBB.TOOLTIP.*.REMOVE"
+                },
+                "addSeparator" : false,
+                "showCaption" : true,
+                "showIcon" : true
+              } ]
+            },
+            "width" : 200,
+            "widthUnit" : "STAR",
+            "enableSort" : true
+          }, {
+            "align" : "LEFT",
+            "cLConvertMode" : "NONE",
+            "caption" : "模型提供商",
+            "codeName" : "provider_name",
+            "columnType" : "DEFGRIDCOLUMN",
+            "dataItemName" : "provider_name",
+            "excelCaption" : "模型提供商",
+            "name" : "provider_name",
+            "noPrivDisplayMode" : 1,
+            "getPSAppDEField" : {
+              "name" : "PROVIDER_NAME",
+              "codeName" : "provider_name"
+            },
+            "width" : 300,
+            "widthUnit" : "PX",
+            "enableSort" : true
+          }, {
+            "align" : "LEFT",
+            "cLConvertMode" : "FRONT",
+            "caption" : "模型类别",
+            "codeName" : "model_category",
+            "columnType" : "DEFGRIDCOLUMN",
+            "dataItemName" : "model_category",
+            "excelCaption" : "模型类别",
+            "name" : "model_category",
+            "noPrivDisplayMode" : 1,
+            "getPSAppCodeList" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__model_category.json"
+            },
+            "getPSAppDEField" : {
+              "name" : "MODEL_CATEGORY",
+              "codeName" : "model_category"
+            },
+            "width" : 150,
+            "widthUnit" : "PX",
+            "enableSort" : true
+          }, {
+            "align" : "LEFT",
+            "cLConvertMode" : "NONE",
+            "caption" : "模型 API 地址",
+            "codeName" : "api_base_url",
+            "columnType" : "DEFGRIDCOLUMN",
+            "dataItemName" : "api_base_url",
+            "excelCaption" : "模型 API 地址",
+            "name" : "api_base_url",
+            "noPrivDisplayMode" : 1,
+            "getPSAppDEField" : {
+              "name" : "API_BASE_URL",
+              "codeName" : "api_base_url"
+            },
+            "width" : 350,
+            "widthUnit" : "PX",
+            "enableSort" : true
+          } ],
+          "getPSDEGridDataItems" : [ {
+            "dataType" : 25,
+            "name" : "name",
+            "getPSAppDEField" : {
+              "name" : "NAME",
+              "codeName" : "name"
+            }
+          }, {
+            "dataType" : 25,
+            "name" : "provider_name",
+            "getPSAppDEField" : {
+              "name" : "PROVIDER_NAME",
+              "codeName" : "provider_name"
+            }
+          }, {
+            "dataType" : 25,
+            "name" : "model_category",
+            "getPSAppDEField" : {
+              "name" : "MODEL_CATEGORY",
+              "codeName" : "model_category"
+            }
+          }, {
+            "dataType" : 25,
+            "name" : "api_base_url",
+            "getPSAppDEField" : {
+              "name" : "API_BASE_URL",
+              "codeName" : "api_base_url"
+            }
+          }, {
+            "dataType" : 25,
+            "name" : "srfkey",
+            "getPSAppDEField" : {
+              "name" : "ID",
+              "codeName" : "id"
+            }
+          }, {
+            "dataType" : 25,
+            "name" : "srfdataaccaction",
+            "getPSAppDEField" : {
+              "name" : "ID",
+              "codeName" : "id"
+            },
+            "dataAccessAction" : true
+          }, {
+            "dataType" : 25,
+            "name" : "provider",
+            "getPSAppDEField" : {
+              "name" : "PROVIDER",
+              "codeName" : "provider"
+            }
+          }, {
+            "dataType" : 25,
+            "name" : "ai_credential_id",
+            "getPSAppDEField" : {
+              "name" : "AI_CREDENTIAL_ID",
+              "codeName" : "ai_credential_id"
+            }
+          }, {
+            "dataType" : 25,
+            "name" : "srfmajortext",
+            "getPSAppDEField" : {
+              "name" : "NAME",
+              "codeName" : "name"
+            }
+          } ],
+          "getPSDEGridEditItems" : [ {
+            "caption" : "模型标识",
+            "codeName" : "srfkey",
+            "enableCond" : 3,
+            "ignoreInput" : 0,
+            "name" : "srfkey",
+            "getPSAppDEField" : {
+              "name" : "ID",
+              "codeName" : "id"
+            },
+            "getPSEditor" : {
+              "editorType" : "HIDDEN",
+              "name" : "srfkey"
+            },
+            "allowEmpty" : true
+          } ],
+          "pagingMode" : 1,
+          "pagingSize" : 10,
+          "getRemovePSControlAction" : {
+            "actionName" : "Remove",
+            "actionType" : "DEACTION",
+            "dataAccessAction" : "DELETE",
+            "name" : "remove",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "remove"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+            }
+          },
+          "sortMode" : "REMOTE",
+          "hasWFDataItems" : false,
+          "enableColFilter" : false,
+          "enableCustomized" : true,
+          "enableGroup" : false,
+          "enablePagingBar" : true,
+          "enableRowEdit" : false,
+          "enableRowEditOrder" : false,
+          "enableRowNew" : false,
+          "forceFit" : false,
+          "hideHeader" : false,
+          "noSort" : false,
+          "singleSelect" : true,
+          "name" : "grid",
+          "modelid" : "7998b180285c58adcfc0e1d28125bae7",
+          "modeltype" : "PSDEGRID"
+        }, {
+          "codeName" : "grid_view_toolbar",
+          "controlType" : "TOOLBAR",
+          "logicName" : "表格工具栏",
+          "name" : "toolbar",
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+          },
+          "getPSControlParam" : {
+            "id" : "TOOLBAR"
+          },
+          "getPSDEToolbarItems" : [ {
+            "getCapPSLanguageRes" : {
+              "lanResTag" : "TBB.TEXT.*.NEW"
+            },
+            "caption" : "新建",
+            "groupExtractMode" : "ITEM",
+            "itemType" : "DEUIACTION",
+            "name" : "deuiaction1",
+            "noPrivDisplayMode" : 2,
+            "getPSAppViewUIAction" : {
+              "modelref" : true,
+              "id" : "toolbar_deuiaction1"
+            },
+            "getPSSysImage" : {
+              "glyph" : "xf0f6@FontAwesome",
+              "cssClass" : "fa fa-file-text-o"
+            },
+            "getPSUIAction" : {
+              "getCapPSLanguageRes" : {
+                "lanResTag" : "TBB.TEXT.*.NEW"
+              },
+              "caption" : "新建",
+              "codeName" : "New",
+              "fullCodeName" : "New",
+              "name" : "表格界面_新建操作",
+              "getPSSysImage" : {
+                "glyph" : "xf0f6@FontAwesome",
+                "cssClass" : "fa fa-file-text-o"
+              },
+              "predefinedType" : "GRIDVIEW_NEWACTION",
+              "timeout" : 60000,
+              "getTooltipPSLanguageRes" : {
+                "lanResTag" : "TBB.TOOLTIP.*.NEW"
+              },
+              "uIActionMode" : "SYS",
+              "uIActionTag" : "New",
+              "uIActionType" : "DEUIACTION"
+            },
+            "tooltip" : "新建",
+            "getTooltipPSLanguageRes" : {
+              "lanResTag" : "TBB.TOOLTIP.*.NEW"
+            },
+            "showCaption" : true,
+            "showIcon" : true
+          }, {
+            "caption" : "模型管理",
+            "groupExtractMode" : "ITEM",
+            "itemType" : "DEUIACTION",
+            "name" : "deuiaction2",
+            "noPrivDisplayMode" : 2,
+            "getPSAppViewUIAction" : {
+              "modelref" : true,
+              "id" : "toolbar_deuiaction2"
+            },
+            "getPSSysImage" : {
+              "rawContent" : "<?xml version=\"1.0\" standalone=\"no\"?><!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\"><svg t=\"1777520490675\" class=\"icon\" viewBox=\"0 0 1024 1024\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" p-id=\"3848\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"32\" height=\"32\"><path d=\"M990.208 781.653333l-446.122667 234.154667c-9.557333 5.461333-20.48 8.192-32.426666 8.192s-22.186667-3.413333-31.744-8.192h-0.682667L32.426667 780.288C13.312 768 0 747.178667 0 723.285333V304.810667c0-24.576 13.653333-46.08 33.109333-57.685334C35.84 245.077333 477.184 10.24 477.184 10.24l6.144-3.413333c8.874667-4.096 18.432-6.826667 29.013333-6.826667 9.898667 0 19.797333 2.389333 29.013334 6.826667 0.682667 0 448.853333 239.616 448.853333 239.616h-1.365333c21.162667 10.922667 35.157333 33.109333 35.157333 58.368v419.157333c0 24.576-13.653333 46.08-33.792 57.685333zM86.016 418.474667v271.701333c0 18.432-4.096 24.917333 29.354667 43.008l304.469333 153.6h0.682667c61.781333 30.378667 53.930667 22.869333 52.565333-41.642667v-270.336c0-18.773333-2.048-21.845333-19.456-31.061333l-303.104-152.917333c-78.165333-43.690667-64.512-17.749333-64.512 27.648z m770.048-159.744l-314.709333-163.84c-19.456-11.605333-25.258667-11.264-45.397334 0l-36.181333 19.114666-267.605333 138.922667c-65.536 35.84-68.608 31.744 0 65.536l303.104 149.162667c10.922667 6.144 24.576 6.144 35.498666 0l0.682667 0.682666 318.464-154.624c51.2-24.576 51.541333-29.354667 6.144-54.613333z m24.576 132.437333l-303.104 152.917333c-17.408 9.557333-19.456 12.288-19.456 31.061334v269.994666c-1.365333 64.512-8.874667 72.021333 52.565333 41.642667h0.682667l304.469333-153.6c33.450667-18.090667 29.354667-24.576 29.354667-43.008v-271.701333c0-45.397333 13.653333-71.338667-64.853333-27.306667zM663.893333 375.466667c-18.432 0-33.450667-8.192-33.450666-18.773334V198.314667c0-10.24 15.018667-18.773333 33.450666-18.773334s33.450667 8.192 33.450667 18.773334v158.378666c0 10.24-15.018667 18.773333-33.450667 18.773334z m-106.496 1.365333c-11.605333-1.365333-21.162667-5.802667-25.258666-12.288l-18.773334-30.72h-98.645333l-20.138667 31.061333c-6.485333 9.216-25.258667 13.994667-42.325333 10.581334-17.066667-3.413333-25.941333-13.653333-20.48-23.210667l102.741333-160.085333c4.778667-7.509333 17.408-12.288 31.402667-12.288 13.994667 0 26.624 5.12 31.402667 12.629333l97.621333 160.085333c3.754667 6.485333 1.365333 13.312-6.485333 18.432-7.850667 5.12-19.797333 7.168-31.402667 6.144z m-92.16-122.197333l-26.624 41.642666h52.224l-25.6-41.642666z\" fill=\"#ffffff\" p-id=\"3849\" data-spm-anchor-id=\"a313x.search_index.0.i0.2ccb3a81DRNkp9\" class=\"selected\"></path></svg>"
+            },
+            "getPSUIAction" : {
+              "actionTarget" : "NONE",
+              "caption" : "模型管理",
+              "codeName" : "open_model_management",
+              "getFrontPSAppView" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_model_provider_tree_exp_view.json",
+                "viewType" : "DETREEEXPVIEW"
+              },
+              "frontProcessType" : "WIZARD",
+              "fullCodeName" : "ai_model_open_model_management",
+              "name" : "打开模型管理",
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+              },
+              "getPSSysImage" : {
+                "rawContent" : "<?xml version=\"1.0\" standalone=\"no\"?><!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\"><svg t=\"1777520490675\" class=\"icon\" viewBox=\"0 0 1024 1024\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" p-id=\"3848\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"32\" height=\"32\"><path d=\"M990.208 781.653333l-446.122667 234.154667c-9.557333 5.461333-20.48 8.192-32.426666 8.192s-22.186667-3.413333-31.744-8.192h-0.682667L32.426667 780.288C13.312 768 0 747.178667 0 723.285333V304.810667c0-24.576 13.653333-46.08 33.109333-57.685334C35.84 245.077333 477.184 10.24 477.184 10.24l6.144-3.413333c8.874667-4.096 18.432-6.826667 29.013333-6.826667 9.898667 0 19.797333 2.389333 29.013334 6.826667 0.682667 0 448.853333 239.616 448.853333 239.616h-1.365333c21.162667 10.922667 35.157333 33.109333 35.157333 58.368v419.157333c0 24.576-13.653333 46.08-33.792 57.685333zM86.016 418.474667v271.701333c0 18.432-4.096 24.917333 29.354667 43.008l304.469333 153.6h0.682667c61.781333 30.378667 53.930667 22.869333 52.565333-41.642667v-270.336c0-18.773333-2.048-21.845333-19.456-31.061333l-303.104-152.917333c-78.165333-43.690667-64.512-17.749333-64.512 27.648z m770.048-159.744l-314.709333-163.84c-19.456-11.605333-25.258667-11.264-45.397334 0l-36.181333 19.114666-267.605333 138.922667c-65.536 35.84-68.608 31.744 0 65.536l303.104 149.162667c10.922667 6.144 24.576 6.144 35.498666 0l0.682667 0.682666 318.464-154.624c51.2-24.576 51.541333-29.354667 6.144-54.613333z m24.576 132.437333l-303.104 152.917333c-17.408 9.557333-19.456 12.288-19.456 31.061334v269.994666c-1.365333 64.512-8.874667 72.021333 52.565333 41.642667h0.682667l304.469333-153.6c33.450667-18.090667 29.354667-24.576 29.354667-43.008v-271.701333c0-45.397333 13.653333-71.338667-64.853333-27.306667zM663.893333 375.466667c-18.432 0-33.450667-8.192-33.450666-18.773334V198.314667c0-10.24 15.018667-18.773333 33.450666-18.773334s33.450667 8.192 33.450667 18.773334v158.378666c0 10.24-15.018667 18.773333-33.450667 18.773334z m-106.496 1.365333c-11.605333-1.365333-21.162667-5.802667-25.258666-12.288l-18.773334-30.72h-98.645333l-20.138667 31.061333c-6.485333 9.216-25.258667 13.994667-42.325333 10.581334-17.066667-3.413333-25.941333-13.653333-20.48-23.210667l102.741333-160.085333c4.778667-7.509333 17.408-12.288 31.402667-12.288 13.994667 0 26.624 5.12 31.402667 12.629333l97.621333 160.085333c3.754667 6.485333 1.365333 13.312-6.485333 18.432-7.850667 5.12-19.797333 7.168-31.402667 6.144z m-92.16-122.197333l-26.624 41.642666h52.224l-25.6-41.642666z\" fill=\"#ffffff\" p-id=\"3849\" data-spm-anchor-id=\"a313x.search_index.0.i0.2ccb3a81DRNkp9\" class=\"selected\"></path></svg>"
+              },
+              "uIActionMode" : "FRONT",
+              "uIActionTag" : "open_model_management",
+              "uIActionType" : "DEUIACTION",
+              "id" : "open_model_management@ai_model"
+            },
+            "tooltip" : "模型管理",
+            "uIActionTarget" : "NONE",
+            "showCaption" : true,
+            "showIcon" : true
+          } ],
+          "xDataControlName" : "grid",
+          "modelid" : "ca5f15b1a37a3b3f435def1c457f7144",
+          "modeltype" : "PSDETOOLBAR"
+        }, {
+          "codeName" : "default",
+          "controlType" : "SEARCHFORM",
+          "defaultLabelWidth" : 130,
+          "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model/PSSEARCHFORMS/default.json",
+          "logicName" : "默认搜索表单",
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+          },
+          "getPSControlHandler" : {
+            "getPSHandlerActions" : [ {
+              "actionType" : "FILTERACTION",
+              "name" : "load",
+              "getPSAppDEMethod" : {
+                "modelref" : true,
+                "id" : "FilterGet"
+              },
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+              }
+            }, {
+              "actionType" : "FILTERACTION",
+              "name" : "loaddraft",
+              "getPSAppDEMethod" : {
+                "modelref" : true,
+                "id" : "FilterGetDraft"
+              },
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+              }
+            }, {
+              "actionType" : "FILTERACTION",
+              "name" : "search",
+              "getPSAppDEMethod" : {
+                "modelref" : true,
+                "id" : "FilterSearch"
+              },
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+              }
+            } ],
+            "enableDEFieldPrivilege" : false,
+            "id" : "搜索表单处理器"
+          },
+          "getPSControlParam" : {
+            "autoLoad" : true,
+            "showBusyIndicator" : true,
+            "id" : "SEARCHFORM"
+          },
+          "getPSDEFormPages" : [ {
+            "getCapPSLanguageRes" : {
+              "lanResTag" : "CONTROL.DEFORM.AI_MODEL.DEFAULT.FORMPAGE.FORMPAGE1"
+            },
+            "caption" : "常规条件",
+            "codeName" : "formpage1",
+            "detailStyle" : "DEFAULT",
+            "detailType" : "FORMPAGE",
+            "name" : "formpage1",
+            "getPSLayout" : {
+              "childColMD" : 24,
+              "columnCount" : 24,
+              "layout" : "TABLE_24COL"
+            },
+            "infoGroupMode" : false
+          } ],
+          "getPSLayout" : {
+            "childColMD" : 24,
+            "columnCount" : 24,
+            "layout" : "TABLE_24COL"
+          },
+          "searchButtonStyle" : "DEFAULT",
+          "tabHeaderPos" : "TOP",
+          "enableAdvanceSearch" : false,
+          "enableAutoSearch" : false,
+          "enableFilterSave" : false,
+          "noTabHeader" : true,
+          "name" : "searchform",
+          "modelid" : "87310cafc223487f96c1a44435c19df4",
+          "modeltype" : "PSDEFORM_SEARCHFORM"
+        }, {
+          "controlType" : "SEARCHBAR",
+          "name" : "searchbar",
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+          },
+          "getPSControlParam" : {
+            "id" : "searchbar"
+          },
+          "quickGroupCount" : -1,
+          "quickSearchMode" : 1,
+          "quickSearchWidth" : 0,
+          "enableFilter" : false,
+          "enableGroup" : false,
+          "enableQuickSearch" : true,
+          "mobileSearchBar" : false
+        }, {
+          "getCapPSLanguageRes" : {
+            "lanResTag" : "DE.LNAME.AI_MODEL"
+          },
+          "caption" : "已接入模型",
+          "codeName" : "grid_view_captionbar",
+          "controlType" : "CAPTIONBAR",
+          "name" : "captionbar",
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+          },
+          "getPSControlParam" : { }
+        } ],
+        "getPSDEViewCodeName" : "GridView",
+        "getPSDEViewId" : "a59baf781bdc8f518e39e3d6d1772b93",
+        "getPSViewLayoutPanel" : {
+          "codeName" : "layoutpanel",
+          "controlStyle" : "APPDEGRIDVIEW",
+          "controlType" : "VIEWLAYOUTPANEL",
+          "name" : "layoutpanel",
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+          },
+          "getPSControlParam" : { },
+          "layoutBodyOnly" : true,
+          "layoutPanel" : true,
+          "useDefaultLayout" : true
+        },
+        "title" : "已接入模型",
+        "viewStyle" : "DEFAULT",
+        "viewType" : "DEGRIDVIEW",
+        "xDataControlName" : "grid",
+        "enableDP" : true,
+        "enableExport" : true,
+        "enableFilter" : true,
+        "enableImport" : true,
+        "enableQuickSearch" : true,
+        "enableRowEdit" : false,
+        "enableSearch" : true,
+        "rowEditDefault" : false,
+        "modelid" : "bcc4fb2af9e3d6250162a27c2869e360",
+        "modeltype" : "PSAPPDEVIEW"
+      },
+      "getPSLayoutPos" : {
+        "colMD" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "parentDataJO" : {
+        "srfparentdename" : "CATEGORY_SETTINGS",
+        "SRFPARENTTYPE" : "CUSTOM"
+      },
+      "needSave" : false,
+      "refreshItemsSetParamOnly" : false,
+      "showCaption" : true
+    }, {
+      "getCapPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.CATEGORY_SETTINGS.ID"
+      },
+      "caption" : "标识",
+      "codeName" : "id",
+      "dataType" : 25,
+      "detailStyle" : "DEFAULT",
+      "detailType" : "FORMITEM",
+      "enableCond" : 3,
+      "ignoreInput" : 0,
+      "labelPos" : "LEFT",
+      "labelWidth" : 130,
+      "name" : "id",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "ID",
+        "codeName" : "category_id"
+      },
+      "getPSEditor" : {
+        "editorType" : "HIDDEN",
+        "name" : "id"
+      },
+      "getPSLayoutPos" : {
+        "colMD" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "allowEmpty" : true,
+      "hidden" : true
+    } ],
+    "getPSLayout" : {
+      "childColMD" : 24,
+      "columnCount" : 24,
+      "layout" : "TABLE_24COL"
+    },
+    "infoGroupMode" : false
+  } ],
+  "getPSLayout" : {
+    "childColMD" : 24,
+    "columnCount" : 24,
+    "layout" : "TABLE_24COL"
+  },
+  "getRemovePSControlAction" : {
+    "modelref" : true,
+    "id" : "remove",
+    "actionName" : "Remove",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "DELETE",
+    "name" : "remove",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "remove"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/category_settings.json"
+    }
+  },
+  "tabHeaderPos" : "TOP",
+  "getUpdatePSControlAction" : {
+    "modelref" : true,
+    "id" : "update",
+    "actionName" : "save_aifactory_sys_env",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "UPDATE",
+    "name" : "update",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "save_aifactory_sys_env"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/category_settings.json"
+    }
+  },
+  "noTabHeader" : true,
+  "modelid" : "a9280818d5c368f93f5a7e11f1b36cb8",
+  "modeltype" : "PSDEFORM_EDITFORM"
+}

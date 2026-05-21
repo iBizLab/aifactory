@@ -1,0 +1,100 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"active\"",
+    "name" : "ACTIVE"
+  }, {
+    "expression" : "t1.\"categories\"",
+    "name" : "CATEGORIES"
+  }, {
+    "expression" : "t1.\"chunk_method\"",
+    "name" : "CHUNK_METHOD"
+  }, {
+    "expression" : "t1.\"chunk_num\"",
+    "name" : "CHUNK_NUM"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"custom_chunk\"",
+    "name" : "CUSTOM_CHUNK"
+  }, {
+    "expression" : "t1.\"file\"",
+    "name" : "FILE"
+  }, {
+    "expression" : "t1.\"file_type\"",
+    "name" : "FILE_TYPE"
+  }, {
+    "expression" : "t1.\"kb_id\"",
+    "name" : "KB_ID"
+  }, {
+    "expression" : "t1.\"key\"",
+    "name" : "KEY"
+  }, {
+    "expression" : "t1.\"meta_data\"",
+    "name" : "META_DATA"
+  }, {
+    "expression" : "t1.\"parser_config\"",
+    "name" : "PARSER_CONFIG"
+  }, {
+    "expression" : "t1.\"parse_error\"",
+    "name" : "PARSE_ERROR"
+  }, {
+    "expression" : "t1.\"resource\"",
+    "name" : "RESOURCE"
+  }, {
+    "expression" : "t1.\"sequence\"",
+    "name" : "SEQUENCE"
+  }, {
+    "expression" : "t1.\"size\"",
+    "name" : "SIZE"
+  }, {
+    "expression" : "t1.\"source_id\"",
+    "name" : "SOURCE_ID"
+  }, {
+    "expression" : "t1.\"source_type\"",
+    "name" : "SOURCE_TYPE"
+  }, {
+    "expression" : "t1.\"status\"",
+    "name" : "STATUS"
+  }, {
+    "expression" : "t1.\"sync_frequency\"",
+    "name" : "SYNC_FREQUENCY"
+  }, {
+    "expression" : "t1.\"sync_id\"",
+    "name" : "SYNC_ID"
+  }, {
+    "expression" : "t1.\"type\"",
+    "name" : "TYPE"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"user_tag\"",
+    "name" : "USER_TAG"
+  }, {
+    "expression" : "t1.\"user_tag2\"",
+    "name" : "USER_TAG2"
+  }, {
+    "expression" : "t1.\"content\"",
+    "name" : "CONTENT"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"parsed_content\"",
+    "name" : "PARSED_CONTENT"
+  } ],
+  "queryCode" : "SELECT\nt1.\"content\",\nt1.\"id\",\nt1.\"name\",\nt1.\"parsed_content\"\nFROM \"ai_kb_document\" t1 \n",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDEDATAQUERIES/ai_doc_content/PSDEDQCODES/POSTGRESQL.json"
+}

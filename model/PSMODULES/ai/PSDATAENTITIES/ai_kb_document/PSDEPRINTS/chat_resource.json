@@ -1,0 +1,17 @@
+{
+  "codeName" : "chat_resource",
+  "dataAccessAction" : "READ",
+  "getGetDataPSDEAction" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDEACTIONS/get_full_data.json"
+  },
+  "getGetDataPSDEOPPriv" : {
+    "modelref" : true,
+    "id" : "READ"
+  },
+  "name" : "chat_resource",
+  "reportFile" : "#",
+  "reportModel" : "<#list data as item>\r\n\r\n---\r\n**来自知识库**:  ${item.kb_name!\"\"}  `kb_tag: ibizaifactory-kb--${item.kb_id!\"\"}`\r\n**文档路径**:  ${item.path!item.name} \r\n<#if item.file??>\r\n**oss file**: ${item.file!\"\"}\r\n</#if>\r\n<#assign fulltext = item.full_text!\"\">\r\n<#assign analysis_content = item.summary!\"\">\r\n<#if fulltext?has_content && fulltext?length lt 16384>\r\n    <#assign analysis_content = fulltext>\r\n</#if>\r\n${analysis_content}\r\n\r\n---\r\n\r\n</#list>\r\n",
+  "reportType" : "CHATRESOURCE",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDEPRINTS/chat_resource.json"
+}

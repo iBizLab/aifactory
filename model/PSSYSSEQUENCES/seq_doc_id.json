@@ -1,0 +1,25 @@
+{
+  "codeName" : "seq_doc_id",
+  "dynaModelFilePath" : "PSSYSSEQUENCES/seq_doc_id.json",
+  "extFormatParams" : [ "KB_ID" ],
+  "getKeyPSDEField" : {
+    "name" : "NAME",
+    "codeName" : "name"
+  },
+  "maxValue" : 9999,
+  "minValue" : 1,
+  "name" : "文档编号",
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/Base/PSDATAENTITIES/sequence_generator.json"
+  },
+  "sequenceType" : "DE",
+  "getTypePSDEField" : {
+    "name" : "GROUP_TAG",
+    "codeName" : "group_tag"
+  },
+  "getValuePSDEField" : {
+    "name" : "CURRENT_VALUE",
+    "codeName" : "current_value"
+  }
+}

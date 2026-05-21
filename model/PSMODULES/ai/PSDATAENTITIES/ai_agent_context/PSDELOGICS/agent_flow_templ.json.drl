@@ -1,0 +1,170 @@
+package cn.ibizlab.ai.logic.ai_agent_contextlogic.agent_flow_templ;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_agent_context ai_agent_contextagent_flow_templdefault;
+                global cn.ibizlab.core.ai.domain.ai_agent_context ai_agent_contextagent_flow_templagent;
+                global java.util.Map ai_agent_contextagent_flow_templflow_request;
+                global cn.ibizlab.core.ai.domain.ai_knowledge_base ai_agent_contextagent_flow_templkb;
+                global java.util.Map ai_agent_contextagent_flow_templlast_return;
+                global java.util.Map ai_agent_contextagent_flow_templresponse;
+                    global cn.ibizlab.core.ai.service.Iai_agent_contextService ai_agent_contextservice;
+                    global cn.ibizlab.core.ai.service.Iai_knowledge_baseService ai_knowledge_baseservice;
+        global cn.ibizlab.core.ai.service.Iai_agent_contextService iBzSysAi_agent_contextDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin_01"
+            ruleflow-group "ai_agent_contextagent_flow_templbegin_01"
+            when
+            then
+                        update(ai_agent_contextagent_flow_templdefault);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templagent);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templflow_request);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templkb);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templlast_return);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templresponse);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_01"
+            ruleflow-group "ai_agent_contextagent_flow_templprepareparam_01"
+            when
+            then
+                            ai_agent_contextagent_flow_templagent.set("codename",ai_agent_contextagent_flow_templdefault.get("srfaiagenttag"));
+                            ai_agent_contextagent_flow_templflow_request.set("srfaiagenttag",ai_agent_contextagent_flow_templdefault.get("srfaiagenttag"));
+                            ai_agent_contextagent_flow_templkb.set("id",ai_agent_contextagent_flow_templdefault.get("knowledgebases"));
+                            ai_agent_contextagent_flow_templflow_request.set("knowledgebases",ai_agent_contextagent_flow_templdefault.get("knowledgebases"));
+                            ai_agent_contextagent_flow_templflow_request.set("srfextparams",ai_agent_contextagent_flow_templdefault.get("srfextparams"));
+                        update(ai_agent_contextagent_flow_templdefault);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templagent);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templflow_request);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templkb);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templlast_return);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templresponse);//更新fact中变量值
+            end
+
+            //逻辑处理节点[调试输入参数]
+            rule "debugparam_01"
+            ruleflow-group "ai_agent_contextagent_flow_templdebugparam_01"
+            when
+            then
+                        update(ai_agent_contextagent_flow_templdefault);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templagent);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templflow_request);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templkb);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templlast_return);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templresponse);//更新fact中变量值
+            end
+
+            //逻辑处理节点[填充智能体详情]
+            rule "deaction_01"
+            ruleflow-group "ai_agent_contextagent_flow_templdeaction_01"
+            when
+            then
+                        ai_agent_contextservice.find_by_code(ai_agent_contextagent_flow_templagent);
+                        update(ai_agent_contextagent_flow_templdefault);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templagent);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templflow_request);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templkb);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templlast_return);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templresponse);//更新fact中变量值
+            end
+
+            //逻辑处理节点[填充知识库详情]
+            rule "deaction_02"
+            ruleflow-group "ai_agent_contextagent_flow_templdeaction_02"
+            when
+            then
+                        ai_knowledge_baseservice.find_by_code(ai_agent_contextagent_flow_templkb);
+                        update(ai_agent_contextagent_flow_templdefault);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templagent);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templflow_request);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templkb);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templlast_return);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templresponse);//更新fact中变量值
+            end
+
+            //逻辑处理节点[脚本代码]
+            rule "rawsfcode_01"
+            ruleflow-group "ai_agent_contextagent_flow_templrawsfcode_01"
+            when
+            then
+                        update(ai_agent_contextagent_flow_templdefault);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templagent);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templflow_request);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templkb);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templlast_return);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templresponse);//更新fact中变量值
+            end
+
+            //逻辑处理节点[深度研究]
+            rule "delogic_02"
+            ruleflow-group "ai_agent_contextagent_flow_templdelogic_02"
+            when
+            then
+                        update(ai_agent_contextagent_flow_templdefault);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templagent);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templflow_request);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templkb);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templlast_return);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templresponse);//更新fact中变量值
+            end
+
+            //逻辑处理节点[全文推理]
+            rule "delogic_03"
+            ruleflow-group "ai_agent_contextagent_flow_templdelogic_03"
+            when
+            then
+                        update(ai_agent_contextagent_flow_templdefault);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templagent);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templflow_request);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templkb);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templlast_return);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templresponse);//更新fact中变量值
+            end
+
+            //逻辑处理节点[查表审查]
+            rule "delogic_04"
+            ruleflow-group "ai_agent_contextagent_flow_templdelogic_04"
+            when
+            then
+                        update(ai_agent_contextagent_flow_templdefault);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templagent);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templflow_request);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templkb);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templlast_return);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templresponse);//更新fact中变量值
+            end
+
+            //逻辑处理节点[默认交谈]
+            rule "sysaichatagent_chatoutput_01"
+            ruleflow-group "ai_agent_contextagent_flow_templsysaichatagent_chatoutput_01"
+            when
+            then
+                        update(ai_agent_contextagent_flow_templdefault);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templagent);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templflow_request);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templkb);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templlast_return);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templresponse);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "ai_agent_contextagent_flow_templend_01"
+            when
+            then
+                        update(ai_agent_contextagent_flow_templdefault);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templagent);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templflow_request);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templkb);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templlast_return);//更新fact中变量值
+                        update(ai_agent_contextagent_flow_templresponse);//更新fact中变量值
+            end

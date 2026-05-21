@@ -1,0 +1,37 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"owner_id\"",
+    "name" : "OWNER_ID"
+  }, {
+    "expression" : "t1.\"owner_type\"",
+    "name" : "OWNER_TYPE"
+  }, {
+    "expression" : "t1.\"setting_model\"",
+    "name" : "SETTING_MODEL"
+  }, {
+    "expression" : "t1.\"system_tag\"",
+    "name" : "SYSTEM_TAG"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"id\",\nt1.\"name\",\nt1.\"owner_id\",\nt1.\"owner_type\",\nt1.\"setting_model\",\nt1.\"system_tag\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"\" t1 \n",
+  "id" : "PSMODULES/Base/PSDATAENTITIES/notify_setting/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

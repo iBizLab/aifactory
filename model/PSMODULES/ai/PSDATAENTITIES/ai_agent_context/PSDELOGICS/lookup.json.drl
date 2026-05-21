@@ -1,0 +1,290 @@
+package cn.ibizlab.ai.logic.ai_agent_contextlogic.lookup;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_agent_context ai_agent_contextlookupdefault;
+                global cn.ibizlab.core.ai.domain.ai_agent_context ai_agent_contextlookupagententity;
+                global java.util.Map ai_agent_contextlookupchat_response;
+                global java.util.Map ai_agent_contextlookupdata;
+                global cn.ibizlab.core.ai.domain.ai_knowledge_base ai_agent_contextlookupkb;
+                global java.util.Map ai_agent_contextlookuprefrence;
+                global java.util.Map ai_agent_contextlookuprefrence_chat_request;
+                global java.util.Map ai_agent_contextlookuprefrence_chat_response;
+                    global cn.ibizlab.core.ai.service.Iai_knowledge_baseService ai_knowledge_baseservice;
+                    global cn.ibizlab.core.ai.service.Iai_agent_contextService ai_agent_contextservice;
+        global cn.ibizlab.core.ai.service.Iai_agent_contextService iBzSysAi_agent_contextDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_agent_contextlookupbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[1.获取参考资料]
+            rule "sysaichatagent_chatstep_01"
+            ruleflow-group "ai_agent_contextlookupsysaichatagent_chatstep_01"
+            when
+            then
+                        update(ai_agent_contextlookupdefault);//更新fact中变量值
+                        update(ai_agent_contextlookupagententity);//更新fact中变量值
+                        update(ai_agent_contextlookupchat_response);//更新fact中变量值
+                        update(ai_agent_contextlookupdata);//更新fact中变量值
+                        update(ai_agent_contextlookupkb);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[调试逻辑参数data]
+            rule "debugparam_01"
+            ruleflow-group "ai_agent_contextlookupdebugparam_01"
+            when
+            then
+                        update(ai_agent_contextlookupdefault);//更新fact中变量值
+                        update(ai_agent_contextlookupagententity);//更新fact中变量值
+                        update(ai_agent_contextlookupchat_response);//更新fact中变量值
+                        update(ai_agent_contextlookupdata);//更新fact中变量值
+                        update(ai_agent_contextlookupkb);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[获取kb]
+            rule "deaction_01"
+            ruleflow-group "ai_agent_contextlookupdeaction_01"
+            when
+            then
+                            cn.ibizlab.util.helper.CachedBeanCopier.copy(ai_knowledge_baseservice.get(ai_agent_contextlookupkb.getId()),ai_agent_contextlookupkb);
+                        update(ai_agent_contextlookupdefault);//更新fact中变量值
+                        update(ai_agent_contextlookupagententity);//更新fact中变量值
+                        update(ai_agent_contextlookupchat_response);//更新fact中变量值
+                        update(ai_agent_contextlookupdata);//更新fact中变量值
+                        update(ai_agent_contextlookupkb);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[获取智能体信息]
+            rule "delogic_01"
+            ruleflow-group "ai_agent_contextlookupdelogic_01"
+            when
+            then
+                        update(ai_agent_contextlookupdefault);//更新fact中变量值
+                        update(ai_agent_contextlookupagententity);//更新fact中变量值
+                        update(ai_agent_contextlookupchat_response);//更新fact中变量值
+                        update(ai_agent_contextlookupdata);//更新fact中变量值
+                        update(ai_agent_contextlookupkb);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[获取知识库信息]
+            rule "delogic_02"
+            ruleflow-group "ai_agent_contextlookupdelogic_02"
+            when
+            then
+                        update(ai_agent_contextlookupdefault);//更新fact中变量值
+                        update(ai_agent_contextlookupagententity);//更新fact中变量值
+                        update(ai_agent_contextlookupchat_response);//更新fact中变量值
+                        update(ai_agent_contextlookupdata);//更新fact中变量值
+                        update(ai_agent_contextlookupkb);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备获取kb]
+            rule "prepareparam_01"
+            ruleflow-group "ai_agent_contextlookupprepareparam_01"
+            when
+            then
+                            ai_agent_contextlookupkb.set("id",ai_agent_contextlookupdefault.get("knowledgebases"));
+                            ai_agent_contextlookupagententity.set("codename",ai_agent_contextlookupdefault.get("srfaiagenttag"));
+                        update(ai_agent_contextlookupdefault);//更新fact中变量值
+                        update(ai_agent_contextlookupagententity);//更新fact中变量值
+                        update(ai_agent_contextlookupchat_response);//更新fact中变量值
+                        update(ai_agent_contextlookupdata);//更新fact中变量值
+                        update(ai_agent_contextlookupkb);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备引用参数]
+            rule "prepareparam_02"
+            ruleflow-group "ai_agent_contextlookupprepareparam_02"
+            when
+            then
+                            ai_agent_contextlookuprefrence_chat_request.set("knowledgebases",ai_agent_contextlookupagententity.get("speckbid"));
+                            ai_agent_contextlookuprefrence_chat_request.set("chunkpageindex","1");
+                        update(ai_agent_contextlookupdefault);//更新fact中变量值
+                        update(ai_agent_contextlookupagententity);//更新fact中变量值
+                        update(ai_agent_contextlookupchat_response);//更新fact中变量值
+                        update(ai_agent_contextlookupdata);//更新fact中变量值
+                        update(ai_agent_contextlookupkb);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[设置chunkqueries]
+            rule "rawsfcode_01"
+            ruleflow-group "ai_agent_contextlookuprawsfcode_01"
+            when
+            then
+                        update(ai_agent_contextlookupdefault);//更新fact中变量值
+                        update(ai_agent_contextlookupagententity);//更新fact中变量值
+                        update(ai_agent_contextlookupchat_response);//更新fact中变量值
+                        update(ai_agent_contextlookupdata);//更新fact中变量值
+                        update(ai_agent_contextlookupkb);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[附加聊天请求]
+            rule "sysaichatagent_appendchatrequest_01"
+            ruleflow-group "ai_agent_contextlookupsysaichatagent_appendchatrequest_01"
+            when
+            then
+                        update(ai_agent_contextlookupdefault);//更新fact中变量值
+                        update(ai_agent_contextlookupagententity);//更新fact中变量值
+                        update(ai_agent_contextlookupchat_response);//更新fact中变量值
+                        update(ai_agent_contextlookupdata);//更新fact中变量值
+                        update(ai_agent_contextlookupkb);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[交谈输出]
+            rule "sysaichatagent_chatoutput_01"
+            ruleflow-group "ai_agent_contextlookupsysaichatagent_chatoutput_01"
+            when
+            then
+                        update(ai_agent_contextlookupdefault);//更新fact中变量值
+                        update(ai_agent_contextlookupagententity);//更新fact中变量值
+                        update(ai_agent_contextlookupchat_response);//更新fact中变量值
+                        update(ai_agent_contextlookupdata);//更新fact中变量值
+                        update(ai_agent_contextlookupkb);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[提取参考材料]
+            rule "prepareparam_03"
+            ruleflow-group "ai_agent_contextlookupprepareparam_03"
+            when
+            then
+                            ai_agent_contextlookuprefrence.set("",ai_agent_contextlookuprefrence_chat_response.get("content"));
+                        update(ai_agent_contextlookupdefault);//更新fact中变量值
+                        update(ai_agent_contextlookupagententity);//更新fact中变量值
+                        update(ai_agent_contextlookupchat_response);//更新fact中变量值
+                        update(ai_agent_contextlookupdata);//更新fact中变量值
+                        update(ai_agent_contextlookupkb);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[提示参考资料]
+            rule "sysaichatagent_chatstep_02"
+            ruleflow-group "ai_agent_contextlookupsysaichatagent_chatstep_02"
+            when
+            then
+                        update(ai_agent_contextlookupdefault);//更新fact中变量值
+                        update(ai_agent_contextlookupagententity);//更新fact中变量值
+                        update(ai_agent_contextlookupchat_response);//更新fact中变量值
+                        update(ai_agent_contextlookupdata);//更新fact中变量值
+                        update(ai_agent_contextlookupkb);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[执行智能体]
+            rule "sysaichatagent_chatstep_03"
+            ruleflow-group "ai_agent_contextlookupsysaichatagent_chatstep_03"
+            when
+            then
+                        update(ai_agent_contextlookupdefault);//更新fact中变量值
+                        update(ai_agent_contextlookupagententity);//更新fact中变量值
+                        update(ai_agent_contextlookupchat_response);//更新fact中变量值
+                        update(ai_agent_contextlookupdata);//更新fact中变量值
+                        update(ai_agent_contextlookupkb);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[附加聊天请求]
+            rule "sysaichatagent_appendchatrequest_02"
+            ruleflow-group "ai_agent_contextlookupsysaichatagent_appendchatrequest_02"
+            when
+            then
+                        update(ai_agent_contextlookupdefault);//更新fact中变量值
+                        update(ai_agent_contextlookupagententity);//更新fact中变量值
+                        update(ai_agent_contextlookupchat_response);//更新fact中变量值
+                        update(ai_agent_contextlookupdata);//更新fact中变量值
+                        update(ai_agent_contextlookupkb);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[交谈输出]
+            rule "sysaichatagent_chatoutput_02"
+            ruleflow-group "ai_agent_contextlookupsysaichatagent_chatoutput_02"
+            when
+            then
+                        update(ai_agent_contextlookupdefault);//更新fact中变量值
+                        update(ai_agent_contextlookupagententity);//更新fact中变量值
+                        update(ai_agent_contextlookupchat_response);//更新fact中变量值
+                        update(ai_agent_contextlookupdata);//更新fact中变量值
+                        update(ai_agent_contextlookupkb);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[审查完成]
+            rule "sysaichatagent_chatstep_04"
+            ruleflow-group "ai_agent_contextlookupsysaichatagent_chatstep_04"
+            when
+            then
+                        update(ai_agent_contextlookupdefault);//更新fact中变量值
+                        update(ai_agent_contextlookupagententity);//更新fact中变量值
+                        update(ai_agent_contextlookupchat_response);//更新fact中变量值
+                        update(ai_agent_contextlookupdata);//更新fact中变量值
+                        update(ai_agent_contextlookupkb);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_response);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "ai_agent_contextlookupend_01"
+            when
+            then
+                        update(ai_agent_contextlookupdefault);//更新fact中变量值
+                        update(ai_agent_contextlookupagententity);//更新fact中变量值
+                        update(ai_agent_contextlookupchat_response);//更新fact中变量值
+                        update(ai_agent_contextlookupdata);//更新fact中变量值
+                        update(ai_agent_contextlookupkb);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_response);//更新fact中变量值
+            end

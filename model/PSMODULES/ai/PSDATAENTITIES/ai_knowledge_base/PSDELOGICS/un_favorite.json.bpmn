@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="cn.ibizlab.core.ai.service.logic.ai_knowledge_baseun_favorite" isClosed="false" isExecutable="true" name="ai_ai_knowledge_base_un_favorite_ruleFlow" processType="Private" tns:packageName="cn.ibizlab.core.ai.service.logic.ai_knowledge_baseun_favorite">
+            <extensionElements>
+                <tns:import name="java.util.Map" />
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="cn.ibizlab.util.helper.RuleUtils"/>
+                                <tns:metaData express="" name="ai_knowledge_baseun_favoritedefault" type="entity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_knowledge_base()" name="ai_knowledge_baseun_favoriteupdateobj" type="refentity"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_knowledge_baseService))" name="iBzSysAi_knowledge_baseDefaultService" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
+                            <tns:global identifier="ai_knowledge_baseun_favoritedefault" type="cn.ibizlab.core.ai.domain.ai_knowledge_base" />
+                            <tns:global identifier="ai_knowledge_baseun_favoriteupdateobj" type="cn.ibizlab.core.ai.domain.ai_knowledge_base" />
+            </extensionElements>
+                        <startEvent id="begin" isInterrupting="true"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baseun_favoriterawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="删除收藏数据"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baseun_favoriteend1" id="end1" implementation="http://www.jboss.org/drools/rule" name="结束"/>
+                        <endEvent id="end1_end" name="end"/>
+                        <sequenceFlow id="end1_end_line" sourceRef="end1" targetRef="end1_end"/>
+                    <sequenceFlow id="begin_rawsqlcall1" sourceRef="begin" targetRef="rawsqlcall1">
+                    </sequenceFlow>
+                    <sequenceFlow id="rawsqlcall1_end1" sourceRef="rawsqlcall1" targetRef="end1">
+                    </sequenceFlow>
+        </process>
+    </definitions>

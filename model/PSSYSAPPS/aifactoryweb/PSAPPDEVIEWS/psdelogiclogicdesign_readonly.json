@@ -1,0 +1,50 @@
+{
+  "accUserMode" : 2,
+  "caption" : "实体处理逻辑",
+  "codeName" : "psdelogiclogicdesign_readonly",
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/psdelogiclogicdesign_readonly.json",
+  "memo" : "系统自动添加\nPSDELogicLogicDesign_Readonly",
+  "name" : "psdelogiclogicdesign_readonly",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
+  },
+  "getPSAppModule" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPMODULES/extension.json"
+  },
+  "getPSControls" : [ {
+    "caption" : "实体处理逻辑",
+    "codeName" : "logic_design_readonly_captionbar",
+    "controlType" : "CAPTIONBAR",
+    "name" : "captionbar",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
+    },
+    "getPSControlParam" : { }
+  } ],
+  "getPSDEViewCodeName" : "LogicDesign_Readonly",
+  "getPSDEViewId" : "137f9770315887cde9c2feda2b587682",
+  "getPSViewLayoutPanel" : {
+    "codeName" : "layoutpanel",
+    "controlStyle" : "APPDESUBAPPREFVIEW",
+    "controlType" : "VIEWLAYOUTPANEL",
+    "name" : "layoutpanel",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
+    },
+    "getPSControlParam" : { },
+    "layoutBodyOnly" : true,
+    "layoutPanel" : true,
+    "useDefaultLayout" : true
+  },
+  "priority" : 90,
+  "title" : "设计",
+  "viewStyle" : "DEFAULT",
+  "viewType" : "DESUBAPPREFVIEW",
+  "enableDP" : true,
+  "modelid" : "c095375b4b3a55ef78a81d62a9eaf000",
+  "modeltype" : "PSAPPDEVIEW"
+}

@@ -1,0 +1,61 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t11.\"code_name\"",
+    "name" : "CONTEXT_CODE_NAME"
+  }, {
+    "expression" : "t1.\"context_id\"",
+    "name" : "CONTEXT_ID"
+  }, {
+    "expression" : "t11.\"name\"",
+    "name" : "CONTEXT_NAME"
+  }, {
+    "expression" : "t11.\"system_flag\"",
+    "name" : "CONTEXT_SYSTEM_FLAG"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "case when t11.\"scopes\" like '%deep_research%'  and t11.\"synthesizer\" is not null then 1  else 0 end",
+    "name" : "DEEP_RESEARCH"
+  }, {
+    "expression" : "t11.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t11.\"page_index\"",
+    "name" : "PAGE_INDEX"
+  }, {
+    "expression" : "t11.\"scopes\"",
+    "name" : "SCOPES"
+  }, {
+    "expression" : "t11.\"spec_kb_id\"",
+    "name" : "SPEC_KB_ID"
+  }, {
+    "expression" : "t1.\"system_flag\"",
+    "name" : "SYSTEM_FLAG"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t11.\"use_fulltext\"",
+    "name" : "USE_FULLTEXT"
+  }, {
+    "expression" : "t1.\"use_tag\"",
+    "name" : "USE_TAG"
+  } ],
+  "queryCode" : "SELECT\nt11.\"code_name\" AS \"context_code_name\",\nt1.\"context_id\",\nt11.\"name\" AS \"context_name\",\nt11.\"system_flag\" AS \"context_system_flag\",\nt1.\"create_man\",\nt1.\"create_time\",\ncase when t11.\"scopes\" like '%deep_research%'  and t11.\"synthesizer\" is not null then 1  else 0 end AS \"deep_research\",\nt11.\"description\",\nt1.\"id\",\nt1.\"name\",\nt11.\"page_index\",\nt11.\"scopes\",\nt11.\"spec_kb_id\",\nt1.\"system_flag\",\nt1.\"update_man\",\nt1.\"update_time\",\nt11.\"use_fulltext\",\nt1.\"use_tag\"\nFROM \"ai_agent_assignment\" t1 \nLEFT JOIN \"ai_agent_context\" t11 ON t1.\"context_id\" = t11.\"id\" \n",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

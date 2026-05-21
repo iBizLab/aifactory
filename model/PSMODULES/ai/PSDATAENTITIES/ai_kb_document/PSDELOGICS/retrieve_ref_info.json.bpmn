@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="cn.ibizlab.core.ai.service.logic.ai_kb_documentretrieve_ref_info" isClosed="false" isExecutable="true" name="ai_ai_kb_document_retrieve_ref_info_ruleFlow" processType="Private" tns:packageName="cn.ibizlab.core.ai.service.logic.ai_kb_documentretrieve_ref_info">
+            <extensionElements>
+                <tns:import name="java.util.Map" />
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="cn.ibizlab.util.helper.RuleUtils"/>
+                                <tns:metaData express="" name="ai_kb_documentretrieve_ref_infodefault" type="entity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_kb_chunk()" name="ai_kb_documentretrieve_ref_infochunk" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_kb_documentretrieve_ref_infochunkfilter" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_kb_documentretrieve_ref_infochunklist" type="refentity"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_kb_documentService))" name="ai_kb_documentservice" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_kb_documentService))" name="iBzSysAi_kb_documentDefaultService" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
+                            <tns:global identifier="ai_kb_documentretrieve_ref_infodefault" type="cn.ibizlab.core.ai.domain.ai_kb_document" />
+                            <tns:global identifier="ai_kb_documentretrieve_ref_infochunk" type="cn.ibizlab.core.ai.domain.ai_kb_chunk" />
+            </extensionElements>
+                        <startEvent id="begin" isInterrupting="true"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_kb_documentretrieve_ref_inforawsqlcall_01" id="rawsqlcall_01" implementation="http://www.jboss.org/drools/rule" name="查询智能分析"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_kb_documentretrieve_ref_inforawsqlcall_02" id="rawsqlcall_02" implementation="http://www.jboss.org/drools/rule" name="查询关键字和问题"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_kb_documentretrieve_ref_inforawsfcode2" id="rawsfcode2" implementation="http://www.jboss.org/drools/rule" name="执行脚本代码"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_kb_documentretrieve_ref_inforawsfcode_01" id="rawsfcode_01" implementation="http://www.jboss.org/drools/rule" name="执行脚本代码"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_kb_documentretrieve_ref_infodelogic_01" id="delogic_01" implementation="http://www.jboss.org/drools/rule" name="实体处理逻辑"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_kb_documentretrieve_ref_infoend_01" id="end_01" implementation="http://www.jboss.org/drools/rule" name="结束"/>
+                        <endEvent id="end_01_end" name="end"/>
+                        <sequenceFlow id="end_01_end_line" sourceRef="end_01" targetRef="end_01_end"/>
+                    <sequenceFlow id="begin_rawsqlcall_01" sourceRef="begin" targetRef="rawsqlcall_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="rawsqlcall_01_rawsqlcall_02" sourceRef="rawsqlcall_01" targetRef="rawsqlcall_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="rawsqlcall_02_rawsfcode2" sourceRef="rawsqlcall_02" targetRef="rawsfcode2">
+                    </sequenceFlow>
+                    <sequenceFlow id="rawsfcode2_delogic_01" sourceRef="rawsfcode2" targetRef="delogic_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="rawsfcode_01_end_01" sourceRef="rawsfcode_01" targetRef="end_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="delogic_01_end_01" sourceRef="delogic_01" targetRef="end_01">
+                    </sequenceFlow>
+        </process>
+    </definitions>

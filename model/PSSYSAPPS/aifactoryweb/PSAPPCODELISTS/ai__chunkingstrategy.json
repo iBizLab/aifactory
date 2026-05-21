@@ -1,0 +1,51 @@
+{
+  "codeListTag" : "ai__chunkingstrategy",
+  "codeListType" : "STATIC",
+  "codeName" : "ai__chunkingstrategy",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__chunkingstrategy.json",
+  "emptyText" : "未定义",
+  "name" : "切片策略",
+  "getPSCodeItems" : [ {
+    "codeName" : "NAIVE",
+    "text" : "按段落",
+    "value" : "NAIVE"
+  }, {
+    "codeName" : "QA",
+    "text" : "Q&A",
+    "value" : "QA"
+  }, {
+    "codeName" : "MANUAL",
+    "text" : "手册",
+    "value" : "MANUAL"
+  }, {
+    "codeName" : "LAWS",
+    "text" : "法律",
+    "value" : "LAWS"
+  }, {
+    "codeName" : "ONE",
+    "text" : "单个",
+    "value" : "ONE"
+  }, {
+    "codeName" : "PICTURE",
+    "text" : "图片",
+    "value" : "PICTURE"
+  }, {
+    "codeName" : "PRESENTATION",
+    "text" : "演示文稿",
+    "value" : "PRESENTATION"
+  }, {
+    "codeName" : "TABLE",
+    "text" : "表格",
+    "value" : "TABLE"
+  }, {
+    "codeName" : "CHUNKS",
+    "text" : "预切片段",
+    "value" : "CHUNKS"
+  }, {
+    "codeName" : "RAW_CHUNKS",
+    "text" : "预切直接片段",
+    "value" : "RAW_CHUNKS"
+  } ],
+  "enableCache" : true
+}

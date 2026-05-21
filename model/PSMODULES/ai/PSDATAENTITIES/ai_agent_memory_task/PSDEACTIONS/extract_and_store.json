@@ -1,0 +1,25 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "extract_and_store",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task/PSDEACTIONS/extract_and_store.json",
+  "logicName" : "记忆提取并存储",
+  "name" : "extract_and_store",
+  "getPSDEActionInput" : {
+    "name" : "Extract_and_storeInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_agent_memory_task_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "Extract_and_storeResult",
+    "type" : "VOID"
+  },
+  "getPSSysSFPlugin" : {
+    "modelref" : true,
+    "path" : "PSSYSSFPLUGINS/ExtractAndStoreDEActionRuntime.json"
+  }
+}

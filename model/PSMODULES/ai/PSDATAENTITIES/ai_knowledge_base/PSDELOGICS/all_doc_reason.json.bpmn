@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="cn.ibizlab.core.ai.service.logic.ai_knowledge_baseall_doc_reason" isClosed="false" isExecutable="true" name="ai_ai_knowledge_base_all_doc_reason_ruleFlow" processType="Private" tns:packageName="cn.ibizlab.core.ai.service.logic.ai_knowledge_baseall_doc_reason">
+            <extensionElements>
+                <tns:import name="java.util.Map" />
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="cn.ibizlab.util.helper.RuleUtils"/>
+                                <tns:metaData express="" name="ai_knowledge_baseall_doc_reasondefault" type="entity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_agent_context()" name="ai_knowledge_baseall_doc_reasonagent" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_knowledge_baseall_doc_reasonall_reason_content" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_knowledge_baseall_doc_reasonchat_request" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_knowledge_baseall_doc_reasonchat_request_reason" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_knowledge_baseall_doc_reasonchat_response" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_knowledge_baseall_doc_reasonchat_response_reason" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_knowledge_base()" name="ai_knowledge_baseall_doc_reasondefault_temp" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_kb_document()" name="ai_knowledge_baseall_doc_reasondoc" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_kb_document()" name="ai_knowledge_baseall_doc_reasondoc_filter" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_kb_document()" name="ai_knowledge_baseall_doc_reasondoc_list" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_kb_document()" name="ai_knowledge_baseall_doc_reasondoc_reason" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_review_report()" name="ai_knowledge_baseall_doc_reasondoc_reason_list" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_review_report()" name="ai_knowledge_baseall_doc_reasonfullcontent_reason_report" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_knowledge_base()" name="ai_knowledge_baseall_doc_reasonkb" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_review_report()" name="ai_knowledge_baseall_doc_reasonreport_doc" type="refentity"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_knowledge_baseService))" name="ai_knowledge_baseservice" type="service"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_kb_documentService))" name="ai_kb_documentservice" type="service"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_agent_contextService))" name="ai_agent_contextservice" type="service"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_review_reportService))" name="ai_review_reportservice" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_knowledge_baseService))" name="iBzSysAi_knowledge_baseDefaultService" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
+                            <tns:global identifier="ai_knowledge_baseall_doc_reasondefault" type="cn.ibizlab.core.ai.domain.ai_knowledge_base" />
+                            <tns:global identifier="ai_knowledge_baseall_doc_reasonagent" type="cn.ibizlab.core.ai.domain.ai_agent_context" />
+                            <tns:global identifier="ai_knowledge_baseall_doc_reasondefault_temp" type="cn.ibizlab.core.ai.domain.ai_knowledge_base" />
+                            <tns:global identifier="ai_knowledge_baseall_doc_reasondoc" type="cn.ibizlab.core.ai.domain.ai_kb_document" />
+                            <tns:global identifier="ai_knowledge_baseall_doc_reasondoc_filter" type="cn.ibizlab.core.ai.domain.ai_kb_document" />
+                            <tns:global identifier="ai_knowledge_baseall_doc_reasondoc_list" type="cn.ibizlab.core.ai.domain.ai_kb_document" />
+                            <tns:global identifier="ai_knowledge_baseall_doc_reasondoc_reason" type="cn.ibizlab.core.ai.domain.ai_kb_document" />
+                            <tns:global identifier="ai_knowledge_baseall_doc_reasondoc_reason_list" type="cn.ibizlab.core.ai.domain.ai_review_report" />
+                            <tns:global identifier="ai_knowledge_baseall_doc_reasonfullcontent_reason_report" type="cn.ibizlab.core.ai.domain.ai_review_report" />
+                            <tns:global identifier="ai_knowledge_baseall_doc_reasonkb" type="cn.ibizlab.core.ai.domain.ai_knowledge_base" />
+                            <tns:global identifier="ai_knowledge_baseall_doc_reasonreport_doc" type="cn.ibizlab.core.ai.domain.ai_review_report" />
+            </extensionElements>
+                        <startEvent id="begin" isInterrupting="true"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baseall_doc_reasonbindparam_01" id="bindparam_01" implementation="http://www.jboss.org/drools/rule" name="绑定参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baseall_doc_reasondeaction_04" id="deaction_04" implementation="http://www.jboss.org/drools/rule" name="查询知识库详情"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baseall_doc_reasonprepareparam_01" id="prepareparam_01" implementation="http://www.jboss.org/drools/rule" name="设置筛选条件"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baseall_doc_reasondedataset_01" id="dedataset_01" implementation="http://www.jboss.org/drools/rule" name="查询知识库下文档"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baseall_doc_reasondebugparam_01" id="debugparam_01" implementation="http://www.jboss.org/drools/rule" name="输出审查报告结果集"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baseall_doc_reasonloopsubcall_01" id="loopsubcall_01" implementation="http://www.jboss.org/drools/rule" name="循环子调用"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baseall_doc_reasonrawsfcode_01" id="rawsfcode_01" implementation="http://www.jboss.org/drools/rule" name="获取知识库文档推理结果"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baseall_doc_reasonprepareparam_04" id="prepareparam_04" implementation="http://www.jboss.org/drools/rule" name="填充智能体参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baseall_doc_reasonprepareparam_03" id="prepareparam_03" implementation="http://www.jboss.org/drools/rule" name="置空知识库标识"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baseall_doc_reasonrenewparam_01" id="renewparam_01" implementation="http://www.jboss.org/drools/rule" name="重新建立参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baseall_doc_reasondelogic_01" id="delogic_01" implementation="http://www.jboss.org/drools/rule" name="填充智能体"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baseall_doc_reasonprepareparam_02" id="prepareparam_02" implementation="http://www.jboss.org/drools/rule" name="设置文档标识与智能体"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baseall_doc_reasonsysaichatagent_appendchatrequest_01" id="sysaichatagent_appendchatrequest_01" implementation="http://www.jboss.org/drools/rule" name="附加聊天请求"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baseall_doc_reasondeaction_01" id="deaction_01" implementation="http://www.jboss.org/drools/rule" name="单一文档推理"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baseall_doc_reasonsysaichatagent_chatoutput_01" id="sysaichatagent_chatoutput_01" implementation="http://www.jboss.org/drools/rule" name="交谈输出"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baseall_doc_reasonappendparam_01" id="appendparam_01" implementation="http://www.jboss.org/drools/rule" name="将审查报告内容附加到结果数组"/>
+                        <endEvent id="appendparam_01_end" name="end"/>
+                        <sequenceFlow id="appendparam_01_end_line" sourceRef="appendparam_01" targetRef="appendparam_01_end"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baseall_doc_reasonprepareparam_06" id="prepareparam_06" implementation="http://www.jboss.org/drools/rule" name="准备知识库标识"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baseall_doc_reasonprepareparam_05" id="prepareparam_05" implementation="http://www.jboss.org/drools/rule" name="设置全文推理结果审查报告"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baseall_doc_reasondeaction_03" id="deaction_03" implementation="http://www.jboss.org/drools/rule" name="创建审查报告"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baseall_doc_reasonend_01" id="end_01" implementation="http://www.jboss.org/drools/rule" name="结束"/>
+                        <endEvent id="end_01_end" name="end"/>
+                        <sequenceFlow id="end_01_end_line" sourceRef="end_01" targetRef="end_01_end"/>
+                    <sequenceFlow id="begin_bindparam_01" sourceRef="begin" targetRef="bindparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="bindparam_01_prepareparam_06" sourceRef="bindparam_01" targetRef="prepareparam_06">
+                    </sequenceFlow>
+                    <sequenceFlow id="deaction_04_prepareparam_01" sourceRef="deaction_04" targetRef="prepareparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_01_dedataset_01" sourceRef="prepareparam_01" targetRef="dedataset_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="dedataset_01_loopsubcall_01" sourceRef="dedataset_01" targetRef="loopsubcall_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="debugparam_01_rawsfcode_01" sourceRef="debugparam_01" targetRef="rawsfcode_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="loopsubcall_01_renewparam_01" sourceRef="loopsubcall_01" targetRef="renewparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="loopsubcall_01_debugparam_01" sourceRef="loopsubcall_01" targetRef="debugparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="rawsfcode_01_prepareparam_03" sourceRef="rawsfcode_01" targetRef="prepareparam_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_04_delogic_01" sourceRef="prepareparam_04" targetRef="delogic_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_03_sysaichatagent_appendchatrequest_01" sourceRef="prepareparam_03" targetRef="sysaichatagent_appendchatrequest_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="renewparam_01_prepareparam_02" sourceRef="renewparam_01" targetRef="prepareparam_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="delogic_01_sysaichatagent_appendchatrequest_01" sourceRef="delogic_01" targetRef="sysaichatagent_appendchatrequest_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_02_deaction_01" sourceRef="prepareparam_02" targetRef="deaction_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_appendchatrequest_01_sysaichatagent_chatoutput_01" sourceRef="sysaichatagent_appendchatrequest_01" targetRef="sysaichatagent_chatoutput_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="deaction_01_appendparam_01" sourceRef="deaction_01" targetRef="appendparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatoutput_01_prepareparam_05" sourceRef="sysaichatagent_chatoutput_01" targetRef="prepareparam_05">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_06_deaction_04" sourceRef="prepareparam_06" targetRef="deaction_04">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_05_deaction_03" sourceRef="prepareparam_05" targetRef="deaction_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="deaction_03_end_01" sourceRef="deaction_03" targetRef="end_01">
+                    </sequenceFlow>
+        </process>
+    </definitions>

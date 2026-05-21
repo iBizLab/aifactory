@@ -1,0 +1,136 @@
+## 只读用户(reader) <!-- {docsify-ignore-all} -->
+
+
+
+<p class="panel-title"><b>查看SQL语句</b></p>
+<br>
+
+<el-row>
+&nbsp;<el-tag @click="MYSQL5 = true">MYSQL5</el-tag>
+&nbsp;<el-tag @click="POSTGRESQL = true">POSTGRESQL</el-tag>
+</el-row>
+
+<br>
+<p class="panel-title"><b>是否默认查询</b></p>
+
+* `否`
+
+<p class="panel-title"><b>是否权限使用</b></p>
+
+* `否`
+
+<p class="panel-title"><b>是否自定义SQL</b></p>
+
+* `否`
+
+<p class="panel-title"><b>查询列级别</b></p>
+
+* `默认（全部查询列）`
+
+
+
+
+### 查询连接
+* **AI_KB_MEMBER存在1:N（EXISTS (SELECT)）DER1N_AI_KB_MEMBER_AI_KNOWLEDGE_BASE_KB_ID**<br>
+连接关系：[DER1N_AI_KB_MEMBER_AI_KNOWLEDGE_BASE_KB_ID](der/DER1N_AI_KB_MEMBER_AI_KNOWLEDGE_BASE_KB_ID)<br>
+连接实体：[知识库](module/ai/ai_knowledge_base)<br>
+连接条件：(`USER_ID(标识)` EQ `用户上下文.srfpersonid` AND `ROLE_ID(角色)` EQ `'reader'`)<br>
+
+
+
+
+<el-dialog v-model="MYSQL5" title="MYSQL5">
+
+```sql
+SELECT
+t1.`CHUNK_METHOD`,
+t1.`CREATE_MAN`,
+t1.`CREATE_TIME`,
+t1.`DESCRIPTION`,
+t1.`EMBEDDING_MODEL`,
+t1.`ID`,
+t1.`NAME`,
+t1.`SOURCE_ID`,
+t1.`SOURCE_NAME`,
+t1.`TAG_SETS`,
+t1.`UPDATE_MAN`,
+t1.`UPDATE_TIME`,
+t1.`VISIBILITY`
+FROM `AI_KNOWLEDGE_BASE` t1 
+
+WHERE EXISTS(SELECT * FROM `AI_KB_MEMBER` t11 
+ WHERE 
+ t1.`ID` = t11.`KB_ID`  AND  ( t11.`USER_ID` = #{ctx.sessioncontext.srfpersonid}  AND  t11.`ROLE_ID` = 'reader' ) )
+```
+
+</el-dialog>
+
+<el-dialog v-model="POSTGRESQL" title="POSTGRESQL">
+
+```sql
+SELECT
+t1."category_id",
+t1."category_name",
+t1."chat_model",
+t1."chat_model_id",
+t1."chunk_method",
+t1."code_name",
+t1."create_man",
+t1."create_time",
+t1."description",
+t1."embedding_model",
+t1."embedding_model_id",
+t1."guidance_prompt",
+t1."id",
+t1."is_archived",
+t1."is_deleted",
+(select count(1) from favorite where create_man=#{ctx.sessioncontext.srfpersonid} and OWNER_ID=t1."id" ) AS "is_favorite",
+t1."key",
+t1."name",
+t1."pageindex",
+t1."record_id",
+t11."_title" AS "record_title",
+t1."rerank",
+t1."rerank_model",
+t1."rerank_model_id",
+t1."resource",
+t1."resource_code",
+t1."resource_id",
+t1."scope_id",
+t1."scope_type",
+t1."similarity_threshold",
+t1."source_id",
+t1."source_name",
+t1."source_type",
+t1."status",
+t1."tag_sets",
+t1."top_k",
+t1."update_man",
+t1."update_time",
+t1."use_kg",
+t1."vector_similarity_weight",
+t1."visibility"
+FROM "ai_knowledge_base" t1 
+LEFT JOIN "data_record" t11 ON t1."record_id" = t11."_id" 
+
+WHERE EXISTS(SELECT * FROM "ai_kb_member" t21 
+ WHERE 
+ t1."id" = t21."kb_id"  AND  ( t21."user_id" = #{ctx.sessioncontext.srfpersonid}  AND  t21."role_id" = 'reader' ) )
+```
+
+</el-dialog>
+
+<script>
+ const { createApp } = Vue
+  createApp({
+    data() {
+      return {
+                MYSQL5 : false
+                POSTGRESQL : false
+        
+      }
+    },
+    methods: {
+    }
+  }).use(ElementPlus).mount('#app')
+</script>

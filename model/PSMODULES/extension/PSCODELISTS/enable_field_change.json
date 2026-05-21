@@ -1,0 +1,35 @@
+{
+  "codeListTag" : "extension__enable_field_change",
+  "codeListType" : "STATIC",
+  "codeName" : "enable_field_change",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/extension/PSCODELISTS/enable_field_change.json",
+  "emptyText" : "未定义",
+  "name" : "可供选择的属性变更",
+  "getPSCodeItems" : [ {
+    "codeName" : "ai_ai_knowledge_base_status",
+    "data" : "{\"is_dropdown_list\": true ,\"codelist_tag\":\"slice_status\",\"allow_empty\":\"true\"}",
+    "text" : "变更知识库状态",
+    "value" : "ai.ai_knowledge_base.status"
+  }, {
+    "codeName" : "ai_ai_document_status",
+    "data" : "{\"is_dropdown_list\": true ,\"codelist_tag\":\"slice_status\",\"allow_empty\":\"true\"}",
+    "text" : "变更文档状态",
+    "value" : "ai.ai_document.status"
+  } ],
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/extension/PSDATAENTITIES/PSDELogic.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/extension.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizAIFactory",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

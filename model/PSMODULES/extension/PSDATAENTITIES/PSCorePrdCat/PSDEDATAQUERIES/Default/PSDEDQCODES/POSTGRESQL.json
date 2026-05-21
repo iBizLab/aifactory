@@ -1,0 +1,43 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"avatarurl\"",
+    "name" : "AVATARURL"
+  }, {
+    "expression" : "t1.\"createdate\"",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.\"createman\"",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.\"fullname\"",
+    "name" : "FULLNAME"
+  }, {
+    "expression" : "t1.\"fullpath\"",
+    "name" : "FULLPATH"
+  }, {
+    "expression" : "t1.\"memo\"",
+    "name" : "MEMO"
+  }, {
+    "expression" : "t1.\"path\"",
+    "name" : "PATH"
+  }, {
+    "expression" : "t1.\"ppscoreprdcatid\"",
+    "name" : "PPSCOREPRDCATID"
+  }, {
+    "expression" : "t1.\"pscoreprdcatid\"",
+    "name" : "PSCOREPRDCATID"
+  }, {
+    "expression" : "t1.\"pscoreprdcatname\"",
+    "name" : "PSCOREPRDCATNAME"
+  }, {
+    "expression" : "t1.\"updatedate\"",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.\"updateman\"",
+    "name" : "UPDATEMAN"
+  } ],
+  "queryCode" : "SELECT\nt1.\"avatarurl\",\nt1.\"createdate\",\nt1.\"createman\",\nt1.\"fullname\",\nt1.\"fullpath\",\nt1.\"memo\",\nt1.\"path\",\nt1.\"ppscoreprdcatid\",\nt1.\"pscoreprdcatid\",\nt1.\"pscoreprdcatname\",\nt1.\"updatedate\",\nt1.\"updateman\"\nFROM \"\" t1 \n",
+  "id" : "PSMODULES/extension/PSDATAENTITIES/PSCorePrdCat/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

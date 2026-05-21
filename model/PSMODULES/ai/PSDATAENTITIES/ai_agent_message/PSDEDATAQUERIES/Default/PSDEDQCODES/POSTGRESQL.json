@@ -1,0 +1,64 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"content\"",
+    "name" : "CONTENT"
+  }, {
+    "expression" : "t1.\"metadata\"",
+    "name" : "METADATA"
+  }, {
+    "expression" : "t1.\"content_type\"",
+    "name" : "CONTENT_TYPE"
+  }, {
+    "expression" : "t1.\"conversation_id\"",
+    "name" : "CONVERSATION_ID"
+  }, {
+    "expression" : "t11.\"name\"",
+    "name" : "CONVERSATION_NAME"
+  }, {
+    "expression" : "t11.\"title\"",
+    "name" : "CONVERSATION_TITLE"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "(select count(1) from ai_agent_feedback t where t.user_id=#{ctx.sessioncontext.srfuserid} and t.message_id=t1.\"id\" and t.feedback_type='dislike')",
+    "name" : "IS_DISLIKE"
+  }, {
+    "expression" : "(select count(1) from ai_agent_feedback t where t.user_id=#{ctx.sessioncontext.srfuserid} and t.message_id=t1.\"id\" and t.feedback_type='like')",
+    "name" : "IS_LIKE"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"sender_type\"",
+    "name" : "SENDER_TYPE"
+  }, {
+    "expression" : "t1.\"sequence\"",
+    "name" : "SEQUENCE"
+  }, {
+    "expression" : "t11.\"session_id\"",
+    "name" : "SESSION_ID"
+  }, {
+    "expression" : "t1.\"status\"",
+    "name" : "STATUS"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t11.\"user_id\"",
+    "name" : "USER_ID"
+  } ],
+  "queryCode" : "SELECT\nt1.\"content_type\",\nt1.\"conversation_id\",\nt11.\"name\" AS \"conversation_name\",\nt11.\"title\" AS \"conversation_title\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"id\",\n(select count(1) from ai_agent_feedback t where t.user_id=#{ctx.sessioncontext.srfuserid} and t.message_id=t1.\"id\" and t.feedback_type='dislike') AS \"is_dislike\",\n(select count(1) from ai_agent_feedback t where t.user_id=#{ctx.sessioncontext.srfuserid} and t.message_id=t1.\"id\" and t.feedback_type='like') AS \"is_like\",\nt1.\"name\",\nt1.\"sender_type\",\nt1.\"sequence\",\nt11.\"session_id\",\nt1.\"status\",\nt1.\"update_man\",\nt1.\"update_time\",\nt11.\"user_id\"\nFROM \"ai_agent_message\" t1 \nLEFT JOIN \"ai_agent_conversation\" t11 ON t1.\"conversation_id\" = t11.\"id\" \n",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_message/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

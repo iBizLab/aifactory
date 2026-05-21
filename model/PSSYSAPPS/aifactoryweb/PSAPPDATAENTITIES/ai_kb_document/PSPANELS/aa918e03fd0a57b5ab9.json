@@ -1,0 +1,165 @@
+{
+  "getAllPSPanelFields" : [ {
+    "id" : "name",
+    "viewFieldName" : "name"
+  }, {
+    "id" : "update_time"
+  } ],
+  "codeName" : "aa918e03fd0a57b5ab9",
+  "controlType" : "PANEL",
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document/PSPANELS/aa918e03fd0a57b5ab9.json",
+  "hookEventNames" : [ "ONCLICK" ],
+  "layoutMode" : "FLEX",
+  "logicName" : "Recent列表",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
+  },
+  "getPSControlLogics" : [ {
+    "eventNames" : "onClick",
+    "itemName" : "container1",
+    "logicTag" : "list_itempanel",
+    "logicType" : "APPDEUIACTION",
+    "name" : "logic",
+    "getPSAppDEUIAction" : {
+      "actionTarget" : "SINGLEDATA",
+      "caption" : "打开文档概览导航",
+      "codeName" : "open_main_info_view",
+      "getFrontPSAppView" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_kb_document_main_list_exp_view.json",
+        "viewType" : "DELISTEXPVIEW"
+      },
+      "frontProcessType" : "WIZARD",
+      "fullCodeName" : "ai_kb_document_open_main_info_view",
+      "name" : "打开文档概览导航",
+      "getPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
+      },
+      "getPSNavigateContexts" : [ {
+        "key" : "SELECTED_DATA",
+        "name" : "SELECTED_DATA",
+        "value" : "id",
+        "rawValue" : false
+      }, {
+        "key" : "SRFDEFAULTTOROUTEDEPTH",
+        "name" : "SRFDEFAULTTOROUTEDEPTH",
+        "value" : "3",
+        "rawValue" : true
+      }, {
+        "key" : "FILE",
+        "name" : "FILE",
+        "value" : "file",
+        "rawValue" : false
+      } ],
+      "getPSNavigateParams" : [ {
+        "key" : "srfnav",
+        "name" : "srfnav",
+        "value" : "id",
+        "rawValue" : false
+      } ],
+      "uIActionMode" : "FRONT",
+      "uIActionTag" : "open_main_info_view",
+      "uIActionType" : "DEUIACTION",
+      "id" : "open_main_info_view@ai_kb_document"
+    }
+  } ],
+  "getPSLayout" : {
+    "layout" : "FLEX"
+  },
+  "getRootPSPanelItems" : [ {
+    "itemStyle" : "DEFAULT",
+    "itemType" : "CONTAINER",
+    "name" : "container1",
+    "getPSLayout" : {
+      "align" : "space-between",
+      "layout" : "FLEX"
+    },
+    "getPSLayoutPos" : {
+      "grow" : -1,
+      "layout" : "FLEX"
+    },
+    "getPSPanelItems" : [ {
+      "itemStyle" : "DEFAULT",
+      "itemType" : "CONTAINER",
+      "name" : "container2",
+      "getPSLayout" : {
+        "layout" : "FLEX"
+      },
+      "getPSLayoutPos" : {
+        "grow" : -1,
+        "layout" : "FLEX"
+      },
+      "getPSPanelItems" : [ {
+        "caption" : "容器",
+        "itemStyle" : "DEFAULT",
+        "itemType" : "CONTAINER",
+        "name" : "container",
+        "getPSLayout" : {
+          "align" : "flex-start",
+          "dir" : "row",
+          "layout" : "FLEX",
+          "vAlign" : "center"
+        },
+        "getPSLayoutPos" : {
+          "grow" : -1,
+          "layout" : "FLEX"
+        },
+        "getPSPanelItems" : [ {
+          "caption" : "文本(动态)",
+          "itemStyle" : "DEFAULT",
+          "itemType" : "FIELD",
+          "name" : "name",
+          "getPSEditor" : {
+            "editorType" : "SPAN",
+            "name" : "name",
+            "predefinedType" : "FIELD_TEXT_DYNAMIC",
+            "renderMode" : "TEXT_DYNAMIC",
+            "enableLinkView" : false
+          },
+          "getPSLayoutPos" : {
+            "grow" : -1,
+            "layout" : "FLEX"
+          },
+          "viewFieldName" : "name"
+        } ]
+      }, {
+        "caption" : "容器",
+        "itemStyle" : "DEFAULT",
+        "itemType" : "CONTAINER",
+        "name" : "container3",
+        "getPSLayout" : {
+          "dir" : "row",
+          "layout" : "FLEX"
+        },
+        "getPSLayoutPos" : {
+          "grow" : -1,
+          "layout" : "FLEX",
+          "spacingTop" : "OUTERSMALL"
+        },
+        "getPSPanelItems" : [ {
+          "caption" : "文本(动态)",
+          "itemStyle" : "DEFAULT",
+          "itemType" : "FIELD",
+          "name" : "update_time",
+          "getPSEditor" : {
+            "editorType" : "SPAN",
+            "name" : "update_time",
+            "predefinedType" : "FIELD_TEXT_DYNAMIC",
+            "renderMode" : "TEXT_DYNAMIC",
+            "enableLinkView" : false
+          },
+          "getPSLayoutPos" : {
+            "grow" : -1,
+            "layout" : "FLEX"
+          },
+          "valueFormat" : "更新于： @"
+        } ]
+      } ]
+    } ]
+  } ],
+  "layoutPanel" : true,
+  "modelid" : "bc534e5be758893c80a1998e2dfb8e6e",
+  "modeltype" : "PSSYSVIEWPANEL"
+}

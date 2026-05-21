@@ -1,0 +1,285 @@
+{
+  "codeName" : "get_aifactory_sys_env",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/Base/PSDATAENTITIES/category_settings/PSDELOGICS/get_aifactory_sys_env.json",
+  "logicName" : "get_aifactory_sys_env",
+  "name" : "get_aifactory_sys_env",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : -160,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : -40,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_01",
+    "leftPos" : -104,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "准备参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_01"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "ID",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValue" : "aifactory_sys_env",
+      "srcValueType" : "SRCVALUE"
+    } ],
+    "topPos" : 66,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEACTION_01",
+    "getDstPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/category_settings/PSDEACTIONS/CheckKey.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/category_settings.json"
+    },
+    "leftPos" : -104,
+    "logicNodeType" : "DEACTION",
+    "name" : "checkkey",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_02"
+      },
+      "name" : "连接名称",
+      "getPSDELogicLinkGroupCond" : {
+        "groupOP" : "AND",
+        "logicType" : "GROUP",
+        "name" : "连接条件组",
+        "getPSDELogicLinkConds" : [ {
+          "condOP" : "EQ",
+          "getDstLogicParam" : {
+            "modelref" : true,
+            "id" : "check"
+          },
+          "logicType" : "SINGLE",
+          "name" : "check 等于(=) 0",
+          "paramValue" : "0"
+        } ]
+      },
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_01"
+      }
+    }, {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_03"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_01"
+      },
+      "defaultLink" : true
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "check"
+    },
+    "topPos" : 180
+  }, {
+    "codeName" : "DEACTION_03",
+    "getDstPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/category_settings/PSDEACTIONS/Get.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/category_settings.json"
+    },
+    "logicNodeType" : "DEACTION",
+    "name" : "get",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEBUGPARAM_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_03"
+      }
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "topPos" : 330,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_02",
+    "leftPos" : -190,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "准备参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_02"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "NAME",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValue" : "AIFactory系统默认设置",
+      "srcValueType" : "SRCVALUE"
+    } ],
+    "topPos" : 330,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEACTION_02",
+    "getDstPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/category_settings/PSDEACTIONS/Create.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/category_settings.json"
+    },
+    "leftPos" : -200,
+    "logicNodeType" : "DEACTION",
+    "name" : "初始化默认配置",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEBUGPARAM_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_02"
+      }
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "topPos" : 431,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEBUGPARAM_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "leftPos" : 10,
+    "logicNodeType" : "DEBUGPARAM",
+    "name" : "调试逻辑参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEBUGPARAM_01"
+      }
+    } ],
+    "topPos" : 470,
+    "parallelOutput" : true
+  }, {
+    "code" : "def _default = logic.param('Default').getReal()\n        // 字符串类字段保持原有处理\n        def id = _default.get(\"id\")?.toString() ?: \"\"\n        def sysid = sys.getDeploySystemId().toLowerCase()\n        def agentpre = \"${sysid}-ai--\".toString()\n\n        def serviceHub = net.ibizsys.central.cloud.core.spring.rt.ServiceHub.getInstance()\n        org.yaml.snakeyaml.Yaml yaml = new org.yaml.snakeyaml.Yaml();\n        def agent_runtime = sys.dataentity('ai_model')\n        def getmodel = { String model_id ->\n            def filter=agent_runtime.createSearchContext()\n            filter.eq(\"id\",model_id)\n            return agent_runtime.selectOne(filter,true)\n        }\n        \n        \n        try {\n\n            \n\n            if(id == \"aifactory_sys_env\") {\n                String strConfig = serviceHub.getConfig(\"deploysystem-${sysid}\".toString());\n                _default.set(\"configs\",strConfig)\n\n                String strOss = serviceHub.getConfig(\"cloud-oss\");\n                Map cloudoss = (!strOss) ? new HashMap() : yaml.loadAs(strOss, Map.class)\n                Map aiimage = cloudoss.getOrDefault(\"aiimage\", new HashMap())\n                def vlagent = aiimage.get(\"agent\")\n                if(vlagent && vlagent.startsWith(agentpre)) {\n                    vlagent = vlagent.replace(agentpre,\"\")\n                    def agent = getmodel(vlagent)\n                    if(agent) {\n                        _default.set(\"vl_model_id\",agent.get(\"id\"))\n                        _default.set(\"vl_model\",agent.get(\"name\"))\n                    }\n                }\n\n                String strai = serviceHub.getConfig(\"cloud-ai\");\n                Map cloudai = (!strai) ? new HashMap() : yaml.loadAs(strai, Map.class)\n                def defaultagent = cloudai.get(\"defaultagent\")\n                if(defaultagent && defaultagent.startsWith(agentpre)) {\n                    defaultagent = defaultagent.replace(agentpre,\"\")\n                    def agent = getmodel(defaultagent)\n                    if(agent) {\n                        _default.set(\"chat_model_id\",agent.get(\"id\"))\n                        _default.set(\"chat_model\",agent.get(\"name\"))\n                    }\n                }\n\n                String strkb = serviceHub.getConfig(\"cloud-kb\");\n                if(!strkb) {\n                    strkb=\"fetchkbs:\\n  url: lb://servicehub-ibizaifactory/ibizaifactory/serviceapi/ai_knowledge_bases/fetch_full_text\\n  method: POST\\n  agentformat: ibizaifactory-kb--{key}\"\n                    serviceHub.publishConfig(\"cloud-kb\", strkb);\n                }\n\n            }\n\n\n\n\n        } catch (Exception e) {\n            e.printStackTrace()\n        }",
+    "codeName" : "RAWSFCODE_01",
+    "codeType" : "Groovy",
+    "leftPos" : 10,
+    "logicNodeType" : "RAWSFCODE",
+    "name" : "获取配置",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      }
+    } ],
+    "topPos" : 563,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "END_01",
+    "leftPos" : 40,
+    "logicNodeType" : "END",
+    "name" : "结束",
+    "getReturnParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "returnType" : "LOGICPARAM",
+    "topPos" : 719,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/category_settings.json"
+    },
+    "default" : true,
+    "entityParam" : true
+  }, {
+    "codeName" : "check",
+    "logicName" : "check",
+    "name" : "check",
+    "stdDataType" : 9,
+    "simpleParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

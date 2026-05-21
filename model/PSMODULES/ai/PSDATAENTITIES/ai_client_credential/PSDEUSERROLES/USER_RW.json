@@ -1,0 +1,36 @@
+{
+  "customCond" : "[('user_id','=',#{srf.sessioncontext.srfpersonid})]",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_client_credential/PSDEUSERROLES/USER_RW.json",
+  "name" : "操作用户(读写)",
+  "getPSDEUserRoleOPPrivs" : [ {
+    "dataAccessAction" : "CREATE",
+    "name" : "CREATE",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "CREATE"
+    }
+  }, {
+    "dataAccessAction" : "READ",
+    "name" : "READ",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "READ"
+    }
+  }, {
+    "dataAccessAction" : "UPDATE",
+    "name" : "UPDATE",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "UPDATE"
+    }
+  }, {
+    "dataAccessAction" : "DELETE",
+    "name" : "DELETE",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "DELETE"
+    }
+  } ],
+  "roleTag" : "USER_RW",
+  "userDRAction" : "READ"
+}

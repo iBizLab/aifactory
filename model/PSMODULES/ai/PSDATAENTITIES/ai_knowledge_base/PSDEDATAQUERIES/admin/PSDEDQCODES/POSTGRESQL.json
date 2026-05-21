@@ -1,0 +1,141 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "EXISTS(SELECT * FROM \"ai_kb_member\" t21 \n WHERE \n t1.\"id\" = t21.\"kb_id\"  AND  ( t21.\"user_id\" = #{ctx.sessioncontext.srfpersonid}  AND  t21.\"role_id\" = 'admin' ) )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"meta_data\"",
+    "name" : "META_DATA"
+  }, {
+    "expression" : "t1.\"parser_config\"",
+    "name" : "PARSER_CONFIG"
+  }, {
+    "expression" : "t1.\"category_id\"",
+    "name" : "CATEGORY_ID"
+  }, {
+    "expression" : "t1.\"category_name\"",
+    "name" : "CATEGORY_NAME"
+  }, {
+    "expression" : "t1.\"chat_model\"",
+    "name" : "CHAT_MODEL"
+  }, {
+    "expression" : "t1.\"chat_model_id\"",
+    "name" : "CHAT_MODEL_ID"
+  }, {
+    "expression" : "t1.\"chunk_method\"",
+    "name" : "CHUNK_METHOD"
+  }, {
+    "expression" : "t1.\"code_name\"",
+    "name" : "CODE_NAME"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.\"embedding_model\"",
+    "name" : "EMBEDDING_MODEL"
+  }, {
+    "expression" : "t1.\"embedding_model_id\"",
+    "name" : "EMBEDDING_MODEL_ID"
+  }, {
+    "expression" : "t1.\"guidance_prompt\"",
+    "name" : "GUIDANCE_PROMPT"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"is_archived\"",
+    "name" : "IS_ARCHIVED"
+  }, {
+    "expression" : "t1.\"is_deleted\"",
+    "name" : "IS_DELETED"
+  }, {
+    "expression" : "(select count(1) from favorite where create_man=#{ctx.sessioncontext.srfpersonid} and OWNER_ID=t1.\"id\" )",
+    "name" : "IS_FAVORITE"
+  }, {
+    "expression" : "t1.\"key\"",
+    "name" : "KEY"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"pageindex\"",
+    "name" : "PAGEINDEX"
+  }, {
+    "expression" : "t1.\"record_id\"",
+    "name" : "RECORD_ID"
+  }, {
+    "expression" : "t11.\"_title\"",
+    "name" : "RECORD_TITLE"
+  }, {
+    "expression" : "t1.\"rerank\"",
+    "name" : "RERANK"
+  }, {
+    "expression" : "t1.\"rerank_model\"",
+    "name" : "RERANK_MODEL"
+  }, {
+    "expression" : "t1.\"rerank_model_id\"",
+    "name" : "RERANK_MODEL_ID"
+  }, {
+    "expression" : "t1.\"resource\"",
+    "name" : "RESOURCE"
+  }, {
+    "expression" : "t1.\"resource_code\"",
+    "name" : "RESOURCE_CODE"
+  }, {
+    "expression" : "t1.\"resource_id\"",
+    "name" : "RESOURCE_ID"
+  }, {
+    "expression" : "t1.\"scope_id\"",
+    "name" : "SCOPE_ID"
+  }, {
+    "expression" : "t1.\"scope_type\"",
+    "name" : "SCOPE_TYPE"
+  }, {
+    "expression" : "t1.\"similarity_threshold\"",
+    "name" : "SIMILARITY_THRESHOLD"
+  }, {
+    "expression" : "t1.\"source_id\"",
+    "name" : "SOURCE_ID"
+  }, {
+    "expression" : "t1.\"source_name\"",
+    "name" : "SOURCE_NAME"
+  }, {
+    "expression" : "t1.\"source_type\"",
+    "name" : "SOURCE_TYPE"
+  }, {
+    "expression" : "t1.\"status\"",
+    "name" : "STATUS"
+  }, {
+    "expression" : "t1.\"tag_sets\"",
+    "name" : "TAG_SETS"
+  }, {
+    "expression" : "t1.\"top_k\"",
+    "name" : "TOP_K"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"use_kg\"",
+    "name" : "USE_KG"
+  }, {
+    "expression" : "t1.\"vector_similarity_weight\"",
+    "name" : "VECTOR_SIMILARITY_WEIGHT"
+  }, {
+    "expression" : "t1.\"visibility\"",
+    "name" : "VISIBILITY"
+  } ],
+  "queryCode" : "SELECT\nt1.\"category_id\",\nt1.\"category_name\",\nt1.\"chat_model\",\nt1.\"chat_model_id\",\nt1.\"chunk_method\",\nt1.\"code_name\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"description\",\nt1.\"embedding_model\",\nt1.\"embedding_model_id\",\nt1.\"guidance_prompt\",\nt1.\"id\",\nt1.\"is_archived\",\nt1.\"is_deleted\",\n(select count(1) from favorite where create_man=#{ctx.sessioncontext.srfpersonid} and OWNER_ID=t1.\"id\" ) AS \"is_favorite\",\nt1.\"key\",\nt1.\"name\",\nt1.\"pageindex\",\nt1.\"record_id\",\nt11.\"_title\" AS \"record_title\",\nt1.\"rerank\",\nt1.\"rerank_model\",\nt1.\"rerank_model_id\",\nt1.\"resource\",\nt1.\"resource_code\",\nt1.\"resource_id\",\nt1.\"scope_id\",\nt1.\"scope_type\",\nt1.\"similarity_threshold\",\nt1.\"source_id\",\nt1.\"source_name\",\nt1.\"source_type\",\nt1.\"status\",\nt1.\"tag_sets\",\nt1.\"top_k\",\nt1.\"update_man\",\nt1.\"update_time\",\nt1.\"use_kg\",\nt1.\"vector_similarity_weight\",\nt1.\"visibility\"\nFROM \"ai_knowledge_base\" t1 \nLEFT JOIN \"data_record\" t11 ON t1.\"record_id\" = t11.\"_id\" \n",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEDATAQUERIES/admin/PSDEDQCODES/POSTGRESQL.json"
+}

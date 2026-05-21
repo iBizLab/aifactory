@@ -1,0 +1,60 @@
+{
+  "codeName" : "ConvertedHTML",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDELOGICS/ConvertedHTML.json",
+  "logicName" : "获取转换html",
+  "name" : "获取转换html",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : 380,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : 120,
+    "parallelOutput" : true
+  }, {
+    "code" : "def _default = logic.param('Default').getReal(); \r\ndef _review_report = _default.get(\"review_report\")\r\n\r\ncom.vladsch.flexmark.parser.Parser parser = com.vladsch.flexmark.parser.Parser.builder().build();\r\ncom.vladsch.flexmark.util.ast.Node document = parser.parse(_review_report);\r\ncom.vladsch.flexmark.html.HtmlRenderer renderer = com.vladsch.flexmark.html.HtmlRenderer.builder().build();\r\ndef htmlContent = renderer.render(document);\r\n\r\n_default.set(\"review_report_html\",htmlContent);",
+    "codeName" : "RAWSFCODE_01",
+    "codeType" : "Groovy",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "leftPos" : 340,
+    "logicNodeType" : "RAWSFCODE",
+    "name" : "执行脚本代码",
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "topPos" : 268,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report.json"
+    },
+    "default" : true,
+    "entityParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

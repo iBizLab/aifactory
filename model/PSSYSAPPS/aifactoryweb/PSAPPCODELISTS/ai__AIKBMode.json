@@ -1,0 +1,31 @@
+{
+  "codeListTag" : "ai__AIKBMode",
+  "codeListType" : "STATIC",
+  "codeName" : "ai__AIKBMode",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__AIKBMode.json",
+  "emptyText" : "未定义",
+  "name" : "AI知识库模式",
+  "getPSCodeItems" : [ {
+    "codeName" : "default",
+    "memo" : "支持当前指定或外部传入的知识库",
+    "text" : "支持当前指定或外部传入的知识库",
+    "value" : "default"
+  }, {
+    "codeName" : "include",
+    "memo" : "仅支持指定的知识库",
+    "text" : "仅支持指定的知识库",
+    "value" : "include"
+  }, {
+    "codeName" : "exclude",
+    "memo" : "支持除指定知识库外的知识库",
+    "text" : "除指定知识库外的知识库",
+    "value" : "exclude"
+  }, {
+    "codeName" : "fixed",
+    "text" : "固定",
+    "value" : "fixed"
+  } ],
+  "userTag2" : "AIKBMode",
+  "enableCache" : true
+}

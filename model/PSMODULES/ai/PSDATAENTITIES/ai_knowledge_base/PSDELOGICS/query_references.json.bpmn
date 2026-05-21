@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="cn.ibizlab.core.ai.service.logic.ai_knowledge_basequery_references" isClosed="false" isExecutable="true" name="ai_ai_knowledge_base_query_references_ruleFlow" processType="Private" tns:packageName="cn.ibizlab.core.ai.service.logic.ai_knowledge_basequery_references">
+            <extensionElements>
+                <tns:import name="java.util.Map" />
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="cn.ibizlab.util.helper.RuleUtils"/>
+                                <tns:metaData express="" name="ai_knowledge_basequery_referencesdefault" type="entity"/>
+                                <tns:metaData express="new HashMap()" name="ai_knowledge_basequery_referenceschat_request" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_knowledge_basequery_referenceschat_response" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_kb_chunk()" name="ai_knowledge_basequery_referenceschunk_list" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_kb_chunk()" name="ai_knowledge_basequery_referenceschunk_page" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_kb_chunk()" name="ai_knowledge_basequery_referenceschunk_query" type="refentity"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_knowledge_baseService))" name="iBzSysAi_knowledge_baseDefaultService" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
+                            <tns:global identifier="ai_knowledge_basequery_referencesdefault" type="cn.ibizlab.core.ai.domain.ai_knowledge_base" />
+                            <tns:global identifier="ai_knowledge_basequery_referenceschunk_list" type="cn.ibizlab.core.ai.domain.ai_kb_chunk" />
+                            <tns:global identifier="ai_knowledge_basequery_referenceschunk_page" type="cn.ibizlab.core.ai.domain.ai_kb_chunk" />
+                            <tns:global identifier="ai_knowledge_basequery_referenceschunk_query" type="cn.ibizlab.core.ai.domain.ai_kb_chunk" />
+            </extensionElements>
+                        <startEvent id="begin" isInterrupting="true"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basequery_referencesbindparam_01" id="bindparam_01" implementation="http://www.jboss.org/drools/rule" name="绑定chunk_list参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basequery_referencesprepareparam_02" id="prepareparam_02" implementation="http://www.jboss.org/drools/rule" name="准备查询知识库参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basequery_referencessysaichatagent_appendchatrequest_02" id="sysaichatagent_appendchatrequest_02" implementation="http://www.jboss.org/drools/rule" name="附加聊天请求"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basequery_referencessysaichatagent_appendchatrequest_01" id="sysaichatagent_appendchatrequest_01" implementation="http://www.jboss.org/drools/rule" name="附加聊天请求"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basequery_referencessysaichatagent_chatoutput_02" id="sysaichatagent_chatoutput_02" implementation="http://www.jboss.org/drools/rule" name="交谈输出"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basequery_referencesprepareparam_03" id="prepareparam_03" implementation="http://www.jboss.org/drools/rule" name="准备聊天请求参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basequery_referencessysaichatagent_chatoutput_01" id="sysaichatagent_chatoutput_01" implementation="http://www.jboss.org/drools/rule" name="交谈输出"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basequery_referencesprepareparam_01" id="prepareparam_01" implementation="http://www.jboss.org/drools/rule" name="设置聊天返回"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basequery_referencesend_01" id="end_01" implementation="http://www.jboss.org/drools/rule" name="结束"/>
+                        <endEvent id="end_01_end" name="end"/>
+                        <sequenceFlow id="end_01_end_line" sourceRef="end_01" targetRef="end_01_end"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basequery_referencesprepareparam_04" id="prepareparam_04" implementation="http://www.jboss.org/drools/rule" name="准备聊天请求参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basequery_referencessysaichatagent_fetchchunks_01" id="sysaichatagent_fetchchunks_01" implementation="http://www.jboss.org/drools/rule" name="知识检索"/>
+                    <sequenceFlow id="begin_prepareparam_04" sourceRef="begin" targetRef="prepareparam_04">
+                    </sequenceFlow>
+                    <sequenceFlow id="bindparam_01_sysaichatagent_appendchatrequest_01" sourceRef="bindparam_01" targetRef="sysaichatagent_appendchatrequest_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_02_sysaichatagent_fetchchunks_01" sourceRef="prepareparam_02" targetRef="sysaichatagent_fetchchunks_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_appendchatrequest_02_sysaichatagent_chatoutput_02" sourceRef="sysaichatagent_appendchatrequest_02" targetRef="sysaichatagent_chatoutput_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_appendchatrequest_01_prepareparam_03" sourceRef="sysaichatagent_appendchatrequest_01" targetRef="prepareparam_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatoutput_02_prepareparam_01" sourceRef="sysaichatagent_chatoutput_02" targetRef="prepareparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_03_sysaichatagent_chatoutput_01" sourceRef="prepareparam_03" targetRef="sysaichatagent_chatoutput_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatoutput_01_prepareparam_01" sourceRef="sysaichatagent_chatoutput_01" targetRef="prepareparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_01_end_01" sourceRef="prepareparam_01" targetRef="end_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_04_sysaichatagent_appendchatrequest_02" sourceRef="prepareparam_04" targetRef="sysaichatagent_appendchatrequest_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_fetchchunks_01_bindparam_01" sourceRef="sysaichatagent_fetchchunks_01" targetRef="bindparam_01">
+                    </sequenceFlow>
+        </process>
+    </definitions>

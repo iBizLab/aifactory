@@ -1,0 +1,135 @@
+{
+  "codeName" : "chat_analyze_documents",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDELOGICS/chat_analyze_documents.json",
+  "logicName" : "交谈分析文档",
+  "logicSubType" : "AICHAT",
+  "name" : "交谈分析文档",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : -1870,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATINTENTS_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : -330,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_01",
+    "leftPos" : -1746,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "准备参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATEXECUTECODE_DOCUMENTS_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_01"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "knowledgebases",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValue" : "efe2de90-ef60-4b13-6529-f8ddef4c9efe",
+      "srcValueType" : "SRCVALUE"
+    }, {
+      "dstFieldName" : "chunkqueries",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "intentList"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "topPos" : -70,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATEXECUTECODE_DOCUMENTS_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "leftPos" : -1610,
+    "logicNodeType" : "SYSAICHATAGENT_CHATEXECUTECODE_DOCUMENTS",
+    "name" : "交谈执行代码输出文档",
+    "getPSSysAIChatAgent" : {
+      "modelref" : true,
+      "id" : "DynamicAgent"
+    },
+    "getPSSysAIFactory" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSSYSAIFACTORIES/iBizIntelligence.json"
+    },
+    "subType" : "CHATEXECUTECODE_DOCUMENTS",
+    "topPos" : 60
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATINTENTS_01",
+    "leftPos" : -1910,
+    "logicNodeType" : "SYSAICHATAGENT_CHATINTENTS",
+    "name" : "意图整理",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATINTENTS_01"
+      }
+    } ],
+    "getPSSysAIFactory" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSSYSAIFACTORIES/iBizIntelligence.json"
+    },
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "intentList"
+    },
+    "subType" : "CHATINTENTS",
+    "topPos" : -180
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    },
+    "chatCompletionRequestParam" : true,
+    "default" : true
+  }, {
+    "codeName" : "intentList",
+    "logicName" : "意图列表",
+    "name" : "意图列表",
+    "stdDataType" : 25,
+    "simpleListParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

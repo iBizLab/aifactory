@@ -1,0 +1,40 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.\"enable\"",
+    "name" : "ENABLE"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"owner_id\"",
+    "name" : "OWNER_ID"
+  }, {
+    "expression" : "t1.\"scope\"",
+    "name" : "SCOPE"
+  }, {
+    "expression" : "t1.\"source_id\"",
+    "name" : "SOURCE_ID"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"description\",\nt1.\"enable\",\nt1.\"id\",\nt1.\"name\",\nt1.\"owner_id\",\nt1.\"scope\",\nt1.\"source_id\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"ai_kb_tag_set\" t1 \n",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_tag_set/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

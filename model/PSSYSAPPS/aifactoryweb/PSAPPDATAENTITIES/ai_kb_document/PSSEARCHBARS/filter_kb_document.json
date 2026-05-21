@@ -1,0 +1,93 @@
+{
+  "codeName" : "filter_kb_document",
+  "controlType" : "SEARCHBAR",
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document/PSSEARCHBARS/filter_kb_document.json",
+  "groupMoreText" : "更多",
+  "logicName" : "筛选器搜索栏",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
+  },
+  "getPSSearchBarFilters" : [ {
+    "caption" : "资源",
+    "dataType" : 25,
+    "itemType" : "FILTER",
+    "labelPos" : "NONE",
+    "labelWidth" : 0,
+    "name" : "N_RESOURCE_EQ",
+    "getPSAppDEField" : {
+      "name" : "RESOURCE",
+      "codeName" : "resource"
+    },
+    "getPSDEFSearchMode" : {
+      "codeName" : "N_RESOURCE_EQ",
+      "name" : "N_RESOURCE_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    },
+    "getPSEditor" : {
+      "editorType" : "TEXTBOX",
+      "name" : "N_RESOURCE_EQ"
+    },
+    "allowEmpty" : true,
+    "emptyCaption" : false,
+    "hidden" : false,
+    "showCaption" : false
+  } ],
+  "getPSSearchBarGroups" : [ {
+    "caption" : "近七日创建的文档",
+    "data" : "{\"theme_model\":{\"searchconds\":[{\"condtype\":\"GROUP\",\"condop\":\"AND\",\"bnotmode\":false,\"searchconds\":[{\"condtype\":\"DEFIELD\",\"fieldname\":\"recent_create_days\",\"condop\":\"LTANDEQ\",\"value\":7}]}]}}",
+    "itemType" : "GROUP",
+    "name" : "recent_seven_days",
+    "getPSAppDEField" : {
+      "name" : "RECENT_CREATE_DAYS",
+      "codeName" : "recent_create_days"
+    },
+    "width" : 0.0,
+    "addSeparator" : false,
+    "defaultGroup" : true
+  }, {
+    "caption" : "昨日创建的文档",
+    "data" : "{\n  \"theme_model\": {\n    \"searchconds\": [\n      {\n        \"condtype\": \"GROUP\",\n        \"condop\": \"AND\",\n        \"bnotmode\": false,\n        \"searchconds\": [\n          {\n            \"condtype\": \"DEFIELD\",\n            \"fieldname\": \"recent_create_days\",\n            \"condop\": \"LTANDEQ\",\n            \"value\": 1\n          }\n        ]\n      }\n    ]\n  }\n}",
+    "itemType" : "GROUP",
+    "name" : "yesterday_create",
+    "getPSAppDEField" : {
+      "name" : "RECENT_CREATE_DAYS",
+      "codeName" : "recent_create_days"
+    },
+    "width" : 0.0,
+    "addSeparator" : false
+  }, {
+    "caption" : "我创建的文档",
+    "data" : "{\n  \"theme_model\": {\n    \"searchconds\": [\n      {\n        \"condtype\": \"GROUP\",\n        \"condop\": \"AND\",\n        \"bnotmode\": false,\n        \"searchconds\": [\n          {\n            \"condtype\": \"DEFIELD\",\n            \"fieldname\": \"create_man\",\n            \"condop\": \"EQ\",\n            \"value\": \"${context.srfpersonid}\"\n          }\n        ]\n      }\n    ]\n  }\n}",
+    "itemType" : "GROUP",
+    "name" : "my_create",
+    "width" : 0.0,
+    "addSeparator" : false
+  } ],
+  "getPSSearchBarQuickSearchs" : [ {
+    "itemType" : "QUICKSEARCH",
+    "name" : "name",
+    "getPSAppDEField" : {
+      "name" : "NAME",
+      "codeName" : "name"
+    }
+  }, {
+    "itemType" : "QUICKSEARCH",
+    "name" : "resource",
+    "getPSAppDEField" : {
+      "name" : "RESOURCE",
+      "codeName" : "resource"
+    }
+  } ],
+  "quickGroupCount" : 3,
+  "quickSearchMode" : 2,
+  "quickSearchWidth" : 0,
+  "searchBarStyle" : "SEARCHBAR2",
+  "enableFilter" : true,
+  "enableGroup" : true,
+  "enableQuickSearch" : true,
+  "mobileSearchBar" : false,
+  "modelid" : "bea8eba4d67a8ce658e2d36d308e96c3",
+  "modeltype" : "PSSYSSEARCHBAR"
+}

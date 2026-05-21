@@ -1,0 +1,32 @@
+{
+  "codeName" : "document",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDERS/DER1N_AI_REVIEW_REPORT_AI_KB_DOCUMENT_DOCUMENT_ID.json",
+  "fKeyName" : "FF41D4B5D80273C241",
+  "logicName" : "文档",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report.json"
+  },
+  "name" : "DER1N_AI_REVIEW_REPORT_AI_KB_DOCUMENT_DOCUMENT_ID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "DOCUMENT_ID",
+    "codeName" : "document_id"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "DOCUMENT_NAME",
+    "codeName" : "document_name"
+  },
+  "pickupDEFName" : "DOCUMENT_ID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "document",
+  "enableFKey" : true
+}

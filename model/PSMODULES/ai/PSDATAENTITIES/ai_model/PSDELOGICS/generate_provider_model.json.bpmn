@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="cn.ibizlab.core.ai.service.logic.ai_modelgenerate_provider_model" isClosed="false" isExecutable="true" name="ai_ai_model_generate_provider_model_ruleFlow" processType="Private" tns:packageName="cn.ibizlab.core.ai.service.logic.ai_modelgenerate_provider_model">
+            <extensionElements>
+                <tns:import name="java.util.Map" />
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="cn.ibizlab.util.helper.RuleUtils"/>
+                                <tns:metaData express="" name="ai_modelgenerate_provider_modeldefault" type="entity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_model()" name="ai_modelgenerate_provider_modelai_models" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_model()" name="ai_modelgenerate_provider_modelcreate_obj" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_model()" name="ai_modelgenerate_provider_modelmodel_filter" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_modelgenerate_provider_modelsrfactionparam" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_modelgenerate_provider_modeltemp_obj" type="refentity"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_modelService))" name="ai_modelservice" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_modelService))" name="iBzSysAi_modelDefaultService" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
+                            <tns:global identifier="ai_modelgenerate_provider_modeldefault" type="cn.ibizlab.core.ai.domain.ai_model" />
+                            <tns:global identifier="ai_modelgenerate_provider_modelai_models" type="cn.ibizlab.core.ai.domain.ai_model" />
+                            <tns:global identifier="ai_modelgenerate_provider_modelcreate_obj" type="cn.ibizlab.core.ai.domain.ai_model" />
+                            <tns:global identifier="ai_modelgenerate_provider_modelmodel_filter" type="cn.ibizlab.core.ai.domain.ai_model" />
+            </extensionElements>
+                        <startEvent id="begin" isInterrupting="true"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_modelgenerate_provider_modelbindparam_01" id="bindparam_01" implementation="http://www.jboss.org/drools/rule" name="获取选中模型"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_modelgenerate_provider_modeldedataset_01" id="dedataset_01" implementation="http://www.jboss.org/drools/rule" name="是否已存在该模型"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_modelgenerate_provider_modelresetparam_01" id="resetparam_01" implementation="http://www.jboss.org/drools/rule" name="重置参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_modelgenerate_provider_modelloopsubcall_01" id="loopsubcall_01" implementation="http://www.jboss.org/drools/rule" name="循环子调用"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_modelgenerate_provider_modelprepareparam_03" id="prepareparam_03" implementation="http://www.jboss.org/drools/rule" name="设置凭证id"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_modelgenerate_provider_modelprepareparam_02" id="prepareparam_02" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_modelgenerate_provider_modeldeaction_01" id="deaction_01" implementation="http://www.jboss.org/drools/rule" name="创建模型"/>
+                        <endEvent id="deaction_01_end" name="end"/>
+                        <sequenceFlow id="deaction_01_end_line" sourceRef="deaction_01" targetRef="deaction_01_end"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_modelgenerate_provider_modelprepareparam_01" id="prepareparam_01" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_modelgenerate_provider_modelend_01" id="end_01" implementation="http://www.jboss.org/drools/rule" name="结束"/>
+                        <endEvent id="end_01_end" name="end"/>
+                        <sequenceFlow id="end_01_end_line" sourceRef="end_01" targetRef="end_01_end"/>
+                    <sequenceFlow id="begin_bindparam_01" sourceRef="begin" targetRef="bindparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-bindparam_01_loopsubcall_01" sourceRef="gateway-bindparam_01" targetRef="loopsubcall_01">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_modelgenerate_provider_modeldefault:ai_model();
+                                            $ai_modelgenerate_provider_modelai_models:ai_model();
+                                            $ai_modelgenerate_provider_modelcreate_obj:ai_model();
+                                            $ai_modelgenerate_provider_modelmodel_filter:ai_model();
+                                            $ai_modelgenerate_provider_modelsrfactionparam:Map();
+                                            $ai_modelgenerate_provider_modeltemp_obj:Map();
+                                    eval($ai_modelgenerate_provider_modeldefault==ai_modelgenerate_provider_modeldefault && $ai_modelgenerate_provider_modelai_models==ai_modelgenerate_provider_modelai_models && $ai_modelgenerate_provider_modelcreate_obj==ai_modelgenerate_provider_modelcreate_obj && $ai_modelgenerate_provider_modelmodel_filter==ai_modelgenerate_provider_modelmodel_filter && );
+                                eval((RuleUtils.test($ai_modelgenerate_provider_modelsrfactionparam.get("length"),"GT","0")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-bindparam_01_end_01" sourceRef="gateway-bindparam_01" targetRef="end_01">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_modelgenerate_provider_modeldefault:ai_model();
+                                            $ai_modelgenerate_provider_modelai_models:ai_model();
+                                            $ai_modelgenerate_provider_modelcreate_obj:ai_model();
+                                            $ai_modelgenerate_provider_modelmodel_filter:ai_model();
+                                            $ai_modelgenerate_provider_modelsrfactionparam:Map();
+                                            $ai_modelgenerate_provider_modeltemp_obj:Map();
+                                    eval($ai_modelgenerate_provider_modeldefault==ai_modelgenerate_provider_modeldefault && $ai_modelgenerate_provider_modelai_models==ai_modelgenerate_provider_modelai_models && $ai_modelgenerate_provider_modelcreate_obj==ai_modelgenerate_provider_modelcreate_obj && $ai_modelgenerate_provider_modelmodel_filter==ai_modelgenerate_provider_modelmodel_filter && );
+                                eval((RuleUtils.test($ai_modelgenerate_provider_modelsrfactionparam.get("length"),"EQ","0")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-dedataset_01_resetparam_01" sourceRef="gateway-dedataset_01" targetRef="resetparam_01">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_modelgenerate_provider_modeldefault:ai_model();
+                                            $ai_modelgenerate_provider_modelai_models:ai_model();
+                                            $ai_modelgenerate_provider_modelcreate_obj:ai_model();
+                                            $ai_modelgenerate_provider_modelmodel_filter:ai_model();
+                                            $ai_modelgenerate_provider_modelsrfactionparam:Map();
+                                            $ai_modelgenerate_provider_modeltemp_obj:Map();
+                                    eval($ai_modelgenerate_provider_modeldefault==ai_modelgenerate_provider_modeldefault && $ai_modelgenerate_provider_modelai_models==ai_modelgenerate_provider_modelai_models && $ai_modelgenerate_provider_modelcreate_obj==ai_modelgenerate_provider_modelcreate_obj && $ai_modelgenerate_provider_modelmodel_filter==ai_modelgenerate_provider_modelmodel_filter && );
+                                eval((RuleUtils.test($ai_modelgenerate_provider_modelai_models.get("size"),"EQ","0")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-resetparam_01_prepareparam_03" sourceRef="gateway-resetparam_01" targetRef="prepareparam_03">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_modelgenerate_provider_modeldefault:ai_model();
+                                            $ai_modelgenerate_provider_modelai_models:ai_model();
+                                            $ai_modelgenerate_provider_modelcreate_obj:ai_model();
+                                            $ai_modelgenerate_provider_modelmodel_filter:ai_model();
+                                            $ai_modelgenerate_provider_modelsrfactionparam:Map();
+                                            $ai_modelgenerate_provider_modeltemp_obj:Map();
+                                    eval($ai_modelgenerate_provider_modeldefault==ai_modelgenerate_provider_modeldefault && $ai_modelgenerate_provider_modelai_models==ai_modelgenerate_provider_modelai_models && $ai_modelgenerate_provider_modelcreate_obj==ai_modelgenerate_provider_modelcreate_obj && $ai_modelgenerate_provider_modelmodel_filter==ai_modelgenerate_provider_modelmodel_filter && );
+                                eval((RuleUtils.test($ai_modelgenerate_provider_modeldefault.get("default_token"),"ISNOTNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-resetparam_01_prepareparam_02" sourceRef="gateway-resetparam_01" targetRef="prepareparam_02">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_modelgenerate_provider_modeldefault:ai_model();
+                                            $ai_modelgenerate_provider_modelai_models:ai_model();
+                                            $ai_modelgenerate_provider_modelcreate_obj:ai_model();
+                                            $ai_modelgenerate_provider_modelmodel_filter:ai_model();
+                                            $ai_modelgenerate_provider_modelsrfactionparam:Map();
+                                            $ai_modelgenerate_provider_modeltemp_obj:Map();
+                                    eval($ai_modelgenerate_provider_modeldefault==ai_modelgenerate_provider_modeldefault && $ai_modelgenerate_provider_modelai_models==ai_modelgenerate_provider_modelai_models && $ai_modelgenerate_provider_modelcreate_obj==ai_modelgenerate_provider_modelcreate_obj && $ai_modelgenerate_provider_modelmodel_filter==ai_modelgenerate_provider_modelmodel_filter && );
+                                eval((RuleUtils.test($ai_modelgenerate_provider_modeldefault.get("default_token"),"ISNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="loopsubcall_01_prepareparam_01" sourceRef="loopsubcall_01" targetRef="prepareparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="loopsubcall_01_end_01" sourceRef="loopsubcall_01" targetRef="end_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_03_prepareparam_02" sourceRef="prepareparam_03" targetRef="prepareparam_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_02_deaction_01" sourceRef="prepareparam_02" targetRef="deaction_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_01_dedataset_01" sourceRef="prepareparam_01" targetRef="dedataset_01">
+                    </sequenceFlow>
+                            <exclusiveGateway id="gateway-bindparam_01" name="Gateway" gatewayDirection="Diverging" default="gateway-bindparam_01_end_line"></exclusiveGateway>
+                            <sequenceFlow id="bindparam_01_gateway-bindparam_01_gatewayline" sourceRef="bindparam_01" targetRef="gateway-bindparam_01"></sequenceFlow>
+                            <sequenceFlow id="gateway-bindparam_01_end_line" sourceRef="gateway-bindparam_01" targetRef="gateway-bindparam_01_end"/>
+                            <endEvent id="gateway-bindparam_01_end" name="end"/>
+                            <exclusiveGateway id="gateway-dedataset_01" name="Gateway" gatewayDirection="Diverging" default="gateway-dedataset_01_end_line"></exclusiveGateway>
+                            <sequenceFlow id="dedataset_01_gateway-dedataset_01_gatewayline" sourceRef="dedataset_01" targetRef="gateway-dedataset_01"></sequenceFlow>
+                            <sequenceFlow id="gateway-dedataset_01_end_line" sourceRef="gateway-dedataset_01" targetRef="gateway-dedataset_01_end"/>
+                            <endEvent id="gateway-dedataset_01_end" name="end"/>
+                            <exclusiveGateway id="gateway-resetparam_01" name="Gateway" gatewayDirection="Diverging" default="gateway-resetparam_01_end_line"></exclusiveGateway>
+                            <sequenceFlow id="resetparam_01_gateway-resetparam_01_gatewayline" sourceRef="resetparam_01" targetRef="gateway-resetparam_01"></sequenceFlow>
+                            <sequenceFlow id="gateway-resetparam_01_end_line" sourceRef="gateway-resetparam_01" targetRef="gateway-resetparam_01_end"/>
+                            <endEvent id="gateway-resetparam_01_end" name="end"/>
+        </process>
+    </definitions>

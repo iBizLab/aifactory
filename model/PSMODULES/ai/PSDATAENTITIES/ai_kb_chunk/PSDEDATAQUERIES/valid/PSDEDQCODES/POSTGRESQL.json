@@ -1,0 +1,111 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "( t1.\"active\" = 1 )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"active\"",
+    "name" : "ACTIVE"
+  }, {
+    "expression" : "t11.\"categories\"",
+    "name" : "CATEGORIES"
+  }, {
+    "expression" : "t1.\"chunk_type\"",
+    "name" : "CHUNK_TYPE"
+  }, {
+    "expression" : "t1.\"content\"",
+    "name" : "CONTENT"
+  }, {
+    "expression" : "t1.\"content_preview\"",
+    "name" : "CONTENT_PREVIEW"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"document_id\"",
+    "name" : "DOCUMENT_ID"
+  }, {
+    "expression" : "t11.\"name\"",
+    "name" : "DOCUMENT_NAME"
+  }, {
+    "expression" : "t11.\"sequence\"",
+    "name" : "DOCUMENT_SEQUENCE"
+  }, {
+    "expression" : "t11.\"type\"",
+    "name" : "DOCUMENT_TYPE"
+  }, {
+    "expression" : "t11.\"file\"",
+    "name" : "DOC_FILE"
+  }, {
+    "expression" : "t11.\"name\"",
+    "name" : "DOC_NAME"
+  }, {
+    "expression" : "t11.\"parsed_content\"",
+    "name" : "DOC_PARSED_CONTENT"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t11.\"kb_id\"",
+    "name" : "KB_ID"
+  }, {
+    "expression" : "t21.\"name\"",
+    "name" : "KB_NAME"
+  }, {
+    "expression" : "t1.\"keywords\"",
+    "name" : "KEYWORDS"
+  }, {
+    "expression" : "t1.\"key_questions\"",
+    "name" : "KEY_QUESTIONS"
+  }, {
+    "expression" : "t1.\"meta_data\"",
+    "name" : "META_DATA"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"path\"",
+    "name" : "PATH"
+  }, {
+    "expression" : "t1.\"pid\"",
+    "name" : "PID"
+  }, {
+    "expression" : "t1.\"positions\"",
+    "name" : "POSITIONS"
+  }, {
+    "expression" : "t1.\"sequence\"",
+    "name" : "SEQUENCE"
+  }, {
+    "expression" : "t1.\"source_count\"",
+    "name" : "SOURCE_COUNT"
+  }, {
+    "expression" : "t1.\"source_indices\"",
+    "name" : "SOURCE_INDICES"
+  }, {
+    "expression" : "t1.\"tags\"",
+    "name" : "TAGS"
+  }, {
+    "expression" : "t1.\"type\"",
+    "name" : "TYPE"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"user_tag\"",
+    "name" : "USER_TAG"
+  }, {
+    "expression" : "t1.\"user_tag2\"",
+    "name" : "USER_TAG2"
+  } ],
+  "queryCode" : "SELECT\nt1.\"active\",\nt11.\"categories\",\nt1.\"chunk_type\",\nt1.\"content\",\nt1.\"content_preview\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"document_id\",\nt11.\"name\" AS \"document_name\",\nt11.\"sequence\" AS \"document_sequence\",\nt11.\"type\" AS \"document_type\",\nt11.\"file\" AS \"doc_file\",\nt11.\"name\" AS \"doc_name\",\nt11.\"parsed_content\" AS \"doc_parsed_content\",\nt1.\"id\",\nt11.\"kb_id\",\nt21.\"name\" AS \"kb_name\",\nt1.\"keywords\",\nt1.\"key_questions\",\nt1.\"meta_data\",\nt1.\"name\",\nt1.\"path\",\nt1.\"pid\",\nt1.\"positions\",\nt1.\"sequence\",\nt1.\"source_count\",\nt1.\"source_indices\",\nt1.\"tags\",\nt1.\"type\",\nt1.\"update_man\",\nt1.\"update_time\",\nt1.\"user_tag\",\nt1.\"user_tag2\"\nFROM \"ai_kb_chunk\" t1 \nLEFT JOIN \"ai_kb_document\" t11 ON t1.\"document_id\" = t11.\"id\" \nLEFT JOIN \"ai_knowledge_base\" t21 ON t11.\"kb_id\" = t21.\"id\" \n",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunk/PSDEDATAQUERIES/valid/PSDEDQCODES/POSTGRESQL.json"
+}

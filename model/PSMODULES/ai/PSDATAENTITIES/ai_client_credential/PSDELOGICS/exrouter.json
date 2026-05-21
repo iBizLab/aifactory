@@ -1,0 +1,75 @@
+{
+  "codeName" : "exrouter",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_client_credential/PSDELOGICS/exrouter.json",
+  "logicName" : "exrouter",
+  "name" : "exrouter",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : 200,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : 200,
+    "parallelOutput" : true
+  }, {
+    "code" : "\n        def _default = logic.param('Default').getReal()\n        // 字符串类字段保持原有处理\n        def type = _default.get(\"access_types\")?.toString() ?: \"\"\n        \n        if(type.indexOf(\"CHAT\")>=0){\n            def sysid = sys.getDeploySystemId().toLowerCase()\n            def serviceHub = net.ibizsys.central.cloud.core.spring.rt.ServiceHub.getInstance()\n            org.yaml.snakeyaml.Yaml yaml = new org.yaml.snakeyaml.Yaml();\n\n            String strConfig = serviceHub.getConfig(\"deployapp-${sysid}-aifactoryweb-ex\".toString());\n            Map config = (!strConfig) ? new HashMap() : yaml.loadAs(strConfig, Map.class)\n\n            config.routes = config.routes ?: []\n\n            def targetRouteId = \"ibizaifactory__aifactoryweb__ai\"\n\n            if (!config.routes.any { it.id == targetRouteId }) {\n                config.routes << [\n                        id: targetRouteId,\n                        uri: \"lb://servicehub-ibizaifactory\",\n                        order: 60,\n                        predicates: [\"Path=/ibizaifactory__aifactoryweb/factories/**\"],\n                        filters: [\"StripPrefix=1\", \"PrefixPath=/ibizaifactory/ai\"]\n                ]\n                serviceHub.publishConfig(\"deployapp-${sysid}-aifactoryweb-ex\".toString(),config)\n            }\n        }",
+    "codeName" : "RAWSFCODE_01",
+    "codeType" : "Groovy",
+    "leftPos" : 160,
+    "logicNodeType" : "RAWSFCODE",
+    "name" : "执行脚本代码",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      }
+    } ],
+    "topPos" : 305,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "END_01",
+    "leftPos" : 200,
+    "logicNodeType" : "END",
+    "name" : "结束",
+    "getReturnParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "returnType" : "LOGICPARAM",
+    "topPos" : 423,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_client_credential.json"
+    },
+    "default" : true,
+    "entityParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

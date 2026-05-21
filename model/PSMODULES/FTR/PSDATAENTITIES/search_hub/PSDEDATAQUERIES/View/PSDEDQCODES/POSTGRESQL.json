@@ -1,0 +1,31 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"assignee_name\"",
+    "name" : "ASSIGNEE_NAME"
+  }, {
+    "expression" : "t1.\"belong_to\"",
+    "name" : "BELONG_TO"
+  }, {
+    "expression" : "t1.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"identifier\"",
+    "name" : "IDENTIFIER"
+  }, {
+    "expression" : "t1.\"tags\"",
+    "name" : "TAGS"
+  }, {
+    "expression" : "t1.\"title\"",
+    "name" : "TITLE"
+  }, {
+    "expression" : "t1.\"type\"",
+    "name" : "TYPE"
+  } ],
+  "queryCode" : "SELECT\nt1.\"assignee_name\",\nt1.\"belong_to\",\nt1.\"description\",\nt1.\"id\",\nt1.\"identifier\",\nt1.\"tags\",\nt1.\"title\",\nt1.\"type\"\nFROM \"\" t1 \n",
+  "id" : "PSMODULES/FTR/PSDATAENTITIES/search_hub/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

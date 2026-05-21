@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="cn.ibizlab.core.ai.service.logic.ai_knowledge_basegenerate_guided_prompts" isClosed="false" isExecutable="true" name="ai_ai_knowledge_base_generate_guided_prompts_ruleFlow" processType="Private" tns:packageName="cn.ibizlab.core.ai.service.logic.ai_knowledge_basegenerate_guided_prompts">
+            <extensionElements>
+                <tns:import name="java.util.Map" />
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="cn.ibizlab.util.helper.RuleUtils"/>
+                                <tns:metaData express="" name="ai_knowledge_basegenerate_guided_promptsdefault" type="entity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_agent_context()" name="ai_knowledge_basegenerate_guided_promptsagent" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.base.domain.category()" name="ai_knowledge_basegenerate_guided_promptscategory" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.base.domain.category_settings()" name="ai_knowledge_basegenerate_guided_promptscategory_settings" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_knowledge_basegenerate_guided_promptschat_request" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_knowledge_basegenerate_guided_promptschat_response" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_knowledge_basegenerate_guided_promptschunk_filter" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_kb_chunk()" name="ai_knowledge_basegenerate_guided_promptschunk_list" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_knowledge_basegenerate_guided_promptsdoc_filter" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_kb_document()" name="ai_knowledge_basegenerate_guided_promptsdoc_list" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_knowledge_basegenerate_guided_promptskb_info" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_knowledge_basegenerate_guided_promptsresult" type="refentity"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_knowledge_baseService))" name="ai_knowledge_baseservice" type="service"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.base.service.IcategoryService))" name="categoryservice" type="service"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_agent_contextService))" name="ai_agent_contextservice" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_knowledge_baseService))" name="iBzSysAi_knowledge_baseDefaultService" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
+                            <tns:global identifier="ai_knowledge_basegenerate_guided_promptsdefault" type="cn.ibizlab.core.ai.domain.ai_knowledge_base" />
+                            <tns:global identifier="ai_knowledge_basegenerate_guided_promptsagent" type="cn.ibizlab.core.ai.domain.ai_agent_context" />
+                            <tns:global identifier="ai_knowledge_basegenerate_guided_promptscategory" type="cn.ibizlab.core.base.domain.category" />
+                            <tns:global identifier="ai_knowledge_basegenerate_guided_promptscategory_settings" type="cn.ibizlab.core.base.domain.category_settings" />
+                            <tns:global identifier="ai_knowledge_basegenerate_guided_promptschunk_list" type="cn.ibizlab.core.ai.domain.ai_kb_chunk" />
+                            <tns:global identifier="ai_knowledge_basegenerate_guided_promptsdoc_list" type="cn.ibizlab.core.ai.domain.ai_kb_document" />
+            </extensionElements>
+                        <startEvent id="begin" isInterrupting="true"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basegenerate_guided_promptsdeaction_01" id="deaction_01" implementation="http://www.jboss.org/drools/rule" name="获取知识库信息"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basegenerate_guided_promptssysaichatagent_appendchatrequest_02" id="sysaichatagent_appendchatrequest_02" implementation="http://www.jboss.org/drools/rule" name="附加聊天请求"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basegenerate_guided_promptsdeaction_02" id="deaction_02" implementation="http://www.jboss.org/drools/rule" name="查询类别"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basegenerate_guided_promptsdebugparam_01" id="debugparam_01" implementation="http://www.jboss.org/drools/rule" name="调试逻辑参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basegenerate_guided_promptsprepareparam_03" id="prepareparam_03" implementation="http://www.jboss.org/drools/rule" name="获取类别标识"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basegenerate_guided_promptsbindparam_01" id="bindparam_01" implementation="http://www.jboss.org/drools/rule" name="绑定参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basegenerate_guided_promptsprepareparam_01" id="prepareparam_01" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basegenerate_guided_promptsdeaction_04" id="deaction_04" implementation="http://www.jboss.org/drools/rule" name="查找agent_context"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basegenerate_guided_promptssysaichatagent_chatoutput_02" id="sysaichatagent_chatoutput_02" implementation="http://www.jboss.org/drools/rule" name="交谈输出（默认引导词）"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basegenerate_guided_promptssysaichatagent_chatoutput_01" id="sysaichatagent_chatoutput_01" implementation="http://www.jboss.org/drools/rule" name="交谈输出（动态引导词）"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basegenerate_guided_promptsprepareparam_05" id="prepareparam_05" implementation="http://www.jboss.org/drools/rule" name="设置智能体"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basegenerate_guided_promptsdebugparam_02" id="debugparam_02" implementation="http://www.jboss.org/drools/rule" name="输出交谈反馈内容"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basegenerate_guided_promptsprepareparam_06" id="prepareparam_06" implementation="http://www.jboss.org/drools/rule" name="填充AI反馈内容"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basegenerate_guided_promptsrawsfcode_03" id="rawsfcode_03" implementation="http://www.jboss.org/drools/rule" name="超过2000时截取"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basegenerate_guided_promptsrawsqlcall_01" id="rawsqlcall_01" implementation="http://www.jboss.org/drools/rule" name="更新引导提示词"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_basegenerate_guided_promptsend_01" id="end_01" implementation="http://www.jboss.org/drools/rule" name="结束"/>
+                        <endEvent id="end_01_end" name="end"/>
+                        <sequenceFlow id="end_01_end_line" sourceRef="end_01" targetRef="end_01_end"/>
+                    <sequenceFlow id="begin_deaction_01" sourceRef="begin" targetRef="deaction_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="deaction_01_sysaichatagent_appendchatrequest_02" sourceRef="deaction_01" targetRef="sysaichatagent_appendchatrequest_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_appendchatrequest_02_debugparam_01" sourceRef="sysaichatagent_appendchatrequest_02" targetRef="debugparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="deaction_02_bindparam_01" sourceRef="deaction_02" targetRef="bindparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-debugparam_01_prepareparam_03" sourceRef="gateway-debugparam_01" targetRef="prepareparam_03">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_knowledge_basegenerate_guided_promptsdefault:ai_knowledge_base();
+                                            $ai_knowledge_basegenerate_guided_promptsagent:ai_agent_context();
+                                            $ai_knowledge_basegenerate_guided_promptscategory:category();
+                                            $ai_knowledge_basegenerate_guided_promptscategory_settings:category_settings();
+                                            $ai_knowledge_basegenerate_guided_promptschat_request:Map();
+                                            $ai_knowledge_basegenerate_guided_promptschat_response:Map();
+                                            $ai_knowledge_basegenerate_guided_promptschunk_filter:Map();
+                                            $ai_knowledge_basegenerate_guided_promptschunk_list:ai_kb_chunk();
+                                            $ai_knowledge_basegenerate_guided_promptsdoc_filter:Map();
+                                            $ai_knowledge_basegenerate_guided_promptsdoc_list:ai_kb_document();
+                                            $ai_knowledge_basegenerate_guided_promptskb_info:Map();
+                                            $ai_knowledge_basegenerate_guided_promptsresult:Map();
+                                    eval($ai_knowledge_basegenerate_guided_promptsdefault==ai_knowledge_basegenerate_guided_promptsdefault && $ai_knowledge_basegenerate_guided_promptsagent==ai_knowledge_basegenerate_guided_promptsagent && $ai_knowledge_basegenerate_guided_promptscategory==ai_knowledge_basegenerate_guided_promptscategory && $ai_knowledge_basegenerate_guided_promptscategory_settings==ai_knowledge_basegenerate_guided_promptscategory_settings && $ai_knowledge_basegenerate_guided_promptschunk_list==ai_knowledge_basegenerate_guided_promptschunk_list && $ai_knowledge_basegenerate_guided_promptsdoc_list==ai_knowledge_basegenerate_guided_promptsdoc_list && );
+                                eval((RuleUtils.test($ai_knowledge_basegenerate_guided_promptsdefault.get("categoryId"),"ISNOTNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-debugparam_01_sysaichatagent_chatoutput_02" sourceRef="gateway-debugparam_01" targetRef="sysaichatagent_chatoutput_02">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_knowledge_basegenerate_guided_promptsdefault:ai_knowledge_base();
+                                            $ai_knowledge_basegenerate_guided_promptsagent:ai_agent_context();
+                                            $ai_knowledge_basegenerate_guided_promptscategory:category();
+                                            $ai_knowledge_basegenerate_guided_promptscategory_settings:category_settings();
+                                            $ai_knowledge_basegenerate_guided_promptschat_request:Map();
+                                            $ai_knowledge_basegenerate_guided_promptschat_response:Map();
+                                            $ai_knowledge_basegenerate_guided_promptschunk_filter:Map();
+                                            $ai_knowledge_basegenerate_guided_promptschunk_list:ai_kb_chunk();
+                                            $ai_knowledge_basegenerate_guided_promptsdoc_filter:Map();
+                                            $ai_knowledge_basegenerate_guided_promptsdoc_list:ai_kb_document();
+                                            $ai_knowledge_basegenerate_guided_promptskb_info:Map();
+                                            $ai_knowledge_basegenerate_guided_promptsresult:Map();
+                                    eval($ai_knowledge_basegenerate_guided_promptsdefault==ai_knowledge_basegenerate_guided_promptsdefault && $ai_knowledge_basegenerate_guided_promptsagent==ai_knowledge_basegenerate_guided_promptsagent && $ai_knowledge_basegenerate_guided_promptscategory==ai_knowledge_basegenerate_guided_promptscategory && $ai_knowledge_basegenerate_guided_promptscategory_settings==ai_knowledge_basegenerate_guided_promptscategory_settings && $ai_knowledge_basegenerate_guided_promptschunk_list==ai_knowledge_basegenerate_guided_promptschunk_list && $ai_knowledge_basegenerate_guided_promptsdoc_list==ai_knowledge_basegenerate_guided_promptsdoc_list && );
+                                eval((RuleUtils.test($ai_knowledge_basegenerate_guided_promptsdefault.get("categoryId"),"ISNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_03_deaction_02" sourceRef="prepareparam_03" targetRef="deaction_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-bindparam_01_prepareparam_01" sourceRef="gateway-bindparam_01" targetRef="prepareparam_01">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_knowledge_basegenerate_guided_promptsdefault:ai_knowledge_base();
+                                            $ai_knowledge_basegenerate_guided_promptsagent:ai_agent_context();
+                                            $ai_knowledge_basegenerate_guided_promptscategory:category();
+                                            $ai_knowledge_basegenerate_guided_promptscategory_settings:category_settings();
+                                            $ai_knowledge_basegenerate_guided_promptschat_request:Map();
+                                            $ai_knowledge_basegenerate_guided_promptschat_response:Map();
+                                            $ai_knowledge_basegenerate_guided_promptschunk_filter:Map();
+                                            $ai_knowledge_basegenerate_guided_promptschunk_list:ai_kb_chunk();
+                                            $ai_knowledge_basegenerate_guided_promptsdoc_filter:Map();
+                                            $ai_knowledge_basegenerate_guided_promptsdoc_list:ai_kb_document();
+                                            $ai_knowledge_basegenerate_guided_promptskb_info:Map();
+                                            $ai_knowledge_basegenerate_guided_promptsresult:Map();
+                                    eval($ai_knowledge_basegenerate_guided_promptsdefault==ai_knowledge_basegenerate_guided_promptsdefault && $ai_knowledge_basegenerate_guided_promptsagent==ai_knowledge_basegenerate_guided_promptsagent && $ai_knowledge_basegenerate_guided_promptscategory==ai_knowledge_basegenerate_guided_promptscategory && $ai_knowledge_basegenerate_guided_promptscategory_settings==ai_knowledge_basegenerate_guided_promptscategory_settings && $ai_knowledge_basegenerate_guided_promptschunk_list==ai_knowledge_basegenerate_guided_promptschunk_list && $ai_knowledge_basegenerate_guided_promptsdoc_list==ai_knowledge_basegenerate_guided_promptsdoc_list && );
+                                eval((RuleUtils.test($ai_knowledge_basegenerate_guided_promptscategory_settings.get("guidedPromptAgentId"),"ISNOTNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-bindparam_01_sysaichatagent_chatoutput_02" sourceRef="gateway-bindparam_01" targetRef="sysaichatagent_chatoutput_02">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_knowledge_basegenerate_guided_promptsdefault:ai_knowledge_base();
+                                            $ai_knowledge_basegenerate_guided_promptsagent:ai_agent_context();
+                                            $ai_knowledge_basegenerate_guided_promptscategory:category();
+                                            $ai_knowledge_basegenerate_guided_promptscategory_settings:category_settings();
+                                            $ai_knowledge_basegenerate_guided_promptschat_request:Map();
+                                            $ai_knowledge_basegenerate_guided_promptschat_response:Map();
+                                            $ai_knowledge_basegenerate_guided_promptschunk_filter:Map();
+                                            $ai_knowledge_basegenerate_guided_promptschunk_list:ai_kb_chunk();
+                                            $ai_knowledge_basegenerate_guided_promptsdoc_filter:Map();
+                                            $ai_knowledge_basegenerate_guided_promptsdoc_list:ai_kb_document();
+                                            $ai_knowledge_basegenerate_guided_promptskb_info:Map();
+                                            $ai_knowledge_basegenerate_guided_promptsresult:Map();
+                                    eval($ai_knowledge_basegenerate_guided_promptsdefault==ai_knowledge_basegenerate_guided_promptsdefault && $ai_knowledge_basegenerate_guided_promptsagent==ai_knowledge_basegenerate_guided_promptsagent && $ai_knowledge_basegenerate_guided_promptscategory==ai_knowledge_basegenerate_guided_promptscategory && $ai_knowledge_basegenerate_guided_promptscategory_settings==ai_knowledge_basegenerate_guided_promptscategory_settings && $ai_knowledge_basegenerate_guided_promptschunk_list==ai_knowledge_basegenerate_guided_promptschunk_list && $ai_knowledge_basegenerate_guided_promptsdoc_list==ai_knowledge_basegenerate_guided_promptsdoc_list && );
+                                eval((RuleUtils.test($ai_knowledge_basegenerate_guided_promptscategory_settings.get("guidedPromptAgentId"),"ISNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_01_deaction_04" sourceRef="prepareparam_01" targetRef="deaction_04">
+                    </sequenceFlow>
+                    <sequenceFlow id="deaction_04_prepareparam_05" sourceRef="deaction_04" targetRef="prepareparam_05">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatoutput_02_debugparam_02" sourceRef="sysaichatagent_chatoutput_02" targetRef="debugparam_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatoutput_01_debugparam_02" sourceRef="sysaichatagent_chatoutput_01" targetRef="debugparam_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_05_sysaichatagent_chatoutput_01" sourceRef="prepareparam_05" targetRef="sysaichatagent_chatoutput_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="debugparam_02_prepareparam_06" sourceRef="debugparam_02" targetRef="prepareparam_06">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_06_rawsfcode_03" sourceRef="prepareparam_06" targetRef="rawsfcode_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="rawsfcode_03_rawsqlcall_01" sourceRef="rawsfcode_03" targetRef="rawsqlcall_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="rawsqlcall_01_end_01" sourceRef="rawsqlcall_01" targetRef="end_01">
+                    </sequenceFlow>
+                            <exclusiveGateway id="gateway-debugparam_01" name="Gateway" gatewayDirection="Diverging" default="gateway-debugparam_01_end_line"></exclusiveGateway>
+                            <sequenceFlow id="debugparam_01_gateway-debugparam_01_gatewayline" sourceRef="debugparam_01" targetRef="gateway-debugparam_01"></sequenceFlow>
+                            <sequenceFlow id="gateway-debugparam_01_end_line" sourceRef="gateway-debugparam_01" targetRef="gateway-debugparam_01_end"/>
+                            <endEvent id="gateway-debugparam_01_end" name="end"/>
+                            <exclusiveGateway id="gateway-bindparam_01" name="Gateway" gatewayDirection="Diverging" default="gateway-bindparam_01_end_line"></exclusiveGateway>
+                            <sequenceFlow id="bindparam_01_gateway-bindparam_01_gatewayline" sourceRef="bindparam_01" targetRef="gateway-bindparam_01"></sequenceFlow>
+                            <sequenceFlow id="gateway-bindparam_01_end_line" sourceRef="gateway-bindparam_01" targetRef="gateway-bindparam_01_end"/>
+                            <endEvent id="gateway-bindparam_01_end" name="end"/>
+        </process>
+    </definitions>

@@ -1,0 +1,104 @@
+{
+  "accUserMode" : 2,
+  "getCapPSLanguageRes" : {
+    "lanResTag" : "DE.LNAME.AI_AGENT_CONTEXT"
+  },
+  "caption" : "flow智能体设计",
+  "codeName" : "ai_agent_context_flow_design_exp_view",
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_agent_context_flow_design_exp_view.json",
+  "height" : 90,
+  "name" : "ai_agent_contextflow_design_exp_view",
+  "openMode" : "POPUPMODAL",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
+  },
+  "getPSAppModule" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPMODULES/ai.json"
+  },
+  "getPSAppViewEngines" : [ {
+    "engineCat" : "VIEW",
+    "engineType" : "TabExpView",
+    "name" : "engine"
+  } ],
+  "getPSControls" : [ {
+    "codeName" : "flow_design_view_dr",
+    "controlType" : "DRTAB",
+    "dataRelationTag" : "flow_design_view_DR",
+    "getEditItemCapPSLanguageRes" : {
+      "lanResTag" : "DE.LNAME.AI_AGENT_CONTEXT"
+    },
+    "editItemCaption" : "智能体业务上下文",
+    "name" : "tabexppanel",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
+    },
+    "getPSControlHandler" : {
+      "enableDEFieldPrivilege" : false,
+      "id" : "tabexppanel"
+    },
+    "getPSControlParam" : {
+      "autoLoad" : true,
+      "showBusyIndicator" : true,
+      "id" : "TABEXPPANEL"
+    },
+    "getPSDEDRTabPages" : [ {
+      "caption" : "配置",
+      "name" : "flow_preview",
+      "getPSAppView" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/PSDELogicLogicDesign_AIAgent.json",
+        "viewType" : "DESUBAPPREFVIEW"
+      }
+    } ],
+    "uniqueTag" : "ai_agent_context_flow_design_exp_view__tabexppanel",
+    "hideEditItem" : true,
+    "modelid" : "f49d49486f19b8406d75236bf1215c08",
+    "modeltype" : "PSDEDRTAB"
+  }, {
+    "getCapPSLanguageRes" : {
+      "lanResTag" : "DE.LNAME.AI_AGENT_CONTEXT"
+    },
+    "caption" : "flow智能体设计",
+    "codeName" : "flow_design_exp_view_captionbar",
+    "controlType" : "CAPTIONBAR",
+    "name" : "captionbar",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
+    },
+    "getPSControlParam" : { }
+  } ],
+  "getPSDEViewCodeName" : "flow_design_exp_view",
+  "getPSDEViewId" : "e6c324c8be1814a7b65c8e693d005cbb",
+  "getPSViewLayoutPanel" : {
+    "codeName" : "layoutpanel",
+    "controlStyle" : "APPDETABEXPVIEW",
+    "controlType" : "VIEWLAYOUTPANEL",
+    "name" : "layoutpanel",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
+    },
+    "getPSControlParam" : { },
+    "layoutBodyOnly" : true,
+    "layoutPanel" : true,
+    "useDefaultLayout" : true
+  },
+  "tabLayout" : "TOP",
+  "title" : "flow智能体设计",
+  "viewStyle" : "DEFAULT",
+  "viewType" : "DETABEXPVIEW",
+  "width" : 90,
+  "enableDP" : true,
+  "enableQuickSearch" : false,
+  "enableSearch" : false,
+  "expandSearchForm" : false,
+  "loadDefault" : true,
+  "showCaptionBar" : false,
+  "showDataInfoBar" : true,
+  "modelid" : "1b809910a12652deb0d9453914d69e87",
+  "modeltype" : "PSAPPDEVIEW"
+}

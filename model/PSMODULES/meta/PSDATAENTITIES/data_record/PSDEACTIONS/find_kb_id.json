@@ -1,0 +1,21 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "find_kb_id",
+  "dataAccessAction" : "READ",
+  "dynaModelFilePath" : "PSMODULES/meta/PSDATAENTITIES/data_record/PSDEACTIONS/find_kb_id.json",
+  "logicName" : "获取关联知识库标识",
+  "name" : "find_kb_id",
+  "getPSDEActionInput" : {
+    "name" : "Find_kb_idInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "data_record_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "Find_kb_idResult",
+    "type" : "VOID"
+  }
+}

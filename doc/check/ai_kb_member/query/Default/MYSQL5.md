@@ -1,0 +1,16 @@
+```sql
+SELECT
+t1.`CREATE_MAN`,
+t1.`CREATE_TIME`,
+t1.`ENABLE`,
+t1.`ID`,
+t1.`KB_ID`,
+t1.`NAME`,
+t1.`ROLE_ID`,
+t1.`UPDATE_MAN`,
+t1.`UPDATE_TIME`,
+t1.`USER_ID`
+FROM `AI_KB_MEMBER` t1 
+
+
+```

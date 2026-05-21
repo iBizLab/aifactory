@@ -1,0 +1,351 @@
+{
+  "codeName" : "upsert",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDELOGICS/upsert.json",
+  "logicName" : "upsert",
+  "name" : "upsert",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : 170,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : 80,
+    "parallelOutput" : true
+  }, {
+    "code" : "def defaultEntity = logic.param(\"default\").getReal();\r\nif(!defaultEntity.get(\"id\"))\r\n{\r\n    String unionId=\"\"\r\nif (defaultEntity.get(\"kb_id\"))\r\n    unionId+=defaultEntity.getString(\"kb_id\",\"\")\r\nif (defaultEntity.get(\"document_id\"))\r\n    unionId+=(\"||\"+defaultEntity.getString(\"document_id\",\"\"))\r\nif (defaultEntity.get(\"record_id\"))\r\n    unionId+=(\"||\"+defaultEntity.getString(\"record_id\",\"\"))\r\nif(!unionId)\r\n    org.springframework.util.Assert.hasLength(unionId,\"未传入审查对象\");\r\nif (defaultEntity.get(\"agent_tag\"))\r\n    unionId+=(\"||\"+defaultEntity.getString(\"agent_tag\",\"\"))\r\n    defaultEntity.set(\"id\",net.ibizsys.runtime.util.KeyValueUtils.genUniqueId(unionId))\r\n}",
+    "codeName" : "RAWSFCODE_02",
+    "codeType" : "Groovy",
+    "leftPos" : -165,
+    "logicNodeType" : "RAWSFCODE",
+    "name" : "处理联合键值",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_02"
+      }
+    } ],
+    "topPos" : 90,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_01",
+    "leftPos" : -170,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "设置报告",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEBUGPARAM_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_01"
+      }
+    } ],
+    "topPos" : 260,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEBUGPARAM_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "leftPos" : -165,
+    "logicNodeType" : "DEBUGPARAM",
+    "name" : "查看报告数据",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEBUGPARAM_01"
+      }
+    } ],
+    "topPos" : 370,
+    "parallelOutput" : true
+  }, {
+    "code" : "def defaultEntity = logic.param(\"default\").getReal();\n\nString unionId=\"\"\nif (defaultEntity.get(\"kb_id\"))\n    unionId+=defaultEntity.getString(\"kb_id\",\"\")\nif (defaultEntity.get(\"document_id\"))\n    unionId+=(\"||\"+defaultEntity.getString(\"document_id\",\"\"))\nif (defaultEntity.get(\"record_id\"))\n    unionId+=(\"||\"+defaultEntity.getString(\"record_id\",\"\"))\nif(!unionId)\n    org.springframework.util.Assert.hasLength(unionId,\"未传入审查对象\");\nif (defaultEntity.get(\"agent_tag\"))\n    unionId+=(\"||\"+defaultEntity.getString(\"agent_tag\",\"\"))\ndefaultEntity.set(\"id\",net.ibizsys.runtime.util.KeyValueUtils.genUniqueId(unionId))\n",
+    "codeName" : "RAWSFCODE_01",
+    "codeType" : "Groovy",
+    "leftPos" : 90,
+    "logicNodeType" : "RAWSFCODE",
+    "name" : "填充联合键值",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      }
+    } ],
+    "topPos" : 370,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEACTION_02",
+    "getDstPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEACTIONS/CheckKey.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report.json"
+    },
+    "leftPos" : -165,
+    "logicNodeType" : "DEACTION",
+    "name" : "检查数据",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEBUGPARAM_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_02"
+      }
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "checkkeyresult"
+    },
+    "topPos" : 473,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEBUGPARAM_02",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "checkkeyresult"
+    },
+    "leftPos" : -165,
+    "logicNodeType" : "DEBUGPARAM",
+    "name" : "检查结果",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_03"
+      },
+      "name" : "无数据",
+      "getPSDELogicLinkGroupCond" : {
+        "groupOP" : "AND",
+        "logicType" : "GROUP",
+        "name" : "连接条件组",
+        "getPSDELogicLinkConds" : [ {
+          "condOP" : "EQ",
+          "getDstLogicParam" : {
+            "modelref" : true,
+            "id" : "checkkeyresult"
+          },
+          "logicType" : "SINGLE",
+          "name" : "checkkeyresult 等于(=) 0",
+          "paramValue" : "0"
+        } ]
+      },
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEBUGPARAM_02"
+      }
+    }, {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_04"
+      },
+      "name" : "有数据",
+      "getPSDELogicLinkGroupCond" : {
+        "groupOP" : "AND",
+        "logicType" : "GROUP",
+        "name" : "连接条件组",
+        "getPSDELogicLinkConds" : [ {
+          "condOP" : "EQ",
+          "getDstLogicParam" : {
+            "modelref" : true,
+            "id" : "checkkeyresult"
+          },
+          "logicType" : "SINGLE",
+          "name" : "checkkeyresult 等于(=) 1",
+          "paramValue" : "1"
+        } ]
+      },
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEBUGPARAM_02"
+      }
+    } ],
+    "topPos" : 580,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEACTION_01",
+    "getDstPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEACTIONS/Save.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report.json"
+    },
+    "leftPos" : 270,
+    "logicNodeType" : "DEACTION",
+    "name" : "保存自动判断",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_01"
+      }
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "topPos" : 620,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEACTION_03",
+    "getDstPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEACTIONS/Create.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report.json"
+    },
+    "leftPos" : -301,
+    "logicNodeType" : "DEACTION",
+    "name" : "创建报告",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_03"
+      }
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "topPos" : 735,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEACTION_04",
+    "getDstPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEACTIONS/Update.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report.json"
+    },
+    "leftPos" : -29,
+    "logicNodeType" : "DEACTION",
+    "name" : "保存报告",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_04"
+      }
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "topPos" : 735,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "END_01",
+    "leftPos" : 200,
+    "logicNodeType" : "END",
+    "name" : "结束",
+    "getReturnParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "returnType" : "LOGICPARAM",
+    "topPos" : 757,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "END_02",
+    "leftPos" : -125,
+    "logicNodeType" : "END",
+    "name" : "结束",
+    "getReturnParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "returnType" : "LOGICPARAM",
+    "topPos" : 871,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report.json"
+    },
+    "default" : true,
+    "entityParam" : true
+  }, {
+    "codeName" : "checkkeyresult",
+    "logicName" : "checkkeyresult",
+    "name" : "checkkeyresult",
+    "stdDataType" : 25,
+    "simpleParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

@@ -1,0 +1,131 @@
+{
+  "codeName" : "provider_model_version",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_model/PSDELOGICS/provider_model_version.json",
+  "logicName" : "获取模型提供商版本",
+  "name" : "获取模型提供商版本",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : -240,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : -140,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "BINDPARAM_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "provider_models"
+    },
+    "leftPos" : 240,
+    "logicNodeType" : "BINDPARAM",
+    "name" : "绑定提供商模型参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "BINDPARAM_01"
+      }
+    } ],
+    "srcFieldName" : "provider_models",
+    "getSrcPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "page_temp"
+    },
+    "topPos" : -140,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "END_01",
+    "leftPos" : 290,
+    "logicNodeType" : "END",
+    "name" : "结束",
+    "getReturnParam" : {
+      "modelref" : true,
+      "id" : "provider_models"
+    },
+    "returnType" : "LOGICPARAM",
+    "topPos" : 30,
+    "parallelOutput" : true
+  }, {
+    "code" : "def page_temp = logic.param('page_temp').getReal()\r\ndef _default = logic.param('default').getReal()\r\n\r\ndef VERSION_PATTERN = ~/\\/v\\d+$/\r\n\r\n        List<String> ENDPOINT_SUFFIXES = [\r\n                \"/chat/completions\",\r\n                \"/embeddings\",\r\n                \"/v1/embeddings\",      // 某些厂商带 v1 的全路径\r\n                \"/v1/chat/completions\",\r\n                \"/rerank\",\r\n                \"/v1/rerank\",\r\n                \"/services/rerank/text-rerank/text-rerank\",\r\n                \"/v1/models\",              // 查询模型清单的接口\r\n                \"/models\"\r\n        ]\r\n\r\n\r\n        def getBaseUrl = { String userInput, String defaultVer = \"/v1\" ->\r\n            if (!userInput?.trim()) return \"\"\r\n\r\n            String url = userInput.trim().replaceAll(/\\/+$/, \"\")\r\n\r\n\r\n            for (suffix in ENDPOINT_SUFFIXES) {\r\n                if (url.endsWith(suffix)) {\r\n                    url = url.substring(0, url.length() - suffix.length()).replaceAll(/\\/+$/, \"\")\r\n                    break // 匹配到一个就跳出，防止重复切除\r\n                }\r\n            }\r\n\r\n            if (!(url =~ VERSION_PATTERN) && !url.endsWith(\"/api\")) {\r\n                String path = defaultVer.startsWith(\"/\") ? defaultVer : \"/${defaultVer}\"\r\n                url += path\r\n            }\r\n\r\n            return url\r\n        }\r\ndef base_url=_default.get(\"base_url\")\r\ndef default_version=_default.get(\"default_version\")\r\nif(!default_version) {\r\n    default_version=\"/v1\"\r\n}\r\ndef default_token=_default.get(\"default_token\")\r\nif(!default_token) {\r\n    default_token=_default.get(\"access_token\")\r\n}\r\n\r\ndef api_base_url = _default.get(\"api_base_url\")\r\nif(!api_base_url) {\r\n    api_base_url = base_url+default_version\r\n}\r\ndef _uri = getBaseUrl(api_base_url,default_version)+\"/models\"\r\n\r\n\r\n\r\npage_temp.set(\"provider_models\",null)\r\n\r\ntry {\r\n    def _webclient = sys.webclient()\r\n    def _param =  [:]\r\n    def _headers = [\r\n        \"Authorization\": \"Bearer \"+default_token,\r\n        \"Content-Type\": \"application/json\"\r\n    ]\r\n\r\n    def rep = _webclient.get(_uri,_param,_headers)\r\n    List contentList = new ArrayList<>();\r\n    def jsonMap = net.ibizsys.central.service.client.WebClientBase.MAPPER.readValue(rep.getBody(), Map.class)\r\n    def dataList = jsonMap.get(\"data\")\r\n\r\n    if(!org.springframework.util.ObjectUtils.isEmpty(dataList)) {\r\n        for(Object objItem: dataList) {\r\n            net.ibizsys.central.util.EntityDTO dto = net.ibizsys.central.service.client.WebClientBase.MAPPER.convertValue(objItem, net.ibizsys.central.util.EntityDTO.class);\r\n            def modelId = dto.get(\"id\"); \r\n            if(modelId) {\r\n                dto.set(\"name\", modelId);\r\n            }\r\n\r\n            contentList.add(dto);\r\n        }\r\n\r\n        def  nPage = _default.page\r\n        def nSize = _default.size\r\n        def _models= new net.ibizsys.central.util.PageImpl(contentList, org.springframework.data.domain.PageRequest.of(nPage, nSize), contentList.size())\r\n        page_temp.set(\"provider_models\",_models)\r\n    }   \r\n}catch(Exception e){\r\n     println(\"获取模型提供商版本错误: \" + e.message)\r\n}\r\n",
+    "codeName" : "RAWSFCODE_01",
+    "codeType" : "Groovy",
+    "leftPos" : -12,
+    "logicNodeType" : "RAWSFCODE",
+    "name" : "调用接口返回模型版本",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "BINDPARAM_01"
+      },
+      "name" : "连接名称",
+      "getPSDELogicLinkGroupCond" : {
+        "groupOP" : "AND",
+        "logicType" : "GROUP",
+        "name" : "连接条件组",
+        "getPSDELogicLinkConds" : [ {
+          "condOP" : "ISNOTNULL",
+          "dstFieldName" : "provider_models",
+          "getDstLogicParam" : {
+            "modelref" : true,
+            "id" : "page_temp"
+          },
+          "logicType" : "SINGLE",
+          "name" : "page_temp[provider_models] 值不为空(NotNil) "
+        } ]
+      },
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      }
+    } ],
+    "topPos" : -142,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_model.json"
+    },
+    "default" : true,
+    "filterParam" : true
+  }, {
+    "codeName" : "page_temp",
+    "logicName" : "page_temp",
+    "name" : "page_temp",
+    "entityParam" : true
+  }, {
+    "codeName" : "provider_models",
+    "logicName" : "provider_models",
+    "name" : "provider_models",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_model.json"
+    },
+    "entityPageParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

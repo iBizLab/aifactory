@@ -1,0 +1,735 @@
+{
+  "codeName" : "create_ai_agent_context",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDELOGICS/create_ai_agent_context.json",
+  "logicName" : "创建智能体",
+  "logicSubType" : "AICHAT",
+  "name" : "创建智能体",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : 30,
+    "logicNodeType" : "BEGIN",
+    "message" : "<user>\n完成<#if body.ai_agent_name??>${body.ai_agent_name!}类</#if>智能体的创建。\n简短描述: ${body.description!}\n<#if body.output_format_type??>输出为${body.output_format_type!}格式</#if>\n<#if body.copy_agent?? && body.copy_prompt??>可以参照如下类似智能体的提示词\n```markdown\n${body.copy_prompt!}\n```</#if>\n</user>",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEBUGPARAM_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : -168,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEBUGPARAM_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "leftPos" : -180,
+    "logicNodeType" : "DEBUGPARAM",
+    "name" : "输出default参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_04"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEBUGPARAM_01"
+      }
+    } ],
+    "topPos" : -58,
+    "parallelOutput" : true
+  }, {
+    "chatRequestAppendMode" : "USER",
+    "codeName" : "SYSAICHATAGENT_APPENDCHATREQUEST_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "leftPos" : 220,
+    "logicNodeType" : "SYSAICHATAGENT_APPENDCHATREQUEST",
+    "message" : "帮我把结果转为json，包含name（请帮我起个智能体的名字，20字以内）、description（用户最早提供的简要描述）、code_name（通过名称起一个英文标识，20字以内）、default_system_prompt",
+    "name" : "附加聊天请求",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATOUTPUT_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_APPENDCHATREQUEST_01"
+      }
+    } ],
+    "subType" : "APPENDCHATREQUEST",
+    "topPos" : 22
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATOUTPUT_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "leftPos" : 476,
+    "logicNodeType" : "SYSAICHATAGENT_CHATOUTPUT",
+    "name" : "交谈输出",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATOUTPUT_01"
+      }
+    } ],
+    "getPSSysAIChatAgent" : {
+      "modelref" : true,
+      "id" : "agent_prompt"
+    },
+    "getPSSysAIFactory" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSSYSAIFACTORIES/iBizIntelligence.json"
+    },
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_response"
+    },
+    "subType" : "CHATOUTPUT",
+    "topPos" : 22,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATSTEP_01",
+    "leftPos" : 720,
+    "logicNodeType" : "SYSAICHATAGENT_CHATSTEP",
+    "message" : "正在创建智能体....",
+    "name" : "步骤消息",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATSTEP_01"
+      }
+    } ],
+    "subType" : "CHATSTEP",
+    "title" : "正在创建智能体",
+    "topPos" : 22
+  }, {
+    "codeName" : "PREPAREPARAM_04",
+    "leftPos" : -180,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "准备参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATOUTPUT_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_04"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "srfextparams"
+      },
+      "paramAction" : "BINDPARAM",
+      "srcFieldName" : "srfextparams",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "topPos" : 62,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATOUTPUT_03",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "leftPos" : 740,
+    "logicNodeType" : "SYSAICHATAGENT_CHATOUTPUT",
+    "name" : "交谈输出",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATOUTPUT_03"
+      }
+    } ],
+    "getPSSysAIChatAgent" : {
+      "modelref" : true,
+      "id" : "agent_prompt"
+    },
+    "getPSSysAIFactory" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSSYSAIFACTORIES/iBizIntelligence.json"
+    },
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_response"
+    },
+    "subType" : "CHATOUTPUT",
+    "topPos" : 146
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATOUTPUT_02",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "leftPos" : -180,
+    "logicNodeType" : "SYSAICHATAGENT_CHATOUTPUT",
+    "name" : "交谈输出",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATUIACTION_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATOUTPUT_02"
+      }
+    } ],
+    "getPSSysAIChatAgent" : {
+      "modelref" : true,
+      "id" : "agent_prompt"
+    },
+    "getPSSysAIFactory" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSSYSAIFACTORIES/iBizIntelligence.json"
+    },
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_response"
+    },
+    "subType" : "CHATOUTPUT",
+    "topPos" : 166
+  }, {
+    "categoryMode" : "RERANK",
+    "categoryReRankThreshold" : 0.9,
+    "codeName" : "SYSAICHATAGENT_CHATCATEGORY_03",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "leftPos" : 310,
+    "logicNodeType" : "SYSAICHATAGENT_CHATCATEGORY",
+    "name" : "问题分类",
+    "getPSSysAIChatAgent" : {
+      "modelref" : true,
+      "id" : "DynamicAgent"
+    },
+    "getPSSysAIFactory" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSSYSAIFACTORIES/iBizIntelligence.json"
+    },
+    "reRankThreshold" : 0.9,
+    "subType" : "CHATCATEGORY",
+    "topPos" : 180
+  }, {
+    "codeName" : "PREPAREPARAM_01",
+    "leftPos" : 476,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "提取json",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_01"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "ai_agent_context"
+      },
+      "paramAction" : "BINDPARAM",
+      "srcFieldName" : "json",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chat_response"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    }, {
+      "dstFieldName" : "AI_AGENT_ID",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "ai_agent_context"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "AI_AGENT_ID",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "srfextparams"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "topPos" : 256,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATDECISION_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_response"
+    },
+    "leftPos" : 164,
+    "logicNodeType" : "SYSAICHATAGENT_CHATDECISION",
+    "name" : "路径选择",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_APPENDCHATREQUEST_01"
+      },
+      "memo" : "建立对应的智能体",
+      "name" : "确认生成",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATDECISION_01"
+      }
+    }, {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATOUTPUT_02"
+      },
+      "memo" : "与AI继续交谈，细化内容",
+      "name" : "继续细化",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATDECISION_01"
+      },
+      "defaultLink" : true
+    } ],
+    "subType" : "CHATDECISION",
+    "topPos" : 270,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATUIACTION_02",
+    "leftPos" : -180,
+    "logicNodeType" : "SYSAICHATAGENT_CHATUIACTION",
+    "memo" : "[{\n\"type\": \"raw\",\n  \"data\": {\n    \"content\": \"确认生成\"\n  },\n  \"metadata\": {\n   \"content_name\": \"确认生成\",\n   \"language\": \"zh-CN\"\n  }\n}]",
+    "message" : "[{\n\"type\": \"raw\",\n  \"data\": {\n    \"content\": \"确认生成\"\n  },\n  \"metadata\": {\n   \"content_name\": \"确认生成\",\n   \"language\": \"zh-CN\"\n  }\n}]",
+    "name" : "界面行为反馈",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_03"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATUIACTION_02"
+      }
+    } ],
+    "subType" : "CHATUIACTION",
+    "topPos" : 270
+  }, {
+    "chatRequestAppendMode" : "USER",
+    "codeName" : "SYSAICHATAGENT_APPENDCHATREQUEST_02",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "leftPos" : 740,
+    "logicNodeType" : "SYSAICHATAGENT_APPENDCHATREQUEST",
+    "message" : "前置返回内容：\n${params.chat_response.json}\n---\n异常：\n${params.temp.error}\n根据异常尝试解决，异常涉及用户未给出的必填项数据尝试补充示例数据，并完整输出",
+    "name" : "附加聊天请求",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATOUTPUT_03"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_APPENDCHATREQUEST_02"
+      }
+    } ],
+    "subType" : "APPENDCHATREQUEST",
+    "topPos" : 316
+  }, {
+    "codeName" : "DEACTION_01",
+    "getDstPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEACTIONS/GetDraft.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "ai_agent_context"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    },
+    "leftPos" : 476,
+    "logicNodeType" : "DEACTION",
+    "name" : "获取智能体默认参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_03"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_01"
+      }
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "ai_agent_context"
+    },
+    "topPos" : 376,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_03",
+    "leftPos" : -200,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "准备参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATDECISION_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_03"
+      }
+    } ],
+    "topPos" : 376,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATSTEP_02",
+    "leftPos" : 1153,
+    "logicNodeType" : "SYSAICHATAGENT_CHATSTEP",
+    "name" : "步骤消息",
+    "subType" : "CHATSTEP",
+    "topPos" : 376,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATSTEP_03",
+    "leftPos" : 740,
+    "logicNodeType" : "SYSAICHATAGENT_CHATSTEP",
+    "message" : "创建智能体异常，开始自检...",
+    "name" : "创建异常",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_APPENDCHATREQUEST_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATSTEP_03"
+      }
+    }, {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATSTEP_04"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATSTEP_03"
+      },
+      "catchLink" : true
+    } ],
+    "reentryLimit" : 2,
+    "subType" : "CHATSTEP",
+    "title" : "出现异常自检中",
+    "topPos" : 460
+  }, {
+    "codeName" : "DEACTION_03",
+    "getDstPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEACTIONS/Create.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "ai_agent_context"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    },
+    "leftPos" : 470,
+    "logicNodeType" : "DEACTION",
+    "name" : "建立智能体",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATUIACTION_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_03"
+      }
+    }, {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_03"
+      },
+      "catchLink" : true
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "ai_agent_context"
+    },
+    "topPos" : 470,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATINPUT_02",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_response"
+    },
+    "leftPos" : -106,
+    "logicNodeType" : "SYSAICHATAGENT_CHATINPUT",
+    "message" : "**继续细化或确认生成**",
+    "name" : "下一步或重新生成",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATDECISION_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATINPUT_02"
+      }
+    } ],
+    "subType" : "CHATINPUT",
+    "topPos" : 506
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATUIACTION_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_response"
+    },
+    "leftPos" : 300,
+    "logicNodeType" : "SYSAICHATAGENT_CHATUIACTION",
+    "memo" : "[{\n  \"id\": \"open_edit_view\",\n  \"type\": \"uiaction\",\n  \"data\": {\n    \"id\": \"open_edit_view\",\n    \"uiaction_id\": \"open_edit_view@ai_agent_context\",\n    \"de_name\": \"ai_agent_context\"\n  },\n  \"metadata\": {\n   \"name\": \"打开建立的智能体\",\n   \"actionContext\": \"ai_agent_context:${params.ai_agent_context.id}\",\n   \"uiaction_id\": \"open_edit_view@ai_agent_context\"\n  }\n}]",
+    "message" : "[{\n  \"type\": \"action\",\n  \"data\": {\n    \"actionid\": \"open_edit_view@ai_agent_context\"\n  },\n  \"metadata\": {\n   \"content_name\": \"打开建立的智能体\",\n   \"action_context\": \"ai_agent_context:${params.ai_agent_context.id}\"\n  }\n}]",
+    "name" : "回写查看建立数据的按钮",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATUIACTION_01"
+      }
+    } ],
+    "subType" : "CHATUIACTION",
+    "topPos" : 590
+  }, {
+    "codeName" : "PREPAREPARAM_02",
+    "leftPos" : 910,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "写入错误信息",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATSTEP_03"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_02"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "error",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "temp"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "last_return"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "topPos" : 620,
+    "parallelOutput" : true
+  }, {
+    "categoryMode" : "MIXED",
+    "categoryReRankThreshold" : 0.1,
+    "codeName" : "SYSAICHATAGENT_CHATCATEGORY_05",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "leftPos" : 70,
+    "logicNodeType" : "SYSAICHATAGENT_CHATCATEGORY",
+    "name" : "问题分类",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_01"
+      },
+      "name" : "退出",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATCATEGORY_05"
+      },
+      "defaultLink" : true
+    } ],
+    "getPSSysAIChatAgent" : {
+      "modelref" : true,
+      "id" : "DynamicAgent"
+    },
+    "getPSSysAIFactory" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSSYSAIFACTORIES/iBizIntelligence.json"
+    },
+    "reRankThreshold" : 0.1,
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_response"
+    },
+    "subType" : "CHATCATEGORY",
+    "topPos" : 710
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATINPUT_04",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_response"
+    },
+    "leftPos" : 300,
+    "logicNodeType" : "SYSAICHATAGENT_CHATINPUT",
+    "message" : "完成智能体创建",
+    "name" : "等待输入",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATCATEGORY_05"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATINPUT_04"
+      }
+    } ],
+    "subType" : "CHATINPUT",
+    "topPos" : 710
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATSTEP_04",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_response"
+    },
+    "leftPos" : 740,
+    "logicNodeType" : "SYSAICHATAGENT_CHATSTEP",
+    "message" : "超过自检重试次数，请退出后重新创建",
+    "name" : "步骤消息",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATSTEP_04"
+      }
+    } ],
+    "subType" : "CHATSTEP",
+    "topPos" : 789
+  }, {
+    "codeName" : "END_01",
+    "leftPos" : 220,
+    "logicNodeType" : "END",
+    "name" : "结束",
+    "getReturnParam" : {
+      "modelref" : true,
+      "id" : "chat_response"
+    },
+    "returnType" : "LOGICPARAM",
+    "topPos" : 900,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    },
+    "chatCompletionRequestParam" : true,
+    "default" : true
+  }, {
+    "codeName" : "ai_agent_context",
+    "logicName" : "智能体",
+    "name" : "智能体",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    },
+    "entityParam" : true
+  }, {
+    "codeName" : "chat_response",
+    "logicName" : "AI反馈",
+    "name" : "AI反馈",
+    "chatCompletionResultParam" : true
+  }, {
+    "codeName" : "last_return",
+    "logicName" : "last_return",
+    "name" : "last_return",
+    "lastReturnParam" : true
+  }, {
+    "codeName" : "srfextparams",
+    "logicName" : "srfextparams",
+    "name" : "srfextparams",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    },
+    "entityParam" : true
+  }, {
+    "codeName" : "temp",
+    "logicName" : "temp",
+    "name" : "temp",
+    "entityParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

@@ -1,0 +1,99 @@
+package cn.ibizlab.base.logic.category_settingslogic.get_aifactory_sys_env;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.base.domain.category_settings category_settingsget_aifactory_sys_envdefault;
+                global java.util.Map category_settingsget_aifactory_sys_envcheck;
+                    global cn.ibizlab.core.base.service.Icategory_settingsService category_settingsservice;
+        global cn.ibizlab.core.base.service.Icategory_settingsService iBzSysCategory_settingsDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "category_settingsget_aifactory_sys_envbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_01"
+            ruleflow-group "category_settingsget_aifactory_sys_envprepareparam_01"
+            when
+            then
+                            category_settingsget_aifactory_sys_envdefault.set("categoryid","aifactory_sys_env");
+                        update(category_settingsget_aifactory_sys_envdefault);//更新fact中变量值
+                        update(category_settingsget_aifactory_sys_envcheck);//更新fact中变量值
+            end
+
+            //逻辑处理节点[checkkey]
+            rule "deaction_01"
+            ruleflow-group "category_settingsget_aifactory_sys_envdeaction_01"
+            when
+            then
+                        category_settingsservice.checkKey(category_settingsget_aifactory_sys_envdefault);
+                        update(category_settingsget_aifactory_sys_envdefault);//更新fact中变量值
+                        update(category_settingsget_aifactory_sys_envcheck);//更新fact中变量值
+            end
+
+            //逻辑处理节点[get]
+            rule "deaction_03"
+            ruleflow-group "category_settingsget_aifactory_sys_envdeaction_03"
+            when
+            then
+                            cn.ibizlab.util.helper.CachedBeanCopier.copy(category_settingsservice.get(category_settingsget_aifactory_sys_envdefault.getCategoryId()),category_settingsget_aifactory_sys_envdefault);
+                        update(category_settingsget_aifactory_sys_envdefault);//更新fact中变量值
+                        update(category_settingsget_aifactory_sys_envcheck);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_02"
+            ruleflow-group "category_settingsget_aifactory_sys_envprepareparam_02"
+            when
+            then
+                            category_settingsget_aifactory_sys_envdefault.set("categoryname","AIFactory系统默认设置");
+                        update(category_settingsget_aifactory_sys_envdefault);//更新fact中变量值
+                        update(category_settingsget_aifactory_sys_envcheck);//更新fact中变量值
+            end
+
+            //逻辑处理节点[初始化默认配置]
+            rule "deaction_02"
+            ruleflow-group "category_settingsget_aifactory_sys_envdeaction_02"
+            when
+            then
+                        category_settingsservice.create(category_settingsget_aifactory_sys_envdefault);
+                        update(category_settingsget_aifactory_sys_envdefault);//更新fact中变量值
+                        update(category_settingsget_aifactory_sys_envcheck);//更新fact中变量值
+            end
+
+            //逻辑处理节点[调试逻辑参数]
+            rule "debugparam_01"
+            ruleflow-group "category_settingsget_aifactory_sys_envdebugparam_01"
+            when
+            then
+                        update(category_settingsget_aifactory_sys_envdefault);//更新fact中变量值
+                        update(category_settingsget_aifactory_sys_envcheck);//更新fact中变量值
+            end
+
+            //逻辑处理节点[获取配置]
+            rule "rawsfcode_01"
+            ruleflow-group "category_settingsget_aifactory_sys_envrawsfcode_01"
+            when
+            then
+                        update(category_settingsget_aifactory_sys_envdefault);//更新fact中变量值
+                        update(category_settingsget_aifactory_sys_envcheck);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "category_settingsget_aifactory_sys_envend_01"
+            when
+            then
+                        update(category_settingsget_aifactory_sys_envdefault);//更新fact中变量值
+                        update(category_settingsget_aifactory_sys_envcheck);//更新fact中变量值
+            end

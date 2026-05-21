@@ -1,0 +1,148 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"active\"",
+    "name" : "ACTIVE"
+  }, {
+    "expression" : "t1.\"agent_group_tag\"",
+    "name" : "AGENT_GROUP_TAG"
+  }, {
+    "expression" : "t1.\"ai_model_id\"",
+    "name" : "AI_MODEL_ID"
+  }, {
+    "expression" : "t11.\"name\"",
+    "name" : "AI_MODEL_NAME"
+  }, {
+    "expression" : "t1.\"code_name\"",
+    "name" : "CODE_NAME"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"custom_suggestion_prompt\"",
+    "name" : "CUSTOM_SUGGESTION_PROMPT"
+  }, {
+    "expression" : "t1.\"default_system_prompt\"",
+    "name" : "DEFAULT_SYSTEM_PROMPT"
+  }, {
+    "expression" : "t1.\"enable_searching\"",
+    "name" : "ENABLE_SEARCHING"
+  }, {
+    "expression" : "t1.\"enable_suggested_questions\"",
+    "name" : "ENABLE_SUGGESTED_QUESTIONS"
+  }, {
+    "expression" : "t1.\"enable_thinking\"",
+    "name" : "ENABLE_THINKING"
+  }, {
+    "expression" : "t1.\"enable_tools\"",
+    "name" : "ENABLE_TOOLS"
+  }, {
+    "expression" : "t1.\"generation_mode\"",
+    "name" : "GENERATION_MODE"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"is_default\"",
+    "name" : "IS_DEFAULT"
+  }, {
+    "expression" : "t1.\"kb_mode\"",
+    "name" : "KB_MODE"
+  }, {
+    "expression" : "t1.\"max_input_tokens\"",
+    "name" : "MAX_INPUT_TOKENS"
+  }, {
+    "expression" : "t1.\"memory_doc_tag\"",
+    "name" : "MEMORY_DOC_TAG"
+  }, {
+    "expression" : "t1.\"memory_isolation_mode\"",
+    "name" : "MEMORY_ISOLATION_MODE"
+  }, {
+    "expression" : "t1.\"memory_kb_tag\"",
+    "name" : "MEMORY_KB_TAG"
+  }, {
+    "expression" : "t1.\"memory_max_turns\"",
+    "name" : "MEMORY_MAX_TURNS"
+  }, {
+    "expression" : "t1.\"memory_mode\"",
+    "name" : "MEMORY_MODE"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"publish_skill\"",
+    "name" : "PUBLISH_SKILL"
+  }, {
+    "expression" : "t1.\"rerank\"",
+    "name" : "RERANK"
+  }, {
+    "expression" : "t1.\"rerank_model\"",
+    "name" : "RERANK_MODEL"
+  }, {
+    "expression" : "t1.\"rerank_model_id\"",
+    "name" : "RERANK_MODEL_ID"
+  }, {
+    "expression" : "t1.\"sequence\"",
+    "name" : "SEQUENCE"
+  }, {
+    "expression" : "t1.\"similarity_threshold\"",
+    "name" : "SIMILARITY_THRESHOLD"
+  }, {
+    "expression" : "t1.\"skill_load_mode\"",
+    "name" : "SKILL_LOAD_MODE"
+  }, {
+    "expression" : "t1.\"skill_prompt\"",
+    "name" : "SKILL_PROMPT"
+  }, {
+    "expression" : "t1.\"skill_tags\"",
+    "name" : "SKILL_TAGS"
+  }, {
+    "expression" : "t1.\"stream\"",
+    "name" : "STREAM"
+  }, {
+    "expression" : "t1.\"suggested_questions\"",
+    "name" : "SUGGESTED_QUESTIONS"
+  }, {
+    "expression" : "t1.\"temperature\"",
+    "name" : "TEMPERATURE"
+  }, {
+    "expression" : "t1.\"tool_exceed_message\"",
+    "name" : "TOOL_EXCEED_MESSAGE"
+  }, {
+    "expression" : "t1.\"tool_max_calls\"",
+    "name" : "TOOL_MAX_CALLS"
+  }, {
+    "expression" : "t1.\"top_k\"",
+    "name" : "TOP_K"
+  }, {
+    "expression" : "t1.\"top_p\"",
+    "name" : "TOP_P"
+  }, {
+    "expression" : "t1.\"trimming_strategy\"",
+    "name" : "TRIMMING_STRATEGY"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"use_kg\"",
+    "name" : "USE_KG"
+  }, {
+    "expression" : "t1.\"vector_similarity_weight\"",
+    "name" : "VECTOR_SIMILARITY_WEIGHT"
+  }, {
+    "expression" : "t1.\"vlm_prompt\"",
+    "name" : "VLM_PROMPT"
+  }, {
+    "expression" : "t1.\"welcome_message\"",
+    "name" : "WELCOME_MESSAGE"
+  } ],
+  "queryCode" : "SELECT\nt1.\"active\",\nt1.\"agent_group_tag\",\nt1.\"ai_model_id\",\nt11.\"name\" AS \"ai_model_name\",\nt1.\"code_name\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"custom_suggestion_prompt\",\nt1.\"default_system_prompt\",\nt1.\"enable_searching\",\nt1.\"enable_suggested_questions\",\nt1.\"enable_thinking\",\nt1.\"enable_tools\",\nt1.\"generation_mode\",\nt1.\"id\",\nt1.\"is_default\",\nt1.\"kb_mode\",\nt1.\"max_input_tokens\",\nt1.\"memory_doc_tag\",\nt1.\"memory_isolation_mode\",\nt1.\"memory_kb_tag\",\nt1.\"memory_max_turns\",\nt1.\"memory_mode\",\nt1.\"name\",\nt1.\"publish_skill\",\nt1.\"rerank\",\nt1.\"rerank_model\",\nt1.\"rerank_model_id\",\nt1.\"sequence\",\nt1.\"similarity_threshold\",\nt1.\"skill_load_mode\",\nt1.\"skill_prompt\",\nt1.\"skill_tags\",\nt1.\"stream\",\nt1.\"suggested_questions\",\nt1.\"temperature\",\nt1.\"tool_exceed_message\",\nt1.\"tool_max_calls\",\nt1.\"top_k\",\nt1.\"top_p\",\nt1.\"trimming_strategy\",\nt1.\"update_man\",\nt1.\"update_time\",\nt1.\"use_kg\",\nt1.\"vector_similarity_weight\",\nt1.\"vlm_prompt\",\nt1.\"welcome_message\"\nFROM \"ai_agent\" t1 \nLEFT JOIN \"ai_model\" t11 ON t1.\"ai_model_id\" = t11.\"id\" \n",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_agent/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

@@ -1,0 +1,105 @@
+{
+  "accUserMode" : 2,
+  "caption" : "最近访问",
+  "codeName" : "recent_redirect_view",
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/recent_redirect_view.json",
+  "funcViewMode" : "REDIRECTVIEW",
+  "getGetDataPSAppDEAction" : {
+    "modelref" : true,
+    "id" : "get"
+  },
+  "memo" : "系统自动添加",
+  "name" : "recentRedirectView",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/recent.json"
+  },
+  "getPSAppModule" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPMODULES/Base.json"
+  },
+  "getPSAppViewNavContexts" : [ {
+    "key" : "ID",
+    "name" : "ID",
+    "value" : "id",
+    "rawValue" : false
+  } ],
+  "getPSAppViewNavParams" : [ {
+    "key" : "id",
+    "name" : "id",
+    "value" : "id",
+    "rawValue" : false
+  } ],
+  "getPSAppViewRefs" : [ {
+    "name" : "SPACE",
+    "getPSNavigateContexts" : [ {
+      "key" : "ID",
+      "name" : "ID",
+      "value" : "id",
+      "rawValue" : false
+    } ],
+    "getPSNavigateParams" : [ {
+      "key" : "id",
+      "name" : "id",
+      "value" : "id",
+      "rawValue" : false
+    } ],
+    "realTitle" : "空间",
+    "getRefPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/space_index_view.json",
+      "viewType" : "DEINDEXVIEW"
+    }
+  }, {
+    "name" : "PAGE",
+    "openMode" : "INDEXVIEWTAB_POPUPMODAL",
+    "realOpenMode" : "INDEXVIEWTAB_POPUPMODAL",
+    "realTitle" : "页面",
+    "getRefPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/article_page_model_show_view_noupdown.json",
+      "viewType" : "DEEDITVIEW"
+    }
+  } ],
+  "getPSControls" : [ {
+    "caption" : "最近访问",
+    "codeName" : "redirect_view_captionbar",
+    "controlType" : "CAPTIONBAR",
+    "name" : "captionbar",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/recent.json"
+    },
+    "getPSControlParam" : { }
+  } ],
+  "getPSDEViewCodeName" : "RedirectView",
+  "getPSDEViewId" : "8a1a03523824e2c2f358de5450b734c2",
+  "getPSViewLayoutPanel" : {
+    "codeName" : "layoutpanel",
+    "controlStyle" : "APPDEREDIRECTVIEW",
+    "controlType" : "VIEWLAYOUTPANEL",
+    "name" : "layoutpanel",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/recent.json"
+    },
+    "getPSControlParam" : { },
+    "layoutBodyOnly" : true,
+    "layoutPanel" : true,
+    "useDefaultLayout" : true
+  },
+  "refFlag" : false,
+  "title" : "最近访问数据重定向视图",
+  "getTypePSAppDEField" : {
+    "name" : "OWNER_SUBTYPE",
+    "codeName" : "owner_subtype"
+  },
+  "viewStyle" : "DEFAULT",
+  "viewType" : "DEREDIRECTVIEW",
+  "enableCustomGetDataAction" : true,
+  "enableDP" : true,
+  "enableWorkflow" : true,
+  "redirectView" : true,
+  "modelid" : "5a0857ae548a5e3ef30d860484178546",
+  "modeltype" : "PSAPPDEVIEW"
+}

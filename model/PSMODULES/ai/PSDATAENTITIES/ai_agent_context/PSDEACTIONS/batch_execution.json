@@ -1,0 +1,31 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "GETDRAFT",
+  "actionType" : "DELOGIC",
+  "codeName" : "batch_execution",
+  "dataAccessAction" : "READ",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEACTIONS/batch_execution.json",
+  "logicName" : "批量执行",
+  "name" : "batch_execution",
+  "getPSDEActionInput" : {
+    "name" : "Batch_executionInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_agent_context_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "Batch_executionResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_agent_context_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDELOGICS/batch_execution.json"
+  },
+  "enableFront" : false
+}

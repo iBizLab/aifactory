@@ -1,0 +1,28 @@
+package cn.ibizlab.base.logic.memberlogic.choose_portfolio_resource;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.base.domain.member memberchoose_portfolio_resourcedefault;
+                global cn.ibizlab.core.base.domain.member memberchoose_portfolio_resourcefor_member;
+                global cn.ibizlab.core.base.domain.portfolio_member memberchoose_portfolio_resourcefor_portfolio_member;
+                global cn.ibizlab.core.base.domain.user memberchoose_portfolio_resourcefor_user_obj;
+                global cn.ibizlab.core.base.domain.member memberchoose_portfolio_resourcegroup_page;
+                global cn.ibizlab.core.base.domain.portfolio_member memberchoose_portfolio_resourceportfolio_member_filter;
+                global cn.ibizlab.core.base.domain.portfolio_member memberchoose_portfolio_resourceportfolio_member_page;
+                global cn.ibizlab.core.base.domain.user memberchoose_portfolio_resourceuser_filter;
+                global cn.ibizlab.core.base.domain.user memberchoose_portfolio_resourceuser_page;
+        global cn.ibizlab.core.base.service.ImemberService iBzSysMemberDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "memberchoose_portfolio_resourcebegin"
+            when
+            then
+            end

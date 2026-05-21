@@ -1,0 +1,24 @@
+{
+  "codeName" : "CATEGORY_SETTING",
+  "dERSubType" : "DER11",
+  "dERType" : "DERCUSTOM",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunking_strategy/PSDERS/DERCUSTOM_AI_KB_CHUNKING_STRATEGY_CATEGORY_SETTING.json",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/Base/PSDATAENTITIES/category_settings.json"
+  },
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunking_strategy.json"
+  },
+  "name" : "DERCUSTOM_AI_KB_CHUNKING_STRATEGY_CATEGORY_SETTING",
+  "getOne2XDataPSDEField" : {
+    "name" : "PARSER_CONFIG",
+    "codeName" : "parser_config"
+  },
+  "orderValue" : 100,
+  "removeActionType" : 0,
+  "removeOrder" : -1,
+  "serviceCodeName" : "category_setting"
+}

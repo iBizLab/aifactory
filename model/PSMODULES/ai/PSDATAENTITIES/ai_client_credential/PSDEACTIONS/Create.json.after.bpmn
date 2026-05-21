@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="cn.ibizlab.core.ai.ai_client_credential.create.afterLogic" isClosed="false" isExecutable="true" name="ai_ai_client_credential_create_afterLogic" processType="Private" tns:packageName="cn.ibizlab.core.ai.ai_client_credential.create.afterLogic">
+            <extensionElements>
+                <tns:import name="java.util.Map"/>
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="cn.ibizlab.util.helper.RuleUtils"/>
+                <tns:import name="cn.ibizlab.core.ai.domain.ai_client_credential"/>
+            </extensionElements>
+                <startEvent id="begin" isInterrupting="true"/>
+                <endEvent id="prepareparam1_end" name="end"/>
+                            <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.core.ai.service.logic.ai_client_credentialexrouter" id="a969d2c693d516c7e4ad6c1ea3b8be42" name="exrouter.json.bpmn"/>
+                        <sequenceFlow id="begin_a969d2c693d516c7e4ad6c1ea3b8be42" sourceRef="begin" targetRef="a969d2c693d516c7e4ad6c1ea3b8be42"/>
+                            <sequenceFlow id="a969d2c693d516c7e4ad6c1ea3b8be42_prepareparam1_end" sourceRef="a969d2c693d516c7e4ad6c1ea3b8be42" targetRef="prepareparam1_end"/>
+        </process>
+    </definitions>

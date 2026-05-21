@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="cn.ibizlab.core.base.service.logic.categorydefault_setting" isClosed="false" isExecutable="true" name="base_category_default_setting_ruleFlow" processType="Private" tns:packageName="cn.ibizlab.core.base.service.logic.categorydefault_setting">
+            <extensionElements>
+                <tns:import name="java.util.Map" />
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="cn.ibizlab.util.helper.RuleUtils"/>
+                                <tns:metaData express="" name="categorydefault_settingdefault" type="entity"/>
+                                <tns:metaData express="new cn.ibizlab.core.base.domain.category()" name="categorydefault_settingparent" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.base.domain.category_settings()" name="categorydefault_settingsetting" type="refentity"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.base.service.IcategoryService))" name="categoryservice" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.base.service.IcategoryService))" name="iBzSysCategoryDefaultService" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
+                            <tns:global identifier="categorydefault_settingdefault" type="cn.ibizlab.core.base.domain.category" />
+                            <tns:global identifier="categorydefault_settingparent" type="cn.ibizlab.core.base.domain.category" />
+                            <tns:global identifier="categorydefault_settingsetting" type="cn.ibizlab.core.base.domain.category_settings" />
+            </extensionElements>
+                        <startEvent id="begin" isInterrupting="true"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="categorydefault_settingprepareparam_01" id="prepareparam_01" implementation="http://www.jboss.org/drools/rule" name="默认值"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="categorydefault_settingdeaction_01" id="deaction_01" implementation="http://www.jboss.org/drools/rule" name="查询父设置"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="categorydefault_settingprepareparam_02" id="prepareparam_02" implementation="http://www.jboss.org/drools/rule" name="设置setting"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="categorydefault_settingprepareparam_04" id="prepareparam_04" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="categorydefault_settingprepareparam_03" id="prepareparam_03" implementation="http://www.jboss.org/drools/rule" name="绑定父设置"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="categorydefault_settingend_01" id="end_01" implementation="http://www.jboss.org/drools/rule" name="结束"/>
+                        <endEvent id="end_01_end" name="end"/>
+                        <sequenceFlow id="end_01_end_line" sourceRef="end_01" targetRef="end_01_end"/>
+                    <sequenceFlow id="gateway-begin_prepareparam_01" sourceRef="gateway-begin" targetRef="prepareparam_01">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $categorydefault_settingdefault:category();
+                                            $categorydefault_settingparent:category();
+                                            $categorydefault_settingsetting:category_settings();
+                                    eval($categorydefault_settingdefault==categorydefault_settingdefault && $categorydefault_settingparent==categorydefault_settingparent && $categorydefault_settingsetting==categorydefault_settingsetting);
+                                eval((RuleUtils.test($categorydefault_settingdefault.get("ownerType"),"EQ","space"))&&(RuleUtils.test($categorydefault_settingdefault.get("setting"),"ISNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-prepareparam_01_prepareparam_02" sourceRef="gateway-prepareparam_01" targetRef="prepareparam_02">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $categorydefault_settingdefault:category();
+                                            $categorydefault_settingparent:category();
+                                            $categorydefault_settingsetting:category_settings();
+                                    eval($categorydefault_settingdefault==categorydefault_settingdefault && $categorydefault_settingparent==categorydefault_settingparent && $categorydefault_settingsetting==categorydefault_settingsetting);
+                                eval((RuleUtils.test($categorydefault_settingparent.get("id"),"ISNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-prepareparam_01_deaction_01" sourceRef="gateway-prepareparam_01" targetRef="deaction_01">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $categorydefault_settingdefault:category();
+                                            $categorydefault_settingparent:category();
+                                            $categorydefault_settingsetting:category_settings();
+                                    eval($categorydefault_settingdefault==categorydefault_settingdefault && $categorydefault_settingparent==categorydefault_settingparent && $categorydefault_settingsetting==categorydefault_settingsetting);
+                                eval((RuleUtils.test($categorydefault_settingparent.get("id"),"ISNOTNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="deaction_01_prepareparam_04" sourceRef="deaction_01" targetRef="prepareparam_04">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_02_end_01" sourceRef="prepareparam_02" targetRef="end_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-prepareparam_04_prepareparam_03" sourceRef="gateway-prepareparam_04" targetRef="prepareparam_03">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $categorydefault_settingdefault:category();
+                                            $categorydefault_settingparent:category();
+                                            $categorydefault_settingsetting:category_settings();
+                                    eval($categorydefault_settingdefault==categorydefault_settingdefault && $categorydefault_settingparent==categorydefault_settingparent && $categorydefault_settingsetting==categorydefault_settingsetting);
+                                eval((RuleUtils.test($categorydefault_settingsetting.get(""),"ISNOTNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-prepareparam_04_prepareparam_02" sourceRef="gateway-prepareparam_04" targetRef="prepareparam_02">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $categorydefault_settingdefault:category();
+                                            $categorydefault_settingparent:category();
+                                            $categorydefault_settingsetting:category_settings();
+                                    eval($categorydefault_settingdefault==categorydefault_settingdefault && $categorydefault_settingparent==categorydefault_settingparent && $categorydefault_settingsetting==categorydefault_settingsetting);
+                                eval((RuleUtils.test($categorydefault_settingsetting.get(""),"ISNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_03_end_01" sourceRef="prepareparam_03" targetRef="end_01">
+                    </sequenceFlow>
+                            <exclusiveGateway id="gateway-begin" name="Gateway" gatewayDirection="Diverging" default="gateway-begin_end_line"></exclusiveGateway>
+                            <sequenceFlow id="begin_gateway-begin_gatewayline" sourceRef="begin" targetRef="gateway-begin"></sequenceFlow>
+                            <sequenceFlow id="gateway-begin_end_line" sourceRef="gateway-begin" targetRef="gateway-begin_end"/>
+                            <endEvent id="gateway-begin_end" name="end"/>
+                            <exclusiveGateway id="gateway-prepareparam_01" name="Gateway" gatewayDirection="Diverging" default="gateway-prepareparam_01_end_line"></exclusiveGateway>
+                            <sequenceFlow id="prepareparam_01_gateway-prepareparam_01_gatewayline" sourceRef="prepareparam_01" targetRef="gateway-prepareparam_01"></sequenceFlow>
+                            <sequenceFlow id="gateway-prepareparam_01_end_line" sourceRef="gateway-prepareparam_01" targetRef="gateway-prepareparam_01_end"/>
+                            <endEvent id="gateway-prepareparam_01_end" name="end"/>
+                            <exclusiveGateway id="gateway-prepareparam_04" name="Gateway" gatewayDirection="Diverging" default="gateway-prepareparam_04_end_line"></exclusiveGateway>
+                            <sequenceFlow id="prepareparam_04_gateway-prepareparam_04_gatewayline" sourceRef="prepareparam_04" targetRef="gateway-prepareparam_04"></sequenceFlow>
+                            <sequenceFlow id="gateway-prepareparam_04_end_line" sourceRef="gateway-prepareparam_04" targetRef="gateway-prepareparam_04_end"/>
+                            <endEvent id="gateway-prepareparam_04_end" name="end"/>
+        </process>
+    </definitions>

@@ -1,0 +1,90 @@
+{
+  "codeName" : "get_document",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task/PSDELOGICS/get_document.json",
+  "logicName" : "获取记忆文档",
+  "name" : "获取记忆文档",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : -220,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      },
+      "name" : "doc_id不为空",
+      "getPSDELogicLinkGroupCond" : {
+        "groupOP" : "AND",
+        "logicType" : "GROUP",
+        "name" : "连接条件组",
+        "getPSDELogicLinkConds" : [ {
+          "condOP" : "ISNOTNULL",
+          "dstFieldName" : "DOC_ID",
+          "getDstLogicParam" : {
+            "modelref" : true,
+            "id" : "Default"
+          },
+          "logicType" : "SINGLE",
+          "name" : "Default[DOC_ID] 值不为空(NotNil) "
+        } ]
+      },
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : -100,
+    "parallelOutput" : true
+  }, {
+    "code" : "def _default = logic.param('default').getReal()\r\ndef log = org.apache.commons.logging.LogFactory.getLog(\"cn.ibizlab.central.core.dataentity.logic.DELogicRuntimeBase\")\r\ndef kb_tag = _default.get(\"kb_tag\")\r\ndef doc_id = _default.get(\"doc_id\")\r\ndef doc_path = _default.get(\"doc_path\")\r\ndef _document\r\nif (!kb_tag || !doc_id) {\r\n    log.debug(\"缺少记忆知识库或文档标识，忽略获取记忆文档\")\r\n    return \r\n}\r\ndef system_id = sys.getDeploySystemId()\r\nif(sys instanceof net.ibizsys.central.cloud.core.IServiceSystemRuntime) {\r\n    def iServiceSystemRuntime = (net.ibizsys.central.cloud.core.IServiceSystemRuntime)sys\r\n    if(iServiceSystemRuntime.getMainSystemId()) {\r\n        system_id = iServiceSystemRuntime.getMainSystemId();\r\n    }\r\n}\r\ndef kb_config = \"${system_id}-kb--${kb_tag}\"\r\ntry{\r\n    _document = sys.getSysKBUtilRuntime(false).getDocument(kb_config, doc_id)\r\n}catch(Exception e){\r\n    log.debug(\"获取记忆知识库文档失败, ${doc_id}\")\r\n}\r\nif(!_document){\r\n   _document = new net.ibizsys.central.cloud.core.util.domain.Document()\r\n   _document.set(\"id\",doc_id)\r\n   _document.set(\"name\",\"Memory.md\")\r\n   _document.set(\"type\",\"file\")\r\n   _document.set(\"kb_id\",kb_tag)\r\n   _document.set(\"categories\",doc_path)\r\n    sys.getSysKBUtilRuntime(false).saveDocument(kb_config, doc_id,_document)\r\n}",
+    "codeName" : "RAWSFCODE_01",
+    "codeType" : "Groovy",
+    "leftPos" : -260,
+    "logicNodeType" : "RAWSFCODE",
+    "name" : "获取记忆文档，不存在则建立",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      }
+    } ],
+    "topPos" : 86,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "END_01",
+    "leftPos" : 30,
+    "logicNodeType" : "END",
+    "name" : "结束",
+    "getReturnParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "returnType" : "LOGICPARAM",
+    "topPos" : 90,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task.json"
+    },
+    "default" : true,
+    "entityParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

@@ -1,0 +1,26 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "Async_batch_execution",
+  "dataAccessAction" : "READ",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEACTIONS/Async_batch_execution.json",
+  "logicName" : "异步_批量执行",
+  "name" : "Async_batch_execution",
+  "getPSDEActionInput" : {
+    "name" : "Async_batch_executionInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_agent_context_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "Async_batch_executionResult",
+    "type" : "ASYNCACTION"
+  },
+  "getRealPSDEAction" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEACTIONS/batch_execution.json"
+  },
+  "asyncAction" : true
+}

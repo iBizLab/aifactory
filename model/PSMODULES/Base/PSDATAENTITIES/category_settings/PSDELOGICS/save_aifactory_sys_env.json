@@ -1,0 +1,109 @@
+{
+  "codeName" : "save_aifactory_sys_env",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/Base/PSDATAENTITIES/category_settings/PSDELOGICS/save_aifactory_sys_env.json",
+  "logicName" : "save_aifactory_sys_env",
+  "name" : "save_aifactory_sys_env",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : 200,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : 180,
+    "parallelOutput" : true
+  }, {
+    "code" : "def _default = logic.param('Default').getReal()\n\n        // 字符串类字段保持原有处理\n        def id = _default.get(\"id\")?.toString() ?: \"\"\n        def sysid = sys.getDeploySystemId().toLowerCase()\n        def agentpre = \"${sysid}-ai--\".toString()\n\n        def chat_model_id=_default.getString(\"chat_model_id\",\"default\")\n        def flash_model_id=_default.getString(\"flash_model_id\",chat_model_id)\n        def intent_model_id=_default.getString(\"intent_model_id\",flash_model_id)\n        def vl_model_id=_default.getString(\"vl_model_id\",flash_model_id)\n        def embedding_model_id=_default.getString(\"embedding_model_id\",\"\")\n        def rerank_model_id=_default.getString(\"rerank_model_id\",\"\")\n\n        def serviceHub = net.ibizsys.central.cloud.core.spring.rt.ServiceHub.getInstance()\n        org.yaml.snakeyaml.Yaml yaml = new org.yaml.snakeyaml.Yaml();\n        def agent_runtime = sys.dataentity('ai_model')\n\n        def gettoken = { def model ->\n            def cedpre = \"credential-${sysid}-ai--\".toString()\n            if(model && model.get(\"ai_credential_id\")) {\n                String strai = serviceHub.getConfig(cedpre+model.get(\"ai_credential_id\"));\n                Map cloudai = (!strai) ? new HashMap() : yaml.loadAs(strai, Map.class)\n                return cloudai.get(\"accesstoken\")\n            }\n            return null\n        }\n\n        def getmodelmap = { def model_id ->\n            String strai = serviceHub.getConfig(\"cloud-ai-agent-\"+agentpre+model_id);\n            Map cloudai = (!strai) ? new HashMap() : yaml.loadAs(strai, Map.class)\n            return cloudai\n\n        }\n\n        def getmodel = { String model_id ->\n            def filter=agent_runtime.createSearchContext()\n            filter.eq(\"id\",model_id)\n            return agent_runtime.selectOne(filter,true)\n        }\n\n        try {\n\n\n\n\n\n            def chat_model = null\n            def flash_model = null\n            def intent_model = null\n            def vl_model = null\n            def embedding_model = null\n            def rerank_model = null\n\n\n\n\n\n            if(id == \"aifactory_sys_env\") {\n                String strConfig = serviceHub.getConfig(\"deploysystem-${sysid}\".toString());\n                //_default.set(\"configs\",strConfig)\n\n                if(chat_model_id) {\n                    chat_model = getmodel(chat_model_id)\n                    if(chat_model) {\n                        if(_default.get(\"chat_model_id\")){\n                            agent_runtime.update(chat_model)\n                        }\n                        String strai = serviceHub.getConfig(\"cloud-ai\");\n                        Map cloudai = (!strai) ? new HashMap() : yaml.loadAs(strai, Map.class)\n                        def defaultagent = cloudai.get(\"defaultagent\")\n                        def agentid=agentpre+chat_model_id\n                        println \"defaultagent:${defaultagent}=>${agentid}\"\n                        if(!defaultagent || (defaultagent!=agentid && defaultagent.startsWith(agentpre))) {\n                            cloudai.put(\"defaultagent\",agentid)\n                            serviceHub.publishConfig(\"cloud-ai\", cloudai);\n                            println \"cloud-ai defaultagent:${defaultagent}=>${agentid}\"\n                        }\n                    }\n\n                }\n\n                def utilkey = \"cloud-ai-agent-${sysid}-kb--sysknowledgebaseutil\".toString()\n                String strutil = serviceHub.getConfig(utilkey);\n                Map kbutil = (!strutil) ? new HashMap() : yaml.loadAs(strutil, Map.class)\n\n                def querykey = \"cloud-ai-agent-${sysid}-kb--sysknowledgebaseutil-query\".toString()\n                String strquery = serviceHub.getConfig(querykey);\n                Map kbquery = (!strquery) ? new HashMap() : yaml.loadAs(strquery, Map.class)\n\n                if(flash_model_id) {\n                    flash_model = getmodel(flash_model_id)\n                    if(flash_model) {\n                        if(_default.get(\"flash_model_id\")){\n                            agent_runtime.update(flash_model)\n                        }\n                        try{\n                            def _map = getmodelmap(flash_model_id);\n                            if(_map) {\n                                _map.remove(\"credentialid\")\n                                kbutil.putAll(_map)\n                                def token=gettoken(flash_model)\n                                kbutil.put(\"accesstoken\",token)\n                                println \"kbutil flash_model_id -> ${flash_model_id}, accesstoken -> ${token}\"\n                            }\n\n\n                        }catch (Exception ex1) {\n                            ex1.printStackTrace()\n                            println \"kbutil fill flash_model_id exception\"\n                        }\n\n                    }\n                }\n\n                if(intent_model_id) {\n                    intent_model = getmodel(intent_model_id)\n                    if(intent_model) {\n                        if(_default.get(\"intent_model_id\")){\n                            agent_runtime.update(intent_model)\n                        }\n                        try{\n                            def _map = getmodelmap(intent_model_id);\n                            if(_map){\n                                _map.remove(\"credentialid\")\n                                kbquery.putAll(_map)\n                                def token=gettoken(intent_model)\n                                kbquery.put(\"accesstoken\",token)\n                                println \"kbquery intent_model_id -> ${intent_model_id},accesstoken -> ${token}\"\n                            }\n\n\n                        }\n                        catch (Exception ex1) {\n                            ex1.printStackTrace()\n                            println \"kbquery fill intent_model_id exception\"\n                        }\n\n                    }\n                }\n\n                if(vl_model_id) {\n                    vl_model = getmodel(vl_model_id)\n                    if(vl_model) {\n                        if(_default.get(\"vl_model_id\")){\n                            agent_runtime.update(vl_model)\n                        }\n                        String strOss = serviceHub.getConfig(\"cloud-oss\");\n                        Map cloudoss = (!strOss) ? new HashMap() : yaml.loadAs(strOss, Map.class)\n                        Map aiimage = cloudoss.getOrDefault(\"aiimage\", new HashMap())\n                        def vlagent = aiimage.get(\"agent\")\n                        def agentid=agentpre+vl_model_id\n                        println \"vlagent:${vlagent}=>${agentid}\"\n                        if(!vlagent || vlagent!=agentid) {\n                            aiimage.put(\"agent\",agentid)\n                            serviceHub.publishConfig(\"cloud-oss\", cloudoss);\n                            println \"cloud-oss vlagent:${vlagent}=>${agentid}\"\n                        }\n                    }\n                }\n\n                if(embedding_model_id) {\n                    embedding_model = getmodel(embedding_model_id)\n                    if(embedding_model) {\n                        if(_default.get(\"embedding_model_id\")){\n                            agent_runtime.update(embedding_model)\n                        }\n                        try{\n                            def _map = getmodelmap(embedding_model_id);\n                            if(_map) {\n                                kbutil.put(\"embeddingurl\",_map.get(\"embeddingurl\"))\n                                kbutil.put(\"embeddingmodel\",_map.get(\"embeddingmodel\"))\n\n                                def token=gettoken(embedding_model)\n                                kbutil.put(\"embeddingtoken\",token)\n                                println \"kbutil embeddingmodel -> ${_map.get(\"embeddingmodel\")}, accesstoken -> ${token}\"\n\n                            }\n                        }\n                        catch (Exception ex1) {\n                            ex1.printStackTrace()\n                            println \"kbutil fill flash_model_id exception\"\n                        }\n                    }\n                }\n\n                if(rerank_model_id) {\n                    rerank_model = getmodel(rerank_model_id)\n                    if(rerank_model) {\n                        if(_default.get(\"rerank_model_id\")){\n                            agent_runtime.update(rerank_model)\n                        }\n                        try{\n                            def _map = getmodelmap(rerank_model_id)\n                            if(_map) {\n                                kbutil.put(\"textrerankurl\",_map.get(\"textrerankurl\"))\n                                kbutil.put(\"textrerankmodel\",_map.get(\"textrerankmodel\"))\n\n                                def token=gettoken(rerank_model)\n                                kbutil.put(\"textreranktoken\",token)\n                                kbutil.put(\"aitype\",_map.get(\"aitype\"))\n                                println \"kbutil rerank_model -> ${_map.get(\"textrerankmodel\")}, accesstoken -> ${token}\"\n\n                            }\n                        }\n                        catch (Exception ex1) {\n                            ex1.printStackTrace()\n                            println \"kbutil fill textrerankmodel exception\"\n                        }\n                    }\n                }\n\n                serviceHub.publishConfig(utilkey,kbutil)\n                serviceHub.publishConfig(querykey,kbquery)\n\n\n\n\n\n\n\n                String strkb = serviceHub.getConfig(\"cloud-kb\");\n                if(!strkb) {\n                    strkb=\"fetchkbs:\\n  url: lb://servicehub-ibizaifactory/ibizaifactory/serviceapi/ai_knowledge_bases/fetch_full_text\\n  method: POST\\n  agentformat: ibizaifactory-kb--{key}\"\n                    serviceHub.publishConfig(\"cloud-kb\", strkb);\n                }\n\n            }\n\n\n\n\n        } catch (Exception e) {\n            e.printStackTrace()\n        }",
+    "codeName" : "RAWSFCODE_01",
+    "codeType" : "Groovy",
+    "leftPos" : 160,
+    "logicNodeType" : "RAWSFCODE",
+    "name" : "更新env",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      }
+    } ],
+    "topPos" : 331,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEACTION_01",
+    "getDstPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/category_settings/PSDEACTIONS/Update.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/category_settings.json"
+    },
+    "leftPos" : 161,
+    "logicNodeType" : "DEACTION",
+    "name" : "update",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_01"
+      }
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "topPos" : 434,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "END_01",
+    "leftPos" : 180,
+    "logicNodeType" : "END",
+    "name" : "结束",
+    "getReturnParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "returnType" : "LOGICPARAM",
+    "topPos" : 570,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/category_settings.json"
+    },
+    "default" : true,
+    "entityParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

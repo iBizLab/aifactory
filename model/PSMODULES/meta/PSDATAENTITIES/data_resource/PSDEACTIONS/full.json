@@ -1,0 +1,27 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "DELOGIC",
+  "codeName" : "full",
+  "dataAccessAction" : "READ",
+  "dynaModelFilePath" : "PSMODULES/meta/PSDATAENTITIES/data_resource/PSDEACTIONS/full.json",
+  "logicName" : "full",
+  "name" : "full",
+  "getPSDEActionInput" : {
+    "name" : "FullInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "data_resource_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "FullResult",
+    "type" : "VOID"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/meta/PSDATAENTITIES/data_resource/PSDELOGICS/full.json"
+  },
+  "enableFront" : false
+}

@@ -1,0 +1,93 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "( #{ctx.datacontext.keyword} is not null )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"category_id\"",
+    "name" : "CATEGORY_ID"
+  }, {
+    "expression" : "t1.\"category_name\"",
+    "name" : "CATEGORY_NAME"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.\"guidance_prompt\"",
+    "name" : "GUIDANCE_PROMPT"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"is_archived\"",
+    "name" : "IS_ARCHIVED"
+  }, {
+    "expression" : "t1.\"is_deleted\"",
+    "name" : "IS_DELETED"
+  }, {
+    "expression" : "t1.\"key\"",
+    "name" : "KEY"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"record_id\"",
+    "name" : "RECORD_ID"
+  }, {
+    "expression" : "t1.\"resource\"",
+    "name" : "RESOURCE"
+  }, {
+    "expression" : "t1.\"resource_code\"",
+    "name" : "RESOURCE_CODE"
+  }, {
+    "expression" : "t1.\"resource_id\"",
+    "name" : "RESOURCE_ID"
+  }, {
+    "expression" : "t1.\"scope_id\"",
+    "name" : "SCOPE_ID"
+  }, {
+    "expression" : "t1.\"scope_type\"",
+    "name" : "SCOPE_TYPE"
+  }, {
+    "expression" : "t1.\"similarity_threshold\"",
+    "name" : "SIMILARITY_THRESHOLD"
+  }, {
+    "expression" : "t1.\"source_id\"",
+    "name" : "SOURCE_ID"
+  }, {
+    "expression" : "t1.\"source_name\"",
+    "name" : "SOURCE_NAME"
+  }, {
+    "expression" : "t1.\"source_type\"",
+    "name" : "SOURCE_TYPE"
+  }, {
+    "expression" : "t1.\"status\"",
+    "name" : "STATUS"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"vector_similarity_weight\"",
+    "name" : "VECTOR_SIMILARITY_WEIGHT"
+  }, {
+    "expression" : "t1.\"visibility\"",
+    "name" : "VISIBILITY"
+  }, {
+    "expression" : "t1.\"matched_documents\"",
+    "name" : "MATCHED_DOCUMENTS"
+  } ],
+  "queryCode" : "SELECT\n    t1.\"category_id\",\n    t1.\"category_name\",\n    t1.\"create_man\",\n    t1.\"create_time\",\n    t1.\"description\",\n    t1.\"guidance_prompt\",\n    t1.\"id\",\n    t1.\"is_archived\",\n    t1.\"is_deleted\",\n    t1.\"key\",\n    t1.\"name\",\n    t1.\"record_id\",\n    t1.\"resource\",\n    t1.\"resource_code\",\n    t1.\"resource_id\",\n    t1.\"scope_id\",\n    t1.\"scope_type\",\n    t1.\"similarity_threshold\",\n    t1.\"source_id\",\n    t1.\"source_name\",\n    t1.\"source_type\",\n    t1.\"status\",\n    t1.\"update_man\",\n    t1.\"update_time\",\n    t1.\"vector_similarity_weight\",\n    t1.\"visibility\", t1.\"matched_documents\" from (\n        WITH input_kw AS (SELECT val,(val !~ '^[0-9A-Za-z\\[\\]]+$') AS is_fts FROM regexp_split_to_table(#{ctx.datacontext.keyword},'[, ]+') AS val WHERE val <> '')\n   , raw_kw AS (SELECT val, val as kw, is_fts FROM input_kw  union SELECT DISTINCT lexeme AS val, val as kw, is_fts FROM input_kw i,  unnest(tsvector_to_array(to_tsvector('chinese_zh', i.val))) AS lexeme\n                WHERE length(lexeme) >= 2 and is_fts)\n   , raw_cnt AS (SELECT count(1) as cnt, count(DISTINCT kw) as kw from raw_kw)\n   , doc_match AS (\n   SELECT t.document_id, round(1.0 * COUNT(DISTINCT k.kw) / raw_cnt.kw, 2) + round(0.01 * COUNT(DISTINCT k.val) / raw_cnt.cnt, 4) - 0.01 as logic_rank,\n                 max(case when k.is_fts then similarity(content, k.kw) else 0.99 end) as density_rank FROM ai_kb_chunk t JOIN raw_kw k ON t.content LIKE '%' || k.val || '%' , raw_cnt\n                GROUP BY t.document_id, raw_cnt.kw, raw_cnt.cnt)\n   , doc_agg AS (SELECT d.kb_id,  MAX(m.logic_rank) AS similarity_threshold, MAX(m.density_rank) AS vector_similarity_weight, \n   jsonb_path_query_array(\n                                jsonb_agg(DISTINCT jsonb_build_object('id', d.id, 'name', d.name)),\n                                '$[0 to 4]'\n                        )::text AS matched_documents\n                 FROM ai_kb_document d   JOIN doc_match m ON d.id = m.document_id  GROUP BY d.kb_id)\nSELECT t1.id,t1.name,t1.update_time,t1.update_man,t1.create_time,t1.create_man,t1.description,t1.guidance_prompt,t1.category_id,t1.category_name,t1.resource_id,t1.resource_code,t1.resource,t1.record_id,\n       t1.scope_id,t1.scope_type,t1.visibility,t1.status,t1.is_archived,t1.is_deleted,t1.key,t1.source_name,t1.source_id,t1.source_type,m.similarity_threshold,m.vector_similarity_weight,m.matched_documents\nFROM ai_knowledge_base t1\n         JOIN doc_agg m ON t1.id = m.kb_id\n         order by m.similarity_threshold desc,m.vector_similarity_weight desc,t1.update_time desc\n)  t1",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEDATAQUERIES/search/PSDEDQCODES/POSTGRESQL.json"
+}

@@ -1,0 +1,54 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "( t1.\"is_archived\" = 0  AND  t1.\"is_deleted\" = 0  AND  (select count(1) from favorite where create_man=#{ctx.sessioncontext.srfpersonid} and OWNER_ID=t1.\"id\" ) = '1' )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"identifier\"",
+    "name" : "IDENTIFIER"
+  }, {
+    "expression" : "t1.\"is_archived\"",
+    "name" : "IS_ARCHIVED"
+  }, {
+    "expression" : "t1.\"is_deleted\"",
+    "name" : "IS_DELETED"
+  }, {
+    "expression" : "(select count(1) from favorite where create_man=#{ctx.sessioncontext.srfpersonid} and OWNER_ID=t1.\"id\" )",
+    "name" : "IS_FAVORITE"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"scope_id\"",
+    "name" : "SCOPE_ID"
+  }, {
+    "expression" : "t1.\"scope_type\"",
+    "name" : "SCOPE_TYPE"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"visibility\"",
+    "name" : "VISIBILITY"
+  } ],
+  "queryCode" : "SELECT\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"description\",\nt1.\"id\",\nt1.\"identifier\",\nt1.\"is_archived\",\nt1.\"is_deleted\",\n(select count(1) from favorite where create_man=#{ctx.sessioncontext.srfpersonid} and OWNER_ID=t1.\"id\" ) AS \"is_favorite\",\nt1.\"name\",\nt1.\"scope_id\",\nt1.\"scope_type\",\nt1.\"update_man\",\nt1.\"update_time\",\nt1.\"visibility\"\nFROM \"insight_view\" t1 \n",
+  "id" : "PSMODULES/Insight/PSDATAENTITIES/insight_view/PSDEDATAQUERIES/favorite/PSDEDQCODES/POSTGRESQL.json"
+}

@@ -1,0 +1,911 @@
+package cn.ibizlab.ai.logic.ai_agent_contextlogic.deep_research;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_agent_context ai_agent_contextdeep_researchdefault;
+                global cn.ibizlab.core.ai.domain.ai_agent_context ai_agent_contextdeep_researchagententity;
+                global java.util.Map ai_agent_contextdeep_researchagenttag;
+                global java.util.Map ai_agent_contextdeep_researchagenttag2;
+                global java.util.Map ai_agent_contextdeep_researchchat_response;
+                global java.util.Map ai_agent_contextdeep_researchchat_response_entity;
+                global java.util.Map ai_agent_contextdeep_researchcontent;
+                global cn.ibizlab.core.ai.domain.ai_knowledge_base ai_agent_contextdeep_researchkb;
+                global java.util.Map ai_agent_contextdeep_researchqueries;
+                global cn.ibizlab.core.ai.domain.ai_kb_chunk ai_agent_contextdeep_researchquery_chunk;
+                global java.util.Map ai_agent_contextdeep_researchquery_chunk_result;
+                global java.util.Map ai_agent_contextdeep_researchretrieved_chunks;
+                global java.util.Map ai_agent_contextdeep_researchsearch_plan;
+                global java.util.Map ai_agent_contextdeep_researchsearch_plans;
+                global java.util.Map ai_agent_contextdeep_researchsshy_content;
+                global java.util.Map ai_agent_contextdeep_researchverification_checklist;
+                    global cn.ibizlab.core.ai.service.Iai_knowledge_baseService ai_knowledge_baseservice;
+                    global cn.ibizlab.core.ai.service.Iai_agent_contextService ai_agent_contextservice;
+        global cn.ibizlab.core.ai.service.Iai_agent_contextService iBzSysAi_agent_contextDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_agent_contextdeep_researchbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[准备知识库id]
+            rule "prepareparam_01"
+            ruleflow-group "ai_agent_contextdeep_researchprepareparam_01"
+            when
+            then
+                            ai_agent_contextdeep_researchkb.set("id",ai_agent_contextdeep_researchdefault.get("knowledgebases"));
+                            ai_agent_contextdeep_researchagenttag.set("",ai_agent_contextdeep_researchdefault.get("srfaiagenttag"));
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[调试逻辑参数research]
+            rule "debugparam_02"
+            ruleflow-group "ai_agent_contextdeep_researchdebugparam_02"
+            when
+            then
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[获取知识库信息]
+            rule "delogic_02"
+            ruleflow-group "ai_agent_contextdeep_researchdelogic_02"
+            when
+            then
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_02"
+            ruleflow-group "ai_agent_contextdeep_researchend_02"
+            when
+            then
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[获取知识库信息]
+            rule "deaction_01"
+            ruleflow-group "ai_agent_contextdeep_researchdeaction_01"
+            when
+            then
+                            cn.ibizlab.util.helper.CachedBeanCopier.copy(ai_knowledge_baseservice.get(ai_agent_contextdeep_researchkb.getId()),ai_agent_contextdeep_researchkb);
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[切换深度研究智能体]
+            rule "prepareparam_02"
+            ruleflow-group "ai_agent_contextdeep_researchprepareparam_02"
+            when
+            then
+                            ai_agent_contextdeep_researchdefault.set("srfaiagenttag",ai_agent_contextdeep_researchagenttag.get(""));
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[1.提示生成研究策略]
+            rule "sysaichatagent_chatstep_02"
+            ruleflow-group "ai_agent_contextdeep_researchsysaichatagent_chatstep_02"
+            when
+            then
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[附加聊天请求]
+            rule "sysaichatagent_appendchatrequest_01"
+            ruleflow-group "ai_agent_contextdeep_researchsysaichatagent_appendchatrequest_01"
+            when
+            then
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[交谈输出]
+            rule "sysaichatagent_chatoutput_01"
+            ruleflow-group "ai_agent_contextdeep_researchsysaichatagent_chatoutput_01"
+            when
+            then
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[提取j深度研究son对象]
+            rule "prepareparam_03"
+            ruleflow-group "ai_agent_contextdeep_researchprepareparam_03"
+            when
+            then
+                            ai_agent_contextdeep_researchchat_response_entity.set("",ai_agent_contextdeep_researchchat_response.get("json"));
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[提示提取json对象异常]
+            rule "sysaichatagent_chatstep_04"
+            ruleflow-group "ai_agent_contextdeep_researchsysaichatagent_chatstep_04"
+            when
+            then
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_03"
+            ruleflow-group "ai_agent_contextdeep_researchend_03"
+            when
+            then
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[设置search_plans，verification_checklist]
+            rule "prepareparam_04"
+            ruleflow-group "ai_agent_contextdeep_researchprepareparam_04"
+            when
+            then
+                            ai_agent_contextdeep_researchsearch_plans.set("",ai_agent_contextdeep_researchchat_response_entity.get("search_plans"));
+                            ai_agent_contextdeep_researchverification_checklist.set("",ai_agent_contextdeep_researchchat_response_entity.get("verification_checklist"));
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[提示研究策略内容]
+            rule "sysaichatagent_chatstep_03"
+            ruleflow-group "ai_agent_contextdeep_researchsysaichatagent_chatstep_03"
+            when
+            then
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[循环子调用]
+            rule "loopsubcall_01"
+            ruleflow-group "ai_agent_contextdeep_researchloopsubcall_01"
+            when
+            then
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[切换通用事实核验员智能体、请求清除知识库标识]
+            rule "prepareparam_05"
+            ruleflow-group "ai_agent_contextdeep_researchprepareparam_05"
+            when
+            then
+                            ai_agent_contextdeep_researchdefault.set("srfaiagenttag","FactVerifier");
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[附加聊天请求]
+            rule "rawsfcode_02"
+            ruleflow-group "ai_agent_contextdeep_researchrawsfcode_02"
+            when
+            then
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[2.提示根据检索信息进行事实核验]
+            rule "sysaichatagent_chatstep_07"
+            ruleflow-group "ai_agent_contextdeep_researchsysaichatagent_chatstep_07"
+            when
+            then
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[通用事实核验交谈输出]
+            rule "sysaichatagent_chatoutput_02"
+            ruleflow-group "ai_agent_contextdeep_researchsysaichatagent_chatoutput_02"
+            when
+            then
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[提取通用事实核验员内容]
+            rule "prepareparam_06"
+            ruleflow-group "ai_agent_contextdeep_researchprepareparam_06"
+            when
+            then
+                            ai_agent_contextdeep_researchsshy_content.set("",ai_agent_contextdeep_researchchat_response.get("content"));
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[提示事实核验内容]
+            rule "sysaichatagent_chatstep_06"
+            ruleflow-group "ai_agent_contextdeep_researchsysaichatagent_chatstep_06"
+            when
+            then
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_08"
+            ruleflow-group "ai_agent_contextdeep_researchprepareparam_08"
+            when
+            then
+                            ai_agent_contextdeep_researchagententity.set("codename",ai_agent_contextdeep_researchagenttag.get(""));
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备知识检索参数]
+            rule "prepareparam_07"
+            ruleflow-group "ai_agent_contextdeep_researchprepareparam_07"
+            when
+            then
+                            ai_agent_contextdeep_researchquery_chunk.set("n_kbid_eq",ai_agent_contextdeep_researchkb.get("id"));
+                            ai_agent_contextdeep_researchquery_chunk.set("queries",ai_agent_contextdeep_researchsearch_plan.get("queries"));
+                            ai_agent_contextdeep_researchquery_chunk.set("n_vector_similarity_gtandeq","0.7");
+                            ai_agent_contextdeep_researchquery_chunk.set("n_rerank_eq","1");
+                            ai_agent_contextdeep_researchquery_chunk.set("size","10");
+                            ai_agent_contextdeep_researchquery_chunk.set("n_similarity_gtandeq","0.2");
+                            ai_agent_contextdeep_researchquery_chunk.set("chunksnprefix","片段A");
+                            ai_agent_contextdeep_researchquery_chunk.set("chunkviewurl","chunkview://{id}");
+                            ai_agent_contextdeep_researchquery_chunk.set("instruct",ai_agent_contextdeep_researchsearch_plan.get("expected_data"));
+                            ai_agent_contextdeep_researchqueries.set("",ai_agent_contextdeep_researchsearch_plan.get("queries"));
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[调试逻辑参数]
+            rule "debugparam_01"
+            ruleflow-group "ai_agent_contextdeep_researchdebugparam_01"
+            when
+            then
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[判定交谈输出]
+            rule "sysaichatagent_chatoutput_03"
+            ruleflow-group "ai_agent_contextdeep_researchsysaichatagent_chatoutput_03"
+            when
+            then
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[判定请求]
+            rule "sysaichatagent_appendchatrequest_03"
+            ruleflow-group "ai_agent_contextdeep_researchsysaichatagent_appendchatrequest_03"
+            when
+            then
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[3.提示判定]
+            rule "sysaichatagent_chatstep_09"
+            ruleflow-group "ai_agent_contextdeep_researchsysaichatagent_chatstep_09"
+            when
+            then
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[切换判定专家智能体]
+            rule "prepareparam_09"
+            ruleflow-group "ai_agent_contextdeep_researchprepareparam_09"
+            when
+            then
+                            ai_agent_contextdeep_researchagenttag2.set("",ai_agent_contextdeep_researchagententity.get("synthesizer"));
+                            ai_agent_contextdeep_researchdefault.set("srfaiagenttag",ai_agent_contextdeep_researchagenttag2.get(""));
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[实体处理逻辑]
+            rule "delogic_01"
+            ruleflow-group "ai_agent_contextdeep_researchdelogic_01"
+            when
+            then
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[提示知识库检索]
+            rule "sysaichatagent_chatstep_08"
+            ruleflow-group "ai_agent_contextdeep_researchsysaichatagent_chatstep_08"
+            when
+            then
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[提取判定内容]
+            rule "prepareparam_010"
+            ruleflow-group "ai_agent_contextdeep_researchprepareparam_010"
+            when
+            then
+                            ai_agent_contextdeep_researchcontent.set("",ai_agent_contextdeep_researchchat_response.get("content"));
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[调试逻辑参数research3]
+            rule "debugparam_03"
+            ruleflow-group "ai_agent_contextdeep_researchdebugparam_03"
+            when
+            then
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[知识检索]
+            rule "sysaichatagent_fetchchunks_01"
+            ruleflow-group "ai_agent_contextdeep_researchsysaichatagent_fetchchunks_01"
+            when
+            then
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[提示判定]
+            rule "sysaichatagent_chatstep_010"
+            ruleflow-group "ai_agent_contextdeep_researchsysaichatagent_chatstep_010"
+            when
+            then
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[添加到retrieved_chunks]
+            rule "rawsfcode_01"
+            ruleflow-group "ai_agent_contextdeep_researchrawsfcode_01"
+            when
+            then
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[最终显示结果]
+            rule "sysaichatagent_appendchatresult_01"
+            ruleflow-group "ai_agent_contextdeep_researchsysaichatagent_appendchatresult_01"
+            when
+            then
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "ai_agent_contextdeep_researchend_01"
+            when
+            then
+                        update(ai_agent_contextdeep_researchdefault);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagententity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchagenttag2);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchchat_response_entity);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchcontent);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchkb);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchqueries);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchquery_chunk_result);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchretrieved_chunks);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plan);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsearch_plans);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchsshy_content);//更新fact中变量值
+                        update(ai_agent_contextdeep_researchverification_checklist);//更新fact中变量值
+            end

@@ -1,0 +1,32 @@
+{
+  "codeName" : "category",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDERS/DER1N_AI_KNOWLEDGE_BASE_CATEGORY_CATEGORY_ID.json",
+  "fKeyName" : "F6B92BB5F11F3B68CA",
+  "logicName" : "目录",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/Base/PSDATAENTITIES/category.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+  },
+  "name" : "DER1N_AI_KNOWLEDGE_BASE_CATEGORY_CATEGORY_ID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "CATEGORY_ID",
+    "codeName" : "category_id"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "CATEGORY_NAME",
+    "codeName" : "category_name"
+  },
+  "pickupDEFName" : "CATEGORY_ID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "category",
+  "enableFKey" : true
+}

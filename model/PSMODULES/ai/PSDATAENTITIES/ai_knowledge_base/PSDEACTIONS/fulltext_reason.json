@@ -1,0 +1,28 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "DELOGIC",
+  "codeName" : "fulltext_reason",
+  "dataAccessAction" : "READ",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEACTIONS/fulltext_reason.json",
+  "logicName" : "全文内容推理",
+  "memo" : "查询知识库下文档，将多文档内容合并后以字数为分割进行逐一推理，最后再总结为整个知识库的报告",
+  "name" : "fulltext_reason",
+  "getPSDEActionInput" : {
+    "name" : "Fulltext_reasonInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_knowledge_base_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "Fulltext_reasonResult",
+    "type" : "VOID"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDELOGICS/fulltext_reason.json"
+  },
+  "enableFront" : false
+}

@@ -1,0 +1,90 @@
+{
+  "codeName" : "quick_searchbar",
+  "controlType" : "SEARCHBAR",
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document/PSSEARCHBARS/quick_searchbar.json",
+  "logicName" : "文档快速搜索栏",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
+  },
+  "getPSSearchBarFilters" : [ {
+    "getCapPSLanguageRes" : {
+      "lanResTag" : "CONTROL.DEFSFITEM.AI_KB_DOCUMENT.N_NAME_LIKE"
+    },
+    "caption" : "文档名称(%)",
+    "dataType" : 25,
+    "itemType" : "FILTER",
+    "labelPos" : "NONE",
+    "labelWidth" : 0,
+    "name" : "name",
+    "getPSAppDEField" : {
+      "name" : "NAME",
+      "codeName" : "name"
+    },
+    "getPSDEFSearchMode" : {
+      "codeName" : "N_NAME_LIKE",
+      "name" : "N_NAME_LIKE",
+      "stdDataType" : 25,
+      "valueOP" : "LIKE"
+    },
+    "getPSEditor" : {
+      "editorType" : "TEXTBOX",
+      "name" : "name"
+    },
+    "allowEmpty" : true,
+    "emptyCaption" : false,
+    "hidden" : false,
+    "showCaption" : false
+  } ],
+  "getPSSearchBarGroups" : [ {
+    "caption" : "全部",
+    "itemType" : "GROUP",
+    "name" : "all",
+    "width" : 0.0,
+    "addSeparator" : false
+  }, {
+    "caption" : "就绪",
+    "data" : "{\"theme_model\":{\"searchconds\":[{\"condtype\":\"GROUP\",\"condop\":\"AND\",\"bnotmode\":false,\"searchconds\":[{\"condtype\":\"DEFIELD\",\"fieldname\":\"status\",\"condop\":\"EQ\",\"value\":\"1\"}]}]}}",
+    "itemType" : "GROUP",
+    "name" : "s1",
+    "width" : 0.0,
+    "addSeparator" : false
+  }, {
+    "caption" : "未解析",
+    "data" : "{\"theme_model\":{\"searchconds\":[{\"condtype\":\"GROUP\",\"condop\":\"AND\",\"bnotmode\":false,\"searchconds\":[{\"condtype\":\"DEFIELD\",\"fieldname\":\"status\",\"condop\":\"EQ\",\"value\":\"0\"}]}]}}",
+    "itemType" : "GROUP",
+    "name" : "s0",
+    "width" : 0.0,
+    "addSeparator" : false
+  }, {
+    "caption" : "待处理",
+    "data" : "{\"theme_model\":{\"searchconds\":[{\"condtype\":\"GROUP\",\"condop\":\"AND\",\"bnotmode\":false,\"searchconds\":[{\"condtype\":\"DEFIELD\",\"fieldname\":\"status\",\"condop\":\"EQ\",\"value\":\"3\"}]}]}}",
+    "itemType" : "GROUP",
+    "name" : "s3",
+    "width" : 0.0,
+    "addSeparator" : false
+  }, {
+    "caption" : "处理中",
+    "data" : "{\"theme_model\":{\"searchconds\":[{\"condtype\":\"GROUP\",\"condop\":\"OR\",\"bnotmode\":false,\"searchconds\":[{\"condtype\":\"DEFIELD\",\"fieldname\":\"status\",\"condop\":\"EQ\",\"value\":\"4\"},{\"condtype\":\"DEFIELD\",\"fieldname\":\"status\",\"condop\":\"EQ\",\"value\":\"2\"}]}]}}",
+    "itemType" : "GROUP",
+    "name" : "s4",
+    "width" : 0.0,
+    "addSeparator" : false
+  }, {
+    "caption" : "失败",
+    "data" : "{\"theme_model\":{\"searchconds\":[{\"condtype\":\"GROUP\",\"condop\":\"AND\",\"bnotmode\":false,\"searchconds\":[{\"condtype\":\"DEFIELD\",\"fieldname\":\"status\",\"condop\":\"EQ\",\"value\":\"99\"}]}]}}",
+    "itemType" : "GROUP",
+    "name" : "s99",
+    "width" : 0.0,
+    "addSeparator" : false
+  } ],
+  "quickGroupCount" : -1,
+  "quickSearchMode" : 1,
+  "quickSearchWidth" : 0,
+  "enableFilter" : true,
+  "enableGroup" : true,
+  "enableQuickSearch" : true,
+  "mobileSearchBar" : false,
+  "modelid" : "7782eb57a055ea12f8693557ada50911",
+  "modeltype" : "PSSYSSEARCHBAR"
+}

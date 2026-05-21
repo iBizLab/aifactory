@@ -1,0 +1,19 @@
+```sql
+SELECT
+t1."create_man",
+t1."create_time",
+t1."description",
+t1."id",
+t1."identifier",
+t1."is_named",
+t1."manual",
+t1."name",
+t1."owner_id",
+t1."owner_type",
+t1."restorable",
+t1."update_man",
+t1."update_time"
+FROM "version" t1 
+
+WHERE ( t1."owner_id" = #{ctx.datacontext.owner_id} )
+```

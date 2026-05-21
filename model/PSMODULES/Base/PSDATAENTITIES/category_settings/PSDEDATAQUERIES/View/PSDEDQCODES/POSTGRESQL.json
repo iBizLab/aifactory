@@ -1,0 +1,112 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"auto_gen_kb\"",
+    "name" : "AUTO_GEN_KB"
+  }, {
+    "expression" : "t11.\"name\"",
+    "name" : "CHAT_MODEL"
+  }, {
+    "expression" : "t1.\"chat_model_id\"",
+    "name" : "CHAT_MODEL_ID"
+  }, {
+    "expression" : "t1.\"chunk_method\"",
+    "name" : "CHUNK_METHOD"
+  }, {
+    "expression" : "t1.\"configs\"",
+    "name" : "CONFIGS"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t71.\"name\"",
+    "name" : "EMBEDDING_MODEL"
+  }, {
+    "expression" : "t1.\"embedding_model_id\"",
+    "name" : "EMBEDDING_MODEL_ID"
+  }, {
+    "expression" : "t1.\"enable\"",
+    "name" : "ENABLE"
+  }, {
+    "expression" : "t31.\"name\"",
+    "name" : "FLASH_MODEL"
+  }, {
+    "expression" : "t1.\"flash_model_id\"",
+    "name" : "FLASH_MODEL_ID"
+  }, {
+    "expression" : "t1.\"guided_prompt_agent_id\"",
+    "name" : "GUIDED_PROMPT_AGENT_ID"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t51.\"name\"",
+    "name" : "INTENT_MODEL"
+  }, {
+    "expression" : "t1.\"intent_model_id\"",
+    "name" : "INTENT_MODEL_ID"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"parser_config\"",
+    "name" : "PARSER_CONFIG"
+  }, {
+    "expression" : "t1.\"rerank\"",
+    "name" : "RERANK"
+  }, {
+    "expression" : "t21.\"name\"",
+    "name" : "RERANK_MODEL"
+  }, {
+    "expression" : "t1.\"rerank_model_id\"",
+    "name" : "RERANK_MODEL_ID"
+  }, {
+    "expression" : "t61.\"name\"",
+    "name" : "RESOURCE"
+  }, {
+    "expression" : "t61.\"resource_code\"",
+    "name" : "RESOURCE_CODE"
+  }, {
+    "expression" : "t1.\"resource_id\"",
+    "name" : "RESOURCE_ID"
+  }, {
+    "expression" : "t1.\"similarity_threshold\"",
+    "name" : "SIMILARITY_THRESHOLD"
+  }, {
+    "expression" : "t1.\"source_id\"",
+    "name" : "SOURCE_ID"
+  }, {
+    "expression" : "t1.\"source_name\"",
+    "name" : "SOURCE_NAME"
+  }, {
+    "expression" : "t1.\"top_k\"",
+    "name" : "TOP_K"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"use_kg\"",
+    "name" : "USE_KG"
+  }, {
+    "expression" : "t1.\"vector_similarity_weight\"",
+    "name" : "VECTOR_SIMILARITY_WEIGHT"
+  }, {
+    "expression" : "t1.\"visibility\"",
+    "name" : "VISIBILITY"
+  }, {
+    "expression" : "t41.\"name\"",
+    "name" : "VL_MODEL"
+  }, {
+    "expression" : "t1.\"vl_model_id\"",
+    "name" : "VL_MODEL_ID"
+  } ],
+  "queryCode" : "SELECT\nt1.\"auto_gen_kb\",\nt11.\"name\" AS \"chat_model\",\nt1.\"chat_model_id\",\nt1.\"chunk_method\",\nt1.\"configs\",\nt1.\"create_man\",\nt1.\"create_time\",\nt71.\"name\" AS \"embedding_model\",\nt1.\"embedding_model_id\",\nt1.\"enable\",\nt31.\"name\" AS \"flash_model\",\nt1.\"flash_model_id\",\nt1.\"guided_prompt_agent_id\",\nt1.\"id\",\nt51.\"name\" AS \"intent_model\",\nt1.\"intent_model_id\",\nt1.\"name\",\nt1.\"parser_config\",\nt1.\"rerank\",\nt21.\"name\" AS \"rerank_model\",\nt1.\"rerank_model_id\",\nt61.\"name\" AS \"resource\",\nt61.\"resource_code\",\nt1.\"resource_id\",\nt1.\"similarity_threshold\",\nt1.\"source_id\",\nt1.\"source_name\",\nt1.\"top_k\",\nt1.\"update_man\",\nt1.\"update_time\",\nt1.\"use_kg\",\nt1.\"vector_similarity_weight\",\nt1.\"visibility\",\nt41.\"name\" AS \"vl_model\",\nt1.\"vl_model_id\"\nFROM \"category_settings\" t1 \nLEFT JOIN \"ai_model\" t11 ON t1.\"chat_model_id\" = t11.\"id\" \nLEFT JOIN \"ai_model\" t21 ON t1.\"rerank_model_id\" = t21.\"id\" \nLEFT JOIN \"ai_model\" t31 ON t1.\"flash_model_id\" = t31.\"id\" \nLEFT JOIN \"ai_model\" t41 ON t1.\"vl_model_id\" = t41.\"id\" \nLEFT JOIN \"ai_model\" t51 ON t1.\"intent_model_id\" = t51.\"id\" \nLEFT JOIN \"data_resource\" t61 ON t1.\"resource_id\" = t61.\"id\" \nLEFT JOIN \"ai_model\" t71 ON t1.\"embedding_model_id\" = t71.\"id\" \n",
+  "id" : "PSMODULES/Base/PSDATAENTITIES/category_settings/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

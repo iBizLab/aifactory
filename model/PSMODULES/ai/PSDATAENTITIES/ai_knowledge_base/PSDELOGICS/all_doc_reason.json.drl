@@ -1,0 +1,514 @@
+package cn.ibizlab.ai.logic.ai_knowledge_baselogic.all_doc_reason;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_knowledge_base ai_knowledge_baseall_doc_reasondefault;
+                global cn.ibizlab.core.ai.domain.ai_agent_context ai_knowledge_baseall_doc_reasonagent;
+                global java.util.Map ai_knowledge_baseall_doc_reasonall_reason_content;
+                global java.util.Map ai_knowledge_baseall_doc_reasonchat_request;
+                global java.util.Map ai_knowledge_baseall_doc_reasonchat_request_reason;
+                global java.util.Map ai_knowledge_baseall_doc_reasonchat_response;
+                global java.util.Map ai_knowledge_baseall_doc_reasonchat_response_reason;
+                global cn.ibizlab.core.ai.domain.ai_knowledge_base ai_knowledge_baseall_doc_reasondefault_temp;
+                global cn.ibizlab.core.ai.domain.ai_kb_document ai_knowledge_baseall_doc_reasondoc;
+                global cn.ibizlab.core.ai.domain.ai_kb_document ai_knowledge_baseall_doc_reasondoc_filter;
+                global cn.ibizlab.core.ai.domain.ai_kb_document ai_knowledge_baseall_doc_reasondoc_list;
+                global cn.ibizlab.core.ai.domain.ai_kb_document ai_knowledge_baseall_doc_reasondoc_reason;
+                global cn.ibizlab.core.ai.domain.ai_review_report ai_knowledge_baseall_doc_reasondoc_reason_list;
+                global cn.ibizlab.core.ai.domain.ai_review_report ai_knowledge_baseall_doc_reasonfullcontent_reason_report;
+                global cn.ibizlab.core.ai.domain.ai_knowledge_base ai_knowledge_baseall_doc_reasonkb;
+                global cn.ibizlab.core.ai.domain.ai_review_report ai_knowledge_baseall_doc_reasonreport_doc;
+                    global cn.ibizlab.core.ai.service.Iai_knowledge_baseService ai_knowledge_baseservice;
+                    global cn.ibizlab.core.ai.service.Iai_kb_documentService ai_kb_documentservice;
+                    global cn.ibizlab.core.ai.service.Iai_agent_contextService ai_agent_contextservice;
+                    global cn.ibizlab.core.ai.service.Iai_review_reportService ai_review_reportservice;
+        global cn.ibizlab.core.ai.service.Iai_knowledge_baseService iBzSysAi_knowledge_baseDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_knowledge_baseall_doc_reasonbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[绑定参数]
+            rule "bindparam_01"
+            ruleflow-group "ai_knowledge_baseall_doc_reasonbindparam_01"
+            when
+            then
+                        update(ai_knowledge_baseall_doc_reasondefault);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonagent);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonall_reason_content);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondefault_temp);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_filter);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonkb);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonreport_doc);//更新fact中变量值
+            end
+
+            //逻辑处理节点[查询知识库详情]
+            rule "deaction_04"
+            ruleflow-group "ai_knowledge_baseall_doc_reasondeaction_04"
+            when
+            then
+                            cn.ibizlab.util.helper.CachedBeanCopier.copy(ai_knowledge_baseservice.get(ai_knowledge_baseall_doc_reasonkb.getId()),ai_knowledge_baseall_doc_reasonkb);
+                        update(ai_knowledge_baseall_doc_reasondefault);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonagent);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonall_reason_content);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondefault_temp);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_filter);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonkb);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonreport_doc);//更新fact中变量值
+            end
+
+            //逻辑处理节点[设置筛选条件]
+            rule "prepareparam_01"
+            ruleflow-group "ai_knowledge_baseall_doc_reasonprepareparam_01"
+            when
+            then
+                            ai_knowledge_baseall_doc_reasondoc_filter.set("n_kb_id_eq",ai_knowledge_baseall_doc_reasondefault_temp.get("id"));
+                        update(ai_knowledge_baseall_doc_reasondefault);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonagent);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonall_reason_content);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondefault_temp);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_filter);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonkb);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonreport_doc);//更新fact中变量值
+            end
+
+            //逻辑处理节点[查询知识库下文档]
+            rule "dedataset_01"
+            ruleflow-group "ai_knowledge_baseall_doc_reasondedataset_01"
+            when
+            then
+                        update(ai_knowledge_baseall_doc_reasondefault);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonagent);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonall_reason_content);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondefault_temp);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_filter);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonkb);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonreport_doc);//更新fact中变量值
+            end
+
+            //逻辑处理节点[输出审查报告结果集]
+            rule "debugparam_01"
+            ruleflow-group "ai_knowledge_baseall_doc_reasondebugparam_01"
+            when
+            then
+                        update(ai_knowledge_baseall_doc_reasondefault);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonagent);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonall_reason_content);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondefault_temp);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_filter);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonkb);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonreport_doc);//更新fact中变量值
+            end
+
+            //逻辑处理节点[循环子调用]
+            rule "loopsubcall_01"
+            ruleflow-group "ai_knowledge_baseall_doc_reasonloopsubcall_01"
+            when
+            then
+                        update(ai_knowledge_baseall_doc_reasondefault);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonagent);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonall_reason_content);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondefault_temp);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_filter);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonkb);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonreport_doc);//更新fact中变量值
+            end
+
+            //逻辑处理节点[获取知识库文档推理结果]
+            rule "rawsfcode_01"
+            ruleflow-group "ai_knowledge_baseall_doc_reasonrawsfcode_01"
+            when
+            then
+                        update(ai_knowledge_baseall_doc_reasondefault);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonagent);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonall_reason_content);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondefault_temp);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_filter);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonkb);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonreport_doc);//更新fact中变量值
+            end
+
+            //逻辑处理节点[填充智能体参数]
+            rule "prepareparam_04"
+            ruleflow-group "ai_knowledge_baseall_doc_reasonprepareparam_04"
+            when
+            then
+                            ai_knowledge_baseall_doc_reasonagent.set("codename",ai_knowledge_baseall_doc_reasondefault.get("agenttag"));
+                                ai_knowledge_baseall_doc_reasonchat_request.set("knowledgebases",null);
+                            ai_knowledge_baseall_doc_reasonchat_request.set("srfaiagenttag",ai_knowledge_baseall_doc_reasondefault.get("agenttag"));
+                        update(ai_knowledge_baseall_doc_reasondefault);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonagent);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonall_reason_content);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondefault_temp);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_filter);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonkb);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonreport_doc);//更新fact中变量值
+            end
+
+            //逻辑处理节点[置空知识库标识]
+            rule "prepareparam_03"
+            ruleflow-group "ai_knowledge_baseall_doc_reasonprepareparam_03"
+            when
+            then
+                                ai_knowledge_baseall_doc_reasonchat_request_reason.set("knowledgebases",null);
+                        update(ai_knowledge_baseall_doc_reasondefault);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonagent);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonall_reason_content);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondefault_temp);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_filter);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonkb);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonreport_doc);//更新fact中变量值
+            end
+
+            //逻辑处理节点[重新建立参数]
+            rule "renewparam_01"
+            ruleflow-group "ai_knowledge_baseall_doc_reasonrenewparam_01"
+            when
+            then
+                        update(ai_knowledge_baseall_doc_reasondefault);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonagent);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonall_reason_content);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondefault_temp);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_filter);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonkb);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonreport_doc);//更新fact中变量值
+            end
+
+            //逻辑处理节点[填充智能体]
+            rule "delogic_01"
+            ruleflow-group "ai_knowledge_baseall_doc_reasondelogic_01"
+            when
+            then
+                        update(ai_knowledge_baseall_doc_reasondefault);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonagent);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonall_reason_content);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondefault_temp);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_filter);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonkb);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonreport_doc);//更新fact中变量值
+            end
+
+            //逻辑处理节点[设置文档标识与智能体]
+            rule "prepareparam_02"
+            ruleflow-group "ai_knowledge_baseall_doc_reasonprepareparam_02"
+            when
+            then
+                            ai_knowledge_baseall_doc_reasondoc_reason.set("agenttag",ai_knowledge_baseall_doc_reasondefault_temp.get("agenttag"));
+                            ai_knowledge_baseall_doc_reasondoc_reason.set("id",ai_knowledge_baseall_doc_reasondoc.get("id"));
+                        update(ai_knowledge_baseall_doc_reasondefault);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonagent);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonall_reason_content);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondefault_temp);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_filter);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonkb);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonreport_doc);//更新fact中变量值
+            end
+
+            //逻辑处理节点[附加聊天请求]
+            rule "sysaichatagent_appendchatrequest_01"
+            ruleflow-group "ai_knowledge_baseall_doc_reasonsysaichatagent_appendchatrequest_01"
+            when
+            then
+                        update(ai_knowledge_baseall_doc_reasondefault);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonagent);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonall_reason_content);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondefault_temp);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_filter);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonkb);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonreport_doc);//更新fact中变量值
+            end
+
+            //逻辑处理节点[单一文档推理]
+            rule "deaction_01"
+            ruleflow-group "ai_knowledge_baseall_doc_reasondeaction_01"
+            when
+            then
+                        ai_kb_documentservice.reason(ai_knowledge_baseall_doc_reasondoc_reason);
+                        update(ai_knowledge_baseall_doc_reasondefault);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonagent);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonall_reason_content);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondefault_temp);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_filter);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonkb);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonreport_doc);//更新fact中变量值
+            end
+
+            //逻辑处理节点[交谈输出]
+            rule "sysaichatagent_chatoutput_01"
+            ruleflow-group "ai_knowledge_baseall_doc_reasonsysaichatagent_chatoutput_01"
+            when
+            then
+                        update(ai_knowledge_baseall_doc_reasondefault);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonagent);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonall_reason_content);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondefault_temp);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_filter);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonkb);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonreport_doc);//更新fact中变量值
+            end
+
+            //逻辑处理节点[将审查报告内容附加到结果数组]
+            rule "appendparam_01"
+            ruleflow-group "ai_knowledge_baseall_doc_reasonappendparam_01"
+            when
+            then
+                        update(ai_knowledge_baseall_doc_reasondefault);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonagent);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonall_reason_content);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondefault_temp);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_filter);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonkb);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonreport_doc);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备知识库标识]
+            rule "prepareparam_06"
+            ruleflow-group "ai_knowledge_baseall_doc_reasonprepareparam_06"
+            when
+            then
+                            ai_knowledge_baseall_doc_reasonkb.set("id",ai_knowledge_baseall_doc_reasondefault_temp.get("id"));
+                        update(ai_knowledge_baseall_doc_reasondefault);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonagent);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonall_reason_content);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondefault_temp);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_filter);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonkb);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonreport_doc);//更新fact中变量值
+            end
+
+            //逻辑处理节点[设置全文推理结果审查报告]
+            rule "prepareparam_05"
+            ruleflow-group "ai_knowledge_baseall_doc_reasonprepareparam_05"
+            when
+            then
+                            ai_knowledge_baseall_doc_reasonfullcontent_reason_report.set("reviewreport",ai_knowledge_baseall_doc_reasonchat_response_reason.get("content"));
+                            ai_knowledge_baseall_doc_reasonfullcontent_reason_report.set("kbid",ai_knowledge_baseall_doc_reasondefault.get("id"));
+                            ai_knowledge_baseall_doc_reasonfullcontent_reason_report.set("agenttag",ai_knowledge_baseall_doc_reasondefault.get("agenttag"));
+                            ai_knowledge_baseall_doc_reasonfullcontent_reason_report.set("name",ai_knowledge_baseall_doc_reasonkb.get("name"));
+                        update(ai_knowledge_baseall_doc_reasondefault);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonagent);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonall_reason_content);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondefault_temp);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_filter);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonkb);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonreport_doc);//更新fact中变量值
+            end
+
+            //逻辑处理节点[创建审查报告]
+            rule "deaction_03"
+            ruleflow-group "ai_knowledge_baseall_doc_reasondeaction_03"
+            when
+            then
+                        ai_review_reportservice.upsert(ai_knowledge_baseall_doc_reasonfullcontent_reason_report);
+                        update(ai_knowledge_baseall_doc_reasondefault);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonagent);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonall_reason_content);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondefault_temp);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_filter);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonkb);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonreport_doc);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "ai_knowledge_baseall_doc_reasonend_01"
+            when
+            then
+                        update(ai_knowledge_baseall_doc_reasondefault);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonagent);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonall_reason_content);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_request_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonchat_response_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondefault_temp);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_filter);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasondoc_reason_list);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonfullcontent_reason_report);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonkb);//更新fact中变量值
+                        update(ai_knowledge_baseall_doc_reasonreport_doc);//更新fact中变量值
+            end

@@ -1,0 +1,50 @@
+package cn.ibizlab.ai.logic.ai_kb_documentlogic.get_full_text_info;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_kb_document ai_kb_documentget_full_text_infodefault;
+                global java.util.Map ai_kb_documentget_full_text_infofulltext;
+                    global cn.ibizlab.core.ai.service.Iai_kb_documentService ai_kb_documentservice;
+        global cn.ibizlab.core.ai.service.Iai_kb_documentService iBzSysAi_kb_documentDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_kb_documentget_full_text_infobegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[get_full_text]
+            rule "deaction_01"
+            ruleflow-group "ai_kb_documentget_full_text_infodeaction_01"
+            when
+            then
+                        ai_kb_documentservice.get_full_text(ai_kb_documentget_full_text_infodefault);
+                        update(ai_kb_documentget_full_text_infodefault);//更新fact中变量值
+                        update(ai_kb_documentget_full_text_infofulltext);//更新fact中变量值
+            end
+
+            //逻辑处理节点[执行脚本代码]
+            rule "rawsfcode_01"
+            ruleflow-group "ai_kb_documentget_full_text_inforawsfcode_01"
+            when
+            then
+                        update(ai_kb_documentget_full_text_infodefault);//更新fact中变量值
+                        update(ai_kb_documentget_full_text_infofulltext);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "ai_kb_documentget_full_text_infoend_01"
+            when
+            then
+                        update(ai_kb_documentget_full_text_infodefault);//更新fact中变量值
+                        update(ai_kb_documentget_full_text_infofulltext);//更新fact中变量值
+            end

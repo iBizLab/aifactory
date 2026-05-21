@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.6.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="update_agent_suggs" author="system" failOnError="false">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">
+                SELECT COUNT(*) FROM ai_agent WHERE id = '57223ef94897f6bab29b8071dd575738'
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            <![CDATA[
+UPDATE ai_agent SET  custom_suggestion_prompt = $$<#assign msg>
+下面是你针对于智能体任务生成的内容:
+
+```
+${sys.query!}
+```
+
+# Bonus Task: Generate Follow-up Questions
+基于上面的回答内容，生成 3 个简短的用户追问建议。
+1. 这些建议应当引导用户推进如：完善细节、转换格式、进行估算、开始开发。
+2. 每个建议不超过 25 个字。
+3. 必须以用户的第一人称口吻（如"帮我...","把这些..."）。
+
+<#if last_knowledge_bases?? && last_knowledge_bases?has_content>
+# Bonus Task: List Activate Kbs
+从下面清单中找出当前会话中激活的知识库。
+```
+${last_knowledge_bases!}
+```
+
+# 输出格式
+- 返回内容仅包含JSON内容
+JSON格式 { "suggs": ["建议问题1", "建议问题2", "建议问题3"], "kbs": [{"id":"ibizaifactory-kb--123", "name":"知识库名称"}] }
+<#else>
+# 输出格式
+- 返回内容仅包含JSON内容
+JSON格式 { "suggs": ["建议问题1", "建议问题2", "建议问题3"] }
+</#if>
+
+</#assign>
+
+<#assign suggs=[]>
+<#assign kbs=[]>
+<#attempt>
+    <#assign ret=utils.json_content(ctx.raw_chat_completion("ibizaifactory-ai--followup", msg)!"{}")?eval>
+    <#assign suggs=ret.suggs![]>
+    <#assign kbs=ret.kbs![]>
+<#recover>
+    <#assign suggs=[]>
+    <#assign kbs=[]>
+</#attempt>
+<tool>
+<suggestions version="1.0">
+<#if kbs??>
+    <#list kbs as obj>
+        <#assign kb_tag = obj.id?replace("ibizaifactory-kb--", "")>
+   <suggestion type="action" version="1.0">
+     <data>
+     {"actionid":"open_kb_index@ai_knowledge_base", "action_context": "ai_knowledge_base:${kb_tag!}"}
+    </data>
+     <metadata>
+    {"content_name": "打开${obj.name!}", "action_context": "ai_knowledge_base:${kb_tag!}"}
+   </metadata>
+   </suggestion>
+   </#list>
+</#if>
+<#if (data[0].id)?? && data[0].id?ends_with("ai_kb_document")>
+   <suggestion type="action" version="1.0">
+     <data>
+     {"actionid":"ai_comment@comment"}
+    </data>
+     <metadata>
+    {"content_name": "添加到评论"}
+   </metadata>
+   </suggestion>
+</#if>
+<#list suggs as sugg>
+   <suggestion type="raw" version="1.0">
+     <data>
+     {"content":"${sugg}"}
+   </data>
+     <metadata>
+     {"content_name": "${sugg}", "language": "zh-CN"}
+   </metadata>
+   </suggestion>
+</#list>
+ </suggestions>
+</tool>$$ WHERE id = '57223ef94897f6bab29b8071dd575738' ;
+
+
+UPDATE ai_agent_context SET  custom_suggestion_prompt = $$<#assign msg>
+下面是你针对于智能体任务生成的内容:
+
+```
+${sys.query!}
+```
+
+# Bonus Task: Generate Follow-up Questions
+基于上面的回答内容，生成 3 个简短的用户追问建议。
+1. 这些建议应当引导用户推进如：完善细节、转换格式、进行估算、开始开发。
+2. 每个建议不超过 25 个字。
+3. 必须以用户的第一人称口吻（如"帮我...","把这些..."）。
+
+<#if last_knowledge_bases?? && last_knowledge_bases?has_content>
+# Bonus Task: List Activate Kbs
+从下面清单中找出当前会话中激活的知识库。
+```
+${last_knowledge_bases!}
+```
+
+# 输出格式
+- 返回内容仅包含JSON内容
+JSON格式 { "suggs": ["建议问题1", "建议问题2", "建议问题3"], "kbs": [{"id":"ibizaifactory-kb--123", "name":"知识库名称"}] }
+<#else>
+# 输出格式
+- 返回内容仅包含JSON内容
+JSON格式 { "suggs": ["建议问题1", "建议问题2", "建议问题3"] }
+</#if>
+
+</#assign>
+
+<#assign suggs=[]>
+<#assign kbs=[]>
+<#attempt>
+    <#assign ret=utils.json_content(ctx.raw_chat_completion("ibizaifactory-ai--followup", msg)!"{}")?eval>
+    <#assign suggs=ret.suggs![]>
+    <#assign kbs=ret.kbs![]>
+<#recover>
+    <#assign suggs=[]>
+    <#assign kbs=[]>
+</#attempt>
+<tool>
+<suggestions version="1.0">
+<#if kbs??>
+    <#list kbs as obj>
+        <#assign kb_tag = obj.id?replace("ibizaifactory-kb--", "")>
+   <suggestion type="action" version="1.0">
+     <data>
+     {"actionid":"open_kb_index@ai_knowledge_base", "action_context": "ai_knowledge_base:${kb_tag!}"}
+    </data>
+     <metadata>
+    {"content_name": "打开${obj.name!}", "action_context": "ai_knowledge_base:${kb_tag!}"}
+   </metadata>
+   </suggestion>
+   </#list>
+</#if>
+<#if (data[0].id)?? && data[0].id?ends_with("ai_kb_document")>
+   <suggestion type="action" version="1.0">
+     <data>
+     {"actionid":"ai_comment@comment"}
+    </data>
+     <metadata>
+    {"content_name": "添加到评论"}
+   </metadata>
+   </suggestion>
+</#if>
+<#list suggs as sugg>
+   <suggestion type="raw" version="1.0">
+     <data>
+     {"content":"${sugg}"}
+   </data>
+     <metadata>
+     {"content_name": "${sugg}", "language": "zh-CN"}
+   </metadata>
+   </suggestion>
+</#list>
+ </suggestions>
+</tool>$$ WHERE id = '2bc35967e8b6345965bbf58ef4284778' ;
+            ]]>
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

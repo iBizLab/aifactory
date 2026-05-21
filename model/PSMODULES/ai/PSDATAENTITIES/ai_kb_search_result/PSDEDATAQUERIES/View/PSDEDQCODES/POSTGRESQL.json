@@ -1,0 +1,52 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"chunk_snapshots\"",
+    "name" : "CHUNK_SNAPSHOTS"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"document_id\"",
+    "name" : "DOCUMENT_ID"
+  }, {
+    "expression" : "t1.\"hit_content\"",
+    "name" : "HIT_CONTENT"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"kb_id\"",
+    "name" : "KB_ID"
+  }, {
+    "expression" : "t1.\"merged_content\"",
+    "name" : "MERGED_CONTENT"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"query_id\"",
+    "name" : "QUERY_ID"
+  }, {
+    "expression" : "t1.\"rank\"",
+    "name" : "RANK"
+  }, {
+    "expression" : "t1.\"retrieval_mode\"",
+    "name" : "RETRIEVAL_MODE"
+  }, {
+    "expression" : "t1.\"similarity\"",
+    "name" : "SIMILARITY"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"chunk_snapshots\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"document_id\",\nt1.\"hit_content\",\nt1.\"id\",\nt1.\"kb_id\",\nt1.\"merged_content\",\nt1.\"name\",\nt1.\"query_id\",\nt1.\"rank\",\nt1.\"retrieval_mode\",\nt1.\"similarity\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"ai_kb_search_result\" t1 \n",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_search_result/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

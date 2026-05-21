@@ -1,0 +1,244 @@
+{
+  "codeName" : "list",
+  "controlType" : "LIST",
+  "getCreatePSControlAction" : {
+    "modelref" : true,
+    "id" : "create",
+    "actionName" : "Create",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "CREATE",
+    "name" : "create",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "Create"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_list.json"
+    }
+  },
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_list/PSLISTS/list.json",
+  "getFetchPSControlAction" : {
+    "modelref" : true,
+    "id" : "fetch",
+    "actionType" : "DEDATASET",
+    "name" : "fetch",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "FetchDefault"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_list.json"
+    }
+  },
+  "getGetPSControlAction" : {
+    "modelref" : true,
+    "id" : "load",
+    "actionName" : "Get",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "READ",
+    "name" : "load",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "Get"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_list.json"
+    }
+  },
+  "groupMode" : "NONE",
+  "getItemPSLayoutPanel" : {
+    "getAllPSPanelFields" : [ {
+      "id" : "name",
+      "viewFieldName" : "name"
+    } ],
+    "codeName" : "usr0116458907",
+    "controlType" : "PANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_list/PSPANELS/usr0116458907.json",
+    "hookEventNames" : [ "ONCLICK" ],
+    "layoutMode" : "TABLE_24COL",
+    "logicName" : "List_列表项面板",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_list.json"
+    },
+    "getPSControlLogics" : [ {
+      "eventNames" : "onClick",
+      "itemName" : "name",
+      "logicTag" : "key_question_list_list_itempanel",
+      "logicType" : "APPDEUIACTION",
+      "name" : "logic",
+      "getPSAppDEUIAction" : {
+        "actionTarget" : "SINGLEDATA",
+        "caption" : "文档问题沟通",
+        "codeName" : "doc_issue_communication",
+        "frontProcessType" : "CHAT",
+        "fullCodeName" : "ai_agent_context_doc_issue_communication",
+        "name" : "文档问题沟通",
+        "getPSAppDEACMode" : {
+          "modelref" : true,
+          "id" : "dyna_agent"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
+        },
+        "getPSNavigateContexts" : [ {
+          "key" : "SRFAIAPPENDCURDATA",
+          "name" : "SRFAIAPPENDCURDATA",
+          "value" : "true",
+          "rawValue" : true
+        }, {
+          "key" : "AI_AGENT_CONTEXT",
+          "name" : "AI_AGENT_CONTEXT",
+          "rawValue" : true
+        } ],
+        "getPSNavigateParams" : [ {
+          "key" : "srfenableaiagentchange",
+          "name" : "srfenableaiagentchange",
+          "value" : "false",
+          "rawValue" : true
+        }, {
+          "key" : "hidetopicsidebar",
+          "name" : "hidetopicsidebar",
+          "value" : "true",
+          "rawValue" : true
+        }, {
+          "key" : "disabletopicstorage",
+          "name" : "disabletopicstorage",
+          "value" : "true",
+          "rawValue" : true
+        }, {
+          "key" : "srfaiagent",
+          "name" : "srfaiagent",
+          "value" : "zlfx",
+          "rawValue" : true
+        }, {
+          "key" : "autoquestion",
+          "name" : "autoquestion",
+          "value" : "true",
+          "rawValue" : true
+        } ],
+        "uIActionMode" : "FRONT",
+        "uIActionTag" : "doc_issue_communication",
+        "uIActionType" : "DEUIACTION",
+        "globalUIAction" : true,
+        "id" : "doc_issue_communication@ai_agent_context"
+      }
+    } ],
+    "getPSControlParam" : { },
+    "getPSLayout" : {
+      "childColMD" : 24,
+      "columnCount" : 24,
+      "layout" : "TABLE_24COL"
+    },
+    "getRootPSPanelItems" : [ {
+      "itemStyle" : "DEFAULT",
+      "itemType" : "CONTAINER",
+      "name" : "page_container",
+      "getPSLayout" : {
+        "dir" : "column",
+        "layout" : "FLEX"
+      },
+      "getPSLayoutPos" : {
+        "colMD" : 24,
+        "layout" : "TABLE_24COL"
+      },
+      "getPSPanelItems" : [ {
+        "caption" : "文本(动态)",
+        "itemStyle" : "DEFAULT",
+        "itemType" : "FIELD",
+        "name" : "name",
+        "getPSEditor" : {
+          "editorParams" : {
+            "SRFNAVPARAM.srfreadonly" : "true"
+          },
+          "editorType" : "SPAN",
+          "name" : "name",
+          "getPSNavigateParams" : [ {
+            "key" : "srfreadonly",
+            "name" : "srfreadonly",
+            "value" : "true",
+            "rawValue" : true
+          } ],
+          "renderMode" : "TEXT_DYNAMIC",
+          "enableLinkView" : false
+        },
+        "getPSLayoutPos" : {
+          "grow" : -1,
+          "layout" : "FLEX"
+        },
+        "viewFieldName" : "name"
+      } ]
+    } ],
+    "name" : "key_question_list_list_itempanel",
+    "modelid" : "89a047c1b1085095bb35f26c955adf6e",
+    "modeltype" : "PSSYSVIEWPANEL"
+  },
+  "logicName" : "List",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_list.json"
+  },
+  "getPSDEListDataItems" : [ {
+    "dataType" : 25,
+    "name" : "srfkey",
+    "getPSAppDEField" : {
+      "name" : "ID",
+      "codeName" : "id"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "srfmajortext",
+    "getPSAppDEField" : {
+      "name" : "NAME",
+      "codeName" : "name"
+    }
+  } ],
+  "pagingSize" : 1000,
+  "getRemovePSControlAction" : {
+    "modelref" : true,
+    "id" : "remove",
+    "actionName" : "Remove",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "DELETE",
+    "name" : "remove",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "Remove"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_list.json"
+    }
+  },
+  "getUpdatePSControlAction" : {
+    "modelref" : true,
+    "id" : "update",
+    "actionName" : "Update",
+    "actionType" : "DEACTION",
+    "dataAccessAction" : "UPDATE",
+    "name" : "update",
+    "getPSAppDEMethod" : {
+      "modelref" : true,
+      "id" : "Update"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_list.json"
+    }
+  },
+  "hasWFDataItems" : false,
+  "enableGroup" : false,
+  "enableRowEdit" : false,
+  "enableRowEditGroup" : false,
+  "enableRowEditOrder" : false,
+  "enableRowNew" : false,
+  "noSort" : false,
+  "showHeader" : true,
+  "singleSelect" : true,
+  "modelid" : "2430e404a89bdc5b771ab005f8f10f2d",
+  "modeltype" : "PSDELIST"
+}

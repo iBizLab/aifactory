@@ -1,0 +1,350 @@
+package cn.ibizlab.ai.logic.ai_knowledge_baselogic.generate_guided_prompts;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_knowledge_base ai_knowledge_basegenerate_guided_promptsdefault;
+                global cn.ibizlab.core.ai.domain.ai_agent_context ai_knowledge_basegenerate_guided_promptsagent;
+                global cn.ibizlab.core.base.domain.category ai_knowledge_basegenerate_guided_promptscategory;
+                global cn.ibizlab.core.base.domain.category_settings ai_knowledge_basegenerate_guided_promptscategory_settings;
+                global java.util.Map ai_knowledge_basegenerate_guided_promptschat_request;
+                global java.util.Map ai_knowledge_basegenerate_guided_promptschat_response;
+                global java.util.Map ai_knowledge_basegenerate_guided_promptschunk_filter;
+                global cn.ibizlab.core.ai.domain.ai_kb_chunk ai_knowledge_basegenerate_guided_promptschunk_list;
+                global java.util.Map ai_knowledge_basegenerate_guided_promptsdoc_filter;
+                global cn.ibizlab.core.ai.domain.ai_kb_document ai_knowledge_basegenerate_guided_promptsdoc_list;
+                global java.util.Map ai_knowledge_basegenerate_guided_promptskb_info;
+                global java.util.Map ai_knowledge_basegenerate_guided_promptsresult;
+                    global cn.ibizlab.core.ai.service.Iai_knowledge_baseService ai_knowledge_baseservice;
+                    global cn.ibizlab.core.base.service.IcategoryService categoryservice;
+                    global cn.ibizlab.core.ai.service.Iai_agent_contextService ai_agent_contextservice;
+        global cn.ibizlab.core.ai.service.Iai_knowledge_baseService iBzSysAi_knowledge_baseDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_knowledge_basegenerate_guided_promptsbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[获取知识库信息]
+            rule "deaction_01"
+            ruleflow-group "ai_knowledge_basegenerate_guided_promptsdeaction_01"
+            when
+            then
+                        ai_knowledge_baseservice.get_full_data(ai_knowledge_basegenerate_guided_promptsdefault);
+                        update(ai_knowledge_basegenerate_guided_promptsdefault);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsagent);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory_settings);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_request);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_response);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptskb_info);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsresult);//更新fact中变量值
+            end
+
+            //逻辑处理节点[附加聊天请求]
+            rule "sysaichatagent_appendchatrequest_02"
+            ruleflow-group "ai_knowledge_basegenerate_guided_promptssysaichatagent_appendchatrequest_02"
+            when
+            then
+                        update(ai_knowledge_basegenerate_guided_promptsdefault);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsagent);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory_settings);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_request);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_response);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptskb_info);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsresult);//更新fact中变量值
+            end
+
+            //逻辑处理节点[查询类别]
+            rule "deaction_02"
+            ruleflow-group "ai_knowledge_basegenerate_guided_promptsdeaction_02"
+            when
+            then
+                            cn.ibizlab.util.helper.CachedBeanCopier.copy(categoryservice.get(ai_knowledge_basegenerate_guided_promptscategory.getId()),ai_knowledge_basegenerate_guided_promptscategory);
+                        update(ai_knowledge_basegenerate_guided_promptsdefault);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsagent);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory_settings);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_request);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_response);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptskb_info);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsresult);//更新fact中变量值
+            end
+
+            //逻辑处理节点[调试逻辑参数]
+            rule "debugparam_01"
+            ruleflow-group "ai_knowledge_basegenerate_guided_promptsdebugparam_01"
+            when
+            then
+                        update(ai_knowledge_basegenerate_guided_promptsdefault);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsagent);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory_settings);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_request);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_response);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptskb_info);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsresult);//更新fact中变量值
+            end
+
+            //逻辑处理节点[获取类别标识]
+            rule "prepareparam_03"
+            ruleflow-group "ai_knowledge_basegenerate_guided_promptsprepareparam_03"
+            when
+            then
+                            ai_knowledge_basegenerate_guided_promptscategory.set("id",ai_knowledge_basegenerate_guided_promptsdefault.get("categoryid"));
+                        update(ai_knowledge_basegenerate_guided_promptsdefault);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsagent);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory_settings);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_request);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_response);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptskb_info);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsresult);//更新fact中变量值
+            end
+
+            //逻辑处理节点[绑定参数]
+            rule "bindparam_01"
+            ruleflow-group "ai_knowledge_basegenerate_guided_promptsbindparam_01"
+            when
+            then
+                        update(ai_knowledge_basegenerate_guided_promptsdefault);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsagent);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory_settings);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_request);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_response);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptskb_info);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsresult);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_01"
+            ruleflow-group "ai_knowledge_basegenerate_guided_promptsprepareparam_01"
+            when
+            then
+                            ai_knowledge_basegenerate_guided_promptsagent.set("id",ai_knowledge_basegenerate_guided_promptscategory_settings.get("guidedpromptagentid"));
+                        update(ai_knowledge_basegenerate_guided_promptsdefault);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsagent);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory_settings);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_request);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_response);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptskb_info);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsresult);//更新fact中变量值
+            end
+
+            //逻辑处理节点[查找agent_context]
+            rule "deaction_04"
+            ruleflow-group "ai_knowledge_basegenerate_guided_promptsdeaction_04"
+            when
+            then
+                            cn.ibizlab.util.helper.CachedBeanCopier.copy(ai_agent_contextservice.get(ai_knowledge_basegenerate_guided_promptsagent.getId()),ai_knowledge_basegenerate_guided_promptsagent);
+                        update(ai_knowledge_basegenerate_guided_promptsdefault);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsagent);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory_settings);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_request);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_response);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptskb_info);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsresult);//更新fact中变量值
+            end
+
+            //逻辑处理节点[交谈输出（默认引导词）]
+            rule "sysaichatagent_chatoutput_02"
+            ruleflow-group "ai_knowledge_basegenerate_guided_promptssysaichatagent_chatoutput_02"
+            when
+            then
+                        update(ai_knowledge_basegenerate_guided_promptsdefault);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsagent);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory_settings);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_request);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_response);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptskb_info);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsresult);//更新fact中变量值
+            end
+
+            //逻辑处理节点[交谈输出（动态引导词）]
+            rule "sysaichatagent_chatoutput_01"
+            ruleflow-group "ai_knowledge_basegenerate_guided_promptssysaichatagent_chatoutput_01"
+            when
+            then
+                        update(ai_knowledge_basegenerate_guided_promptsdefault);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsagent);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory_settings);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_request);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_response);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptskb_info);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsresult);//更新fact中变量值
+            end
+
+            //逻辑处理节点[设置智能体]
+            rule "prepareparam_05"
+            ruleflow-group "ai_knowledge_basegenerate_guided_promptsprepareparam_05"
+            when
+            then
+                            ai_knowledge_basegenerate_guided_promptschat_request.set("srfaiagenttag",ai_knowledge_basegenerate_guided_promptsagent.get("codename"));
+                        update(ai_knowledge_basegenerate_guided_promptsdefault);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsagent);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory_settings);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_request);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_response);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptskb_info);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsresult);//更新fact中变量值
+            end
+
+            //逻辑处理节点[输出交谈反馈内容]
+            rule "debugparam_02"
+            ruleflow-group "ai_knowledge_basegenerate_guided_promptsdebugparam_02"
+            when
+            then
+                        update(ai_knowledge_basegenerate_guided_promptsdefault);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsagent);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory_settings);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_request);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_response);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptskb_info);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsresult);//更新fact中变量值
+            end
+
+            //逻辑处理节点[填充ai反馈内容]
+            rule "prepareparam_06"
+            ruleflow-group "ai_knowledge_basegenerate_guided_promptsprepareparam_06"
+            when
+            then
+                            ai_knowledge_basegenerate_guided_promptsdefault.set("guidanceprompt",ai_knowledge_basegenerate_guided_promptschat_response.get("content"));
+                        update(ai_knowledge_basegenerate_guided_promptsdefault);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsagent);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory_settings);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_request);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_response);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptskb_info);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsresult);//更新fact中变量值
+            end
+
+            //逻辑处理节点[超过2000时截取]
+            rule "rawsfcode_03"
+            ruleflow-group "ai_knowledge_basegenerate_guided_promptsrawsfcode_03"
+            when
+            then
+                        update(ai_knowledge_basegenerate_guided_promptsdefault);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsagent);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory_settings);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_request);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_response);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptskb_info);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsresult);//更新fact中变量值
+            end
+
+            //逻辑处理节点[更新引导提示词]
+            rule "rawsqlcall_01"
+            ruleflow-group "ai_knowledge_basegenerate_guided_promptsrawsqlcall_01"
+            when
+            then
+    Map param =new HashMap();
+        param.put("param0",ai_knowledge_basegenerate_guided_promptsdefault.get("guidanceprompt"));
+        param.put("param1",ai_knowledge_basegenerate_guided_promptsdefault.get("id"));
+    String strSql="UPDATE AI_KNOWLEDGE_BASE set GUIDANCE_PROMPT=#{et.param0} where ID = #{et.param1}";
+                        iBzSysAi_knowledge_baseDefaultService.execute(strSql,param);//SQL调用
+                        update(ai_knowledge_basegenerate_guided_promptsdefault);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsagent);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory_settings);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_request);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_response);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptskb_info);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsresult);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "ai_knowledge_basegenerate_guided_promptsend_01"
+            when
+            then
+                        update(ai_knowledge_basegenerate_guided_promptsdefault);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsagent);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptscategory_settings);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_request);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschat_response);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptschunk_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_filter);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsdoc_list);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptskb_info);//更新fact中变量值
+                        update(ai_knowledge_basegenerate_guided_promptsresult);//更新fact中变量值
+            end

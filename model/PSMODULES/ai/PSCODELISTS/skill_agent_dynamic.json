@@ -1,0 +1,40 @@
+{
+  "cacheTimeout" : 1000,
+  "codeListTag" : "ai__skill_agent_dynamic",
+  "codeListType" : "DYNAMIC",
+  "codeName" : "skill_agent_dynamic",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/ai/PSCODELISTS/skill_agent_dynamic.json",
+  "emptyText" : "未定义",
+  "name" : "skill智能体(动态)",
+  "orMode" : "STR",
+  "getPSDEDataSet" : {
+    "modelref" : true,
+    "id" : "skill_proxy"
+  },
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_tool.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizAIFactory",
+  "getTextPSDEField" : {
+    "name" : "NAME",
+    "codeName" : "name"
+  },
+  "textSeparator" : ",",
+  "getValuePSDEField" : {
+    "name" : "ID",
+    "codeName" : "id"
+  },
+  "valueSeparator" : ",",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

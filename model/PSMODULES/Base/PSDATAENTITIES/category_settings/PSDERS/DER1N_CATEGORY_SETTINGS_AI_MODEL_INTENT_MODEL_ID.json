@@ -1,0 +1,32 @@
+{
+  "codeName" : "intent_model",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/Base/PSDATAENTITIES/category_settings/PSDERS/DER1N_CATEGORY_SETTINGS_AI_MODEL_INTENT_MODEL_ID.json",
+  "fKeyName" : "F1746B0EDC116E0D04",
+  "logicName" : "意图分析模型",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_model.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/Base/PSDATAENTITIES/category_settings.json"
+  },
+  "name" : "DER1N_CATEGORY_SETTINGS_AI_MODEL_INTENT_MODEL_ID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "INTENT_MODEL_ID",
+    "codeName" : "intent_model_id"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "INTENT_MODEL",
+    "codeName" : "intent_model"
+  },
+  "pickupDEFName" : "INTENT_MODEL_ID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "intent_model",
+  "enableFKey" : true
+}

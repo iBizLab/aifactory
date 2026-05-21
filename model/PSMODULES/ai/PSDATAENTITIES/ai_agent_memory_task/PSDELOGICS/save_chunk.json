@@ -1,0 +1,80 @@
+{
+  "codeName" : "save_chunk",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task/PSDELOGICS/save_chunk.json",
+  "logicName" : "保存记忆分块",
+  "name" : "保存记忆分块",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : 60,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : 180,
+    "parallelOutput" : true
+  }, {
+    "code" : "def _default = logic.param('default').getReal()\r\ndef _chunk= logic.param('chunk').getReal()\r\ndef log = org.apache.commons.logging.LogFactory.getLog(\"cn.ibizlab.central.core.dataentity.logic.DELogicRuntimeBase\")\r\ndef chunk_id = _default.get(\"id\")\r\ndef _name = _default.get(\"name\")\r\ndef kb_tag =  _default.get(\"kbid\")\r\ndef doc_id = _default.get(\"docid\")\r\ndef content = _default.get(\"content\")\r\n\r\nprintln \"\\n--- 保存记忆分块传入数据 ---\\n${_default}\"\r\nif (!kb_tag || !doc_id|| !chunk_id ) {\r\n    log.debug(\"缺少记忆知识库、文档标识或分块标识，忽略保存记忆分块\")\r\n    return \r\n}\r\n_chunk = new net.ibizsys.central.cloud.core.util.domain.Chunk()\r\n_chunk.set(\"id\",chunk_id)\r\n_chunk.set(\"name\",_name)\r\n_chunk.set(\"type\",\"MANUAL\")\r\n_chunk.set(\"kbid\",kb_tag)\r\n_chunk.set(\"docid\",doc_id)\r\n_chunk.set(\"content\",content)\r\ndef system_id = sys.getDeploySystemId()\r\nif(sys instanceof net.ibizsys.central.cloud.core.IServiceSystemRuntime) {\r\n    def iServiceSystemRuntime = (net.ibizsys.central.cloud.core.IServiceSystemRuntime)sys\r\n    if(iServiceSystemRuntime.getMainSystemId()) {\r\n        system_id = iServiceSystemRuntime.getMainSystemId();\r\n    }\r\n}\r\ndef kb_config = \"${system_id}-kb--${kb_tag}\"\r\ndef kb_chunk = sys.getSysKBUtilRuntime(false).saveChunk(kb_config, doc_id,chunk_id,_chunk)\r\nkb_chunk.copyTo(_chunk)",
+    "codeName" : "RAWSFCODE_01",
+    "codeType" : "Groovy",
+    "leftPos" : 20,
+    "logicNodeType" : "RAWSFCODE",
+    "name" : "保存记忆分块",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      }
+    } ],
+    "topPos" : 350,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "END_01",
+    "leftPos" : 265,
+    "logicNodeType" : "END",
+    "name" : "结束",
+    "getReturnParam" : {
+      "modelref" : true,
+      "id" : "chunk"
+    },
+    "returnType" : "LOGICPARAM",
+    "topPos" : 352,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task.json"
+    },
+    "default" : true,
+    "entityParam" : true
+  }, {
+    "codeName" : "chunk",
+    "logicName" : "记忆分块",
+    "name" : "记忆分块",
+    "entityParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

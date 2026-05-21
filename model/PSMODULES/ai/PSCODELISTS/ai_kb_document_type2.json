@@ -1,0 +1,52 @@
+{
+  "codeListTag" : "ai__ai_kb_document_type2",
+  "codeListType" : "STATIC",
+  "codeName" : "ai_kb_document_type2",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/ai/PSCODELISTS/ai_kb_document_type2.json",
+  "emptyText" : "未定义",
+  "name" : "知识库文档类型2",
+  "getPSCodeItems" : [ {
+    "codeName" : "case_card",
+    "iconCls" : "fa fa-trello",
+    "getPSSysImage" : {
+      "glyph" : "xf181@FontAwesome",
+      "cssClass" : "fa fa-trello"
+    },
+    "text" : "案卡",
+    "value" : "case_card"
+  }, {
+    "codeName" : "case_file",
+    "iconCls" : "fa fa-envelope",
+    "getPSSysImage" : {
+      "glyph" : "xf0e0@FontAwesome",
+      "cssClass" : "fa fa-envelope"
+    },
+    "text" : "卷宗",
+    "value" : "case_file"
+  }, {
+    "codeName" : "legal_document",
+    "iconCls" : "fa fa-file-text-o",
+    "getPSSysImage" : {
+      "glyph" : "xf0f6@FontAwesome",
+      "cssClass" : "fa fa-file-text-o"
+    },
+    "text" : "文书",
+    "value" : "legal_document"
+  } ],
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizAIFactory",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

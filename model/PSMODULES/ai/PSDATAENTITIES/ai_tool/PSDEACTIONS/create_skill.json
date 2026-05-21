@@ -1,0 +1,36 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CREATE",
+  "actionType" : "USERCREATE",
+  "codeName" : "create_skill",
+  "dataAccessAction" : "CREATE",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_tool/PSDEACTIONS/create_skill.json",
+  "logicName" : "建立技能",
+  "name" : "CREATE_SKILL",
+  "getPSDEActionInput" : {
+    "name" : "Create_skillInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_tool_dto"
+    },
+    "type" : "DTO",
+    "output" : true
+  },
+  "getPSDEActionParams" : [ {
+    "name" : "tool_type",
+    "getPSDEField" : {
+      "name" : "TOOL_TYPE",
+      "codeName" : "tool_type"
+    },
+    "stdDataType" : 25,
+    "value" : "skill",
+    "valueType" : "VALUE",
+    "allowEmpty" : false
+  } ],
+  "getPSDEActionReturn" : {
+    "name" : "Create_skillResult",
+    "type" : "VOID"
+  },
+  "customParam" : true,
+  "enableFront" : false
+}

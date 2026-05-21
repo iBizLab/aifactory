@@ -1,0 +1,96 @@
+package cn.ibizlab.ai.logic.ai_knowledge_baselogic.get_summary;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_knowledge_base ai_knowledge_baseget_summarydefault;
+                global cn.ibizlab.core.ai.domain.ai_kb_chunk ai_knowledge_baseget_summarychunks;
+                global java.util.Map ai_knowledge_baseget_summarycluster;
+                global cn.ibizlab.core.ai.domain.ai_kb_chunk ai_knowledge_baseget_summaryfilter;
+                    global cn.ibizlab.core.ai.service.Iai_kb_chunkService ai_kb_chunkservice;
+        global cn.ibizlab.core.ai.service.Iai_knowledge_baseService iBzSysAi_knowledge_baseDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_knowledge_baseget_summarybegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_01"
+            ruleflow-group "ai_knowledge_baseget_summaryprepareparam_01"
+            when
+            then
+                            ai_knowledge_baseget_summaryfilter.set("n_kb_id_eq",ai_knowledge_baseget_summarydefault.get("id"));
+                            ai_knowledge_baseget_summaryfilter.set("size","1000");
+                            ai_knowledge_baseget_summaryfilter.set("sort","document_sequence,asc;document_id,asc;sequence,asc");
+                            ai_knowledge_baseget_summaryfilter.set("n_type_eq","index");
+                        update(ai_knowledge_baseget_summarydefault);//更新fact中变量值
+                        update(ai_knowledge_baseget_summarychunks);//更新fact中变量值
+                        update(ai_knowledge_baseget_summarycluster);//更新fact中变量值
+                        update(ai_knowledge_baseget_summaryfilter);//更新fact中变量值
+            end
+
+            //逻辑处理节点[pageidx]
+            rule "dedataquery_01"
+            ruleflow-group "ai_knowledge_baseget_summarydedataquery_01"
+            when
+            then
+                        update(ai_knowledge_baseget_summarydefault);//更新fact中变量值
+                        update(ai_knowledge_baseget_summarychunks);//更新fact中变量值
+                        update(ai_knowledge_baseget_summarycluster);//更新fact中变量值
+                        update(ai_knowledge_baseget_summaryfilter);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_02"
+            ruleflow-group "ai_knowledge_baseget_summaryprepareparam_02"
+            when
+            then
+                            ai_knowledge_baseget_summaryfilter.set("n_type_eq","cluster");
+                            ai_knowledge_baseget_summaryfilter.set("n_pid_isnull","1");
+                        update(ai_knowledge_baseget_summarydefault);//更新fact中变量值
+                        update(ai_knowledge_baseget_summarychunks);//更新fact中变量值
+                        update(ai_knowledge_baseget_summarycluster);//更新fact中变量值
+                        update(ai_knowledge_baseget_summaryfilter);//更新fact中变量值
+            end
+
+            //逻辑处理节点[summary]
+            rule "dedataquery_02"
+            ruleflow-group "ai_knowledge_baseget_summarydedataquery_02"
+            when
+            then
+                        update(ai_knowledge_baseget_summarydefault);//更新fact中变量值
+                        update(ai_knowledge_baseget_summarychunks);//更新fact中变量值
+                        update(ai_knowledge_baseget_summarycluster);//更新fact中变量值
+                        update(ai_knowledge_baseget_summaryfilter);//更新fact中变量值
+            end
+
+            //逻辑处理节点[执行脚本代码]
+            rule "rawsfcode_01"
+            ruleflow-group "ai_knowledge_baseget_summaryrawsfcode_01"
+            when
+            then
+                        update(ai_knowledge_baseget_summarydefault);//更新fact中变量值
+                        update(ai_knowledge_baseget_summarychunks);//更新fact中变量值
+                        update(ai_knowledge_baseget_summarycluster);//更新fact中变量值
+                        update(ai_knowledge_baseget_summaryfilter);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "ai_knowledge_baseget_summaryend_01"
+            when
+            then
+                        update(ai_knowledge_baseget_summarydefault);//更新fact中变量值
+                        update(ai_knowledge_baseget_summarychunks);//更新fact中变量值
+                        update(ai_knowledge_baseget_summarycluster);//更新fact中变量值
+                        update(ai_knowledge_baseget_summaryfilter);//更新fact中变量值
+            end

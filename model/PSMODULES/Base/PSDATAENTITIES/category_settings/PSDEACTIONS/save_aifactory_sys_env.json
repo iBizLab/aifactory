@@ -1,0 +1,27 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "DELOGIC",
+  "codeName" : "save_aifactory_sys_env",
+  "dataAccessAction" : "ENV",
+  "dynaModelFilePath" : "PSMODULES/Base/PSDATAENTITIES/category_settings/PSDEACTIONS/save_aifactory_sys_env.json",
+  "logicName" : "save_aifactory_sys_env",
+  "name" : "save_aifactory_sys_env",
+  "getPSDEActionInput" : {
+    "name" : "Save_aifactory_sys_envInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "category_settings_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "Save_aifactory_sys_envResult",
+    "type" : "VOID"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/Base/PSDATAENTITIES/category_settings/PSDELOGICS/save_aifactory_sys_env.json"
+  },
+  "enableFront" : false
+}

@@ -1,0 +1,52 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"app_tag\"",
+    "name" : "APP_TAG"
+  }, {
+    "expression" : "t1.\"categories\"",
+    "name" : "CATEGORIES"
+  }, {
+    "expression" : "t1.\"category\"",
+    "name" : "CATEGORY"
+  }, {
+    "expression" : "t1.\"chart_type\"",
+    "name" : "CHART_TYPE"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"is_system\"",
+    "name" : "IS_SYSTEM"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"template_model\"",
+    "name" : "TEMPLATE_MODEL"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"view_id\"",
+    "name" : "VIEW_ID"
+  }, {
+    "expression" : "t11.\"name\"",
+    "name" : "VIEW_NAME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"app_tag\",\nt1.\"categories\",\nt1.\"category\",\nt1.\"chart_type\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"description\",\nt1.\"id\",\nt1.\"is_system\",\nt1.\"name\",\nt1.\"template_model\",\nt1.\"update_man\",\nt1.\"update_time\",\nt1.\"view_id\",\nt11.\"name\" AS \"view_name\"\nFROM \"insight_report\" t1 \nLEFT JOIN \"insight_view\" t11 ON t1.\"view_id\" = t11.\"id\" \n",
+  "id" : "PSMODULES/Insight/PSDATAENTITIES/insight_report/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

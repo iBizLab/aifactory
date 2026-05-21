@@ -1,0 +1,20 @@
+package cn.ibizlab.base.logic.memberlogic.cur_portfolio_resource;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.base.domain.member membercur_portfolio_resourcedefault;
+        global cn.ibizlab.core.base.service.ImemberService iBzSysMemberDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "membercur_portfolio_resourcebegin"
+            when
+            then
+            end

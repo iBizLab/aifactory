@@ -1,0 +1,90 @@
+{
+  "codeName" : "get_page_index_info",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunk/PSDELOGICS/get_page_index_info.json",
+  "logicName" : "获取pageIndex信息",
+  "name" : "获取pageIndex信息",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : -130,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      },
+      "name" : "连接名称",
+      "getPSDELogicLinkGroupCond" : {
+        "groupOP" : "AND",
+        "logicType" : "GROUP",
+        "name" : "连接条件组",
+        "getPSDELogicLinkConds" : [ {
+          "condOP" : "EQ",
+          "dstFieldName" : "TYPE",
+          "getDstLogicParam" : {
+            "modelref" : true,
+            "id" : "Default"
+          },
+          "logicType" : "SINGLE",
+          "name" : "Default[TYPE] 等于(=) index",
+          "paramValue" : "index"
+        } ]
+      },
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "parallelOutput" : true
+  }, {
+    "code" : "def chunk = logic.param(\"default\").getReal();\ntry{\n\n\n        def sb = new StringBuilder()\n\n        def doc = new groovy.json.JsonSlurper().parseText(chunk.get(\"content\"))\n        def processDetails\n        processDetails = { items, parentPath, docTitle, row_num ->\n            def detailText = \"\"\n            items.each { item ->\n                def currentPath = parentPath ? \"${parentPath} > ${item.title}\" : \"${docTitle} > ${item.title}\"\n                def level = currentPath.split(\" > \").size() \n                def range = item.location ? \"${item.location.start} - ${item.location.end}\" : \"N/A\"\n\n                detailText += \"${'#' * level} ${item.id} ${item.title}\\n\"\n                detailText += \"- 【位置】: ${range}\\n\"\n                if (item.summary) detailText += \"- 【摘要】: ${item.summary}\\n\"\n\n\n                if (item.children) detailText += processDetails(item.children, currentPath, docTitle, row_num)\n            }\n            return detailText\n        }\n\n        def range = doc.page_range ? \"${doc.page_range.start} - ${doc.page_range.end}\" : \"N/A\"\n\n        sb.append(\"#  ${doc.document_title}\\n\")\n        sb.append(\"- 【位置】: ${range}\\n\")\n\n        // 插入详细层级内容\n        sb.append(processDetails(doc.index, \"\", doc.document_title, doc.row_num))\n        chunk.set(\"page_index_info\", sb.toString())\n\n}catch(Exception ex) {\n    \n}",
+    "codeName" : "RAWSFCODE_01",
+    "codeType" : "Groovy",
+    "leftPos" : -170,
+    "logicNodeType" : "RAWSFCODE",
+    "name" : "执行脚本代码",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      }
+    } ],
+    "topPos" : 161,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "END_01",
+    "leftPos" : -130,
+    "logicNodeType" : "END",
+    "name" : "结束",
+    "getReturnParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "returnType" : "LOGICPARAM",
+    "topPos" : 303,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunk.json"
+    },
+    "default" : true,
+    "entityParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

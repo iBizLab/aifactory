@@ -1,0 +1,784 @@
+package cn.ibizlab.ai.logic.ai_agent_memory_tasklogic.extract_and_store;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_agent_memory_task ai_agent_memory_taskextract_and_storedefault;
+                global cn.ibizlab.core.ai.domain.ai_agent_message ai_agent_memory_taskextract_and_storeagent_message_filter;
+                global java.util.Map ai_agent_memory_taskextract_and_storechat_request;
+                global java.util.Map ai_agent_memory_taskextract_and_storechat_response;
+                global java.util.Map ai_agent_memory_taskextract_and_storechat_temp;
+                global java.util.Map ai_agent_memory_taskextract_and_storechat_temp2;
+                global cn.ibizlab.core.ai.domain.ai_kb_chunk ai_agent_memory_taskextract_and_storecheck_queries;
+                global cn.ibizlab.core.ai.domain.ai_kb_chunk ai_agent_memory_taskextract_and_storechunk;
+                global java.util.Map ai_agent_memory_taskextract_and_storechunk_filter;
+                global java.util.Map ai_agent_memory_taskextract_and_storedaily_logs;
+                global cn.ibizlab.core.ai.domain.ai_agent_memory_task ai_agent_memory_taskextract_and_storelast_task;
+                global cn.ibizlab.core.ai.domain.ai_kb_chunk ai_agent_memory_taskextract_and_storelatest_chunk_list;
+                global cn.ibizlab.core.ai.domain.ai_agent_message ai_agent_memory_taskextract_and_storemessage_list;
+                global cn.ibizlab.core.ai.domain.ai_agent_memory_task ai_agent_memory_taskextract_and_storetask_filter;
+                global cn.ibizlab.core.ai.domain.ai_agent_memory_task ai_agent_memory_taskextract_and_storetasks;
+                    global cn.ibizlab.core.ai.service.Iai_agent_memory_taskService ai_agent_memory_taskservice;
+                    global cn.ibizlab.core.ai.service.Iai_agent_messageService ai_agent_messageservice;
+        global cn.ibizlab.core.ai.service.Iai_agent_memory_taskService iBzSysAi_agent_memory_taskDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_agent_memory_taskextract_and_storebegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[获取任务实例]
+            rule "deaction_01"
+            ruleflow-group "ai_agent_memory_taskextract_and_storedeaction_01"
+            when
+            then
+                            cn.ibizlab.util.helper.CachedBeanCopier.copy(ai_agent_memory_taskservice.get(ai_agent_memory_taskextract_and_storedefault.getId()),ai_agent_memory_taskextract_and_storedefault);
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[记忆提取交谈返回]
+            rule "rawsfcode_01"
+            ruleflow-group "ai_agent_memory_taskextract_and_storerawsfcode_01"
+            when
+            then
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[重新建立chat_request]
+            rule "renewparam_01"
+            ruleflow-group "ai_agent_memory_taskextract_and_storerenewparam_01"
+            when
+            then
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_09"
+            ruleflow-group "ai_agent_memory_taskextract_and_storeprepareparam_09"
+            when
+            then
+                            ai_agent_memory_taskextract_and_storedefault.set("daily_logs",ai_agent_memory_taskextract_and_storedaily_logs.get(""));
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[填充默认文档标识]
+            rule "delogic_01"
+            ruleflow-group "ai_agent_memory_taskextract_and_storedelogic_01"
+            when
+            then
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备记忆检索参数]
+            rule "prepareparam_08"
+            ruleflow-group "ai_agent_memory_taskextract_and_storeprepareparam_08"
+            when
+            then
+                            ai_agent_memory_taskextract_and_storechunk_filter.set("size","40");
+                            ai_agent_memory_taskextract_and_storechunk_filter.set("n_docid_in",ai_agent_memory_taskextract_and_storedefault.get("docid"));
+                            ai_agent_memory_taskextract_and_storechunk_filter.set("n_kbid_eq",ai_agent_memory_taskextract_and_storedefault.get("kbtag"));
+                            ai_agent_memory_taskextract_and_storechunk_filter.set("queries",ai_agent_memory_taskextract_and_storechat_temp2.get("fact_content_list"));
+                            ai_agent_memory_taskextract_and_storechat_request.set("srfaiagenttag","memory_verification");
+                            ai_agent_memory_taskextract_and_storechunk_filter.set("n_pageindex_eq","0");
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[记忆提取智能体调用]
+            rule "sysaichatagent_chatraw_01"
+            ruleflow-group "ai_agent_memory_taskextract_and_storesysaichatagent_chatraw_01"
+            when
+            then
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[记忆核验返回重新构造切片]
+            rule "rawsfcode_04"
+            ruleflow-group "ai_agent_memory_taskextract_and_storerawsfcode_04"
+            when
+            then
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[最新task后续产生的会话消息]
+            rule "dedataset_01"
+            ruleflow-group "ai_agent_memory_taskextract_and_storededataset_01"
+            when
+            then
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[绑定参数]
+            rule "bindparam_02"
+            ruleflow-group "ai_agent_memory_taskextract_and_storebindparam_02"
+            when
+            then
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[更新每日记忆文档]
+            rule "delogic_05"
+            ruleflow-group "ai_agent_memory_taskextract_and_storedelogic_05"
+            when
+            then
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[附加新提取信息]
+            rule "sysaichatagent_appendchatrequest_02"
+            ruleflow-group "ai_agent_memory_taskextract_and_storesysaichatagent_appendchatrequest_02"
+            when
+            then
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[获取记忆文档]
+            rule "delogic_02"
+            ruleflow-group "ai_agent_memory_taskextract_and_storedelogic_02"
+            when
+            then
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_011"
+            ruleflow-group "ai_agent_memory_taskextract_and_storeprepareparam_011"
+            when
+            then
+                            ai_agent_memory_taskextract_and_storetask_filter.set("n_conversation_id_eq",ai_agent_memory_taskextract_and_storedefault.get("conversationid"));
+                            ai_agent_memory_taskextract_and_storetask_filter.set("sort","update_time,desc");
+                            ai_agent_memory_taskextract_and_storetask_filter.set("size","1");
+                            ai_agent_memory_taskextract_and_storetask_filter.set("n_status_eq","SUCCESS");
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[获取记忆分块]
+            rule "delogic_03"
+            ruleflow-group "ai_agent_memory_taskextract_and_storedelogic_03"
+            when
+            then
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_04"
+            ruleflow-group "ai_agent_memory_taskextract_and_storeprepareparam_04"
+            when
+            then
+                            ai_agent_memory_taskextract_and_storechunk.set("docid",ai_agent_memory_taskextract_and_storedefault.get("docid"));
+                            ai_agent_memory_taskextract_and_storechunk.set("kbid",ai_agent_memory_taskextract_and_storedefault.get("kbtag"));
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[保存记忆分块]
+            rule "delogic_04"
+            ruleflow-group "ai_agent_memory_taskextract_and_storedelogic_04"
+            when
+            then
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_03"
+            ruleflow-group "ai_agent_memory_taskextract_and_storeprepareparam_03"
+            when
+            then
+                            ai_agent_memory_taskextract_and_storechat_temp.set("extract_memory",ai_agent_memory_taskextract_and_storechat_response.get("content"));
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[拼接message过滤参数2]
+            rule "prepareparam_02"
+            ruleflow-group "ai_agent_memory_taskextract_and_storeprepareparam_02"
+            when
+            then
+                            ai_agent_memory_taskextract_and_storeagent_message_filter.set("n_conversation_id_eq",ai_agent_memory_taskextract_and_storedefault.get("conversationid"));
+                            ai_agent_memory_taskextract_and_storeagent_message_filter.set("size","1000");
+                            ai_agent_memory_taskextract_and_storeagent_message_filter.set("sort","create_time,asc");
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[查询会话的最新一条task]
+            rule "dedataset_02"
+            ruleflow-group "ai_agent_memory_taskextract_and_storededataset_02"
+            when
+            then
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_06"
+            ruleflow-group "ai_agent_memory_taskextract_and_storeprepareparam_06"
+            when
+            then
+                            ai_agent_memory_taskextract_and_storechat_temp.set("verification_result",ai_agent_memory_taskextract_and_storechat_response.get("content"));
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[任务执行结束]
+            rule "prepareparam_07"
+            ruleflow-group "ai_agent_memory_taskextract_and_storeprepareparam_07"
+            when
+            then
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[更新智能体记忆任务实例]
+            rule "deaction_02"
+            ruleflow-group "ai_agent_memory_taskextract_and_storedeaction_02"
+            when
+            then
+                        ai_agent_memory_taskservice.update(ai_agent_memory_taskextract_and_storedefault);
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "ai_agent_memory_taskextract_and_storeend_01"
+            when
+            then
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[绑定参数]
+            rule "bindparam_03"
+            ruleflow-group "ai_agent_memory_taskextract_and_storebindparam_03"
+            when
+            then
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备记忆智能体]
+            rule "prepareparam_01"
+            ruleflow-group "ai_agent_memory_taskextract_and_storeprepareparam_01"
+            when
+            then
+                            ai_agent_memory_taskextract_and_storechat_request.set("srfaiagenttag","memory_retrieval");
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[拼接message过滤参数1]
+            rule "prepareparam_010"
+            ruleflow-group "ai_agent_memory_taskextract_and_storeprepareparam_010"
+            when
+            then
+                            ai_agent_memory_taskextract_and_storeagent_message_filter.set("n_create_time_gt",ai_agent_memory_taskextract_and_storelast_task.get("lastmsgtime"));
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[记忆检索]
+            rule "sysaichatagent_fetchchunks_01"
+            ruleflow-group "ai_agent_memory_taskextract_and_storesysaichatagent_fetchchunks_01"
+            when
+            then
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[附加现有记忆块]
+            rule "sysaichatagent_appendchatrequest_03"
+            ruleflow-group "ai_agent_memory_taskextract_and_storesysaichatagent_appendchatrequest_03"
+            when
+            then
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[记忆核验智能体调用]
+            rule "sysaichatagent_chatraw_02"
+            ruleflow-group "ai_agent_memory_taskextract_and_storesysaichatagent_chatraw_02"
+            when
+            then
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[绑定参数]
+            rule "bindparam_01"
+            ruleflow-group "ai_agent_memory_taskextract_and_storebindparam_01"
+            when
+            then
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[遍历最新记忆切片块]
+            rule "loopsubcall_01"
+            ruleflow-group "ai_agent_memory_taskextract_and_storeloopsubcall_01"
+            when
+            then
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end
+
+            //逻辑处理节点[附加聊天请求]
+            rule "sysaichatagent_appendchatrequest_01"
+            ruleflow-group "ai_agent_memory_taskextract_and_storesysaichatagent_appendchatrequest_01"
+            when
+            then
+                        update(ai_agent_memory_taskextract_and_storedefault);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storeagent_message_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_request);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_response);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechat_temp2);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storecheck_queries);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storechunk_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storedaily_logs);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelast_task);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storelatest_chunk_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storemessage_list);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetask_filter);//更新fact中变量值
+                        update(ai_agent_memory_taskextract_and_storetasks);//更新fact中变量值
+            end

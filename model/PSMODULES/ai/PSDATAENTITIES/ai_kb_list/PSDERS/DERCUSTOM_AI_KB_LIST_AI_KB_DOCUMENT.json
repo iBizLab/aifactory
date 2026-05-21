@@ -1,0 +1,23 @@
+{
+  "codeName" : "AI_KB_DOCUMENT",
+  "dERType" : "DERCUSTOM",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_list/PSDERS/DERCUSTOM_AI_KB_LIST_AI_KB_DOCUMENT.json",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
+  },
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_list.json"
+  },
+  "name" : "DERCUSTOM_AI_KB_LIST_AI_KB_DOCUMENT",
+  "getOne2XDataPSDEField" : {
+    "name" : "KEY_QUESTION_LIST",
+    "codeName" : "key_question_list"
+  },
+  "orderValue" : 100,
+  "removeActionType" : 0,
+  "removeOrder" : -1,
+  "serviceCodeName" : "ai_kb_document"
+}

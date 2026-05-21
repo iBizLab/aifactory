@@ -1,0 +1,51 @@
+{
+  "codeName" : "resource_member",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/Base/PSDATAENTITIES/member/PSDELOGICS/resource_member.json",
+  "logicName" : "获取资源成员（全局）",
+  "memo" : "获取资源成员（全局）",
+  "name" : "获取资源成员（全局）",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : -70,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "topPos" : 340,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/member.json"
+    },
+    "default" : true,
+    "filterParam" : true
+  }, {
+    "codeName" : "member_list",
+    "logicName" : "数据对象列表变量",
+    "name" : "数据对象列表变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/member.json"
+    },
+    "entityListParam" : true
+  }, {
+    "codeName" : "member_page",
+    "logicName" : "资源成员结果变量",
+    "name" : "资源成员结果变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/member.json"
+    },
+    "entityPageParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

@@ -1,0 +1,49 @@
+package cn.ibizlab.meta.logic.data_resourcelogic.full;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.meta.domain.data_resource data_resourcefulldefault;
+                global java.util.Map data_resourcefullschema;
+        global cn.ibizlab.core.meta.service.Idata_resourceService iBzSysData_resourceDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "data_resourcefullbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[将schema绑定至新对象]
+            rule "bindparam_01"
+            ruleflow-group "data_resourcefullbindparam_01"
+            when
+            then
+                        update(data_resourcefulldefault);//更新fact中变量值
+                        update(data_resourcefullschema);//更新fact中变量值
+            end
+
+            //逻辑处理节点[填充definition]
+            rule "prepareparam_01"
+            ruleflow-group "data_resourcefullprepareparam_01"
+            when
+            then
+                            data_resourcefulldefault.set("definition",data_resourcefullschema.get("definition"));
+                        update(data_resourcefulldefault);//更新fact中变量值
+                        update(data_resourcefullschema);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "data_resourcefullend_01"
+            when
+            then
+                        update(data_resourcefulldefault);//更新fact中变量值
+                        update(data_resourcefullschema);//更新fact中变量值
+            end

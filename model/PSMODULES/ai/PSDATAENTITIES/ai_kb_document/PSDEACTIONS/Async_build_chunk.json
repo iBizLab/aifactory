@@ -1,0 +1,26 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "Async_build_chunk",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDEACTIONS/Async_build_chunk.json",
+  "logicName" : "异步重新切片",
+  "name" : "Async_build_chunk",
+  "getPSDEActionInput" : {
+    "name" : "Async_build_chunkInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_kb_document_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "Async_build_chunkResult",
+    "type" : "ASYNCACTION"
+  },
+  "getRealPSDEAction" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDEACTIONS/build_chunk.json"
+  },
+  "asyncAction" : true
+}

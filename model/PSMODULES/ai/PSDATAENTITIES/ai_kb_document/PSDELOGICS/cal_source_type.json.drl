@@ -1,0 +1,32 @@
+package cn.ibizlab.ai.logic.ai_kb_documentlogic.cal_source_type;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_kb_document ai_kb_documentcal_source_typedefault;
+        global cn.ibizlab.core.ai.service.Iai_kb_documentService iBzSysAi_kb_documentDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_kb_documentcal_source_typebegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[查询类型并更新知识库]
+            rule "rawsqlcall_01"
+            ruleflow-group "ai_kb_documentcal_source_typerawsqlcall_01"
+            when
+            then
+    Map param =new HashMap();
+        param.put("param0",ai_kb_documentcal_source_typedefault.get("kbid"));
+    String strSql="update ai_knowledge_base a set source_type = (     SELECT STRING_AGG(DISTINCT TYPE, ',' ORDER BY TYPE)     FROM public.ai_kb_document b     WHERE b.kb_id = a.id ) where a.id =#{et.param0}";
+                        iBzSysAi_kb_documentDefaultService.execute(strSql,param);//SQL调用
+                        update(ai_kb_documentcal_source_typedefault);//更新fact中变量值
+            end

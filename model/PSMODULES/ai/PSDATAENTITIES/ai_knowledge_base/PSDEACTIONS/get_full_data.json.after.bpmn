@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="cn.ibizlab.core.ai.ai_knowledge_base.get_full_data.afterLogic" isClosed="false" isExecutable="true" name="ai_ai_knowledge_base_get_full_data_afterLogic" processType="Private" tns:packageName="cn.ibizlab.core.ai.ai_knowledge_base.get_full_data.afterLogic">
+            <extensionElements>
+                <tns:import name="java.util.Map"/>
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="cn.ibizlab.util.helper.RuleUtils"/>
+                <tns:import name="cn.ibizlab.core.ai.domain.ai_knowledge_base"/>
+            </extensionElements>
+                <startEvent id="begin" isInterrupting="true"/>
+                <endEvent id="prepareparam1_end" name="end"/>
+                            <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.core.ai.service.logic.ai_knowledge_baseget_summary" id="a3d6fe791be862d0b6d42bc8251492fc_@_@_14adb44c4f6c320b166a659a51195038" name="get_summary.json.bpmn"/>
+                        <sequenceFlow id="begin_a3d6fe791be862d0b6d42bc8251492fc_@_@_14adb44c4f6c320b166a659a51195038" sourceRef="begin" targetRef="a3d6fe791be862d0b6d42bc8251492fc_@_@_14adb44c4f6c320b166a659a51195038"/>
+                            <sequenceFlow id="a3d6fe791be862d0b6d42bc8251492fc_@_@_14adb44c4f6c320b166a659a51195038_prepareparam1_end" sourceRef="a3d6fe791be862d0b6d42bc8251492fc_@_@_14adb44c4f6c320b166a659a51195038" targetRef="prepareparam1_end"/>
+        </process>
+    </definitions>

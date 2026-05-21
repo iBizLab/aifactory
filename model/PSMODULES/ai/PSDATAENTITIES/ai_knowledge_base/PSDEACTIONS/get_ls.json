@@ -1,0 +1,32 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "READ",
+  "actionTag" : "LS",
+  "actionType" : "DELOGIC",
+  "codeName" : "get_ls",
+  "dataAccessAction" : "READ",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEACTIONS/get_ls.json",
+  "logicName" : "ls",
+  "name" : "get_ls",
+  "getPSDEActionInput" : {
+    "getKeyPSDEField" : {
+      "name" : "ID",
+      "codeName" : "id"
+    },
+    "name" : "Get_lsInput",
+    "type" : "KEYFIELD"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "Get_lsResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_knowledge_base_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDELOGICS/ls.json"
+  },
+  "enableFront" : false
+}

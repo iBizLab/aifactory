@@ -1,0 +1,1276 @@
+{
+  "codeName" : "deep_research",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDELOGICS/deep_research.json",
+  "logicName" : "深度研究",
+  "logicSubType" : "AICHAT",
+  "name" : "深度研究",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : 240,
+    "logicNodeType" : "BEGIN",
+    "message" : "<user>\n我将根据您选择的研究智能体针对本空间资料进行研究\n</user>",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_01"
+      },
+      "name" : "有知识库",
+      "getPSDELogicLinkGroupCond" : {
+        "groupOP" : "AND",
+        "logicType" : "GROUP",
+        "name" : "连接条件组",
+        "getPSDELogicLinkConds" : [ {
+          "condOP" : "ISNOTNULL",
+          "dstFieldName" : "knowledgebases",
+          "getDstLogicParam" : {
+            "modelref" : true,
+            "id" : "Default"
+          },
+          "logicType" : "SINGLE",
+          "name" : "Default[knowledgebases] 值不为空(NotNil) "
+        } ]
+      },
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : 62,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_01",
+    "leftPos" : 200,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "准备知识库id",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEBUGPARAM_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_01"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "ID",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "kb"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "knowledgebases",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    }, {
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "agenttag"
+      },
+      "paramAction" : "BINDPARAM",
+      "srcFieldName" : "srfaiagenttag",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "topPos" : 210,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEBUGPARAM_02",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "leftPos" : -40,
+    "logicNodeType" : "DEBUGPARAM",
+    "name" : "调试逻辑参数RESEARCH",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DELOGIC_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEBUGPARAM_02"
+      }
+    } ],
+    "topPos" : 280,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DELOGIC_02",
+    "getDstPSDELogic" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDELOGICS/get_by_code.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "kb"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+    },
+    "leftPos" : 184,
+    "logicNodeType" : "DELOGIC",
+    "name" : "获取知识库信息",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DELOGIC_02"
+      }
+    }, {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DELOGIC_02"
+      },
+      "catchLink" : true
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "kb"
+    },
+    "topPos" : 295,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "END_02",
+    "leftPos" : 681,
+    "logicNodeType" : "END",
+    "name" : "结束",
+    "getReturnParam" : {
+      "modelref" : true,
+      "id" : "chat_response"
+    },
+    "returnType" : "LOGICPARAM",
+    "topPos" : 313,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEACTION_01",
+    "getDstPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEACTIONS/Get.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "kb"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+    },
+    "leftPos" : 440,
+    "logicNodeType" : "DEACTION",
+    "name" : "获取知识库信息",
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "kb"
+    },
+    "topPos" : 369
+  }, {
+    "codeName" : "PREPAREPARAM_02",
+    "leftPos" : 200,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "切换深度研究智能体",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATSTEP_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_02"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "srfaiagenttag",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "agenttag"
+      },
+      "srcValue" : "sjxf_lead",
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "topPos" : 410,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATSTEP_02",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_response"
+    },
+    "leftPos" : 200,
+    "logicNodeType" : "SYSAICHATAGENT_CHATSTEP",
+    "name" : "1.提示生成研究策略",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_APPENDCHATREQUEST_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATSTEP_02"
+      }
+    } ],
+    "subType" : "CHATSTEP",
+    "title" : "1/3.开始生成研究策略",
+    "topPos" : 500
+  }, {
+    "chatRequestAppendMode" : "USER",
+    "codeName" : "SYSAICHATAGENT_APPENDCHATREQUEST_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "leftPos" : 200,
+    "logicNodeType" : "SYSAICHATAGENT_APPENDCHATREQUEST",
+    "message" : "${params.kb.name!\"\"}\n<#if params.kb.guidance_prompt?? && params.kb.guidance_prompt != \"\">${params.kb.guidance_prompt}<#else><#if params.kb.description?? && params.kb.description != \"\">${params.kb.description}</#if></#if>\n<#if params.kb.context_content?? && params.kb.context_content != \"\">${params.kb.context_content}</#if>",
+    "name" : "附加聊天请求",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATOUTPUT_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_APPENDCHATREQUEST_01"
+      }
+    } ],
+    "subType" : "APPENDCHATREQUEST",
+    "topPos" : 610
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATOUTPUT_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "historyCount" : 1,
+    "leftPos" : 200,
+    "logicNodeType" : "SYSAICHATAGENT_CHATOUTPUT",
+    "name" : "交谈输出",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_03"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATOUTPUT_01"
+      }
+    } ],
+    "getPSSysAIChatAgent" : {
+      "modelref" : true,
+      "id" : "DynamicAgent"
+    },
+    "getPSSysAIFactory" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSSYSAIFACTORIES/iBizIntelligence.json"
+    },
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_response"
+    },
+    "subType" : "CHATOUTPUT",
+    "topPos" : 710
+  }, {
+    "codeName" : "PREPAREPARAM_03",
+    "leftPos" : 200,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "提取j深度研究son对象",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_04"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_03"
+      }
+    }, {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATSTEP_04"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_03"
+      },
+      "catchLink" : true
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chat_response_entity"
+      },
+      "paramAction" : "BINDPARAM",
+      "srcFieldName" : "json",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chat_response"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "topPos" : 830,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATSTEP_04",
+    "leftPos" : 470,
+    "logicNodeType" : "SYSAICHATAGENT_CHATSTEP",
+    "name" : "提示提取json对象异常",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_03"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATSTEP_04"
+      }
+    } ],
+    "subType" : "CHATSTEP",
+    "title" : "提取json对象异常",
+    "topPos" : 830
+  }, {
+    "codeName" : "END_03",
+    "leftPos" : 753,
+    "logicNodeType" : "END",
+    "name" : "结束",
+    "getReturnParam" : {
+      "modelref" : true,
+      "id" : "chat_response"
+    },
+    "returnType" : "LOGICPARAM",
+    "topPos" : 832,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_04",
+    "leftPos" : 200,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "设置search_plans，verification_checklist",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATSTEP_03"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_04"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "search_plans"
+      },
+      "paramAction" : "BINDPARAM",
+      "srcFieldName" : "search_plans",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chat_response_entity"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    }, {
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "verification_checklist"
+      },
+      "paramAction" : "BINDPARAM",
+      "srcFieldName" : "verification_checklist",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chat_response_entity"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "topPos" : 960,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATSTEP_03",
+    "leftPos" : 200,
+    "logicNodeType" : "SYSAICHATAGENT_CHATSTEP",
+    "message" : "研究类型：\n${params.chat_response_entity.research_strategy.target_dimension}\n\n研究内容:\n${params.chat_response_entity.research_strategy.hypothesis}\n\n检索计划：\n<#list params.search_plans as search_plan>\n${search_plan?index + 1}. ${search_plan.search_aim}\n查询：<#list search_plan.queries.real as query>${query}<#if query?has_next>, </#if></#list>\n期望：${search_plan.expected_data}\n</#list>\n\n核实清单：\n<#list params.verification_checklist as check>\n${check?index + 1}. ${check}\n</#list>",
+    "name" : "提示研究策略内容",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "LOOPSUBCALL_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATSTEP_03"
+      }
+    } ],
+    "subType" : "CHATSTEP",
+    "title" : "研究策略",
+    "topPos" : 1080
+  }, {
+    "codeName" : "LOOPSUBCALL_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "search_plan"
+    },
+    "leftPos" : 124,
+    "logicNodeType" : "LOOPSUBCALL",
+    "name" : "循环子调用",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_05"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "LOOPSUBCALL_01"
+      }
+    }, {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_07"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "LOOPSUBCALL_01"
+      },
+      "subCallLink" : true
+    } ],
+    "getSrcPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "search_plans"
+    },
+    "topPos" : 1230,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_05",
+    "leftPos" : 320,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "切换通用事实核验员智能体、请求清除知识库标识",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEBUGPARAM_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_05"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "srfaiagenttag",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValue" : "FactVerifier",
+      "srcValueType" : "SRCVALUE"
+    }, {
+      "dstFieldName" : "knowledgebases",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValueType" : "NONEVALUE"
+    } ],
+    "topPos" : 1230,
+    "parallelOutput" : true
+  }, {
+    "code" : "def _default = logic.param(\"default\").getReal();\ndef retrieved_chunks = logic.param(\"retrieved_chunks\").getReal();\ndef verification_checklist = logic.param(\"verification_checklist\").getReal();\n\ndef retrieved_chunk_contents = retrieved_chunks\n    .collect { it.getContent() } \n    .findAll { it && it.trim() }\n\nString strMessage = \"\"\n\n// strMessage += \"下面将输出根据会话从资料库中检索的内容，供你在后续的交谈中使用。如你的回答涉及引用资料，则必须精准、客观 。杜绝信息幻觉：严禁编造、夸大或组合片段信息来生成片段中不存在的答案。对于片段信息不足的问题，必须如实告知。\\n\"\n// strMessage += \"**注意**：输出内容如引用资料片段，需要显式声明及提供资料片段的访问链接`url`，如::[资料片段01](chunkview://chunkid)\"\n// strMessage += \"\\r\\n\\r\\n\"\n\nstrMessage += \"retrieved_chunks : \\n\"\n\nint nIndex = 1;\nfor (int i = 0; i < retrieved_chunks.size(); i++) {\n    def chunk = retrieved_chunks.get(i);\n    if (!chunk.getContent()) {\n        continue;\n    }\n    // if (chunk.getDocName()) {\n    //     strMessage += String.format(\"# 资料片段`%1\\$s`，url`chunkview://%2\\$s`，来自文档`%3\\$s`\\r\\n\", nIndex, chunk.getId(), chunk.getDocName());\n    // } else {\n    //     strMessage += String.format(\"# 资料片段`%1\\$s`，url`chunkview://%2\\$s`\\r\\n\", nIndex, chunk.getId());\n    // }\n    // strMessage += \"---\\r\\n\";\n    strMessage += chunk.getContent();\n    strMessage += \"\\r\\n\";\n    nIndex++;\n}\n\nstrMessage += \"\\nverification_checklist :\" + sys.serialize(verification_checklist)\n\n\n_default.getMessagesIf().addAll(net.ibizsys.central.cloud.core.util.ChatMessagesBuilder.create().user(strMessage).build());\n\n\n\ndef _content = logic.param(\"content\")\n_content.bind(strMessage)",
+    "codeName" : "RAWSFCODE_02",
+    "codeType" : "Groovy",
+    "leftPos" : 510,
+    "logicNodeType" : "RAWSFCODE",
+    "name" : "附加聊天请求",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATSTEP_07"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_02"
+      }
+    } ],
+    "topPos" : 1230,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATSTEP_07",
+    "leftPos" : 684,
+    "logicNodeType" : "SYSAICHATAGENT_CHATSTEP",
+    "name" : "2.提示根据检索信息进行事实核验",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATOUTPUT_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATSTEP_07"
+      }
+    } ],
+    "subType" : "CHATSTEP",
+    "title" : "2/3.根据检索信息进行事实核验",
+    "topPos" : 1230,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATOUTPUT_02",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "historyCount" : 1,
+    "leftPos" : 889,
+    "logicNodeType" : "SYSAICHATAGENT_CHATOUTPUT",
+    "name" : "通用事实核验交谈输出",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_06"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATOUTPUT_02"
+      }
+    } ],
+    "getPSSysAIChatAgent" : {
+      "modelref" : true,
+      "id" : "DynamicAgent"
+    },
+    "getPSSysAIFactory" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSSYSAIFACTORIES/iBizIntelligence.json"
+    },
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_response"
+    },
+    "subType" : "CHATOUTPUT",
+    "topPos" : 1230
+  }, {
+    "codeName" : "PREPAREPARAM_06",
+    "leftPos" : 1079,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "提取通用事实核验员内容",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATSTEP_06"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_06"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "sshy_content"
+      },
+      "paramAction" : "BINDPARAM",
+      "srcFieldName" : "content",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chat_response"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "topPos" : 1230,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATSTEP_06",
+    "leftPos" : 1289,
+    "logicNodeType" : "SYSAICHATAGENT_CHATSTEP",
+    "message" : "${params.sshy_content?truncate(480, \"...\")}",
+    "name" : "提示事实核验内容",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_08"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATSTEP_06"
+      }
+    } ],
+    "subType" : "CHATSTEP",
+    "title" : "事实核验内容",
+    "topPos" : 1230
+  }, {
+    "codeName" : "PREPAREPARAM_08",
+    "leftPos" : 1507,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "准备参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DELOGIC_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_08"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "CODE_NAME",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "agententity"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "agenttag"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "topPos" : 1230,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_07",
+    "leftPos" : 124,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "准备知识检索参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATSTEP_08"
+      },
+      "name" : "queries > 0",
+      "getPSDELogicLinkGroupCond" : {
+        "groupOP" : "AND",
+        "logicType" : "GROUP",
+        "name" : "连接条件组",
+        "getPSDELogicLinkConds" : [ {
+          "condOP" : "ISNOTNULL",
+          "getDstLogicParam" : {
+            "modelref" : true,
+            "id" : "queries"
+          },
+          "logicType" : "SINGLE",
+          "name" : "queries 值不为空(NotNil) "
+        }, {
+          "condOP" : "GT",
+          "dstFieldName" : "size",
+          "getDstLogicParam" : {
+            "modelref" : true,
+            "id" : "queries"
+          },
+          "logicType" : "SINGLE",
+          "name" : "queries[size] 大于(>) 0",
+          "paramValue" : "0"
+        } ]
+      },
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_07"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "n_kbid_eq",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "query_chunk"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "id",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "kb"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    }, {
+      "dstFieldName" : "queries",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "query_chunk"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "queries",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "search_plan"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    }, {
+      "dstFieldName" : "n_vector_similarity_gtandeq",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "query_chunk"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValue" : "0.7",
+      "srcValueType" : "SRCVALUE"
+    }, {
+      "dstFieldName" : "n_rerank_eq",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "query_chunk"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValue" : "1",
+      "srcValueType" : "SRCVALUE"
+    }, {
+      "dstFieldName" : "size",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "query_chunk"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValue" : "10",
+      "srcValueType" : "SRCVALUE"
+    }, {
+      "dstFieldName" : "n_similarity_gtandeq",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "query_chunk"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValue" : "0.2",
+      "srcValueType" : "SRCVALUE"
+    }, {
+      "dstFieldName" : "chunksnprefix",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "query_chunk"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValue" : "片段A",
+      "srcValueType" : "SRCVALUE"
+    }, {
+      "dstFieldName" : "chunkviewurl",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "query_chunk"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValue" : "chunkview://{id}",
+      "srcValueType" : "SRCVALUE"
+    }, {
+      "dstFieldName" : "instruct",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "query_chunk"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "expected_data",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "search_plan"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    }, {
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "queries"
+      },
+      "paramAction" : "BINDPARAM",
+      "srcFieldName" : "queries",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "search_plan"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "topPos" : 1350,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEBUGPARAM_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "retrieved_chunks"
+    },
+    "leftPos" : 440,
+    "logicNodeType" : "DEBUGPARAM",
+    "name" : "调试逻辑参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEBUGPARAM_01"
+      }
+    } ],
+    "topPos" : 1372,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATOUTPUT_03",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "historyCount" : 1,
+    "leftPos" : 697,
+    "logicNodeType" : "SYSAICHATAGENT_CHATOUTPUT",
+    "name" : "判定交谈输出",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_010"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATOUTPUT_03"
+      }
+    } ],
+    "getPSSysAIChatAgent" : {
+      "modelref" : true,
+      "id" : "DynamicAgent"
+    },
+    "getPSSysAIFactory" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSSYSAIFACTORIES/iBizIntelligence.json"
+    },
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_response"
+    },
+    "subType" : "CHATOUTPUT",
+    "topPos" : 1400
+  }, {
+    "chatRequestAppendMode" : "USER",
+    "codeName" : "SYSAICHATAGENT_APPENDCHATREQUEST_03",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "leftPos" : 889,
+    "logicNodeType" : "SYSAICHATAGENT_APPENDCHATREQUEST",
+    "message" : "根据以下数据进行判定：\n${params.kb.name!\"\"}\n<#if params.kb.guidance_prompt?? && params.kb.guidance_prompt != \"\">${params.kb.guidance_prompt}<#else><#if params.kb.description?? && params.kb.description != \"\">${params.kb.description}</#if></#if>\n<#if params.kb.context_content?? && params.kb.context_content != \"\">${params.kb.context_content}</#if>\n${params.content}",
+    "name" : "判定请求",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATOUTPUT_03"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_APPENDCHATREQUEST_03"
+      }
+    } ],
+    "subType" : "APPENDCHATREQUEST",
+    "topPos" : 1400
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATSTEP_09",
+    "leftPos" : 1079,
+    "logicNodeType" : "SYSAICHATAGENT_CHATSTEP",
+    "name" : "3.提示判定",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_APPENDCHATREQUEST_03"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATSTEP_09"
+      }
+    } ],
+    "subType" : "CHATSTEP",
+    "title" : "3/3.对核实内容判定",
+    "topPos" : 1400,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_09",
+    "leftPos" : 1289,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "切换判定专家智能体",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEBUGPARAM_03"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_09"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "agenttag2"
+      },
+      "paramAction" : "BINDPARAM",
+      "srcFieldName" : "SYNTHESIZER",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "agententity"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    }, {
+      "dstFieldName" : "srfaiagenttag",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "agenttag2"
+      },
+      "srcValue" : "sjxf_synthesizer",
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "topPos" : 1400,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DELOGIC_01",
+    "getDstPSDELogic" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDELOGICS/get_by_code.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "agententity"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    },
+    "leftPos" : 1507,
+    "logicNodeType" : "DELOGIC",
+    "name" : "实体处理逻辑",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_09"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DELOGIC_01"
+      }
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "agententity"
+    },
+    "topPos" : 1400,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATSTEP_08",
+    "leftPos" : 124,
+    "logicNodeType" : "SYSAICHATAGENT_CHATSTEP",
+    "message" : "查询：<#list params.search_plan.queries.real as query>${query}<#if query?has_next>, </#if></#list>",
+    "name" : "提示知识库检索",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_FETCHCHUNKS_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATSTEP_08"
+      }
+    } ],
+    "subType" : "CHATSTEP",
+    "title" : "知识库检索：${params.search_plan.expected_data}",
+    "topPos" : 1490
+  }, {
+    "codeName" : "PREPAREPARAM_010",
+    "leftPos" : 697,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "提取判定内容",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATSTEP_010"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_010"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "content"
+      },
+      "paramAction" : "BINDPARAM",
+      "srcFieldName" : "content",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chat_response"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "topPos" : 1540
+  }, {
+    "codeName" : "DEBUGPARAM_03",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "leftPos" : 1175,
+    "logicNodeType" : "DEBUGPARAM",
+    "name" : "调试逻辑参数RESEARCH3",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATSTEP_09"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEBUGPARAM_03"
+      }
+    } ],
+    "topPos" : 1540,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "SYSAICHATAGENT_FETCHCHUNKS_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "query_chunk"
+    },
+    "historyCount" : 1,
+    "leftPos" : 124,
+    "logicNodeType" : "SYSAICHATAGENT_FETCHCHUNKS",
+    "name" : "知识检索",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_FETCHCHUNKS_01"
+      }
+    } ],
+    "getPSSysAIChatAgent" : {
+      "modelref" : true,
+      "id" : "DynamicAgent"
+    },
+    "getPSSysAIFactory" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSSYSAIFACTORIES/iBizIntelligence.json"
+    },
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "query_chunk_result"
+    },
+    "subType" : "FETCHCHUNKS",
+    "topPos" : 1610
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATSTEP_010",
+    "leftPos" : 697,
+    "logicNodeType" : "SYSAICHATAGENT_CHATSTEP",
+    "message" : "${params.content}",
+    "name" : "提示判定",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_APPENDCHATRESULT_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATSTEP_010"
+      }
+    } ],
+    "subType" : "CHATSTEP",
+    "title" : "结果判定",
+    "topPos" : 1680
+  }, {
+    "code" : "def query_chunk_result = logic.param(\"query_chunk_result\").getReal();\ndef retrieved_chunks = logic.param(\"retrieved_chunks\").getReal();\n\nif (!query_chunk_result || !query_chunk_result.getContent()) {\n    return\n}\n\n//只取前五条\ndef query_chunks = query_chunk_result.getContent().take(5)\n\n// 计算当前 retrieved_chunks 中所有 content 的总长度\ndef currentTotalLength = 0\nif(retrieved_chunks){\n    currentTotalLength = retrieved_chunks.sum { it.getContent() ? it.getContent().length() : 0 }\n}\n\nif(currentTotalLength > 30000) {\n    return\n}\n\n\n// 构建已存在 ID 的集合（用于快速去重）\nSet existingIds = retrieved_chunks.collect { it.getId() } as Set\n\nfor (def chunk in query_chunks) {\n    if(currentTotalLength > 30000) {\n        break\n    }\n    if (existingIds.contains(chunk.getId())) {\n        continue\n    }\n\n    retrieved_chunks.add(chunk)\n    existingIds.add(chunk.getId())\n    currentTotalLength += chunk.getContent() ? chunk.getContent().length() : 0\n\n    println \"------------------------retrieved_chunks lenght：\" + currentTotalLength\n}\n\n",
+    "codeName" : "RAWSFCODE_01",
+    "codeType" : "Groovy",
+    "leftPos" : 124,
+    "logicNodeType" : "RAWSFCODE",
+    "name" : "添加到retrieved_chunks",
+    "topPos" : 1730,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "SYSAICHATAGENT_APPENDCHATRESULT_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_response"
+    },
+    "leftPos" : 697,
+    "logicNodeType" : "SYSAICHATAGENT_APPENDCHATRESULT",
+    "message" : "${params.content}\n\n${params.sshy_content}",
+    "name" : "最终显示结果",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_APPENDCHATRESULT_01"
+      }
+    } ],
+    "subType" : "APPENDCHATRESULT",
+    "topPos" : 1826
+  }, {
+    "codeName" : "END_01",
+    "leftPos" : 737,
+    "logicNodeType" : "END",
+    "name" : "结束",
+    "getReturnParam" : {
+      "modelref" : true,
+      "id" : "chat_response"
+    },
+    "returnType" : "LOGICPARAM",
+    "topPos" : 2040,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    },
+    "chatCompletionRequestParam" : true,
+    "default" : true
+  }, {
+    "codeName" : "agententity",
+    "logicName" : "agententity",
+    "name" : "agententity",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    },
+    "entityParam" : true
+  }, {
+    "codeName" : "agenttag",
+    "logicName" : "agenttag",
+    "name" : "agenttag",
+    "stdDataType" : 25,
+    "simpleParam" : true
+  }, {
+    "codeName" : "agenttag2",
+    "logicName" : "agenttag2",
+    "name" : "agenttag2",
+    "stdDataType" : 25,
+    "simpleParam" : true
+  }, {
+    "codeName" : "chat_response",
+    "logicName" : "chat_response",
+    "name" : "chat_response",
+    "chatCompletionResultParam" : true
+  }, {
+    "codeName" : "chat_response_entity",
+    "logicName" : "chat_response_entity",
+    "name" : "chat_response_entity",
+    "entityParam" : true
+  }, {
+    "codeName" : "content",
+    "logicName" : "content",
+    "name" : "content",
+    "stdDataType" : 25,
+    "simpleParam" : true
+  }, {
+    "codeName" : "kb",
+    "logicName" : "kb",
+    "name" : "kb",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+    },
+    "entityParam" : true
+  }, {
+    "codeName" : "queries",
+    "logicName" : "queries",
+    "name" : "queries",
+    "stdDataType" : 25,
+    "simpleListParam" : true
+  }, {
+    "codeName" : "query_chunk",
+    "logicName" : "query_chunk",
+    "name" : "query_chunk",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunk.json"
+    },
+    "filterParam" : true
+  }, {
+    "codeName" : "query_chunk_result",
+    "logicName" : "query_chunk_result",
+    "name" : "query_chunk_result",
+    "entityPageParam" : true
+  }, {
+    "codeName" : "retrieved_chunks",
+    "logicName" : "retrieved_chunks",
+    "name" : "retrieved_chunks",
+    "entityListParam" : true
+  }, {
+    "codeName" : "search_plan",
+    "logicName" : "search_plan",
+    "name" : "search_plan",
+    "entityParam" : true
+  }, {
+    "codeName" : "search_plans",
+    "logicName" : "search_plans",
+    "name" : "search_plans",
+    "entityListParam" : true
+  }, {
+    "codeName" : "sshy_content",
+    "logicName" : "sshy_content",
+    "name" : "sshy_content",
+    "stdDataType" : 25,
+    "simpleParam" : true
+  }, {
+    "codeName" : "verification_checklist",
+    "logicName" : "verification_checklist",
+    "name" : "verification_checklist",
+    "stdDataType" : 25,
+    "simpleListParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

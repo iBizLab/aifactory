@@ -1,0 +1,27 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "batchActionMode" : 2,
+  "codeName" : "upsert_batch",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/meta/PSDATAENTITIES/data_record/PSDEACTIONS/upsert_batch.json",
+  "logicName" : "批量保存数据",
+  "name" : "upsert_batch",
+  "getPSDEActionInput" : {
+    "name" : "Upsert_batchInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "data_record_dto"
+    },
+    "type" : "DTOS"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "Upsert_batchResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "data_record_dto"
+    },
+    "type" : "DTOS"
+  },
+  "batchAction" : true
+}

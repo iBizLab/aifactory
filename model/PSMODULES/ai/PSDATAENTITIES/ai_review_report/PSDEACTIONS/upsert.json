@@ -1,0 +1,27 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "DELOGIC",
+  "codeName" : "upsert",
+  "dataAccessAction" : "CREATE",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEACTIONS/upsert.json",
+  "logicName" : "upsert",
+  "name" : "upsert",
+  "getPSDEActionInput" : {
+    "name" : "UpsertInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_review_report_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "UpsertResult",
+    "type" : "VOID"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDELOGICS/upsert.json"
+  },
+  "enableFront" : false
+}

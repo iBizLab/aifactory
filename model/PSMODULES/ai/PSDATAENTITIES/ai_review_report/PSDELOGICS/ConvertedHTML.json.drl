@@ -1,0 +1,28 @@
+package cn.ibizlab.ai.logic.ai_review_reportlogic.convertedhtml;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_review_report ai_review_reportconvertedhtmldefault;
+        global cn.ibizlab.core.ai.service.Iai_review_reportService iBzSysAi_review_reportDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_review_reportconvertedhtmlbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[执行脚本代码]
+            rule "rawsfcode_01"
+            ruleflow-group "ai_review_reportconvertedhtmlrawsfcode_01"
+            when
+            then
+                        update(ai_review_reportconvertedhtmldefault);//更新fact中变量值
+            end

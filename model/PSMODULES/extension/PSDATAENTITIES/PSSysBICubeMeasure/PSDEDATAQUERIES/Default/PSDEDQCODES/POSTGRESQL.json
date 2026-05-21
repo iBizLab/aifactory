@@ -1,0 +1,43 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"bimeasuretype\"",
+    "name" : "BIMEASURETYPE"
+  }, {
+    "expression" : "t1.\"codename\"",
+    "name" : "CODENAME"
+  }, {
+    "expression" : "t1.\"dynamodelflag\"",
+    "name" : "DYNAMODELFLAG"
+  }, {
+    "expression" : "t1.\"measureformula\"",
+    "name" : "MEASUREFORMULA"
+  }, {
+    "expression" : "t1.\"memo\"",
+    "name" : "MEMO"
+  }, {
+    "expression" : "t1.\"ordervalue\"",
+    "name" : "ORDERVALUE"
+  }, {
+    "expression" : "t1.\"pssysbicubeid\"",
+    "name" : "PSSYSBICUBEID"
+  }, {
+    "expression" : "t1.\"pssysbicubemeasureid\"",
+    "name" : "PSSYSBICUBEMEASUREID"
+  }, {
+    "expression" : "t1.\"pssysbicubemeasurename\"",
+    "name" : "PSSYSBICUBEMEASURENAME"
+  }, {
+    "expression" : "t1.\"pssysbicubename\"",
+    "name" : "PSSYSBICUBENAME"
+  }, {
+    "expression" : "t1.\"pssysbischemeid\"",
+    "name" : "PSSYSBISCHEMEID"
+  }, {
+    "expression" : "t1.\"validflag\"",
+    "name" : "VALIDFLAG"
+  } ],
+  "queryCode" : "SELECT\nt1.\"bimeasuretype\",\nt1.\"codename\",\nt1.\"dynamodelflag\",\nt1.\"measureformula\",\nt1.\"memo\",\nt1.\"ordervalue\",\nt1.\"pssysbicubeid\",\nt1.\"pssysbicubemeasureid\",\nt1.\"pssysbicubemeasurename\",\nt1.\"pssysbicubename\",\nt1.\"pssysbischemeid\",\nt1.\"validflag\"\nFROM \"\" t1 \n",
+  "id" : "PSMODULES/extension/PSDATAENTITIES/PSSysBICubeMeasure/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

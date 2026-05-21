@@ -1,0 +1,31 @@
+{
+  "codeName" : "model_provider",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_model/PSDERS/DER1N_AI_MODEL_AI_MODEL_PROVIDER_PROVIDER.json",
+  "fKeyName" : "F4244FDF8298495733",
+  "logicName" : "模型提供商",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_model_provider.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_model.json"
+  },
+  "name" : "DER1N_AI_MODEL_AI_MODEL_PROVIDER_PROVIDER",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "PROVIDER",
+    "codeName" : "provider"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "PROVIDER_NAME",
+    "codeName" : "provider_name"
+  },
+  "pickupDEFName" : "PROVIDER",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "model_provider"
+}

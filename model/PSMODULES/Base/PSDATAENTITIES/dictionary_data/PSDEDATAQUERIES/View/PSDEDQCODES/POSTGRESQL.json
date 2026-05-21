@@ -1,0 +1,52 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"catalog\"",
+    "name" : "CATALOG"
+  }, {
+    "expression" : "t1.\"color\"",
+    "name" : "COLOR"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.\"icon\"",
+    "name" : "ICON"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"is_system\"",
+    "name" : "IS_SYSTEM"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"sequence\"",
+    "name" : "SEQUENCE"
+  }, {
+    "expression" : "t1.\"style\"",
+    "name" : "STYLE"
+  }, {
+    "expression" : "t1.\"type\"",
+    "name" : "TYPE"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"val\"",
+    "name" : "VAL"
+  } ],
+  "queryCode" : "SELECT\nt1.\"catalog\",\nt1.\"color\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"description\",\nt1.\"icon\",\nt1.\"id\",\nt1.\"is_system\",\nt1.\"name\",\nt1.\"sequence\",\nt1.\"style\",\nt1.\"type\",\nt1.\"update_man\",\nt1.\"update_time\",\nt1.\"val\"\nFROM \"dictionary\" t1 \n",
+  "id" : "PSMODULES/Base/PSDATAENTITIES/dictionary_data/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

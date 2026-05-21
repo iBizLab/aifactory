@@ -1,0 +1,111 @@
+{
+  "accUserMode" : 2,
+  "caption" : "自动化规则",
+  "codeName" : "psde_logic_flow_main_view",
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/psde_logic_flow_main_view.json",
+  "height" : 90,
+  "memo" : "系统自动添加",
+  "name" : "PSDELogicflow_main_view",
+  "openMode" : "POPUPMODAL",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
+  },
+  "getPSAppModule" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPMODULES/extension.json"
+  },
+  "getPSAppViewEngines" : [ {
+    "engineCat" : "VIEW",
+    "engineType" : "TabExpView",
+    "name" : "engine"
+  } ],
+  "getPSAppViewLogics" : [ {
+    "eventNames" : "onCloseView",
+    "logicTrigger" : "VIEWEVENT",
+    "logicType" : "SCRIPT",
+    "name" : "LOGIC",
+    "scriptCode" : "ibiz.mc.command.create.send({ srfdecodename: 'PSDELogic'})"
+  } ],
+  "getPSControls" : [ {
+    "codeName" : "flow_main_view_dr",
+    "controlType" : "DRTAB",
+    "dataRelationTag" : "flow_main_view_DR",
+    "editItemCaption" : "实体处理逻辑",
+    "name" : "tabexppanel",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
+    },
+    "getPSControlHandler" : {
+      "enableDEFieldPrivilege" : false,
+      "id" : "tabexppanel"
+    },
+    "getPSControlParam" : {
+      "autoLoad" : true,
+      "showBusyIndicator" : true,
+      "id" : "TABEXPPANEL"
+    },
+    "getPSDEDRTabPages" : [ {
+      "caption" : "概览",
+      "name" : "item1",
+      "getPSAppView" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/psde_logic_flow_panel_view.json",
+        "viewType" : "DEPANELVIEW"
+      }
+    }, {
+      "caption" : "配置",
+      "name" : "item2",
+      "getPSAppView" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/psdelogiclogicdesign.json",
+        "viewType" : "DESUBAPPREFVIEW"
+      }
+    } ],
+    "uniqueTag" : "psde_logic_flow_main_view__tabexppanel",
+    "hideEditItem" : true,
+    "modelid" : "beec75147f5ce433c7bf7786a3750c02",
+    "modeltype" : "PSDEDRTAB"
+  }, {
+    "caption" : "自动化规则",
+    "codeName" : "flow_main_view_captionbar",
+    "controlType" : "CAPTIONBAR",
+    "name" : "captionbar",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
+    },
+    "getPSControlParam" : { }
+  } ],
+  "getPSDEViewCodeName" : "flow_main_view",
+  "getPSDEViewId" : "a1ce99cda3616bb56a5d60c46401e724",
+  "getPSViewLayoutPanel" : {
+    "codeName" : "layoutpanel",
+    "controlStyle" : "APPDETABEXPVIEW",
+    "controlType" : "VIEWLAYOUTPANEL",
+    "name" : "layoutpanel",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
+    },
+    "getPSControlParam" : { },
+    "layoutBodyOnly" : true,
+    "layoutPanel" : true,
+    "useDefaultLayout" : true
+  },
+  "tabLayout" : "TOP",
+  "title" : "自动化规则",
+  "viewStyle" : "DEFAULT",
+  "viewType" : "DETABEXPVIEW",
+  "width" : 90,
+  "enableDP" : true,
+  "enableQuickSearch" : false,
+  "enableSearch" : false,
+  "expandSearchForm" : false,
+  "loadDefault" : true,
+  "showCaptionBar" : false,
+  "showDataInfoBar" : true,
+  "modelid" : "44d26ed43bc3a1f1ae6f65577ce86ad3",
+  "modeltype" : "PSAPPDEVIEW"
+}

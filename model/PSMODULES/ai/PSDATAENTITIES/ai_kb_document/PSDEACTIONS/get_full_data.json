@@ -1,0 +1,49 @@
+{
+  "actionMode" : "READ",
+  "actionType" : "SELECTBYKEY",
+  "getAfterPSDEActionLogics" : [ {
+    "actionLogicType" : 1,
+    "attachMode" : "AFTER",
+    "name" : "附加逻辑",
+    "getPSDELogic" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDELOGICS/retrieve_ref_info.json"
+    },
+    "internalLogic" : true
+  }, {
+    "actionLogicType" : 1,
+    "attachMode" : "AFTER",
+    "name" : "附加逻辑",
+    "getPSDELogic" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDELOGICS/get_full_text_info.json"
+    },
+    "internalLogic" : true
+  } ],
+  "codeName" : "get_full_data",
+  "dataAccessAction" : "READ",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDEACTIONS/get_full_data.json",
+  "logicName" : "GetFullData",
+  "name" : "get_full_data",
+  "getPSDEActionInput" : {
+    "getKeyPSDEField" : {
+      "name" : "ID",
+      "codeName" : "id"
+    },
+    "name" : "Get_full_dataInput",
+    "type" : "KEYFIELD"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "Get_full_dataResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_kb_document_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEDataQuery" : {
+    "modelref" : true,
+    "id" : "View"
+  },
+  "enableFront" : false
+}

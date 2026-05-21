@@ -1,0 +1,828 @@
+{
+  "aIFactoryParams" : {
+    "historycount" : "10"
+  },
+  "aIFactoryType" : "DEFAULT",
+  "getAllPSSysAIChatAgents" : [ {
+    "agentType" : "DEFAULT",
+    "codeName" : "agent_prompt",
+    "enableSuggestedQuestions" : true,
+    "enableThinking" : true,
+    "generationMode" : "balanced",
+    "memoryMode" : "short_term",
+    "name" : "agent_prompt",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    },
+    "stream" : true,
+    "suggestionPrompt" : "<tool>\n<suggestions version=\"1.0\">\n<suggestion type=\"action\" version=\"1.0\">\n<data>\n{\"actionid\":\"prompt_feedback@ai_agent_context\"}\n</data>\n<metadata>\n{\"content_name\": \"确定采用此提示词\"}\n</metadata>\n</suggestion>\n</suggestions>\n</tool>",
+    "systemPrompt" : "# AI提示词工程师\n\n## A. 核心角色与职责\n你是一个专业的、精通提示词工程的 AI 工程师。你的唯一职责是接收用户提供的**简短描述 (Description)**，并将其转化为一个**结构清晰、指令明确、可直接用于部署的系统提示词 (System Prompt)**。\n\n## B. 处理流程与指令\n你必须严格遵循以下三阶段工作流程：\n\n### 阶段 1: 意图解析\n1.  **识别核心功能：** 从标题和描述中提取智能体的**主要角色（Role）**和**核心任务（Core Goal）**。\n2.  **确定结构化需求：** 重点判断该智能体是否可能用于**数据提取、内容分类或批量数据填充**。没有特别说明的一律按照MD文档输出。除非是要求中言明了使用JSON则生成阶段**考虑 JSON 格式**作为输出，\n3.  **确定缺失信息：** 识别描述中遗漏的关键信息，例如：\n    * 智能体必须采用**专业、严谨、客观**的语气。\n    * 期望的**输出格式**（表格(MD)、列表(MD)、摘要(MD)、JSON等）。\n    * 任何必要的**约束**或**数据源**。\n\n### 阶段 2: 交互与澄清\n* **如果**描述**足够清晰**，则跳过此步骤。\n* **如果**智能体的任务涉及数据结构化或字段提取，**优先提问**关于**JSON/数据结构**的要求。\n* **如果**任务、约束或输出格式**不明确**，你必须：\n    * **提出 1 到 3 个**高价值的、封闭式或多项选择式的**澄清问题**。\n    * **等待**用户的回答，再进入下一阶段。\n    * **示例问题：** *“该智能体的最终输出是否需要用于数据填充？如果是，请指定所需的JSON字段名称和结构。未明确回答是则输出MD文档格式”*\n\n### 阶段 3: 提示词生成\n基于用户的原始输入和所有澄清信息，你必须生成一个包含以下四个核心部分的**完整系统提示词**。\n\n## C. 生成的系统提示词结构\n你最终的输出必须是为一个新智能体准备的、完整的Markdown格式的系统提示词，结构如下：\n\n### 1. 角色设定\n* 基于标题，用 2-3 句话定义智能体的**专业身份**和**专业领域**。\n\n### 2. 任务与目标\n* 基于描述，用项目符号清晰列出智能体需要完成的 **3-5 个具体任务**。\n\n### 3. 约束与规则\n* **语气限定：** **必须且仅使用专业、严谨、客观、中立的语气。** 禁止任何形式的幽默、情感表达或拟人化语言。\n* **行为准则：** 必须严格遵循任务范围，不能回答非主题问题。\n* **安全限制：** 不能提供非法、有害或超越其专业领域的建议（如医疗、法律）。\n\n",
+    "temperature" : 1.0,
+    "topP" : 1.0,
+    "welcomeMessage" : "您期望智能体完成什么具体工作？"
+  }, {
+    "agentType" : "DE",
+    "codeName" : "chat_default",
+    "name" : "chat_default",
+    "getPSDELogic" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDELOGICS/agent_flow_templ.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    }
+  }, {
+    "agentType" : "DE",
+    "codeName" : "CreateAiAgentContext",
+    "enableThinking" : true,
+    "generationMode" : "custom",
+    "name" : "CreateAiAgentContext",
+    "getPSDELogic" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDELOGICS/create_ai_agent_context.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    },
+    "stream" : true,
+    "temperature" : 1.0,
+    "topP" : 1.0,
+    "welcomeMessage" : "我是您的智能体创建助手，您可以让我通过描述提炼提示词和上下文。"
+  }, {
+    "getAIPlatformPSDEField" : {
+      "name" : "AI_MODEL_ID",
+      "codeName" : "ai_model_id"
+    },
+    "getAgentGroupTagsPSDEField" : {
+      "name" : "AGENT_GROUP_TAG",
+      "codeName" : "agent_group_tag"
+    },
+    "agentType" : "DEFAULT",
+    "codeName" : "DynamicAgent",
+    "getCustomCodePSDEField" : {
+      "name" : "CUSTOM_CODE",
+      "codeName" : "custom_code"
+    },
+    "getDefaultFlagPSDEField" : {
+      "name" : "IS_DEFAULT",
+      "codeName" : "is_default"
+    },
+    "dynamicMode" : 1,
+    "getEnableSearchingPSDEField" : {
+      "name" : "ENABLE_SEARCHING",
+      "codeName" : "enable_searching"
+    },
+    "getEnableSuggestedQuestionsPSDEField" : {
+      "name" : "ENABLE_SUGGESTED_QUESTIONS",
+      "codeName" : "enable_suggested_questions"
+    },
+    "getEnableThinkingPSDEField" : {
+      "name" : "ENABLE_THINKING",
+      "codeName" : "enable_thinking"
+    },
+    "getEnableToolsPSDEField" : {
+      "name" : "ENABLE_TOOLS",
+      "codeName" : "enable_tools"
+    },
+    "getKnowledgeBaseModePSDEField" : {
+      "name" : "KB_MODE",
+      "codeName" : "kb_mode"
+    },
+    "getKnowledgeBaseTagsPSDEField" : {
+      "name" : "KB_TAGS",
+      "codeName" : "kb_tags"
+    },
+    "getMaxInputTokensPSDEField" : {
+      "name" : "MAX_INPUT_TOKENS",
+      "codeName" : "max_input_tokens"
+    },
+    "getMcpServerTagsPSDEField" : {
+      "name" : "MCP_SERVER_TAGS",
+      "codeName" : "mcp_server_tags"
+    },
+    "getMemoryDocTagPSDEField" : {
+      "name" : "MEMORY_DOC_TAG",
+      "codeName" : "memory_doc_tag"
+    },
+    "getMemoryIsolationModePSDEField" : {
+      "name" : "MEMORY_ISOLATION_MODE",
+      "codeName" : "memory_isolation_mode"
+    },
+    "getMemoryKBTagPSDEField" : {
+      "name" : "MEMORY_KB_TAG",
+      "codeName" : "memory_kb_tag"
+    },
+    "getMemoryMaxTurnsPSDEField" : {
+      "name" : "MEMORY_MAX_TURNS",
+      "codeName" : "memory_max_turns"
+    },
+    "getMemoryModePSDEField" : {
+      "name" : "MEMORY_MODE",
+      "codeName" : "memory_mode"
+    },
+    "getMemoryPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task.json"
+    },
+    "getMessagePSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_message.json"
+    },
+    "name" : "DynamicAgent",
+    "getNamePSDEField" : {
+      "name" : "NAME",
+      "codeName" : "name"
+    },
+    "getOSSImageVLPromptPSDEField" : {
+      "name" : "VLM_PROMPT",
+      "codeName" : "vlm_prompt"
+    },
+    "getPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "dynamic_agent"
+    },
+    "getPSDELogic" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDELOGICS/agent_flow_templ.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    },
+    "getPublishSkillPSDEField" : {
+      "name" : "PUBLISH_SKILL",
+      "codeName" : "publish_skill"
+    },
+    "getReadmePSDEField" : {
+      "name" : "SKILL_README",
+      "codeName" : "skill_readme"
+    },
+    "getSessionPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation.json"
+    },
+    "getSkillLoadModePSDEField" : {
+      "name" : "SKILL_LOAD_MODE",
+      "codeName" : "skill_load_mode"
+    },
+    "getSkillPromptPSDEField" : {
+      "name" : "SKILL_PROMPT",
+      "codeName" : "skill_prompt"
+    },
+    "getSkillTagsPSDEField" : {
+      "name" : "SKILL_TAGS",
+      "codeName" : "skill_tags"
+    },
+    "getStreamPSDEField" : {
+      "name" : "STREAM",
+      "codeName" : "stream"
+    },
+    "getSuggestionPromptPSDEField" : {
+      "name" : "CUSTOM_SUGGESTION_PROMPT",
+      "codeName" : "custom_suggestion_prompt"
+    },
+    "getSystemPromptPSDEField" : {
+      "name" : "DEFAULT_SYSTEM_PROMPT",
+      "codeName" : "default_system_prompt"
+    },
+    "getTemperaturePSDEField" : {
+      "name" : "TEMPERATURE",
+      "codeName" : "temperature"
+    },
+    "getToolExceedMessagePSDEField" : {
+      "name" : "TOOL_EXCEED_MESSAGE",
+      "codeName" : "tool_exceed_message"
+    },
+    "getToolMaxCallsPSDEField" : {
+      "name" : "TOOL_MAX_CALLS",
+      "codeName" : "tool_max_calls"
+    },
+    "getTopPPSDEField" : {
+      "name" : "TOP_P",
+      "codeName" : "top_p"
+    },
+    "getTrimmingStrategyPSDEField" : {
+      "name" : "TRIMMING_STRATEGY",
+      "codeName" : "trimming_strategy"
+    },
+    "getTypePSDEField" : {
+      "name" : "FLOW_MODE",
+      "codeName" : "flow_mode"
+    },
+    "getUniqueTagPSDEField" : {
+      "name" : "CODE_NAME",
+      "codeName" : "code_name"
+    },
+    "getWelcomeMessagePSDEField" : {
+      "name" : "WELCOME_MESSAGE",
+      "codeName" : "welcome_message"
+    }
+  }, {
+    "agentType" : "DEFAULT",
+    "codeName" : "GuidedPrompt",
+    "enableThinking" : false,
+    "generationMode" : "precise",
+    "name" : "GuidedPrompt",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    },
+    "stream" : false,
+    "systemPrompt" : "#### **1. 角色设定**\n你是**通用知识库管理专家 (Knowledge Indexing Specialist)**。你的核心职责是分析、提炼并压缩复杂的知识库材料，生成精炼的**目录式大纲**。你的输出将作为后续智能体或用户的“查询地图”，确保海量信息被高度浓缩且易于检索。\n#### **2. 任务与目标**\n你的任务是为给定的知识库内容生成一份极精简的 **【内容索引大纲】**。具体包括：\n- **解析输入**：接收用户提供的知识库基本信息（主题/项目名）和文档列表。\n- **核心提炼**：从文档信息中识别并提取每个条目最核心、最顶级的描述性信息，剔除琐碎细节。\n- **结构化压缩**：将提取的信息高度压缩为层级化的目录格式，确保输出极度精简（通常控制在 2000 字以内）。\n- **引导生成**：输出一个结构化的索引，作为后续深入查询的全局导航。\n#### **3. 约束与规则**\n- **语气与风格**：**必须使用专业、严谨、客观、中立的语气**。输出为纯粹的事实性摘要，禁止任何形式的修饰、情感引导、比喻或闲聊。\n- **行为准则**：\n\t- 你的工作范围仅限于对提供的材料进行**压缩和目录化**。\n\t- **拒绝非相关请求**：对于任何与生成“大纲”无关的请求，必须礼貌拒绝并声明：“我的功能仅限于根据提供的材料生成压缩版索引大纲，无法进行其他对话或发散性分析。”\n\t- **严禁推断**：不得对文档内容进行主观评价、解释或提供建议。\n- **安全与伦理限制**：\n\t- 不得编造或添加输入材料中不存在的信息（严禁幻觉）。\n\t- 保护数据隐私，不输出任何与材料无关的外部敏感信息。\n\n#### **4. 专业工作流程**\n\n1. **输入接收**：识别用户输入的知识库主题及文档条目。输入格式示例：\n\t>**知识库名称/主题**：[如：某产品技术手册]\n\t**文档列表**：\n\t[文档名] | [编号] | [核心描述/摘要]\n2. **信息处理**：\n\t- 快速扫描所有文档条目的“核心描述”。\n\t- 提取最顶级、最具概括性的关键词，忽略所有子级细节和补充性例证。\n\t- 确保每个索引条目仅保留支撑理解的最低限度文字。\n3. **输出生成**：返回以下格式的**精简大纲**。输出应直接呈现结构内容，无需任何开场白、标题或结束语。\n----\n#### **示例输出（基于通用输入）：**\n\n\n[主题名称]：(核心摘要/背景简述)\n1. 文档名称 A : 顶级聚合描述\n2. 文档名称 B : 顶级聚合描述\n3. 文档名称 C : 顶级聚合描述\n\n\n",
+    "temperature" : 0.0,
+    "topP" : 1.0,
+    "welcomeMessage" : "我是您的知识库引导提示词分析助手，可以帮助您叠加目录文档清单，形成引导词。"
+  }, {
+    "getAIPlatformPSDEField" : {
+      "name" : "AI_MODEL_ID",
+      "codeName" : "ai_model_id"
+    },
+    "getAgentGroupTagsPSDEField" : {
+      "name" : "AGENT_GROUP_TAG",
+      "codeName" : "agent_group_tag"
+    },
+    "agentType" : "DE",
+    "codeName" : "lookup",
+    "getCustomCodePSDEField" : {
+      "name" : "CUSTOM_CODE",
+      "codeName" : "custom_code"
+    },
+    "getDefaultFlagPSDEField" : {
+      "name" : "IS_DEFAULT",
+      "codeName" : "is_default"
+    },
+    "dynamicMode" : 1,
+    "getEnableSearchingPSDEField" : {
+      "name" : "ENABLE_SEARCHING",
+      "codeName" : "enable_searching"
+    },
+    "getEnableSuggestedQuestionsPSDEField" : {
+      "name" : "ENABLE_SUGGESTED_QUESTIONS",
+      "codeName" : "enable_suggested_questions"
+    },
+    "getEnableThinkingPSDEField" : {
+      "name" : "ENABLE_THINKING",
+      "codeName" : "enable_thinking"
+    },
+    "getEnableToolsPSDEField" : {
+      "name" : "ENABLE_TOOLS",
+      "codeName" : "enable_tools"
+    },
+    "getKnowledgeBaseModePSDEField" : {
+      "name" : "KB_MODE",
+      "codeName" : "kb_mode"
+    },
+    "getKnowledgeBaseTagsPSDEField" : {
+      "name" : "KB_TAGS",
+      "codeName" : "kb_tags"
+    },
+    "getMaxInputTokensPSDEField" : {
+      "name" : "MAX_INPUT_TOKENS",
+      "codeName" : "max_input_tokens"
+    },
+    "getMcpServerTagsPSDEField" : {
+      "name" : "MCP_SERVER_TAGS",
+      "codeName" : "mcp_server_tags"
+    },
+    "getMemoryDocTagPSDEField" : {
+      "name" : "MEMORY_DOC_TAG",
+      "codeName" : "memory_doc_tag"
+    },
+    "getMemoryIsolationModePSDEField" : {
+      "name" : "MEMORY_ISOLATION_MODE",
+      "codeName" : "memory_isolation_mode"
+    },
+    "getMemoryKBTagPSDEField" : {
+      "name" : "MEMORY_KB_TAG",
+      "codeName" : "memory_kb_tag"
+    },
+    "getMemoryMaxTurnsPSDEField" : {
+      "name" : "MEMORY_MAX_TURNS",
+      "codeName" : "memory_max_turns"
+    },
+    "getMemoryModePSDEField" : {
+      "name" : "MEMORY_MODE",
+      "codeName" : "memory_mode"
+    },
+    "getMemoryPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task.json"
+    },
+    "getMessagePSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_message.json"
+    },
+    "name" : "lookup",
+    "getNamePSDEField" : {
+      "name" : "NAME",
+      "codeName" : "name"
+    },
+    "getOSSImageVLPromptPSDEField" : {
+      "name" : "VLM_PROMPT",
+      "codeName" : "vlm_prompt"
+    },
+    "getPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "lookup_agent"
+    },
+    "getPSDELogic" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDELOGICS/lookup.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    },
+    "getPublishSkillPSDEField" : {
+      "name" : "PUBLISH_SKILL",
+      "codeName" : "publish_skill"
+    },
+    "getReadmePSDEField" : {
+      "name" : "SKILL_README",
+      "codeName" : "skill_readme"
+    },
+    "getSessionPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation.json"
+    },
+    "getSkillLoadModePSDEField" : {
+      "name" : "SKILL_LOAD_MODE",
+      "codeName" : "skill_load_mode"
+    },
+    "getSkillPromptPSDEField" : {
+      "name" : "SKILL_PROMPT",
+      "codeName" : "skill_prompt"
+    },
+    "getSkillTagsPSDEField" : {
+      "name" : "SKILL_TAGS",
+      "codeName" : "skill_tags"
+    },
+    "getStreamPSDEField" : {
+      "name" : "STREAM",
+      "codeName" : "stream"
+    },
+    "getSuggestionPromptPSDEField" : {
+      "name" : "CUSTOM_SUGGESTION_PROMPT",
+      "codeName" : "custom_suggestion_prompt"
+    },
+    "getSystemPromptPSDEField" : {
+      "name" : "DEFAULT_SYSTEM_PROMPT",
+      "codeName" : "default_system_prompt"
+    },
+    "getTemperaturePSDEField" : {
+      "name" : "TEMPERATURE",
+      "codeName" : "temperature"
+    },
+    "getToolExceedMessagePSDEField" : {
+      "name" : "TOOL_EXCEED_MESSAGE",
+      "codeName" : "tool_exceed_message"
+    },
+    "getToolMaxCallsPSDEField" : {
+      "name" : "TOOL_MAX_CALLS",
+      "codeName" : "tool_max_calls"
+    },
+    "getTopPPSDEField" : {
+      "name" : "TOP_P",
+      "codeName" : "top_p"
+    },
+    "getTrimmingStrategyPSDEField" : {
+      "name" : "TRIMMING_STRATEGY",
+      "codeName" : "trimming_strategy"
+    },
+    "getUniqueTagPSDEField" : {
+      "name" : "CODE_NAME",
+      "codeName" : "code_name"
+    },
+    "getWelcomeMessagePSDEField" : {
+      "name" : "WELCOME_MESSAGE",
+      "codeName" : "welcome_message"
+    }
+  }, {
+    "getAIPlatformPSDEField" : {
+      "name" : "AI_MODEL_ID",
+      "codeName" : "ai_model_id"
+    },
+    "getAgentGroupTagsPSDEField" : {
+      "name" : "AGENT_GROUP_TAG",
+      "codeName" : "agent_group_tag"
+    },
+    "agentType" : "DE",
+    "codeName" : "fulltext_reason",
+    "getCustomCodePSDEField" : {
+      "name" : "CUSTOM_CODE",
+      "codeName" : "custom_code"
+    },
+    "getDefaultFlagPSDEField" : {
+      "name" : "IS_DEFAULT",
+      "codeName" : "is_default"
+    },
+    "dynamicMode" : 1,
+    "getEnableSearchingPSDEField" : {
+      "name" : "ENABLE_SEARCHING",
+      "codeName" : "enable_searching"
+    },
+    "getEnableSuggestedQuestionsPSDEField" : {
+      "name" : "ENABLE_SUGGESTED_QUESTIONS",
+      "codeName" : "enable_suggested_questions"
+    },
+    "getEnableThinkingPSDEField" : {
+      "name" : "ENABLE_THINKING",
+      "codeName" : "enable_thinking"
+    },
+    "getEnableToolsPSDEField" : {
+      "name" : "ENABLE_TOOLS",
+      "codeName" : "enable_tools"
+    },
+    "getKnowledgeBaseModePSDEField" : {
+      "name" : "KB_MODE",
+      "codeName" : "kb_mode"
+    },
+    "getKnowledgeBaseTagsPSDEField" : {
+      "name" : "KB_TAGS",
+      "codeName" : "kb_tags"
+    },
+    "getMaxInputTokensPSDEField" : {
+      "name" : "MAX_INPUT_TOKENS",
+      "codeName" : "max_input_tokens"
+    },
+    "getMcpServerTagsPSDEField" : {
+      "name" : "MCP_SERVER_TAGS",
+      "codeName" : "mcp_server_tags"
+    },
+    "getMemoryDocTagPSDEField" : {
+      "name" : "MEMORY_DOC_TAG",
+      "codeName" : "memory_doc_tag"
+    },
+    "getMemoryIsolationModePSDEField" : {
+      "name" : "MEMORY_ISOLATION_MODE",
+      "codeName" : "memory_isolation_mode"
+    },
+    "getMemoryKBTagPSDEField" : {
+      "name" : "MEMORY_KB_TAG",
+      "codeName" : "memory_kb_tag"
+    },
+    "getMemoryMaxTurnsPSDEField" : {
+      "name" : "MEMORY_MAX_TURNS",
+      "codeName" : "memory_max_turns"
+    },
+    "getMemoryModePSDEField" : {
+      "name" : "MEMORY_MODE",
+      "codeName" : "memory_mode"
+    },
+    "getMemoryPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task.json"
+    },
+    "getMessagePSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_message.json"
+    },
+    "name" : "交谈全文推理",
+    "getNamePSDEField" : {
+      "name" : "NAME",
+      "codeName" : "name"
+    },
+    "getOSSImageVLPromptPSDEField" : {
+      "name" : "VLM_PROMPT",
+      "codeName" : "vlm_prompt"
+    },
+    "getPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "full_text_agent"
+    },
+    "getPSDELogic" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDELOGICS/chat_fulltext_reason.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    },
+    "getPublishSkillPSDEField" : {
+      "name" : "PUBLISH_SKILL",
+      "codeName" : "publish_skill"
+    },
+    "getReadmePSDEField" : {
+      "name" : "SKILL_README",
+      "codeName" : "skill_readme"
+    },
+    "getSessionPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation.json"
+    },
+    "getSkillLoadModePSDEField" : {
+      "name" : "SKILL_LOAD_MODE",
+      "codeName" : "skill_load_mode"
+    },
+    "getSkillPromptPSDEField" : {
+      "name" : "SKILL_PROMPT",
+      "codeName" : "skill_prompt"
+    },
+    "getSkillTagsPSDEField" : {
+      "name" : "SKILL_TAGS",
+      "codeName" : "skill_tags"
+    },
+    "getStreamPSDEField" : {
+      "name" : "STREAM",
+      "codeName" : "stream"
+    },
+    "getSuggestionPromptPSDEField" : {
+      "name" : "CUSTOM_SUGGESTION_PROMPT",
+      "codeName" : "custom_suggestion_prompt"
+    },
+    "getSystemPromptPSDEField" : {
+      "name" : "DEFAULT_SYSTEM_PROMPT",
+      "codeName" : "default_system_prompt"
+    },
+    "getTemperaturePSDEField" : {
+      "name" : "TEMPERATURE",
+      "codeName" : "temperature"
+    },
+    "getToolExceedMessagePSDEField" : {
+      "name" : "TOOL_EXCEED_MESSAGE",
+      "codeName" : "tool_exceed_message"
+    },
+    "getToolMaxCallsPSDEField" : {
+      "name" : "TOOL_MAX_CALLS",
+      "codeName" : "tool_max_calls"
+    },
+    "getTopPPSDEField" : {
+      "name" : "TOP_P",
+      "codeName" : "top_p"
+    },
+    "getTrimmingStrategyPSDEField" : {
+      "name" : "TRIMMING_STRATEGY",
+      "codeName" : "trimming_strategy"
+    },
+    "getUniqueTagPSDEField" : {
+      "name" : "CODE_NAME",
+      "codeName" : "code_name"
+    },
+    "getWelcomeMessagePSDEField" : {
+      "name" : "WELCOME_MESSAGE",
+      "codeName" : "welcome_message"
+    }
+  }, {
+    "agentType" : "DE",
+    "codeName" : "chat_analyze_documents",
+    "name" : "交谈分析文档",
+    "getPSDELogic" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDELOGICS/chat_analyze_documents.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    }
+  }, {
+    "agentType" : "DE",
+    "codeName" : "chat_execute_skill",
+    "name" : "交谈执行技能",
+    "getPSDELogic" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDELOGICS/chat_execute_skill.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    }
+  }, {
+    "agentType" : "DE",
+    "codeName" : "chat_execute_action",
+    "name" : "交谈执行行为",
+    "getPSDELogic" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDELOGICS/chat_execute_action.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    },
+    "publishSkill" : 1,
+    "skillPrompt" : "支持通过交谈动态创建聊天Agent，可指定名称、系统提示词等属性"
+  }, {
+    "agentType" : "DEFAULT",
+    "codeName" : "ContentSummary",
+    "enableSearching" : false,
+    "enableThinking" : true,
+    "generationMode" : "precise",
+    "name" : "内容总结",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    },
+    "systemPrompt" : "你是一位专业的文档分析师，请对以下提供的文档内容进行清晰、简洁且全面的总结。总结应包括文档的核心主题、关键要点、重要数据或结论（如适用），并保持客观中立的语气。如果文档包含多个部分，请按逻辑结构分别概括。最终输出应便于读者快速掌握原文主旨。",
+    "temperature" : 0.0,
+    "topP" : 1.0
+  }, {
+    "agentType" : "DEFAULT",
+    "codeName" : "ContentMerge",
+    "enableSearching" : false,
+    "enableThinking" : true,
+    "generationMode" : "precise",
+    "name" : "分段内容合并",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    },
+    "systemPrompt" : "# 角色\n你是一位专业的汇总分析师与综合报告撰写专家，擅长从多份同质化的分段报告中提取共性、保留特性，并融合成一份高层级的汇总报告。\n\n# 任务\n我这里有多份格式基本一致的分段报告。请你将这些报告中的内容进行深度整合，输出一份单一的、完整的总报告。\n\n# 核心逻辑\n\n分类汇总：不要简单地把报告 1、2、3 拼在一起。请按照原始报告的结构（如：[章节A]、[章节B]、[章节C]），将所有分段报告中对应的模块内容合并到一起。\n去重与精炼：如果多份报告中出现了完全重复的观点、事实或数据，请合并为一条，避免啰嗦。\n保留差异化信息：对于各份报告中特有的数据、案例或结论，请全部保留并合理组织。\n统计与综述：\n如果有数值，请尝试进行汇总或取平均值（如适用）。\n因为是多轮分段审查，不需要说明是几份原始文档，以免结果产生混淆。\n\n格式对齐：使用统一的标题层级（Markdown 格式），确保全文语气专业且一致。",
+    "temperature" : 0.0,
+    "topP" : 1.0
+  }, {
+    "getAIPlatformPSDEField" : {
+      "name" : "AI_MODEL_ID",
+      "codeName" : "ai_model_id"
+    },
+    "getAgentGroupTagsPSDEField" : {
+      "name" : "AGENT_GROUP_TAG",
+      "codeName" : "agent_group_tag"
+    },
+    "agentType" : "DE",
+    "codeName" : "DeepResearch",
+    "getCustomCodePSDEField" : {
+      "name" : "CUSTOM_CODE",
+      "codeName" : "custom_code"
+    },
+    "getDefaultFlagPSDEField" : {
+      "name" : "IS_DEFAULT",
+      "codeName" : "is_default"
+    },
+    "dynamicMode" : 1,
+    "getEnableSearchingPSDEField" : {
+      "name" : "ENABLE_SEARCHING",
+      "codeName" : "enable_searching"
+    },
+    "getEnableSuggestedQuestionsPSDEField" : {
+      "name" : "ENABLE_SUGGESTED_QUESTIONS",
+      "codeName" : "enable_suggested_questions"
+    },
+    "getEnableThinkingPSDEField" : {
+      "name" : "ENABLE_THINKING",
+      "codeName" : "enable_thinking"
+    },
+    "getEnableToolsPSDEField" : {
+      "name" : "ENABLE_TOOLS",
+      "codeName" : "enable_tools"
+    },
+    "generationMode" : "precise",
+    "getKnowledgeBaseModePSDEField" : {
+      "name" : "KB_MODE",
+      "codeName" : "kb_mode"
+    },
+    "getKnowledgeBaseTagsPSDEField" : {
+      "name" : "KB_TAGS",
+      "codeName" : "kb_tags"
+    },
+    "getMaxInputTokensPSDEField" : {
+      "name" : "MAX_INPUT_TOKENS",
+      "codeName" : "max_input_tokens"
+    },
+    "getMcpServerTagsPSDEField" : {
+      "name" : "MCP_SERVER_TAGS",
+      "codeName" : "mcp_server_tags"
+    },
+    "getMemoryDocTagPSDEField" : {
+      "name" : "MEMORY_DOC_TAG",
+      "codeName" : "memory_doc_tag"
+    },
+    "getMemoryIsolationModePSDEField" : {
+      "name" : "MEMORY_ISOLATION_MODE",
+      "codeName" : "memory_isolation_mode"
+    },
+    "getMemoryKBTagPSDEField" : {
+      "name" : "MEMORY_KB_TAG",
+      "codeName" : "memory_kb_tag"
+    },
+    "getMemoryMaxTurnsPSDEField" : {
+      "name" : "MEMORY_MAX_TURNS",
+      "codeName" : "memory_max_turns"
+    },
+    "getMemoryModePSDEField" : {
+      "name" : "MEMORY_MODE",
+      "codeName" : "memory_mode"
+    },
+    "getMemoryPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task.json"
+    },
+    "getMessagePSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_message.json"
+    },
+    "name" : "深度研究",
+    "getNamePSDEField" : {
+      "name" : "NAME",
+      "codeName" : "name"
+    },
+    "getOSSImageVLPromptPSDEField" : {
+      "name" : "VLM_PROMPT",
+      "codeName" : "vlm_prompt"
+    },
+    "getPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "deep_research_agent"
+    },
+    "getPSDELogic" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDELOGICS/deep_research.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    },
+    "getPublishSkillPSDEField" : {
+      "name" : "PUBLISH_SKILL",
+      "codeName" : "publish_skill"
+    },
+    "getReadmePSDEField" : {
+      "name" : "SKILL_README",
+      "codeName" : "skill_readme"
+    },
+    "getSessionPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation.json"
+    },
+    "getSkillLoadModePSDEField" : {
+      "name" : "SKILL_LOAD_MODE",
+      "codeName" : "skill_load_mode"
+    },
+    "getSkillPromptPSDEField" : {
+      "name" : "SKILL_PROMPT",
+      "codeName" : "skill_prompt"
+    },
+    "getSkillTagsPSDEField" : {
+      "name" : "SKILL_TAGS",
+      "codeName" : "skill_tags"
+    },
+    "getStreamPSDEField" : {
+      "name" : "STREAM",
+      "codeName" : "stream"
+    },
+    "getSuggestionPromptPSDEField" : {
+      "name" : "CUSTOM_SUGGESTION_PROMPT",
+      "codeName" : "custom_suggestion_prompt"
+    },
+    "getSystemPromptPSDEField" : {
+      "name" : "DEFAULT_SYSTEM_PROMPT",
+      "codeName" : "default_system_prompt"
+    },
+    "temperature" : 0.0,
+    "getTemperaturePSDEField" : {
+      "name" : "TEMPERATURE",
+      "codeName" : "temperature"
+    },
+    "getToolExceedMessagePSDEField" : {
+      "name" : "TOOL_EXCEED_MESSAGE",
+      "codeName" : "tool_exceed_message"
+    },
+    "getToolMaxCallsPSDEField" : {
+      "name" : "TOOL_MAX_CALLS",
+      "codeName" : "tool_max_calls"
+    },
+    "topP" : 1.0,
+    "getTopPPSDEField" : {
+      "name" : "TOP_P",
+      "codeName" : "top_p"
+    },
+    "getTrimmingStrategyPSDEField" : {
+      "name" : "TRIMMING_STRATEGY",
+      "codeName" : "trimming_strategy"
+    },
+    "getUniqueTagPSDEField" : {
+      "name" : "CODE_NAME",
+      "codeName" : "code_name"
+    },
+    "getWelcomeMessagePSDEField" : {
+      "name" : "WELCOME_MESSAGE",
+      "codeName" : "welcome_message"
+    }
+  }, {
+    "agentType" : "DEFAULT",
+    "codeName" : "Searcher",
+    "enableSearching" : true,
+    "enableThinking" : true,
+    "generationMode" : "precise",
+    "name" : "通用资料检索精炼专家（平衡版）",
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    },
+    "systemPrompt" : "# 任务\n你是一个极度严谨的资料提取与结构化专家。你的任务是为提供“高保真”的参考素材。你需要在节省上下文空间的同时，确保核心法条、技术参数、操作规范的表述与原文完全一致。\n\n# 技能\n精准定位：在知识库中检索与用户任务直接相关的段落，跳过无关的章节。\n\n结构化拆解：\n\n保留核心原文：法律条文中的判定条件（如果...）、法律后果（则...）、具体数值（...日内/...万元）必须保留原话。\n\n剔除冗余修饰：删减文档中的“为了加强...”、“根据...的精神”、“特制定本规定”等修饰性、背景性文字。\n\n分层呈现：先给出资料背景，再给出精准的条文片段。\n\n# 核心原则\n片段式原文：严禁对核心条款进行转述或总结，必须截取原文中最关键的句子。\n\n上下文透明：必须标注条文的准确出处（如：第X条、第X项），确保主智能体可以追溯。\n\n高保真压缩：通过“删除无关文字”而非“重写文字”来缩减长度。\n\n适用说明： [极简描述此条资料为何与当前任务相关]\n",
+    "temperature" : 0.0,
+    "topP" : 1.0
+  } ],
+  "codeName" : "iBizIntelligence",
+  "dynaModelFilePath" : "PSMODULES/ai/PSSYSAIFACTORIES/iBizIntelligence.json",
+  "name" : "iBiz智能",
+  "getPSSysResource" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSSYSRESOURCES/AIFACTORY.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai.json"
+  }
+}

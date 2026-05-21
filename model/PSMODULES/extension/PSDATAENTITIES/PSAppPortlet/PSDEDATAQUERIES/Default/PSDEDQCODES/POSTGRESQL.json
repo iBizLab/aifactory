@@ -1,0 +1,109 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"codename\"",
+    "name" : "CODENAME"
+  }, {
+    "expression" : "t1.\"dynamodelflag\"",
+    "name" : "DYNAMODELFLAG"
+  }, {
+    "expression" : "t1.\"memo\"",
+    "name" : "MEMO"
+  }, {
+    "expression" : "t1.\"portlettype\"",
+    "name" : "PORTLETTYPE"
+  }, {
+    "expression" : "t1.\"psappportletid\"",
+    "name" : "PSAPPPORTLETID"
+  }, {
+    "expression" : "t1.\"psappportletname\"",
+    "name" : "PSAPPPORTLETNAME"
+  }, {
+    "expression" : "t1.\"psdechartid\"",
+    "name" : "PSDECHARTID"
+  }, {
+    "expression" : "t1.\"psdechartname\"",
+    "name" : "PSDECHARTNAME"
+  }, {
+    "expression" : "t1.\"psdedataviewid\"",
+    "name" : "PSDEDATAVIEWID"
+  }, {
+    "expression" : "t1.\"psdedataviewname\"",
+    "name" : "PSDEDATAVIEWNAME"
+  }, {
+    "expression" : "t1.\"psdeformid\"",
+    "name" : "PSDEFORMID"
+  }, {
+    "expression" : "t1.\"psdeformname\"",
+    "name" : "PSDEFORMNAME"
+  }, {
+    "expression" : "t1.\"psdeid\"",
+    "name" : "PSDEID"
+  }, {
+    "expression" : "t1.\"psdelistid\"",
+    "name" : "PSDELISTID"
+  }, {
+    "expression" : "t1.\"psdelistname\"",
+    "name" : "PSDELISTNAME"
+  }, {
+    "expression" : "t1.\"psdename\"",
+    "name" : "PSDENAME"
+  }, {
+    "expression" : "t1.\"psdereportid\"",
+    "name" : "PSDEREPORTID"
+  }, {
+    "expression" : "t1.\"psdereportname\"",
+    "name" : "PSDEREPORTNAME"
+  }, {
+    "expression" : "t1.\"psdetoolbarid\"",
+    "name" : "PSDETOOLBARID"
+  }, {
+    "expression" : "t1.\"psdetoolbarname\"",
+    "name" : "PSDETOOLBARNAME"
+  }, {
+    "expression" : "t1.\"psdeuagroupid\"",
+    "name" : "PSDEUAGROUPID"
+  }, {
+    "expression" : "t1.\"psdeuagroupname\"",
+    "name" : "PSDEUAGROUPNAME"
+  }, {
+    "expression" : "t1.\"psdeviewid\"",
+    "name" : "PSDEVIEWID"
+  }, {
+    "expression" : "t1.\"psdeviewname\"",
+    "name" : "PSDEVIEWNAME"
+  }, {
+    "expression" : "t1.\"pssysappid\"",
+    "name" : "PSSYSAPPID"
+  }, {
+    "expression" : "t1.\"pssysappname\"",
+    "name" : "PSSYSAPPNAME"
+  }, {
+    "expression" : "t1.\"pssyscalendarid\"",
+    "name" : "PSSYSCALENDARID"
+  }, {
+    "expression" : "t1.\"pssyscalendarname\"",
+    "name" : "PSSYSCALENDARNAME"
+  }, {
+    "expression" : "t1.\"pssysmapviewid\"",
+    "name" : "PSSYSMAPVIEWID"
+  }, {
+    "expression" : "t1.\"pssysmapviewname\"",
+    "name" : "PSSYSMAPVIEWNAME"
+  }, {
+    "expression" : "t1.\"pssysportletcatid\"",
+    "name" : "PSSYSPORTLETCATID"
+  }, {
+    "expression" : "t1.\"pssysportletcatname\"",
+    "name" : "PSSYSPORTLETCATNAME"
+  }, {
+    "expression" : "t1.\"showtitlebar\"",
+    "name" : "SHOWTITLEBAR"
+  }, {
+    "expression" : "t1.\"validflag\"",
+    "name" : "VALIDFLAG"
+  } ],
+  "queryCode" : "SELECT\nt1.\"codename\",\nt1.\"dynamodelflag\",\nt1.\"memo\",\nt1.\"portlettype\",\nt1.\"psappportletid\",\nt1.\"psappportletname\",\nt1.\"psdechartid\",\nt1.\"psdechartname\",\nt1.\"psdedataviewid\",\nt1.\"psdedataviewname\",\nt1.\"psdeformid\",\nt1.\"psdeformname\",\nt1.\"psdeid\",\nt1.\"psdelistid\",\nt1.\"psdelistname\",\nt1.\"psdename\",\nt1.\"psdereportid\",\nt1.\"psdereportname\",\nt1.\"psdetoolbarid\",\nt1.\"psdetoolbarname\",\nt1.\"psdeuagroupid\",\nt1.\"psdeuagroupname\",\nt1.\"psdeviewid\",\nt1.\"psdeviewname\",\nt1.\"pssysappid\",\nt1.\"pssysappname\",\nt1.\"pssyscalendarid\",\nt1.\"pssyscalendarname\",\nt1.\"pssysmapviewid\",\nt1.\"pssysmapviewname\",\nt1.\"pssysportletcatid\",\nt1.\"pssysportletcatname\",\nt1.\"showtitlebar\",\nt1.\"validflag\"\nFROM \"\" t1 \n",
+  "id" : "PSMODULES/extension/PSDATAENTITIES/PSAppPortlet/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

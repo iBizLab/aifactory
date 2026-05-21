@@ -1,0 +1,45 @@
+{
+  "codeListTag" : "meta__cl_resource",
+  "codeListType" : "DYNAMIC",
+  "codeName" : "cl_resource",
+  "getDataPSDEField" : {
+    "name" : "SCHEMA",
+    "codeName" : "schema"
+  },
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/meta/PSCODELISTS/cl_resource.json",
+  "emptyText" : "未定义",
+  "minorSortDir" : "ASC",
+  "getMinorSortPSDEField" : {
+    "name" : "SORT",
+    "codeName" : "sort"
+  },
+  "name" : "数据资源",
+  "getPSDEDataSet" : {
+    "modelref" : true,
+    "id" : "Default"
+  },
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/meta/PSDATAENTITIES/data_resource.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/meta.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizAIFactory",
+  "getTextPSDEField" : {
+    "name" : "NAME",
+    "codeName" : "name"
+  },
+  "getValuePSDEField" : {
+    "name" : "ID",
+    "codeName" : "id"
+  },
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

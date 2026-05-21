@@ -1,0 +1,47 @@
+```sql
+SELECT
+t1.`CATEGORY_ID`,
+t1.`CATEGORY_NAME`,
+t1.`CHAT_MODEL`,
+t1.`CHAT_MODEL_ID`,
+t1.`CHUNK_METHOD`,
+t1.`CREATE_MAN`,
+t1.`CREATE_TIME`,
+t1.`DESCRIPTION`,
+t1.`EMBEDDING_MODEL`,
+t1.`EMBEDDING_MODEL_ID`,
+t1.`GUIDANCE_PROMPT`,
+t1.`ID`,
+t1.`IS_ARCHIVED`,
+t1.`IS_DELETED`,
+(select count(1) from favorite where create_man=#{ctx.sessioncontext.srfpersonid} and OWNER_ID=t1.`ID` ) AS `IS_FAVORITE`,
+t1.`KEY`,
+t1.`NAME`,
+t1.`PAGEINDEX`,
+t1.`RECORD_ID`,
+t11.`_TITLE` AS `RECORD_TITLE`,
+t1.`RERANK`,
+t1.`RERANK_MODEL`,
+t1.`RERANK_MODEL_ID`,
+t1.`RESOURCE`,
+t1.`RESOURCE_CODE`,
+t1.`RESOURCE_ID`,
+t1.`SCOPE_ID`,
+t1.`SCOPE_TYPE`,
+t1.`SIMILARITY_THRESHOLD`,
+t1.`SOURCE_ID`,
+t1.`SOURCE_NAME`,
+t1.`SOURCE_TYPE`,
+t1.`STATUS`,
+t1.`TAG_SETS`,
+t1.`TOP_K`,
+t1.`UPDATE_MAN`,
+t1.`UPDATE_TIME`,
+t1.`USE_KG`,
+t1.`VECTOR_SIMILARITY_WEIGHT`,
+t1.`VISIBILITY`
+FROM `AI_KNOWLEDGE_BASE` t1 
+LEFT JOIN `data_record` t11 ON t1.`RECORD_ID` = t11.`_ID` 
+
+WHERE ( #{ctx.datacontext.keyword} is not null )
+```

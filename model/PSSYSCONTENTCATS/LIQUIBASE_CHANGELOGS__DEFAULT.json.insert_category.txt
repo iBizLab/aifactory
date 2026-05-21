@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.6.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="insert_category" author="system" failOnError="false">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM category WHERE id = 'a2635e83836f0dc7fab04c07e618fadd'
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO category (categories, id, is_deleted, is_leaf, is_leaf2, is_leaf3, is_leaf4, name, owner_id, owner_subtype, owner_type, pid, section_id, sequence, user_tag, user_tag2, wf_version_id, parser_config)
+            VALUES (null, 'a2635e83836f0dc7fab04c07e618fadd', 0, 0, 1, 1, null, '通用文档', null, 'space', 'space', null, null, 5, null, null, null, null);
+        </sql>
+        <rollback>
+            DELETE FROM category WHERE id = 'a2635e83836f0dc7fab04c07e618fadd';
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

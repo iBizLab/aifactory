@@ -1,0 +1,100 @@
+package cn.ibizlab.ai.logic.ai_knowledge_baselogic.switch_set;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_knowledge_base ai_knowledge_baseswitch_setdefault;
+                global cn.ibizlab.core.ai.domain.ai_knowledge_base ai_knowledge_baseswitch_setcurselectedlist;
+                global cn.ibizlab.core.ai.domain.ai_knowledge_base ai_knowledge_baseswitch_setmainfilter;
+                global cn.ibizlab.core.ai.domain.ai_knowledge_base ai_knowledge_baseswitch_setmainlist;
+                global cn.ibizlab.core.ai.domain.ai_knowledge_base ai_knowledge_baseswitch_setmainpage;
+                    global cn.ibizlab.core.ai.service.Iai_knowledge_baseService ai_knowledge_baseservice;
+        global cn.ibizlab.core.ai.service.Iai_knowledge_baseService iBzSysAi_knowledge_baseDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_knowledge_baseswitch_setbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[当前选中知识库]
+            rule "dedataquery_01"
+            ruleflow-group "ai_knowledge_baseswitch_setdedataquery_01"
+            when
+            then
+                        update(ai_knowledge_baseswitch_setdefault);//更新fact中变量值
+                        update(ai_knowledge_baseswitch_setcurselectedlist);//更新fact中变量值
+                        update(ai_knowledge_baseswitch_setmainfilter);//更新fact中变量值
+                        update(ai_knowledge_baseswitch_setmainlist);//更新fact中变量值
+                        update(ai_knowledge_baseswitch_setmainpage);//更新fact中变量值
+            end
+
+            //逻辑处理节点[只查询前100条]
+            rule "prepareparam_01"
+            ruleflow-group "ai_knowledge_baseswitch_setprepareparam_01"
+            when
+            then
+                            ai_knowledge_baseswitch_setmainfilter.set("size","100");
+                            ai_knowledge_baseswitch_setmainfilter.set("n_id_noteq",ai_knowledge_baseswitch_setdefault.get("knowledgebases"));
+                        update(ai_knowledge_baseswitch_setdefault);//更新fact中变量值
+                        update(ai_knowledge_baseswitch_setcurselectedlist);//更新fact中变量值
+                        update(ai_knowledge_baseswitch_setmainfilter);//更新fact中变量值
+                        update(ai_knowledge_baseswitch_setmainlist);//更新fact中变量值
+                        update(ai_knowledge_baseswitch_setmainpage);//更新fact中变量值
+            end
+
+            //逻辑处理节点[main数据集]
+            rule "dedataset_01"
+            ruleflow-group "ai_knowledge_baseswitch_setdedataset_01"
+            when
+            then
+                        update(ai_knowledge_baseswitch_setdefault);//更新fact中变量值
+                        update(ai_knowledge_baseswitch_setcurselectedlist);//更新fact中变量值
+                        update(ai_knowledge_baseswitch_setmainfilter);//更新fact中变量值
+                        update(ai_knowledge_baseswitch_setmainlist);//更新fact中变量值
+                        update(ai_knowledge_baseswitch_setmainpage);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_02"
+            ruleflow-group "ai_knowledge_baseswitch_setprepareparam_02"
+            when
+            then
+                            ai_knowledge_baseswitch_setmainlist.set("",ai_knowledge_baseswitch_setmainpage.get(""));
+                        update(ai_knowledge_baseswitch_setdefault);//更新fact中变量值
+                        update(ai_knowledge_baseswitch_setcurselectedlist);//更新fact中变量值
+                        update(ai_knowledge_baseswitch_setmainfilter);//更新fact中变量值
+                        update(ai_knowledge_baseswitch_setmainlist);//更新fact中变量值
+                        update(ai_knowledge_baseswitch_setmainpage);//更新fact中变量值
+            end
+
+            //逻辑处理节点[执行脚本代码]
+            rule "rawsfcode_01"
+            ruleflow-group "ai_knowledge_baseswitch_setrawsfcode_01"
+            when
+            then
+                        update(ai_knowledge_baseswitch_setdefault);//更新fact中变量值
+                        update(ai_knowledge_baseswitch_setcurselectedlist);//更新fact中变量值
+                        update(ai_knowledge_baseswitch_setmainfilter);//更新fact中变量值
+                        update(ai_knowledge_baseswitch_setmainlist);//更新fact中变量值
+                        update(ai_knowledge_baseswitch_setmainpage);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "ai_knowledge_baseswitch_setend_01"
+            when
+            then
+                        update(ai_knowledge_baseswitch_setdefault);//更新fact中变量值
+                        update(ai_knowledge_baseswitch_setcurselectedlist);//更新fact中变量值
+                        update(ai_knowledge_baseswitch_setmainfilter);//更新fact中变量值
+                        update(ai_knowledge_baseswitch_setmainlist);//更新fact中变量值
+                        update(ai_knowledge_baseswitch_setmainpage);//更新fact中变量值
+            end

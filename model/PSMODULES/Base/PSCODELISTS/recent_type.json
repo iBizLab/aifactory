@@ -1,0 +1,29 @@
+{
+  "codeListTag" : "Base__recent_type",
+  "codeListType" : "STATIC",
+  "codeName" : "recent_type",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/Base/PSCODELISTS/recent_type.json",
+  "emptyText" : "未定义",
+  "name" : "最近访问对象",
+  "getPSCodeItems" : [ {
+    "codeName" : "space",
+    "text" : "知识管理",
+    "value" : "space"
+  } ],
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/Base/PSDATAENTITIES/recent.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/Base.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizAIFactory",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

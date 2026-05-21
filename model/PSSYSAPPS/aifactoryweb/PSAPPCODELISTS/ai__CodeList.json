@@ -1,0 +1,18 @@
+{
+  "codeListTag" : "ai__CodeList",
+  "codeListType" : "DYNAMIC",
+  "codeName" : "ai__CodeList",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__CodeList.json",
+  "emptyText" : "未定义",
+  "name" : "选择知识库",
+  "getPSAppDEDataSet" : {
+    "modelref" : true,
+    "id" : "fetch_default"
+  },
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
+  },
+  "enableCache" : true
+}

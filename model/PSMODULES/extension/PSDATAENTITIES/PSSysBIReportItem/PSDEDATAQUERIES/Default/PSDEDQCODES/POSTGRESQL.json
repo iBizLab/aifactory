@@ -1,0 +1,70 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"birepitemparams\"",
+    "name" : "BIREPITEMPARAMS"
+  }, {
+    "expression" : "t1.\"data\"",
+    "name" : "DATA"
+  }, {
+    "expression" : "t1.\"aggtype\"",
+    "name" : "AGGTYPE"
+  }, {
+    "expression" : "t1.\"birepitemtag\"",
+    "name" : "BIREPITEMTAG"
+  }, {
+    "expression" : "t1.\"birepitemtag2\"",
+    "name" : "BIREPITEMTAG2"
+  }, {
+    "expression" : "t1.\"birepitemtype\"",
+    "name" : "BIREPITEMTYPE"
+  }, {
+    "expression" : "t1.\"placement\"",
+    "name" : "PLACEMENT"
+  }, {
+    "expression" : "t1.\"placetype\"",
+    "name" : "PLACETYPE"
+  }, {
+    "expression" : "t1.\"pssysbicubedimensionid\"",
+    "name" : "PSSYSBICUBEDIMENSIONID"
+  }, {
+    "expression" : "t1.\"pssysbicubedimensionname\"",
+    "name" : "PSSYSBICUBEDIMENSIONNAME"
+  }, {
+    "expression" : "t1.\"pssysbicubeid\"",
+    "name" : "PSSYSBICUBEID"
+  }, {
+    "expression" : "t1.\"pssysbicubemeasureid\"",
+    "name" : "PSSYSBICUBEMEASUREID"
+  }, {
+    "expression" : "t1.\"pssysbicubemeasurename\"",
+    "name" : "PSSYSBICUBEMEASURENAME"
+  }, {
+    "expression" : "t1.\"pssysbicubename\"",
+    "name" : "PSSYSBICUBENAME"
+  }, {
+    "expression" : "t1.\"pssysbireportid\"",
+    "name" : "PSSYSBIREPORTID"
+  }, {
+    "expression" : "t1.\"pssysbireportitemid\"",
+    "name" : "PSSYSBIREPORTITEMID"
+  }, {
+    "expression" : "t1.\"pssysbireportitemname\"",
+    "name" : "PSSYSBIREPORTITEMNAME"
+  }, {
+    "expression" : "t1.\"reftype\"",
+    "name" : "REFTYPE"
+  }, {
+    "expression" : "t1.\"stddatatype\"",
+    "name" : "STDDATATYPE"
+  }, {
+    "expression" : "t1.\"validflag\"",
+    "name" : "VALIDFLAG"
+  }, {
+    "expression" : "t1.\"valueformat\"",
+    "name" : "VALUEFORMAT"
+  } ],
+  "queryCode" : "SELECT\nt1.\"aggtype\",\nt1.\"birepitemtag\",\nt1.\"birepitemtag2\",\nt1.\"birepitemtype\",\nt1.\"placement\",\nt1.\"placetype\",\nt1.\"pssysbicubedimensionid\",\nt1.\"pssysbicubedimensionname\",\nt1.\"pssysbicubeid\",\nt1.\"pssysbicubemeasureid\",\nt1.\"pssysbicubemeasurename\",\nt1.\"pssysbicubename\",\nt1.\"pssysbireportid\",\nt1.\"pssysbireportitemid\",\nt1.\"pssysbireportitemname\",\nt1.\"reftype\",\nt1.\"stddatatype\",\nt1.\"validflag\",\nt1.\"valueformat\"\nFROM \"\" t1 \n",
+  "id" : "PSMODULES/extension/PSDATAENTITIES/PSSysBIReportItem/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

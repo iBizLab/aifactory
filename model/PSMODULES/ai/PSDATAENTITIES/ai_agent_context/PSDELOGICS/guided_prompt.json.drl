@@ -1,0 +1,112 @@
+package cn.ibizlab.ai.logic.ai_agent_contextlogic.guided_prompt;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_agent_context ai_agent_contextguided_promptdefault;
+                global java.util.Map ai_agent_contextguided_promptchat_response;
+                global java.util.Map ai_agent_contextguided_promptlastcontent;
+        global cn.ibizlab.core.ai.service.Iai_agent_contextService iBzSysAi_agent_contextDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_agent_contextguided_promptbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[默认交谈]
+            rule "sysaichatagent_chatoutput_02"
+            ruleflow-group "ai_agent_contextguided_promptsysaichatagent_chatoutput_02"
+            when
+            then
+                        update(ai_agent_contextguided_promptdefault);//更新fact中变量值
+                        update(ai_agent_contextguided_promptchat_response);//更新fact中变量值
+                        update(ai_agent_contextguided_promptlastcontent);//更新fact中变量值
+            end
+
+            //逻辑处理节点[问题分类]
+            rule "sysaichatagent_chatcategory_02"
+            ruleflow-group "ai_agent_contextguided_promptsysaichatagent_chatcategory_02"
+            when
+            then
+                        update(ai_agent_contextguided_promptdefault);//更新fact中变量值
+                        update(ai_agent_contextguided_promptchat_response);//更新fact中变量值
+                        update(ai_agent_contextguided_promptlastcontent);//更新fact中变量值
+            end
+
+            //逻辑处理节点[交谈回复]
+            rule "debugparam_01"
+            ruleflow-group "ai_agent_contextguided_promptdebugparam_01"
+            when
+            then
+                        update(ai_agent_contextguided_promptdefault);//更新fact中变量值
+                        update(ai_agent_contextguided_promptchat_response);//更新fact中变量值
+                        update(ai_agent_contextguided_promptlastcontent);//更新fact中变量值
+            end
+
+            //逻辑处理节点[问题分类]
+            rule "sysaichatagent_chatcategory_01"
+            ruleflow-group "ai_agent_contextguided_promptsysaichatagent_chatcategory_01"
+            when
+            then
+                        update(ai_agent_contextguided_promptdefault);//更新fact中变量值
+                        update(ai_agent_contextguided_promptchat_response);//更新fact中变量值
+                        update(ai_agent_contextguided_promptlastcontent);//更新fact中变量值
+            end
+
+            //逻辑处理节点[等待输入]
+            rule "sysaichatagent_chatinput_02"
+            ruleflow-group "ai_agent_contextguided_promptsysaichatagent_chatinput_02"
+            when
+            then
+                        update(ai_agent_contextguided_promptdefault);//更新fact中变量值
+                        update(ai_agent_contextguided_promptchat_response);//更新fact中变量值
+                        update(ai_agent_contextguided_promptlastcontent);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "ai_agent_contextguided_promptend_01"
+            when
+            then
+                        update(ai_agent_contextguided_promptdefault);//更新fact中变量值
+                        update(ai_agent_contextguided_promptchat_response);//更新fact中变量值
+                        update(ai_agent_contextguided_promptlastcontent);//更新fact中变量值
+            end
+
+            //逻辑处理节点[获取ai反馈信息]
+            rule "rawsfcode_01"
+            ruleflow-group "ai_agent_contextguided_promptrawsfcode_01"
+            when
+            then
+                        update(ai_agent_contextguided_promptdefault);//更新fact中变量值
+                        update(ai_agent_contextguided_promptchat_response);//更新fact中变量值
+                        update(ai_agent_contextguided_promptlastcontent);//更新fact中变量值
+            end
+
+            //逻辑处理节点[填充提示词]
+            rule "sysaichatagent_chatuiaction_01"
+            ruleflow-group "ai_agent_contextguided_promptsysaichatagent_chatuiaction_01"
+            when
+            then
+                        update(ai_agent_contextguided_promptdefault);//更新fact中变量值
+                        update(ai_agent_contextguided_promptchat_response);//更新fact中变量值
+                        update(ai_agent_contextguided_promptlastcontent);//更新fact中变量值
+            end
+
+            //逻辑处理节点[继续细化或采用当前提示词]
+            rule "sysaichatagent_chatinput_01"
+            ruleflow-group "ai_agent_contextguided_promptsysaichatagent_chatinput_01"
+            when
+            then
+                        update(ai_agent_contextguided_promptdefault);//更新fact中变量值
+                        update(ai_agent_contextguided_promptchat_response);//更新fact中变量值
+                        update(ai_agent_contextguided_promptlastcontent);//更新fact中变量值
+            end

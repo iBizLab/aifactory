@@ -1,0 +1,31 @@
+{
+  "codeName" : "data_record",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDERS/DER1N_AI_KNOWLEDGE_BASE_DATA_RECORD_RECORD_ID.json",
+  "fKeyName" : "FADD22E41A6F06DD9E",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/meta/PSDATAENTITIES/data_record.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+  },
+  "name" : "DER1N_AI_KNOWLEDGE_BASE_DATA_RECORD_RECORD_ID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "RECORD_ID",
+    "codeName" : "record_id"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "RECORD_TITLE",
+    "codeName" : "RecordTitle"
+  },
+  "pickupDEFName" : "RECORD_ID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "data_record",
+  "enableFKey" : true
+}

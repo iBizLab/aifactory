@@ -1,0 +1,25 @@
+{
+  "actionMode" : "CUSTOM",
+  "actionType" : "USERCUSTOM",
+  "codeName" : "upsert",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/meta/PSDATAENTITIES/data_record/PSDEACTIONS/upsert.json",
+  "logicName" : "保存数据",
+  "name" : "upsert",
+  "getPSDEActionInput" : {
+    "name" : "UpsertInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "data_record_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "UpsertResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "data_record_dto"
+    },
+    "type" : "DTO"
+  }
+}

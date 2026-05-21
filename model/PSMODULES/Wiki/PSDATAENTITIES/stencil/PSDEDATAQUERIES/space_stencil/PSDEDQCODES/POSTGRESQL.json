@@ -1,0 +1,45 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "( t1.\"space_id\" = #{ctx.webcontext.space} )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"content\"",
+    "name" : "CONTENT"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"format_type\"",
+    "name" : "FORMAT_TYPE"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"is_global\"",
+    "name" : "IS_GLOBAL"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"space_id\"",
+    "name" : "SPACE_ID"
+  }, {
+    "expression" : "t11.\"name\"",
+    "name" : "SPACE_NAME"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"format_type\",\nt1.\"id\",\nt1.\"is_global\",\nt1.\"name\",\nt1.\"space_id\",\nt11.\"name\" AS \"space_name\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"stencil\" t1 \nLEFT JOIN \"space\" t11 ON t1.\"space_id\" = t11.\"id\" \n",
+  "id" : "PSMODULES/Wiki/PSDATAENTITIES/stencil/PSDEDATAQUERIES/space_stencil/PSDEDQCODES/POSTGRESQL.json"
+}

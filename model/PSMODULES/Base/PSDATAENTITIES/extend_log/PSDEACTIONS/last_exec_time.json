@@ -1,0 +1,27 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "DELOGIC",
+  "codeName" : "last_exec_time",
+  "dataAccessAction" : "READ",
+  "dynaModelFilePath" : "PSMODULES/Base/PSDATAENTITIES/extend_log/PSDEACTIONS/last_exec_time.json",
+  "logicName" : "获取最后一次成功执行时间戳",
+  "name" : "last_exec_time",
+  "getPSDEActionInput" : {
+    "name" : "Last_exec_timeInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "extend_log_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "Last_exec_timeResult",
+    "type" : "VOID"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/Base/PSDATAENTITIES/extend_log/PSDELOGICS/last_exec_time.json"
+  },
+  "enableFront" : false
+}

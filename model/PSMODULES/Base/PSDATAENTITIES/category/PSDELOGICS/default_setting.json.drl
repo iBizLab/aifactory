@@ -1,0 +1,90 @@
+package cn.ibizlab.base.logic.categorylogic.default_setting;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.base.domain.category categorydefault_settingdefault;
+                global cn.ibizlab.core.base.domain.category categorydefault_settingparent;
+                global cn.ibizlab.core.base.domain.category_settings categorydefault_settingsetting;
+                    global cn.ibizlab.core.base.service.IcategoryService categoryservice;
+        global cn.ibizlab.core.base.service.IcategoryService iBzSysCategoryDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "categorydefault_settingbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[默认值]
+            rule "prepareparam_01"
+            ruleflow-group "categorydefault_settingprepareparam_01"
+            when
+            then
+                            categorydefault_settingparent.set("id",categorydefault_settingdefault.get("pid"));
+                        update(categorydefault_settingdefault);//更新fact中变量值
+                        update(categorydefault_settingparent);//更新fact中变量值
+                        update(categorydefault_settingsetting);//更新fact中变量值
+            end
+
+            //逻辑处理节点[查询父设置]
+            rule "deaction_01"
+            ruleflow-group "categorydefault_settingdeaction_01"
+            when
+            then
+                            cn.ibizlab.util.helper.CachedBeanCopier.copy(categoryservice.get(categorydefault_settingparent.getId()),categorydefault_settingparent);
+                        update(categorydefault_settingdefault);//更新fact中变量值
+                        update(categorydefault_settingparent);//更新fact中变量值
+                        update(categorydefault_settingsetting);//更新fact中变量值
+            end
+
+            //逻辑处理节点[设置setting]
+            rule "prepareparam_02"
+            ruleflow-group "categorydefault_settingprepareparam_02"
+            when
+            then
+                            categorydefault_settingdefault.set("json","{"visibility":"private","similarity_threshold":"0.10","vector_similarity_weight":"0.3","top_k":20,"rerank":2,"use_kg":0,"parser_config":{"auto_keywords":"3","auto_questions":"5","chunk_token_num":"512","delimiter":"\\n","task_page_size":"12","raptor":{"use_raptor":1,"threshold":0.1,"max_clusters":64,"random_seed":42,"prompt":"请总结以下段落。 小心数字，不要编造。 段落如下：      \n {cluster_content} \n以上就是你需要总结的内容。","max_tokens":256},"graphrag":{"use_graphrag":0,"entity_types":"organization,person,event","method":"general"},"chunk_overlap_num":30,"keep_separator":1,"layout_recognize":"OCR","max_chunk_count_per_doc":1000,"method":"NAIVE","data_masking_rules":[],"pageindex":{"use_pageindex":0,"pages_per_index":5}}}");
+                            categorydefault_settingsetting.set("",categorydefault_settingdefault.get("json"));
+                            categorydefault_settingdefault.set("setting",categorydefault_settingsetting.get(""));
+                        update(categorydefault_settingdefault);//更新fact中变量值
+                        update(categorydefault_settingparent);//更新fact中变量值
+                        update(categorydefault_settingsetting);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_04"
+            ruleflow-group "categorydefault_settingprepareparam_04"
+            when
+            then
+                            categorydefault_settingsetting.set("",categorydefault_settingparent.get("setting"));
+                        update(categorydefault_settingdefault);//更新fact中变量值
+                        update(categorydefault_settingparent);//更新fact中变量值
+                        update(categorydefault_settingsetting);//更新fact中变量值
+            end
+
+            //逻辑处理节点[绑定父设置]
+            rule "prepareparam_03"
+            ruleflow-group "categorydefault_settingprepareparam_03"
+            when
+            then
+                            categorydefault_settingdefault.set("setting",categorydefault_settingsetting.get(""));
+                        update(categorydefault_settingdefault);//更新fact中变量值
+                        update(categorydefault_settingparent);//更新fact中变量值
+                        update(categorydefault_settingsetting);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "categorydefault_settingend_01"
+            when
+            then
+                        update(categorydefault_settingdefault);//更新fact中变量值
+                        update(categorydefault_settingparent);//更新fact中变量值
+                        update(categorydefault_settingsetting);//更新fact中变量值
+            end

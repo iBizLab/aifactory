@@ -1,0 +1,67 @@
+package cn.ibizlab.ai.logic.ai_kb_documentlogic.get_page_index_info;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_kb_document ai_kb_documentget_page_index_infodefault;
+                global cn.ibizlab.core.ai.domain.ai_kb_chunk ai_kb_documentget_page_index_infochunks;
+                global cn.ibizlab.core.ai.domain.ai_kb_chunk ai_kb_documentget_page_index_infofilter;
+                    global cn.ibizlab.core.ai.service.Iai_kb_chunkService ai_kb_chunkservice;
+        global cn.ibizlab.core.ai.service.Iai_kb_documentService iBzSysAi_kb_documentDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_kb_documentget_page_index_infobegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_01"
+            ruleflow-group "ai_kb_documentget_page_index_infoprepareparam_01"
+            when
+            then
+                            ai_kb_documentget_page_index_infofilter.set("n_document_id_eq",ai_kb_documentget_page_index_infodefault.get("id"));
+                            ai_kb_documentget_page_index_infofilter.set("size","100");
+                            ai_kb_documentget_page_index_infofilter.set("sort","sequence,asc");
+                            ai_kb_documentget_page_index_infofilter.set("n_type_eq","index");
+                        update(ai_kb_documentget_page_index_infodefault);//更新fact中变量值
+                        update(ai_kb_documentget_page_index_infochunks);//更新fact中变量值
+                        update(ai_kb_documentget_page_index_infofilter);//更新fact中变量值
+            end
+
+            //逻辑处理节点[实体数据查询]
+            rule "dedataquery_01"
+            ruleflow-group "ai_kb_documentget_page_index_infodedataquery_01"
+            when
+            then
+                        update(ai_kb_documentget_page_index_infodefault);//更新fact中变量值
+                        update(ai_kb_documentget_page_index_infochunks);//更新fact中变量值
+                        update(ai_kb_documentget_page_index_infofilter);//更新fact中变量值
+            end
+
+            //逻辑处理节点[执行脚本代码]
+            rule "rawsfcode_01"
+            ruleflow-group "ai_kb_documentget_page_index_inforawsfcode_01"
+            when
+            then
+                        update(ai_kb_documentget_page_index_infodefault);//更新fact中变量值
+                        update(ai_kb_documentget_page_index_infochunks);//更新fact中变量值
+                        update(ai_kb_documentget_page_index_infofilter);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "ai_kb_documentget_page_index_infoend_01"
+            when
+            then
+                        update(ai_kb_documentget_page_index_infodefault);//更新fact中变量值
+                        update(ai_kb_documentget_page_index_infochunks);//更新fact中变量值
+                        update(ai_kb_documentget_page_index_infofilter);//更新fact中变量值
+            end

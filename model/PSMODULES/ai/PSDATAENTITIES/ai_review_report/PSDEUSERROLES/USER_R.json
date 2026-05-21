@@ -1,0 +1,18 @@
+{
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEUSERROLES/USER_R.json",
+  "name" : "操作用户(读)",
+  "getPSDEDataSet" : {
+    "modelref" : true,
+    "id" : "reader"
+  },
+  "getPSDEUserRoleOPPrivs" : [ {
+    "dataAccessAction" : "READ",
+    "name" : "READ",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "kb__READ"
+    }
+  } ],
+  "roleTag" : "USER_R",
+  "userDRAction" : "READ"
+}

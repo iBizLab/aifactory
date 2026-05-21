@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="cn.ibizlab.core.ai.service.logic.ai_review_reportupsert" isClosed="false" isExecutable="true" name="ai_ai_review_report_upsert_ruleFlow" processType="Private" tns:packageName="cn.ibizlab.core.ai.service.logic.ai_review_reportupsert">
+            <extensionElements>
+                <tns:import name="java.util.Map" />
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="cn.ibizlab.util.helper.RuleUtils"/>
+                                <tns:metaData express="" name="ai_review_reportupsertdefault" type="entity"/>
+                                <tns:metaData express="new HashMap()" name="ai_review_reportupsertcheckkeyresult" type="refentity"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_review_reportService))" name="ai_review_reportservice" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_review_reportService))" name="iBzSysAi_review_reportDefaultService" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
+                            <tns:global identifier="ai_review_reportupsertdefault" type="cn.ibizlab.core.ai.domain.ai_review_report" />
+            </extensionElements>
+                        <startEvent id="begin" isInterrupting="true"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_review_reportupsertrawsfcode_02" id="rawsfcode_02" implementation="http://www.jboss.org/drools/rule" name="处理联合键值"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_review_reportupsertprepareparam_01" id="prepareparam_01" implementation="http://www.jboss.org/drools/rule" name="设置报告"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_review_reportupsertdebugparam_01" id="debugparam_01" implementation="http://www.jboss.org/drools/rule" name="查看报告数据"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_review_reportupsertrawsfcode_01" id="rawsfcode_01" implementation="http://www.jboss.org/drools/rule" name="填充联合键值"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_review_reportupsertdeaction_02" id="deaction_02" implementation="http://www.jboss.org/drools/rule" name="检查数据"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_review_reportupsertdebugparam_02" id="debugparam_02" implementation="http://www.jboss.org/drools/rule" name="检查结果"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_review_reportupsertdeaction_01" id="deaction_01" implementation="http://www.jboss.org/drools/rule" name="保存自动判断"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_review_reportupsertdeaction_03" id="deaction_03" implementation="http://www.jboss.org/drools/rule" name="创建报告"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_review_reportupsertdeaction_04" id="deaction_04" implementation="http://www.jboss.org/drools/rule" name="保存报告"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_review_reportupsertend_01" id="end_01" implementation="http://www.jboss.org/drools/rule" name="结束"/>
+                        <endEvent id="end_01_end" name="end"/>
+                        <sequenceFlow id="end_01_end_line" sourceRef="end_01" targetRef="end_01_end"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_review_reportupsertend_02" id="end_02" implementation="http://www.jboss.org/drools/rule" name="结束"/>
+                        <endEvent id="end_02_end" name="end"/>
+                        <sequenceFlow id="end_02_end_line" sourceRef="end_02" targetRef="end_02_end"/>
+                    <sequenceFlow id="begin_rawsfcode_02" sourceRef="begin" targetRef="rawsfcode_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="rawsfcode_02_prepareparam_01" sourceRef="rawsfcode_02" targetRef="prepareparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_01_debugparam_01" sourceRef="prepareparam_01" targetRef="debugparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="debugparam_01_deaction_02" sourceRef="debugparam_01" targetRef="deaction_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="rawsfcode_01_deaction_01" sourceRef="rawsfcode_01" targetRef="deaction_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="deaction_02_debugparam_02" sourceRef="deaction_02" targetRef="debugparam_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-debugparam_02_deaction_03" sourceRef="gateway-debugparam_02" targetRef="deaction_03">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_review_reportupsertdefault:ai_review_report();
+                                            $ai_review_reportupsertcheckkeyresult:Map();
+                                    eval($ai_review_reportupsertdefault==ai_review_reportupsertdefault && );
+                                eval((RuleUtils.test($ai_review_reportupsertcheckkeyresult.get(""),"EQ","0")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-debugparam_02_deaction_04" sourceRef="gateway-debugparam_02" targetRef="deaction_04">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_review_reportupsertdefault:ai_review_report();
+                                            $ai_review_reportupsertcheckkeyresult:Map();
+                                    eval($ai_review_reportupsertdefault==ai_review_reportupsertdefault && );
+                                eval((RuleUtils.test($ai_review_reportupsertcheckkeyresult.get(""),"EQ","1")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="deaction_01_end_01" sourceRef="deaction_01" targetRef="end_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="deaction_03_end_02" sourceRef="deaction_03" targetRef="end_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="deaction_04_end_02" sourceRef="deaction_04" targetRef="end_02">
+                    </sequenceFlow>
+                            <exclusiveGateway id="gateway-debugparam_02" name="Gateway" gatewayDirection="Diverging" default="gateway-debugparam_02_end_line"></exclusiveGateway>
+                            <sequenceFlow id="debugparam_02_gateway-debugparam_02_gatewayline" sourceRef="debugparam_02" targetRef="gateway-debugparam_02"></sequenceFlow>
+                            <sequenceFlow id="gateway-debugparam_02_end_line" sourceRef="gateway-debugparam_02" targetRef="gateway-debugparam_02_end"/>
+                            <endEvent id="gateway-debugparam_02_end" name="end"/>
+        </process>
+    </definitions>

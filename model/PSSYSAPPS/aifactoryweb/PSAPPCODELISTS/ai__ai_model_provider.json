@@ -1,0 +1,55 @@
+{
+  "codeListTag" : "ai__ai_model_provider",
+  "codeListType" : "DYNAMIC",
+  "codeName" : "ai__ai_model_provider",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__ai_model_provider.json",
+  "emptyText" : "未定义",
+  "name" : "AI模型提供商",
+  "getPSAppDEDataSet" : {
+    "modelref" : true,
+    "id" : "fetch_default"
+  },
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model_provider.json"
+  },
+  "getPSCodeItems" : [ {
+    "codeName" : "qwen",
+    "text" : "通义千问",
+    "value" : "qwen"
+  }, {
+    "codeName" : "deepseek",
+    "text" : "DeepSeek",
+    "value" : "deepseek"
+  }, {
+    "codeName" : "doubao",
+    "text" : "豆包",
+    "value" : "doubao"
+  }, {
+    "codeName" : "moonshot",
+    "text" : "月之暗面",
+    "value" : "moonshot"
+  }, {
+    "codeName" : "ernie",
+    "text" : "文心一言",
+    "value" : "ernie"
+  }, {
+    "codeName" : "BAAI",
+    "text" : "北京智源",
+    "value" : "BAAI"
+  }, {
+    "codeName" : "custom",
+    "text" : "自定义",
+    "value" : "custom"
+  } ],
+  "getTextPSAppDEField" : {
+    "name" : "NAME",
+    "codeName" : "name"
+  },
+  "getValuePSAppDEField" : {
+    "name" : "ID",
+    "codeName" : "id"
+  },
+  "enableCache" : true
+}

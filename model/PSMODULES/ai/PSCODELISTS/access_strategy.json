@@ -1,0 +1,33 @@
+{
+  "codeListTag" : "ai__access_strategy",
+  "codeListType" : "STATIC",
+  "codeName" : "access_strategy",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/ai/PSCODELISTS/access_strategy.json",
+  "emptyText" : "未定义",
+  "name" : "访问策略",
+  "getPSCodeItems" : [ {
+    "codeName" : "inclusion",
+    "text" : "包含",
+    "value" : "INCLUSION"
+  }, {
+    "codeName" : "exclusion",
+    "text" : "排除",
+    "value" : "EXCLUSION"
+  } ],
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_client_credential.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizAIFactory",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

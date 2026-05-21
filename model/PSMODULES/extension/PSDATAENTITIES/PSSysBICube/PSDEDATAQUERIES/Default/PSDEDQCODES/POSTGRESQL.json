@@ -1,0 +1,40 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"bicubetag\"",
+    "name" : "BICUBETAG"
+  }, {
+    "expression" : "t1.\"bicubetag2\"",
+    "name" : "BICUBETAG2"
+  }, {
+    "expression" : "t1.\"codename\"",
+    "name" : "CODENAME"
+  }, {
+    "expression" : "t1.\"memo\"",
+    "name" : "MEMO"
+  }, {
+    "expression" : "t1.\"psdeid\"",
+    "name" : "PSDEID"
+  }, {
+    "expression" : "t1.\"psdename\"",
+    "name" : "PSDENAME"
+  }, {
+    "expression" : "t1.\"pssysbicubeid\"",
+    "name" : "PSSYSBICUBEID"
+  }, {
+    "expression" : "t1.\"pssysbicubename\"",
+    "name" : "PSSYSBICUBENAME"
+  }, {
+    "expression" : "t1.\"pssysbischemeid\"",
+    "name" : "PSSYSBISCHEMEID"
+  }, {
+    "expression" : "t1.\"pssysbischemename\"",
+    "name" : "PSSYSBISCHEMENAME"
+  }, {
+    "expression" : "t1.\"validflag\"",
+    "name" : "VALIDFLAG"
+  } ],
+  "queryCode" : "SELECT\nt1.\"bicubetag\",\nt1.\"bicubetag2\",\nt1.\"codename\",\nt1.\"memo\",\nt1.\"psdeid\",\nt1.\"psdename\",\nt1.\"pssysbicubeid\",\nt1.\"pssysbicubename\",\nt1.\"pssysbischemeid\",\nt1.\"pssysbischemename\",\nt1.\"validflag\"\nFROM \"\" t1 \n",
+  "id" : "PSMODULES/extension/PSDATAENTITIES/PSSysBICube/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

@@ -1,0 +1,120 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "( t1.\"is_deleted\" = 0  AND  t1.\"is_published\" = 1 )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"access_password\"",
+    "name" : "ACCESS_PASSWORD"
+  }, {
+    "expression" : "t1.\"categories\"",
+    "name" : "CATEGORIES"
+  }, {
+    "expression" : "t1.\"content\"",
+    "name" : "CONTENT"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"cur_version_id\"",
+    "name" : "CUR_VERSION_ID"
+  }, {
+    "expression" : "t1.\"cur_version_name\"",
+    "name" : "CUR_VERSION_NAME"
+  }, {
+    "expression" : "t1.\"expiration_date\"",
+    "name" : "EXPIRATION_DATE"
+  }, {
+    "expression" : "t1.\"format_type\"",
+    "name" : "FORMAT_TYPE"
+  }, {
+    "expression" : "t1.\"identifier\"",
+    "name" : "IDENTIFIER"
+  }, {
+    "expression" : "t1.\"is_archived\"",
+    "name" : "IS_ARCHIVED"
+  }, {
+    "expression" : "t1.\"is_deleted\"",
+    "name" : "IS_DELETED"
+  }, {
+    "expression" : "t1.\"is_leaf\"",
+    "name" : "IS_LEAF"
+  }, {
+    "expression" : "t1.\"is_lock\"",
+    "name" : "IS_LOCK"
+  }, {
+    "expression" : "t1.\"is_published\"",
+    "name" : "IS_PUBLISHED"
+  }, {
+    "expression" : "t1.\"is_shared\"",
+    "name" : "IS_SHARED"
+  }, {
+    "expression" : "t1.\"is_shared_subset\"",
+    "name" : "IS_SHARED_SUBSET"
+  }, {
+    "expression" : "t1.\"published\"",
+    "name" : "PUBLISHED"
+  }, {
+    "expression" : "t1.\"publish_content\"",
+    "name" : "PUBLISH_CONTENT"
+  }, {
+    "expression" : "t1.\"publish_man\"",
+    "name" : "PUBLISH_MAN"
+  }, {
+    "expression" : "t1.\"publish_time\"",
+    "name" : "PUBLISH_TIME"
+  }, {
+    "expression" : "t1.\"review_result_state\"",
+    "name" : "REVIEW_RESULT_STATE"
+  }, {
+    "expression" : "t1.\"sequence\"",
+    "name" : "SEQUENCE"
+  }, {
+    "expression" : "t1.\"shared_by\"",
+    "name" : "SHARED_BY"
+  }, {
+    "expression" : "t1.\"shared_time\"",
+    "name" : "SHARED_TIME"
+  }, {
+    "expression" : "t1.\"type\"",
+    "name" : "TYPE"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"user_tag\"",
+    "name" : "USER_TAG"
+  }, {
+    "expression" : "t1.\"user_tag2\"",
+    "name" : "USER_TAG2"
+  }, {
+    "expression" : "t1.\"icon\"",
+    "name" : "ICON"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"parent_id\"",
+    "name" : "PARENT_ID"
+  }, {
+    "expression" : "t1.\"publish_name\"",
+    "name" : "PUBLISH_NAME"
+  }, {
+    "expression" : "t1.\"space_id\"",
+    "name" : "SPACE_ID"
+  } ],
+  "queryCode" : "SELECT\nt1.\"icon\",\nt1.\"id\",\nt1.\"name\",\nt1.\"parent_id\",\nt1.\"publish_name\",\nt1.\"space_id\"\nFROM \"page\" t1 \n",
+  "id" : "PSMODULES/Wiki/PSDATAENTITIES/article_page/PSDEDATAQUERIES/choose_shared/PSDEDQCODES/POSTGRESQL.json"
+}

@@ -1,0 +1,26 @@
+{
+  "codeName" : "review",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEDRITEMS/review.json",
+  "itemType" : "DER1N",
+  "name" : "审查报告",
+  "getPSDER" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDERS/DER1N_AI_REVIEW_REPORT_AI_KNOWLEDGE_BASE_KB_ID.json"
+  },
+  "parentDataJO" : {
+    "SRFPARENTTYPE" : "DER1N",
+    "srfparentdename" : "AI_KNOWLEDGE_BASE",
+    "srfparentmode" : "DER1N_AI_REVIEW_REPORT_AI_KNOWLEDGE_BASE_KB_ID",
+    "srfparentdefname" : "KB_ID",
+    "SRFDER1NID" : "DER1N_AI_REVIEW_REPORT_AI_KNOWLEDGE_BASE_KB_ID"
+  },
+  "viewCodeName" : "review_grid",
+  "getViewPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report.json"
+  },
+  "viewParamJO" : {
+    "SRFPARENTTYPE" : "DER1N",
+    "SRFDER1NID" : "DER1N_AI_REVIEW_REPORT_AI_KNOWLEDGE_BASE_KB_ID"
+  }
+}

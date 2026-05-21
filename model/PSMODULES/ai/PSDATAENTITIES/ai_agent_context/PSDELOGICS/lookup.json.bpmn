@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="cn.ibizlab.core.ai.service.logic.ai_agent_contextlookup" isClosed="false" isExecutable="true" name="ai_ai_agent_context_lookup_ruleFlow" processType="Private" tns:packageName="cn.ibizlab.core.ai.service.logic.ai_agent_contextlookup">
+            <extensionElements>
+                <tns:import name="java.util.Map" />
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="cn.ibizlab.util.helper.RuleUtils"/>
+                                <tns:metaData express="" name="ai_agent_contextlookupdefault" type="entity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_agent_context()" name="ai_agent_contextlookupagententity" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextlookupchat_response" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextlookupdata" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_knowledge_base()" name="ai_agent_contextlookupkb" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextlookuprefrence" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextlookuprefrence_chat_request" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextlookuprefrence_chat_response" type="refentity"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_knowledge_baseService))" name="ai_knowledge_baseservice" type="service"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_agent_contextService))" name="ai_agent_contextservice" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_agent_contextService))" name="iBzSysAi_agent_contextDefaultService" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
+                            <tns:global identifier="ai_agent_contextlookupdefault" type="cn.ibizlab.core.ai.domain.ai_agent_context" />
+                            <tns:global identifier="ai_agent_contextlookupagententity" type="cn.ibizlab.core.ai.domain.ai_agent_context" />
+                            <tns:global identifier="ai_agent_contextlookupkb" type="cn.ibizlab.core.ai.domain.ai_knowledge_base" />
+            </extensionElements>
+                        <startEvent id="begin" isInterrupting="true"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextlookupsysaichatagent_chatstep_01" id="sysaichatagent_chatstep_01" implementation="http://www.jboss.org/drools/rule" name="1.获取参考资料"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextlookupdebugparam_01" id="debugparam_01" implementation="http://www.jboss.org/drools/rule" name="调试逻辑参数data"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextlookupdeaction_01" id="deaction_01" implementation="http://www.jboss.org/drools/rule" name="获取kb"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextlookupdelogic_01" id="delogic_01" implementation="http://www.jboss.org/drools/rule" name="获取智能体信息"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextlookupdelogic_02" id="delogic_02" implementation="http://www.jboss.org/drools/rule" name="获取知识库信息"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextlookupprepareparam_01" id="prepareparam_01" implementation="http://www.jboss.org/drools/rule" name="准备获取kb"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextlookupprepareparam_02" id="prepareparam_02" implementation="http://www.jboss.org/drools/rule" name="准备引用参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextlookuprawsfcode_01" id="rawsfcode_01" implementation="http://www.jboss.org/drools/rule" name="设置chunkqueries"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextlookupsysaichatagent_appendchatrequest_01" id="sysaichatagent_appendchatrequest_01" implementation="http://www.jboss.org/drools/rule" name="附加聊天请求"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextlookupsysaichatagent_chatoutput_01" id="sysaichatagent_chatoutput_01" implementation="http://www.jboss.org/drools/rule" name="交谈输出"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextlookupprepareparam_03" id="prepareparam_03" implementation="http://www.jboss.org/drools/rule" name="提取参考材料"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextlookupsysaichatagent_chatstep_02" id="sysaichatagent_chatstep_02" implementation="http://www.jboss.org/drools/rule" name="提示参考资料"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextlookupsysaichatagent_chatstep_03" id="sysaichatagent_chatstep_03" implementation="http://www.jboss.org/drools/rule" name="执行智能体"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextlookupsysaichatagent_appendchatrequest_02" id="sysaichatagent_appendchatrequest_02" implementation="http://www.jboss.org/drools/rule" name="附加聊天请求"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextlookupsysaichatagent_chatoutput_02" id="sysaichatagent_chatoutput_02" implementation="http://www.jboss.org/drools/rule" name="交谈输出"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextlookupsysaichatagent_chatstep_04" id="sysaichatagent_chatstep_04" implementation="http://www.jboss.org/drools/rule" name="审查完成"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextlookupend_01" id="end_01" implementation="http://www.jboss.org/drools/rule" name="结束"/>
+                        <endEvent id="end_01_end" name="end"/>
+                        <sequenceFlow id="end_01_end_line" sourceRef="end_01" targetRef="end_01_end"/>
+                    <sequenceFlow id="begin_sysaichatagent_chatstep_01" sourceRef="begin" targetRef="sysaichatagent_chatstep_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatstep_01_debugparam_01" sourceRef="sysaichatagent_chatstep_01" targetRef="debugparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="debugparam_01_prepareparam_01" sourceRef="debugparam_01" targetRef="prepareparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="deaction_01_delogic_02" sourceRef="deaction_01" targetRef="delogic_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="delogic_01_delogic_02" sourceRef="delogic_01" targetRef="delogic_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="delogic_02_prepareparam_02" sourceRef="delogic_02" targetRef="prepareparam_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_01_delogic_01" sourceRef="prepareparam_01" targetRef="delogic_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_02_rawsfcode_01" sourceRef="prepareparam_02" targetRef="rawsfcode_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="rawsfcode_01_sysaichatagent_appendchatrequest_01" sourceRef="rawsfcode_01" targetRef="sysaichatagent_appendchatrequest_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_appendchatrequest_01_sysaichatagent_chatoutput_01" sourceRef="sysaichatagent_appendchatrequest_01" targetRef="sysaichatagent_chatoutput_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatoutput_01_prepareparam_03" sourceRef="sysaichatagent_chatoutput_01" targetRef="prepareparam_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_03_sysaichatagent_chatstep_02" sourceRef="prepareparam_03" targetRef="sysaichatagent_chatstep_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatstep_02_sysaichatagent_chatstep_03" sourceRef="sysaichatagent_chatstep_02" targetRef="sysaichatagent_chatstep_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatstep_03_sysaichatagent_appendchatrequest_02" sourceRef="sysaichatagent_chatstep_03" targetRef="sysaichatagent_appendchatrequest_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_appendchatrequest_02_sysaichatagent_chatoutput_02" sourceRef="sysaichatagent_appendchatrequest_02" targetRef="sysaichatagent_chatoutput_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatoutput_02_sysaichatagent_chatstep_04" sourceRef="sysaichatagent_chatoutput_02" targetRef="sysaichatagent_chatstep_04">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatstep_04_end_01" sourceRef="sysaichatagent_chatstep_04" targetRef="end_01">
+                    </sequenceFlow>
+        </process>
+    </definitions>

@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="cn.ibizlab.core.ai.service.logic.ai_agent_contextchat_fulltext_reason" isClosed="false" isExecutable="true" name="ai_ai_agent_context_chat_fulltext_reason_ruleFlow" processType="Private" tns:packageName="cn.ibizlab.core.ai.service.logic.ai_agent_contextchat_fulltext_reason">
+            <extensionElements>
+                <tns:import name="java.util.Map" />
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="cn.ibizlab.util.helper.RuleUtils"/>
+                                <tns:metaData express="" name="ai_agent_contextchat_fulltext_reasondefault" type="entity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_agent_context()" name="ai_agent_contextchat_fulltext_reasonagent" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextchat_fulltext_reasonall_reason_content" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextchat_fulltext_reasonchat_request" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextchat_fulltext_reasonchat_response" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextchat_fulltext_reasonchunk_reason" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextchat_fulltext_reasonchunk_reason_list" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_agent_context()" name="ai_agent_contextchat_fulltext_reasondefault_temp" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_kb_document()" name="ai_agent_contextchat_fulltext_reasondoc" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_kb_document()" name="ai_agent_contextchat_fulltext_reasondoc_filter" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextchat_fulltext_reasondoc_fulltext" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_kb_document()" name="ai_agent_contextchat_fulltext_reasondoc_list" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_review_report()" name="ai_agent_contextchat_fulltext_reasondoc_reason_list" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextchat_fulltext_reasonfinal_chat_response" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_kb_document()" name="ai_agent_contextchat_fulltext_reasonfull_doc_list" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_review_report()" name="ai_agent_contextchat_fulltext_reasonfullcontent_reason_report" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextchat_fulltext_reasonfulltext_chunk_list" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_agent_context()" name="ai_agent_contextchat_fulltext_reasonkb" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextchat_fulltext_reasonobj" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextchat_fulltext_reasonrefrence_chat_request" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextchat_fulltext_reasonrefrence_chat_response" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_review_report()" name="ai_agent_contextchat_fulltext_reasonreport_doc" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextchat_fulltext_reasontext_chunk" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_kb_document()" name="ai_agent_contextchat_fulltext_reasontext_reason" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextchat_fulltext_reasontextreason_chat_request" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_contextchat_fulltext_reasontextreason_chat_response" type="refentity"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_agent_contextService))" name="ai_agent_contextservice" type="service"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_kb_documentService))" name="ai_kb_documentservice" type="service"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_knowledge_baseService))" name="ai_knowledge_baseservice" type="service"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_review_reportService))" name="ai_review_reportservice" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_agent_contextService))" name="iBzSysAi_agent_contextDefaultService" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
+                            <tns:global identifier="ai_agent_contextchat_fulltext_reasondefault" type="cn.ibizlab.core.ai.domain.ai_agent_context" />
+                            <tns:global identifier="ai_agent_contextchat_fulltext_reasonagent" type="cn.ibizlab.core.ai.domain.ai_agent_context" />
+                            <tns:global identifier="ai_agent_contextchat_fulltext_reasondefault_temp" type="cn.ibizlab.core.ai.domain.ai_agent_context" />
+                            <tns:global identifier="ai_agent_contextchat_fulltext_reasondoc" type="cn.ibizlab.core.ai.domain.ai_kb_document" />
+                            <tns:global identifier="ai_agent_contextchat_fulltext_reasondoc_filter" type="cn.ibizlab.core.ai.domain.ai_kb_document" />
+                            <tns:global identifier="ai_agent_contextchat_fulltext_reasondoc_list" type="cn.ibizlab.core.ai.domain.ai_kb_document" />
+                            <tns:global identifier="ai_agent_contextchat_fulltext_reasondoc_reason_list" type="cn.ibizlab.core.ai.domain.ai_review_report" />
+                            <tns:global identifier="ai_agent_contextchat_fulltext_reasonfull_doc_list" type="cn.ibizlab.core.ai.domain.ai_kb_document" />
+                            <tns:global identifier="ai_agent_contextchat_fulltext_reasonfullcontent_reason_report" type="cn.ibizlab.core.ai.domain.ai_review_report" />
+                            <tns:global identifier="ai_agent_contextchat_fulltext_reasonkb" type="cn.ibizlab.core.ai.domain.ai_agent_context" />
+                            <tns:global identifier="ai_agent_contextchat_fulltext_reasonreport_doc" type="cn.ibizlab.core.ai.domain.ai_review_report" />
+                            <tns:global identifier="ai_agent_contextchat_fulltext_reasontext_reason" type="cn.ibizlab.core.ai.domain.ai_kb_document" />
+            </extensionElements>
+                        <startEvent id="begin" isInterrupting="true"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonbindparam_01" id="bindparam_01" implementation="http://www.jboss.org/drools/rule" name="绑定参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasondelogic_02" id="delogic_02" implementation="http://www.jboss.org/drools/rule" name="查询智能体"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonprepareparam_01" id="prepareparam_01" implementation="http://www.jboss.org/drools/rule" name="设置筛选条件"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonprepareparam_09" id="prepareparam_09" implementation="http://www.jboss.org/drools/rule" name="设置交谈参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonloopsubcall_02" id="loopsubcall_02" implementation="http://www.jboss.org/drools/rule" name="循环子调用"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonsysaichatagent_chatoutput_02" id="sysaichatagent_chatoutput_02" implementation="http://www.jboss.org/drools/rule" name="交谈输出"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonsysaichatagent_chatstep_01" id="sysaichatagent_chatstep_01" implementation="http://www.jboss.org/drools/rule" name="查询知识库文档"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonprepareparam_06" id="prepareparam_06" implementation="http://www.jboss.org/drools/rule" name="准备知识库标识"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonprepareparam_07" id="prepareparam_07" implementation="http://www.jboss.org/drools/rule" name="设置智能体代码标识"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasondebugparam_03" id="debugparam_03" implementation="http://www.jboss.org/drools/rule" name="输出合并后大内容"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasondedataset_01" id="dedataset_01" implementation="http://www.jboss.org/drools/rule" name="查询知识库下文档"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonrawsfcode_03" id="rawsfcode_03" implementation="http://www.jboss.org/drools/rule" name="准备文档正文"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasondebugparam_04" id="debugparam_04" implementation="http://www.jboss.org/drools/rule" name="输出大内容拆分集合"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasondelogic_01" id="delogic_01" implementation="http://www.jboss.org/drools/rule" name="查询知识库详情"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonrawsfcode_05" id="rawsfcode_05" implementation="http://www.jboss.org/drools/rule" name="将大内容拆分"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonrenewparam_04" id="renewparam_04" implementation="http://www.jboss.org/drools/rule" name="重新建立参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonsysaichatagent_chatstep_02" id="sysaichatagent_chatstep_02" implementation="http://www.jboss.org/drools/rule" name="逐一开始审查"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasondebugparam_05" id="debugparam_05" implementation="http://www.jboss.org/drools/rule" name="结果过多再次分段审查"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasondebugparam_01" id="debugparam_01" implementation="http://www.jboss.org/drools/rule" name="调试逻辑参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonrenewparam_01" id="renewparam_01" implementation="http://www.jboss.org/drools/rule" name="重新建立交谈请求"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonsysaichatagent_chatstep_04" id="sysaichatagent_chatstep_04" implementation="http://www.jboss.org/drools/rule" name="内容总结"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonrenewparam_02" id="renewparam_02" implementation="http://www.jboss.org/drools/rule" name="重新建立交谈输出"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonprepareparam_03" id="prepareparam_03" implementation="http://www.jboss.org/drools/rule" name="置空知识库标识"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonrawsfcode_01" id="rawsfcode_01" implementation="http://www.jboss.org/drools/rule" name="获取知识库文档推理结果"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasondebugparam_06" id="debugparam_06" implementation="http://www.jboss.org/drools/rule" name="只有一条无需总结"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonsysaichatagent_appendchatrequest_02" id="sysaichatagent_appendchatrequest_02" implementation="http://www.jboss.org/drools/rule" name="附加聊天请求"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonrenewparam_03" id="renewparam_03" implementation="http://www.jboss.org/drools/rule" name="重新建立参数"/>
+                        <endEvent id="renewparam_03_end" name="end"/>
+                        <sequenceFlow id="renewparam_03_end_line" sourceRef="renewparam_03" targetRef="renewparam_03_end"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasondebugparam_07" id="debugparam_07" implementation="http://www.jboss.org/drools/rule" name="待总结片段"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonprepareparam_05" id="prepareparam_05" implementation="http://www.jboss.org/drools/rule" name="设置全文推理结果审查报告"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonsysaichatagent_appendchatrequest_01" id="sysaichatagent_appendchatrequest_01" implementation="http://www.jboss.org/drools/rule" name="附加聊天请求"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonsysaichatagent_chatoutput_01" id="sysaichatagent_chatoutput_01" implementation="http://www.jboss.org/drools/rule" name="交谈输出"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonprepareparam_08" id="prepareparam_08" implementation="http://www.jboss.org/drools/rule" name="回填交谈结果"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasondeaction_03" id="deaction_03" implementation="http://www.jboss.org/drools/rule" name="创建审查报告"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonprepareparam_010" id="prepareparam_010" implementation="http://www.jboss.org/drools/rule" name="准备参数总结智能体"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonappendparam_03" id="appendparam_03" implementation="http://www.jboss.org/drools/rule" name="将交谈结果附加到数组"/>
+                        <endEvent id="appendparam_03_end" name="end"/>
+                        <sequenceFlow id="appendparam_03_end_line" sourceRef="appendparam_03" targetRef="appendparam_03_end"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonsysaichatagent_chatstep_03" id="sysaichatagent_chatstep_03" implementation="http://www.jboss.org/drools/rule" name="全文推理完成"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonsysaichatagent_chatoutput_03" id="sysaichatagent_chatoutput_03" implementation="http://www.jboss.org/drools/rule" name="交谈输出"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonprepareparam_011" id="prepareparam_011" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
+                        <endEvent id="prepareparam_011_end" name="end"/>
+                        <sequenceFlow id="prepareparam_011_end_line" sourceRef="prepareparam_011" targetRef="prepareparam_011_end"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasondeaction_04" id="deaction_04" implementation="http://www.jboss.org/drools/rule" name="查询知识库详情"/>
+                        <endEvent id="deaction_04_end" name="end"/>
+                        <sequenceFlow id="deaction_04_end_line" sourceRef="deaction_04" targetRef="deaction_04_end"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextchat_fulltext_reasonend_01" id="end_01" implementation="http://www.jboss.org/drools/rule" name="结束"/>
+                        <endEvent id="end_01_end" name="end"/>
+                        <sequenceFlow id="end_01_end_line" sourceRef="end_01" targetRef="end_01_end"/>
+                    <sequenceFlow id="begin_bindparam_01" sourceRef="begin" targetRef="bindparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="bindparam_01_sysaichatagent_chatstep_01" sourceRef="bindparam_01" targetRef="sysaichatagent_chatstep_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="delogic_02_prepareparam_01" sourceRef="delogic_02" targetRef="prepareparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_01_dedataset_01" sourceRef="prepareparam_01" targetRef="dedataset_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_09_sysaichatagent_appendchatrequest_02" sourceRef="prepareparam_09" targetRef="sysaichatagent_appendchatrequest_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="loopsubcall_02_debugparam_01" sourceRef="loopsubcall_02" targetRef="debugparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="loopsubcall_02_sysaichatagent_chatstep_04" sourceRef="loopsubcall_02" targetRef="sysaichatagent_chatstep_04">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatoutput_02_prepareparam_08" sourceRef="sysaichatagent_chatoutput_02" targetRef="prepareparam_08">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatstep_01_prepareparam_06" sourceRef="sysaichatagent_chatstep_01" targetRef="prepareparam_06">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_06_delogic_01" sourceRef="prepareparam_06" targetRef="delogic_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_07_delogic_02" sourceRef="prepareparam_07" targetRef="delogic_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="debugparam_03_rawsfcode_05" sourceRef="debugparam_03" targetRef="rawsfcode_05">
+                    </sequenceFlow>
+                    <sequenceFlow id="dedataset_01_rawsfcode_03" sourceRef="dedataset_01" targetRef="rawsfcode_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="rawsfcode_03_debugparam_03" sourceRef="rawsfcode_03" targetRef="debugparam_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="debugparam_04_sysaichatagent_chatstep_02" sourceRef="debugparam_04" targetRef="sysaichatagent_chatstep_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="delogic_01_prepareparam_07" sourceRef="delogic_01" targetRef="prepareparam_07">
+                    </sequenceFlow>
+                    <sequenceFlow id="rawsfcode_05_debugparam_04" sourceRef="rawsfcode_05" targetRef="debugparam_04">
+                    </sequenceFlow>
+                    <sequenceFlow id="renewparam_04_loopsubcall_02" sourceRef="renewparam_04" targetRef="loopsubcall_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatstep_02_renewparam_04" sourceRef="sysaichatagent_chatstep_02" targetRef="renewparam_04">
+                    </sequenceFlow>
+                    <sequenceFlow id="debugparam_05_rawsfcode_05" sourceRef="debugparam_05" targetRef="rawsfcode_05">
+                    </sequenceFlow>
+                    <sequenceFlow id="debugparam_01_prepareparam_09" sourceRef="debugparam_01" targetRef="prepareparam_09">
+                    </sequenceFlow>
+                    <sequenceFlow id="renewparam_01_renewparam_02" sourceRef="renewparam_01" targetRef="renewparam_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatstep_04_rawsfcode_01" sourceRef="sysaichatagent_chatstep_04" targetRef="rawsfcode_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="renewparam_02_renewparam_03" sourceRef="renewparam_02" targetRef="renewparam_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_03_debugparam_07" sourceRef="prepareparam_03" targetRef="debugparam_07">
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-rawsfcode_01_prepareparam_03" sourceRef="gateway-rawsfcode_01" targetRef="prepareparam_03">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_agent_contextchat_fulltext_reasondefault:ai_agent_context();
+                                            $ai_agent_contextchat_fulltext_reasonagent:ai_agent_context();
+                                            $ai_agent_contextchat_fulltext_reasonall_reason_content:Map();
+                                            $ai_agent_contextchat_fulltext_reasonchat_request:Map();
+                                            $ai_agent_contextchat_fulltext_reasonchat_response:Map();
+                                            $ai_agent_contextchat_fulltext_reasonchunk_reason:Map();
+                                            $ai_agent_contextchat_fulltext_reasonchunk_reason_list:Map();
+                                            $ai_agent_contextchat_fulltext_reasondefault_temp:ai_agent_context();
+                                            $ai_agent_contextchat_fulltext_reasondoc:ai_kb_document();
+                                            $ai_agent_contextchat_fulltext_reasondoc_filter:ai_kb_document();
+                                            $ai_agent_contextchat_fulltext_reasondoc_fulltext:Map();
+                                            $ai_agent_contextchat_fulltext_reasondoc_list:ai_kb_document();
+                                            $ai_agent_contextchat_fulltext_reasondoc_reason_list:ai_review_report();
+                                            $ai_agent_contextchat_fulltext_reasonfinal_chat_response:Map();
+                                            $ai_agent_contextchat_fulltext_reasonfull_doc_list:ai_kb_document();
+                                            $ai_agent_contextchat_fulltext_reasonfullcontent_reason_report:ai_review_report();
+                                            $ai_agent_contextchat_fulltext_reasonfulltext_chunk_list:Map();
+                                            $ai_agent_contextchat_fulltext_reasonkb:ai_agent_context();
+                                            $ai_agent_contextchat_fulltext_reasonobj:Map();
+                                            $ai_agent_contextchat_fulltext_reasonrefrence_chat_request:Map();
+                                            $ai_agent_contextchat_fulltext_reasonrefrence_chat_response:Map();
+                                            $ai_agent_contextchat_fulltext_reasonreport_doc:ai_review_report();
+                                            $ai_agent_contextchat_fulltext_reasontext_chunk:Map();
+                                            $ai_agent_contextchat_fulltext_reasontext_reason:ai_kb_document();
+                                            $ai_agent_contextchat_fulltext_reasontextreason_chat_request:Map();
+                                            $ai_agent_contextchat_fulltext_reasontextreason_chat_response:Map();
+                                    eval($ai_agent_contextchat_fulltext_reasondefault==ai_agent_contextchat_fulltext_reasondefault && $ai_agent_contextchat_fulltext_reasonagent==ai_agent_contextchat_fulltext_reasonagent && $ai_agent_contextchat_fulltext_reasondefault_temp==ai_agent_contextchat_fulltext_reasondefault_temp && $ai_agent_contextchat_fulltext_reasondoc==ai_agent_contextchat_fulltext_reasondoc && $ai_agent_contextchat_fulltext_reasondoc_filter==ai_agent_contextchat_fulltext_reasondoc_filter && $ai_agent_contextchat_fulltext_reasondoc_list==ai_agent_contextchat_fulltext_reasondoc_list && $ai_agent_contextchat_fulltext_reasondoc_reason_list==ai_agent_contextchat_fulltext_reasondoc_reason_list && $ai_agent_contextchat_fulltext_reasonfull_doc_list==ai_agent_contextchat_fulltext_reasonfull_doc_list && $ai_agent_contextchat_fulltext_reasonfullcontent_reason_report==ai_agent_contextchat_fulltext_reasonfullcontent_reason_report && $ai_agent_contextchat_fulltext_reasonkb==ai_agent_contextchat_fulltext_reasonkb && $ai_agent_contextchat_fulltext_reasonreport_doc==ai_agent_contextchat_fulltext_reasonreport_doc && $ai_agent_contextchat_fulltext_reasontext_reason==ai_agent_contextchat_fulltext_reasontext_reason && );
+                                eval((RuleUtils.test($ai_agent_contextchat_fulltext_reasonfullcontent_reason_report.get("reviewReport"),"ISNULL",""))&&(RuleUtils.test($ai_agent_contextchat_fulltext_reasonall_reason_content.get("fullcontent"),"ISNOTNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-rawsfcode_01_debugparam_06" sourceRef="gateway-rawsfcode_01" targetRef="debugparam_06">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_agent_contextchat_fulltext_reasondefault:ai_agent_context();
+                                            $ai_agent_contextchat_fulltext_reasonagent:ai_agent_context();
+                                            $ai_agent_contextchat_fulltext_reasonall_reason_content:Map();
+                                            $ai_agent_contextchat_fulltext_reasonchat_request:Map();
+                                            $ai_agent_contextchat_fulltext_reasonchat_response:Map();
+                                            $ai_agent_contextchat_fulltext_reasonchunk_reason:Map();
+                                            $ai_agent_contextchat_fulltext_reasonchunk_reason_list:Map();
+                                            $ai_agent_contextchat_fulltext_reasondefault_temp:ai_agent_context();
+                                            $ai_agent_contextchat_fulltext_reasondoc:ai_kb_document();
+                                            $ai_agent_contextchat_fulltext_reasondoc_filter:ai_kb_document();
+                                            $ai_agent_contextchat_fulltext_reasondoc_fulltext:Map();
+                                            $ai_agent_contextchat_fulltext_reasondoc_list:ai_kb_document();
+                                            $ai_agent_contextchat_fulltext_reasondoc_reason_list:ai_review_report();
+                                            $ai_agent_contextchat_fulltext_reasonfinal_chat_response:Map();
+                                            $ai_agent_contextchat_fulltext_reasonfull_doc_list:ai_kb_document();
+                                            $ai_agent_contextchat_fulltext_reasonfullcontent_reason_report:ai_review_report();
+                                            $ai_agent_contextchat_fulltext_reasonfulltext_chunk_list:Map();
+                                            $ai_agent_contextchat_fulltext_reasonkb:ai_agent_context();
+                                            $ai_agent_contextchat_fulltext_reasonobj:Map();
+                                            $ai_agent_contextchat_fulltext_reasonrefrence_chat_request:Map();
+                                            $ai_agent_contextchat_fulltext_reasonrefrence_chat_response:Map();
+                                            $ai_agent_contextchat_fulltext_reasonreport_doc:ai_review_report();
+                                            $ai_agent_contextchat_fulltext_reasontext_chunk:Map();
+                                            $ai_agent_contextchat_fulltext_reasontext_reason:ai_kb_document();
+                                            $ai_agent_contextchat_fulltext_reasontextreason_chat_request:Map();
+                                            $ai_agent_contextchat_fulltext_reasontextreason_chat_response:Map();
+                                    eval($ai_agent_contextchat_fulltext_reasondefault==ai_agent_contextchat_fulltext_reasondefault && $ai_agent_contextchat_fulltext_reasonagent==ai_agent_contextchat_fulltext_reasonagent && $ai_agent_contextchat_fulltext_reasondefault_temp==ai_agent_contextchat_fulltext_reasondefault_temp && $ai_agent_contextchat_fulltext_reasondoc==ai_agent_contextchat_fulltext_reasondoc && $ai_agent_contextchat_fulltext_reasondoc_filter==ai_agent_contextchat_fulltext_reasondoc_filter && $ai_agent_contextchat_fulltext_reasondoc_list==ai_agent_contextchat_fulltext_reasondoc_list && $ai_agent_contextchat_fulltext_reasondoc_reason_list==ai_agent_contextchat_fulltext_reasondoc_reason_list && $ai_agent_contextchat_fulltext_reasonfull_doc_list==ai_agent_contextchat_fulltext_reasonfull_doc_list && $ai_agent_contextchat_fulltext_reasonfullcontent_reason_report==ai_agent_contextchat_fulltext_reasonfullcontent_reason_report && $ai_agent_contextchat_fulltext_reasonkb==ai_agent_contextchat_fulltext_reasonkb && $ai_agent_contextchat_fulltext_reasonreport_doc==ai_agent_contextchat_fulltext_reasonreport_doc && $ai_agent_contextchat_fulltext_reasontext_reason==ai_agent_contextchat_fulltext_reasontext_reason && );
+                                eval((RuleUtils.test($ai_agent_contextchat_fulltext_reasonfullcontent_reason_report.get("reviewReport"),"ISNOTNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-rawsfcode_01_debugparam_05" sourceRef="gateway-rawsfcode_01" targetRef="debugparam_05">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_agent_contextchat_fulltext_reasondefault:ai_agent_context();
+                                            $ai_agent_contextchat_fulltext_reasonagent:ai_agent_context();
+                                            $ai_agent_contextchat_fulltext_reasonall_reason_content:Map();
+                                            $ai_agent_contextchat_fulltext_reasonchat_request:Map();
+                                            $ai_agent_contextchat_fulltext_reasonchat_response:Map();
+                                            $ai_agent_contextchat_fulltext_reasonchunk_reason:Map();
+                                            $ai_agent_contextchat_fulltext_reasonchunk_reason_list:Map();
+                                            $ai_agent_contextchat_fulltext_reasondefault_temp:ai_agent_context();
+                                            $ai_agent_contextchat_fulltext_reasondoc:ai_kb_document();
+                                            $ai_agent_contextchat_fulltext_reasondoc_filter:ai_kb_document();
+                                            $ai_agent_contextchat_fulltext_reasondoc_fulltext:Map();
+                                            $ai_agent_contextchat_fulltext_reasondoc_list:ai_kb_document();
+                                            $ai_agent_contextchat_fulltext_reasondoc_reason_list:ai_review_report();
+                                            $ai_agent_contextchat_fulltext_reasonfinal_chat_response:Map();
+                                            $ai_agent_contextchat_fulltext_reasonfull_doc_list:ai_kb_document();
+                                            $ai_agent_contextchat_fulltext_reasonfullcontent_reason_report:ai_review_report();
+                                            $ai_agent_contextchat_fulltext_reasonfulltext_chunk_list:Map();
+                                            $ai_agent_contextchat_fulltext_reasonkb:ai_agent_context();
+                                            $ai_agent_contextchat_fulltext_reasonobj:Map();
+                                            $ai_agent_contextchat_fulltext_reasonrefrence_chat_request:Map();
+                                            $ai_agent_contextchat_fulltext_reasonrefrence_chat_response:Map();
+                                            $ai_agent_contextchat_fulltext_reasonreport_doc:ai_review_report();
+                                            $ai_agent_contextchat_fulltext_reasontext_chunk:Map();
+                                            $ai_agent_contextchat_fulltext_reasontext_reason:ai_kb_document();
+                                            $ai_agent_contextchat_fulltext_reasontextreason_chat_request:Map();
+                                            $ai_agent_contextchat_fulltext_reasontextreason_chat_response:Map();
+                                    eval($ai_agent_contextchat_fulltext_reasondefault==ai_agent_contextchat_fulltext_reasondefault && $ai_agent_contextchat_fulltext_reasonagent==ai_agent_contextchat_fulltext_reasonagent && $ai_agent_contextchat_fulltext_reasondefault_temp==ai_agent_contextchat_fulltext_reasondefault_temp && $ai_agent_contextchat_fulltext_reasondoc==ai_agent_contextchat_fulltext_reasondoc && $ai_agent_contextchat_fulltext_reasondoc_filter==ai_agent_contextchat_fulltext_reasondoc_filter && $ai_agent_contextchat_fulltext_reasondoc_list==ai_agent_contextchat_fulltext_reasondoc_list && $ai_agent_contextchat_fulltext_reasondoc_reason_list==ai_agent_contextchat_fulltext_reasondoc_reason_list && $ai_agent_contextchat_fulltext_reasonfull_doc_list==ai_agent_contextchat_fulltext_reasonfull_doc_list && $ai_agent_contextchat_fulltext_reasonfullcontent_reason_report==ai_agent_contextchat_fulltext_reasonfullcontent_reason_report && $ai_agent_contextchat_fulltext_reasonkb==ai_agent_contextchat_fulltext_reasonkb && $ai_agent_contextchat_fulltext_reasonreport_doc==ai_agent_contextchat_fulltext_reasonreport_doc && $ai_agent_contextchat_fulltext_reasontext_reason==ai_agent_contextchat_fulltext_reasontext_reason && );
+                                eval((RuleUtils.test($ai_agent_contextchat_fulltext_reasondoc_fulltext.get("size"),"GT","0"))&&(RuleUtils.test($ai_agent_contextchat_fulltext_reasonall_reason_content.get("fullcontent"),"ISNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="debugparam_06_prepareparam_05" sourceRef="debugparam_06" targetRef="prepareparam_05">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_appendchatrequest_02_sysaichatagent_chatoutput_02" sourceRef="sysaichatagent_appendchatrequest_02" targetRef="sysaichatagent_chatoutput_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="debugparam_07_sysaichatagent_appendchatrequest_01" sourceRef="debugparam_07" targetRef="sysaichatagent_appendchatrequest_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_05_deaction_03" sourceRef="prepareparam_05" targetRef="deaction_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-sysaichatagent_appendchatrequest_01_sysaichatagent_chatoutput_01" sourceRef="gateway-sysaichatagent_appendchatrequest_01" targetRef="sysaichatagent_chatoutput_01">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_agent_contextchat_fulltext_reasondefault:ai_agent_context();
+                                            $ai_agent_contextchat_fulltext_reasonagent:ai_agent_context();
+                                            $ai_agent_contextchat_fulltext_reasonall_reason_content:Map();
+                                            $ai_agent_contextchat_fulltext_reasonchat_request:Map();
+                                            $ai_agent_contextchat_fulltext_reasonchat_response:Map();
+                                            $ai_agent_contextchat_fulltext_reasonchunk_reason:Map();
+                                            $ai_agent_contextchat_fulltext_reasonchunk_reason_list:Map();
+                                            $ai_agent_contextchat_fulltext_reasondefault_temp:ai_agent_context();
+                                            $ai_agent_contextchat_fulltext_reasondoc:ai_kb_document();
+                                            $ai_agent_contextchat_fulltext_reasondoc_filter:ai_kb_document();
+                                            $ai_agent_contextchat_fulltext_reasondoc_fulltext:Map();
+                                            $ai_agent_contextchat_fulltext_reasondoc_list:ai_kb_document();
+                                            $ai_agent_contextchat_fulltext_reasondoc_reason_list:ai_review_report();
+                                            $ai_agent_contextchat_fulltext_reasonfinal_chat_response:Map();
+                                            $ai_agent_contextchat_fulltext_reasonfull_doc_list:ai_kb_document();
+                                            $ai_agent_contextchat_fulltext_reasonfullcontent_reason_report:ai_review_report();
+                                            $ai_agent_contextchat_fulltext_reasonfulltext_chunk_list:Map();
+                                            $ai_agent_contextchat_fulltext_reasonkb:ai_agent_context();
+                                            $ai_agent_contextchat_fulltext_reasonobj:Map();
+                                            $ai_agent_contextchat_fulltext_reasonrefrence_chat_request:Map();
+                                            $ai_agent_contextchat_fulltext_reasonrefrence_chat_response:Map();
+                                            $ai_agent_contextchat_fulltext_reasonreport_doc:ai_review_report();
+                                            $ai_agent_contextchat_fulltext_reasontext_chunk:Map();
+                                            $ai_agent_contextchat_fulltext_reasontext_reason:ai_kb_document();
+                                            $ai_agent_contextchat_fulltext_reasontextreason_chat_request:Map();
+                                            $ai_agent_contextchat_fulltext_reasontextreason_chat_response:Map();
+                                    eval($ai_agent_contextchat_fulltext_reasondefault==ai_agent_contextchat_fulltext_reasondefault && $ai_agent_contextchat_fulltext_reasonagent==ai_agent_contextchat_fulltext_reasonagent && $ai_agent_contextchat_fulltext_reasondefault_temp==ai_agent_contextchat_fulltext_reasondefault_temp && $ai_agent_contextchat_fulltext_reasondoc==ai_agent_contextchat_fulltext_reasondoc && $ai_agent_contextchat_fulltext_reasondoc_filter==ai_agent_contextchat_fulltext_reasondoc_filter && $ai_agent_contextchat_fulltext_reasondoc_list==ai_agent_contextchat_fulltext_reasondoc_list && $ai_agent_contextchat_fulltext_reasondoc_reason_list==ai_agent_contextchat_fulltext_reasondoc_reason_list && $ai_agent_contextchat_fulltext_reasonfull_doc_list==ai_agent_contextchat_fulltext_reasonfull_doc_list && $ai_agent_contextchat_fulltext_reasonfullcontent_reason_report==ai_agent_contextchat_fulltext_reasonfullcontent_reason_report && $ai_agent_contextchat_fulltext_reasonkb==ai_agent_contextchat_fulltext_reasonkb && $ai_agent_contextchat_fulltext_reasonreport_doc==ai_agent_contextchat_fulltext_reasonreport_doc && $ai_agent_contextchat_fulltext_reasontext_reason==ai_agent_contextchat_fulltext_reasontext_reason && );
+                                eval((RuleUtils.test($ai_agent_contextchat_fulltext_reasonagent.get("synthesizer"),"ISNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-sysaichatagent_appendchatrequest_01_prepareparam_010" sourceRef="gateway-sysaichatagent_appendchatrequest_01" targetRef="prepareparam_010">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $ai_agent_contextchat_fulltext_reasondefault:ai_agent_context();
+                                            $ai_agent_contextchat_fulltext_reasonagent:ai_agent_context();
+                                            $ai_agent_contextchat_fulltext_reasonall_reason_content:Map();
+                                            $ai_agent_contextchat_fulltext_reasonchat_request:Map();
+                                            $ai_agent_contextchat_fulltext_reasonchat_response:Map();
+                                            $ai_agent_contextchat_fulltext_reasonchunk_reason:Map();
+                                            $ai_agent_contextchat_fulltext_reasonchunk_reason_list:Map();
+                                            $ai_agent_contextchat_fulltext_reasondefault_temp:ai_agent_context();
+                                            $ai_agent_contextchat_fulltext_reasondoc:ai_kb_document();
+                                            $ai_agent_contextchat_fulltext_reasondoc_filter:ai_kb_document();
+                                            $ai_agent_contextchat_fulltext_reasondoc_fulltext:Map();
+                                            $ai_agent_contextchat_fulltext_reasondoc_list:ai_kb_document();
+                                            $ai_agent_contextchat_fulltext_reasondoc_reason_list:ai_review_report();
+                                            $ai_agent_contextchat_fulltext_reasonfinal_chat_response:Map();
+                                            $ai_agent_contextchat_fulltext_reasonfull_doc_list:ai_kb_document();
+                                            $ai_agent_contextchat_fulltext_reasonfullcontent_reason_report:ai_review_report();
+                                            $ai_agent_contextchat_fulltext_reasonfulltext_chunk_list:Map();
+                                            $ai_agent_contextchat_fulltext_reasonkb:ai_agent_context();
+                                            $ai_agent_contextchat_fulltext_reasonobj:Map();
+                                            $ai_agent_contextchat_fulltext_reasonrefrence_chat_request:Map();
+                                            $ai_agent_contextchat_fulltext_reasonrefrence_chat_response:Map();
+                                            $ai_agent_contextchat_fulltext_reasonreport_doc:ai_review_report();
+                                            $ai_agent_contextchat_fulltext_reasontext_chunk:Map();
+                                            $ai_agent_contextchat_fulltext_reasontext_reason:ai_kb_document();
+                                            $ai_agent_contextchat_fulltext_reasontextreason_chat_request:Map();
+                                            $ai_agent_contextchat_fulltext_reasontextreason_chat_response:Map();
+                                    eval($ai_agent_contextchat_fulltext_reasondefault==ai_agent_contextchat_fulltext_reasondefault && $ai_agent_contextchat_fulltext_reasonagent==ai_agent_contextchat_fulltext_reasonagent && $ai_agent_contextchat_fulltext_reasondefault_temp==ai_agent_contextchat_fulltext_reasondefault_temp && $ai_agent_contextchat_fulltext_reasondoc==ai_agent_contextchat_fulltext_reasondoc && $ai_agent_contextchat_fulltext_reasondoc_filter==ai_agent_contextchat_fulltext_reasondoc_filter && $ai_agent_contextchat_fulltext_reasondoc_list==ai_agent_contextchat_fulltext_reasondoc_list && $ai_agent_contextchat_fulltext_reasondoc_reason_list==ai_agent_contextchat_fulltext_reasondoc_reason_list && $ai_agent_contextchat_fulltext_reasonfull_doc_list==ai_agent_contextchat_fulltext_reasonfull_doc_list && $ai_agent_contextchat_fulltext_reasonfullcontent_reason_report==ai_agent_contextchat_fulltext_reasonfullcontent_reason_report && $ai_agent_contextchat_fulltext_reasonkb==ai_agent_contextchat_fulltext_reasonkb && $ai_agent_contextchat_fulltext_reasonreport_doc==ai_agent_contextchat_fulltext_reasonreport_doc && $ai_agent_contextchat_fulltext_reasontext_reason==ai_agent_contextchat_fulltext_reasontext_reason && );
+                                eval((RuleUtils.test($ai_agent_contextchat_fulltext_reasonagent.get("synthesizer"),"ISNOTNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatoutput_01_prepareparam_011" sourceRef="sysaichatagent_chatoutput_01" targetRef="prepareparam_011">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_08_appendparam_03" sourceRef="prepareparam_08" targetRef="appendparam_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="deaction_03_sysaichatagent_chatstep_03" sourceRef="deaction_03" targetRef="sysaichatagent_chatstep_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_010_sysaichatagent_chatoutput_03" sourceRef="prepareparam_010" targetRef="sysaichatagent_chatoutput_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatstep_03_end_01" sourceRef="sysaichatagent_chatstep_03" targetRef="end_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="sysaichatagent_chatoutput_03_prepareparam_011" sourceRef="sysaichatagent_chatoutput_03" targetRef="prepareparam_011">
+                    </sequenceFlow>
+                            <exclusiveGateway id="gateway-rawsfcode_01" name="Gateway" gatewayDirection="Diverging" default="gateway-rawsfcode_01_end_line"></exclusiveGateway>
+                            <sequenceFlow id="rawsfcode_01_gateway-rawsfcode_01_gatewayline" sourceRef="rawsfcode_01" targetRef="gateway-rawsfcode_01"></sequenceFlow>
+                            <sequenceFlow id="gateway-rawsfcode_01_end_line" sourceRef="gateway-rawsfcode_01" targetRef="gateway-rawsfcode_01_end"/>
+                            <endEvent id="gateway-rawsfcode_01_end" name="end"/>
+                            <exclusiveGateway id="gateway-sysaichatagent_appendchatrequest_01" name="Gateway" gatewayDirection="Diverging" default="gateway-sysaichatagent_appendchatrequest_01_end_line"></exclusiveGateway>
+                            <sequenceFlow id="sysaichatagent_appendchatrequest_01_gateway-sysaichatagent_appendchatrequest_01_gatewayline" sourceRef="sysaichatagent_appendchatrequest_01" targetRef="gateway-sysaichatagent_appendchatrequest_01"></sequenceFlow>
+                            <sequenceFlow id="gateway-sysaichatagent_appendchatrequest_01_end_line" sourceRef="gateway-sysaichatagent_appendchatrequest_01" targetRef="gateway-sysaichatagent_appendchatrequest_01_end"/>
+                            <endEvent id="gateway-sysaichatagent_appendchatrequest_01_end" name="end"/>
+        </process>
+    </definitions>

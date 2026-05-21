@@ -1,0 +1,123 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "( t1.\"active\" = 1  AND  t1.\"status\" = '3'  AND  ( t1.\"parsed_content\" IS NOT NULL  OR  t1.\"file\" IS NOT NULL ) )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"active\"",
+    "name" : "ACTIVE"
+  }, {
+    "expression" : "t1.\"categories\"",
+    "name" : "CATEGORIES"
+  }, {
+    "expression" : "t1.\"chunk_method\"",
+    "name" : "CHUNK_METHOD"
+  }, {
+    "expression" : "t1.\"chunk_num\"",
+    "name" : "CHUNK_NUM"
+  }, {
+    "expression" : "t1.\"content\"",
+    "name" : "CONTENT"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"custom_chunk\"",
+    "name" : "CUSTOM_CHUNK"
+  }, {
+    "expression" : "t1.\"digest_code\"",
+    "name" : "DIGEST_CODE"
+  }, {
+    "expression" : "TO_CHAR(t1.\"create_time\", 'YYYY-MM-DD')",
+    "name" : "DOC_CREATE_TIME"
+  }, {
+    "expression" : "t1.\"file\"",
+    "name" : "FILE"
+  }, {
+    "expression" : "t1.\"file_type\"",
+    "name" : "FILE_TYPE"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"kb_id\"",
+    "name" : "KB_ID"
+  }, {
+    "expression" : "t11.\"name\"",
+    "name" : "KB_NAME"
+  }, {
+    "expression" : "t1.\"key\"",
+    "name" : "KEY"
+  }, {
+    "expression" : "t1.\"meta_data\"",
+    "name" : "META_DATA"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"parsed_content\"",
+    "name" : "PARSED_CONTENT"
+  }, {
+    "expression" : "t1.\"parser_config\"",
+    "name" : "PARSER_CONFIG"
+  }, {
+    "expression" : "t1.\"parse_error\"",
+    "name" : "PARSE_ERROR"
+  }, {
+    "expression" : "concat_ws('/',nullif(btrim(t1.\"categories\", '/'),''),t1.\"name\"||'.'||COALESCE(t1.\"file_type\",'md'))",
+    "name" : "PATH"
+  }, {
+    "expression" : "CURRENT_DATE - t1.\"create_time\"::date",
+    "name" : "RECENT_CREATE_DAYS"
+  }, {
+    "expression" : "t1.\"resource\"",
+    "name" : "RESOURCE"
+  }, {
+    "expression" : "t1.\"sequence\"",
+    "name" : "SEQUENCE"
+  }, {
+    "expression" : "t1.\"size\"",
+    "name" : "SIZE"
+  }, {
+    "expression" : "t1.\"source_id\"",
+    "name" : "SOURCE_ID"
+  }, {
+    "expression" : "t1.\"source_type\"",
+    "name" : "SOURCE_TYPE"
+  }, {
+    "expression" : "t1.\"status\"",
+    "name" : "STATUS"
+  }, {
+    "expression" : "t1.\"sync_frequency\"",
+    "name" : "SYNC_FREQUENCY"
+  }, {
+    "expression" : "t1.\"sync_id\"",
+    "name" : "SYNC_ID"
+  }, {
+    "expression" : "t11.\"tag_sets\"",
+    "name" : "TAG_SETS"
+  }, {
+    "expression" : "t1.\"type\"",
+    "name" : "TYPE"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"user_tag\"",
+    "name" : "USER_TAG"
+  }, {
+    "expression" : "t1.\"user_tag2\"",
+    "name" : "USER_TAG2"
+  } ],
+  "queryCode" : "SELECT\nt1.\"active\",\nt1.\"categories\",\nt1.\"chunk_method\",\nt1.\"chunk_num\",\nt1.\"content\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"custom_chunk\",\nt1.\"digest_code\",\nTO_CHAR(t1.\"create_time\", 'YYYY-MM-DD') AS \"doc_create_time\",\nt1.\"file\",\nt1.\"file_type\",\nt1.\"id\",\nt1.\"kb_id\",\nt11.\"name\" AS \"kb_name\",\nt1.\"key\",\nt1.\"meta_data\",\nt1.\"name\",\nt1.\"parsed_content\",\nt1.\"parser_config\",\nt1.\"parse_error\",\nconcat_ws('/',nullif(btrim(t1.\"categories\", '/'),''),t1.\"name\"||'.'||COALESCE(t1.\"file_type\",'md')) AS \"path\",\nCURRENT_DATE - t1.\"create_time\"::date AS \"recent_create_days\",\nt1.\"resource\",\nt1.\"sequence\",\nt1.\"size\",\nt1.\"source_id\",\nt1.\"source_type\",\nt1.\"status\",\nt1.\"sync_frequency\",\nt1.\"sync_id\",\nt11.\"tag_sets\",\nt1.\"type\",\nt1.\"update_man\",\nt1.\"update_time\",\nt1.\"user_tag\",\nt1.\"user_tag2\"\nFROM \"ai_kb_document\" t1 \nLEFT JOIN \"ai_knowledge_base\" t11 ON t1.\"kb_id\" = t11.\"id\" \n",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDEDATAQUERIES/unparsed/PSDEDQCODES/POSTGRESQL.json"
+}

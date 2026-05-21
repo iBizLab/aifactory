@@ -1,0 +1,60 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "( <choose><when test=\"ctx.datacontext.ai_knowledge_base !=null \">  t1.\"kb_id\" = #{ctx.datacontext.ai_knowledge_base}  </when><otherwise>1=1</otherwise></choose> )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"active\"",
+    "name" : "ACTIVE"
+  }, {
+    "expression" : "t1.\"confidence\"",
+    "name" : "CONFIDENCE"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"kb_id\"",
+    "name" : "KB_ID"
+  }, {
+    "expression" : "t31.\"name\"",
+    "name" : "KB_NAME"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"object_id\"",
+    "name" : "OBJECT_ID"
+  }, {
+    "expression" : "t21.\"name\"",
+    "name" : "OBJECT_NAME"
+  }, {
+    "expression" : "t1.\"predicate\"",
+    "name" : "PREDICATE"
+  }, {
+    "expression" : "t1.\"subject_id\"",
+    "name" : "SUBJECT_ID"
+  }, {
+    "expression" : "t11.\"name\"",
+    "name" : "SUBJECT_NAME"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"active\",\nt1.\"confidence\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"description\",\nt1.\"id\",\nt1.\"kb_id\",\nt31.\"name\" AS \"kb_name\",\nt1.\"name\",\nt1.\"object_id\",\nt21.\"name\" AS \"object_name\",\nt1.\"predicate\",\nt1.\"subject_id\",\nt11.\"name\" AS \"subject_name\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"ai_kb_graph_relation\" t1 \nLEFT JOIN \"ai_kb_graph_entity\" t11 ON t1.\"subject_id\" = t11.\"id\" \nLEFT JOIN \"ai_kb_graph_entity\" t21 ON t1.\"object_id\" = t21.\"id\" \nLEFT JOIN \"ai_knowledge_base\" t31 ON t1.\"kb_id\" = t31.\"id\" \n",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_graph_relation/PSDEDATAQUERIES/cur_kb/PSDEDQCODES/POSTGRESQL.json"
+}

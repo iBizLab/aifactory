@@ -1,0 +1,32 @@
+{
+  "codeName" : "kb",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDERS/DER1N_AI_REVIEW_REPORT_AI_KNOWLEDGE_BASE_KB_ID.json",
+  "fKeyName" : "FE7416EA434F3C7882",
+  "logicName" : "知识库",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+  },
+  "masterOrder" : 100,
+  "masterRS" : 5,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report.json"
+  },
+  "name" : "DER1N_AI_REVIEW_REPORT_AI_KNOWLEDGE_BASE_KB_ID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "KB_ID",
+    "codeName" : "kb_id"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "KB_NAME",
+    "codeName" : "kb_name"
+  },
+  "pickupDEFName" : "KB_ID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "kb",
+  "enableFKey" : true
+}

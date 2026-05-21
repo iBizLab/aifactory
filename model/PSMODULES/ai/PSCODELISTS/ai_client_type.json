@@ -1,0 +1,40 @@
+{
+  "codeListTag" : "ai__ai_client_type",
+  "codeListType" : "STATIC",
+  "codeName" : "ai_client_type",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/ai/PSCODELISTS/ai_client_type.json",
+  "emptyText" : "未定义",
+  "name" : "AI客户端类型",
+  "orMode" : "STR",
+  "getPSCodeItems" : [ {
+    "codeName" : "chat",
+    "text" : "交谈",
+    "value" : "CHAT"
+  }, {
+    "codeName" : "webhook",
+    "text" : "WebHook",
+    "value" : "WEBHOOK"
+  }, {
+    "codeName" : "skillrunner",
+    "text" : "技能运行沙箱",
+    "value" : "SKILLRUNNER"
+  } ],
+  "getPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_client_credential.json"
+  },
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizAIFactory",
+  "textSeparator" : "、",
+  "valueSeparator" : ",",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

@@ -1,0 +1,49 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"api_key\"",
+    "name" : "API_KEY"
+  }, {
+    "expression" : "t1.\"config\"",
+    "name" : "CONFIG"
+  }, {
+    "expression" : "t1.\"active\"",
+    "name" : "ACTIVE"
+  }, {
+    "expression" : "t1.\"base_url\"",
+    "name" : "BASE_URL"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"last_sync_time\"",
+    "name" : "LAST_SYNC_TIME"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"password\"",
+    "name" : "PASSWORD"
+  }, {
+    "expression" : "t1.\"type\"",
+    "name" : "TYPE"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"user_name\"",
+    "name" : "USER_NAME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"active\",\nt1.\"base_url\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"id\",\nt1.\"last_sync_time\",\nt1.\"name\",\nt1.\"password\",\nt1.\"type\",\nt1.\"update_man\",\nt1.\"update_time\",\nt1.\"user_name\"\nFROM \"ai_knowledge_source\" t1 \n",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_source/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

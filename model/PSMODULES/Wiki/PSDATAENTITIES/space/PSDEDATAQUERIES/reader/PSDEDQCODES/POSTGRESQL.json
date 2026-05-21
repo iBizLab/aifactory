@@ -1,0 +1,72 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "EXISTS(SELECT * FROM \"space_member\" t21 \n WHERE \n t1.\"id\" = t21.\"space_id\"  AND  ( t21.\"user_id\" = #{ctx.sessioncontext.srfpersonid}  AND  t21.\"role_id\" = 'reader' ) )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t11.\"categories\"",
+    "name" : "CATEGORIES"
+  }, {
+    "expression" : "t1.\"category_id\"",
+    "name" : "CATEGORY_ID"
+  }, {
+    "expression" : "t11.\"name\"",
+    "name" : "CATEGORY_NAME"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"identifier\"",
+    "name" : "IDENTIFIER"
+  }, {
+    "expression" : "t1.\"is_archived\"",
+    "name" : "IS_ARCHIVED"
+  }, {
+    "expression" : "t1.\"is_deleted\"",
+    "name" : "IS_DELETED"
+  }, {
+    "expression" : "(select count(1) from favorite where create_man=#{ctx.sessioncontext.srfpersonid} and OWNER_ID=t1.\"id\" )",
+    "name" : "IS_FAVORITE"
+  }, {
+    "expression" : "t1.\"is_shared\"",
+    "name" : "IS_SHARED"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"scope_id\"",
+    "name" : "SCOPE_ID"
+  }, {
+    "expression" : "t1.\"scope_type\"",
+    "name" : "SCOPE_TYPE"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"user_tag\"",
+    "name" : "USER_TAG"
+  }, {
+    "expression" : "t1.\"user_tag2\"",
+    "name" : "USER_TAG2"
+  }, {
+    "expression" : "t1.\"visibility\"",
+    "name" : "VISIBILITY"
+  } ],
+  "queryCode" : "SELECT\nt11.\"categories\",\nt1.\"category_id\",\nt11.\"name\" AS \"category_name\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"description\",\nt1.\"id\",\nt1.\"identifier\",\nt1.\"is_archived\",\nt1.\"is_deleted\",\n(select count(1) from favorite where create_man=#{ctx.sessioncontext.srfpersonid} and OWNER_ID=t1.\"id\" ) AS \"is_favorite\",\nt1.\"is_shared\",\nt1.\"name\",\nt1.\"scope_id\",\nt1.\"scope_type\",\nt1.\"update_man\",\nt1.\"update_time\",\nt1.\"user_tag\",\nt1.\"user_tag2\",\nt1.\"visibility\"\nFROM \"space\" t1 \nLEFT JOIN \"category\" t11 ON t1.\"category_id\" = t11.\"id\" \n",
+  "id" : "PSMODULES/Wiki/PSDATAENTITIES/space/PSDEDATAQUERIES/reader/PSDEDQCODES/POSTGRESQL.json"
+}

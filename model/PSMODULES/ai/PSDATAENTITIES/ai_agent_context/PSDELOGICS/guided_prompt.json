@@ -1,0 +1,304 @@
+{
+  "codeName" : "guided_prompt",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDELOGICS/guided_prompt.json",
+  "logicName" : "辅助生成引导提示词（停用）",
+  "logicSubType" : "AICHAT",
+  "name" : "辅助生成引导提示词（停用）",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : 70,
+    "logicNodeType" : "BEGIN",
+    "message" : "<user>\n标题: ${body.name!}\n知识库源名称:${body.source_name!}\n分类路径:${body.categories!}\n文档元数据:${body.meta_data!}\n简短描述: ${body.description!}\n</user>",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATOUTPUT_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : 190,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATOUTPUT_02",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "leftPos" : 30,
+    "logicNodeType" : "SYSAICHATAGENT_CHATOUTPUT",
+    "name" : "默认交谈",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATOUTPUT_02"
+      }
+    } ],
+    "getPSSysAIChatAgent" : {
+      "modelref" : true,
+      "id" : "DynamicAgent"
+    },
+    "getPSSysAIFactory" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSSYSAIFACTORIES/iBizIntelligence.json"
+    },
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_response"
+    },
+    "subType" : "CHATOUTPUT",
+    "topPos" : 350
+  }, {
+    "categoryMode" : "MIXED",
+    "categoryReRankThreshold" : 0.1,
+    "codeName" : "SYSAICHATAGENT_CHATCATEGORY_02",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "leftPos" : 650,
+    "logicNodeType" : "SYSAICHATAGENT_CHATCATEGORY",
+    "name" : "问题分类",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATCATEGORY_02"
+      },
+      "defaultLink" : true
+    }, {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATOUTPUT_02"
+      },
+      "name" : "重新生成",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATCATEGORY_02"
+      }
+    } ],
+    "getPSSysAIChatAgent" : {
+      "modelref" : true,
+      "id" : "DynamicAgent"
+    },
+    "getPSSysAIFactory" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSSYSAIFACTORIES/iBizIntelligence.json"
+    },
+    "reRankThreshold" : 0.1,
+    "subType" : "CHATCATEGORY",
+    "topPos" : 350
+  }, {
+    "codeName" : "DEBUGPARAM_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_response"
+    },
+    "leftPos" : -220,
+    "logicNodeType" : "DEBUGPARAM",
+    "name" : "交谈回复",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEBUGPARAM_01"
+      }
+    } ],
+    "topPos" : 450,
+    "parallelOutput" : true
+  }, {
+    "categoryMode" : "MIXED",
+    "categoryReRankThreshold" : 0.1,
+    "codeName" : "SYSAICHATAGENT_CHATCATEGORY_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "leftPos" : 250,
+    "logicNodeType" : "SYSAICHATAGENT_CHATCATEGORY",
+    "name" : "问题分类",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATUIACTION_01"
+      },
+      "name" : "确认采用",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATCATEGORY_01"
+      }
+    }, {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATOUTPUT_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATCATEGORY_01"
+      },
+      "defaultLink" : true
+    } ],
+    "getPSSysAIChatAgent" : {
+      "modelref" : true,
+      "id" : "DynamicAgent"
+    },
+    "getPSSysAIFactory" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSSYSAIFACTORIES/iBizIntelligence.json"
+    },
+    "reRankThreshold" : 0.1,
+    "subType" : "CHATCATEGORY",
+    "topPos" : 480,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATINPUT_02",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_response"
+    },
+    "leftPos" : 650,
+    "logicNodeType" : "SYSAICHATAGENT_CHATINPUT",
+    "message" : "完成填充或重新生成",
+    "name" : "等待输入",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATCATEGORY_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATINPUT_02"
+      }
+    } ],
+    "subType" : "CHATINPUT",
+    "topPos" : 480,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "END_01",
+    "leftPos" : 1150,
+    "logicNodeType" : "END",
+    "name" : "结束",
+    "getReturnParam" : {
+      "modelref" : true,
+      "id" : "chat_response"
+    },
+    "returnType" : "LOGICPARAM",
+    "topPos" : 510,
+    "parallelOutput" : true
+  }, {
+    "code" : "def chat_response = logic.param('chat_response').getReal()\r\ndef lastcontent = logic.param('lastcontent').getReal()\r\n\r\nif (chat_response?.choices) {\r\n    lastcontent = chat_response.choices.last().content\r\n}",
+    "codeName" : "RAWSFCODE_01",
+    "codeType" : "Groovy",
+    "leftPos" : -210,
+    "logicNodeType" : "RAWSFCODE",
+    "name" : "获取AI反馈信息",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATINPUT_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      }
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "lastcontent"
+    },
+    "topPos" : 610,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATUIACTION_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_response"
+    },
+    "leftPos" : 650,
+    "logicNodeType" : "SYSAICHATAGENT_CHATUIACTION",
+    "message" : "[{\n  \"id\": \"prompt_feedback\",\n  \"type\": \"uiaction\",\n  \"data\": {\n    \"id\": \"prompt_feedback\",\n    \"uiaction_id\": \"prompt_feedback@ai_knowledge_base\",\n    \"de_name\": \"ai_knowledge_base\"\n  },\n  \"metadata\": {\n   \"name\": \"填充引导提示词\",\n   \"uiaction_id\": \"prompt_feedback@ai_knowledge_base\"\n  }\n}]",
+    "name" : "填充提示词",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATINPUT_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATUIACTION_01"
+      }
+    } ],
+    "subType" : "CHATUIACTION",
+    "topPos" : 620,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATINPUT_01",
+    "leftPos" : 30,
+    "logicNodeType" : "SYSAICHATAGENT_CHATINPUT",
+    "message" : "${params.lastcontent}\n继续细化或确认采用",
+    "name" : "继续细化或采用当前提示词",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATCATEGORY_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATINPUT_01"
+      }
+    } ],
+    "subType" : "CHATINPUT",
+    "topPos" : 700
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    },
+    "chatCompletionRequestParam" : true,
+    "default" : true
+  }, {
+    "codeName" : "chat_response",
+    "logicName" : "AI交谈反馈",
+    "name" : "AI交谈反馈",
+    "chatCompletionResultParam" : true
+  }, {
+    "codeName" : "lastcontent",
+    "logicName" : "lastcontent",
+    "name" : "lastcontent",
+    "stdDataType" : 25,
+    "simpleParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

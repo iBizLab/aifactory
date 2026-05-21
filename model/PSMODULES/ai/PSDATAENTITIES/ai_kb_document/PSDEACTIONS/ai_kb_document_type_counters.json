@@ -1,0 +1,31 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "GETDRAFT",
+  "actionType" : "DELOGIC",
+  "codeName" : "ai_kb_document_type_counters",
+  "dataAccessAction" : "READ",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDEACTIONS/ai_kb_document_type_counters.json",
+  "logicName" : "ai_kb_document_type_counters",
+  "name" : "ai_kb_document_type_counters",
+  "getPSDEActionInput" : {
+    "name" : "Ai_kb_document_type_countersInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_kb_document_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "Ai_kb_document_type_countersResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_kb_document_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDELOGICS/ai_kb_document_type_counters.json"
+  },
+  "enableFront" : false
+}

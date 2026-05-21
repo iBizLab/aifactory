@@ -1,0 +1,252 @@
+{
+  "getAllPSPanelFields" : [ {
+    "id" : "started_at",
+    "viewFieldName" : "started_at"
+  }, {
+    "id" : "execution_time",
+    "viewFieldName" : "execution_time"
+  }, {
+    "id" : "result_message",
+    "viewFieldName" : "result_message"
+  }, {
+    "id" : "id",
+    "hidden" : true,
+    "viewFieldName" : "id"
+  } ],
+  "codeName" : "status_tooltip",
+  "controlType" : "PANEL",
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_scheduled_task/PSPANELS/status_tooltip.json",
+  "layoutMode" : "TABLE_24COL",
+  "logicName" : "状态栏提示信息面板",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_scheduled_task.json"
+  },
+  "getPSLayout" : {
+    "childColMD" : 24,
+    "columnCount" : 24,
+    "layout" : "TABLE_24COL"
+  },
+  "getRootPSPanelItems" : [ {
+    "caption" : "容器",
+    "itemStyle" : "DEFAULT",
+    "itemType" : "CONTAINER",
+    "name" : "container",
+    "getPSLayout" : {
+      "layout" : "FLEX"
+    },
+    "getPSLayoutPos" : {
+      "colMD" : 24,
+      "layout" : "TABLE_24COL"
+    },
+    "getPSPanelItems" : [ {
+      "caption" : "单项数据容器",
+      "dataRegionType" : "SINGLEDATA",
+      "dataSourceType" : "DEACTION",
+      "itemStyle" : "DEFAULT",
+      "itemType" : "CONTAINER",
+      "name" : "container_singledata",
+      "getPSAppDEMethod" : {
+        "modelref" : true,
+        "id" : "doc_parsing_record"
+      },
+      "getPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_scheduled_task.json"
+      },
+      "getPSLayout" : {
+        "layout" : "FLEX"
+      },
+      "getPSLayoutPos" : {
+        "grow" : -1,
+        "layout" : "FLEX"
+      },
+      "getPSNavigateParams" : [ {
+        "key" : "doc_id",
+        "name" : "doc_id",
+        "value" : "id",
+        "rawValue" : false
+      } ],
+      "getPSPanelItems" : [ {
+        "caption" : "容器",
+        "itemStyle" : "DEFAULT",
+        "itemType" : "CONTAINER",
+        "name" : "container2",
+        "getPSLayout" : {
+          "dir" : "row",
+          "layout" : "FLEX"
+        },
+        "getPSLayoutPos" : {
+          "grow" : -1,
+          "layout" : "FLEX"
+        },
+        "getPSPanelItems" : [ {
+          "caption" : "开始于",
+          "contentType" : "RAW",
+          "itemStyle" : "DEFAULT",
+          "itemType" : "RAWITEM",
+          "name" : "static_label1",
+          "getPSLayoutPos" : {
+            "grow" : -1,
+            "layout" : "FLEX",
+            "shrink" : 0
+          },
+          "getPSRawItem" : {
+            "caption" : "开始于：",
+            "contentType" : "RAW",
+            "cssStyle" : "font-weight: bold; ",
+            "name" : "static_label1",
+            "predefinedType" : "STATIC_LABEL"
+          },
+          "rawContent" : "开始于：",
+          "showCaption" : true
+        }, {
+          "caption" : "文本(动态)",
+          "itemStyle" : "DEFAULT",
+          "itemType" : "FIELD",
+          "name" : "started_at",
+          "getPSEditor" : {
+            "editorType" : "SPAN",
+            "name" : "started_at",
+            "predefinedType" : "FIELD_TEXT_DYNAMIC",
+            "renderMode" : "TEXT_DYNAMIC",
+            "enableLinkView" : false
+          },
+          "getPSLayoutPos" : {
+            "grow" : -1,
+            "hAlignSelf" : "LEFT",
+            "layout" : "FLEX"
+          },
+          "viewFieldName" : "started_at"
+        } ]
+      }, {
+        "caption" : "容器",
+        "itemStyle" : "DEFAULT",
+        "itemType" : "CONTAINER",
+        "name" : "container3",
+        "getPSLayout" : {
+          "dir" : "row",
+          "layout" : "FLEX"
+        },
+        "getPSLayoutPos" : {
+          "grow" : -1,
+          "layout" : "FLEX"
+        },
+        "getPSPanelItems" : [ {
+          "caption" : "标签",
+          "contentType" : "RAW",
+          "itemStyle" : "DEFAULT",
+          "itemType" : "RAWITEM",
+          "name" : "static_label2",
+          "getPSLayoutPos" : {
+            "grow" : -1,
+            "layout" : "FLEX",
+            "shrink" : 0
+          },
+          "getPSRawItem" : {
+            "caption" : "持续时间(s)：",
+            "contentType" : "RAW",
+            "cssStyle" : "font-weight: bold; ",
+            "name" : "static_label2",
+            "predefinedType" : "STATIC_LABEL"
+          },
+          "rawContent" : "持续时间(s)：",
+          "showCaption" : true
+        }, {
+          "caption" : "文本(动态)",
+          "itemStyle" : "DEFAULT",
+          "itemType" : "FIELD",
+          "name" : "execution_time",
+          "getPSEditor" : {
+            "editorType" : "SPAN",
+            "name" : "execution_time",
+            "predefinedType" : "FIELD_TEXT_DYNAMIC",
+            "renderMode" : "TEXT_DYNAMIC",
+            "enableLinkView" : false
+          },
+          "getPSLayoutPos" : {
+            "grow" : -1,
+            "layout" : "FLEX"
+          },
+          "viewFieldName" : "execution_time"
+        } ]
+      }, {
+        "caption" : "标签",
+        "contentType" : "RAW",
+        "itemStyle" : "DEFAULT",
+        "itemType" : "RAWITEM",
+        "name" : "static_label3",
+        "getPSLayoutPos" : {
+          "grow" : -1,
+          "layout" : "FLEX"
+        },
+        "getPSRawItem" : {
+          "caption" : "执行信息：",
+          "contentType" : "RAW",
+          "cssStyle" : "font-weight: bold; ",
+          "name" : "static_label3",
+          "predefinedType" : "STATIC_LABEL"
+        },
+        "rawContent" : "执行信息：",
+        "showCaption" : true
+      }, {
+        "caption" : "容器",
+        "itemStyle" : "DEFAULT",
+        "itemType" : "CONTAINER",
+        "name" : "container4",
+        "getPSLayout" : {
+          "dir" : "column",
+          "layout" : "FLEX"
+        },
+        "getPSLayoutPos" : {
+          "grow" : -1,
+          "layout" : "FLEX"
+        },
+        "getPSPanelItems" : [ {
+          "caption" : "文本(动态)",
+          "cssStyle" : "max-height:26vh;",
+          "fieldStates" : 1,
+          "itemStyle" : "DEFAULT",
+          "itemType" : "FIELD",
+          "name" : "result_message",
+          "getPSEditor" : {
+            "editorParams" : {
+              "ISAUTO" : "true",
+              "READONLY" : "TRUE"
+            },
+            "editorType" : "TEXTAREA",
+            "name" : "result_message",
+            "predefinedType" : "FIELD_TEXT_DYNAMIC",
+            "readOnly" : true,
+            "showMaxLength" : true
+          },
+          "getPSLayoutPos" : {
+            "grow" : -1,
+            "layout" : "FLEX"
+          },
+          "viewFieldName" : "result_message"
+        } ]
+      } ],
+      "predefinedType" : "CONTAINER_SINGLEDATA"
+    }, {
+      "caption" : "文本(动态)",
+      "itemType" : "FIELD",
+      "name" : "id",
+      "getPSEditor" : {
+        "editorType" : "HIDDEN",
+        "name" : "id",
+        "predefinedType" : "FIELD_TEXT_DYNAMIC"
+      },
+      "getPSLayoutPos" : {
+        "grow" : -1,
+        "layout" : "FLEX"
+      },
+      "viewFieldName" : "id",
+      "hidden" : true
+    } ]
+  } ],
+  "layoutPanel" : true,
+  "mobilePanel" : true,
+  "modelid" : "2daaf393e65cdfb4904476bcb0ec6a4c",
+  "modeltype" : "PSSYSVIEWPANEL"
+}

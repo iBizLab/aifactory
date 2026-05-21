@@ -1,0 +1,52 @@
+package cn.ibizlab.ai.logic.ai_modellogic.provider_model_version;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_model ai_modelprovider_model_versiondefault;
+                global java.util.Map ai_modelprovider_model_versionpage_temp;
+                global cn.ibizlab.core.ai.domain.ai_model ai_modelprovider_model_versionprovider_models;
+        global cn.ibizlab.core.ai.service.Iai_modelService iBzSysAi_modelDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_modelprovider_model_versionbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[绑定提供商模型参数]
+            rule "bindparam_01"
+            ruleflow-group "ai_modelprovider_model_versionbindparam_01"
+            when
+            then
+                        update(ai_modelprovider_model_versiondefault);//更新fact中变量值
+                        update(ai_modelprovider_model_versionpage_temp);//更新fact中变量值
+                        update(ai_modelprovider_model_versionprovider_models);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "ai_modelprovider_model_versionend_01"
+            when
+            then
+                        update(ai_modelprovider_model_versiondefault);//更新fact中变量值
+                        update(ai_modelprovider_model_versionpage_temp);//更新fact中变量值
+                        update(ai_modelprovider_model_versionprovider_models);//更新fact中变量值
+            end
+
+            //逻辑处理节点[调用接口返回模型版本]
+            rule "rawsfcode_01"
+            ruleflow-group "ai_modelprovider_model_versionrawsfcode_01"
+            when
+            then
+                        update(ai_modelprovider_model_versiondefault);//更新fact中变量值
+                        update(ai_modelprovider_model_versionpage_temp);//更新fact中变量值
+                        update(ai_modelprovider_model_versionprovider_models);//更新fact中变量值
+            end

@@ -1,0 +1,127 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"eventmodel\"",
+    "name" : "EVENTMODEL"
+  }, {
+    "expression" : "t1.\"psdelogiclinks\"",
+    "name" : "PSDELOGICLINKS"
+  }, {
+    "expression" : "t1.\"psdelogicnodes\"",
+    "name" : "PSDELOGICNODES"
+  }, {
+    "expression" : "t1.\"psdelogicparams\"",
+    "name" : "PSDELOGICPARAMS"
+  }, {
+    "expression" : "t1.\"applyflag\"",
+    "name" : "APPLYFLAG"
+  }, {
+    "expression" : "t1.\"attachtopsdeactionid\"",
+    "name" : "ATTACHTOPSDEACTIONID"
+  }, {
+    "expression" : "t1.\"attachtopsdeactionname\"",
+    "name" : "ATTACHTOPSDEACTIONNAME"
+  }, {
+    "expression" : "t1.\"attachtopsdedatasetid\"",
+    "name" : "ATTACHTOPSDEDATASETID"
+  }, {
+    "expression" : "t1.\"attachtopsdedatasetname\"",
+    "name" : "ATTACHTOPSDEDATASETNAME"
+  }, {
+    "expression" : "t1.\"codename\"",
+    "name" : "CODENAME"
+  }, {
+    "expression" : "t1.\"createdate\"",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.\"createman\"",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.\"dynamodelflag\"",
+    "name" : "DYNAMODELFLAG"
+  }, {
+    "expression" : "t1.\"events\"",
+    "name" : "EVENTS"
+  }, {
+    "expression" : "t1.\"extension_tag\"",
+    "name" : "EXTENSION_TAG"
+  }, {
+    "expression" : "t1.\"extension_tag2\"",
+    "name" : "EXTENSION_TAG2"
+  }, {
+    "expression" : "t1.\"extension_tag3\"",
+    "name" : "EXTENSION_TAG3"
+  }, {
+    "expression" : "t1.\"extension_tag4\"",
+    "name" : "EXTENSION_TAG4"
+  }, {
+    "expression" : "t1.\"ignoreexception\"",
+    "name" : "IGNOREEXCEPTION"
+  }, {
+    "expression" : "t1.\"logicsubtype\"",
+    "name" : "LOGICSUBTYPE"
+  }, {
+    "expression" : "t1.\"logictag\"",
+    "name" : "LOGICTAG"
+  }, {
+    "expression" : "t1.\"logictag2\"",
+    "name" : "LOGICTAG2"
+  }, {
+    "expression" : "t1.\"logictag3\"",
+    "name" : "LOGICTAG3"
+  }, {
+    "expression" : "t1.\"logictag4\"",
+    "name" : "LOGICTAG4"
+  }, {
+    "expression" : "t1.\"logictype\"",
+    "name" : "LOGICTYPE"
+  }, {
+    "expression" : "t1.\"memo\"",
+    "name" : "MEMO"
+  }, {
+    "expression" : "t1.\"ordervalue\"",
+    "name" : "ORDERVALUE"
+  }, {
+    "expression" : "t1.\"psdeid\"",
+    "name" : "PSDEID"
+  }, {
+    "expression" : "t1.\"psdelogicid\"",
+    "name" : "PSDELOGICID"
+  }, {
+    "expression" : "t1.\"psdelogicname\"",
+    "name" : "PSDELOGICNAME"
+  }, {
+    "expression" : "t1.\"psdename\"",
+    "name" : "PSDENAME"
+  }, {
+    "expression" : "t1.\"threadmode\"",
+    "name" : "THREADMODE"
+  }, {
+    "expression" : "t1.\"timerpolicy\"",
+    "name" : "TIMERPOLICY"
+  }, {
+    "expression" : "t1.\"updatedate\"",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.\"updateman\"",
+    "name" : "UPDATEMAN"
+  }, {
+    "expression" : "t1.\"usertag\"",
+    "name" : "USERTAG"
+  }, {
+    "expression" : "t1.\"usertag2\"",
+    "name" : "USERTAG2"
+  }, {
+    "expression" : "t1.\"usertag3\"",
+    "name" : "USERTAG3"
+  }, {
+    "expression" : "t1.\"usertag4\"",
+    "name" : "USERTAG4"
+  }, {
+    "expression" : "t1.\"validflag\"",
+    "name" : "VALIDFLAG"
+  } ],
+  "queryCode" : "SELECT\nt1.\"applyflag\",\nt1.\"attachtopsdeactionid\",\nt1.\"attachtopsdeactionname\",\nt1.\"attachtopsdedatasetid\",\nt1.\"attachtopsdedatasetname\",\nt1.\"codename\",\nt1.\"createdate\",\nt1.\"createman\",\nt1.\"dynamodelflag\",\nt1.\"events\",\nt1.\"extension_tag\",\nt1.\"extension_tag2\",\nt1.\"extension_tag3\",\nt1.\"extension_tag4\",\nt1.\"ignoreexception\",\nt1.\"logicsubtype\",\nt1.\"logictag\",\nt1.\"logictag2\",\nt1.\"logictag3\",\nt1.\"logictag4\",\nt1.\"logictype\",\nt1.\"memo\",\nt1.\"ordervalue\",\nt1.\"psdeid\",\nt1.\"psdelogicid\",\nt1.\"psdelogicname\",\nt1.\"psdename\",\nt1.\"threadmode\",\nt1.\"timerpolicy\",\nt1.\"updatedate\",\nt1.\"updateman\",\nt1.\"usertag\",\nt1.\"usertag2\",\nt1.\"usertag3\",\nt1.\"usertag4\",\nt1.\"validflag\"\nFROM \"\" t1 \n",
+  "id" : "PSMODULES/extension/PSDATAENTITIES/PSDELogic/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

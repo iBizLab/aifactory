@@ -1,0 +1,40 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"access_password\"",
+    "name" : "ACCESS_PASSWORD"
+  }, {
+    "expression" : "t1.\"expiration_date\"",
+    "name" : "EXPIRATION_DATE"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"is_shared\"",
+    "name" : "IS_SHARED"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"scope_type\"",
+    "name" : "SCOPE_TYPE"
+  }, {
+    "expression" : "t1.\"shared_by\"",
+    "name" : "SHARED_BY"
+  }, {
+    "expression" : "t1.\"shared_pages\"",
+    "name" : "SHARED_PAGES"
+  }, {
+    "expression" : "t1.\"shared_time\"",
+    "name" : "SHARED_TIME"
+  }, {
+    "expression" : "t1.\"show_logo\"",
+    "name" : "SHOW_LOGO"
+  }, {
+    "expression" : "t1.\"show_title\"",
+    "name" : "SHOW_TITLE"
+  } ],
+  "queryCode" : "SELECT\nt1.\"access_password\",\nt1.\"expiration_date\",\nt1.\"id\",\nt1.\"is_shared\",\nt1.\"name\",\nt1.\"scope_type\",\nt1.\"shared_by\",\nt1.\"shared_pages\",\nt1.\"shared_time\",\nt1.\"show_logo\",\nt1.\"show_title\"\nFROM \"space\" t1 \n",
+  "id" : "PSMODULES/Wiki/PSDATAENTITIES/shared_space/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

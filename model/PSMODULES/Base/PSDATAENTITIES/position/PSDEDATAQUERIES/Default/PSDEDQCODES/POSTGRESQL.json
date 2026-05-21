@@ -1,0 +1,39 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "t1.enable = 1",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"category_id\"",
+    "name" : "CATEGORY_ID"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"enable\"",
+    "name" : "ENABLE"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"sequence\"",
+    "name" : "SEQUENCE"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"category_id\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"enable\",\nt1.\"id\",\nt1.\"name\",\nt1.\"sequence\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"position\" t1 \n",
+  "id" : "PSMODULES/Base/PSDATAENTITIES/position/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

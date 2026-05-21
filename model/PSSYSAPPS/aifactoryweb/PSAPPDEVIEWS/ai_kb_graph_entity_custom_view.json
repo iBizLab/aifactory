@@ -1,0 +1,2201 @@
+{
+  "accUserMode" : 2,
+  "caption" : "知识图谱",
+  "codeName" : "ai_kb_graph_entity_custom_view",
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_kb_graph_entity_custom_view.json",
+  "mDCtrlActiveMode" : 1,
+  "memo" : "系统自动添加",
+  "name" : "ai_kb_graph_entitycustom_view",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+  },
+  "getPSAppModule" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPMODULES/ai.json"
+  },
+  "getPSAppViewNavParams" : [ {
+    "key" : "ai_knowledge_base",
+    "name" : "ai_knowledge_base",
+    "value" : "ai_knowledge_base",
+    "rawValue" : false
+  } ],
+  "getPSDEViewCodeName" : "custom_view",
+  "getPSDEViewId" : "43844518aed37b7be9421ed46e5d968b",
+  "getPSViewLayoutPanel" : {
+    "codeName" : "auto7228575",
+    "controlType" : "VIEWLAYOUTPANEL",
+    "layoutMode" : "FLEX",
+    "logicName" : "custom_view",
+    "name" : "layoutpanel",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+    },
+    "getPSControlParam" : { },
+    "getPSLayout" : {
+      "layout" : "FLEX"
+    },
+    "getRootPSPanelItems" : [ {
+      "caption" : "容器",
+      "contentHeight" : 48.0,
+      "height" : 48.0,
+      "itemStyle" : "DEFAULT",
+      "itemType" : "CONTAINER",
+      "name" : "view_header",
+      "getPSLayout" : {
+        "align" : "space-between",
+        "dir" : "row",
+        "layout" : "FLEX"
+      },
+      "getPSLayoutPos" : {
+        "grow" : -1,
+        "height" : 48,
+        "heightMode" : "PX",
+        "layout" : "FLEX",
+        "shrink" : 0
+      },
+      "getPSPanelItems" : [ {
+        "caption" : "容器",
+        "itemStyle" : "DEFAULT",
+        "itemType" : "CONTAINER",
+        "name" : "container1",
+        "getPSLayout" : {
+          "dir" : "row",
+          "layout" : "FLEX"
+        },
+        "getPSLayoutPos" : {
+          "grow" : -1,
+          "layout" : "FLEX"
+        },
+        "getPSPanelItems" : [ {
+          "caption" : "容器",
+          "itemStyle" : "DEFAULT",
+          "itemType" : "CONTAINER",
+          "name" : "container4",
+          "getPSLayout" : {
+            "align" : "center",
+            "dir" : "column",
+            "layout" : "FLEX"
+          },
+          "getPSLayoutPos" : {
+            "grow" : -1,
+            "heightMode" : "FULL",
+            "layout" : "FLEX"
+          },
+          "getPSPanelItems" : [ {
+            "caption" : "标题",
+            "itemStyle" : "DEFAULT",
+            "itemType" : "CTRLPOS",
+            "name" : "captionbar",
+            "getPSLayoutPos" : {
+              "grow" : -1,
+              "layout" : "FLEX"
+            },
+            "showCaption" : true
+          } ]
+        }, {
+          "caption" : "容器",
+          "contentWidth" : 300.0,
+          "itemStyle" : "DEFAULT",
+          "itemType" : "CONTAINER",
+          "name" : "container8",
+          "getPSLayout" : {
+            "align" : "flex-start",
+            "dir" : "row",
+            "layout" : "FLEX",
+            "vAlign" : "center"
+          },
+          "getPSLayoutPos" : {
+            "grow" : -1,
+            "layout" : "FLEX",
+            "width" : 300,
+            "widthMode" : "PX"
+          },
+          "getPSPanelItems" : [ {
+            "caption" : "工具栏",
+            "itemStyle" : "DEFAULT",
+            "itemType" : "CTRLPOS",
+            "name" : "toolbar",
+            "getPSLayoutPos" : {
+              "grow" : -1,
+              "layout" : "FLEX"
+            },
+            "showCaption" : true
+          } ],
+          "width" : 300.0
+        } ]
+      }, {
+        "caption" : "容器",
+        "itemStyle" : "DEFAULT",
+        "itemType" : "CONTAINER",
+        "name" : "container5",
+        "getPSLayout" : {
+          "align" : "space-between",
+          "dir" : "row",
+          "layout" : "FLEX",
+          "vAlign" : "center"
+        },
+        "getPSLayoutPos" : {
+          "grow" : -1,
+          "heightMode" : "FULL",
+          "layout" : "FLEX",
+          "shrink" : 0
+        }
+      } ]
+    }, {
+      "caption" : "容器",
+      "itemStyle" : "DEFAULT",
+      "itemType" : "CONTAINER",
+      "name" : "container",
+      "getPSLayout" : {
+        "dir" : "row",
+        "layout" : "FLEX"
+      },
+      "getPSLayoutPos" : {
+        "grow" : 1,
+        "heightMode" : "FULL",
+        "layout" : "FLEX"
+      },
+      "getPSPanelItems" : [ {
+        "caption" : "容器",
+        "contentWidth" : 20.0,
+        "itemStyle" : "DEFAULT",
+        "itemType" : "CONTAINER",
+        "name" : "container_graph",
+        "getPSLayout" : {
+          "dir" : "column",
+          "layout" : "FLEX"
+        },
+        "getPSLayoutPos" : {
+          "grow" : -1,
+          "heightMode" : "FULL",
+          "layout" : "FLEX",
+          "shrink" : 0,
+          "spacingLeft" : "OUTERSMALL",
+          "width" : 20,
+          "widthMode" : "PERCENTAGE"
+        },
+        "getPSPanelItems" : [ {
+          "caption" : "图谱实体",
+          "contentHeight" : 50.0,
+          "height" : 50.0,
+          "itemStyle" : "DEFAULT",
+          "itemType" : "CONTAINER",
+          "name" : "container_group",
+          "getPSLayout" : {
+            "layout" : "FLEX"
+          },
+          "getPSLayoutPos" : {
+            "grow" : -1,
+            "height" : 50,
+            "heightMode" : "PERCENTAGE",
+            "layout" : "FLEX",
+            "spacingBottom" : "OUTERMEDIUM"
+          },
+          "getPSPanelItems" : [ {
+            "caption" : "树导航栏",
+            "itemStyle" : "DEFAULT",
+            "itemType" : "CTRLPOS",
+            "name" : "treeexpbar",
+            "getPSLayoutPos" : {
+              "grow" : -1,
+              "layout" : "FLEX"
+            },
+            "showCaption" : true
+          } ],
+          "predefinedType" : "CONTAINER_GROUP",
+          "showCaption" : true
+        }, {
+          "caption" : "图谱实体关系",
+          "contentHeight" : 50.0,
+          "height" : 50.0,
+          "itemStyle" : "DEFAULT",
+          "itemType" : "CONTAINER",
+          "name" : "container_group1",
+          "getPSLayout" : {
+            "layout" : "FLEX"
+          },
+          "getPSLayoutPos" : {
+            "grow" : -1,
+            "height" : 50,
+            "heightMode" : "PERCENTAGE",
+            "layout" : "FLEX",
+            "spacingTop" : "OUTERMEDIUM"
+          },
+          "getPSPanelItems" : [ {
+            "caption" : "树导航栏",
+            "itemStyle" : "DEFAULT",
+            "itemType" : "CTRLPOS",
+            "name" : "treeexpbar1",
+            "getPSLayoutPos" : {
+              "grow" : -1,
+              "layout" : "FLEX"
+            },
+            "showCaption" : true
+          } ],
+          "predefinedType" : "CONTAINER_GROUP",
+          "showCaption" : true
+        } ],
+        "width" : 20.0
+      }, {
+        "caption" : "容器",
+        "contentWidth" : 60.0,
+        "itemStyle" : "DEFAULT",
+        "itemType" : "CONTAINER",
+        "name" : "container_table",
+        "getPSLayout" : {
+          "dir" : "column",
+          "layout" : "FLEX"
+        },
+        "getPSLayoutPos" : {
+          "grow" : 1,
+          "heightMode" : "FULL",
+          "layout" : "FLEX",
+          "width" : 60,
+          "widthMode" : "PERCENTAGE"
+        },
+        "getPSPanelItems" : [ {
+          "caption" : "树导航栏",
+          "itemStyle" : "DEFAULT",
+          "itemType" : "CTRLPOS",
+          "name" : "treeexpbar2",
+          "getPSLayoutPos" : {
+            "grow" : -1,
+            "heightMode" : "FULL",
+            "layout" : "FLEX",
+            "widthMode" : "FULL"
+          },
+          "showCaption" : true
+        } ],
+        "width" : 60.0
+      }, {
+        "caption" : "详细信息",
+        "contentWidth" : 30.0,
+        "itemStyle" : "DEFAULT",
+        "itemType" : "CONTAINER",
+        "name" : "container3",
+        "getPSLayout" : {
+          "dir" : "column",
+          "layout" : "FLEX"
+        },
+        "getPSLayoutPos" : {
+          "grow" : 1,
+          "heightMode" : "FULL",
+          "layout" : "FLEX",
+          "width" : 30,
+          "widthMode" : "PERCENTAGE"
+        },
+        "getPSPanelItems" : [ {
+          "caption" : "导航区占位",
+          "itemStyle" : "DEFAULT",
+          "itemType" : "RAWITEM",
+          "name" : "nav_pos",
+          "getPSLayoutPos" : {
+            "grow" : -1,
+            "layout" : "FLEX"
+          },
+          "getPSRawItem" : {
+            "name" : "nav_pos",
+            "predefinedType" : "NAV_POS"
+          },
+          "showCaption" : true
+        } ],
+        "width" : 30.0
+      } ]
+    } ],
+    "layoutBodyOnly" : true,
+    "layoutPanel" : true,
+    "useDefaultLayout" : false,
+    "viewProxyMode" : true,
+    "modelid" : "2b1384ea6c44b1eebfced86abab0218e",
+    "modeltype" : "PSSYSVIEWLAYOUTPANEL",
+    "getPSAppViewLogics" : [ {
+      "eventNames" : "onSelectionChange",
+      "logicTrigger" : "CTRLEVENT",
+      "logicType" : "SCRIPT",
+      "name" : "LOGIC1",
+      "getPSViewCtrlName" : "treeexpbar",
+      "scriptCode" : "console.log(\"数据变更tree\")\n// const activectrl = view.getCtrl(\"FORM\", \"form\");\n// activectrl.params.current_selected = null;\nconst treeCtrl = view.getCtrl(\"TREEEXPBAR\", \"treeexpbar\");\nconst treeCtrl1= view.getCtrl(\"TREEEXPBAR\", \"treeexpbar1\");\nconsole.log(\"treeCtrl1为\"+treeCtrl1.state.selectedData)\ntreeCtrl1.state.selectedData = []\nawait treeCtrl1.refresh();\n// const selectedData = treeCtrl.state.selectedData[0];\n// const ai_kb_graph_entity = selectedData._deData.id || ''\n// if(ai_kb_graph_entity){\n//     activectrl.params.ai_kb_graph_entity = ai_kb_graph_entity;\n//     activectrl.params.current_selected = \"ai_kb_graph_entity\";\n// }\n// await activectrl.refresh();\n\n"
+    }, {
+      "eventNames" : "onSelectionChange",
+      "logicTrigger" : "CTRLEVENT",
+      "logicType" : "SCRIPT",
+      "name" : "LOGIC2",
+      "getPSViewCtrlName" : "treeexpbar1",
+      "scriptCode" : "console.log(\"数据变更tree\")\n// const activectrl = view.getCtrl(\"FORM\", \"form\");\n// activectrl.params.current_selected = null;\n\nconst treeCtrl = view.getCtrl(\"TREEEXPBAR\", \"treeexpbar\");\nconst treeCtrl1= view.getCtrl(\"TREEEXPBAR\", \"treeexpbar1\");\nconsole.log(\"treeCtrl1为\"+treeCtrl1.state.selectedData)\nconsole.log(\"treeCtrl为\"+treeCtrl.state.selectedData)\ntreeCtrl.state.selectedData = []\nawait treeCtrl.refresh();\n// const selectedData = treeCtrl1.state.selectedData[0];\n// const ai_kb_graph_relation =selectedData._deData.id || '';\n// if(ai_kb_graph_relation){\n//     activectrl.params.ai_kb_graph_relation = ai_kb_graph_relation;\n//     activectrl.params.current_selected = \"ai_kb_graph_relation\";\n// }\n// await activectrl.refresh();\n\n"
+    }, {
+      "logicTrigger" : "CUSTOM",
+      "logicType" : "APPUILOGIC",
+      "name" : "newdata",
+      "getPSAppUILogic" : {
+        "actionAfterWizard" : "DEFAULT",
+        "logicType" : "PREDEFINED",
+        "name" : "新建数据",
+        "getNewDataPSAppView" : {
+          "getRefPSAppView" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_kb_graph_entity_edit_view.json",
+            "viewType" : "DEEDITVIEW"
+          }
+        },
+        "getPSAppUILogicRefViews" : [ {
+          "getRefPSAppView" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_kb_graph_entity_edit_view.json",
+            "viewType" : "DEEDITVIEW"
+          }
+        } ],
+        "viewLogicType" : "APP_NEWDATA",
+        "batchAddOnly" : false,
+        "enableBatchAdd" : false,
+        "enableWizardAdd" : false
+      }
+    }, {
+      "logicTrigger" : "CUSTOM",
+      "logicType" : "APPUILOGIC",
+      "name" : "opendata",
+      "getPSAppUILogic" : {
+        "logicType" : "PREDEFINED",
+        "name" : "打开数据",
+        "getOpenDataPSAppView" : {
+          "getRefPSAppView" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_kb_graph_entity_edit_view.json",
+            "viewType" : "DEEDITVIEW"
+          }
+        },
+        "getPSAppUILogicRefViews" : [ {
+          "getRefPSAppView" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_kb_graph_entity_edit_view.json",
+            "viewType" : "DEEDITVIEW"
+          }
+        } ],
+        "viewLogicType" : "APP_OPENDATA",
+        "editMode" : true
+      }
+    } ],
+    "getPSAppViewRefs" : [ {
+      "name" : "NEWDATA",
+      "realTitle" : "知识库图谱实体编辑视图",
+      "getRefPSAppView" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_kb_graph_entity_edit_view.json",
+        "viewType" : "DEEDITVIEW"
+      }
+    }, {
+      "name" : "EDITDATA",
+      "realTitle" : "知识库图谱实体编辑视图",
+      "getRefPSAppView" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_kb_graph_entity_edit_view.json",
+        "viewType" : "DEEDITVIEW"
+      }
+    } ],
+    "getPSControls" : [ {
+      "codeName" : "custom_view_treeexpbar1",
+      "controlType" : "TREEEXPBAR",
+      "name" : "treeexpbar1",
+      "getPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+      },
+      "getPSAppViewRefs" : [ {
+        "name" : "EXPITEM:node",
+        "realTitle" : "知识库图谱关系编辑视图",
+        "getRefPSAppView" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_kb_graph_relation_edit_view.json",
+          "viewType" : "DEEDITVIEW"
+        }
+      } ],
+      "getPSControlHandler" : {
+        "enableDEFieldPrivilege" : false,
+        "id" : "treeexpbar1"
+      },
+      "getPSControlParam" : {
+        "autoLoad" : true,
+        "showBusyIndicator" : true,
+        "id" : "TREEEXPBAR1"
+      },
+      "getPSControls" : [ {
+        "codeName" : "graph_rel_tree",
+        "controlType" : "TREEVIEW",
+        "getCreatePSControlAction" : {
+          "modelref" : true,
+          "id" : "create",
+          "actionName" : "Create",
+          "actionType" : "DEACTION",
+          "dataAccessAction" : "CREATE",
+          "name" : "create",
+          "getPSAppDEMethod" : {
+            "modelref" : true,
+            "id" : "create"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+          }
+        },
+        "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity/PSTREEVIEWS/graph_rel_tree.json",
+        "getFetchPSControlAction" : {
+          "modelref" : true,
+          "id" : "fetch",
+          "actionType" : "DEDATASET",
+          "name" : "fetch",
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+          }
+        },
+        "getGetPSControlAction" : {
+          "modelref" : true,
+          "id" : "load",
+          "actionName" : "Get",
+          "actionType" : "DEACTION",
+          "dataAccessAction" : "READ",
+          "name" : "load",
+          "getPSAppDEMethod" : {
+            "modelref" : true,
+            "id" : "get"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+          }
+        },
+        "hookEventNames" : [ "ONSELECTIONCHANGE", "SELECTIONCHANGE", "LOAD" ],
+        "logicName" : "知识库图谱关系树",
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+        },
+        "getPSControlHandler" : {
+          "getPSHandlerActions" : [ {
+            "actionName" : "Get",
+            "actionType" : "DEACTION",
+            "dataAccessAction" : "READ",
+            "name" : "load",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "get"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+            }
+          }, {
+            "actionName" : "Create",
+            "actionType" : "DEACTION",
+            "dataAccessAction" : "CREATE",
+            "name" : "create",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "create"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+            }
+          }, {
+            "actionName" : "Update",
+            "actionType" : "DEACTION",
+            "dataAccessAction" : "UPDATE",
+            "name" : "update",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "update"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+            }
+          }, {
+            "actionName" : "Remove",
+            "actionType" : "DEACTION",
+            "dataAccessAction" : "DELETE",
+            "name" : "remove",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "remove"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+            }
+          }, {
+            "actionType" : "DEDATASET",
+            "name" : "fetch",
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+            }
+          } ],
+          "userDRAction" : "READ",
+          "enableDEFieldPrivilege" : false,
+          "id" : "树视图处理器"
+        },
+        "getPSControlLogics" : [ {
+          "eventNames" : "onSelectionChange",
+          "logicTag" : "treeexpbar1_tree",
+          "logicType" : "SCRIPT",
+          "name" : "logic",
+          "scriptCode" : "console.log(\"数据变更tree\");\r\nconst ai_kb_graph_relation = data[0].id;\r\nconst graph_tree = view.getCtrl(\"TREE\", \"treeexpbar2_tree\");\r\nconst graph = graph_tree.graph;\r\n\r\n// 移除其他节点状态\r\ngraph.setElementState(\r\n    graph.getNodeData().reduce((acc, node) => {\r\n        acc[node.id] = [];\r\n        return acc;\r\n    }, {})\r\n);\r\n// 移除其他连线状态\r\ngraph.setElementState(\r\n    graph.getEdgeData().reduce((acc, edge) => {\r\n        acc[edge.id] = [];\r\n        return acc;\r\n    }, {})\r\n)\r\n//高亮当前连线\r\ngraph_tree.highlightElement(ai_kb_graph_relation, \"edge\");\r\n//聚焦连线\r\nawait graph.focusElement(ai_kb_graph_relation);\r\ngraph.zoomTo(1.2);"
+        }, {
+          "eventNames" : "SELECTIONCHANGE",
+          "logicTag" : "treeexpbar1_tree",
+          "logicType" : "CUSTOM",
+          "name" : "treeexpbar1_selectionchange"
+        }, {
+          "eventNames" : "LOAD",
+          "logicTag" : "treeexpbar1_tree",
+          "logicType" : "CUSTOM",
+          "name" : "treeexpbar1_load"
+        } ],
+        "getPSControlParam" : {
+          "autoLoad" : true,
+          "showBusyIndicator" : true,
+          "id" : "treeexpbar1_tree"
+        },
+        "getPSDETreeNodeRSs" : [ {
+          "getChildPSDETreeNode" : {
+            "modelref" : true,
+            "id" : "node"
+          },
+          "name" : "null - null",
+          "getParentPSDETreeNode" : {
+            "modelref" : true,
+            "id" : "ROOT"
+          },
+          "parentValueLevel" : 1,
+          "searchMode" : 3
+        } ],
+        "getPSDETreeNodes" : [ {
+          "counterMode" : 0,
+          "name" : "默认根节点",
+          "nodeType" : "ROOT",
+          "text" : "默认根节点",
+          "treeNodeType" : "STATIC",
+          "hasPSDETreeNodeRSs" : true,
+          "appendPNodeId" : false,
+          "disableSelect" : false,
+          "enableCheck" : false,
+          "enableEditData" : false,
+          "enableNewData" : false,
+          "enableQuickCreate" : false,
+          "enableQuickSearch" : true,
+          "enableRemoveData" : false,
+          "enableViewData" : false,
+          "expandFirstOnly" : false,
+          "expanded" : false,
+          "rootNode" : true,
+          "selectFirstOnly" : false,
+          "selected" : false,
+          "id" : "ROOT"
+        }, {
+          "counterMode" : 0,
+          "dataSourceType" : "DEDATASET",
+          "getIdPSAppDEField" : {
+            "name" : "ID",
+            "codeName" : "id"
+          },
+          "maxSize" : -1,
+          "name" : "图谱关系",
+          "getNavPSAppView" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_kb_graph_relation_edit_view.json",
+            "viewType" : "DEEDITVIEW"
+          },
+          "nodeType" : "node",
+          "getPSAppDEDataSet" : {
+            "modelref" : true,
+            "id" : "fetch_cur_kb"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_relation.json"
+          },
+          "pagingSize" : 1000,
+          "getTextPSAppDEField" : {
+            "name" : "NAME",
+            "codeName" : "name"
+          },
+          "treeNodeType" : "DE",
+          "hasPSDETreeNodeRSs" : false,
+          "appendPNodeId" : false,
+          "disableSelect" : false,
+          "enableCheck" : false,
+          "enableEditData" : false,
+          "enableNewData" : false,
+          "enablePaging" : true,
+          "enableQuickCreate" : false,
+          "enableQuickSearch" : true,
+          "enableRemoveData" : false,
+          "enableViewData" : false,
+          "expandFirstOnly" : false,
+          "expanded" : true,
+          "rootNode" : false,
+          "selectFirstOnly" : false,
+          "selected" : false,
+          "id" : "node"
+        } ],
+        "getRemovePSControlAction" : {
+          "modelref" : true,
+          "id" : "remove",
+          "actionName" : "Remove",
+          "actionType" : "DEACTION",
+          "dataAccessAction" : "DELETE",
+          "name" : "remove",
+          "getPSAppDEMethod" : {
+            "modelref" : true,
+            "id" : "remove"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+          }
+        },
+        "treeGridMode" : 0,
+        "getUpdatePSControlAction" : {
+          "modelref" : true,
+          "id" : "update",
+          "actionName" : "Update",
+          "actionType" : "DEACTION",
+          "dataAccessAction" : "UPDATE",
+          "name" : "update",
+          "getPSAppDEMethod" : {
+            "modelref" : true,
+            "id" : "update"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+          }
+        },
+        "enableRootSelect" : false,
+        "outputIconDefault" : true,
+        "rootVisible" : false,
+        "name" : "treeexpbar1_tree",
+        "modelid" : "8afbede193a215968dc71f2e68cc5aae",
+        "modeltype" : "PSDETREEVIEW"
+      } ],
+      "xDataControlName" : "treeexpbar1_tree",
+      "enableCounter" : true,
+      "enableSearch" : false,
+      "showTitleBar" : true,
+      "modelid" : "1dd5dae6a8a05dce6918e04f7ba309d3_treeexpbar1",
+      "modeltype" : "PSEXPBAR"
+    }, {
+      "codeName" : "custom_view_treeexpbar",
+      "controlType" : "TREEEXPBAR",
+      "name" : "treeexpbar",
+      "getPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+      },
+      "getPSAppViewRefs" : [ {
+        "name" : "EXPITEM:node",
+        "realTitle" : "知识库图谱实体编辑视图",
+        "getRefPSAppView" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_kb_graph_entity_edit_view.json",
+          "viewType" : "DEEDITVIEW"
+        }
+      }, {
+        "name" : "EXPITEM:node_3",
+        "realTitle" : "知识库图谱实体编辑视图",
+        "getRefPSAppView" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_kb_graph_entity_edit_view.json",
+          "viewType" : "DEEDITVIEW"
+        }
+      } ],
+      "getPSControlHandler" : {
+        "enableDEFieldPrivilege" : false,
+        "id" : "treeexpbar"
+      },
+      "getPSControlParam" : {
+        "autoLoad" : true,
+        "showBusyIndicator" : true,
+        "id" : "TREEEXPBAR"
+      },
+      "getPSControls" : [ {
+        "codeName" : "graph_entity_tree",
+        "controlType" : "TREEVIEW",
+        "getCreatePSControlAction" : {
+          "modelref" : true,
+          "id" : "create",
+          "actionName" : "Create",
+          "actionType" : "DEACTION",
+          "dataAccessAction" : "CREATE",
+          "name" : "create",
+          "getPSAppDEMethod" : {
+            "modelref" : true,
+            "id" : "create"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+          }
+        },
+        "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity/PSTREEVIEWS/graph_entity_tree.json",
+        "getFetchPSControlAction" : {
+          "modelref" : true,
+          "id" : "fetch",
+          "actionType" : "DEDATASET",
+          "name" : "fetch",
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+          }
+        },
+        "getGetPSControlAction" : {
+          "modelref" : true,
+          "id" : "load",
+          "actionName" : "Get",
+          "actionType" : "DEACTION",
+          "dataAccessAction" : "READ",
+          "name" : "load",
+          "getPSAppDEMethod" : {
+            "modelref" : true,
+            "id" : "get"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+          }
+        },
+        "hookEventNames" : [ "ONSELECTIONCHANGE", "SELECTIONCHANGE", "LOAD" ],
+        "logicName" : "知识库图谱实体树",
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+        },
+        "getPSControlHandler" : {
+          "getPSHandlerActions" : [ {
+            "actionName" : "Get",
+            "actionType" : "DEACTION",
+            "dataAccessAction" : "READ",
+            "name" : "load",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "get"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+            }
+          }, {
+            "actionName" : "Create",
+            "actionType" : "DEACTION",
+            "dataAccessAction" : "CREATE",
+            "name" : "create",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "create"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+            }
+          }, {
+            "actionName" : "Update",
+            "actionType" : "DEACTION",
+            "dataAccessAction" : "UPDATE",
+            "name" : "update",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "update"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+            }
+          }, {
+            "actionName" : "Remove",
+            "actionType" : "DEACTION",
+            "dataAccessAction" : "DELETE",
+            "name" : "remove",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "remove"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+            }
+          }, {
+            "actionType" : "DEDATASET",
+            "name" : "fetch",
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+            }
+          } ],
+          "userDRAction" : "READ",
+          "enableDEFieldPrivilege" : false,
+          "id" : "树视图处理器"
+        },
+        "getPSControlLogics" : [ {
+          "eventNames" : "onSelectionChange",
+          "logicTag" : "treeexpbar_tree",
+          "logicType" : "SCRIPT",
+          "name" : "logic",
+          "scriptCode" : "console.log(\"数据变更tree\");\r\nconst ai_kb_graph_entity = data[0].id;\r\nconst graph_tree = view.getCtrl(\"TREE\", \"treeexpbar2_tree\");\r\nconst graph = graph_tree.graph;\r\n\r\n// 移除其他节点状态\r\ngraph.setElementState(\r\n    graph.getNodeData().reduce((acc, node) => {\r\n        acc[node.id] = [];\r\n        return acc;\r\n    }, {})\r\n    )\r\n// 移除其他连线状态\r\ngraph.setElementState(\r\n    graph.getEdgeData().reduce((acc, edge) => {\r\n        acc[edge.id] = [];\r\n        return acc;\r\n    }, {})\r\n)\r\n//高亮当前节点\r\ngraph_tree.highlightElement(ai_kb_graph_entity, \"node\");\r\n\r\nawait graph.focusElement(ai_kb_graph_entity);\r\ngraph.zoomTo(1.2);"
+        }, {
+          "eventNames" : "SELECTIONCHANGE",
+          "logicTag" : "treeexpbar_tree",
+          "logicType" : "CUSTOM",
+          "name" : "treeexpbar_selectionchange"
+        }, {
+          "eventNames" : "LOAD",
+          "logicTag" : "treeexpbar_tree",
+          "logicType" : "CUSTOM",
+          "name" : "treeexpbar_load"
+        } ],
+        "getPSControlParam" : {
+          "autoLoad" : true,
+          "showBusyIndicator" : true,
+          "id" : "treeexpbar_tree"
+        },
+        "getPSControls" : [ {
+          "codeName" : "custom_view_node_cm",
+          "controlType" : "CONTEXTMENU",
+          "logicName" : "图谱实体树工作栏",
+          "name" : "node_cm",
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+          },
+          "getPSControlParam" : {
+            "id" : "node_cm"
+          },
+          "getPSDEToolbarItems" : [ {
+            "caption" : "聚焦此实体",
+            "groupExtractMode" : "ITEM",
+            "itemType" : "DEUIACTION",
+            "name" : "deuiaction1",
+            "noPrivDisplayMode" : 2,
+            "getPSAppViewUIAction" : {
+              "modelref" : true,
+              "id" : "node_cm_deuiaction1"
+            },
+            "getPSUIAction" : {
+              "actionTarget" : "NONE",
+              "caption" : "聚焦此实体",
+              "codeName" : "focusEntity",
+              "frontProcessType" : "OTHER",
+              "fullCodeName" : "ai_kb_graph_entity_focusEntity",
+              "name" : "聚焦此实体",
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+              },
+              "scriptCode" : "console.log(\"聚焦此实体\");\nconst ai_kb_graph_entity = data[0].id;\nconst graph_tree = view.getCtrl(\"TREE\", \"treeexpbar2_tree\");\nconst graph = graph_tree.graph;\ngraph.draw()\n// 初始化需要保留的节点和边集合\nconst keepNodeIds = new Set([ai_kb_graph_entity]);\nconst keepEdgeIds = new Set();\n\n// 获取当前节点的所有相邻节点（1层邻居）\nconst layer1Nodes = [];\ngraph.getEdgeData().forEach(edge => {\n    const { source, target, id } = edge;\n    if (source === ai_kb_graph_entity) {\n        keepNodeIds.add(target);\n        layer1Nodes.push(target);\n        keepEdgeIds.add(id);\n    } else if (target === ai_kb_graph_entity) {\n        keepNodeIds.add(source);\n        layer1Nodes.push(source);\n        keepEdgeIds.add(id);\n    }\n});\n\n// 获取1层节点的相邻节点（2层邻居）\nlayer1Nodes.forEach(nodeId => {\n    graph.getEdgeData().forEach(edge => {\n        const { source, target, id } = edge;\n        // 检查是否连接到1层节点\n        if (source === nodeId || target === nodeId) {\n            const neighbor = source === nodeId ? target : source;\n            // 仅添加未在keepNodeIds中的节点（避免重复和回溯）\n            if (!keepNodeIds.has(neighbor)) {\n                keepNodeIds.add(neighbor);\n                keepEdgeIds.add(id);\n            }\n        }\n    });\n});\n\n// 设置节点状态：高亮0层、1层、2层节点\ngraph.setElementState(\n    graph.getNodeData().reduce((acc, node) => {\n        acc[node.id] = keepNodeIds.has(node.id) \n            ? [\"highlight\"] \n            : [\"inactive\"];\n        return acc;\n    }, {})\n);\n\n// 设置边状态：高亮0-1层和1-2层的边\ngraph.setElementState(\n    graph.getEdgeData().reduce((acc, edge) => {\n        acc[edge.id] = keepEdgeIds.has(edge.id)\n            ? [\"highlight\"]\n            : [\"inactive\"];\n        return acc;\n    }, {})\n);\n\n// 聚焦并缩放\nawait graph.focusElement(ai_kb_graph_entity);\ngraph.zoomTo(1.1);",
+              "uIActionMode" : "FRONT",
+              "uIActionTag" : "focusEntity",
+              "uIActionType" : "DEUIACTION",
+              "id" : "focusEntity@ai_kb_graph_entity"
+            },
+            "tooltip" : "聚焦此实体",
+            "uIActionTarget" : "NONE",
+            "showCaption" : true,
+            "showIcon" : true
+          }, {
+            "caption" : "隐藏此实体",
+            "groupExtractMode" : "ITEM",
+            "itemType" : "DEUIACTION",
+            "name" : "deuiaction2",
+            "noPrivDisplayMode" : 2,
+            "getPSAppViewUIAction" : {
+              "modelref" : true,
+              "id" : "node_cm_deuiaction2"
+            },
+            "getPSUIAction" : {
+              "actionTarget" : "NONE",
+              "caption" : "隐藏此实体",
+              "codeName" : "hiddenEntity",
+              "frontProcessType" : "OTHER",
+              "fullCodeName" : "ai_kb_graph_entity_hiddenEntity",
+              "name" : "隐藏此实体",
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+              },
+              "scriptCode" : "console.log(\"隐藏此实体\");\nconst ai_kb_graph_entity = data[0].id;\nconst graph_tree = view.getCtrl(\"TREE\", \"treeexpbar2_tree\");\nconst graph = graph_tree.graph;\n\n// 初始化需要隐藏的节点和边集合\nconst hideElements = [];\nhideElements.push(ai_kb_graph_entity)\n// 获取当前节点的所有出入边\ngraph.getEdgeData().forEach(edge => {\n    const sourceId = edge.source;\n    const targetId = edge.target;\n    // 双向判断（处理无向图或双向边）\n    if (sourceId === ai_kb_graph_entity || targetId === ai_kb_graph_entity) {\n        hideElements.push(edge.id)\n    }\n});\n\n// 隐藏多个元素\nawait graph.hideElement(hideElements);",
+              "uIActionMode" : "FRONT",
+              "uIActionTag" : "hiddenEntity",
+              "uIActionType" : "DEUIACTION",
+              "id" : "hiddenEntity@ai_kb_graph_entity"
+            },
+            "tooltip" : "隐藏此实体",
+            "uIActionTarget" : "NONE",
+            "showCaption" : true,
+            "showIcon" : true
+          }, {
+            "caption" : "高亮关联",
+            "groupExtractMode" : "ITEM",
+            "itemType" : "DEUIACTION",
+            "name" : "deuiaction3",
+            "noPrivDisplayMode" : 2,
+            "getPSAppViewUIAction" : {
+              "modelref" : true,
+              "id" : "node_cm_deuiaction3"
+            },
+            "getPSUIAction" : {
+              "actionTarget" : "NONE",
+              "caption" : "高亮关联",
+              "codeName" : "highlight",
+              "frontProcessType" : "OTHER",
+              "fullCodeName" : "ai_kb_graph_entity_highlight",
+              "name" : "高亮关联",
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+              },
+              "scriptCode" : "console.log(\"高亮关联\");\nconst ai_kb_graph_entity = data[0].id;\nconst graph_tree = view.getCtrl(\"TREE\", \"treeexpbar2_tree\");\nconst graph = graph_tree.graph;\n\n// 初始化需要保留的节点和边集合\nconst keepNodeIds = new Set([ai_kb_graph_entity]);\nconst keepEdgeIds = new Set();\n\n// 获取当前节点的所有出入边\ngraph.getEdgeData().forEach(edge => {\n    const sourceId = edge.source;\n    const targetId = edge.target;\n    // 双向判断（处理无向图或双向边）\n    if (sourceId === ai_kb_graph_entity || targetId === ai_kb_graph_entity) {\n        keepEdgeIds.add(edge.id)\n    }\n});\n\n// 设置节点状态：高亮当前节点\ngraph.setElementState(\n    graph.getNodeData().reduce((acc, node) => {\n        acc[node.id] = keepNodeIds.has(node.id)\n            ? [\"highlight\"] // 高亮状态\n            : [\"inactive\"]; // 淡化状态\n        return acc;\n    }, {})\n);\n\n// 设置边状态：高亮直接相连的边\ngraph.setElementState(\n    graph.getEdgeData().reduce((acc, edge) => {\n        acc[edge.id] = keepEdgeIds.has(edge.id)\n            ? [\"highlight\"]  // 高亮状态\n            : [\"inactive\"];  // 淡化状态\n        return acc;\n    }, {})\n);\nawait graph.focusElement(ai_kb_graph_entity);\ngraph.zoomTo(1.1);\n",
+              "uIActionMode" : "FRONT",
+              "uIActionTag" : "highlight",
+              "uIActionType" : "DEUIACTION",
+              "id" : "highlight@ai_kb_graph_entity"
+            },
+            "tooltip" : "高亮关联",
+            "uIActionTarget" : "NONE",
+            "showCaption" : true,
+            "showIcon" : true
+          }, {
+            "caption" : "按类型筛选",
+            "groupExtractMode" : "ITEM",
+            "itemType" : "DEUIACTION",
+            "name" : "deuiaction4",
+            "noPrivDisplayMode" : 2,
+            "getPSAppViewUIAction" : {
+              "modelref" : true,
+              "id" : "node_cm_deuiaction4"
+            },
+            "getPSUIAction" : {
+              "actionTarget" : "NONE",
+              "caption" : "按类型筛选",
+              "codeName" : "typeFilter",
+              "frontProcessType" : "OTHER",
+              "fullCodeName" : "ai_kb_graph_entity_typeFilter",
+              "name" : "按类型筛选",
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+              },
+              "scriptCode" : "console.log(\"按类型筛选\");\nconst ai_kb_graph_entity = data[0].id;\nconst type = data[0].type;\nview.params.n_type_eq = type\n\nconst graph_tree = view.getCtrl(\"TREE\", \"treeexpbar2_tree\");\nconst graph = graph_tree.graph;\ngraph_tree.refresh()\n\n",
+              "uIActionMode" : "FRONT",
+              "uIActionTag" : "typeFilter",
+              "uIActionType" : "DEUIACTION",
+              "id" : "typeFilter@ai_kb_graph_entity"
+            },
+            "tooltip" : "按类型筛选",
+            "uIActionTarget" : "NONE",
+            "showCaption" : true,
+            "showIcon" : true
+          }, {
+            "caption" : "导出子图",
+            "groupExtractMode" : "ITEM",
+            "itemType" : "DEUIACTION",
+            "name" : "deuiaction5",
+            "noPrivDisplayMode" : 2,
+            "getPSAppViewUIAction" : {
+              "modelref" : true,
+              "id" : "node_cm_deuiaction5"
+            },
+            "getPSUIAction" : {
+              "actionTarget" : "NONE",
+              "caption" : "导出子图",
+              "codeName" : "exportChildren",
+              "frontProcessType" : "OTHER",
+              "fullCodeName" : "ai_kb_graph_entity_exportChildren",
+              "name" : "导出子图",
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+              },
+              "uIActionMode" : "FRONT",
+              "uIActionTag" : "exportChildren",
+              "uIActionType" : "DEUIACTION",
+              "id" : "exportChildren@ai_kb_graph_entity"
+            },
+            "tooltip" : "导出子图",
+            "uIActionTarget" : "NONE",
+            "showCaption" : true,
+            "showIcon" : true
+          } ],
+          "modelid" : "6cabf7178653052cfb9208e15dd02be8",
+          "modeltype" : "PSDETOOLBAR"
+        }, {
+          "codeName" : "custom_view_node3_cm",
+          "controlType" : "CONTEXTMENU",
+          "logicName" : "图谱实体树工作栏",
+          "name" : "node_3_cm",
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+          },
+          "getPSControlParam" : {
+            "id" : "node_3_cm"
+          },
+          "getPSDEToolbarItems" : [ {
+            "caption" : "聚焦此实体",
+            "groupExtractMode" : "ITEM",
+            "itemType" : "DEUIACTION",
+            "name" : "deuiaction1",
+            "noPrivDisplayMode" : 2,
+            "getPSAppViewUIAction" : {
+              "modelref" : true,
+              "id" : "node_3_cm_deuiaction1"
+            },
+            "getPSUIAction" : {
+              "actionTarget" : "NONE",
+              "caption" : "聚焦此实体",
+              "codeName" : "focusEntity",
+              "frontProcessType" : "OTHER",
+              "fullCodeName" : "ai_kb_graph_entity_focusEntity",
+              "name" : "聚焦此实体",
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+              },
+              "scriptCode" : "console.log(\"聚焦此实体\");\nconst ai_kb_graph_entity = data[0].id;\nconst graph_tree = view.getCtrl(\"TREE\", \"treeexpbar2_tree\");\nconst graph = graph_tree.graph;\ngraph.draw()\n// 初始化需要保留的节点和边集合\nconst keepNodeIds = new Set([ai_kb_graph_entity]);\nconst keepEdgeIds = new Set();\n\n// 获取当前节点的所有相邻节点（1层邻居）\nconst layer1Nodes = [];\ngraph.getEdgeData().forEach(edge => {\n    const { source, target, id } = edge;\n    if (source === ai_kb_graph_entity) {\n        keepNodeIds.add(target);\n        layer1Nodes.push(target);\n        keepEdgeIds.add(id);\n    } else if (target === ai_kb_graph_entity) {\n        keepNodeIds.add(source);\n        layer1Nodes.push(source);\n        keepEdgeIds.add(id);\n    }\n});\n\n// 获取1层节点的相邻节点（2层邻居）\nlayer1Nodes.forEach(nodeId => {\n    graph.getEdgeData().forEach(edge => {\n        const { source, target, id } = edge;\n        // 检查是否连接到1层节点\n        if (source === nodeId || target === nodeId) {\n            const neighbor = source === nodeId ? target : source;\n            // 仅添加未在keepNodeIds中的节点（避免重复和回溯）\n            if (!keepNodeIds.has(neighbor)) {\n                keepNodeIds.add(neighbor);\n                keepEdgeIds.add(id);\n            }\n        }\n    });\n});\n\n// 设置节点状态：高亮0层、1层、2层节点\ngraph.setElementState(\n    graph.getNodeData().reduce((acc, node) => {\n        acc[node.id] = keepNodeIds.has(node.id) \n            ? [\"highlight\"] \n            : [\"inactive\"];\n        return acc;\n    }, {})\n);\n\n// 设置边状态：高亮0-1层和1-2层的边\ngraph.setElementState(\n    graph.getEdgeData().reduce((acc, edge) => {\n        acc[edge.id] = keepEdgeIds.has(edge.id)\n            ? [\"highlight\"]\n            : [\"inactive\"];\n        return acc;\n    }, {})\n);\n\n// 聚焦并缩放\nawait graph.focusElement(ai_kb_graph_entity);\ngraph.zoomTo(1.1);",
+              "uIActionMode" : "FRONT",
+              "uIActionTag" : "focusEntity",
+              "uIActionType" : "DEUIACTION",
+              "id" : "focusEntity@ai_kb_graph_entity"
+            },
+            "tooltip" : "聚焦此实体",
+            "uIActionTarget" : "NONE",
+            "showCaption" : true,
+            "showIcon" : true
+          }, {
+            "caption" : "隐藏此实体",
+            "groupExtractMode" : "ITEM",
+            "itemType" : "DEUIACTION",
+            "name" : "deuiaction2",
+            "noPrivDisplayMode" : 2,
+            "getPSAppViewUIAction" : {
+              "modelref" : true,
+              "id" : "node_3_cm_deuiaction2"
+            },
+            "getPSUIAction" : {
+              "actionTarget" : "NONE",
+              "caption" : "隐藏此实体",
+              "codeName" : "hiddenEntity",
+              "frontProcessType" : "OTHER",
+              "fullCodeName" : "ai_kb_graph_entity_hiddenEntity",
+              "name" : "隐藏此实体",
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+              },
+              "scriptCode" : "console.log(\"隐藏此实体\");\nconst ai_kb_graph_entity = data[0].id;\nconst graph_tree = view.getCtrl(\"TREE\", \"treeexpbar2_tree\");\nconst graph = graph_tree.graph;\n\n// 初始化需要隐藏的节点和边集合\nconst hideElements = [];\nhideElements.push(ai_kb_graph_entity)\n// 获取当前节点的所有出入边\ngraph.getEdgeData().forEach(edge => {\n    const sourceId = edge.source;\n    const targetId = edge.target;\n    // 双向判断（处理无向图或双向边）\n    if (sourceId === ai_kb_graph_entity || targetId === ai_kb_graph_entity) {\n        hideElements.push(edge.id)\n    }\n});\n\n// 隐藏多个元素\nawait graph.hideElement(hideElements);",
+              "uIActionMode" : "FRONT",
+              "uIActionTag" : "hiddenEntity",
+              "uIActionType" : "DEUIACTION",
+              "id" : "hiddenEntity@ai_kb_graph_entity"
+            },
+            "tooltip" : "隐藏此实体",
+            "uIActionTarget" : "NONE",
+            "showCaption" : true,
+            "showIcon" : true
+          }, {
+            "caption" : "高亮关联",
+            "groupExtractMode" : "ITEM",
+            "itemType" : "DEUIACTION",
+            "name" : "deuiaction3",
+            "noPrivDisplayMode" : 2,
+            "getPSAppViewUIAction" : {
+              "modelref" : true,
+              "id" : "node_3_cm_deuiaction3"
+            },
+            "getPSUIAction" : {
+              "actionTarget" : "NONE",
+              "caption" : "高亮关联",
+              "codeName" : "highlight",
+              "frontProcessType" : "OTHER",
+              "fullCodeName" : "ai_kb_graph_entity_highlight",
+              "name" : "高亮关联",
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+              },
+              "scriptCode" : "console.log(\"高亮关联\");\nconst ai_kb_graph_entity = data[0].id;\nconst graph_tree = view.getCtrl(\"TREE\", \"treeexpbar2_tree\");\nconst graph = graph_tree.graph;\n\n// 初始化需要保留的节点和边集合\nconst keepNodeIds = new Set([ai_kb_graph_entity]);\nconst keepEdgeIds = new Set();\n\n// 获取当前节点的所有出入边\ngraph.getEdgeData().forEach(edge => {\n    const sourceId = edge.source;\n    const targetId = edge.target;\n    // 双向判断（处理无向图或双向边）\n    if (sourceId === ai_kb_graph_entity || targetId === ai_kb_graph_entity) {\n        keepEdgeIds.add(edge.id)\n    }\n});\n\n// 设置节点状态：高亮当前节点\ngraph.setElementState(\n    graph.getNodeData().reduce((acc, node) => {\n        acc[node.id] = keepNodeIds.has(node.id)\n            ? [\"highlight\"] // 高亮状态\n            : [\"inactive\"]; // 淡化状态\n        return acc;\n    }, {})\n);\n\n// 设置边状态：高亮直接相连的边\ngraph.setElementState(\n    graph.getEdgeData().reduce((acc, edge) => {\n        acc[edge.id] = keepEdgeIds.has(edge.id)\n            ? [\"highlight\"]  // 高亮状态\n            : [\"inactive\"];  // 淡化状态\n        return acc;\n    }, {})\n);\nawait graph.focusElement(ai_kb_graph_entity);\ngraph.zoomTo(1.1);\n",
+              "uIActionMode" : "FRONT",
+              "uIActionTag" : "highlight",
+              "uIActionType" : "DEUIACTION",
+              "id" : "highlight@ai_kb_graph_entity"
+            },
+            "tooltip" : "高亮关联",
+            "uIActionTarget" : "NONE",
+            "showCaption" : true,
+            "showIcon" : true
+          }, {
+            "caption" : "按类型筛选",
+            "groupExtractMode" : "ITEM",
+            "itemType" : "DEUIACTION",
+            "name" : "deuiaction4",
+            "noPrivDisplayMode" : 2,
+            "getPSAppViewUIAction" : {
+              "modelref" : true,
+              "id" : "node_3_cm_deuiaction4"
+            },
+            "getPSUIAction" : {
+              "actionTarget" : "NONE",
+              "caption" : "按类型筛选",
+              "codeName" : "typeFilter",
+              "frontProcessType" : "OTHER",
+              "fullCodeName" : "ai_kb_graph_entity_typeFilter",
+              "name" : "按类型筛选",
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+              },
+              "scriptCode" : "console.log(\"按类型筛选\");\nconst ai_kb_graph_entity = data[0].id;\nconst type = data[0].type;\nview.params.n_type_eq = type\n\nconst graph_tree = view.getCtrl(\"TREE\", \"treeexpbar2_tree\");\nconst graph = graph_tree.graph;\ngraph_tree.refresh()\n\n",
+              "uIActionMode" : "FRONT",
+              "uIActionTag" : "typeFilter",
+              "uIActionType" : "DEUIACTION",
+              "id" : "typeFilter@ai_kb_graph_entity"
+            },
+            "tooltip" : "按类型筛选",
+            "uIActionTarget" : "NONE",
+            "showCaption" : true,
+            "showIcon" : true
+          }, {
+            "caption" : "导出子图",
+            "groupExtractMode" : "ITEM",
+            "itemType" : "DEUIACTION",
+            "name" : "deuiaction5",
+            "noPrivDisplayMode" : 2,
+            "getPSAppViewUIAction" : {
+              "modelref" : true,
+              "id" : "node_3_cm_deuiaction5"
+            },
+            "getPSUIAction" : {
+              "actionTarget" : "NONE",
+              "caption" : "导出子图",
+              "codeName" : "exportChildren",
+              "frontProcessType" : "OTHER",
+              "fullCodeName" : "ai_kb_graph_entity_exportChildren",
+              "name" : "导出子图",
+              "getPSAppDataEntity" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+              },
+              "uIActionMode" : "FRONT",
+              "uIActionTag" : "exportChildren",
+              "uIActionType" : "DEUIACTION",
+              "id" : "exportChildren@ai_kb_graph_entity"
+            },
+            "tooltip" : "导出子图",
+            "uIActionTarget" : "NONE",
+            "showCaption" : true,
+            "showIcon" : true
+          } ],
+          "modelid" : "6cabf7178653052cfb9208e15dd02be8",
+          "modeltype" : "PSDETOOLBAR"
+        } ],
+        "getPSDETreeNodeRSs" : [ {
+          "getChildPSDETreeNode" : {
+            "modelref" : true,
+            "id" : "node"
+          },
+          "name" : "null - null",
+          "parentFilter" : "type",
+          "getParentPSDETreeNode" : {
+            "modelref" : true,
+            "id" : "node_1"
+          },
+          "parentValueLevel" : 1,
+          "searchMode" : 3
+        }, {
+          "getChildPSDETreeNode" : {
+            "modelref" : true,
+            "id" : "node_1"
+          },
+          "name" : "null - null",
+          "getParentPSDETreeNode" : {
+            "modelref" : true,
+            "id" : "ROOT"
+          },
+          "parentValueLevel" : 1,
+          "searchMode" : 2
+        }, {
+          "getChildPSDETreeNode" : {
+            "modelref" : true,
+            "id" : "node_3"
+          },
+          "name" : "null - null",
+          "getParentPSDETreeNode" : {
+            "modelref" : true,
+            "id" : "ROOT"
+          },
+          "parentValueLevel" : 1,
+          "searchMode" : 1
+        } ],
+        "getPSDETreeNodes" : [ {
+          "counterMode" : 0,
+          "name" : "默认根节点",
+          "nodeType" : "ROOT",
+          "text" : "默认根节点",
+          "treeNodeType" : "STATIC",
+          "hasPSDETreeNodeRSs" : true,
+          "appendPNodeId" : false,
+          "disableSelect" : false,
+          "enableCheck" : false,
+          "enableEditData" : false,
+          "enableNewData" : false,
+          "enableQuickCreate" : false,
+          "enableQuickSearch" : true,
+          "enableRemoveData" : false,
+          "enableViewData" : false,
+          "expandFirstOnly" : false,
+          "expanded" : false,
+          "rootNode" : true,
+          "selectFirstOnly" : false,
+          "selected" : false,
+          "id" : "ROOT"
+        }, {
+          "counterMode" : 0,
+          "dataSourceType" : "DEDATASET",
+          "getIdPSAppDEField" : {
+            "name" : "ID",
+            "codeName" : "id"
+          },
+          "maxSize" : -1,
+          "name" : "图谱实体",
+          "getNavPSAppView" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_kb_graph_entity_edit_view.json",
+            "viewType" : "DEEDITVIEW"
+          },
+          "nodeType" : "node",
+          "getPSAppDEDataSet" : {
+            "modelref" : true,
+            "id" : "fetch_cur_kb"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+          },
+          "getPSDEContextMenu" : {
+            "codeName" : "custom_view_node_cm",
+            "controlType" : "CONTEXTMENU",
+            "logicName" : "图谱实体树工作栏",
+            "name" : "node_cm",
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+            },
+            "getPSControlParam" : {
+              "id" : "node_cm"
+            },
+            "getPSDEToolbarItems" : [ {
+              "caption" : "聚焦此实体",
+              "groupExtractMode" : "ITEM",
+              "itemType" : "DEUIACTION",
+              "name" : "deuiaction1",
+              "noPrivDisplayMode" : 2,
+              "getPSAppViewUIAction" : {
+                "modelref" : true,
+                "id" : "node_cm_deuiaction1"
+              },
+              "getPSUIAction" : {
+                "actionTarget" : "NONE",
+                "caption" : "聚焦此实体",
+                "codeName" : "focusEntity",
+                "frontProcessType" : "OTHER",
+                "fullCodeName" : "ai_kb_graph_entity_focusEntity",
+                "name" : "聚焦此实体",
+                "getPSAppDataEntity" : {
+                  "modelref" : true,
+                  "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+                },
+                "scriptCode" : "console.log(\"聚焦此实体\");\nconst ai_kb_graph_entity = data[0].id;\nconst graph_tree = view.getCtrl(\"TREE\", \"treeexpbar2_tree\");\nconst graph = graph_tree.graph;\ngraph.draw()\n// 初始化需要保留的节点和边集合\nconst keepNodeIds = new Set([ai_kb_graph_entity]);\nconst keepEdgeIds = new Set();\n\n// 获取当前节点的所有相邻节点（1层邻居）\nconst layer1Nodes = [];\ngraph.getEdgeData().forEach(edge => {\n    const { source, target, id } = edge;\n    if (source === ai_kb_graph_entity) {\n        keepNodeIds.add(target);\n        layer1Nodes.push(target);\n        keepEdgeIds.add(id);\n    } else if (target === ai_kb_graph_entity) {\n        keepNodeIds.add(source);\n        layer1Nodes.push(source);\n        keepEdgeIds.add(id);\n    }\n});\n\n// 获取1层节点的相邻节点（2层邻居）\nlayer1Nodes.forEach(nodeId => {\n    graph.getEdgeData().forEach(edge => {\n        const { source, target, id } = edge;\n        // 检查是否连接到1层节点\n        if (source === nodeId || target === nodeId) {\n            const neighbor = source === nodeId ? target : source;\n            // 仅添加未在keepNodeIds中的节点（避免重复和回溯）\n            if (!keepNodeIds.has(neighbor)) {\n                keepNodeIds.add(neighbor);\n                keepEdgeIds.add(id);\n            }\n        }\n    });\n});\n\n// 设置节点状态：高亮0层、1层、2层节点\ngraph.setElementState(\n    graph.getNodeData().reduce((acc, node) => {\n        acc[node.id] = keepNodeIds.has(node.id) \n            ? [\"highlight\"] \n            : [\"inactive\"];\n        return acc;\n    }, {})\n);\n\n// 设置边状态：高亮0-1层和1-2层的边\ngraph.setElementState(\n    graph.getEdgeData().reduce((acc, edge) => {\n        acc[edge.id] = keepEdgeIds.has(edge.id)\n            ? [\"highlight\"]\n            : [\"inactive\"];\n        return acc;\n    }, {})\n);\n\n// 聚焦并缩放\nawait graph.focusElement(ai_kb_graph_entity);\ngraph.zoomTo(1.1);",
+                "uIActionMode" : "FRONT",
+                "uIActionTag" : "focusEntity",
+                "uIActionType" : "DEUIACTION",
+                "id" : "focusEntity@ai_kb_graph_entity"
+              },
+              "tooltip" : "聚焦此实体",
+              "uIActionTarget" : "NONE",
+              "showCaption" : true,
+              "showIcon" : true
+            }, {
+              "caption" : "隐藏此实体",
+              "groupExtractMode" : "ITEM",
+              "itemType" : "DEUIACTION",
+              "name" : "deuiaction2",
+              "noPrivDisplayMode" : 2,
+              "getPSAppViewUIAction" : {
+                "modelref" : true,
+                "id" : "node_cm_deuiaction2"
+              },
+              "getPSUIAction" : {
+                "actionTarget" : "NONE",
+                "caption" : "隐藏此实体",
+                "codeName" : "hiddenEntity",
+                "frontProcessType" : "OTHER",
+                "fullCodeName" : "ai_kb_graph_entity_hiddenEntity",
+                "name" : "隐藏此实体",
+                "getPSAppDataEntity" : {
+                  "modelref" : true,
+                  "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+                },
+                "scriptCode" : "console.log(\"隐藏此实体\");\nconst ai_kb_graph_entity = data[0].id;\nconst graph_tree = view.getCtrl(\"TREE\", \"treeexpbar2_tree\");\nconst graph = graph_tree.graph;\n\n// 初始化需要隐藏的节点和边集合\nconst hideElements = [];\nhideElements.push(ai_kb_graph_entity)\n// 获取当前节点的所有出入边\ngraph.getEdgeData().forEach(edge => {\n    const sourceId = edge.source;\n    const targetId = edge.target;\n    // 双向判断（处理无向图或双向边）\n    if (sourceId === ai_kb_graph_entity || targetId === ai_kb_graph_entity) {\n        hideElements.push(edge.id)\n    }\n});\n\n// 隐藏多个元素\nawait graph.hideElement(hideElements);",
+                "uIActionMode" : "FRONT",
+                "uIActionTag" : "hiddenEntity",
+                "uIActionType" : "DEUIACTION",
+                "id" : "hiddenEntity@ai_kb_graph_entity"
+              },
+              "tooltip" : "隐藏此实体",
+              "uIActionTarget" : "NONE",
+              "showCaption" : true,
+              "showIcon" : true
+            }, {
+              "caption" : "高亮关联",
+              "groupExtractMode" : "ITEM",
+              "itemType" : "DEUIACTION",
+              "name" : "deuiaction3",
+              "noPrivDisplayMode" : 2,
+              "getPSAppViewUIAction" : {
+                "modelref" : true,
+                "id" : "node_cm_deuiaction3"
+              },
+              "getPSUIAction" : {
+                "actionTarget" : "NONE",
+                "caption" : "高亮关联",
+                "codeName" : "highlight",
+                "frontProcessType" : "OTHER",
+                "fullCodeName" : "ai_kb_graph_entity_highlight",
+                "name" : "高亮关联",
+                "getPSAppDataEntity" : {
+                  "modelref" : true,
+                  "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+                },
+                "scriptCode" : "console.log(\"高亮关联\");\nconst ai_kb_graph_entity = data[0].id;\nconst graph_tree = view.getCtrl(\"TREE\", \"treeexpbar2_tree\");\nconst graph = graph_tree.graph;\n\n// 初始化需要保留的节点和边集合\nconst keepNodeIds = new Set([ai_kb_graph_entity]);\nconst keepEdgeIds = new Set();\n\n// 获取当前节点的所有出入边\ngraph.getEdgeData().forEach(edge => {\n    const sourceId = edge.source;\n    const targetId = edge.target;\n    // 双向判断（处理无向图或双向边）\n    if (sourceId === ai_kb_graph_entity || targetId === ai_kb_graph_entity) {\n        keepEdgeIds.add(edge.id)\n    }\n});\n\n// 设置节点状态：高亮当前节点\ngraph.setElementState(\n    graph.getNodeData().reduce((acc, node) => {\n        acc[node.id] = keepNodeIds.has(node.id)\n            ? [\"highlight\"] // 高亮状态\n            : [\"inactive\"]; // 淡化状态\n        return acc;\n    }, {})\n);\n\n// 设置边状态：高亮直接相连的边\ngraph.setElementState(\n    graph.getEdgeData().reduce((acc, edge) => {\n        acc[edge.id] = keepEdgeIds.has(edge.id)\n            ? [\"highlight\"]  // 高亮状态\n            : [\"inactive\"];  // 淡化状态\n        return acc;\n    }, {})\n);\nawait graph.focusElement(ai_kb_graph_entity);\ngraph.zoomTo(1.1);\n",
+                "uIActionMode" : "FRONT",
+                "uIActionTag" : "highlight",
+                "uIActionType" : "DEUIACTION",
+                "id" : "highlight@ai_kb_graph_entity"
+              },
+              "tooltip" : "高亮关联",
+              "uIActionTarget" : "NONE",
+              "showCaption" : true,
+              "showIcon" : true
+            }, {
+              "caption" : "按类型筛选",
+              "groupExtractMode" : "ITEM",
+              "itemType" : "DEUIACTION",
+              "name" : "deuiaction4",
+              "noPrivDisplayMode" : 2,
+              "getPSAppViewUIAction" : {
+                "modelref" : true,
+                "id" : "node_cm_deuiaction4"
+              },
+              "getPSUIAction" : {
+                "actionTarget" : "NONE",
+                "caption" : "按类型筛选",
+                "codeName" : "typeFilter",
+                "frontProcessType" : "OTHER",
+                "fullCodeName" : "ai_kb_graph_entity_typeFilter",
+                "name" : "按类型筛选",
+                "getPSAppDataEntity" : {
+                  "modelref" : true,
+                  "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+                },
+                "scriptCode" : "console.log(\"按类型筛选\");\nconst ai_kb_graph_entity = data[0].id;\nconst type = data[0].type;\nview.params.n_type_eq = type\n\nconst graph_tree = view.getCtrl(\"TREE\", \"treeexpbar2_tree\");\nconst graph = graph_tree.graph;\ngraph_tree.refresh()\n\n",
+                "uIActionMode" : "FRONT",
+                "uIActionTag" : "typeFilter",
+                "uIActionType" : "DEUIACTION",
+                "id" : "typeFilter@ai_kb_graph_entity"
+              },
+              "tooltip" : "按类型筛选",
+              "uIActionTarget" : "NONE",
+              "showCaption" : true,
+              "showIcon" : true
+            }, {
+              "caption" : "导出子图",
+              "groupExtractMode" : "ITEM",
+              "itemType" : "DEUIACTION",
+              "name" : "deuiaction5",
+              "noPrivDisplayMode" : 2,
+              "getPSAppViewUIAction" : {
+                "modelref" : true,
+                "id" : "node_cm_deuiaction5"
+              },
+              "getPSUIAction" : {
+                "actionTarget" : "NONE",
+                "caption" : "导出子图",
+                "codeName" : "exportChildren",
+                "frontProcessType" : "OTHER",
+                "fullCodeName" : "ai_kb_graph_entity_exportChildren",
+                "name" : "导出子图",
+                "getPSAppDataEntity" : {
+                  "modelref" : true,
+                  "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+                },
+                "uIActionMode" : "FRONT",
+                "uIActionTag" : "exportChildren",
+                "uIActionType" : "DEUIACTION",
+                "id" : "exportChildren@ai_kb_graph_entity"
+              },
+              "tooltip" : "导出子图",
+              "uIActionTarget" : "NONE",
+              "showCaption" : true,
+              "showIcon" : true
+            } ],
+            "modelid" : "6cabf7178653052cfb9208e15dd02be8",
+            "modeltype" : "PSDETOOLBAR"
+          },
+          "pagingSize" : 20,
+          "getTextPSAppDEField" : {
+            "name" : "NAME",
+            "codeName" : "name"
+          },
+          "treeNodeType" : "DE",
+          "hasPSDETreeNodeRSs" : false,
+          "appendPNodeId" : false,
+          "disableSelect" : false,
+          "enableCheck" : true,
+          "enableEditData" : false,
+          "enableNewData" : false,
+          "enablePaging" : true,
+          "enableQuickCreate" : false,
+          "enableQuickSearch" : true,
+          "enableRemoveData" : false,
+          "enableViewData" : false,
+          "expandFirstOnly" : false,
+          "expanded" : true,
+          "rootNode" : false,
+          "selectFirstOnly" : true,
+          "selected" : true,
+          "id" : "node"
+        }, {
+          "counterMode" : 0,
+          "dataSourceType" : "DEDATASET",
+          "getIdPSAppDEField" : {
+            "name" : "TYPE",
+            "codeName" : "type"
+          },
+          "maxSize" : -1,
+          "name" : "实体类型",
+          "nodeType" : "node_1",
+          "getPSAppDEDataSet" : {
+            "modelref" : true,
+            "id" : "fetch_cur_entity_type"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+          },
+          "getPSDETreeNodeDataItems" : [ {
+            "cLConvertMode" : "NONE",
+            "dataType" : 25,
+            "name" : "text",
+            "scriptCode" : "var type = data.type ? data.type : \"\";\r\nvar codeValue = \"\";\r\nvar codeItem = \"\";\r\n\r\nif (type && type !== \"\") {\r\n    console.log(\"绘制类型图标\");\r\n    var codelisttag = \"ai__entity_types\";\r\n    const app = await ibiz.hub.getApp(context.srfappid);\r\n    const codelist = app.codeList;\r\n    codeItem = await codelist.getItem(codelisttag, type, context, \"\");\r\n    codeValue = codeItem.text;\r\n\r\n    if (codeItem.icon) {\r\n        // icon 是字符串，需要先解析为 JSON 对象\r\n        let iconArray;\r\n        try {\r\n            iconArray = JSON.parse(codeItem.icon);\r\n        } catch (e) {\r\n            console.error(\"解析 icon 字符串失败:\", e);\r\n            return codeValue; // 解析失败时回退到文本\r\n        }\r\n\r\n        if (Array.isArray(iconArray) && iconArray.length > 0) {\r\n            const icon = iconArray[0];\r\n            const appid = context.srfappid;\r\n            const baseUrl = ibiz.env.baseUrl;\r\n            const fileId = icon.id;\r\n            const folder = icon.folder;\r\n            const url = `${baseUrl}/${appid}/ibizutil/download/${folder}/${fileId}`;\r\n            const imgstr = `<img alt=\"${codeValue}\" src=\"${url}\">`;\r\n            return `<div class=\"ibiz-code-list__item\" style=\"height: 36px;line-height: 36px;\">\r\n                        <div class=\"ibiz-icon\" style=\"height: 100%;padding-right: 8px;\">\r\n                            ${imgstr}\r\n                        </div>\r\n                    </div>`;\r\n        }\r\n    }\r\n}\r\n\r\nreturn codeValue;",
+            "customCode" : true
+          } ],
+          "getTextPSAppDEField" : {
+            "name" : "TYPE",
+            "codeName" : "type"
+          },
+          "treeNodeType" : "DE",
+          "hasPSDETreeNodeRSs" : true,
+          "appendPNodeId" : false,
+          "disableSelect" : false,
+          "enableCheck" : false,
+          "enableEditData" : false,
+          "enableNewData" : false,
+          "enableQuickCreate" : false,
+          "enableQuickSearch" : true,
+          "enableRemoveData" : false,
+          "enableViewData" : false,
+          "expandFirstOnly" : true,
+          "expanded" : true,
+          "rootNode" : false,
+          "selectFirstOnly" : false,
+          "selected" : false,
+          "id" : "node_1"
+        }, {
+          "counterMode" : 0,
+          "dataSourceType" : "DEDATASET",
+          "getIdPSAppDEField" : {
+            "name" : "ID",
+            "codeName" : "id"
+          },
+          "maxSize" : -1,
+          "name" : "有搜索时启用（实体）",
+          "getNavPSAppView" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_kb_graph_entity_edit_view.json",
+            "viewType" : "DEEDITVIEW"
+          },
+          "nodeType" : "node_3",
+          "getPSAppDEDataSet" : {
+            "modelref" : true,
+            "id" : "fetch_cur_kb"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+          },
+          "getPSDEContextMenu" : {
+            "codeName" : "custom_view_node3_cm",
+            "controlType" : "CONTEXTMENU",
+            "logicName" : "图谱实体树工作栏",
+            "name" : "node_3_cm",
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+            },
+            "getPSControlParam" : {
+              "id" : "node_3_cm"
+            },
+            "getPSDEToolbarItems" : [ {
+              "caption" : "聚焦此实体",
+              "groupExtractMode" : "ITEM",
+              "itemType" : "DEUIACTION",
+              "name" : "deuiaction1",
+              "noPrivDisplayMode" : 2,
+              "getPSAppViewUIAction" : {
+                "modelref" : true,
+                "id" : "node_3_cm_deuiaction1"
+              },
+              "getPSUIAction" : {
+                "actionTarget" : "NONE",
+                "caption" : "聚焦此实体",
+                "codeName" : "focusEntity",
+                "frontProcessType" : "OTHER",
+                "fullCodeName" : "ai_kb_graph_entity_focusEntity",
+                "name" : "聚焦此实体",
+                "getPSAppDataEntity" : {
+                  "modelref" : true,
+                  "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+                },
+                "scriptCode" : "console.log(\"聚焦此实体\");\nconst ai_kb_graph_entity = data[0].id;\nconst graph_tree = view.getCtrl(\"TREE\", \"treeexpbar2_tree\");\nconst graph = graph_tree.graph;\ngraph.draw()\n// 初始化需要保留的节点和边集合\nconst keepNodeIds = new Set([ai_kb_graph_entity]);\nconst keepEdgeIds = new Set();\n\n// 获取当前节点的所有相邻节点（1层邻居）\nconst layer1Nodes = [];\ngraph.getEdgeData().forEach(edge => {\n    const { source, target, id } = edge;\n    if (source === ai_kb_graph_entity) {\n        keepNodeIds.add(target);\n        layer1Nodes.push(target);\n        keepEdgeIds.add(id);\n    } else if (target === ai_kb_graph_entity) {\n        keepNodeIds.add(source);\n        layer1Nodes.push(source);\n        keepEdgeIds.add(id);\n    }\n});\n\n// 获取1层节点的相邻节点（2层邻居）\nlayer1Nodes.forEach(nodeId => {\n    graph.getEdgeData().forEach(edge => {\n        const { source, target, id } = edge;\n        // 检查是否连接到1层节点\n        if (source === nodeId || target === nodeId) {\n            const neighbor = source === nodeId ? target : source;\n            // 仅添加未在keepNodeIds中的节点（避免重复和回溯）\n            if (!keepNodeIds.has(neighbor)) {\n                keepNodeIds.add(neighbor);\n                keepEdgeIds.add(id);\n            }\n        }\n    });\n});\n\n// 设置节点状态：高亮0层、1层、2层节点\ngraph.setElementState(\n    graph.getNodeData().reduce((acc, node) => {\n        acc[node.id] = keepNodeIds.has(node.id) \n            ? [\"highlight\"] \n            : [\"inactive\"];\n        return acc;\n    }, {})\n);\n\n// 设置边状态：高亮0-1层和1-2层的边\ngraph.setElementState(\n    graph.getEdgeData().reduce((acc, edge) => {\n        acc[edge.id] = keepEdgeIds.has(edge.id)\n            ? [\"highlight\"]\n            : [\"inactive\"];\n        return acc;\n    }, {})\n);\n\n// 聚焦并缩放\nawait graph.focusElement(ai_kb_graph_entity);\ngraph.zoomTo(1.1);",
+                "uIActionMode" : "FRONT",
+                "uIActionTag" : "focusEntity",
+                "uIActionType" : "DEUIACTION",
+                "id" : "focusEntity@ai_kb_graph_entity"
+              },
+              "tooltip" : "聚焦此实体",
+              "uIActionTarget" : "NONE",
+              "showCaption" : true,
+              "showIcon" : true
+            }, {
+              "caption" : "隐藏此实体",
+              "groupExtractMode" : "ITEM",
+              "itemType" : "DEUIACTION",
+              "name" : "deuiaction2",
+              "noPrivDisplayMode" : 2,
+              "getPSAppViewUIAction" : {
+                "modelref" : true,
+                "id" : "node_3_cm_deuiaction2"
+              },
+              "getPSUIAction" : {
+                "actionTarget" : "NONE",
+                "caption" : "隐藏此实体",
+                "codeName" : "hiddenEntity",
+                "frontProcessType" : "OTHER",
+                "fullCodeName" : "ai_kb_graph_entity_hiddenEntity",
+                "name" : "隐藏此实体",
+                "getPSAppDataEntity" : {
+                  "modelref" : true,
+                  "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+                },
+                "scriptCode" : "console.log(\"隐藏此实体\");\nconst ai_kb_graph_entity = data[0].id;\nconst graph_tree = view.getCtrl(\"TREE\", \"treeexpbar2_tree\");\nconst graph = graph_tree.graph;\n\n// 初始化需要隐藏的节点和边集合\nconst hideElements = [];\nhideElements.push(ai_kb_graph_entity)\n// 获取当前节点的所有出入边\ngraph.getEdgeData().forEach(edge => {\n    const sourceId = edge.source;\n    const targetId = edge.target;\n    // 双向判断（处理无向图或双向边）\n    if (sourceId === ai_kb_graph_entity || targetId === ai_kb_graph_entity) {\n        hideElements.push(edge.id)\n    }\n});\n\n// 隐藏多个元素\nawait graph.hideElement(hideElements);",
+                "uIActionMode" : "FRONT",
+                "uIActionTag" : "hiddenEntity",
+                "uIActionType" : "DEUIACTION",
+                "id" : "hiddenEntity@ai_kb_graph_entity"
+              },
+              "tooltip" : "隐藏此实体",
+              "uIActionTarget" : "NONE",
+              "showCaption" : true,
+              "showIcon" : true
+            }, {
+              "caption" : "高亮关联",
+              "groupExtractMode" : "ITEM",
+              "itemType" : "DEUIACTION",
+              "name" : "deuiaction3",
+              "noPrivDisplayMode" : 2,
+              "getPSAppViewUIAction" : {
+                "modelref" : true,
+                "id" : "node_3_cm_deuiaction3"
+              },
+              "getPSUIAction" : {
+                "actionTarget" : "NONE",
+                "caption" : "高亮关联",
+                "codeName" : "highlight",
+                "frontProcessType" : "OTHER",
+                "fullCodeName" : "ai_kb_graph_entity_highlight",
+                "name" : "高亮关联",
+                "getPSAppDataEntity" : {
+                  "modelref" : true,
+                  "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+                },
+                "scriptCode" : "console.log(\"高亮关联\");\nconst ai_kb_graph_entity = data[0].id;\nconst graph_tree = view.getCtrl(\"TREE\", \"treeexpbar2_tree\");\nconst graph = graph_tree.graph;\n\n// 初始化需要保留的节点和边集合\nconst keepNodeIds = new Set([ai_kb_graph_entity]);\nconst keepEdgeIds = new Set();\n\n// 获取当前节点的所有出入边\ngraph.getEdgeData().forEach(edge => {\n    const sourceId = edge.source;\n    const targetId = edge.target;\n    // 双向判断（处理无向图或双向边）\n    if (sourceId === ai_kb_graph_entity || targetId === ai_kb_graph_entity) {\n        keepEdgeIds.add(edge.id)\n    }\n});\n\n// 设置节点状态：高亮当前节点\ngraph.setElementState(\n    graph.getNodeData().reduce((acc, node) => {\n        acc[node.id] = keepNodeIds.has(node.id)\n            ? [\"highlight\"] // 高亮状态\n            : [\"inactive\"]; // 淡化状态\n        return acc;\n    }, {})\n);\n\n// 设置边状态：高亮直接相连的边\ngraph.setElementState(\n    graph.getEdgeData().reduce((acc, edge) => {\n        acc[edge.id] = keepEdgeIds.has(edge.id)\n            ? [\"highlight\"]  // 高亮状态\n            : [\"inactive\"];  // 淡化状态\n        return acc;\n    }, {})\n);\nawait graph.focusElement(ai_kb_graph_entity);\ngraph.zoomTo(1.1);\n",
+                "uIActionMode" : "FRONT",
+                "uIActionTag" : "highlight",
+                "uIActionType" : "DEUIACTION",
+                "id" : "highlight@ai_kb_graph_entity"
+              },
+              "tooltip" : "高亮关联",
+              "uIActionTarget" : "NONE",
+              "showCaption" : true,
+              "showIcon" : true
+            }, {
+              "caption" : "按类型筛选",
+              "groupExtractMode" : "ITEM",
+              "itemType" : "DEUIACTION",
+              "name" : "deuiaction4",
+              "noPrivDisplayMode" : 2,
+              "getPSAppViewUIAction" : {
+                "modelref" : true,
+                "id" : "node_3_cm_deuiaction4"
+              },
+              "getPSUIAction" : {
+                "actionTarget" : "NONE",
+                "caption" : "按类型筛选",
+                "codeName" : "typeFilter",
+                "frontProcessType" : "OTHER",
+                "fullCodeName" : "ai_kb_graph_entity_typeFilter",
+                "name" : "按类型筛选",
+                "getPSAppDataEntity" : {
+                  "modelref" : true,
+                  "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+                },
+                "scriptCode" : "console.log(\"按类型筛选\");\nconst ai_kb_graph_entity = data[0].id;\nconst type = data[0].type;\nview.params.n_type_eq = type\n\nconst graph_tree = view.getCtrl(\"TREE\", \"treeexpbar2_tree\");\nconst graph = graph_tree.graph;\ngraph_tree.refresh()\n\n",
+                "uIActionMode" : "FRONT",
+                "uIActionTag" : "typeFilter",
+                "uIActionType" : "DEUIACTION",
+                "id" : "typeFilter@ai_kb_graph_entity"
+              },
+              "tooltip" : "按类型筛选",
+              "uIActionTarget" : "NONE",
+              "showCaption" : true,
+              "showIcon" : true
+            }, {
+              "caption" : "导出子图",
+              "groupExtractMode" : "ITEM",
+              "itemType" : "DEUIACTION",
+              "name" : "deuiaction5",
+              "noPrivDisplayMode" : 2,
+              "getPSAppViewUIAction" : {
+                "modelref" : true,
+                "id" : "node_3_cm_deuiaction5"
+              },
+              "getPSUIAction" : {
+                "actionTarget" : "NONE",
+                "caption" : "导出子图",
+                "codeName" : "exportChildren",
+                "frontProcessType" : "OTHER",
+                "fullCodeName" : "ai_kb_graph_entity_exportChildren",
+                "name" : "导出子图",
+                "getPSAppDataEntity" : {
+                  "modelref" : true,
+                  "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+                },
+                "uIActionMode" : "FRONT",
+                "uIActionTag" : "exportChildren",
+                "uIActionType" : "DEUIACTION",
+                "id" : "exportChildren@ai_kb_graph_entity"
+              },
+              "tooltip" : "导出子图",
+              "uIActionTarget" : "NONE",
+              "showCaption" : true,
+              "showIcon" : true
+            } ],
+            "modelid" : "6cabf7178653052cfb9208e15dd02be8",
+            "modeltype" : "PSDETOOLBAR"
+          },
+          "getPSDETreeNodeDataItems" : [ {
+            "cLConvertMode" : "NONE",
+            "dataType" : 25,
+            "name" : "text",
+            "scriptCode" : "var type = data.type? data.type : \"\";\r\nvar entityName = data.name? data.name : \"\";\r\nvar codeValue = \"\";\r\nvar codeItem = \"\";\r\nif (type && type != \"\") {\r\n    var codelisttag = \"ai__entity_types\";\r\n    const app = await ibiz.hub.getApp(context.srfappid);\r\n    const codelist = app.codeList;\r\n    codeItem = await codelist.getItem(codelisttag,type,context,\"\");\r\n    codeValue = codeItem.text;\r\n}\r\nreturn codeValue +\" - \"+entityName ;",
+            "customCode" : true
+          } ],
+          "pagingSize" : 20,
+          "getTextPSAppDEField" : {
+            "name" : "NAME",
+            "codeName" : "name"
+          },
+          "treeNodeType" : "DE",
+          "hasPSDETreeNodeRSs" : false,
+          "appendPNodeId" : false,
+          "disableSelect" : false,
+          "enableCheck" : false,
+          "enableEditData" : false,
+          "enableNewData" : false,
+          "enablePaging" : true,
+          "enableQuickCreate" : false,
+          "enableQuickSearch" : true,
+          "enableRemoveData" : false,
+          "enableViewData" : false,
+          "expandFirstOnly" : false,
+          "expanded" : false,
+          "rootNode" : false,
+          "selectFirstOnly" : false,
+          "selected" : false,
+          "id" : "node_3"
+        } ],
+        "getRemovePSControlAction" : {
+          "modelref" : true,
+          "id" : "remove",
+          "actionName" : "Remove",
+          "actionType" : "DEACTION",
+          "dataAccessAction" : "DELETE",
+          "name" : "remove",
+          "getPSAppDEMethod" : {
+            "modelref" : true,
+            "id" : "remove"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+          }
+        },
+        "treeGridMode" : 0,
+        "getUpdatePSControlAction" : {
+          "modelref" : true,
+          "id" : "update",
+          "actionName" : "Update",
+          "actionType" : "DEACTION",
+          "dataAccessAction" : "UPDATE",
+          "name" : "update",
+          "getPSAppDEMethod" : {
+            "modelref" : true,
+            "id" : "update"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+          }
+        },
+        "enableRootSelect" : false,
+        "outputIconDefault" : true,
+        "rootVisible" : false,
+        "name" : "treeexpbar_tree",
+        "modelid" : "cb0440cac6994cb5c6f8f1c6af8ad424",
+        "modeltype" : "PSDETREEVIEW"
+      } ],
+      "xDataControlName" : "treeexpbar_tree",
+      "enableCounter" : true,
+      "enableSearch" : true,
+      "showTitleBar" : true,
+      "modelid" : "1dd5dae6a8a05dce6918e04f7ba309d3_treeexpbar",
+      "modeltype" : "PSEXPBAR"
+    }, {
+      "codeName" : "custom_view_treeexpbar2",
+      "controlType" : "TREEEXPBAR",
+      "name" : "treeexpbar2",
+      "getPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+      },
+      "getPSAppViewRefs" : [ {
+        "name" : "EXPITEM:edge",
+        "realTitle" : "知识库图谱关系编辑视图",
+        "getRefPSAppView" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_kb_graph_relation_edit_view.json",
+          "viewType" : "DEEDITVIEW"
+        }
+      }, {
+        "name" : "EXPITEM:node",
+        "realTitle" : "知识库图谱实体编辑视图",
+        "getRefPSAppView" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_kb_graph_entity_edit_view.json",
+          "viewType" : "DEEDITVIEW"
+        }
+      } ],
+      "getPSControlHandler" : {
+        "enableDEFieldPrivilege" : false,
+        "id" : "treeexpbar2"
+      },
+      "getPSControlParam" : {
+        "autoLoad" : true,
+        "showBusyIndicator" : true,
+        "ctrlParams" : {
+          "SOURCE_FIELD" : "subject_id",
+          "ICON_CODE_LIST" : "ai__entity_types",
+          "TARGET_FIELD" : "object_id",
+          "COLOR_LIST" : "[\"#5470c6\",\"#91cc75\",\"#ee6666\",\"#73c0de\",\"#3ba272\",\"#9a60b4\",\"#ea7ccc\",\"#2ec7c9\"]"
+        },
+        "id" : "TREEEXPBAR2"
+      },
+      "getPSControls" : [ {
+        "codeName" : "graph",
+        "controlStyle" : "KNOWLEDGE_GRAPH",
+        "controlType" : "TREEVIEW",
+        "getCreatePSControlAction" : {
+          "modelref" : true,
+          "id" : "create",
+          "actionName" : "Create",
+          "actionType" : "DEACTION",
+          "dataAccessAction" : "CREATE",
+          "name" : "create",
+          "getPSAppDEMethod" : {
+            "modelref" : true,
+            "id" : "create"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+          }
+        },
+        "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity/PSTREEVIEWS/graph.json",
+        "getFetchPSControlAction" : {
+          "modelref" : true,
+          "id" : "fetch",
+          "actionType" : "DEDATASET",
+          "name" : "fetch",
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+          }
+        },
+        "getGetPSControlAction" : {
+          "modelref" : true,
+          "id" : "load",
+          "actionName" : "Get",
+          "actionType" : "DEACTION",
+          "dataAccessAction" : "READ",
+          "name" : "load",
+          "getPSAppDEMethod" : {
+            "modelref" : true,
+            "id" : "get"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+          }
+        },
+        "hookEventNames" : [ "SELECTIONCHANGE", "LOAD" ],
+        "logicName" : "图谱树",
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+        },
+        "getPSControlHandler" : {
+          "getPSHandlerActions" : [ {
+            "actionName" : "Get",
+            "actionType" : "DEACTION",
+            "dataAccessAction" : "READ",
+            "name" : "load",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "get"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+            }
+          }, {
+            "actionName" : "Create",
+            "actionType" : "DEACTION",
+            "dataAccessAction" : "CREATE",
+            "name" : "create",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "create"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+            }
+          }, {
+            "actionName" : "Update",
+            "actionType" : "DEACTION",
+            "dataAccessAction" : "UPDATE",
+            "name" : "update",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "update"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+            }
+          }, {
+            "actionName" : "Remove",
+            "actionType" : "DEACTION",
+            "dataAccessAction" : "DELETE",
+            "name" : "remove",
+            "getPSAppDEMethod" : {
+              "modelref" : true,
+              "id" : "remove"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+            }
+          }, {
+            "actionType" : "DEDATASET",
+            "name" : "fetch",
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+            }
+          } ],
+          "userDRAction" : "READ",
+          "enableDEFieldPrivilege" : false,
+          "id" : "树视图处理器"
+        },
+        "getPSControlLogics" : [ {
+          "eventNames" : "SELECTIONCHANGE",
+          "logicTag" : "treeexpbar2_tree",
+          "logicType" : "CUSTOM",
+          "name" : "treeexpbar2_selectionchange"
+        }, {
+          "eventNames" : "LOAD",
+          "logicTag" : "treeexpbar2_tree",
+          "logicType" : "CUSTOM",
+          "name" : "treeexpbar2_load"
+        } ],
+        "getPSControlParam" : {
+          "autoLoad" : true,
+          "showBusyIndicator" : true,
+          "ctrlParams" : {
+            "SOURCE_FIELD" : "subject_id",
+            "ICON_CODE_LIST" : "ai__entity_types",
+            "TARGET_FIELD" : "object_id",
+            "COLOR_LIST" : "[\"#5470c6\",\"#91cc75\",\"#ee6666\",\"#73c0de\",\"#3ba272\",\"#9a60b4\",\"#ea7ccc\",\"#2ec7c9\"]"
+          },
+          "id" : "treeexpbar2_tree"
+        },
+        "getPSDETreeNodeRSs" : [ {
+          "getChildPSDETreeNode" : {
+            "modelref" : true,
+            "id" : "node"
+          },
+          "name" : "默认根节点 - node",
+          "getParentPSDETreeNode" : {
+            "modelref" : true,
+            "id" : "ROOT"
+          },
+          "parentValueLevel" : 1,
+          "searchMode" : 3
+        }, {
+          "getChildPSDETreeNode" : {
+            "modelref" : true,
+            "id" : "edge"
+          },
+          "name" : "默认根节点 - edge",
+          "getParentPSDETreeNode" : {
+            "modelref" : true,
+            "id" : "ROOT"
+          },
+          "parentValueLevel" : 1,
+          "searchMode" : 3
+        } ],
+        "getPSDETreeNodes" : [ {
+          "counterMode" : 0,
+          "name" : "默认根节点",
+          "nodeType" : "ROOT",
+          "text" : "默认根节点",
+          "treeNodeType" : "STATIC",
+          "hasPSDETreeNodeRSs" : true,
+          "appendPNodeId" : false,
+          "disableSelect" : false,
+          "enableCheck" : false,
+          "enableEditData" : false,
+          "enableNewData" : false,
+          "enableQuickCreate" : false,
+          "enableQuickSearch" : false,
+          "enableRemoveData" : false,
+          "enableViewData" : false,
+          "expandFirstOnly" : false,
+          "expanded" : false,
+          "rootNode" : true,
+          "selectFirstOnly" : false,
+          "selected" : false,
+          "id" : "ROOT"
+        }, {
+          "counterMode" : 0,
+          "dataSourceType" : "DEDATASET",
+          "getIdPSAppDEField" : {
+            "name" : "ID",
+            "codeName" : "id"
+          },
+          "maxSize" : -1,
+          "name" : "edge",
+          "getNavPSAppView" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_kb_graph_relation_edit_view.json",
+            "viewType" : "DEEDITVIEW"
+          },
+          "nodeType" : "edge",
+          "getPSAppDEDataSet" : {
+            "modelref" : true,
+            "id" : "fetch_cur_kb"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_relation.json"
+          },
+          "getTextPSAppDEField" : {
+            "name" : "NAME",
+            "codeName" : "name"
+          },
+          "treeNodeType" : "DE",
+          "hasPSDETreeNodeRSs" : false,
+          "appendPNodeId" : false,
+          "disableSelect" : false,
+          "enableCheck" : false,
+          "enableEditData" : false,
+          "enableNewData" : false,
+          "enableQuickCreate" : false,
+          "enableQuickSearch" : false,
+          "enableRemoveData" : false,
+          "enableViewData" : false,
+          "expandFirstOnly" : false,
+          "expanded" : false,
+          "rootNode" : false,
+          "selectFirstOnly" : false,
+          "selected" : false
+        }, {
+          "counterMode" : 0,
+          "dataSourceType" : "DEDATASET",
+          "getIconPSAppDEField" : {
+            "name" : "TYPE",
+            "codeName" : "type"
+          },
+          "getIdPSAppDEField" : {
+            "name" : "ID",
+            "codeName" : "id"
+          },
+          "maxSize" : -1,
+          "name" : "node",
+          "getNavPSAppView" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_kb_graph_entity_edit_view.json",
+            "viewType" : "DEEDITVIEW"
+          },
+          "nodeType" : "node",
+          "getPSAppDEDataSet" : {
+            "modelref" : true,
+            "id" : "fetch_cur_kb"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+          },
+          "getTextPSAppDEField" : {
+            "name" : "NAME",
+            "codeName" : "name"
+          },
+          "treeNodeType" : "DE",
+          "hasPSDETreeNodeRSs" : false,
+          "appendPNodeId" : false,
+          "disableSelect" : false,
+          "enableCheck" : false,
+          "enableEditData" : false,
+          "enableNewData" : false,
+          "enableQuickCreate" : false,
+          "enableQuickSearch" : false,
+          "enableRemoveData" : false,
+          "enableViewData" : false,
+          "expandFirstOnly" : false,
+          "expanded" : false,
+          "rootNode" : false,
+          "selectFirstOnly" : false,
+          "selected" : false
+        } ],
+        "getPSSysPFPlugin" : {
+          "pluginType" : "TREE_RENDER",
+          "pluginCode" : "KNOWLEDGE_GRAPH",
+          "runtimeObject" : true
+        },
+        "getRemovePSControlAction" : {
+          "modelref" : true,
+          "id" : "remove",
+          "actionName" : "Remove",
+          "actionType" : "DEACTION",
+          "dataAccessAction" : "DELETE",
+          "name" : "remove",
+          "getPSAppDEMethod" : {
+            "modelref" : true,
+            "id" : "remove"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+          }
+        },
+        "treeGridMode" : 0,
+        "getUpdatePSControlAction" : {
+          "modelref" : true,
+          "id" : "update",
+          "actionName" : "Update",
+          "actionType" : "DEACTION",
+          "dataAccessAction" : "UPDATE",
+          "name" : "update",
+          "getPSAppDEMethod" : {
+            "modelref" : true,
+            "id" : "update"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+          }
+        },
+        "enableRootSelect" : false,
+        "outputIconDefault" : true,
+        "rootVisible" : false,
+        "name" : "treeexpbar2_tree",
+        "modelid" : "5b74c785a1dea5fc8b3b878ce22047bb",
+        "modeltype" : "PSDETREEVIEW"
+      } ],
+      "xDataControlName" : "treeexpbar2_tree",
+      "enableCounter" : true,
+      "enableSearch" : false,
+      "showTitleBar" : true,
+      "modelid" : "1dd5dae6a8a05dce6918e04f7ba309d3_treeexpbar2",
+      "modeltype" : "PSEXPBAR"
+    }, {
+      "controlType" : "SEARCHBAR",
+      "name" : "searchbar",
+      "getPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+      },
+      "getPSControlParam" : {
+        "id" : "searchbar"
+      },
+      "quickGroupCount" : -1,
+      "quickSearchMode" : 1,
+      "quickSearchWidth" : 0,
+      "enableFilter" : false,
+      "enableGroup" : false,
+      "enableQuickSearch" : true,
+      "mobileSearchBar" : false
+    }, {
+      "caption" : "知识图谱",
+      "codeName" : "custom_view_captionbar",
+      "controlType" : "CAPTIONBAR",
+      "name" : "captionbar",
+      "getPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
+      },
+      "getPSControlParam" : { }
+    } ]
+  },
+  "title" : "知识图谱",
+  "viewStyle" : "DEFAULT",
+  "viewType" : "DEMDCUSTOMVIEW",
+  "enableDP" : true,
+  "enableFilter" : true,
+  "enableQuickSearch" : true,
+  "enableSearch" : true,
+  "showCaptionBar" : false,
+  "modelid" : "1dd5dae6a8a05dce6918e04f7ba309d3",
+  "modeltype" : "PSAPPDEVIEW"
+}

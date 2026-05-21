@@ -1,0 +1,49 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.\"head_id\"",
+    "name" : "HEAD_ID"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"identifier\"",
+    "name" : "IDENTIFIER"
+  }, {
+    "expression" : "t1.\"is_leaf\"",
+    "name" : "IS_LEAF"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"organization_id\"",
+    "name" : "ORGANIZATION_ID"
+  }, {
+    "expression" : "t1.\"parent_id\"",
+    "name" : "PARENT_ID"
+  }, {
+    "expression" : "t1.\"pname\"",
+    "name" : "PNAME"
+  }, {
+    "expression" : "t1.\"sort\"",
+    "name" : "SORT"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"description\",\nt1.\"head_id\",\nt1.\"id\",\nt1.\"identifier\",\nt1.\"is_leaf\",\nt1.\"name\",\nt1.\"organization_id\",\nt1.\"parent_id\",\nt1.\"pname\",\nt1.\"sort\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"\" t1 \n",
+  "id" : "PSMODULES/Base/PSDATAENTITIES/department/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

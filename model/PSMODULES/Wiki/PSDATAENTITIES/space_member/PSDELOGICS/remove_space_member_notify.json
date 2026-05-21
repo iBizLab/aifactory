@@ -1,0 +1,33 @@
+{
+  "codeName" : "remove_space_member_notify",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/Wiki/PSDATAENTITIES/space_member/PSDELOGICS/remove_space_member_notify.json",
+  "logicName" : "移除空间成员发送通知",
+  "memo" : "移除空间成员时向对应用户发送通知消息",
+  "name" : "移除空间成员发送通知",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : 440,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "topPos" : 210,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Wiki/PSDATAENTITIES/space_member.json"
+    },
+    "default" : true,
+    "entityParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

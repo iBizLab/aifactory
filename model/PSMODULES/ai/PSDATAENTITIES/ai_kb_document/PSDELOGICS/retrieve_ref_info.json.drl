@@ -1,0 +1,110 @@
+package cn.ibizlab.ai.logic.ai_kb_documentlogic.retrieve_ref_info;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_kb_document ai_kb_documentretrieve_ref_infodefault;
+                global cn.ibizlab.core.ai.domain.ai_kb_chunk ai_kb_documentretrieve_ref_infochunk;
+                global java.util.Map ai_kb_documentretrieve_ref_infochunkfilter;
+                global java.util.Map ai_kb_documentretrieve_ref_infochunklist;
+                    global cn.ibizlab.core.ai.service.Iai_kb_documentService ai_kb_documentservice;
+        global cn.ibizlab.core.ai.service.Iai_kb_documentService iBzSysAi_kb_documentDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_kb_documentretrieve_ref_infobegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[查询智能分析]
+            rule "rawsqlcall_01"
+            ruleflow-group "ai_kb_documentretrieve_ref_inforawsqlcall_01"
+            when
+            then
+    Map param =new HashMap();
+        param.put("param0",ai_kb_documentretrieve_ref_infodefault.get("id"));
+    String strSql="select content as intelligent_analysis from AI_KB_CHUNK where document_id = #{et.param0} and pid is null and type='cluster'";
+                        java.util.List<JSONObject> entities=iBzSysAi_kb_documentDefaultService.select(strSql,param);//SQL调用
+                            if(entities.size()>0){
+                            JSONObject entity=entities.get(0);
+                                    for (Map.Entry entry : entity.entrySet()) {
+                                    ai_kb_documentretrieve_ref_infodefault.set(String.valueOf(entry.getKey()),entry.getValue());
+                                    }
+                            }
+                        update(ai_kb_documentretrieve_ref_infodefault);//更新fact中变量值
+                        update(ai_kb_documentretrieve_ref_infochunk);//更新fact中变量值
+                        update(ai_kb_documentretrieve_ref_infochunkfilter);//更新fact中变量值
+                        update(ai_kb_documentretrieve_ref_infochunklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[查询关键字和问题]
+            rule "rawsqlcall_02"
+            ruleflow-group "ai_kb_documentretrieve_ref_inforawsqlcall_02"
+            when
+            then
+    Map param =new HashMap();
+        param.put("param0",ai_kb_documentretrieve_ref_infodefault.get("id"));
+    String strSql="SELECT keywords,key_questions FROM AI_KB_CHUNK where key_questions is NOT null and document_id = #{et.param0} ORDER BY RANDOM() LIMIT 1;";
+                        java.util.List<JSONObject> entities=iBzSysAi_kb_documentDefaultService.select(strSql,param);//SQL调用
+                            if(entities.size()>0){
+                            JSONObject entity=entities.get(0);
+                                    for (Map.Entry entry : entity.entrySet()) {
+                                    ai_kb_documentretrieve_ref_infodefault.set(String.valueOf(entry.getKey()),entry.getValue());
+                                    }
+                            }
+                        update(ai_kb_documentretrieve_ref_infodefault);//更新fact中变量值
+                        update(ai_kb_documentretrieve_ref_infochunk);//更新fact中变量值
+                        update(ai_kb_documentretrieve_ref_infochunkfilter);//更新fact中变量值
+                        update(ai_kb_documentretrieve_ref_infochunklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[执行脚本代码]
+            rule "rawsfcode2"
+            ruleflow-group "ai_kb_documentretrieve_ref_inforawsfcode2"
+            when
+            then
+                        update(ai_kb_documentretrieve_ref_infodefault);//更新fact中变量值
+                        update(ai_kb_documentretrieve_ref_infochunk);//更新fact中变量值
+                        update(ai_kb_documentretrieve_ref_infochunkfilter);//更新fact中变量值
+                        update(ai_kb_documentretrieve_ref_infochunklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[执行脚本代码]
+            rule "rawsfcode_01"
+            ruleflow-group "ai_kb_documentretrieve_ref_inforawsfcode_01"
+            when
+            then
+                        update(ai_kb_documentretrieve_ref_infodefault);//更新fact中变量值
+                        update(ai_kb_documentretrieve_ref_infochunk);//更新fact中变量值
+                        update(ai_kb_documentretrieve_ref_infochunkfilter);//更新fact中变量值
+                        update(ai_kb_documentretrieve_ref_infochunklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[实体处理逻辑]
+            rule "delogic_01"
+            ruleflow-group "ai_kb_documentretrieve_ref_infodelogic_01"
+            when
+            then
+                        update(ai_kb_documentretrieve_ref_infodefault);//更新fact中变量值
+                        update(ai_kb_documentretrieve_ref_infochunk);//更新fact中变量值
+                        update(ai_kb_documentretrieve_ref_infochunkfilter);//更新fact中变量值
+                        update(ai_kb_documentretrieve_ref_infochunklist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "ai_kb_documentretrieve_ref_infoend_01"
+            when
+            then
+                        update(ai_kb_documentretrieve_ref_infodefault);//更新fact中变量值
+                        update(ai_kb_documentretrieve_ref_infochunk);//更新fact中变量值
+                        update(ai_kb_documentretrieve_ref_infochunkfilter);//更新fact中变量值
+                        update(ai_kb_documentretrieve_ref_infochunklist);//更新fact中变量值
+            end

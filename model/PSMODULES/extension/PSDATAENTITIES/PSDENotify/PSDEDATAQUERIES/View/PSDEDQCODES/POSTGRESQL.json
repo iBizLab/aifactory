@@ -1,0 +1,124 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"beginpsdefid\"",
+    "name" : "BEGINPSDEFID"
+  }, {
+    "expression" : "t1.\"beginpsdefname\"",
+    "name" : "BEGINPSDEFNAME"
+  }, {
+    "expression" : "t1.\"checktimer\"",
+    "name" : "CHECKTIMER"
+  }, {
+    "expression" : "t1.\"codename\"",
+    "name" : "CODENAME"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"customcond\"",
+    "name" : "CUSTOMCOND"
+  }, {
+    "expression" : "t1.\"endpsdefid\"",
+    "name" : "ENDPSDEFID"
+  }, {
+    "expression" : "t1.\"endpsdefname\"",
+    "name" : "ENDPSDEFNAME"
+  }, {
+    "expression" : "t1.\"events\"",
+    "name" : "EVENTS"
+  }, {
+    "expression" : "t1.\"fields\"",
+    "name" : "FIELDS"
+  }, {
+    "expression" : "t1.\"msgtype\"",
+    "name" : "MSGTYPE"
+  }, {
+    "expression" : "t1.\"notifyend\"",
+    "name" : "NOTIFYEND"
+  }, {
+    "expression" : "t1.\"notifystart\"",
+    "name" : "NOTIFYSTART"
+  }, {
+    "expression" : "t1.\"notifysubtype\"",
+    "name" : "NOTIFYSUBTYPE"
+  }, {
+    "expression" : "t1.\"notifytag\"",
+    "name" : "NOTIFYTAG"
+  }, {
+    "expression" : "t1.\"notifytag2\"",
+    "name" : "NOTIFYTAG2"
+  }, {
+    "expression" : "t1.\"psdedsid\"",
+    "name" : "PSDEDSID"
+  }, {
+    "expression" : "t1.\"psdedsname\"",
+    "name" : "PSDEDSNAME"
+  }, {
+    "expression" : "t1.\"psdeid\"",
+    "name" : "PSDEID"
+  }, {
+    "expression" : "t1.\"psdename\"",
+    "name" : "PSDENAME"
+  }, {
+    "expression" : "t1.\"psdenotifyid\"",
+    "name" : "PSDENOTIFYID"
+  }, {
+    "expression" : "t1.\"psdenotifyname\"",
+    "name" : "PSDENOTIFYNAME"
+  }, {
+    "expression" : "t1.\"psdenotifytargets\"",
+    "name" : "PSDENOTIFYTARGETS"
+  }, {
+    "expression" : "t1.\"pssysmsgqueueid\"",
+    "name" : "PSSYSMSGQUEUEID"
+  }, {
+    "expression" : "t1.\"pssysmsgqueuename\"",
+    "name" : "PSSYSMSGQUEUENAME"
+  }, {
+    "expression" : "t1.\"pssysmsgtemplid\"",
+    "name" : "PSSYSMSGTEMPLID"
+  }, {
+    "expression" : "t1.\"pssysmsgtemplname\"",
+    "name" : "PSSYSMSGTEMPLNAME"
+  }, {
+    "expression" : "t1.\"pssyssfpluginid\"",
+    "name" : "PSSYSSFPLUGINID"
+  }, {
+    "expression" : "t1.\"pssyssfpluginname\"",
+    "name" : "PSSYSSFPLUGINNAME"
+  }, {
+    "expression" : "t1.\"taskmode\"",
+    "name" : "TASKMODE"
+  }, {
+    "expression" : "t1.\"timermode\"",
+    "name" : "TIMERMODE"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"usertag\"",
+    "name" : "USERTAG"
+  }, {
+    "expression" : "t1.\"usertag2\"",
+    "name" : "USERTAG2"
+  }, {
+    "expression" : "t1.\"usertag3\"",
+    "name" : "USERTAG3"
+  }, {
+    "expression" : "t1.\"usertag4\"",
+    "name" : "USERTAG4"
+  }, {
+    "expression" : "t1.\"validflag\"",
+    "name" : "VALIDFLAG"
+  } ],
+  "queryCode" : "SELECT\nt1.\"beginpsdefid\",\nt1.\"beginpsdefname\",\nt1.\"checktimer\",\nt1.\"codename\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"customcond\",\nt1.\"endpsdefid\",\nt1.\"endpsdefname\",\nt1.\"events\",\nt1.\"fields\",\nt1.\"msgtype\",\nt1.\"notifyend\",\nt1.\"notifystart\",\nt1.\"notifysubtype\",\nt1.\"notifytag\",\nt1.\"notifytag2\",\nt1.\"psdedsid\",\nt1.\"psdedsname\",\nt1.\"psdeid\",\nt1.\"psdename\",\nt1.\"psdenotifyid\",\nt1.\"psdenotifyname\",\nt1.\"psdenotifytargets\",\nt1.\"pssysmsgqueueid\",\nt1.\"pssysmsgqueuename\",\nt1.\"pssysmsgtemplid\",\nt1.\"pssysmsgtemplname\",\nt1.\"pssyssfpluginid\",\nt1.\"pssyssfpluginname\",\nt1.\"taskmode\",\nt1.\"timermode\",\nt1.\"update_man\",\nt1.\"update_time\",\nt1.\"usertag\",\nt1.\"usertag2\",\nt1.\"usertag3\",\nt1.\"usertag4\",\nt1.\"validflag\"\nFROM \"\" t1 \n",
+  "id" : "PSMODULES/extension/PSDATAENTITIES/PSDENotify/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

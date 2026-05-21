@@ -1,0 +1,55 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"identifier\"",
+    "name" : "IDENTIFIER"
+  }, {
+    "expression" : "t1.\"is_deleted\"",
+    "name" : "IS_DELETED"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"owner_id\"",
+    "name" : "OWNER_ID"
+  }, {
+    "expression" : "t1.\"owner_subtype\"",
+    "name" : "OWNER_SUBTYPE"
+  }, {
+    "expression" : "t1.\"owner_type\"",
+    "name" : "OWNER_TYPE"
+  }, {
+    "expression" : "t1.\"recent_parent\"",
+    "name" : "RECENT_PARENT"
+  }, {
+    "expression" : "t1.\"recent_parent_identifier\"",
+    "name" : "RECENT_PARENT_IDENTIFIER"
+  }, {
+    "expression" : "t1.\"recent_parent_name\"",
+    "name" : "RECENT_PARENT_NAME"
+  }, {
+    "expression" : "concat(t1.\"recent_parent_identifier\",'-',t1.\"identifier\")",
+    "name" : "SHOW_IDENTIFIER"
+  }, {
+    "expression" : "t1.\"type\"",
+    "name" : "TYPE"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"id\",\nt1.\"identifier\",\nt1.\"is_deleted\",\nt1.\"name\",\nt1.\"owner_id\",\nt1.\"owner_subtype\",\nt1.\"owner_type\",\nt1.\"recent_parent\",\nt1.\"recent_parent_identifier\",\nt1.\"recent_parent_name\",\nconcat(t1.\"recent_parent_identifier\",'-',t1.\"identifier\") AS \"show_identifier\",\nt1.\"type\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"recent\" t1 \n",
+  "id" : "PSMODULES/Base/PSDATAENTITIES/recent/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

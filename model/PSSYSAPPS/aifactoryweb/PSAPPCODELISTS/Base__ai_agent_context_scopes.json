@@ -1,0 +1,43 @@
+{
+  "codeListTag" : "Base__ai_agent_context_scopes",
+  "codeListType" : "STATIC",
+  "codeName" : "Base__ai_agent_context_scopes",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/Base__ai_agent_context_scopes.json",
+  "emptyText" : "未定义",
+  "name" : "智能体业务范围",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
+  },
+  "getPSCodeItems" : [ {
+    "codeName" : "ai_knowledge_base",
+    "text" : "空间",
+    "value" : "ai_knowledge_base"
+  }, {
+    "codeName" : "ai_kb_document",
+    "text" : "文档",
+    "value" : "ai_kb_document"
+  }, {
+    "codeName" : "ai_agent_context",
+    "text" : "智能体",
+    "value" : "ai_agent_context"
+  }, {
+    "codeName" : "page",
+    "text" : "页面",
+    "value" : "page"
+  }, {
+    "codeName" : "deep_research",
+    "text" : "深度研究",
+    "value" : "deep_research"
+  }, {
+    "codeName" : "qa",
+    "text" : "问答",
+    "value" : "qa"
+  }, {
+    "codeName" : "other",
+    "text" : "其他",
+    "value" : "other"
+  } ],
+  "enableCache" : true
+}

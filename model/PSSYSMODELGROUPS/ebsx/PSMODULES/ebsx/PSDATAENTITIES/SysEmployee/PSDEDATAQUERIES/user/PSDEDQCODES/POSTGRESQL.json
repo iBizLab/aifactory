@@ -1,0 +1,192 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "( t1.\"userid\" = #{ctx.sessioncontext.srfpersonid} )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"reserver10\"",
+    "name" : "RESERVER10"
+  }, {
+    "expression" : "t1.\"reserver9\"",
+    "name" : "RESERVER9"
+  }, {
+    "expression" : "t1.\"addr\"",
+    "name" : "ADDR"
+  }, {
+    "expression" : "t1.\"avatar\"",
+    "name" : "AVATAR"
+  }, {
+    "expression" : "t1.\"bcode\"",
+    "name" : "BCODE"
+  }, {
+    "expression" : "t1.\"birthday\"",
+    "name" : "BIRTHDAY"
+  }, {
+    "expression" : "t1.\"certcode\"",
+    "name" : "CERTCODE"
+  }, {
+    "expression" : "t1.\"createdate\"",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.\"ddunionid\"",
+    "name" : "DDUNIONID"
+  }, {
+    "expression" : "t1.\"dduserid\"",
+    "name" : "DDUSERID"
+  }, {
+    "expression" : "t1.\"domains\"",
+    "name" : "DOMAINS"
+  }, {
+    "expression" : "t1.\"email\"",
+    "name" : "EMAIL"
+  }, {
+    "expression" : "t1.\"enable\"",
+    "name" : "ENABLE"
+  }, {
+    "expression" : "t1.\"fontsize\"",
+    "name" : "FONTSIZE"
+  }, {
+    "expression" : "t1.\"ipaddr\"",
+    "name" : "IPADDR"
+  }, {
+    "expression" : "t1.\"lang\"",
+    "name" : "LANG"
+  }, {
+    "expression" : "t1.\"loginname\"",
+    "name" : "LOGINNAME"
+  }, {
+    "expression" : "t1.\"mdeptid\"",
+    "name" : "MDEPTID"
+  }, {
+    "expression" : "t1.\"mdeptname\"",
+    "name" : "MDEPTNAME"
+  }, {
+    "expression" : "t1.\"memo\"",
+    "name" : "MEMO"
+  }, {
+    "expression" : "t1.\"msgtype\"",
+    "name" : "MSGTYPE"
+  }, {
+    "expression" : "t1.\"nickname\"",
+    "name" : "NICKNAME"
+  }, {
+    "expression" : "t1.\"orgid\"",
+    "name" : "ORGID"
+  }, {
+    "expression" : "t1.\"orgname\"",
+    "name" : "ORGNAME"
+  }, {
+    "expression" : "t1.\"password\"",
+    "name" : "PASSWORD"
+  }, {
+    "expression" : "t1.\"personname\"",
+    "name" : "PERSONNAME"
+  }, {
+    "expression" : "t1.\"phone\"",
+    "name" : "PHONE"
+  }, {
+    "expression" : "t1.\"postid\"",
+    "name" : "POSTID"
+  }, {
+    "expression" : "t1.\"postname\"",
+    "name" : "POSTNAME"
+  }, {
+    "expression" : "t1.\"reserver\"",
+    "name" : "RESERVER"
+  }, {
+    "expression" : "t1.\"reserver11\"",
+    "name" : "RESERVER11"
+  }, {
+    "expression" : "t1.\"reserver12\"",
+    "name" : "RESERVER12"
+  }, {
+    "expression" : "t1.\"reserver13\"",
+    "name" : "RESERVER13"
+  }, {
+    "expression" : "t1.\"reserver14\"",
+    "name" : "RESERVER14"
+  }, {
+    "expression" : "t1.\"reserver15\"",
+    "name" : "RESERVER15"
+  }, {
+    "expression" : "t1.\"reserver16\"",
+    "name" : "RESERVER16"
+  }, {
+    "expression" : "t1.\"reserver17\"",
+    "name" : "RESERVER17"
+  }, {
+    "expression" : "t1.\"reserver18\"",
+    "name" : "RESERVER18"
+  }, {
+    "expression" : "t1.\"reserver19\"",
+    "name" : "RESERVER19"
+  }, {
+    "expression" : "t1.\"reserver2\"",
+    "name" : "RESERVER2"
+  }, {
+    "expression" : "t1.\"reserver20\"",
+    "name" : "RESERVER20"
+  }, {
+    "expression" : "t1.\"reserver3\"",
+    "name" : "RESERVER3"
+  }, {
+    "expression" : "t1.\"reserver4\"",
+    "name" : "RESERVER4"
+  }, {
+    "expression" : "t1.\"reserver5\"",
+    "name" : "RESERVER5"
+  }, {
+    "expression" : "t1.\"reserver6\"",
+    "name" : "RESERVER6"
+  }, {
+    "expression" : "t1.\"reserver7\"",
+    "name" : "RESERVER7"
+  }, {
+    "expression" : "t1.\"reserver8\"",
+    "name" : "RESERVER8"
+  }, {
+    "expression" : "t1.\"sex\"",
+    "name" : "SEX"
+  }, {
+    "expression" : "t1.\"showorder\"",
+    "name" : "SHOWORDER"
+  }, {
+    "expression" : "t1.\"state\"",
+    "name" : "STATE"
+  }, {
+    "expression" : "t1.\"superuser\"",
+    "name" : "SUPERUSER"
+  }, {
+    "expression" : "t1.\"theme\"",
+    "name" : "THEME"
+  }, {
+    "expression" : "t1.\"uaauserid\"",
+    "name" : "UAAUSERID"
+  }, {
+    "expression" : "t1.\"updatedate\"",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.\"usercode\"",
+    "name" : "USERCODE"
+  }, {
+    "expression" : "t1.\"usericon\"",
+    "name" : "USERICON"
+  }, {
+    "expression" : "t1.\"userid\"",
+    "name" : "USERID"
+  }, {
+    "expression" : "t1.\"username\"",
+    "name" : "USERNAME"
+  }, {
+    "expression" : "t1.\"wxworkunionid\"",
+    "name" : "WXWORKUNIONID"
+  }, {
+    "expression" : "t1.\"wxworkuserid\"",
+    "name" : "WXWORKUSERID"
+  } ],
+  "queryCode" : "SELECT\nt1.\"addr\",\nt1.\"avatar\",\nt1.\"bcode\",\nt1.\"birthday\",\nt1.\"certcode\",\nt1.\"createdate\",\nt1.\"ddunionid\",\nt1.\"dduserid\",\nt1.\"domains\",\nt1.\"email\",\nt1.\"enable\",\nt1.\"fontsize\",\nt1.\"ipaddr\",\nt1.\"lang\",\nt1.\"loginname\",\nt1.\"mdeptid\",\nt1.\"mdeptname\",\nt1.\"memo\",\nt1.\"msgtype\",\nt1.\"nickname\",\nt1.\"orgid\",\nt1.\"orgname\",\nt1.\"password\",\nt1.\"personname\",\nt1.\"phone\",\nt1.\"postid\",\nt1.\"postname\",\nt1.\"reserver\",\nt1.\"reserver11\",\nt1.\"reserver12\",\nt1.\"reserver13\",\nt1.\"reserver14\",\nt1.\"reserver15\",\nt1.\"reserver16\",\nt1.\"reserver17\",\nt1.\"reserver18\",\nt1.\"reserver19\",\nt1.\"reserver2\",\nt1.\"reserver20\",\nt1.\"reserver3\",\nt1.\"reserver4\",\nt1.\"reserver5\",\nt1.\"reserver6\",\nt1.\"reserver7\",\nt1.\"reserver8\",\nt1.\"sex\",\nt1.\"showorder\",\nt1.\"state\",\nt1.\"superuser\",\nt1.\"theme\",\nt1.\"uaauserid\",\nt1.\"updatedate\",\nt1.\"usercode\",\nt1.\"usericon\",\nt1.\"userid\",\nt1.\"username\",\nt1.\"wxworkunionid\",\nt1.\"wxworkuserid\"\nFROM \"\" t1 \n",
+  "id" : "PSSYSMODELGROUPS/ebsx/PSMODULES/ebsx/PSDATAENTITIES/SysEmployee/PSDEDATAQUERIES/user/PSDEDQCODES/POSTGRESQL.json"
+}

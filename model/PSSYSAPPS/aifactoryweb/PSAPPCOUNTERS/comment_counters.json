@@ -1,0 +1,16 @@
+{
+  "codeName" : "comment_counters",
+  "counterType" : "DEDR",
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPCOUNTERS/comment_counters.json",
+  "getGetPSAppDEAction" : {
+    "modelref" : true,
+    "id" : "comment_counters"
+  },
+  "name" : "知识库文档评论计数器",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
+  },
+  "timer" : 60000,
+  "uniqueTag" : "comment_counters"
+}

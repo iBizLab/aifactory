@@ -1,0 +1,33 @@
+{
+  "codeListTag" : "meta__resource_kb_sync_type",
+  "codeListType" : "STATIC",
+  "codeName" : "resource_kb_sync_type",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSMODULES/meta/PSCODELISTS/resource_kb_sync_type.json",
+  "emptyText" : "未定义",
+  "name" : "资源库同步类型",
+  "getPSCodeItems" : [ {
+    "codeName" : "none",
+    "text" : "不同步创建知识库",
+    "value" : "none"
+  }, {
+    "codeName" : "resource",
+    "text" : "按资源类型创建一个知识库",
+    "value" : "resource"
+  }, {
+    "codeName" : "record",
+    "text" : "每条资源数据创建一个知识库",
+    "value" : "record"
+  } ],
+  "getPSSystemModule" : {
+    "modelref" : true,
+    "path" : "PSMODULES/meta.json"
+  },
+  "refFlag" : true,
+  "systemTag" : "iBizAIFactory",
+  "codeItemValueNumber" : false,
+  "enableCache" : true,
+  "subSysAsCloud" : false,
+  "subSysCodeList" : false,
+  "userScope" : false
+}

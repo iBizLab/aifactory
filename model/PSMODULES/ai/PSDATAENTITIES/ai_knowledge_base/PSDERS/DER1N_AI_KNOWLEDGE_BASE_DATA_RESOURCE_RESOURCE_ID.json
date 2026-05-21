@@ -1,0 +1,32 @@
+{
+  "codeName" : "data_resource",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDERS/DER1N_AI_KNOWLEDGE_BASE_DATA_RESOURCE_RESOURCE_ID.json",
+  "fKeyName" : "F3F16B5E3671EEAEAC",
+  "logicName" : "数据资源",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/meta/PSDATAENTITIES/data_resource.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+  },
+  "name" : "DER1N_AI_KNOWLEDGE_BASE_DATA_RESOURCE_RESOURCE_ID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "RESOURCE_ID",
+    "codeName" : "resource_id"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "RESOURCE",
+    "codeName" : "resource"
+  },
+  "pickupDEFName" : "RESOURCE_ID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "data_resource",
+  "enableFKey" : true
+}

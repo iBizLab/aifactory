@@ -1,0 +1,61 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"avatar\"",
+    "name" : "AVATAR"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"department_id\"",
+    "name" : "DEPARTMENT_ID"
+  }, {
+    "expression" : "t1.\"display_name\"",
+    "name" : "DISPLAY_NAME"
+  }, {
+    "expression" : "t1.\"email\"",
+    "name" : "EMAIL"
+  }, {
+    "expression" : "t1.\"employee_number\"",
+    "name" : "EMPLOYEE_NUMBER"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"job_id\"",
+    "name" : "JOB_ID"
+  }, {
+    "expression" : "t1.\"mobile\"",
+    "name" : "MOBILE"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"open_user_tag\"",
+    "name" : "OPEN_USER_TAG"
+  }, {
+    "expression" : "t1.\"organization_id\"",
+    "name" : "ORGANIZATION_ID"
+  }, {
+    "expression" : "t1.\"password\"",
+    "name" : "PASSWORD"
+  }, {
+    "expression" : "t1.\"status\"",
+    "name" : "STATUS"
+  }, {
+    "expression" : "t1.\"title\"",
+    "name" : "TITLE"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"avatar\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"department_id\",\nt1.\"display_name\",\nt1.\"email\",\nt1.\"employee_number\",\nt1.\"id\",\nt1.\"job_id\",\nt1.\"mobile\",\nt1.\"name\",\nt1.\"open_user_tag\",\nt1.\"organization_id\",\nt1.\"password\",\nt1.\"status\",\nt1.\"title\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"\" t1 \n",
+  "id" : "PSMODULES/Base/PSDATAENTITIES/user/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

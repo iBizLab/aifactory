@@ -1,0 +1,66 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "( ( t1.\"status\" = 'active'  OR  t1.\"status\" = 'paused' )  AND  t1.\"user_id\" = #{ctx.sessioncontext.srfpersonid}  AND  t1.\"type\" = 'topic' )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t11.\"name\"",
+    "name" : "AGENT_CONTEXT_NAME"
+  }, {
+    "expression" : "t1.\"ai_agent_context_id\"",
+    "name" : "AI_AGENT_CONTEXT_ID"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"is_top\"",
+    "name" : "IS_TOP"
+  }, {
+    "expression" : "(SELECT MAX(m.create_time) FROM AI_AGENT_MESSAGE m LEFT JOIN AI_AGENT_CONVERSATION conv ON m.conversation_id = conv.id WHERE conv.id = t1.\"id\")",
+    "name" : "LAST_ACTIVE_AT"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"scope\"",
+    "name" : "SCOPE"
+  }, {
+    "expression" : "t1.\"sequence\"",
+    "name" : "SEQUENCE"
+  }, {
+    "expression" : "t1.\"session_id\"",
+    "name" : "SESSION_ID"
+  }, {
+    "expression" : "case when t1.\"title\" is null then t11.\"name\" else t1.\"title\" end",
+    "name" : "SHOW_NAME"
+  }, {
+    "expression" : "t1.\"status\"",
+    "name" : "STATUS"
+  }, {
+    "expression" : "t1.\"title\"",
+    "name" : "TITLE"
+  }, {
+    "expression" : "t1.\"type\"",
+    "name" : "TYPE"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"user_id\"",
+    "name" : "USER_ID"
+  } ],
+  "queryCode" : "SELECT\nt11.\"name\" AS \"agent_context_name\",\nt1.\"ai_agent_context_id\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"id\",\nt1.\"is_top\",\n(SELECT MAX(m.create_time) FROM AI_AGENT_MESSAGE m LEFT JOIN AI_AGENT_CONVERSATION conv ON m.conversation_id = conv.id WHERE conv.id = t1.\"id\") AS \"last_active_at\",\nt1.\"name\",\nt1.\"scope\",\nt1.\"sequence\",\nt1.\"session_id\",\ncase when t1.\"title\" is null then t11.\"name\" else t1.\"title\" end AS \"show_name\",\nt1.\"status\",\nt1.\"title\",\nt1.\"type\",\nt1.\"update_man\",\nt1.\"update_time\",\nt1.\"user_id\"\nFROM \"ai_agent_conversation\" t1 \nLEFT JOIN \"ai_agent_context\" t11 ON t1.\"ai_agent_context_id\" = t11.\"id\" \n",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation/PSDEDATAQUERIES/cur_user_active/PSDEDQCODES/POSTGRESQL.json"
+}

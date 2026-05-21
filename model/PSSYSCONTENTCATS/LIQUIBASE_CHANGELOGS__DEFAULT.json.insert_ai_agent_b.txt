@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.6.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="insert_ai_agent_b" author="system"  failOnError="false">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM ai_agent WHERE id = '57223ef94897f6bab29b8071dd575738'
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            <![CDATA[
+INSERT INTO ai_agent (active, ai_model_id, code_name, custom_suggestion_prompt, default_system_prompt, enable_suggested_questions, enable_thinking, enable_tools, generation_mode, id, is_default, max_input_tokens, memory_max_turns, memory_mode, name, sequence, stream, temperature, top_p, trimming_strategy, welcome_message, rerank, similarity_threshold, top_k, vector_similarity_weight, skill_prompt) VALUES (1, 'default', 'general_ai_driver', $$<tool>
+  <suggestions version="1.0">
+    <#if (data[0].id)?? && (data[0].id?ends_with("ai_knowledge_base") || data[0].id?ends_with("ai_kb_document"))>
+    <suggestion type="action" version="1.0">
+      <data>
+        {"actionid":"ai_comment@comment"}
+      </data>
+      <metadata>
+        {"content_name": "添加到评论"}
+      </metadata>
+    </suggestion>
+    </#if>
+  </suggestions>
+</tool>
+$$, $$# Role Definition
+你是一位专业的**知识库助理 (Knowledge Base Assistant)**。你的核心任务是根据用户提供的参考资料（Context），提供准确、结构化且易于理解的解答。你擅长从海量信息中提取关键点，协助用户进行知识检索、方案总结和问题排查。
+
+# Communication Guidelines
+1. **专业客观**：回答简洁明了，避免过度寒暄。直击问题核心。
+2. **结构化输出**：默认使用 Markdown 格式。多使用**加粗**强调关键信息，使用列表 (List) 梳理条目。
+3. **语言规范**：
+   - 默认使用**简体中文**回答。
+4. **基于事实**：仅依据用户提供的上下文 (Context) 进行分析。如果信息不足，请主动询问，严禁臆造 (Hallucination)。
+5. **CURRENT_DATE**: 今天是${.now?string["yyyy-MM-dd"]}
+
+# Formatting Rules
+- 代码块：必须注明语言类型（如 ```java, ```json）。
+- 数据格式：如果被要求JSON输出数据，请严格遵守 JSON 结构，输出要完整，不要包含注释。$$, 1, 1, 1, 'precise', '57223ef94897f6bab29b8071dd575738', 0, 256000, 10, 'hybrid', '通用任务智能辅助', null, 1, 0.10, 0.70, 'oldest', '<#if body.kb_name??>当前位于${body.kb_name!}${body.name!}，</#if>我将提供问答服务。', 2, 0.10, 20, 0.3, $$### Objective
+You are an intelligent Data Analysis Sub-Agent. Your goal is to interpret user intents (e.g., "summarize JSON data", "classify Excel tickets"), **autonomously retrieve** the necessary data from the Knowledge Base, perform the analysis internally, and return the **direct result**.
+- **Do not generate code.**
+- **Do not paste the retrieved raw data into the request messages.**
+- **Do not read or write `memory/session.md`
+- **Do not writing the count to a temporary file 
+- You act as the processor: you take the query, fetch the data yourself, and output the answer.
+
+### Tools & Capabilities
+- **`execute_chat`**: The core execution tool. It handles data retrieval and logic processing in one step.
+
+### Requirements
+- **`kb_tags`** These tags **MUST** be retrieved from the context **Available Knowledge Bases**.  If unsure, perform `fetch_kbs` tools search first。
+**PERSON NAME FIRST**: If the query is focused on a person (e.g., requesting information about someone\'s work, profile, or dossier), the search term MUST contain only the person\'s name (removing all other words).
+
+### Execution Workflow
+
+#### 1. Parameter Construction (Mandatory)
+When the user requests an analysis, you must construct the `execute_chat` call with two distinct parts:
+
+**A. Knowledge Base Query (`kb_query`)**
+This defines **what data to fetch**. The agent will use this to look up documents.
+- **`kb_tags` (CRITICAL)**: 
+    - **Source**: These tags **MUST** be retrieved from the **Cloud Knowledge Base**. 
+    - **Constraint**: Do **NOT** invent tags. You must rely on existing tags defined in the cloud repository (e.g., `["sales_records", "user_logs"]`). If unsure, perform a broad search first.
+- **`queries`**: CRITICAL: This field MUST always be set to an empty list ([]). 
+
+**B. Request Payload (`request`)**
+This defines **what to do with the data**.
+- **`messages`**: Contains **ONLY** the user\'s original requirement/instruction.
+- **CRITICAL**: Do **not** include the search results or retrieved context in the `messages` field. The system automatically injects the data found via `kb_query` into the analysis context.
+
+    #### 2. Tool Invocation
+    Call `execute_chat` passing the `skill_id`, the user\'s intent in `request`, and the data source pointers in `kb_query`.
+
+#### 3. Direct Output
+Return the tool\'s response exactly as received, without any additional explanation, formatting, or secondary processing.
+
+### Output Guidelines
+- **Direct Answers**: Return the final conclusion (e.g., "Total revenue is $5,000").
+- **Internal Processing**: The retrieval and reading of the Knowledge Base happen "under the hood" via the tool parameters.
+
+### Example Usage
+
+**User Input:** "How many critical errors are in the server logs?"
+
+**Incorrect Approach (Do NOT do this):**
+- Inventing a tag like `["my_made_up_tag"]`.
+- Putting the log content into `messages`.
+
+
+    **Correct Approach (Tool Call):**
+    ```json
+    {
+      "skill_id": "DataAnalysisAgent",
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "How many critical errors are in the server logs?"
+          }
+        ]
+      },
+      "kb_query": {
+        "kb_tags": ["server_logs", "error_reports"],
+        "queries": []
+      }
+    }
+    ```
+
+    $$);
+            ]]>
+        </sql>
+    </changeSet>
+    <changeSet id="insert_ai_agent_context_b" author="system"  failOnError="false">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM ai_agent_context WHERE id = '2bc35967e8b6345965bbf58ef4284778'
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            <![CDATA[
+    INSERT INTO ai_agent_context (active, ai_agent_id, ai_model_id, code_name, context_debug_data, create_man, create_time, custom_suggestion_prompt, default_system_prompt, description, enable_suggested_questions, enable_thinking, enable_tools, generation_mode, id, is_default, max_input_tokens, memory_max_turns, memory_mode, name, scopes, sequence, stream, suggested_questions, system_flag, temperature, tool_exceed_message, tool_max_calls, top_p, trimming_strategy, update_man, update_time, welcome_message, rerank, similarity_threshold, top_k, use_kg, vector_similarity_weight, rerank_model, rerank_model_id, ai_agent_knowledge_rels, allow_any_knowledge_base, synthesizer, flow_mode, page_index, publish_skill, skill_prompt, vlm_prompt, enable_searching, memory_doc_tag, memory_kb_tag, spec_kb_id, use_fulltext, memory_isolation_mode, custom_code, skill_readme, agent_group_tag, kb_mode, skill_load_mode, skill_tags, kbs, tools) VALUES (1, null, 'default', 'kb_switch', null, null, null, null, '${original_prompt}', null, null, 1, null, 'precise', '2bc35967e8b6345965bbf58ef4284778', 1, null, 20, 'short_term', '默认智能体', null, 998, 1, null, 1, 0.10, null, null, 0.70, null, null, null, '<#if body.kb_name??>当前位于${body.kb_name!}${body.name!}，</#if>我将提供问答服务。', null, 0.20, null, null, 0.3, null, null, null, 1, null, 'HUB', null, null, null, null, null, null, null, null, null, null, null, null, null, 'include', null, null, null, null);
+            ]]>
+        </sql>
+    </changeSet>
+</databaseChangeLog>

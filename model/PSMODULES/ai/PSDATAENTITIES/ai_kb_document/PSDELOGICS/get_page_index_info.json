@@ -1,0 +1,185 @@
+{
+  "codeName" : "get_page_index_info",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDELOGICS/get_page_index_info.json",
+  "logicName" : "获取pageIndex信息",
+  "name" : "获取pageIndex信息",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : 200,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : 200,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_01",
+    "leftPos" : 220,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "准备参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEDATAQUERY_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_01"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "n_document_id_eq",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "filter"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "ID",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    }, {
+      "dstFieldName" : "size",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "filter"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValue" : "100",
+      "srcValueType" : "SRCVALUE"
+    }, {
+      "dstFieldName" : "sort",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "filter"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValue" : "sequence,asc",
+      "srcValueType" : "SRCVALUE"
+    }, {
+      "dstFieldName" : "n_type_eq",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "filter"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValue" : "index",
+      "srcValueType" : "SRCVALUE"
+    } ],
+    "topPos" : 350,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEDATAQUERY_01",
+    "getDstPSDEDataQuery" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "filter"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunk.json"
+    },
+    "leftPos" : 230,
+    "logicNodeType" : "DEDATAQUERY",
+    "name" : "实体数据查询",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEDATAQUERY_01"
+      }
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chunks"
+    },
+    "topPos" : 500
+  }, {
+    "code" : "        def defaultEntity = logic.param(\"default\").getReal();\n        def chunks = logic.param(\"chunks\").getReal();\n        List docs = new ArrayList()\n        def sb = new StringBuilder()\n        def header = new StringBuilder()\n        def paragraph = new StringBuilder()\n        def sbTOC = new StringBuilder()\n        def summary = new StringBuilder()\n        def footer = new StringBuilder()\n        boolean summarized = false\n\n        if(defaultEntity.get(\"name\")) {\n            sb.append(\"# ${defaultEntity.name}\\n\")\n            if (defaultEntity.get(\"kb_name\")) {\n                sb.append(\"<details><summary>所属: ${defaultEntity.kb_name}\")\n                if (defaultEntity.get(\"categories\"))\n                    sb.append(\"/${defaultEntity.categories}\")\n                sb.append(\"</summary>【文档ID】: ${defaultEntity.id}\")\n                sb.append(\"</details>\\n\\n\")\n\n                if (defaultEntity.get(\"intelligent_analysis\")) {\n                    sb.append(\"## 摘要\\n${defaultEntity.intelligent_analysis}\\n\")\n                }\n                sb.append(\"\\n---\\n\\n\")\n            }\n            header.append(sb.toString())\n        }\n        if(chunks) {\n            chunks.forEach { chunk ->\n                if(chunk.get(\"content\")) {\n                    try{\n                        def doc = new groovy.json.JsonSlurper().parseText(chunk.get(\"content\"))\n                        doc[\"document_id\"] = chunk.get(\"document_id\")\n                        doc['document_name'] = chunk.get(\"document_name\")\n                        docs.add(doc)\n\n                    }catch (Exception ex) {}\n                }\n            }\n\n            paragraph.append(\"## 章节索引\\n\")\n            paragraph.append(\"| 章节名称 | 页码范围 |\\n\")\n            paragraph.append(\"| :--- | :--- |\\n\")\n            docs.eachWithIndex { doc, index ->\n                def range = doc.page_range ? \"${doc.page_range.start} - ${doc.page_range.end}\" : \"N/A\"\n                doc.row_num = index + 1\n                doc.range = range\n                paragraph.append(\"| ${doc.row_num} ${doc.document_title} | ${doc.range} |\\n\")\n            }\n\n\n            if(!summarized && header.length()+paragraph.length()>16384) {\n                summarized = true\n                summary.append(header.toString())\n                summary.append(paragraph.toString())\n            }\n\n\n\n\n            // --- 2. 内部递归辅助闭包 ---\n            // 闭包 A: 生成树状小目录\n            def generateTOC\n            generateTOC = { items, depth, row_num, maxDepth ->\n                def tocText = \"\"\n                items.each { item ->\n                    def range = item.location ? \"${item.location.start} - ${item.location.end}\" : \"N/A\"\n                    item.range = range\n                    tocText += \"  \" * depth + \"- ${row_num}.${item.id} ${item.title} (${item.range})\\n\"\n                    if (item.children && depth<maxDepth) tocText += generateTOC(item.children, depth + 1, row_num, maxDepth)\n                }\n                return tocText\n            }\n\n            // 闭包 B: 生成详细内容块\n            def processDetails\n            processDetails = { items, parentPath, docTitle, row_num ->\n                def detailText = \"\"\n                items.each { item ->\n                    def currentPath = parentPath ? \"${parentPath} > ${item.title}\" : \"${docTitle} > ${item.title}\"\n                    def level = currentPath.split(\" > \").size() + 1\n\n                    detailText += \"#${'#' * level} ${row_num}.${item.id} ${item.title}\\n\"\n                    detailText += \"- **位置**: ${item.range}\\n\"\n                    if (item.summary) detailText += \"- **摘要**: ${item.summary}\\n\"\n\n\n                    if (item.children) detailText += processDetails(item.children, currentPath, docTitle, row_num)\n                }\n                return detailText\n            }\n\n\n            sbTOC.append(\"## 目录清单\\n\")\n            // --- 3. 遍历文档构建全文 ---\n            docs.each { doc ->\n                // 插入局部小目录\n                sbTOC.append(\"- ${doc.row_num} ${doc.document_title} (${doc.range})\\n\")\n                sbTOC.append(generateTOC(doc.index, 1, doc.row_num, 4))\n\n            }\n\n\n\n            footer.append(\"## 章节简介\\n\")\n            // --- 3. 遍历文档构建全文 ---\n            docs.each { doc ->\n\n                footer.append(\"### ${doc.row_num} ${doc.document_title}\\n\")\n\n                footer.append(\"- **位置**: ${doc.range}\\n\")\n\n                // 插入详细层级内容\n                footer.append(processDetails(doc.index, \"\", doc.document_title, doc.row_num))\n\n\n                footer.append(\"\\n---\\n\\n\")\n\n            }\n\n            if(!summarized && header.length()+footer.length()<16384) {\n                summarized = true\n                summary.append(header.toString())\n                summary.append(footer.toString())\n            }\n\n            sb.append(footer.toString())\n\n\n            if(!summarized) {\n                summarized = true\n                if(header.length()+sbTOC.length()>16384) {\n                    sbTOC = new StringBuilder()\n                    sbTOC.append(\"## 目录清单\\n\")\n                    docs.each { doc ->\n                        // 插入局部小目录\n                        sbTOC.append(\"- ${doc.row_num} ${doc.document_title} (${doc.range})\\n\")\n                        sbTOC.append(generateTOC(doc.index, 1, doc.row_num, 2))\n                    }\n                }\n                if(header.length()+sbTOC.length()>16384) {\n                    sbTOC = new StringBuilder()\n                    sbTOC.append(\"## 目录清单\\n\")\n                    docs.each { doc ->\n                        // 插入局部小目录\n                        sbTOC.append(\"- ${doc.row_num} ${doc.document_title} (${doc.range})\\n\")\n                        sbTOC.append(generateTOC(doc.index, 1, doc.row_num, 1))\n                    }\n                }\n                if(header.length()+sbTOC.length()>16384) {\n                    sbTOC = new StringBuilder()\n                    sbTOC.append(paragraph.toString())\n                }\n                summary.append(header.toString())\n                summary.append(sbTOC.toString())\n            }\n\n\n\n\n            defaultEntity.set(\"page_index_info\", sb.toString())\n        }\n        if(!summarized) {\n            summary.append(sb.toString())\n        }\n        defaultEntity.set(\"summary\", summary.toString())",
+    "codeName" : "RAWSFCODE_01",
+    "codeType" : "Groovy",
+    "leftPos" : 240,
+    "logicNodeType" : "RAWSFCODE",
+    "name" : "执行脚本代码",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      }
+    } ],
+    "topPos" : 652,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "END_01",
+    "leftPos" : 280,
+    "logicNodeType" : "END",
+    "name" : "结束",
+    "getReturnParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "returnType" : "LOGICPARAM",
+    "topPos" : 790,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
+    },
+    "default" : true,
+    "entityParam" : true
+  }, {
+    "codeName" : "chunks",
+    "logicName" : "chunks",
+    "name" : "chunks",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunk.json"
+    },
+    "entityListParam" : true
+  }, {
+    "codeName" : "filter",
+    "logicName" : "filter",
+    "name" : "filter",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunk.json"
+    },
+    "filterParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

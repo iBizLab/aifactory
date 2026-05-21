@@ -1,0 +1,51 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "( t1.\"user_id\" = #{ctx.sessioncontext.srfpersonid} )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"access_key\"",
+    "name" : "ACCESS_KEY"
+  }, {
+    "expression" : "t1.\"access_strategy\"",
+    "name" : "ACCESS_STRATEGY"
+  }, {
+    "expression" : "t1.\"access_types\"",
+    "name" : "ACCESS_TYPES"
+  }, {
+    "expression" : "t1.\"active\"",
+    "name" : "ACTIVE"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.\"expiration_date\"",
+    "name" : "EXPIRATION_DATE"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"user_id\"",
+    "name" : "USER_ID"
+  } ],
+  "queryCode" : "SELECT\nt1.\"access_strategy\",\nt1.\"access_types\",\nt1.\"active\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"description\",\nt1.\"expiration_date\",\nt1.\"id\",\nt1.\"name\",\nt1.\"update_man\",\nt1.\"update_time\",\nt1.\"user_id\"\nFROM \"ai_client_credential\" t1 \n",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/ai_client_credential/PSDEDATAQUERIES/my/PSDEDQCODES/POSTGRESQL.json"
+}
