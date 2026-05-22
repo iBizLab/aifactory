@@ -43,8 +43,33 @@
         "modelref" : true,
         "id" : "Begin"
       }
+    }, {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_04"
+      },
+      "name" : "连接名称",
+      "getPSDELogicLinkGroupCond" : {
+        "groupOP" : "AND",
+        "logicType" : "GROUP",
+        "name" : "连接条件组",
+        "getPSDELogicLinkConds" : [ {
+          "condOP" : "ISNOTNULL",
+          "dstFieldName" : "srclogic",
+          "getDstLogicParam" : {
+            "modelref" : true,
+            "id" : "Default"
+          },
+          "logicType" : "SINGLE",
+          "name" : "Default[srclogic] 值不为空(NotNil) "
+        } ]
+      },
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
     } ],
-    "topPos" : 400,
+    "topPos" : 290,
     "parallelOutput" : true
   }, {
     "codeName" : "APPENDPARAM_01",
@@ -284,6 +309,38 @@
     "topPos" : 398,
     "parallelOutput" : true
   }, {
+    "codeName" : "PREPAREPARAM_04",
+    "leftPos" : 6,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "准备参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_04"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "PSDELOGICNAME",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "logic_data"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "PSDELOGICNAME",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    } ],
+    "topPos" : 478,
+    "parallelOutput" : true
+  }, {
     "codeName" : "APPENDPARAM_02",
     "getDstPSDELogicParam" : {
       "modelref" : true,
@@ -311,15 +368,38 @@
     "topPos" : 516,
     "parallelOutput" : true
   }, {
-    "codeName" : "DEBUGPARAM_01",
+    "codeName" : "DEACTION_01",
+    "getDstPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/extension/PSDATAENTITIES/PSDELogic/PSDEACTIONS/Get.json"
+    },
     "getDstPSDELogicParam" : {
       "modelref" : true,
       "id" : "Default"
     },
-    "leftPos" : 60,
-    "logicNodeType" : "DEBUGPARAM",
-    "name" : "查看克隆调试逻辑参数",
-    "topPos" : 640,
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/extension/PSDATAENTITIES/PSDELogic.json"
+    },
+    "leftPos" : 24,
+    "logicNodeType" : "DEACTION",
+    "name" : "获取克隆logic",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_05"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_01"
+      }
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "topPos" : 616,
     "parallelOutput" : true
   }, {
     "codeName" : "PREPAREPARAM_03",
@@ -351,6 +431,54 @@
       "srcValueType" : "SRCDLPARAM"
     } ],
     "topPos" : 676,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_05",
+    "leftPos" : 210,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "准备参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_05"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "PSDELOGICNAME",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "PSDELOGICNAME",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "logic_data"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    }, {
+      "dstFieldName" : "LAST_STATE",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValueType" : "NULLVALUE"
+    }, {
+      "dstFieldName" : "LAST_START_AT",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValueType" : "NULLVALUE"
+    } ],
+    "topPos" : 750,
     "parallelOutput" : true
   }, {
     "codeName" : "END_01",
@@ -393,6 +521,15 @@
       "path" : "PSMODULES/extension/PSDATAENTITIES/PSDELogicParam.json"
     },
     "entityListParam" : true
+  }, {
+    "codeName" : "logic_data",
+    "logicName" : "logic_data",
+    "name" : "logic_data",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/extension/PSDATAENTITIES/PSDELogic.json"
+    },
+    "entityParam" : true
   } ],
   "getStartPSDELogicNode" : {
     "modelref" : true,

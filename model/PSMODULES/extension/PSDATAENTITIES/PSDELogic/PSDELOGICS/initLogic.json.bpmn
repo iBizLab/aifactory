@@ -8,22 +8,25 @@
                                 <tns:metaData express="" name="psdelogicinitlogicdefault" type="entity"/>
                                 <tns:metaData express="new cn.ibizlab.core.extension.domain.PSDELogicParam()" name="psdelogicinitlogicdelogicparam" type="refentity"/>
                                 <tns:metaData express="new cn.ibizlab.core.extension.domain.PSDELogicParam()" name="psdelogicinitlogicdelogicparams" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.extension.domain.PSDELogic()" name="psdelogicinitlogiclogic_data" type="refentity"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.extension.service.IPSDELogicService))" name="psdelogicservice" type="service"/>
                     <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.extension.service.IPSDELogicService))" name="iBzSysPsdelogicDefaultService" type="service"/>
                     <tns:metaData express="T(cn.ibizlab.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
                             <tns:global identifier="psdelogicinitlogicdefault" type="cn.ibizlab.core.extension.domain.PSDELogic" />
                             <tns:global identifier="psdelogicinitlogicdelogicparam" type="cn.ibizlab.core.extension.domain.PSDELogicParam" />
                             <tns:global identifier="psdelogicinitlogicdelogicparams" type="cn.ibizlab.core.extension.domain.PSDELogicParam" />
+                            <tns:global identifier="psdelogicinitlogiclogic_data" type="cn.ibizlab.core.extension.domain.PSDELogic" />
             </extensionElements>
                         <startEvent id="begin" isInterrupting="true"/>
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="psdelogicinitlogicappendparam_01" id="appendparam_01" implementation="http://www.jboss.org/drools/rule" name="附加到数组参数"/>
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="psdelogicinitlogicrenewparam_01" id="renewparam_01" implementation="http://www.jboss.org/drools/rule" name="重新建立参数"/>
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="psdelogicinitlogicprepareparam_01" id="prepareparam_01" implementation="http://www.jboss.org/drools/rule" name="准备默认变量参数"/>
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="psdelogicinitlogicprepareparam_02" id="prepareparam_02" implementation="http://www.jboss.org/drools/rule" name="准备事件变量参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="psdelogicinitlogicprepareparam_04" id="prepareparam_04" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="psdelogicinitlogicappendparam_02" id="appendparam_02" implementation="http://www.jboss.org/drools/rule" name="附加到数组参数"/>
-                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="psdelogicinitlogicdebugparam_01" id="debugparam_01" implementation="http://www.jboss.org/drools/rule" name="查看克隆调试逻辑参数"/>
-                        <endEvent id="debugparam_01_end" name="end"/>
-                        <sequenceFlow id="debugparam_01_end_line" sourceRef="debugparam_01" targetRef="debugparam_01_end"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="psdelogicinitlogicdeaction_01" id="deaction_01" implementation="http://www.jboss.org/drools/rule" name="获取克隆logic"/>
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="psdelogicinitlogicprepareparam_03" id="prepareparam_03" implementation="http://www.jboss.org/drools/rule" name="设置预置变量参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="psdelogicinitlogicprepareparam_05" id="prepareparam_05" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="psdelogicinitlogicend_01" id="end_01" implementation="http://www.jboss.org/drools/rule" name="结束"/>
                         <endEvent id="end_01_end" name="end"/>
                         <sequenceFlow id="end_01_end_line" sourceRef="end_01" targetRef="end_01_end"/>
@@ -32,8 +35,20 @@
                                             $psdelogicinitlogicdefault:PSDELogic();
                                             $psdelogicinitlogicdelogicparam:PSDELogicParam();
                                             $psdelogicinitlogicdelogicparams:PSDELogicParam();
-                                    eval($psdelogicinitlogicdefault==psdelogicinitlogicdefault && $psdelogicinitlogicdelogicparam==psdelogicinitlogicdelogicparam && $psdelogicinitlogicdelogicparams==psdelogicinitlogicdelogicparams);
+                                            $psdelogicinitlogiclogic_data:PSDELogic();
+                                    eval($psdelogicinitlogicdefault==psdelogicinitlogicdefault && $psdelogicinitlogicdelogicparam==psdelogicinitlogicdelogicparam && $psdelogicinitlogicdelogicparams==psdelogicinitlogicdelogicparams && $psdelogicinitlogiclogic_data==psdelogicinitlogiclogic_data);
                                 eval((RuleUtils.test($psdelogicinitlogicdefault.get("psdelogicparams"),"ISNULL",""))&&(RuleUtils.test($psdelogicinitlogicdefault.get("srclogic"),"ISNULL","")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-begin_prepareparam_04" sourceRef="gateway-begin" targetRef="prepareparam_04">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $psdelogicinitlogicdefault:PSDELogic();
+                                            $psdelogicinitlogicdelogicparam:PSDELogicParam();
+                                            $psdelogicinitlogicdelogicparams:PSDELogicParam();
+                                            $psdelogicinitlogiclogic_data:PSDELogic();
+                                    eval($psdelogicinitlogicdefault==psdelogicinitlogicdefault && $psdelogicinitlogicdelogicparam==psdelogicinitlogicdelogicparam && $psdelogicinitlogicdelogicparams==psdelogicinitlogicdelogicparams && $psdelogicinitlogiclogic_data==psdelogicinitlogiclogic_data);
+                                eval((RuleUtils.test($psdelogicinitlogicdefault.get("srclogic"),"ISNOTNULL","")))
                                 ]]>
                             </conditionExpression>
                     </sequenceFlow>
@@ -42,7 +57,8 @@
                                             $psdelogicinitlogicdefault:PSDELogic();
                                             $psdelogicinitlogicdelogicparam:PSDELogicParam();
                                             $psdelogicinitlogicdelogicparams:PSDELogicParam();
-                                    eval($psdelogicinitlogicdefault==psdelogicinitlogicdefault && $psdelogicinitlogicdelogicparam==psdelogicinitlogicdelogicparam && $psdelogicinitlogicdelogicparams==psdelogicinitlogicdelogicparams);
+                                            $psdelogicinitlogiclogic_data:PSDELogic();
+                                    eval($psdelogicinitlogicdefault==psdelogicinitlogicdefault && $psdelogicinitlogicdelogicparam==psdelogicinitlogicdelogicparam && $psdelogicinitlogicdelogicparams==psdelogicinitlogicdelogicparams && $psdelogicinitlogiclogic_data==psdelogicinitlogiclogic_data);
                                 eval((RuleUtils.test($psdelogicinitlogicdefault.get("logicsubtype"),"EQ","EVENTHOOK")))
                                 ]]>
                             </conditionExpression>
@@ -52,7 +68,8 @@
                                             $psdelogicinitlogicdefault:PSDELogic();
                                             $psdelogicinitlogicdelogicparam:PSDELogicParam();
                                             $psdelogicinitlogicdelogicparams:PSDELogicParam();
-                                    eval($psdelogicinitlogicdefault==psdelogicinitlogicdefault && $psdelogicinitlogicdelogicparam==psdelogicinitlogicdelogicparam && $psdelogicinitlogicdelogicparams==psdelogicinitlogicdelogicparams);
+                                            $psdelogicinitlogiclogic_data:PSDELogic();
+                                    eval($psdelogicinitlogicdefault==psdelogicinitlogicdefault && $psdelogicinitlogicdelogicparam==psdelogicinitlogicdelogicparam && $psdelogicinitlogicdelogicparams==psdelogicinitlogicdelogicparams && $psdelogicinitlogiclogic_data==psdelogicinitlogiclogic_data);
                                 eval((RuleUtils.test($psdelogicinitlogicdefault.get("logicsubtype"),"NOTEQ","EVENTHOOK")))
                                 ]]>
                             </conditionExpression>
@@ -63,9 +80,15 @@
                     </sequenceFlow>
                     <sequenceFlow id="prepareparam_02_appendparam_02" sourceRef="prepareparam_02" targetRef="appendparam_02">
                     </sequenceFlow>
+                    <sequenceFlow id="prepareparam_04_deaction_01" sourceRef="prepareparam_04" targetRef="deaction_01">
+                    </sequenceFlow>
                     <sequenceFlow id="appendparam_02_prepareparam_03" sourceRef="appendparam_02" targetRef="prepareparam_03">
                     </sequenceFlow>
+                    <sequenceFlow id="deaction_01_prepareparam_05" sourceRef="deaction_01" targetRef="prepareparam_05">
+                    </sequenceFlow>
                     <sequenceFlow id="prepareparam_03_end_01" sourceRef="prepareparam_03" targetRef="end_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_05_end_01" sourceRef="prepareparam_05" targetRef="end_01">
                     </sequenceFlow>
                             <exclusiveGateway id="gateway-begin" name="Gateway" gatewayDirection="Diverging" default="gateway-begin_end_line"></exclusiveGateway>
                             <sequenceFlow id="begin_gateway-begin_gatewayline" sourceRef="begin" targetRef="gateway-begin"></sequenceFlow>

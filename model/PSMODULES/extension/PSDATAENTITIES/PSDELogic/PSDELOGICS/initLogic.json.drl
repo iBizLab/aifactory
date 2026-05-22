@@ -8,6 +8,8 @@ package cn.ibizlab.extension.logic.psdelogiclogic.initlogic;
                 global cn.ibizlab.core.extension.domain.PSDELogic psdelogicinitlogicdefault;
                 global cn.ibizlab.core.extension.domain.PSDELogicParam psdelogicinitlogicdelogicparam;
                 global cn.ibizlab.core.extension.domain.PSDELogicParam psdelogicinitlogicdelogicparams;
+                global cn.ibizlab.core.extension.domain.PSDELogic psdelogicinitlogiclogic_data;
+                    global cn.ibizlab.core.extension.service.IPSDELogicService psdelogicservice;
         global cn.ibizlab.core.extension.service.IPSDELogicService iBzSysPsdelogicDefaultService;
         global cn.ibizlab.util.security.AuthenticationUser curuser;
 
@@ -29,6 +31,7 @@ package cn.ibizlab.extension.logic.psdelogiclogic.initlogic;
                         update(psdelogicinitlogicdefault);//更新fact中变量值
                         update(psdelogicinitlogicdelogicparam);//更新fact中变量值
                         update(psdelogicinitlogicdelogicparams);//更新fact中变量值
+                        update(psdelogicinitlogiclogic_data);//更新fact中变量值
             end
 
             //逻辑处理节点[重新建立参数]
@@ -39,6 +42,7 @@ package cn.ibizlab.extension.logic.psdelogiclogic.initlogic;
                         update(psdelogicinitlogicdefault);//更新fact中变量值
                         update(psdelogicinitlogicdelogicparam);//更新fact中变量值
                         update(psdelogicinitlogicdelogicparams);//更新fact中变量值
+                        update(psdelogicinitlogiclogic_data);//更新fact中变量值
             end
 
             //逻辑处理节点[准备默认变量参数]
@@ -55,6 +59,7 @@ package cn.ibizlab.extension.logic.psdelogiclogic.initlogic;
                         update(psdelogicinitlogicdefault);//更新fact中变量值
                         update(psdelogicinitlogicdelogicparam);//更新fact中变量值
                         update(psdelogicinitlogicdelogicparams);//更新fact中变量值
+                        update(psdelogicinitlogiclogic_data);//更新fact中变量值
             end
 
             //逻辑处理节点[准备事件变量参数]
@@ -71,6 +76,19 @@ package cn.ibizlab.extension.logic.psdelogiclogic.initlogic;
                         update(psdelogicinitlogicdefault);//更新fact中变量值
                         update(psdelogicinitlogicdelogicparam);//更新fact中变量值
                         update(psdelogicinitlogicdelogicparams);//更新fact中变量值
+                        update(psdelogicinitlogiclogic_data);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_04"
+            ruleflow-group "psdelogicinitlogicprepareparam_04"
+            when
+            then
+                            psdelogicinitlogiclogic_data.set("psdelogicname",psdelogicinitlogicdefault.get("psdelogicname"));
+                        update(psdelogicinitlogicdefault);//更新fact中变量值
+                        update(psdelogicinitlogicdelogicparam);//更新fact中变量值
+                        update(psdelogicinitlogicdelogicparams);//更新fact中变量值
+                        update(psdelogicinitlogiclogic_data);//更新fact中变量值
             end
 
             //逻辑处理节点[附加到数组参数]
@@ -81,16 +99,19 @@ package cn.ibizlab.extension.logic.psdelogiclogic.initlogic;
                         update(psdelogicinitlogicdefault);//更新fact中变量值
                         update(psdelogicinitlogicdelogicparam);//更新fact中变量值
                         update(psdelogicinitlogicdelogicparams);//更新fact中变量值
+                        update(psdelogicinitlogiclogic_data);//更新fact中变量值
             end
 
-            //逻辑处理节点[查看克隆调试逻辑参数]
-            rule "debugparam_01"
-            ruleflow-group "psdelogicinitlogicdebugparam_01"
+            //逻辑处理节点[获取克隆logic]
+            rule "deaction_01"
+            ruleflow-group "psdelogicinitlogicdeaction_01"
             when
             then
+                            cn.ibizlab.util.helper.CachedBeanCopier.copy(psdelogicservice.get(psdelogicinitlogicdefault.getPsdelogicid()),psdelogicinitlogicdefault);
                         update(psdelogicinitlogicdefault);//更新fact中变量值
                         update(psdelogicinitlogicdelogicparam);//更新fact中变量值
                         update(psdelogicinitlogicdelogicparams);//更新fact中变量值
+                        update(psdelogicinitlogiclogic_data);//更新fact中变量值
             end
 
             //逻辑处理节点[设置预置变量参数]
@@ -102,6 +123,21 @@ package cn.ibizlab.extension.logic.psdelogiclogic.initlogic;
                         update(psdelogicinitlogicdefault);//更新fact中变量值
                         update(psdelogicinitlogicdelogicparam);//更新fact中变量值
                         update(psdelogicinitlogicdelogicparams);//更新fact中变量值
+                        update(psdelogicinitlogiclogic_data);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_05"
+            ruleflow-group "psdelogicinitlogicprepareparam_05"
+            when
+            then
+                            psdelogicinitlogicdefault.set("psdelogicname",psdelogicinitlogiclogic_data.get("psdelogicname"));
+                                psdelogicinitlogicdefault.set("laststate",null);
+                                psdelogicinitlogicdefault.set("laststartat",null);
+                        update(psdelogicinitlogicdefault);//更新fact中变量值
+                        update(psdelogicinitlogicdelogicparam);//更新fact中变量值
+                        update(psdelogicinitlogicdelogicparams);//更新fact中变量值
+                        update(psdelogicinitlogiclogic_data);//更新fact中变量值
             end
 
             //逻辑处理节点[结束]
@@ -112,4 +148,5 @@ package cn.ibizlab.extension.logic.psdelogiclogic.initlogic;
                         update(psdelogicinitlogicdefault);//更新fact中变量值
                         update(psdelogicinitlogicdelogicparam);//更新fact中变量值
                         update(psdelogicinitlogicdelogicparams);//更新fact中变量值
+                        update(psdelogicinitlogiclogic_data);//更新fact中变量值
             end

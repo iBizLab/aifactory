@@ -180,7 +180,7 @@ services:
   #aifactoryservice
   aifactoryservice:
     env_file: .lab
-    image: ${IMAGE_URL}ibiz-service-runner:8.1.0.578.183-jdk
+    image: ${IMAGE_URL}ibiz-service-runner:8.1.0.578.187-jdk
     container_name: aifactoryservice
     ports:
       - "30281:30281"

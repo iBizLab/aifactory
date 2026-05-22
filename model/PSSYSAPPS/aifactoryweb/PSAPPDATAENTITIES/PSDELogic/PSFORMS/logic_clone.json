@@ -132,6 +132,7 @@
     }
   }, {
     "id" : "logicsubtype",
+    "hidden" : true,
     "dataType" : 25,
     "getPSAppDEField" : {
       "name" : "LOGICSUBTYPE",
@@ -139,6 +140,7 @@
     }
   }, {
     "id" : "psdeid",
+    "hidden" : true,
     "dataType" : 25,
     "getPSAppDEField" : {
       "name" : "PSDEID",
@@ -293,22 +295,16 @@
           "codeName" : "LogicSubType"
         },
         "getPSEditor" : {
-          "editorType" : "DROPDOWNLIST",
-          "name" : "logicsubtype",
-          "getPSAppCodeList" : {
-            "modelref" : true,
-            "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/extension__DELogicSubType.json"
-          },
-          "singleSelect" : true
+          "editorType" : "HIDDEN",
+          "name" : "logicsubtype"
         },
         "getPSLayoutPos" : {
           "colLG" : 12,
           "colMD" : 12,
           "layout" : "TABLE_24COL"
         },
-        "allowEmpty" : false,
-        "needCodeListConfig" : true,
-        "showCaption" : true
+        "allowEmpty" : true,
+        "hidden" : true
       }, {
         "caption" : "实体",
         "codeName" : "psdeid",
@@ -326,8 +322,7 @@
           "codeName" : "PSDEId"
         },
         "getPSEditor" : {
-          "editorType" : "TEXTBOX",
-          "maxLength" : 100,
+          "editorType" : "HIDDEN",
           "name" : "psdeid"
         },
         "getPSLayoutPos" : {
@@ -335,8 +330,8 @@
           "colMD" : 12,
           "layout" : "TABLE_24COL"
         },
-        "allowEmpty" : false,
-        "showCaption" : true
+        "allowEmpty" : true,
+        "hidden" : true
       } ],
       "getPSLayout" : {
         "childColLG" : 12,

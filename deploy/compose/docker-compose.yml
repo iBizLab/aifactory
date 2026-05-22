@@ -194,7 +194,7 @@ services:
   #aifactoryservice
   aifactoryservice:
     env_file: .env
-    image: ${IMAGE_URL}ibiz-service-runner:8.1.0.578.183-jdk
+    image: ${IMAGE_URL}ibiz-service-runner:8.1.0.578.187-jdk
     container_name: aifactoryservice
     ports:
       - "${SYSTEM_APIPORT}:${SYSTEM_APIPORT}"
