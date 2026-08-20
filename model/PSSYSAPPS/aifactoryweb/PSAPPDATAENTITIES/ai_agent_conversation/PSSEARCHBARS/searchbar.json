@@ -1,0 +1,30 @@
+{
+  "codeName" : "searchbar",
+  "controlType" : "SEARCHBAR",
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_conversation/PSSEARCHBARS/searchbar.json",
+  "logicName" : "searchbar",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_conversation.json"
+  },
+  "getPSSearchBarQuickSearchs" : [ {
+    "itemType" : "QUICKSEARCH",
+    "name" : "showname",
+    "getPSAppDEField" : {
+      "name" : "SHOW_NAME",
+      "codeName" : "show_name"
+    }
+  } ],
+  "getPSSysCss" : {
+    "cssName" : "topic-list-style"
+  },
+  "quickGroupCount" : -1,
+  "quickSearchMode" : 1,
+  "quickSearchWidth" : 0,
+  "enableFilter" : false,
+  "enableGroup" : false,
+  "enableQuickSearch" : true,
+  "mobileSearchBar" : false,
+  "modelid" : "86ab7336af35bd50ee937e40653c5b85",
+  "modeltype" : "PSSYSSEARCHBAR"
+}

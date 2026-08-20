@@ -3,6 +3,7 @@
   "caption" : "日志信息",
   "codeName" : "extend_log_info_view",
   "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/extend_log_info_view.json",
+  "height" : 700,
   "memo" : "系统自动添加",
   "name" : "extend_loginfo_view",
   "openMode" : "POPUPMODAL",
@@ -22,8 +23,8 @@
   "getPSControls" : [ {
     "codeName" : "info_view_toolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_log/PSTOOLBARS/info_view_toolbar.json",
     "logicName" : "日志查看视图_工具栏",
-    "name" : "toolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_log.json"
@@ -32,6 +33,7 @@
       "id" : "TOOLBAR"
     },
     "xDataControlName" : "form",
+    "name" : "toolbar",
     "modelid" : "2ba54d8ed7f0c0215b87de9ea41335c4",
     "modeltype" : "PSDETOOLBAR"
   }, {
@@ -392,7 +394,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 0,
-          "itemHeight" : 500.0,
+          "itemHeight" : 560.0,
           "labelPos" : "NONE",
           "labelWidth" : 0,
           "name" : "info",
@@ -402,7 +404,7 @@
             "codeName" : "info"
           },
           "getPSEditor" : {
-            "editorHeight" : 500.0,
+            "editorHeight" : 560.0,
             "editorParams" : {
               "HEIGHT" : "200"
             },
@@ -506,24 +508,26 @@
   }, {
     "codeName" : "info_view_datainfobar",
     "controlType" : "DATAINFOBAR",
-    "name" : "datainfobar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_log/PSDATAINFOBARS/info_view_datainfobar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_log.json"
     },
     "getPSControlParam" : {
       "id" : "datainfobar"
-    }
+    },
+    "name" : "datainfobar"
   }, {
     "caption" : "日志信息",
     "codeName" : "info_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_log/PSCAPTIONBARS/info_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_log.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "info_view",
   "getPSDEViewId" : "b275f48aba41e37b75a8c7cad187ddc2",
@@ -531,7 +535,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEEDITVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_log/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_log.json"
@@ -539,11 +543,13 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "日志信息",
   "viewStyle" : "DEFAULT",
   "viewType" : "DEEDITVIEW",
+  "width" : 70,
   "xDataControlName" : "form",
   "enableDP" : true,
   "showDataInfoBar" : true,

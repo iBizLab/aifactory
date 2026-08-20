@@ -214,8 +214,8 @@
     "getPSControls" : [ {
       "codeName" : "grid_view_grid_batchtoolbar",
       "controlType" : "TOOLBAR",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_memory_task/PSTOOLBARS/grid_view_grid_batchtoolbar.json",
       "logicName" : "批操作工具栏",
-      "name" : "grid_batchtoolbar",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_memory_task.json"
@@ -271,6 +271,7 @@
         "showCaption" : true,
         "showIcon" : true
       } ],
+      "name" : "grid_batchtoolbar",
       "modelid" : "d9a6ae0b106b2e61c34a906300531c6b",
       "modeltype" : "PSDETOOLBAR"
     } ],
@@ -517,8 +518,8 @@
   }, {
     "codeName" : "grid_view_toolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_memory_task/PSTOOLBARS/grid_view_toolbar.json",
     "logicName" : "智能体记忆任务实例表格界面工具栏",
-    "name" : "toolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_memory_task.json"
@@ -572,6 +573,7 @@
       "showIcon" : true
     } ],
     "xDataControlName" : "grid",
+    "name" : "toolbar",
     "modelid" : "79d000fd8abb7affe8ef32e5e2d9eefe",
     "modeltype" : "PSDETOOLBAR"
   }, {
@@ -681,12 +683,13 @@
     "caption" : "智能体记忆任务实例",
     "codeName" : "grid_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_memory_task/PSCAPTIONBARS/grid_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_memory_task.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "GridView",
   "getPSDEViewId" : "17169627f24ea18fb2df11169b327c12",
@@ -694,7 +697,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEGRIDVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_memory_task/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_memory_task.json"
@@ -702,7 +705,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "智能体记忆任务实例表格视图",
   "viewStyle" : "DEFAULT",

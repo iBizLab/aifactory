@@ -33,9 +33,9 @@
     } ],
     "codeName" : "usr0312409582",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSVIEWLAYOUTPANELS/usr0312409582.json",
     "layoutMode" : "FLEX",
     "logicName" : "用户信息自定义视图布局面板",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
@@ -404,18 +404,20 @@
     "layoutPanel" : true,
     "useDefaultLayout" : false,
     "viewProxyMode" : true,
+    "name" : "layoutpanel",
     "modelid" : "ca46fc067f56e216f5ee39c00fb551f2",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL",
     "getPSControls" : [ {
       "caption" : "用户信息自定义视图",
       "codeName" : "info_custom_view_captionbar",
       "controlType" : "CAPTIONBAR",
-      "name" : "captionbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSCAPTIONBARS/info_custom_view_captionbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
       },
-      "getPSControlParam" : { }
+      "getPSControlParam" : { },
+      "name" : "captionbar"
     } ]
   },
   "title" : "用户信息自定义视图",

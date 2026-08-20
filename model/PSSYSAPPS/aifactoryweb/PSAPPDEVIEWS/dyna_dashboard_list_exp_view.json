@@ -46,9 +46,9 @@
     } ],
     "codeName" : "usr0702065870",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dyna_dashboard/PSVIEWLAYOUTPANELS/usr0702065870.json",
     "layoutMode" : "FLEX",
     "logicName" : "list_exp_view 实体列表导航视图布局面板",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dyna_dashboard.json"
@@ -211,6 +211,7 @@
     "layoutPanel" : true,
     "useDefaultLayout" : false,
     "viewProxyMode" : true,
+    "name" : "layoutpanel",
     "modelid" : "4e87323cea65ce0e89281c63b4781446",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL",
     "getPSAppViewEngines" : [ {
@@ -245,7 +246,7 @@
     "getPSControls" : [ {
       "codeName" : "list_exp_view_listexpbar",
       "controlType" : "LISTEXPBAR",
-      "name" : "listexpbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dyna_dashboard/PSLISTEXPBARS/list_exp_view_listexpbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dyna_dashboard.json"
@@ -633,6 +634,7 @@
       "enableCounter" : true,
       "enableSearch" : false,
       "showTitleBar" : true,
+      "name" : "listexpbar",
       "modelid" : "24f7cb1324d4925dbfd88cfcc4a82c4a_listexpbar",
       "modeltype" : "PSEXPBAR"
     }, {
@@ -656,12 +658,13 @@
       "caption" : "仪表盘模板列表",
       "codeName" : "list_exp_view_captionbar",
       "controlType" : "CAPTIONBAR",
-      "name" : "captionbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dyna_dashboard/PSCAPTIONBARS/list_exp_view_captionbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dyna_dashboard.json"
       },
-      "getPSControlParam" : { }
+      "getPSControlParam" : { },
+      "name" : "captionbar"
     } ]
   },
   "refFlag" : false,

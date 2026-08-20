@@ -526,286 +526,301 @@
       "detailType" : "GROUPPANEL",
       "name" : "group1",
       "getPSDEFormDetails" : [ {
-        "getCapPSLanguageRes" : {
-          "lanResTag" : "DEF.LNAME.AI_AGENT_CONTEXT.NAME"
-        },
-        "caption" : "名称",
-        "codeName" : "name",
-        "dataType" : 25,
+        "caption" : "基本信息",
+        "codeName" : "grouppanel15",
         "detailStyle" : "DEFAULT",
-        "detailType" : "FORMITEM",
-        "enableCond" : 0,
-        "ignoreInput" : 0,
-        "labelPos" : "LEFT",
-        "labelWidth" : 130,
-        "name" : "name",
-        "noPrivDisplayMode" : 1,
-        "getPSAppDEField" : {
-          "name" : "NAME",
-          "codeName" : "name"
-        },
-        "getPSEditor" : {
-          "editorParams" : {
-            "ISAUTO" : "true"
+        "detailType" : "GROUPPANEL",
+        "name" : "grouppanel15",
+        "getPSDEFormDetails" : [ {
+          "getCapPSLanguageRes" : {
+            "lanResTag" : "DEF.LNAME.AI_AGENT_CONTEXT.NAME"
           },
-          "editorType" : "TEXTAREA",
-          "maxLength" : 200,
+          "caption" : "名称",
+          "codeName" : "name",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 0,
+          "ignoreInput" : 0,
+          "labelPos" : "TOP",
+          "labelWidth" : 130,
           "name" : "name",
-          "placeHolder" : "智能体名称",
-          "showMaxLength" : true
-        },
-        "getPSLayoutPos" : {
-          "colMD" : 24,
-          "layout" : "TABLE_24COL"
-        },
-        "allowEmpty" : false,
-        "showCaption" : true
-      }, {
-        "caption" : "智能体模板",
-        "codeName" : "ai_agent_name",
-        "dataType" : 25,
-        "detailStyle" : "DEFAULT",
-        "detailType" : "FORMITEM",
-        "enableCond" : 3,
-        "ignoreInput" : 0,
-        "labelPos" : "LEFT",
-        "labelWidth" : 130,
-        "name" : "ai_agent_name",
-        "noPrivDisplayMode" : 1,
-        "getPSAppDEField" : {
-          "name" : "AI_AGENT_NAME",
-          "codeName" : "ai_agent_name"
-        },
-        "getPSEditor" : {
-          "editorType" : "SPAN",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "NAME",
+            "codeName" : "name"
+          },
+          "getPSEditor" : {
+            "editorParams" : {
+              "ISAUTO" : "true"
+            },
+            "editorType" : "SPAN",
+            "name" : "name",
+            "placeHolder" : "智能体名称",
+            "enableLinkView" : false
+          },
+          "getPSLayoutPos" : {
+            "colMD" : 24,
+            "layout" : "TABLE_24COL"
+          },
+          "allowEmpty" : true,
+          "showCaption" : true
+        }, {
+          "caption" : "智能体模板",
+          "codeName" : "ai_agent_name",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "labelPos" : "TOP",
+          "labelWidth" : 130,
           "name" : "ai_agent_name",
-          "enableLinkView" : false
-        },
-        "getPSLayoutPos" : {
-          "colLG" : 8,
-          "colMD" : 8,
-          "layout" : "TABLE_24COL"
-        },
-        "allowEmpty" : true,
-        "showCaption" : true
-      }, {
-        "caption" : "代码标识",
-        "codeName" : "code_name",
-        "dataType" : 25,
-        "detailStyle" : "DEFAULT",
-        "detailType" : "FORMITEM",
-        "enableCond" : 3,
-        "ignoreInput" : 0,
-        "labelPos" : "LEFT",
-        "labelWidth" : 91,
-        "name" : "code_name",
-        "noPrivDisplayMode" : 1,
-        "getPSAppDEField" : {
-          "name" : "CODE_NAME",
-          "codeName" : "code_name"
-        },
-        "getPSEditor" : {
-          "editorType" : "SPAN",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "AI_AGENT_NAME",
+            "codeName" : "ai_agent_name"
+          },
+          "getPSEditor" : {
+            "editorType" : "SPAN",
+            "name" : "ai_agent_name",
+            "enableLinkView" : false
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 8,
+            "colMD" : 8,
+            "layout" : "TABLE_24COL"
+          },
+          "allowEmpty" : true,
+          "showCaption" : true
+        }, {
+          "caption" : "代码标识",
+          "codeName" : "code_name",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "labelPos" : "TOP",
+          "labelWidth" : 91,
           "name" : "code_name",
-          "enableLinkView" : false
-        },
-        "getPSLayoutPos" : {
-          "colLG" : 8,
-          "colMD" : 8,
-          "layout" : "TABLE_24COL"
-        },
-        "allowEmpty" : true,
-        "showCaption" : true
-      }, {
-        "caption" : "智能体模式",
-        "codeName" : "flow_mode",
-        "dataType" : 25,
-        "detailStyle" : "DEFAULT",
-        "detailType" : "FORMITEM",
-        "enableCond" : 3,
-        "ignoreInput" : 3,
-        "labelPos" : "LEFT",
-        "labelWidth" : 130,
-        "name" : "flow_mode",
-        "noPrivDisplayMode" : 1,
-        "getPSAppDEField" : {
-          "name" : "FLOW_MODE",
-          "codeName" : "flow_mode"
-        },
-        "getPSEditor" : {
-          "editorType" : "SPAN",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "CODE_NAME",
+            "codeName" : "code_name"
+          },
+          "getPSEditor" : {
+            "editorType" : "SPAN",
+            "name" : "code_name",
+            "enableLinkView" : false
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 8,
+            "colMD" : 8,
+            "layout" : "TABLE_24COL"
+          },
+          "allowEmpty" : true,
+          "showCaption" : true
+        }, {
+          "caption" : "智能体模式",
+          "codeName" : "flow_mode",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 3,
+          "labelPos" : "TOP",
+          "labelWidth" : 130,
           "name" : "flow_mode",
-          "getPSAppCodeList" : {
-            "modelref" : true,
-            "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__flow_mode.json"
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "FLOW_MODE",
+            "codeName" : "flow_mode"
           },
-          "enableLinkView" : false
-        },
-        "getPSLayoutPos" : {
-          "colLG" : 8,
-          "colMD" : 8,
-          "layout" : "TABLE_24COL"
-        },
-        "allowEmpty" : true,
-        "convertToCodeItemText" : true,
-        "showCaption" : true
-      }, {
-        "caption" : "描述",
-        "codeName" : "description",
-        "dataType" : 25,
-        "detailStyle" : "DEFAULT",
-        "detailType" : "FORMITEM",
-        "enableCond" : 0,
-        "ignoreInput" : 0,
-        "itemHeight" : 50.0,
-        "labelPos" : "LEFT",
-        "labelWidth" : 130,
-        "name" : "description",
-        "noPrivDisplayMode" : 1,
-        "getPSAppDEField" : {
-          "name" : "DESCRIPTION",
-          "codeName" : "description"
-        },
-        "getPSEditor" : {
-          "editorHeight" : 50.0,
-          "editorType" : "TEXTAREA",
-          "maxLength" : 2000,
+          "getPSEditor" : {
+            "editorType" : "SPAN",
+            "name" : "flow_mode",
+            "getPSAppCodeList" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__flow_mode.json"
+            },
+            "enableLinkView" : false
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 8,
+            "colMD" : 8,
+            "layout" : "TABLE_24COL"
+          },
+          "allowEmpty" : true,
+          "convertToCodeItemText" : true,
+          "showCaption" : true
+        }, {
+          "caption" : "描述",
+          "codeName" : "description",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 0,
+          "ignoreInput" : 0,
+          "labelPos" : "TOP",
+          "labelWidth" : 130,
           "name" : "description",
-          "showMaxLength" : true
-        },
-        "getPSLayoutPos" : {
-          "colMD" : 24,
-          "layout" : "TABLE_24COL"
-        },
-        "allowEmpty" : true,
-        "showCaption" : true
-      }, {
-        "caption" : "业务范围",
-        "codeName" : "scopes",
-        "dataType" : 25,
-        "detailStyle" : "DEFAULT",
-        "detailType" : "FORMITEM",
-        "enableCond" : 0,
-        "ignoreInput" : 0,
-        "labelPos" : "LEFT",
-        "labelWidth" : 130,
-        "name" : "scopes",
-        "noPrivDisplayMode" : 1,
-        "getPSAppDEField" : {
-          "name" : "SCOPES",
-          "codeName" : "scopes"
-        },
-        "getPSDEFDGroupLogics" : [ {
-          "groupOP" : "AND",
-          "logicCat" : "PANELVISIBLE",
-          "logicType" : "GROUP",
-          "getPSDEFDLogics" : [ {
-            "condOP" : "NOTEQ",
-            "dEFDName" : "flow_mode",
-            "logicType" : "SINGLE",
-            "name" : "flow_mode不等于(<>) HUB",
-            "value" : "HUB"
-          } ],
-          "relatedDetailNames" : [ "flow_mode" ],
-          "notMode" : false
-        } ],
-        "getPSEditor" : {
-          "editorType" : "MDROPDOWNLIST",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "DESCRIPTION",
+            "codeName" : "description"
+          },
+          "getPSEditor" : {
+            "editorType" : "SPAN",
+            "name" : "description",
+            "wrapMode" : "WRAP",
+            "enableLinkView" : false
+          },
+          "getPSLayoutPos" : {
+            "colMD" : 24,
+            "layout" : "TABLE_24COL"
+          },
+          "allowEmpty" : true,
+          "showCaption" : true
+        }, {
+          "caption" : "业务范围",
+          "codeName" : "scopes",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 0,
+          "ignoreInput" : 3,
+          "labelPos" : "TOP",
+          "labelWidth" : 130,
           "name" : "scopes",
-          "getPSAppCodeList" : {
-            "modelref" : true,
-            "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/Base__ai_agent_context_scopes.json"
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "SCOPES",
+            "codeName" : "scopes"
           },
-          "singleSelect" : false
-        },
-        "getPSLayoutPos" : {
-          "colLG" : 16,
-          "colMD" : 16,
-          "layout" : "TABLE_24COL"
-        },
-        "allowEmpty" : true,
-        "needCodeListConfig" : true,
-        "showCaption" : true
-      }, {
-        "caption" : "Sub-Agent归属",
-        "codeName" : "agent_group_tag",
-        "dataType" : 25,
-        "detailStyle" : "DEFAULT",
-        "detailType" : "FORMITEM",
-        "enableCond" : 3,
-        "ignoreInput" : 0,
-        "labelPos" : "LEFT",
-        "labelWidth" : 130,
-        "name" : "agent_group_tag",
-        "noPrivDisplayMode" : 1,
-        "getPSAppDEField" : {
-          "name" : "AGENT_GROUP_TAG",
-          "codeName" : "agent_group_tag"
-        },
-        "getPSDEFDGroupLogics" : [ {
-          "groupOP" : "AND",
-          "logicCat" : "PANELVISIBLE",
-          "logicType" : "GROUP",
-          "getPSDEFDLogics" : [ {
-            "condOP" : "NOTEQ",
-            "dEFDName" : "flow_mode",
-            "logicType" : "SINGLE",
-            "name" : "flow_mode不等于(<>) HUB",
-            "value" : "HUB"
+          "getPSDEFDGroupLogics" : [ {
+            "groupOP" : "AND",
+            "logicCat" : "PANELVISIBLE",
+            "logicType" : "GROUP",
+            "getPSDEFDLogics" : [ {
+              "condOP" : "NOTEQ",
+              "dEFDName" : "flow_mode",
+              "logicType" : "SINGLE",
+              "name" : "flow_mode不等于(<>) HUB",
+              "value" : "HUB"
+            } ],
+            "relatedDetailNames" : [ "flow_mode" ],
+            "notMode" : false
           } ],
-          "relatedDetailNames" : [ "flow_mode" ],
-          "notMode" : false
-        } ],
-        "getPSEditor" : {
-          "editorType" : "MDROPDOWNLIST",
-          "name" : "agent_group_tag",
-          "getPSAppCodeList" : {
-            "modelref" : true,
-            "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__hub_group_code.json"
+          "getPSEditor" : {
+            "editorType" : "SPAN",
+            "name" : "scopes",
+            "getPSAppCodeList" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/Base__ai_agent_context_scopes.json"
+            },
+            "enableLinkView" : false
           },
-          "singleSelect" : false
-        },
-        "getPSLayoutPos" : {
-          "colLG" : 8,
-          "colMD" : 8,
-          "layout" : "TABLE_24COL"
-        },
-        "allowEmpty" : true,
-        "needCodeListConfig" : true,
-        "showCaption" : true
-      }, {
-        "caption" : "默认系统提示词",
-        "codeName" : "default_system_prompt",
-        "dataType" : 21,
-        "detailStyle" : "DEFAULT",
-        "detailType" : "FORMITEM",
-        "enableCond" : 0,
-        "ignoreInput" : 12,
-        "labelPos" : "LEFT",
-        "labelWidth" : 130,
-        "name" : "default_system_prompt",
-        "noPrivDisplayMode" : 1,
-        "getPSAppDEField" : {
-          "name" : "DEFAULT_SYSTEM_PROMPT",
-          "codeName" : "default_system_prompt"
-        },
-        "getPSEditor" : {
-          "editorType" : "MARKDOWN",
-          "maxLength" : 1048576,
-          "mode" : "EDIT",
+          "getPSLayoutPos" : {
+            "colLG" : 16,
+            "colMD" : 16,
+            "layout" : "TABLE_24COL"
+          },
+          "allowEmpty" : true,
+          "convertToCodeItemText" : true,
+          "showCaption" : true
+        }, {
+          "caption" : "Sub-Agent归属",
+          "codeName" : "agent_group_tag",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 3,
+          "labelPos" : "TOP",
+          "labelWidth" : 130,
+          "name" : "agent_group_tag",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "AGENT_GROUP_TAG",
+            "codeName" : "agent_group_tag"
+          },
+          "getPSDEFDGroupLogics" : [ {
+            "groupOP" : "AND",
+            "logicCat" : "PANELVISIBLE",
+            "logicType" : "GROUP",
+            "getPSDEFDLogics" : [ {
+              "condOP" : "NOTEQ",
+              "dEFDName" : "flow_mode",
+              "logicType" : "SINGLE",
+              "name" : "flow_mode不等于(<>) HUB",
+              "value" : "HUB"
+            } ],
+            "relatedDetailNames" : [ "flow_mode" ],
+            "notMode" : false
+          } ],
+          "getPSEditor" : {
+            "editorType" : "SPAN",
+            "name" : "agent_group_tag",
+            "getPSAppCodeList" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__hub_group_code.json"
+            },
+            "enableLinkView" : false
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 8,
+            "colMD" : 8,
+            "layout" : "TABLE_24COL"
+          },
+          "allowEmpty" : true,
+          "convertToCodeItemText" : true,
+          "showCaption" : true
+        }, {
+          "caption" : "默认系统提示词",
+          "codeName" : "default_system_prompt",
+          "dataType" : 21,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 0,
+          "ignoreInput" : 12,
+          "labelPos" : "TOP",
+          "labelWidth" : 130,
           "name" : "default_system_prompt",
-          "placeHolder" : "继承自模版，如需修改清输入自定义系统提示词...",
-          "showMaxLength" : true
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "DEFAULT_SYSTEM_PROMPT",
+            "codeName" : "default_system_prompt"
+          },
+          "getPSEditor" : {
+            "editorType" : "MARKDOWN",
+            "maxLength" : 1048576,
+            "mode" : "EDIT",
+            "name" : "default_system_prompt",
+            "placeHolder" : "继承自模版，如需修改清输入自定义系统提示词...",
+            "showMaxLength" : true
+          },
+          "getPSLayoutPos" : {
+            "colMD" : 24,
+            "layout" : "TABLE_24COL"
+          },
+          "getPSSysCss" : {
+            "cssName" : "md_full_container"
+          },
+          "allowEmpty" : true,
+          "showCaption" : true
+        } ],
+        "getPSLayout" : {
+          "childColMD" : 24,
+          "columnCount" : 24,
+          "layout" : "TABLE_24COL"
         },
         "getPSLayoutPos" : {
           "colMD" : 24,
           "layout" : "TABLE_24COL"
         },
-        "getPSSysCss" : {
-          "cssName" : "md_full_container"
-        },
-        "allowEmpty" : true,
-        "showCaption" : true
+        "infoGroupMode" : true,
+        "showCaption" : false
       }, {
         "caption" : "技能加载",
         "codeName" : "grouppanel14",
@@ -847,7 +862,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 3,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "skill_load_mode",
           "noPrivDisplayMode" : 1,
@@ -881,7 +896,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 0,
           "ignoreInput" : 0,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "skill_tags",
           "noPrivDisplayMode" : 1,
@@ -916,6 +931,9 @@
             "notMode" : false
           } ],
           "getPSEditor" : {
+            "editorParams" : {
+              "forceselection" : ""
+            },
             "editorType" : "MDROPDOWNLIST",
             "name" : "skill_tags",
             "getPSAppCodeList" : {
@@ -957,13 +975,12 @@
           "logicCat" : "PANELVISIBLE",
           "logicType" : "GROUP",
           "getPSDEFDLogics" : [ {
-            "condOP" : "NOTEQ",
-            "dEFDName" : "flow_mode",
+            "condOP" : "ISNOTNULL",
+            "dEFDName" : "welcome_message",
             "logicType" : "SINGLE",
-            "name" : "flow_mode不等于(<>) SKILL",
-            "value" : "SKILL"
+            "name" : "welcome_message值不为空(NotNil)"
           } ],
-          "relatedDetailNames" : [ "flow_mode" ],
+          "relatedDetailNames" : [ "welcome_message" ],
           "notMode" : false
         } ],
         "getPSDEFormDetails" : [ {
@@ -974,7 +991,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 0,
           "ignoreInput" : 12,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "welcome_message",
           "noPrivDisplayMode" : 1,
@@ -1007,7 +1024,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 0,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "suggested_questions",
           "noPrivDisplayMode" : 1,
@@ -1052,19 +1069,13 @@
           "logicCat" : "PANELVISIBLE",
           "logicType" : "GROUP",
           "getPSDEFDLogics" : [ {
-            "condOP" : "NOTEQ",
-            "dEFDName" : "flow_mode",
+            "condOP" : "EQ",
+            "dEFDName" : "enable_suggested_questions",
             "logicType" : "SINGLE",
-            "name" : "flow_mode不等于(<>) DE",
-            "value" : "DE"
-          }, {
-            "condOP" : "NOTEQ",
-            "dEFDName" : "flow_mode",
-            "logicType" : "SINGLE",
-            "name" : "flow_mode不等于(<>) SCRIPT",
-            "value" : "SCRIPT"
+            "name" : "enable_suggested_questions等于(=) 1",
+            "value" : "1"
           } ],
-          "relatedDetailNames" : [ "flow_mode" ],
+          "relatedDetailNames" : [ "enable_suggested_questions" ],
           "notMode" : false
         } ],
         "getPSDEFormDetails" : [ {
@@ -1075,7 +1086,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 3,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "enable_suggested_questions",
           "noPrivDisplayMode" : 1,
@@ -1109,7 +1120,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 0,
           "ignoreInput" : 12,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "custom_suggestion_prompt",
           "noPrivDisplayMode" : 1,
@@ -1178,24 +1189,13 @@
           "logicCat" : "PANELVISIBLE",
           "logicType" : "GROUP",
           "getPSDEFDLogics" : [ {
-            "groupOP" : "OR",
-            "logicType" : "GROUP",
-            "name" : "OR",
-            "getPSDEFDLogics" : [ {
-              "condOP" : "EQ",
-              "dEFDName" : "flow_mode",
-              "logicType" : "SINGLE",
-              "name" : "flow_mode等于(=) DEFAULT",
-              "value" : "DEFAULT"
-            }, {
-              "condOP" : "ISNULL",
-              "dEFDName" : "flow_mode",
-              "logicType" : "SINGLE",
-              "name" : "flow_mode值为空(Nil)"
-            } ],
-            "notMode" : false
+            "condOP" : "EQ",
+            "dEFDName" : "enable_tools",
+            "logicType" : "SINGLE",
+            "name" : "enable_tools等于(=) 1",
+            "value" : "1"
           } ],
-          "relatedDetailNames" : [ "flow_mode" ],
+          "relatedDetailNames" : [ "enable_tools" ],
           "notMode" : false
         } ],
         "getPSDEFormDetails" : [ {
@@ -1206,7 +1206,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 3,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "enable_tools",
           "noPrivDisplayMode" : 1,
@@ -1240,7 +1240,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 0,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "tool_max_calls",
           "noPrivDisplayMode" : 1,
@@ -1283,7 +1283,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 0,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 150,
           "name" : "tool_exceed_message",
           "noPrivDisplayMode" : 1,
@@ -1490,7 +1490,7 @@
             "detailType" : "FORMITEM",
             "enableCond" : 3,
             "ignoreInput" : 0,
-            "labelPos" : "LEFT",
+            "labelPos" : "TOP",
             "labelWidth" : 130,
             "name" : "ai_model_name",
             "noPrivDisplayMode" : 1,
@@ -1519,7 +1519,7 @@
             "detailType" : "FORMITEM",
             "enableCond" : 0,
             "ignoreInput" : 0,
-            "labelPos" : "LEFT",
+            "labelPos" : "TOP",
             "labelWidth" : 77,
             "name" : "generation_mode",
             "noPrivDisplayMode" : 1,
@@ -1563,7 +1563,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 0,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 204,
               "name" : "temperature",
               "noPrivDisplayMode" : 1,
@@ -1605,7 +1605,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 0,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 204,
               "name" : "top_p",
               "noPrivDisplayMode" : 1,
@@ -1684,31 +1684,6 @@
         "detailStyle" : "DEFAULT",
         "detailType" : "GROUPPANEL",
         "name" : "grouppanel11",
-        "getPSDEFDGroupLogics" : [ {
-          "groupOP" : "AND",
-          "logicCat" : "PANELVISIBLE",
-          "logicType" : "GROUP",
-          "getPSDEFDLogics" : [ {
-            "groupOP" : "OR",
-            "logicType" : "GROUP",
-            "name" : "OR",
-            "getPSDEFDLogics" : [ {
-              "condOP" : "EQ",
-              "dEFDName" : "flow_mode",
-              "logicType" : "SINGLE",
-              "name" : "flow_mode等于(=) DEFAULT",
-              "value" : "DEFAULT"
-            }, {
-              "condOP" : "ISNULL",
-              "dEFDName" : "flow_mode",
-              "logicType" : "SINGLE",
-              "name" : "flow_mode值为空(Nil)"
-            } ],
-            "notMode" : false
-          } ],
-          "relatedDetailNames" : [ "flow_mode" ],
-          "notMode" : false
-        } ],
         "getPSDEFormDetails" : [ {
           "caption" : "召回重排",
           "codeName" : "rerank",
@@ -1718,7 +1693,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 0,
           "ignoreInput" : 0,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "rerank",
           "noPrivDisplayMode" : 1,
@@ -1745,7 +1720,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 0,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "rerank_model",
           "noPrivDisplayMode" : 1,
@@ -1788,7 +1763,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 0,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "page_index",
           "noPrivDisplayMode" : 1,
@@ -1816,7 +1791,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 0,
           "ignoreInput" : 0,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "use_kg",
           "noPrivDisplayMode" : 1,
@@ -1843,7 +1818,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 0,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "use_fulltext",
           "noPrivDisplayMode" : 1,
@@ -1870,7 +1845,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 0,
           "ignoreInput" : 0,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "top_k",
           "noPrivDisplayMode" : 1,
@@ -1899,7 +1874,7 @@
           "enableCond" : 0,
           "ignoreInput" : 0,
           "itemWidth" : 430.0,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "similarity_threshold",
           "noPrivDisplayMode" : 1,
@@ -1938,7 +1913,7 @@
           "enableCond" : 0,
           "ignoreInput" : 0,
           "itemWidth" : 430.0,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "vector_similarity_weight",
           "noPrivDisplayMode" : 1,
@@ -1975,7 +1950,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 3,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "kb_mode",
           "noPrivDisplayMode" : 1,
@@ -2008,7 +1983,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 0,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "spec_kb_name",
           "noPrivDisplayMode" : 1,
@@ -2170,20 +2145,6 @@
         "detailStyle" : "DEFAULT",
         "detailType" : "GROUPPANEL",
         "name" : "grouppanel3",
-        "getPSDEFDGroupLogics" : [ {
-          "groupOP" : "AND",
-          "logicCat" : "PANELVISIBLE",
-          "logicType" : "GROUP",
-          "getPSDEFDLogics" : [ {
-            "condOP" : "NOTEQ",
-            "dEFDName" : "flow_mode",
-            "logicType" : "SINGLE",
-            "name" : "flow_mode不等于(<>) SKILL",
-            "value" : "SKILL"
-          } ],
-          "relatedDetailNames" : [ "flow_mode" ],
-          "notMode" : false
-        } ],
         "getPSDEFormDetails" : [ {
           "caption" : "记忆模式",
           "codeName" : "memory_mode",
@@ -2192,7 +2153,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 3,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "memory_mode",
           "noPrivDisplayMode" : 1,
@@ -2226,7 +2187,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 0,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "memory_max_turns",
           "noPrivDisplayMode" : 1,
@@ -2254,7 +2215,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 3,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "memory_kb_tag",
           "noPrivDisplayMode" : 1,
@@ -2288,7 +2249,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 0,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "memory_doc_tag",
           "noPrivDisplayMode" : 1,
@@ -2317,7 +2278,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 3,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "memory_isolation_mode",
           "noPrivDisplayMode" : 1,
@@ -2388,8 +2349,8 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 0,
-          "itemHeight" : 300.0,
-          "labelPos" : "LEFT",
+          "itemHeight" : 320.0,
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "skill_readme",
           "noPrivDisplayMode" : 1,
@@ -2442,8 +2403,8 @@
           "detailType" : "FORMITEM",
           "enableCond" : 0,
           "ignoreInput" : 12,
-          "itemHeight" : 300.0,
-          "labelPos" : "LEFT",
+          "itemHeight" : 320.0,
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "skill_prompt",
           "noPrivDisplayMode" : 1,
@@ -2604,7 +2565,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 0,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "sequence",
           "noPrivDisplayMode" : 1,
@@ -2633,7 +2594,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 0,
           "ignoreInput" : 0,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "active",
           "noPrivDisplayMode" : 1,
@@ -2660,7 +2621,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 0,
           "ignoreInput" : 0,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "is_default",
           "noPrivDisplayMode" : 1,
@@ -2687,7 +2648,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 0,
           "ignoreInput" : 0,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "synthesizer",
           "noPrivDisplayMode" : 1,
@@ -2720,7 +2681,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 0,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 131,
           "name" : "max_input_tokens",
           "noPrivDisplayMode" : 1,
@@ -2749,7 +2710,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 3,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "trimming_strategy",
           "noPrivDisplayMode" : 1,
@@ -2783,7 +2744,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 3,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "enable_thinking",
           "noPrivDisplayMode" : 1,
@@ -2817,7 +2778,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 3,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "stream",
           "noPrivDisplayMode" : 1,
@@ -2851,7 +2812,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 3,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "enable_searching",
           "noPrivDisplayMode" : 1,
@@ -2884,8 +2845,8 @@
           "detailType" : "FORMITEM",
           "enableCond" : 0,
           "ignoreInput" : 12,
-          "itemHeight" : 300.0,
-          "labelPos" : "LEFT",
+          "itemHeight" : 320.0,
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "vlm_prompt",
           "noPrivDisplayMode" : 1,
@@ -2936,8 +2897,8 @@
           "detailType" : "FORMITEM",
           "enableCond" : 0,
           "ignoreInput" : 12,
-          "itemHeight" : 200.0,
-          "labelPos" : "LEFT",
+          "itemHeight" : 220.0,
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "context_debug_data",
           "noPrivDisplayMode" : 1,
@@ -3036,12 +2997,13 @@
               "caption" : "实体处理逻辑",
               "codeName" : "logic_design_readonly_captionbar",
               "controlType" : "CAPTIONBAR",
-              "name" : "captionbar",
+              "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic/PSCAPTIONBARS/logic_design_readonly_captionbar.json",
               "getPSAppDataEntity" : {
                 "modelref" : true,
                 "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
               },
-              "getPSControlParam" : { }
+              "getPSControlParam" : { },
+              "name" : "captionbar"
             } ],
             "getPSDEViewCodeName" : "LogicDesign_Readonly",
             "getPSDEViewId" : "137f9770315887cde9c2feda2b587682",
@@ -3049,7 +3011,7 @@
               "codeName" : "layoutpanel",
               "controlStyle" : "APPDESUBAPPREFVIEW",
               "controlType" : "VIEWLAYOUTPANEL",
-              "name" : "layoutpanel",
+              "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic/PSVIEWLAYOUTPANELS/layoutpanel.json",
               "getPSAppDataEntity" : {
                 "modelref" : true,
                 "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
@@ -3057,7 +3019,8 @@
               "getPSControlParam" : { },
               "layoutBodyOnly" : true,
               "layoutPanel" : true,
-              "useDefaultLayout" : true
+              "useDefaultLayout" : true,
+              "name" : "layoutpanel"
             },
             "priority" : 90,
             "title" : "设计",

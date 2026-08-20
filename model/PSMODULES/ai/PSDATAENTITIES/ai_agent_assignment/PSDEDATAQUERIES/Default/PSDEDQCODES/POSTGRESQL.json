@@ -2,6 +2,9 @@
   "dBType" : "POSTGRESQL",
   "name" : "PostgreSQL",
   "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"compose_id\"",
+    "name" : "COMPOSE_ID"
+  }, {
     "expression" : "t11.\"code_name\"",
     "name" : "CONTEXT_CODE_NAME"
   }, {
@@ -26,17 +29,59 @@
     "expression" : "t11.\"description\"",
     "name" : "DESCRIPTION"
   }, {
+    "expression" : "t1.\"entity_row_key\"",
+    "name" : "ENTITY_ROW_KEY"
+  }, {
+    "expression" : "t1.\"entity_tag\"",
+    "name" : "ENTITY_TAG"
+  }, {
+    "expression" : "t1.\"extra_oss_file\"",
+    "name" : "EXTRA_OSS_FILE"
+  }, {
+    "expression" : "t11.\"flow_mode\"",
+    "name" : "FLOW_MODE"
+  }, {
+    "expression" : "t21.\"home_path\"",
+    "name" : "HOME_PATH"
+  }, {
     "expression" : "t1.\"id\"",
     "name" : "ID"
+  }, {
+    "expression" : "t1.\"identifier\"",
+    "name" : "IDENTIFIER"
+  }, {
+    "expression" : "t21.\"topic\"",
+    "name" : "INFORMTOPIC"
+  }, {
+    "expression" : "t1.\"input_extra_inst\"",
+    "name" : "INPUT_EXTRA_INST"
   }, {
     "expression" : "t1.\"name\"",
     "name" : "NAME"
   }, {
+    "expression" : "t1.\"output_extra_inst\"",
+    "name" : "OUTPUT_EXTRA_INST"
+  }, {
     "expression" : "t11.\"page_index\"",
     "name" : "PAGE_INDEX"
   }, {
+    "expression" : "t21.\"portal_address\"",
+    "name" : "PORTAL_ADDRESS"
+  }, {
+    "expression" : "t1.\"requirement\"",
+    "name" : "REQUIREMENT"
+  }, {
     "expression" : "t11.\"scopes\"",
     "name" : "SCOPES"
+  }, {
+    "expression" : "t21.\"name\"",
+    "name" : "SKILL_RUNNER"
+  }, {
+    "expression" : "t1.\"skill_workspace_id\"",
+    "name" : "SKILL_WORKSPACE_ID"
+  }, {
+    "expression" : "t1.\"sort\"",
+    "name" : "SORT"
   }, {
     "expression" : "t11.\"spec_kb_id\"",
     "name" : "SPEC_KB_ID"
@@ -56,6 +101,6 @@
     "expression" : "t1.\"use_tag\"",
     "name" : "USE_TAG"
   } ],
-  "queryCode" : "SELECT\nt11.\"code_name\" AS \"context_code_name\",\nt1.\"context_id\",\nt11.\"name\" AS \"context_name\",\nt11.\"system_flag\" AS \"context_system_flag\",\nt1.\"create_man\",\nt1.\"create_time\",\ncase when t11.\"scopes\" like '%deep_research%'  and t11.\"synthesizer\" is not null then 1  else 0 end AS \"deep_research\",\nt11.\"description\",\nt1.\"id\",\nt1.\"name\",\nt11.\"page_index\",\nt11.\"scopes\",\nt11.\"spec_kb_id\",\nt1.\"system_flag\",\nt1.\"update_man\",\nt1.\"update_time\",\nt11.\"use_fulltext\",\nt1.\"use_tag\"\nFROM \"ai_agent_assignment\" t1 \nLEFT JOIN \"ai_agent_context\" t11 ON t1.\"context_id\" = t11.\"id\" \n",
+  "queryCode" : "SELECT\nt1.\"compose_id\",\nt11.\"code_name\" AS \"context_code_name\",\nt1.\"context_id\",\nt11.\"name\" AS \"context_name\",\nt11.\"system_flag\" AS \"context_system_flag\",\nt1.\"create_man\",\nt1.\"create_time\",\ncase when t11.\"scopes\" like '%deep_research%'  and t11.\"synthesizer\" is not null then 1  else 0 end AS \"deep_research\",\nt11.\"description\",\nt1.\"entity_row_key\",\nt1.\"entity_tag\",\nt1.\"extra_oss_file\",\nt11.\"flow_mode\",\nt21.\"home_path\",\nt1.\"id\",\nt1.\"identifier\",\nt21.\"topic\" AS \"informtopic\",\nt1.\"input_extra_inst\",\nt1.\"name\",\nt1.\"output_extra_inst\",\nt11.\"page_index\",\nt21.\"portal_address\",\nt1.\"requirement\",\nt11.\"scopes\",\nt21.\"name\" AS \"skill_runner\",\nt1.\"skill_workspace_id\",\nt1.\"sort\",\nt11.\"spec_kb_id\",\nt1.\"system_flag\",\nt1.\"update_man\",\nt1.\"update_time\",\nt11.\"use_fulltext\",\nt1.\"use_tag\"\nFROM \"ai_agent_assignment\" t1 \nLEFT JOIN \"ai_agent_context\" t11 ON t1.\"context_id\" = t11.\"id\" \nLEFT JOIN \"ai_skill_workspace\" t21 ON t1.\"skill_workspace_id\" = t21.\"id\" \n",
   "id" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
 }

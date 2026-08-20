@@ -60,15 +60,15 @@
       "getOpenDataPSAppView" : {
         "getRefPSAppView" : {
           "modelref" : true,
-          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_agent_context_view.json",
-          "viewType" : "DEEDITVIEW"
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_agent_context_index_view.json",
+          "viewType" : "DEINDEXVIEW"
         }
       },
       "getPSAppUILogicRefViews" : [ {
         "getRefPSAppView" : {
           "modelref" : true,
-          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_agent_context_view.json",
-          "viewType" : "DEEDITVIEW"
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_agent_context_index_view.json",
+          "viewType" : "DEINDEXVIEW"
         }
       } ],
       "viewLogicType" : "APP_OPENDATA",
@@ -80,8 +80,8 @@
     "realTitle" : "智能体",
     "getRefPSAppView" : {
       "modelref" : true,
-      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_agent_context_view.json",
-      "viewType" : "DEEDITVIEW"
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_agent_context_index_view.json",
+      "viewType" : "DEINDEXVIEW"
     }
   }, {
     "name" : "NEWDATA",
@@ -97,8 +97,8 @@
     "realTitle" : "智能体",
     "getRefPSAppView" : {
       "modelref" : true,
-      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_agent_context_view.json",
-      "viewType" : "DEEDITVIEW"
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_agent_context_index_view.json",
+      "viewType" : "DEINDEXVIEW"
     }
   } ],
   "getPSControls" : [ {
@@ -616,8 +616,8 @@
   }, {
     "codeName" : "card_view_toolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context/PSTOOLBARS/card_view_toolbar.json",
     "logicName" : "智能体业务上下文卡片视图_工具栏",
-    "name" : "toolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
@@ -805,6 +805,7 @@
       "showIcon" : true
     } ],
     "xDataControlName" : "dataview",
+    "name" : "toolbar",
     "modelid" : "e5b54a69fd6fcc53932251c26912f5dc",
     "modeltype" : "PSDETOOLBAR"
   }, {
@@ -831,12 +832,13 @@
     "caption" : "智能体管理",
     "codeName" : "card_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context/PSCAPTIONBARS/card_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "card_view",
   "getPSDEViewId" : "c7be69deb055607ddf68564c89c63245",
@@ -844,7 +846,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEDATAVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
@@ -852,7 +854,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "智能体",
   "viewStyle" : "DEFAULT",

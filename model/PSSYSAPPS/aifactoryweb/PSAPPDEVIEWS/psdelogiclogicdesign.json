@@ -17,12 +17,13 @@
     "caption" : "实体处理逻辑",
     "codeName" : "logic_design_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic/PSCAPTIONBARS/logic_design_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "LogicDesign",
   "getPSDEViewId" : "01834a48e3a2d5b70ac7639b04a40343",
@@ -30,7 +31,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDESUBAPPREFVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
@@ -38,7 +39,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "priority" : 90,
   "title" : "设计",

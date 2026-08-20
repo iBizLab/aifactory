@@ -41,6 +41,9 @@
     "expression" : "t1.\"id\"",
     "name" : "ID"
   }, {
+    "expression" : "t1.\"keyring_id\"",
+    "name" : "KEYRING_ID"
+  }, {
     "expression" : "t1.\"name\"",
     "name" : "NAME"
   }, {
@@ -62,6 +65,6 @@
     "expression" : "t1.\"update_time\"",
     "name" : "UPDATE_TIME"
   } ],
-  "queryCode" : "SELECT\nt1.\"active\",\nt1.\"api_key\",\nt1.\"client_id\",\nt1.\"code_name\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"credential_type\",\nt1.\"description\",\nt1.\"id\",\nt1.\"name\",\nt1.\"provider\",\nt1.\"region\",\nt1.\"scope\",\nt1.\"token_url\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"ai_credential\" t1 \n",
+  "queryCode" : "SELECT\nt1.\"active\",\nt1.\"api_key\",\nt1.\"client_id\",\nt1.\"code_name\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"credential_type\",\nt1.\"description\",\nt1.\"id\",\nt1.\"keyring_id\",\nt1.\"name\",\nt1.\"provider\",\nt1.\"region\",\nt1.\"scope\",\nt1.\"token_url\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"ai_credential\" t1 \n",
   "id" : "PSMODULES/ai/PSDATAENTITIES/ai_credential/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
 }

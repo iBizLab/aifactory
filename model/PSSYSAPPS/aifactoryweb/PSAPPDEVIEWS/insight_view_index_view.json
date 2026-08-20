@@ -21,9 +21,9 @@
     } ],
     "codeName" : "de_custom_index_view_layout_insight",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_view/PSVIEWLAYOUTPANELS/de_custom_index_view_layout_insight.json",
     "layoutMode" : "FLEX",
     "logicName" : "自定义实体首页视图布局面板（页面）",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_view.json"
@@ -347,6 +347,7 @@
     "layoutPanel" : true,
     "useDefaultLayout" : false,
     "viewProxyMode" : true,
+    "name" : "layoutpanel",
     "modelid" : "f962512ddcde03d0455384ef13bc978f",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL",
     "getPSAppViewLogics" : [ {
@@ -387,8 +388,8 @@
       "controlStyle" : "DRBAR_EX",
       "controlType" : "DRBAR",
       "dataRelationTag" : "index_view_DR",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_view/PSDRBARS/index_view_dr.json",
       "editItemCaption" : "效能视图",
-      "name" : "drbar",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_view.json"
@@ -457,6 +458,7 @@
       },
       "uniqueTag" : "insight_view_index_view__drbar",
       "showTitle" : true,
+      "name" : "drbar",
       "modelid" : "46d05e8b5c070cb36ace3dd419f9633e",
       "modeltype" : "PSDEDRBAR"
     }, {
@@ -752,8 +754,8 @@
     }, {
       "codeName" : "index_view_toolbar",
       "controlType" : "TOOLBAR",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_view/PSTOOLBARS/index_view_toolbar.json",
       "logicName" : "效能度量视图主视图工具栏",
-      "name" : "toolbar",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_view.json"
@@ -1132,18 +1134,20 @@
         "showIcon" : true
       } ],
       "toolbarStyle" : "USER",
+      "name" : "toolbar",
       "modelid" : "92580ef72639419a3db94e6f232b64ac",
       "modeltype" : "PSDETOOLBAR"
     }, {
       "caption" : "效能度量",
       "codeName" : "index_view_captionbar",
       "controlType" : "CAPTIONBAR",
-      "name" : "captionbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_view/PSCAPTIONBARS/index_view_captionbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_view.json"
       },
-      "getPSControlParam" : { }
+      "getPSControlParam" : { },
+      "name" : "captionbar"
     } ]
   },
   "title" : "效能度量首页",

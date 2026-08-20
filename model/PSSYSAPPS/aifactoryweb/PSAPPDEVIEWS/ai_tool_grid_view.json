@@ -505,8 +505,8 @@
   }, {
     "codeName" : "grid_view_toolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_tool/PSTOOLBARS/grid_view_toolbar.json",
     "logicName" : "工具栏模板（表格界面，只有一个新建按钮）",
-    "name" : "toolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_tool.json"
@@ -560,6 +560,7 @@
       "showIcon" : true
     } ],
     "xDataControlName" : "grid",
+    "name" : "toolbar",
     "modelid" : "cd9eb7eb8c0facf6084ba1508d888eea",
     "modeltype" : "PSDETOOLBAR"
   }, {
@@ -707,12 +708,13 @@
     "caption" : "AI调用工具",
     "codeName" : "grid_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_tool/PSCAPTIONBARS/grid_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_tool.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "GridView",
   "getPSDEViewId" : "ce3dac777b2eefe6fc4442233d266a30",
@@ -720,7 +722,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEGRIDVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_tool/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_tool.json"
@@ -728,7 +730,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "AI调用工具表格视图",
   "viewStyle" : "DEFAULT",

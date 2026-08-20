@@ -435,6 +435,7 @@
     "logicName" : "数据查询",
     "name" : "DEFAULT",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/shared_space.json"
@@ -471,6 +472,7 @@
     "logicName" : "默认（全部数据）",
     "name" : "VIEW",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/shared_space.json"
@@ -507,6 +509,7 @@
     "logicName" : "管理员",
     "name" : "admin",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/shared_space.json"
@@ -552,6 +555,7 @@
     "logicName" : "共享空间",
     "name" : "shared",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/shared_space.json"

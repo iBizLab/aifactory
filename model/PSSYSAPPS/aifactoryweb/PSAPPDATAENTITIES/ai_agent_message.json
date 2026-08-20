@@ -881,7 +881,7 @@
           "modelref" : true,
           "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation.json"
         },
-        "stringLength" : 200,
+        "stringLength" : 400,
         "uIMode" : "DEFAULT"
       },
       "type" : "DEFAULT"
@@ -898,7 +898,7 @@
           "modelref" : true,
           "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation.json"
         },
-        "stringLength" : 200,
+        "stringLength" : 400,
         "uIMode" : "MOBILEDEFAULT",
         "mobileMode" : true
       },
@@ -909,7 +909,7 @@
     "logicName" : "外部会话标识",
     "name" : "SESSION_ID",
     "stdDataType" : 25,
-    "stringLength" : 200
+    "stringLength" : 400
   }, {
     "getAllPSAppDEFUIModes" : [ {
       "codeName" : "MobileDefault",
@@ -957,6 +957,34 @@
     "name" : "USER_ID",
     "stdDataType" : 25,
     "stringLength" : 100
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[TOOL_CALLS][工具调用数]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[TOOL_CALLS][工具调用数]移动端默认",
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[TOOL_CALLS][工具调用数]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[TOOL_CALLS][工具调用数]",
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "codeName" : "tool_calls",
+    "logicName" : "工具调用数",
+    "name" : "TOOL_CALLS",
+    "stdDataType" : 9
   }, {
     "getAllPSAppDEFUIModes" : [ {
       "name" : "默认",
@@ -1441,6 +1469,17 @@
       },
       "sourceType" : "DEFIELD",
       "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "tool_calls",
+      "logicName" : "工具调用数",
+      "name" : "tool_calls",
+      "getPSAppDEField" : {
+        "name" : "TOOL_CALLS",
+        "codeName" : "tool_calls"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
       "type" : "SIMPLE"
     }, {
       "codeName" : "content",

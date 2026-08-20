@@ -25,8 +25,8 @@
   "getPSControls" : [ {
     "codeName" : "main_view_toolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_review_report/PSTOOLBARS/main_view_toolbar.json",
     "logicName" : "智能审查报告主视图_工具栏",
-    "name" : "toolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_review_report.json"
@@ -203,6 +203,7 @@
       "showIcon" : true
     } ],
     "xDataControlName" : "form",
+    "name" : "toolbar",
     "modelid" : "0d2c7947201b94eee140e673fddb897e",
     "modeltype" : "PSDETOOLBAR"
   }, {
@@ -881,14 +882,15 @@
   }, {
     "codeName" : "main_view_datainfobar",
     "controlType" : "DATAINFOBAR",
-    "name" : "datainfobar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_review_report/PSDATAINFOBARS/main_view_datainfobar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_review_report.json"
     },
     "getPSControlParam" : {
       "id" : "datainfobar"
-    }
+    },
+    "name" : "datainfobar"
   }, {
     "getCapPSLanguageRes" : {
       "lanResTag" : "DE.LNAME.AI_REVIEW_REPORT"
@@ -896,12 +898,13 @@
     "caption" : "智能审查报告",
     "codeName" : "main_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_review_report/PSCAPTIONBARS/main_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_review_report.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "main_view",
   "getPSDEViewId" : "c0570c14d81156009e61fc77317e1340",
@@ -909,7 +912,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEEDITVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_review_report/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_review_report.json"
@@ -917,7 +920,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "智能审查报告",
   "viewStyle" : "DEFAULT",

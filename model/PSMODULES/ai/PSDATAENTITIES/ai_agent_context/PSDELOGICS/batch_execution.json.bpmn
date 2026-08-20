@@ -16,14 +16,11 @@
                             <tns:global identifier="ai_agent_contextbatch_executionkb_temp" type="cn.ibizlab.core.ai.domain.ai_knowledge_base" />
             </extensionElements>
                         <startEvent id="begin" isInterrupting="true"/>
-                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextbatch_executiondeaction_01" id="deaction_01" implementation="http://www.jboss.org/drools/rule" name="知识库推理"/>
-                        <endEvent id="deaction_01_end" name="end"/>
-                        <sequenceFlow id="deaction_01_end_line" sourceRef="deaction_01" targetRef="deaction_01_end"/>
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextbatch_executionrawsfcode_01" id="rawsfcode_01" implementation="http://www.jboss.org/drools/rule" name="解析所选择的知识库"/>
-                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextbatch_executionprepareparam_01" id="prepareparam_01" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextbatch_executiondelogic_01" id="delogic_01" implementation="http://www.jboss.org/drools/rule" name="知识库研究"/>
                         <endEvent id="delogic_01_end" name="end"/>
                         <sequenceFlow id="delogic_01_end_line" sourceRef="delogic_01" targetRef="delogic_01_end"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextbatch_executionprepareparam_01" id="prepareparam_01" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextbatch_executionloopsubcall_01" id="loopsubcall_01" implementation="http://www.jboss.org/drools/rule" name="循环子调用"/>
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextbatch_executiondelogic_02" id="delogic_02" implementation="http://www.jboss.org/drools/rule" name="知识库全文推理"/>
                         <endEvent id="delogic_02_end" name="end"/>
@@ -31,6 +28,9 @@
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextbatch_executionend_01" id="end_01" implementation="http://www.jboss.org/drools/rule" name="结束"/>
                         <endEvent id="end_01_end" name="end"/>
                         <sequenceFlow id="end_01_end_line" sourceRef="end_01" targetRef="end_01_end"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextbatch_executiondeaction_01" id="deaction_01" implementation="http://www.jboss.org/drools/rule" name="知识库推理"/>
+                        <endEvent id="deaction_01_end" name="end"/>
+                        <sequenceFlow id="deaction_01_end_line" sourceRef="deaction_01" targetRef="deaction_01_end"/>
                     <sequenceFlow id="begin_rawsfcode_01" sourceRef="begin" targetRef="rawsfcode_01">
                     </sequenceFlow>
                     <sequenceFlow id="gateway-rawsfcode_01_loopsubcall_01" sourceRef="gateway-rawsfcode_01" targetRef="loopsubcall_01">
@@ -53,16 +53,6 @@
                                 ]]>
                             </conditionExpression>
                     </sequenceFlow>
-                    <sequenceFlow id="gateway-prepareparam_01_deaction_01" sourceRef="gateway-prepareparam_01" targetRef="deaction_01">
-                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
-                                            $ai_agent_contextbatch_executiondefault:ai_agent_context();
-                                            $ai_agent_contextbatch_executionkb_list:ai_knowledge_base();
-                                            $ai_agent_contextbatch_executionkb_temp:ai_knowledge_base();
-                                    eval($ai_agent_contextbatch_executiondefault==ai_agent_contextbatch_executiondefault && $ai_agent_contextbatch_executionkb_list==ai_agent_contextbatch_executionkb_list && $ai_agent_contextbatch_executionkb_temp==ai_agent_contextbatch_executionkb_temp);
-                                eval((RuleUtils.test($ai_agent_contextbatch_executiondefault.get("deepResearch"),"EQ","0")))
-                                ]]>
-                            </conditionExpression>
-                    </sequenceFlow>
                     <sequenceFlow id="gateway-prepareparam_01_delogic_01" sourceRef="gateway-prepareparam_01" targetRef="delogic_01">
                             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
                                             $ai_agent_contextbatch_executiondefault:ai_agent_context();
@@ -79,9 +69,11 @@
                                             $ai_agent_contextbatch_executionkb_list:ai_knowledge_base();
                                             $ai_agent_contextbatch_executionkb_temp:ai_knowledge_base();
                                     eval($ai_agent_contextbatch_executiondefault==ai_agent_contextbatch_executiondefault && $ai_agent_contextbatch_executionkb_list==ai_agent_contextbatch_executionkb_list && $ai_agent_contextbatch_executionkb_temp==ai_agent_contextbatch_executionkb_temp);
-                                eval((RuleUtils.test($ai_agent_contextbatch_executiondefault.get("deepResearch"),"EQ","2")))
+                                eval((RuleUtils.test($ai_agent_contextbatch_executiondefault.get("useFulltext"),"EQ","1")))
                                 ]]>
                             </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_01_deaction_01" sourceRef="prepareparam_01" targetRef="deaction_01">
                     </sequenceFlow>
                     <sequenceFlow id="loopsubcall_01_prepareparam_01" sourceRef="loopsubcall_01" targetRef="prepareparam_01">
                     </sequenceFlow>

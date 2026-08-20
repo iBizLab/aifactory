@@ -1,0 +1,12 @@
+{
+  "codeName" : "SysEncryptTranslatorRuntimeEx",
+  "dynaModelFilePath" : "PSSYSSFPLUGINS/SysEncryptTranslatorRuntimeEx.json",
+  "memo" : "可逆加密",
+  "name" : "SysEncryptTranslatorRuntimeEx",
+  "pluginCode" : "SysEncryptTranslatorRuntimeEx",
+  "pluginType" : "USER",
+  "rTObjectName" : "cn.ibizlab.user.plugin.groovy.res.SysEncryptTranslatorRuntimeEx",
+  "rTObjectSource" : 1,
+  "templCode" : "package cn.ibizlab.user.plugin.groovy.res;\n\nimport groovy.transform.CompileStatic;\nimport net.ibizsys.model.dataentity.defield.IPSDEField;\nimport net.ibizsys.runtime.dataentity.IDataEntityRuntime;\nimport net.ibizsys.runtime.util.IEntityBase;\nimport net.ibizsys.runtime.res.SysEncryptTranslatorRuntime;\n\n@CompileStatic\npublic class SysEncryptTranslatorRuntimeEx extends SysEncryptTranslatorRuntime  {\n\n    private static final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(SysEncryptTranslatorRuntimeEx.class);\n\n    public Object translate(Object objValue, boolean bIn, IEntityBase iEntityBase, IPSDEField iPSDEField, IDataEntityRuntime entityDataEntityRuntime) throws Throwable {\n         Object ret = objValue;\n         \n         try\n         {\n            ret =   super.translate(objValue,bIn,iEntityBase,iPSDEField,entityDataEntityRuntime);\n         }catch(Exception ex) {\n             log.warn(\"转换错误: \" + ex);\n         }\n\n         return ret;\n    }\n\n}",
+  "runtimeObject" : true
+}

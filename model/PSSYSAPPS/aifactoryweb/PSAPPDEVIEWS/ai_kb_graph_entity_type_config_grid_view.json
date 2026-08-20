@@ -537,8 +537,8 @@
   }, {
     "codeName" : "config_grid_view_toolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity_type/PSTOOLBARS/config_grid_view_toolbar.json",
     "logicName" : "知识库图谱实体类型配置中心表格视图_工具栏",
-    "name" : "toolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity_type.json"
@@ -599,6 +599,7 @@
       "showIcon" : true
     } ],
     "xDataControlName" : "grid",
+    "name" : "toolbar",
     "modelid" : "f043b53e0998efbcbf707886955def19",
     "modeltype" : "PSDETOOLBAR"
   }, {
@@ -625,12 +626,13 @@
     "caption" : "知识库图谱实体类型",
     "codeName" : "config_grid_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity_type/PSCAPTIONBARS/config_grid_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity_type.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "config_grid_view",
   "getPSDEViewId" : "d54f1eeba2097b812c1223979765e162",
@@ -638,7 +640,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEGRIDVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity_type/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity_type.json"
@@ -646,7 +648,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "知识库图谱实体类型",
   "viewStyle" : "DEFAULT",

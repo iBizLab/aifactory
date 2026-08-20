@@ -31,6 +31,20 @@
       "glyph" : "xf0c0@FontAwesome",
       "cssClass" : "fa fa-group"
     }
+  }, {
+    "caption" : "角色管理",
+    "detailType" : "DRITEM",
+    "name" : "role",
+    "orderValue" : 250,
+    "originCaption" : "角色管理",
+    "getPSDEDRItem" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/user/PSDEDRITEMS/UsrDRItemRoleManage.json"
+    },
+    "getPSSysImage" : {
+      "glyph" : "xf084@FontAwesome",
+      "cssClass" : "fa fa-key"
+    }
   } ],
   "hideEditItem" : true
 }

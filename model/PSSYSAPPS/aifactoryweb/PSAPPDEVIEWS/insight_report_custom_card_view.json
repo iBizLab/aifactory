@@ -17,9 +17,9 @@
   "getPSViewLayoutPanel" : {
     "codeName" : "usr0708466061",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_report/PSVIEWLAYOUTPANELS/usr0708466061.json",
     "layoutMode" : "FLEX",
     "logicName" : "自定义模板报表卡片视图布局面板",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_report.json"
@@ -55,6 +55,7 @@
     "layoutPanel" : true,
     "useDefaultLayout" : false,
     "viewProxyMode" : true,
+    "name" : "layoutpanel",
     "modelid" : "6547a2c203973d6a967c7a8f6943a89d",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL",
     "getPSControls" : [ {
@@ -700,12 +701,13 @@
       "caption" : "模板报表",
       "codeName" : "custom_card_view_captionbar",
       "controlType" : "CAPTIONBAR",
-      "name" : "captionbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_report/PSCAPTIONBARS/custom_card_view_captionbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_report.json"
       },
-      "getPSControlParam" : { }
+      "getPSControlParam" : { },
+      "name" : "captionbar"
     } ]
   },
   "title" : "模板报表",

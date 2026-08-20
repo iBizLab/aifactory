@@ -22,12 +22,13 @@
     "caption" : "接口说明",
     "codeName" : "api_show_html_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc/PSCAPTIONBARS/api_show_html_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "api_show_html_view",
   "getPSDEViewId" : "e0d49835e72e53170d9c5134b518acad",
@@ -35,7 +36,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEHTMLVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc.json"
@@ -43,7 +44,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "refFlag" : false,
   "title" : "接口说明HTML",

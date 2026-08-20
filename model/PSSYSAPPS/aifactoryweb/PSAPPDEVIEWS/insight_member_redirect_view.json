@@ -18,12 +18,13 @@
     "caption" : "效能成员",
     "codeName" : "redirect_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_member/PSCAPTIONBARS/redirect_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_member.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "RedirectView",
   "getPSDEViewId" : "f9e91ecbfe025192cca1e56df593b560",
@@ -31,7 +32,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEREDIRECTVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_member/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_member.json"
@@ -39,7 +40,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "getRedirectPSAppViewRefs" : [ {
     "name" : "INSIGHT_MEMBER:EDITVIEW",

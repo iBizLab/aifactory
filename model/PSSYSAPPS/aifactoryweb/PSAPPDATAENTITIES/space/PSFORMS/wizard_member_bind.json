@@ -355,8 +355,8 @@
           "getPSControls" : [ {
             "codeName" : "assigned_grid_view_toolbar",
             "controlType" : "TOOLBAR",
+            "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space_member/PSTOOLBARS/assigned_grid_view_toolbar.json",
             "logicName" : "添加成员",
-            "name" : "toolbar",
             "getPSAppDataEntity" : {
               "modelref" : true,
               "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space_member.json"
@@ -411,6 +411,7 @@
             } ],
             "toolbarStyle" : "USER",
             "xDataControlName" : "grid",
+            "name" : "toolbar",
             "modelid" : "41167099b62c6b269095ada0e0176010",
             "modeltype" : "PSDETOOLBAR"
           }, {
@@ -796,12 +797,13 @@
             "caption" : "空间成员",
             "codeName" : "assigned_grid_view_captionbar",
             "controlType" : "CAPTIONBAR",
-            "name" : "captionbar",
+            "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space_member/PSCAPTIONBARS/assigned_grid_view_captionbar.json",
             "getPSAppDataEntity" : {
               "modelref" : true,
               "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space_member.json"
             },
-            "getPSControlParam" : { }
+            "getPSControlParam" : { },
+            "name" : "captionbar"
           } ],
           "getPSDEViewCodeName" : "assigned_grid_view",
           "getPSDEViewId" : "5070a97d9749e2242a9fb284b8aebe46",
@@ -809,7 +811,7 @@
             "codeName" : "layoutpanel",
             "controlStyle" : "APPDEGRIDVIEW",
             "controlType" : "VIEWLAYOUTPANEL",
-            "name" : "layoutpanel",
+            "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space_member/PSVIEWLAYOUTPANELS/layoutpanel.json",
             "getPSAppDataEntity" : {
               "modelref" : true,
               "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space_member.json"
@@ -817,7 +819,8 @@
             "getPSControlParam" : { },
             "layoutBodyOnly" : true,
             "layoutPanel" : true,
-            "useDefaultLayout" : true
+            "useDefaultLayout" : true,
+            "name" : "layoutpanel"
           },
           "refFlag" : false,
           "title" : "空间成员",

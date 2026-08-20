@@ -1,6 +1,17 @@
 {
   "actionMode" : "UPDATE",
   "actionType" : "BUILTIN",
+  "getAfterPSDEActionLogics" : [ {
+    "actionLogicType" : 1,
+    "attachMode" : "AFTER",
+    "codeName" : "A91ac3bccf401943862",
+    "name" : "附加逻辑",
+    "getPSDELogic" : {
+      "modelref" : true,
+      "path" : "PSMODULES/extension/PSDATAENTITIES/PSDELogic/PSDELOGICS/publishConfig.json"
+    },
+    "internalLogic" : true
+  } ],
   "codeName" : "Update",
   "dataAccessAction" : "UPDATE",
   "dynaModelFilePath" : "PSMODULES/extension/PSDATAENTITIES/PSDELogic/PSDEACTIONS/Update.json",

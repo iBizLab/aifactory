@@ -94,6 +94,19 @@
         "id" : "Default"
       },
       "srcValueType" : "SRCDLPARAM"
+    }, {
+      "dstFieldName" : "query",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "mainfilter"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "query",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "srcValueType" : "SRCDLPARAM"
     } ],
     "topPos" : 403,
     "parallelOutput" : true

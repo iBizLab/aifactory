@@ -29,8 +29,8 @@
   "getPSControls" : [ {
     "codeName" : "model_edit_view_toolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/stencil/PSTOOLBARS/model_edit_view_toolbar.json",
     "logicName" : "页面模板编辑视图_工具栏",
-    "name" : "toolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/stencil.json"
@@ -88,6 +88,7 @@
       "showIcon" : true
     } ],
     "xDataControlName" : "form",
+    "name" : "toolbar",
     "modelid" : "36bf4a6eb35e691287cabaace5457cc2",
     "modeltype" : "PSDETOOLBAR"
   }, {
@@ -705,24 +706,26 @@
   }, {
     "codeName" : "model_edit_view_datainfobar",
     "controlType" : "DATAINFOBAR",
-    "name" : "datainfobar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/stencil/PSDATAINFOBARS/model_edit_view_datainfobar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/stencil.json"
     },
     "getPSControlParam" : {
       "id" : "datainfobar"
-    }
+    },
+    "name" : "datainfobar"
   }, {
     "caption" : "页面模板",
     "codeName" : "model_edit_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/stencil/PSCAPTIONBARS/model_edit_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/stencil.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "model_edit_view",
   "getPSDEViewId" : "0858b10b5a5f8cea5a43a6e14c67d9c3",
@@ -730,7 +733,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEEDITVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/stencil/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/stencil.json"
@@ -738,7 +741,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "refFlag" : false,
   "title" : "页面模板编辑视图",

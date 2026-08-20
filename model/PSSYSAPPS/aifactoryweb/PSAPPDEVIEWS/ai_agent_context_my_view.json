@@ -108,8 +108,8 @@
   "getPSControls" : [ {
     "codeName" : "my_view_toolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context/PSTOOLBARS/my_view_toolbar.json",
     "logicName" : "工具栏模板（表格界面，只有一个新建按钮）",
-    "name" : "toolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
@@ -163,6 +163,7 @@
       "showIcon" : true
     } ],
     "xDataControlName" : "grid",
+    "name" : "toolbar",
     "modelid" : "cd9eb7eb8c0facf6084ba1508d888eea",
     "modeltype" : "PSDETOOLBAR"
   }, {
@@ -763,12 +764,13 @@
     "caption" : "我的智能体",
     "codeName" : "my_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context/PSCAPTIONBARS/my_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "my_view",
   "getPSDEViewId" : "0188f6917fa09996f99d9d1d95877ae6",
@@ -776,7 +778,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEGRIDVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
@@ -784,7 +786,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "我的智能体业务上下文表格视图",
   "viewStyle" : "DEFAULT",

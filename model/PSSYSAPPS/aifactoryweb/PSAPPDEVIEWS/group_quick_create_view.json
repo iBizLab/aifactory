@@ -610,24 +610,26 @@
   }, {
     "codeName" : "quick_create_view_datainfobar",
     "controlType" : "DATAINFOBAR",
-    "name" : "datainfobar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/group/PSDATAINFOBARS/quick_create_view_datainfobar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/group.json"
     },
     "getPSControlParam" : {
       "id" : "datainfobar"
-    }
+    },
+    "name" : "datainfobar"
   }, {
     "caption" : "新建团队",
     "codeName" : "quick_create_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/group/PSCAPTIONBARS/quick_create_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/group.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "quick_create_view",
   "getPSDEViewId" : "d944eb8ecbaa548844f287eea9c8d872",
@@ -635,7 +637,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEOPTVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/group/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/group.json"
@@ -643,7 +645,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "新建团队",
   "viewStyle" : "DEFAULT",

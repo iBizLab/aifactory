@@ -221,6 +221,9 @@
     "path" : "PSCODELISTS/CodeList2.json"
   }, {
     "modelref" : true,
+    "path" : "PSMODULES/ai/PSCODELISTS/agent_code.json"
+  }, {
+    "modelref" : true,
     "path" : "PSMODULES/extension/PSCODELISTS/DELogicSubType.json"
   }, {
     "modelref" : true,
@@ -480,6 +483,9 @@
   }, {
     "modelref" : true,
     "path" : "PSMODULES/ai/PSCODELISTS/skill_agent_dynamic.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/Base/PSCODELISTS/keyring_type.json"
   }, {
     "modelref" : true,
     "path" : "PSMODULES/ai/PSCODELISTS/ai_kb_document_type.json"
@@ -787,6 +793,10 @@
   } ],
   "getAllPSDataEntities" : [ {
     "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json",
+    "name" : "AI_SKILL_WORKSPACE"
+  }, {
+    "modelref" : true,
     "path" : "PSMODULES/extension/PSDATAENTITIES/PSAppPortlet.json",
     "name" : "PSAPPPORTLET"
   }, {
@@ -847,6 +857,10 @@
     "name" : "PSSYSBIREPORTITEM"
   }, {
     "modelref" : true,
+    "path" : "PSSYSMODELGROUPS/ebsx/PSMODULES/ebsx/PSDATAENTITIES/Role.json",
+    "name" : "SYS_ROLE"
+  }, {
+    "modelref" : true,
     "path" : "PSSYSMODELGROUPS/ebsx/PSMODULES/ebsx/PSDATAENTITIES/SysDepartment.json",
     "name" : "SYS_DEPT"
   }, {
@@ -857,6 +871,10 @@
     "modelref" : true,
     "path" : "PSSYSMODELGROUPS/ebsx/PSMODULES/ebsx/PSDATAENTITIES/SysOrganization.json",
     "name" : "SYS_ORG"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSMODELGROUPS/ebsx/PSMODULES/ebsx/PSDATAENTITIES/UserRole.json",
+    "name" : "SYS_USER_ROLE"
   }, {
     "modelref" : true,
     "path" : "PSMODULES/Base/PSDATAENTITIES/activity.json",
@@ -1095,6 +1113,10 @@
     "name" : "JOB"
   }, {
     "modelref" : true,
+    "path" : "PSMODULES/Base/PSDATAENTITIES/keyring.json",
+    "name" : "KEYRING"
+  }, {
+    "modelref" : true,
     "path" : "PSMODULES/Base/PSDATAENTITIES/management.json",
     "name" : "MANAGEMENT"
   }, {
@@ -1135,6 +1157,14 @@
     "name" : "RECENT"
   }, {
     "modelref" : true,
+    "path" : "PSMODULES/Base/PSDATAENTITIES/role.json",
+    "name" : "ROLE"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/Base/PSDATAENTITIES/role_member.json",
+    "name" : "ROLE_MEMBER"
+  }, {
+    "modelref" : true,
     "path" : "PSMODULES/FTR/PSDATAENTITIES/search_hub.json",
     "name" : "SEARCH_HUB"
   }, {
@@ -1173,6 +1203,14 @@
     "modelref" : true,
     "path" : "PSSYSMODELGROUPS/ibizsysmgr/PSMODULES/ibizsysmgr/PSDATAENTITIES/sys_person.json",
     "name" : "SYS_PERSON"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSMODELGROUPS/ibizsysmgr/PSMODULES/ibizsysmgr/PSDATAENTITIES/sys_role.json",
+    "name" : "SYS_ROLE_UAA"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSMODELGROUPS/ibizsysmgr/PSMODULES/ibizsysmgr/PSDATAENTITIES/sys_role_member.json",
+    "name" : "SYS_ROLE_MEMBER"
   }, {
     "modelref" : true,
     "path" : "PSMODULES/extension/PSDATAENTITIES/system_extension_notify_setting.json",
@@ -1218,6 +1256,9 @@
     "path" : "PSSYSBACKSERVICES/SysAdminDeamon.json"
   } ],
   "getAllPSSysContentCats" : [ {
+    "modelref" : true,
+    "path" : "PSSYSCONTENTCATS/RESOURCES.json"
+  }, {
     "modelref" : true,
     "path" : "PSSYSCONTENTCATS/LIQUIBASE_CHANGELOGS__DEFAULT.json"
   } ],
@@ -2158,6 +2199,15 @@
     "pDTViewTag" : "PDTView5"
   } ],
   "getAllPSSysResources" : [ {
+    "dynaModelFilePath" : "PSMODULES/Base/PSSYSRESOURCES/HOTCODE.json",
+    "name" : "热代码配置",
+    "getPSSystemModule" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base.json"
+    },
+    "resTag" : "HOTCODE",
+    "resourceType" : "STRING"
+  }, {
     "dynaModelFilePath" : "PSMODULES/ai/PSSYSRESOURCES/AIFACTORY.json",
     "name" : "AI工厂配置",
     "getPSSystemModule" : {
@@ -2165,6 +2215,15 @@
       "path" : "PSMODULES/ai.json"
     },
     "resTag" : "AIFACTORY",
+    "resourceType" : "STRING"
+  }, {
+    "dynaModelFilePath" : "PSMODULES/Base/PSSYSRESOURCES/EXT_APP.json",
+    "name" : "扩展应用配置",
+    "getPSSystemModule" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base.json"
+    },
+    "resTag" : "EXT_APP",
     "resourceType" : "STRING"
   } ],
   "getAllPSSysSFPlugins" : [ {
@@ -2179,7 +2238,7 @@
     "pluginType" : "USER",
     "rTObjectName" : "cn.ibizlab.user.plugin.groovy.dataentity.AIAgentContextDERuntime",
     "rTObjectSource" : 1,
-    "templCode" : "package cn.ibizlab.user.plugin.groovy.dataentity\n\nimport net.ibizsys.central.cloud.core.dataentity.DataEntityRuntime\nimport net.ibizsys.central.dataentity.IDataEntityRuntime\nimport net.ibizsys.central.util.IEntityDTO\nimport net.ibizsys.central.util.ISearchContextDTO\nimport net.ibizsys.model.dataentity.IPSDataEntity\nimport net.ibizsys.model.dataentity.action.IPSDEAction\nimport net.ibizsys.model.dataentity.ds.IPSDEDataSet\nimport net.ibizsys.runtime.IDynaInstRuntime\nimport net.ibizsys.runtime.util.IEntityBase\nimport net.ibizsys.runtime.util.ISearchContextBase\nimport org.springframework.util.StringUtils\n\npublic class AIAgentContextDERuntime extends DataEntityRuntime {\n\n    private IDataEntityRuntime AIAgentDERuntime = null;\n\n    protected IDataEntityRuntime getAIAgentDERuntimeDERuntime() {\n        if(this.AIAgentDERuntime == null) {\n            this.AIAgentDERuntime = this.getSystemRuntime().getDataEntityRuntime(\"AI_AGENT\");\n        }\n        return this.AIAgentDERuntime;\n    }\n\n    def jsonSlurper = new groovy.json.JsonSlurper()\n    \n    @Override\n    protected void translateEntitiesAfterProceed(ISearchContextBase arg0, List<? extends IEntityBase> list, String strDataSetName, IPSDEDataSet iPSDEDataSet, IPSDataEntity iPSDataEntity, IDynaInstRuntime iDynaInstRuntime, Object actionData) throws Throwable {\n        super.translateEntitiesAfterProceed(arg0, list, strDataSetName, iPSDEDataSet, iPSDataEntity, iDynaInstRuntime, actionData);\n        Map<String,List<IEntityBase>> cacheDtoMap = new LinkedHashMap<>();\n        for(IEntityBase item : list) {\n            IEntityDTO aiAgentContextDTO = null;\n            if (item instanceof IEntityDTO) {\n                aiAgentContextDTO = (IEntityDTO) item;\n            }\n\n            if (aiAgentContextDTO == null) {\n                return;\n            }\n            if (StringUtils.hasLength(aiAgentContextDTO.get(\"ai_agent_id\"))) {\n                String agentId = aiAgentContextDTO.get(\"ai_agent_id\") as String;\n                if(!cacheDtoMap.containsKey(agentId)){\n                    List<IEntityBase> dtoList = new ArrayList<>();\n                    cacheDtoMap.put(agentId,dtoList);\n                    dtoList.add(aiAgentContextDTO)\n                }else {\n                    cacheDtoMap.get(agentId).add(aiAgentContextDTO)\n                }\n            }\n        }\n        for (Map.Entry<String, List<String>> entry : cacheDtoMap.entrySet()) {\n            String agentId = entry.getKey();\n\n            List<IEntityBase> dtoList = entry.getValue();\n            List<String> idList = new ArrayList<>();\n            for(IEntityBase item : dtoList) {\n                IEntityDTO aiAgentContextDTO = null;\n                if (item instanceof IEntityDTO) {\n                    aiAgentContextDTO = (IEntityDTO) item;\n                }\n                if (aiAgentContextDTO == null) {\n                    return;\n                }\n                idList.add(aiAgentContextDTO.get(\"ai_agent_id\") as String);\n            }\n\n            IDataEntityRuntime iDataEntityRuntime = this.getAIAgentDERuntimeDERuntime();\n            ISearchContextDTO iSearchContextDTO =  iDataEntityRuntime.createSearchContext();\n            iSearchContextDTO.all().in(iDataEntityRuntime.getKeyPSDEField().getCodeName(),idList)\n            List<IEntityDTO> resList = iDataEntityRuntime.selectDataSet(\"full_info\",iSearchContextDTO);\n            for(IEntityDTO item : resList) {\n                for(IEntityBase item2 : dtoList) {\n                    IEntityDTO aiAgentContextDTO = null;\n                    if (item2 instanceof IEntityDTO) {\n                        aiAgentContextDTO = (IEntityDTO) item2;\n                    }\n                    if (aiAgentContextDTO == null) {\n                        return;\n                    }\n                    if (item.getId().equals(aiAgentContextDTO.get(\"ai_agent_id\"))) {\n                        Iterator<Map.Entry<String, Object>> it = aiAgentContextDTO.any().entrySet().iterator();\n                        while (it.hasNext()) {\n                            Map.Entry<String, Object> itentry = it.next();\n                            Object value = itentry.getValue();\n\n                            if (value == null) {\n                                it.remove();\n                            }\n                        }\n                        item.copyToIf(aiAgentContextDTO)\n\n                        if(aiAgentContextDTO.get(\"agent_group_tag\")) {\n                            if(!aiAgentContextDTO.get(\"skill_readme\")) {\n                                aiAgentContextDTO.set(\"skill_readme\",aiAgentContextDTO.get(\"description\"))\n                            }\n                            if((!aiAgentContextDTO.get(\"skill_prompt\")) && aiAgentContextDTO.get(\"skill_readme\")) {\n                                aiAgentContextDTO.set(\"skill_prompt\",\"${original_prompt}\")\n                            }\n                        }\n\n                        def relTools = aiAgentContextDTO.get(\"ai_agent_tool_rels\") ?: []\n                        def extraToolsStr = aiAgentContextDTO.get(\"tools\")\n\n                        def relTags = relTools.findAll {\n                            (it?.tool_type == 'mcp' || it?.tool_type == 'mcp_built_in_extension') && it?.tool_tag\n                        }.collect { it.tool_tag } ?: []\n\n                        def extraTags = []\n                        if (extraToolsStr && extraToolsStr != \"[]\") {\n                            try {\n                                extraTags = jsonSlurper.parseText(extraToolsStr)?.findAll {\n                                    (it?.tool_type == 'mcp' || it?.tool_type == 'mcp_built_in_extension') && it?.tool_tag\n                                }.collect { it.tool_tag } ?: []\n                            } catch (Exception e) {\n                                // 打印日志或忽略解析失败\n                            }\n                        }\n\n                        def finalMcpTags = (relTags + extraTags).unique().findAll { it }.join(',')\n                        aiAgentContextDTO.set(\"mcp_server_tags\", finalMcpTags)\n\n\n                        def relKbs = aiAgentContextDTO.get(\"ai_agent_knowledge_rels\") ?: []\n                        def extraKbsStr = aiAgentContextDTO.get(\"kbs\")\n\n                        def relKbIds = relKbs.collect { it?.ai_knowledge_base_id } ?: []\n\n                        def extraKbIds = []\n                        if (extraKbsStr && extraKbsStr != \"null\" && extraKbsStr != \"[]\") {\n                            try {\n                                extraKbIds = jsonSlurper.parseText(extraKbsStr)?.collect { it.id } ?: []\n                            } catch (Exception e) {\n                                // 打印日志或忽略解析失败\n                            }\n                        }\n\n                        def finalKbTags = (relKbIds + extraKbIds).unique().findAll { it }.join(',')\n                        aiAgentContextDTO.set(\"kb_tags\", finalKbTags)\n                    }\n                }\n            }\n        }\n    }\n\n    @Override\n    protected void translateEntityAfterProceed(Object arg0, Object objRet, String strActionName, IPSDEAction iPSDEAction, IPSDataEntity iPSDataEntity, IDynaInstRuntime iDynaInstRuntime, Object actionData) throws Throwable {\n        super.translateEntityAfterProceed(arg0, objRet, strActionName, iPSDEAction, iPSDataEntity, iDynaInstRuntime, actionData)\n        if (objRet instanceof IEntityDTO && \"fill_with_agent\".equalsIgnoreCase(strActionName)) {\n            IEntityDTO aiAgentContextDTO = (IEntityDTO) objRet;\n            if (StringUtils.hasLength(aiAgentContextDTO.get(\"ai_agent_id\"))) {\n                IDataEntityRuntime iDataEntityRuntime = this.getAIAgentDERuntimeDERuntime();\n                ISearchContextDTO iSearchContextDTO =  iDataEntityRuntime.createSearchContext();\n                iSearchContextDTO.all().in(iDataEntityRuntime.getKeyPSDEField().getCodeName(),aiAgentContextDTO.get(\"ai_agent_id\"))\n                List<IEntityDTO> resList = iDataEntityRuntime.selectDataSet(\"full_info\",iSearchContextDTO);\n                for(IEntityDTO item : resList) {\n                    Iterator<Map.Entry<String, Object>> it = aiAgentContextDTO.any().entrySet().iterator();\n                    while (it.hasNext()) {\n                        Map.Entry<String, Object> itentry = it.next();\n                        Object value = itentry.getValue();\n\n                        if (value == null) {\n                            it.remove();\n                        }\n                    }\n                    item.copyToIf(aiAgentContextDTO)\n\n                    if(aiAgentContextDTO.get(\"agent_group_tag\")) {\n                        if(!aiAgentContextDTO.get(\"skill_readme\")) {\n                            aiAgentContextDTO.set(\"skill_readme\",aiAgentContextDTO.get(\"description\"))\n                        }\n                        if((!aiAgentContextDTO.get(\"skill_prompt\")) && aiAgentContextDTO.get(\"skill_readme\")) {\n                            aiAgentContextDTO.set(\"skill_prompt\",\"${original_prompt}\")\n                        }\n                    }\n\n                    def relTools = aiAgentContextDTO.get(\"ai_agent_tool_rels\") ?: []\n                    def extraToolsStr = aiAgentContextDTO.get(\"tools\")\n\n                    def relTags = relTools.findAll {\n                        (it?.tool_type == 'mcp' || it?.tool_type == 'mcp_built_in_extension') && it?.tool_tag\n                    }.collect { it.tool_tag } ?: []\n\n                    def extraTags = []\n                    if (extraToolsStr && extraToolsStr != \"[]\") {\n                        try {\n                            extraTags = jsonSlurper.parseText(extraToolsStr)?.findAll {\n                                (it?.tool_type == 'mcp' || it?.tool_type == 'mcp_built_in_extension') && it?.tool_tag\n                            }.collect { it.tool_tag } ?: []\n                        } catch (Exception e) {\n                            // 打印日志或忽略解析失败\n                        }\n                    }\n\n                    def finalMcpTags = (relTags + extraTags).unique().findAll { it }.join(',')\n                    aiAgentContextDTO.set(\"mcp_server_tags\", finalMcpTags)\n\n\n                    def relKbs = aiAgentContextDTO.get(\"ai_agent_knowledge_rels\") ?: []\n                    def extraKbsStr = aiAgentContextDTO.get(\"kbs\")\n\n                    def relKbIds = relKbs.collect { it?.ai_knowledge_base_id } ?: []\n\n                    def extraKbIds = []\n                    if (extraKbsStr && extraKbsStr != \"null\" && extraKbsStr != \"[]\") {\n                        try {\n                            extraKbIds = jsonSlurper.parseText(extraKbsStr)?.collect { it.id } ?: []\n                        } catch (Exception e) {\n                            // 打印日志或忽略解析失败\n                        }\n                    }\n\n                    def finalKbTags = (relKbIds + extraKbIds).unique().findAll { it }.join(',')\n                    aiAgentContextDTO.set(\"kb_tags\", finalKbTags)\n                }\n            }\n        }\n    }\n}",
+    "templCode" : "package cn.ibizlab.user.plugin.groovy.dataentity\n\nimport net.ibizsys.central.cloud.core.dataentity.DataEntityRuntime\nimport net.ibizsys.central.dataentity.IDataEntityRuntime\nimport net.ibizsys.central.util.IEntityDTO\nimport net.ibizsys.central.util.ISearchContextDTO\nimport net.ibizsys.model.dataentity.IPSDataEntity\nimport net.ibizsys.model.dataentity.action.IPSDEAction\nimport net.ibizsys.model.dataentity.ds.IPSDEDataSet\nimport net.ibizsys.runtime.IDynaInstRuntime\nimport net.ibizsys.runtime.util.IEntityBase\nimport net.ibizsys.runtime.util.ISearchContextBase\nimport org.springframework.util.StringUtils\n\npublic class AIAgentContextDERuntime extends DataEntityRuntime {\n\n    private IDataEntityRuntime AIAgentDERuntime = null;\n\n    protected IDataEntityRuntime getAIAgentDERuntimeDERuntime() {\n        if(this.AIAgentDERuntime == null) {\n            this.AIAgentDERuntime = this.getSystemRuntime().getDataEntityRuntime(\"AI_AGENT\");\n        }\n        return this.AIAgentDERuntime;\n    }\n\n    def jsonSlurper = new groovy.json.JsonSlurper()\n    \n    @Override\n    protected void translateEntitiesAfterProceed(ISearchContextBase arg0, List<? extends IEntityBase> list, String strDataSetName, IPSDEDataSet iPSDEDataSet, IPSDataEntity iPSDataEntity, IDynaInstRuntime iDynaInstRuntime, Object actionData) throws Throwable {\n        super.translateEntitiesAfterProceed(arg0, list, strDataSetName, iPSDEDataSet, iPSDataEntity, iDynaInstRuntime, actionData);\n        Map<String,List<IEntityBase>> cacheDtoMap = new LinkedHashMap<>();\n        for(IEntityBase item : list) {\n            IEntityDTO aiAgentContextDTO = null;\n            if (item instanceof IEntityDTO) {\n                aiAgentContextDTO = (IEntityDTO) item;\n            }\n\n            if (aiAgentContextDTO == null) {\n                return;\n            }\n            if (StringUtils.hasLength(aiAgentContextDTO.get(\"ai_agent_id\"))) {\n                String agentId = aiAgentContextDTO.get(\"ai_agent_id\") as String;\n                if(!cacheDtoMap.containsKey(agentId)){\n                    List<IEntityBase> dtoList = new ArrayList<>();\n                    cacheDtoMap.put(agentId,dtoList);\n                    dtoList.add(aiAgentContextDTO)\n                }else {\n                    cacheDtoMap.get(agentId).add(aiAgentContextDTO)\n                }\n            }\n        }\n        for (Map.Entry<String, List<String>> entry : cacheDtoMap.entrySet()) {\n            String agentId = entry.getKey();\n\n            List<IEntityBase> dtoList = entry.getValue();\n            List<String> idList = new ArrayList<>();\n            for(IEntityBase item : dtoList) {\n                IEntityDTO aiAgentContextDTO = null;\n                if (item instanceof IEntityDTO) {\n                    aiAgentContextDTO = (IEntityDTO) item;\n                }\n                if (aiAgentContextDTO == null) {\n                    return;\n                }\n                idList.add(aiAgentContextDTO.get(\"ai_agent_id\") as String);\n            }\n\n            IDataEntityRuntime iDataEntityRuntime = this.getAIAgentDERuntimeDERuntime();\n            ISearchContextDTO iSearchContextDTO =  iDataEntityRuntime.createSearchContext();\n            iSearchContextDTO.all().in(iDataEntityRuntime.getKeyPSDEField().getCodeName(),idList)\n            List<IEntityDTO> resList = iDataEntityRuntime.selectDataSet(\"full_info\",iSearchContextDTO);\n            for(IEntityDTO item : resList) {\n                for(IEntityBase item2 : dtoList) {\n                    IEntityDTO aiAgentContextDTO = null;\n                    if (item2 instanceof IEntityDTO) {\n                        aiAgentContextDTO = (IEntityDTO) item2;\n                    }\n                    if (aiAgentContextDTO == null) {\n                        return;\n                    }\n                    if (item.getId().equals(aiAgentContextDTO.get(\"ai_agent_id\"))) {\n                        Iterator<Map.Entry<String, Object>> it = aiAgentContextDTO.any().entrySet().iterator();\n                        while (it.hasNext()) {\n                            Map.Entry<String, Object> itentry = it.next();\n                            Object value = itentry.getValue();\n\n                            if (value == null) {\n                                it.remove();\n                            }\n                        }\n                        item.copyToIf(aiAgentContextDTO)\n\n                        if(aiAgentContextDTO.get(\"agent_group_tag\")) {\n                            if(!aiAgentContextDTO.get(\"skill_readme\")) {\n                                aiAgentContextDTO.set(\"skill_readme\",aiAgentContextDTO.get(\"description\"))\n                            }\n                            if((!aiAgentContextDTO.get(\"skill_prompt\")) && aiAgentContextDTO.get(\"skill_readme\")) {\n                                aiAgentContextDTO.set(\"skill_prompt\",\"${original_prompt}\")\n                            }\n                        }\n\n                        def relTools = aiAgentContextDTO.get(\"ai_agent_tool_rels\") ?: []\n                        def extraToolsStr = aiAgentContextDTO.get(\"tools\")\n\n                        def relTags = relTools.findAll {\n                            (it?.tool_type == 'mcp' || it?.tool_type == 'mcp_built_in_extension') && it?.tool_tag\n                        }.collect { it.tool_tag } ?: []\n\n                        def extraTags = []\n                        if (extraToolsStr && extraToolsStr != \"[]\") {\n                            try {\n                                extraTags = jsonSlurper.parseText(extraToolsStr)?.findAll {\n                                    (it?.tool_type == 'mcp' || it?.tool_type == 'mcp_built_in_extension') && it?.tool_tag\n                                }.collect { it.tool_tag } ?: []\n                            } catch (Exception e) {\n                                // 打印日志或忽略解析失败\n                            }\n                        }\n\n                        def finalMcpTags = (relTags + extraTags).unique().findAll { it }.join(',')\n                        aiAgentContextDTO.set(\"mcp_server_tags\", finalMcpTags)\n\n\n                        def relKbs = aiAgentContextDTO.get(\"ai_agent_knowledge_rels\") ?: []\n                        def extraKbsStr = aiAgentContextDTO.get(\"kbs\")\n\n                        def relKbIds = relKbs.collect { it?.ai_knowledge_base_id } ?: []\n\n                        def extraKbIds = []\n                        if (extraKbsStr && extraKbsStr != \"null\" && extraKbsStr != \"[]\") {\n                            try {\n                                extraKbIds = jsonSlurper.parseText(extraKbsStr)?.collect { it.id } ?: []\n                            } catch (Exception e) {\n                                // 打印日志或忽略解析失败\n                            }\n                        }\n\n                        def finalKbTags = (relKbIds + extraKbIds).unique().findAll { it }.join(',')\n                        aiAgentContextDTO.set(\"kb_tags\", finalKbTags)\n                    }\n                    if(\"kb_switch\".equals(aiAgentContextDTO.get(\"code_name\"))) {\n                        aiAgentContextDTO.set(\"WELCOME_MESSAGE\",null)\n                    }\n                }\n            }\n        }\n    }\n\n    @Override\n    protected void translateEntityAfterProceed(Object arg0, Object objRet, String strActionName, IPSDEAction iPSDEAction, IPSDataEntity iPSDataEntity, IDynaInstRuntime iDynaInstRuntime, Object actionData) throws Throwable {\n        super.translateEntityAfterProceed(arg0, objRet, strActionName, iPSDEAction, iPSDataEntity, iDynaInstRuntime, actionData)\n        if (objRet instanceof IEntityDTO && \"fill_with_agent\".equalsIgnoreCase(strActionName)) {\n            IEntityDTO aiAgentContextDTO = (IEntityDTO) objRet;\n            if (StringUtils.hasLength(aiAgentContextDTO.get(\"ai_agent_id\"))) {\n                IDataEntityRuntime iDataEntityRuntime = this.getAIAgentDERuntimeDERuntime();\n                ISearchContextDTO iSearchContextDTO =  iDataEntityRuntime.createSearchContext();\n                iSearchContextDTO.all().in(iDataEntityRuntime.getKeyPSDEField().getCodeName(),aiAgentContextDTO.get(\"ai_agent_id\"))\n                List<IEntityDTO> resList = iDataEntityRuntime.selectDataSet(\"full_info\",iSearchContextDTO);\n                for(IEntityDTO item : resList) {\n                    Iterator<Map.Entry<String, Object>> it = aiAgentContextDTO.any().entrySet().iterator();\n                    while (it.hasNext()) {\n                        Map.Entry<String, Object> itentry = it.next();\n                        Object value = itentry.getValue();\n\n                        if (value == null) {\n                            it.remove();\n                        }\n                    }\n                    item.copyToIf(aiAgentContextDTO)\n\n                    if(aiAgentContextDTO.get(\"agent_group_tag\")) {\n                        if(!aiAgentContextDTO.get(\"skill_readme\")) {\n                            aiAgentContextDTO.set(\"skill_readme\",aiAgentContextDTO.get(\"description\"))\n                        }\n                        if((!aiAgentContextDTO.get(\"skill_prompt\")) && aiAgentContextDTO.get(\"skill_readme\")) {\n                            aiAgentContextDTO.set(\"skill_prompt\",\"${original_prompt}\")\n                        }\n                    }\n\n                    def relTools = aiAgentContextDTO.get(\"ai_agent_tool_rels\") ?: []\n                    def extraToolsStr = aiAgentContextDTO.get(\"tools\")\n\n                    def relTags = relTools.findAll {\n                        (it?.tool_type == 'mcp' || it?.tool_type == 'mcp_built_in_extension') && it?.tool_tag\n                    }.collect { it.tool_tag } ?: []\n\n                    def extraTags = []\n                    if (extraToolsStr && extraToolsStr != \"[]\") {\n                        try {\n                            extraTags = jsonSlurper.parseText(extraToolsStr)?.findAll {\n                                (it?.tool_type == 'mcp' || it?.tool_type == 'mcp_built_in_extension') && it?.tool_tag\n                            }.collect { it.tool_tag } ?: []\n                        } catch (Exception e) {\n                            // 打印日志或忽略解析失败\n                        }\n                    }\n\n                    def finalMcpTags = (relTags + extraTags).unique().findAll { it }.join(',')\n                    aiAgentContextDTO.set(\"mcp_server_tags\", finalMcpTags)\n\n\n                    def relKbs = aiAgentContextDTO.get(\"ai_agent_knowledge_rels\") ?: []\n                    def extraKbsStr = aiAgentContextDTO.get(\"kbs\")\n\n                    def relKbIds = relKbs.collect { it?.ai_knowledge_base_id } ?: []\n\n                    def extraKbIds = []\n                    if (extraKbsStr && extraKbsStr != \"null\" && extraKbsStr != \"[]\") {\n                        try {\n                            extraKbIds = jsonSlurper.parseText(extraKbsStr)?.collect { it.id } ?: []\n                        } catch (Exception e) {\n                            // 打印日志或忽略解析失败\n                        }\n                    }\n\n                    def finalKbTags = (relKbIds + extraKbIds).unique().findAll { it }.join(',')\n                    aiAgentContextDTO.set(\"kb_tags\", finalKbTags)\n                    \n                }\n            }\n            if(\"kb_switch\".equals(aiAgentContextDTO.get(\"code_name\"))) {\n                     aiAgentContextDTO.set(\"WELCOME_MESSAGE\",null)\n            }\n        }\n    }\n}",
     "runtimeObject" : true
   }, {
     "codeName" : "AIAgentDESyncUtilRuntime",
@@ -2279,6 +2338,20 @@
     "templCode" : "package cn.ibizlab.user.plugin.groovy.dataentity.ds\n\nimport net.ibizsys.central.database.IDBDialect\nimport net.ibizsys.central.database.postgresql.PostgreSQLDialect;\nimport net.ibizsys.central.plugin.util.dataentity.ds.DEDataSetRuntimeBase\nimport net.ibizsys.central.util.EntityDTO\nimport net.ibizsys.psmodel.core.util.DataTypes\nimport net.ibizsys.runtime.util.Conditions\nimport net.ibizsys.runtime.util.DataTypeUtils\nimport net.ibizsys.runtime.util.Entity\nimport net.ibizsys.runtime.util.ISearchCond\nimport net.ibizsys.runtime.util.ISearchFieldCond\nimport net.ibizsys.runtime.util.ISearchGroupCond\nimport net.ibizsys.runtime.util.ISearchItemsCond\nimport net.ibizsys.runtime.util.SearchCustomCond\nimport org.apache.commons.collections4.CollectionUtils\nimport org.springframework.data.domain.Page;\nimport net.ibizsys.central.util.ISearchContextDTO;\n\n\n/**\n * AI知识库查询(record)\n */\nclass AIKBWithRecordDataSetRuntime extends DEDataSetRuntimeBase {\n\n    @Override\n    protected Page<?> doFetchReal(ISearchContextDTO iSearchContextDTO) throws Throwable {\n        //自定义搜索组\n        ISearchCond cond = null\n        Iterator<ISearchCond> iterator = iSearchContextDTO.getSearchCondsIf().iterator()\n        while (iterator.hasNext()) {\n            ISearchCond searchCond = iterator.next()\n            if (ISearchGroupCond.CAT_SEARCHCONDS == searchCond.getCat()) {\n                cond = searchCond\n                iterator.remove()\n                break\n            }\n        }\n\n        if (iSearchContextDTO.get(\"resourceid\")) {\n            def data_resource = this.getSystemRuntime().getDataEntityRuntime(\"DATA_RESOURCE\").get(iSearchContextDTO.get(\"resourceid\"))\n            if (cond != null && data_resource) {\n                //解析SEARCHCONDS，形成jsonb的查询条件\n                IDBDialect dbDialect = this.getDataEntityRuntime().getSysDBSchemeRuntime().getDBDialect()\n                Entity definition = data_resource.get(\"schema\")?.get(\"definition\")\n                if (definition && dbDialect instanceof PostgreSQLDialect) {\n                    String jsonField = \"T11._metadata\"\n                    StringBuilder sb = new StringBuilder();\n                    parseSearchCond(jsonField, sb, dbDialect, definition, null, null, cond, iSearchContextDTO)\n                    iSearchContextDTO.getSearchCondsIf().add(SearchCustomCond.of(sb.toString()))\n                }\n            }\n        }\n\n        Object[] args = [iSearchContextDTO] as Object[]\n        return this.getDataEntityRuntime().fetchDataSet(\"DEFAULT\", null, args)\n    }\n\n    /**\n     *\n     * 解析jsonb条件\n     *\n     * @param jsonField\n     * @param sb\n     * @param dbDialect\n     * @param items\n     * @param searchCond\n     * @param iSearchContextDTO\n     */\n    private void parseSearchCond(String jsonField, StringBuilder sb, IDBDialect dbDialect, Entity definition, List<String> items, List<String> array_items, ISearchCond searchCond, ISearchContextDTO iSearchContextDTO) {\n        //  集合存在xxx条件\n        //  EXISTS (SELECT 1\n        //              FROM jsonb_array_elements(t11._metadata -> 'HFDF_LIST') AS elem\n        //              WHERE elem ->> 'AH' is not null)\n        //\n        //  集合存在\n        // jsonb_array_length(t11._metadata->'HFDF_LIST') > 0\n\n        if (searchCond instanceof ISearchItemsCond) {\n            //子对象条件\n            ISearchItemsCond searchGroupCond = (ISearchItemsCond) searchCond;\n            List<ISearchCond> conds = searchGroupCond.getSearchConds()\n            if (CollectionUtils.isNotEmpty(conds)) {\n                List<String> subItems = new ArrayList<>()\n                String subItem = searchGroupCond.getFieldName()\n                if (items) {\n                    subItems.addAll(items)\n                }\n                subItems.add(subItem)\n                def obj_property = definition\n                for (item in subItems) {\n                    if (\"object\" == obj_property.get(\"type\")) {\n                        obj_property = obj_property.get(\"properties\").get(item)\n                    } else if (\"array\" == obj_property.get(\"type\")) {\n                        obj_property = obj_property.get(\"items\").get(\"properties\").get(item)\n                    }\n                }\n                if (!obj_property) {\n                    throw new Exception(\"[{$subItem}]字段不存在\")\n                }\n\n                sb.append(\"(\")\n                if (\"object\" == obj_property.get(\"type\")) {\n                    for (i in 0..<conds.size()) {\n                        if (i > 0) {\n                            if (Conditions.OR == searchGroupCond.getCondOp()) {\n                                sb.append(\" \" + Conditions.OR + \" \")\n                            } else {\n                                sb.append(\" \" + Conditions.AND + \" \")\n                            }\n                        }\n                        parseSearchCond(jsonField, sb, dbDialect, definition, subItems, array_items, conds.get(i), iSearchContextDTO)\n                    }\n                } else if (\"array\" == obj_property.get(\"type\")) {\n                    String fieldName = jsonField\n                    List<String> subArrayItems = new ArrayList<>()\n                    if (array_items) {\n                        subArrayItems.addAll(array_items)\n                    }\n                    subArrayItems.add(subItem)\n                    if (jsonField == 'T11._metadata') {\n                        fieldName += \" -> '${subItem}'\"\n                    } else {\n                        if (subArrayItems && subArrayItems.size() > 1) {\n                            for (i in 1..<subArrayItems.size()) {\n                                fieldName += \" -> '${subArrayItems.get(i)}'\"\n                            }\n                        }\n                    }\n                    sb.append(\"\"\"\nEXISTS (SELECT 1\nFROM jsonb_array_elements(${fieldName}) AS ${subItem}\nWHERE\n\"\"\")\n                    StringBuilder arrayFieldConds = new StringBuilder();\n                    for (i in 0..<conds.size()) {\n                        if (i > 0) {\n                            if (Conditions.OR == searchGroupCond.getCondOp()) {\n                                arrayFieldConds.append(\" \" + Conditions.OR + \" \")\n                            } else {\n                                arrayFieldConds.append(\" \" + Conditions.AND + \" \")\n                            }\n                        }\n                        parseSearchCond(subItem, arrayFieldConds, dbDialect, definition, subItems, subArrayItems, conds.get(i), iSearchContextDTO)\n                    }\n                    sb.append(arrayFieldConds.toString())\n                    sb.append(\")\")\n                }\n                sb.append(\")\")\n            }\n        } else if (searchCond instanceof ISearchGroupCond) {\n            ISearchGroupCond searchGroupCond = (ISearchGroupCond) searchCond;\n            List<ISearchCond> conds = searchGroupCond.getSearchConds()\n            if (CollectionUtils.isNotEmpty(conds)) {\n                sb.append(\"(\")\n                for (i in 0..<conds.size()) {\n                    if (i > 0) {\n                        if (Conditions.OR == searchGroupCond.getCondOp()) {\n                            sb.append(\" \" + Conditions.OR + \" \")\n                        } else {\n                            sb.append(\" \" + Conditions.AND + \" \")\n                        }\n                    }\n                    parseSearchCond(jsonField, sb, dbDialect, definition, items, array_items, conds.get(i), iSearchContextDTO)\n                }\n                sb.append(\")\")\n            }\n        } else if (searchCond instanceof ISearchFieldCond) {\n            ISearchFieldCond iSearchFieldCond = (ISearchFieldCond) searchCond;\n            String fieldName = jsonField\n\n            def last_obj_property = definition\n            for (item in items) {\n                if (\"object\" == last_obj_property.get(\"type\")) {\n                    last_obj_property = last_obj_property.get(\"properties\").get(item)\n                } else if (\"array\" == last_obj_property.get(\"type\")) {\n                    last_obj_property = last_obj_property.get(\"items\").get(\"properties\").get(item)\n                }\n            }\n\n            if (last_obj_property == null || \"object\" == last_obj_property.get(\"type\")) {\n                if (items) {\n                    if(array_items) {\n                        for (i in array_items.size()..<items.size()) {\n                            fieldName += \" -> '${items.get(i)}'\"\n                        }\n                    } else {\n                        for (item in items) {\n                            fieldName += \" -> '${item}'\"\n                        }\n                    }\n                }\n            }\n            fieldName += \" ->> '\" + iSearchFieldCond.getFieldName() + \"'\"\n            int dataType = iSearchFieldCond.getDataType()\n            if (!DataTypeUtils.isStringDataType(dataType) && !DataTypeUtils.isIntDataType(dataType) && !DataTypeUtils.isDoubleDataType(dataType) && !DataTypeUtils.isDateTimeDataType(dataType)) {\n                dataType = DataTypes.VARCHAR\n            }\n            //数值\n            if (DataTypeUtils.isIntDataType(dataType) || DataTypeUtils.isDoubleDataType(dataType)) {\n                fieldName = \"(\" + fieldName + \")::NUMERIC\"\n            }\n            String sql = dbDialect.getConditionSQL(fieldName, dataType, iSearchFieldCond.getCondOp(), iSearchFieldCond.getValue(), false, iSearchContextDTO)\n            sb.append(sql)\n        }\n    }\n\n\n}\n",
     "runtimeObject" : true
   }, {
+    "codeName" : "AISkillWorkspaceDESyncUtilRuntime",
+    "dynaModelFilePath" : "PSMODULES/ai/PSSYSSFPLUGINS/AISkillWorkspaceDESyncUtilRuntime.json",
+    "name" : "AISkillWorkspaceDESyncUtilRuntime",
+    "getPSSystemModule" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai.json"
+    },
+    "pluginCode" : "AISkillWorkspaceDESyncUtilRuntime",
+    "pluginType" : "USER",
+    "rTObjectName" : "net.ibizsys.central.plugin.util.sysutil.AISkillWorkspaceDESyncUtilRuntime",
+    "rTObjectSource" : 1,
+    "templCode" : "package net.ibizsys.central.plugin.util.sysutil;\n\nimport net.ibizsys.central.cloud.core.security.EmployeeContext;\nimport net.ibizsys.central.cloud.core.util.domain.Credential;\nimport net.ibizsys.central.util.IEntityDTO;\nimport net.ibizsys.central.util.SearchContextDTO;\nimport net.ibizsys.model.dataentity.action.IPSDEAction;\nimport net.ibizsys.model.dataentity.defield.IPSDEField;\nimport net.ibizsys.runtime.dataentity.IDataEntityRuntime;\nimport net.ibizsys.runtime.dataentity.IDataEntityRuntimeContext;\nimport net.ibizsys.runtime.util.*;\nimport org.apache.commons.logging.Log;\nimport org.apache.commons.logging.LogFactory;\nimport org.springframework.util.ObjectUtils;\nimport org.springframework.util.StringUtils;\n\nimport java.util.Date;\nimport java.util.LinkedHashMap;\nimport java.util.List;\nimport java.util.Map;\n\npublic class AISkillWorkspaceDESyncUtilRuntime extends SysCloudConfigDESyncUtilRuntimeBase{\n\tpublic static final String PREDEFINEDFIELD_ACCESS_STRATEGY = \"ACCESS_STRATEGY\";\n\tpublic static final String PREDEFINEDFIELD_ACCESS_TYPES = \"ACCESS_TYPES\";\n\tpublic static final String PREDEFINEDFIELD_ACCESS_KEY = \"ACCESS_TOKEN\";\n\tpublic static final String PREDEFINEDFIELD_ACTIVE = \"ACTIVE\";\n\tpublic static final String PREDEFINEDFIELD_USER_ID = \"CREATE_MAN\";\n\tpublic static final String PREDEFINEDFIELD_EXPIRATION_DATE = \"EXPIRATION_DATE\";\n\n\tpublic final static String FIELD_EMPLOYEE = \"employee\";\n\tpublic final static String FIELD_CLIENT_ACCESS = \"client_access\";\n\tpublic final static String FIELD_CLIENT_ACCESS_STRATEGY = \"strategy\";\n\tpublic final static String FIELD_CLIENT_ACCESS_TYPES = \"access_types\";\n\n\t/**\n\t * 路径参数：AI工厂标识\n\t */\n\tpublic final static String PARAM_AIFACTORY = \"aifactory\";\n\n\tprivate String strAIFactoryTag = \"\";\n\n\tprivate static final Log log = LogFactory.getLog(AIClientCredentialDESyncUtilRuntime.class);\n\n\n\n\t@Override\n\tprotected void onInit() throws Exception {\n\t\tthis.strAIFactoryTag = DataTypeUtils.asString(this.getUtilParam(PARAM_AIFACTORY, null), \"ibizintelligence\");\n\t\tsuper.onInit();\n\t}\n\n\t@Override\n\tprotected String getConfig(IDataEntityRuntimeContext iDataEntityRuntimeContext, IEntityDTO iEntityDTO) throws Throwable {\n\t\tString strConfig = super.getConfig(iDataEntityRuntimeContext, iEntityDTO);\n\t\tif(StringUtils.hasLength(strConfig)) {\n\t\t\treturn strConfig;\n\t\t}\n\t\tMap<String, Object> map = this.getConfigMap(iDataEntityRuntimeContext, iEntityDTO);\n\t\tif(!map.containsKey(FIELD_CLIENT_ACCESS)) {\n\t\t\tString strStrategy = \"\";\n\t\t\tString strAccessTypes = \"\";\n\t\t\tMap<String, Object> map2 = new LinkedHashMap<String, Object>();\n\t\t\tIPSDEField strategyPSDEField = iDataEntityRuntimeContext.getDataEntityRuntime().getPSDEFieldByTag(PREDEFINEDFIELD_ACCESS_STRATEGY, true);\n\t\t\tif(strategyPSDEField != null) {\n\t\t\t\tObject strategy = iEntityDTO.get(strategyPSDEField.getLowerCaseName());\n\t\t\t\tif(!ObjectUtils.isEmpty(strategy)) {\n\t\t\t\t\tstrStrategy = String.valueOf(strategy);\n\t\t\t\t\tmap2.put(FIELD_CLIENT_ACCESS_STRATEGY, strStrategy);\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tIPSDEField accessTypesPSDEField = iDataEntityRuntimeContext.getDataEntityRuntime().getPSDEFieldByTag(PREDEFINEDFIELD_ACCESS_TYPES, true);\n\t\t\tif(accessTypesPSDEField != null) {\n\t\t\t\tObject accessTypes = iEntityDTO.get(accessTypesPSDEField.getLowerCaseName());\n\t\t\t\tif (!ObjectUtils.isEmpty(accessTypes)) {\n\t\t\t\t\tstrAccessTypes = String.valueOf(accessTypes);\n\t\t\t\t\tmap2.put(FIELD_CLIENT_ACCESS_TYPES, strAccessTypes);\n\t\t\t\t}\n\t\t\t}\n\t\t\tmap.put(FIELD_CLIENT_ACCESS, map2);\n\t\t}\n\n\t\tif(!map.containsKey(FIELD_EMPLOYEE)) {\n\t\t\tIPSDEField userIdPSDEField = iDataEntityRuntimeContext.getDataEntityRuntime().getPSDEFieldByTag(PREDEFINEDFIELD_USER_ID, true);\n\t\t\tif(userIdPSDEField != null) {\n\t\t\t\tObject userId = iEntityDTO.get(userIdPSDEField.getLowerCaseName());\n\t\t\t\tif(!ObjectUtils.isEmpty(userId)) {\n\t\t\t\t\tString strUserId = String.valueOf(userId);\n\t\t\t\t\tif (StringUtils.hasLength(strUserId) && strUserId.equals(EmployeeContext.getCurrent().getUserid())) {\n\t\t\t\t\t\tMap employeeMap = YamlUtils.asMap(EmployeeContext.getCurrent().getEmployee().toString());\n\t\t\t\t\t\tmap.put(FIELD_EMPLOYEE, employeeMap);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tif(!map.containsKey(Credential.FIELD_EXPIRESTIME)) {\n\t\t\tIPSDEField expirationDatePSDEField = iDataEntityRuntimeContext.getDataEntityRuntime().getPSDEFieldByTag(PREDEFINEDFIELD_EXPIRATION_DATE, true);\n\t\t\tif(expirationDatePSDEField != null) {\n\t\t\t\tObject expirationDate = iEntityDTO.get(expirationDatePSDEField.getLowerCaseName());\n\t\t\t\tif(expirationDate != null) {\n\t\t\t\t\tif(expirationDate instanceof String) {\n\t\t\t\t\t\tmap.put(Credential.FIELD_EXPIRESTIME, expirationDate);\n\t\t\t\t\t}\n\t\t\t\t\telse\n\t\t\t\t\tif(expirationDate instanceof Date) {\n\t\t\t\t\t\tmap.put(Credential.FIELD_EXPIRESTIME, DateUtils.toDateTimeString((Date)expirationDate));\n\t\t\t\t\t}\n\t\t\t\t\telse\n\t\t\t\t\t{\n\t\t\t\t\t\ttry {\n\t\t\t\t\t\t\tmap.put(Credential.FIELD_EXPIRESTIME, DateUtils.toDateTimeString(DataTypeUtils.asDateTime(expirationDate)));\n\t\t\t\t\t\t}\n\t\t\t\t\t\tcatch (Throwable ex) {\n\t\t\t\t\t\t\tlog.error(String.format(\"过期时间[%1$s]类型不支持\", expirationDate));\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tif (!map.containsKey(Credential.FIELD_DISABLED)) {\n\t\t\tmap.put(Credential.FIELD_DISABLED, 0);\n\t\t\tIPSDEField activePSDEField = iDataEntityRuntimeContext.getDataEntityRuntime().getPSDEFieldByTag(PREDEFINEDFIELD_ACTIVE, true);\n\t\t\tif (activePSDEField != null) {\n\t\t\t\tObject active = iEntityDTO.get(activePSDEField.getLowerCaseName());\n\t\t\t\tif (!ObjectUtils.isEmpty(active)) {\n\t\t\t\t\tBoolean bActive = DataTypeUtils.asBoolean(active, true);\n\t\t\t\t\tif (!bActive) {\n\t\t\t\t\t\tmap.put(Credential.FIELD_DISABLED, 1);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tIDataEntityRuntime assignment = this.getSystemRuntime().getDataEntityRuntime(\"ai.AI_AGENT_ASSIGNMENT\");\n\n\t\tList list = assignment.select(assignment.createSearchContext().nvl(\"compose_id\").eq(\"skill_workspace_id\",iEntityDTO.get(\"id\")).limit(10000000));\n\t\tList<String> resultList = list.collect { entity ->\n\t\t\tentity.getString(\"entity_tag\",\"NA\") + \"=\" + entity.getString(\"entity_row_key\",\"NA\")\n\t\t}.unique().toList()\n\t\tif (resultList) {\n\t\t\tmap.put(\"params\", [\n\t\t\t\t\tbusiness_scope: resultList\n\t\t\t])\n\t\t}\n\n\n\t\treturn this.getConfig(iDataEntityRuntimeContext, map, iEntityDTO);\n\t}\n\n\n\tprotected String getConfig(IDataEntityRuntimeContext iDataEntityRuntimeContext, Map<String, Object> map, IEntityDTO iEntityDTO) throws Throwable {\n\t\treturn YamlUtils.toString(map);\n\t}\n\n\n\t@Override\n\tprotected String getCloudConfigId(IDataEntityRuntimeContext iDataEntityRuntimeContext, Map<String, Object> map, IEntityDTO iEntityDTO) throws Exception {\n\t\tIPSDEField accessKeyPSDEField = iDataEntityRuntimeContext.getDataEntityRuntime().getPSDEFieldByTag(PREDEFINEDFIELD_ACCESS_KEY, true);\n\t\tmap.put(PARAM_AIFACTORY,this.strAIFactoryTag);\n\t\tmap.put(PARAM_KEY, iDataEntityRuntimeContext.getDataEntityRuntime().getFieldValue(iEntityDTO,accessKeyPSDEField));\n\t\treturn super.getCloudConfigId(iDataEntityRuntimeContext, map, iEntityDTO);\n\t}\n\n\n\tprotected void onAfterCreate(IDataEntityRuntimeContext iDataEntityRuntimeContext, IPSDEAction iPSDEAction, IEntityDTO iEntityDTO) throws Throwable {\n\t\tIPSDEField userIdPSDEField = iDataEntityRuntimeContext.getDataEntityRuntime().getPSDEFieldByTag(PREDEFINEDFIELD_USER_ID, true);\n\t\tif(userIdPSDEField != null) {\n\t\t\tObject userId = iEntityDTO.get(userIdPSDEField.getLowerCaseName());\n\t\t\tString strUserId = String.valueOf(userId);\n\t\t\tif (StringUtils.hasLength(strUserId) && strUserId.equals(EmployeeContext.getCurrent().getUserid())) {\n\t\t\t\tsuper.onAfterCreate(iDataEntityRuntimeContext, iPSDEAction, iEntityDTO);\n\t\t\t}\n\t\t}\n//\t\tsuper.onAfterCreate(iDataEntityRuntimeContext, iPSDEAction, iEntityDTO);\n\t}\n\n \n\n\tprotected void onBeforeRemove(IDataEntityRuntimeContext iDataEntityRuntimeContext, IPSDEAction iPSDEAction, IEntityDTO iEntityDTO) throws Throwable {\n//\t\tIPSDEField userIdPSDEField = iDataEntityRuntimeContext.getDataEntityRuntime().getPSDEFieldByTag(PREDEFINEDFIELD_USER_ID, true);\n//\t\tif(userIdPSDEField != null) {\n//\t\t\tObject userId = iEntityDTO.get(userIdPSDEField.getLowerCaseName());\n//\t\t\tString strUserId = String.valueOf(userId);\n//\t\t\tif (StringUtils.hasLength(strUserId) && strUserId.equals(EmployeeContext.getCurrent().getUserid())) {\n//\t\t\t\tsuper.onBeforeRemove(iDataEntityRuntimeContext, iPSDEAction, iEntityDTO);\n//\t\t\t}\n//\t\t}\n\t\tsuper.onBeforeRemove(iDataEntityRuntimeContext, iPSDEAction, iEntityDTO);\n\t}\n\t@Override\n\tprotected String getDefaultCloudConfigIdFormat(IDataEntityRuntimeContext iDataEntityRuntimeContext) throws Exception {\n\t\treturn \"accesstoken-{system}-sysaifactory-ai-{aifactory}--webhook--{key}\";\n\t}\n}\n",
+    "runtimeObject" : true
+  }, {
     "codeName" : "AIToolDESyncUtilRuntime",
     "dynaModelFilePath" : "PSSYSSFPLUGINS/AIToolDESyncUtilRuntime.json",
     "name" : "AIToolDESyncUtilRuntime",
@@ -2314,7 +2387,7 @@
     "pluginType" : "USER",
     "rTObjectName" : "cn.ibizlab.user.plugin.groovy.dataentity.DataRecordDataEntityRuntime",
     "rTObjectSource" : 1,
-    "templCode" : "package cn.ibizlab.user.plugin.groovy.dataentity\n\nimport groovy.sql.Sql\nimport groovy.json.JsonOutput\nimport groovy.json.JsonSlurper\nimport net.ibizsys.central.dataentity.IDataEntityRuntime\nimport net.ibizsys.central.plugin.util.dataentity.DynaDataEntityRuntime\nimport net.ibizsys.central.util.IEntityDTO\nimport net.ibizsys.model.dataentity.action.IPSDEAction\nimport net.ibizsys.runtime.util.JsonUtils\nimport net.ibizsys.runtime.util.KeyValueUtils\nimport org.postgresql.util.PGobject\n\nimport javax.sql.DataSource\n\nclass DataRecordDataEntityRuntime extends DynaDataEntityRuntime{\n\n    private DataSource dataSource\n    private static final Set<String> NATIVE_COLUMNS = [\n            '_create_time', '_enabled', '_id', '_key',\n            '_metadata', '_ner_flag', '_owner', '_region',\n            '_summary', '_title', '_update_time', '_resource_id'\n    ] as Set\n\n    @Override\n    protected Object doExecuteActionReal(String strActionName, IPSDEAction iPSDEAction, Object[] args, Object actionData) throws Throwable {\n        if (strActionName.equalsIgnoreCase(\"upsert\")||strActionName.equalsIgnoreCase(\"upsert_batch\")\n                ||strActionName.equalsIgnoreCase(\"update\")\n                ||strActionName.equalsIgnoreCase(\"create\")\n                ||strActionName.equalsIgnoreCase(\"save\")) {\n            upsert(args[0])\n            return args[0]\n        } else if (strActionName.equalsIgnoreCase(\"get\")) {\n            return getData(args[0])\n        }else if (strActionName.equalsIgnoreCase(\"find_kb_id\")) {\n            return findKbId(args[0])\n        }\n        return super.doExecuteActionReal(strActionName, iPSDEAction, args, actionData)\n    }\n\n    /**\n     * UPSERT 方法：已修复 hstore 错误和 ambiguous 错误\n     */\n    void upsert(Object input) {\n        def list = input instanceof List ? input : [input]\n        def sql = new Sql(net.ibizsys.central.cloud.core.spring.rt.ServiceHub.getInstance().getDataSource(this.getSysDBSchemeRuntime().getDataSourceTag(), true))\n\n        List<String> ids = new ArrayList<>()\n\n        try {\n            list.each { dto ->\n                // 1. _id 预处理\n                def _id = dto.any().get('_id')\n                if (!_id)\n                    _id = KeyValueUtils.genMD5(dto.any().get('_resource_id') + \"||\" + dto.any().get('_key'))\n\n                Map entry = new HashMap()\n                if (dto instanceof IEntityDTO) {\n                    dto.set(\"_id\", _id)\n                    ((IEntityDTO) dto).copyTo(entry)\n                } else if (dto instanceof Map) {\n                    entry.put(\"_id\", _id)\n                    entry.putAll(dto)\n                } else\n                    return\n\n                if (!entry['_resource_id'] || !entry['_key']) {\n                    log.error(\"未提供_id或_resource_id+_key\")\n                    return\n                }\n\n                // 2. 核心状态赋值\n                def currentTime = new java.sql.Timestamp(System.currentTimeMillis())\n                entry['_update_time'] = currentTime\n                entry['_create_time'] = currentTime\n                entry['_enabled'] = 1\n\n                // 3. 字段分拣 (修正点：跳过 _metadata，统一在后面处理)\n                Map insertNative = [:]\n                Map updateNative = [:]\n                Map metadata = [:]\n\n                entry.each { k, v ->\n                    // 增加 k != '_metadata' 判断，防止重复\n                    if (NATIVE_COLUMNS.contains(k) && k != '_metadata') {\n                        def processedValue = (v instanceof Map || v instanceof List) ? toPGobject(v) : v\n\n                        insertNative[k] = processedValue\n                        if (k != '_id' && k != '_create_time') {\n                            updateNative[k] = processedValue\n                        }\n                    } else if (!NATIVE_COLUMNS.contains(k)) {\n                        // 只有非原生列才进这个 metadata 暂存区\n                        metadata[k] = v\n                    }\n                }\n\n                // 4. 构建 SQL 元素\n                def insertCols = insertNative.keySet().toList()\n                def insertValues = insertNative.values().toList()\n\n                def setClauses = updateNative.keySet().collect { \"${it} = ?\" }\n                def updateParams = updateNative.values().toList()\n\n                // 处理 metadata (这里是 _metadata 唯一进入 SQL 的地方)\n                if (!metadata.isEmpty()) {\n                    def pgMeta = toPGobject(metadata)\n                    insertCols << \"_metadata\"\n                    insertValues << pgMeta\n\n                    setClauses << \"_metadata = COALESCE(data_record._metadata, '{}'::jsonb) || ?\"\n                    updateParams << pgMeta\n                }\n\n                // 5. 组装最终 SQL\n                def placeholders = (1..insertCols.size()).collect { '?' }.join(\", \")\n                def upsertSql = \"\"\"\n                    INSERT INTO data_record (${insertCols.join(\", \")})\n                    VALUES (${placeholders})\n                    ON CONFLICT (_id) \n                    DO UPDATE SET ${setClauses.join(\", \")}\n                \"\"\"\n\n\n\n                // 执行\n                sql.execute(upsertSql, insertValues + updateParams)\n                ids.add(_id)\n\n                //生成知识库\n                def resource_id = entry.get(\"_resource_id\")\n                if(resource_id){\n                    IDataEntityRuntime catSettingDERuntime = this.getSystemRuntime().getDataEntityRuntime(\"CATEGORY_SETTINGS\")\n                    def filter = catSettingDERuntime.createSearchContext()\n                    filter.eq(\"resource_id\",resource_id)\n                    def catgSettings = catSettingDERuntime.select(filter)\n                    catgSettings.forEach {catSeting ->\n                        try{\n                            String type = catSeting.getString(\"auto_gen_kb\", \"\")\n                            String category_id = catSeting.getString(\"category_id\", \"\")\n\n                            //生成知识库\n                            if(\"none\".equals(type)){\n                                return\n                            }else if(\"record\".equals(type)){\n                                IEntityDTO tempKb = findKbId(_id)\n                                String kb_id = tempKb.getString(\"kb_id\", \"\")\n                                if(tempKb.get(\"_update\") == 0){\n                                    addRecordKb(kb_id, _id, category_id, entry)\n                                }\n                                addRecordKbDoc(kb_id, _id, entry)\n                            }else if(\"resource\".equals(type)){\n\n                            }\n                            //生成对应知识库文档\n\n                        }\n                        catch (Exception ex) {\n                            log.error(\"知识库文档解析失败：\"+doc.get(\"id\"))\n                        }\n\n                    }\n                }\n\n            }\n        } finally {\n            sql.close()\n        }\n\n        IDataEntityRuntime docDERuntime = this.getSystemRuntime().getDataEntityRuntime(\"AI_KB_DOCUMENT\")\n        def filter = docDERuntime.createSearchContext()\n        filter.eq(\"source_type\",\"DATA_RECORD\")\n        filter.in(\"source_id\",ids)\n        def docs = docDERuntime.select(filter)\n        docs.forEach {doc ->\n            try{\n                docDERuntime.executeAction(\"parse\", null, [doc]);\n            }\n            catch (Exception ex) {\n                try{\n                    log.error(\"知识库文档解析失败：\"+doc.get(\"id\"))\n                }\n                catch (Exception ex2) {\n\n                }\n            }\n\n        }\n    }\n\n    protected void addRecordKb(String kb_id, String record_id, String category_id, Map entry){\n        try{\n            IDataEntityRuntime kbDERuntime = this.getSystemRuntime().getDataEntityRuntime(\"AI_KNOWLEDGE_BASE\")\n            IEntityDTO kbDto = kbDERuntime.createEntity()\n            String org_id = entry[\"_origin_region\"] ?: entry[\"_region\"]\n            String name = entry[\"_origin_title\"] ?: entry[\"_title\"]\n            String key = entry[\"_origin_key\"] ?: entry[\"_key\"]\n            String description = entry[\"_origin_summary\"] ?: entry[\"_summary\"]\n            if(description.length() > 2000){\n                description = description.substring(0, 2000)\n            }\n            String guidance_prompt = String.format(\"%s:%s\", name, description)\n            if(guidance_prompt.length() > 2000){\n                guidance_prompt = guidance_prompt.substring(0, 2000)\n            }\n            kbDto.set(\"id\", kb_id)\n            kbDto.set(\"name\", name)\n            kbDto.set(\"visibility\", \"private\")\n            kbDto.set(\"status\", \"0\")\n            kbDto.set(\"scope_type\", \"organization\")\n            kbDto.set(\"scope_id\", org_id)\n            kbDto.set(\"key\", key)\n            kbDto.set(\"record_id\", record_id)\n            kbDto.set(\"description\", description)\n            kbDto.set(\"guidance_prompt\", guidance_prompt)\n            kbDto.set(\"category_id\", category_id)\n            kbDERuntime.create(kbDto)\n        }\n        catch (Exception ex) {\n            log.error(String.format(\"DataRecord[%s]同步记录知识库[%s]失败，错误原因：%s\", record_id, kb_id, ex.getMessage()))\n        }\n    }\n\n    protected void addRecordKbDoc(String kb_id, String record_id, Map entry){\n        IDataEntityRuntime docDERuntime = this.getSystemRuntime().getDataEntityRuntime(\"AI_KB_DOCUMENT\")\n        def filter = docDERuntime.createSearchContext()\n        filter.eq(\"id\", record_id)\n        def docs = docDERuntime.select(filter)\n        if(docs.size() == 0){\n            IEntityDTO docDto = docDERuntime.createEntity()\n\n            String name = entry[\"_origin_title\"] ?: entry[\"_title\"]\n            String key = entry[\"_origin_key\"] ?: entry[\"_key\"]\n            String resource_id = entry[\"_resource_id\"]\n            String resource_name = entry[\"_resource_name\"]\n\n            docDto.set(\"id\", record_id)\n            docDto.set(\"name\", name)\n            docDto.set(\"key\", key)\n            docDto.set(\"type\", resource_id)\n            docDto.set(\"resource\", resource_name)\n            docDto.set(\"source_type\", \"DATA_RECORD\")\n            docDto.set(\"source_id\", record_id)\n            docDto.set(\"sequence\", 0)\n            docDto.set(\"status\", 0)\n            docDto.set(\"active\", 1)\n            docDto.set(\"kb_id\", kb_id)\n            docDto.set(\"custom_chunk\", 0)\n            docDERuntime.create(docDto)\n        }\n\n    }\n\n    IEntityDTO getData(String id) {\n        def sql = new Sql(net.ibizsys.central.cloud.core.spring.rt.ServiceHub.getInstance().getDataSource(this.getSysDBSchemeRuntime().getDataSourceTag(),true))\n        try {\n            def row = sql.firstRow(\"SELECT t1.* FROM data_record t1  WHERE  t1. _id = ? and t1._enabled = 1\", [id])\n            if (!row) return null\n\n            Map result = [:]\n            Map metadata = [:]\n\n            row.each { k, v ->\n                if (k == '_metadata' && v != null) {\n                    metadata = new HashMap( new JsonSlurper().parseText(v.toString()))\n                } else {\n                    result[k] = v\n                }\n            }\n\n            IEntityDTO dto = this.createEntity()\n            result['_metadata'] = metadata\n            dto.from(result)\n            dto.any().putAll(metadata)\n            String resource_id = dto.get(\"_resource_id\")\n            if(resource_id) {\n                IEntityDTO resource = getResource(resource_id)\n                if(resource) {\n                    dto.set(\"_resource_name\",resource.get(\"name\"))\n                    dto.set(\"_resource_code\",resource.get(\"resource_code\"))\n                    dto.set(\"_schema\",resource.get(\"schema_def\"))\n                }\n            }\n\n            return dto\n        } finally {\n            sql.close()\n        }\n    }\n\n    private Map<String,IEntityDTO> cacheResource = new LinkedHashMap<>()\n\n    private IEntityDTO getResource(String resource_id) {\n\n        IEntityDTO resource = cacheResource.get(resource_id);\n        if (resource != null) {\n            long cacheTime = resource.get(\"_cache_time\");\n            if (System.currentTimeMillis() - cacheTime <= 10 * 60 * 1000) {\n                return resource;\n            }\n        }\n        synchronized (this) {\n            resource = cacheResource.get(resource_id);\n            if (resource != null) {\n                long cacheTime = resource.get(\"_cache_time\");\n                if (System.currentTimeMillis() - cacheTime <= 10 * 60 * 1000) {\n                    return resource;\n                }\n            }\n            else{\n                IDataEntityRuntime resourceDERuntime = this.getSystemRuntime().getDataEntityRuntime(\"DATA_RESOURCE\")\n                resource = resourceDERuntime.get(resource_id)\n                resource.set(\"_cache_time\",System.currentTimeMillis())\n                resource.set(\"schema_def\", JsonUtils.asMap(resource.get(\"schema\")))\n                cacheResource.put(resource_id,resource)\n\n            }\n        }\n        return resource\n    }\n\n    private PGobject toPGobject(Object obj) {\n        if (obj == null) return null\n        def pgObj = new PGobject()\n        pgObj.type = \"jsonb\"\n        pgObj.value = JsonOutput.toJson(obj)\n        return pgObj\n    }\n\n    IEntityDTO findKbId(Object input) {\n        def record_id = input instanceof IEntityDTO ? input.get('_id') : input\n        def kb_id = KeyValueUtils.genUniqueId()\n        def _update = 0\n        IDataEntityRuntime kbDERuntime = this.getSystemRuntime().getDataEntityRuntime(\"AI_KNOWLEDGE_BASE\")\n        def filter = kbDERuntime.createSearchContext()\n        filter.eq(\"record_id\", record_id)\n        def kbs = kbDERuntime.select(filter)\n        if (kbs != null && !kbs.isEmpty()) {\n            kb_id = kbs[0].get('id')\n            _update = 1\n        }\n\n        IEntityDTO dto = this.createEntity()\n        dto.set(\"kb_id\", kb_id)\n        dto.set(\"_update\", _update)\n        return dto;\n    }\n\n}",
+    "templCode" : "package cn.ibizlab.user.plugin.groovy.dataentity\n\nimport groovy.sql.Sql\nimport groovy.json.JsonOutput\nimport groovy.json.JsonSlurper\nimport net.ibizsys.central.dataentity.IDataEntityRuntime\nimport net.ibizsys.central.plugin.util.dataentity.DynaDataEntityRuntime\nimport net.ibizsys.central.util.IEntityDTO\nimport net.ibizsys.model.dataentity.action.IPSDEAction\nimport net.ibizsys.runtime.util.JsonUtils\nimport net.ibizsys.runtime.util.KeyValueUtils\nimport org.postgresql.util.PGobject\n\nimport javax.sql.DataSource\n\nclass DataRecordDataEntityRuntime extends DynaDataEntityRuntime{\n\n    private DataSource dataSource\n    private static final Set<String> NATIVE_COLUMNS = [\n            '_create_time', '_enabled', '_id', '_key',\n            '_metadata', '_ner_flag', '_owner', '_region',\n            '_summary', '_title', '_update_time', '_resource_id'\n    ] as Set\n\n    @Override\n    protected Object doExecuteActionReal(String strActionName, IPSDEAction iPSDEAction, Object[] args, Object actionData) throws Throwable {\n        if (strActionName.equalsIgnoreCase(\"upsert\")||strActionName.equalsIgnoreCase(\"upsert_batch\")\n                ||strActionName.equalsIgnoreCase(\"update\")\n                ||strActionName.equalsIgnoreCase(\"create\")\n                ||strActionName.equalsIgnoreCase(\"save\")) {\n            upsert(args[0])\n            return args[0]\n        } else if (strActionName.equalsIgnoreCase(\"get\")) {\n            return getData(args[0])\n        }else if (strActionName.equalsIgnoreCase(\"find_kb_id\")) {\n            return findKbId(args[0])\n        }\n        return super.doExecuteActionReal(strActionName, iPSDEAction, args, actionData)\n    }\n\n    /**\n     * UPSERT 方法：已修复 hstore 错误和 ambiguous 错误\n     */\n    void upsert(Object input) {\n        def list = input instanceof List ? input : [input]\n        def sql = new Sql(net.ibizsys.central.cloud.core.spring.rt.ServiceHub.getInstance().getDataSource(this.getSysDBSchemeRuntime().getDataSourceTag(), true))\n\n        List<String> ids = new ArrayList<>()\n\n        try {\n            list.each { dto ->\n                // 1. _id 预处理\n                def _id = dto.any().get('_id')\n                if (!_id)\n                    _id = KeyValueUtils.genMD5(dto.any().get('_resource_code') + \"||\" + dto.any().get('_key'))\n\n                Map entry = new HashMap()\n                if (dto instanceof IEntityDTO) {\n                    dto.set(\"_id\", _id)\n                    ((IEntityDTO) dto).copyTo(entry)\n                } else if (dto instanceof Map) {\n                    entry.put(\"_id\", _id)\n                    entry.putAll(dto)\n                } else\n                    return\n\n                if (!entry['_resource_code'] || !entry['_key']) {\n                    log.error(\"未提供_id或_resource_code+_key\")\n                    return\n                }\n\n                // 2. 核心状态赋值\n                def currentTime = new java.sql.Timestamp(System.currentTimeMillis())\n                entry['_update_time'] = currentTime\n                entry['_create_time'] = currentTime\n                entry['_enabled'] = 1\n\n                // 3. 字段分拣 (修正点：跳过 _metadata，统一在后面处理)\n                Map insertNative = [:]\n                Map updateNative = [:]\n                Map metadata = [:]\n\n                entry.each { k, v ->\n                    // 增加 k != '_metadata' 判断，防止重复\n                    if (NATIVE_COLUMNS.contains(k) && k != '_metadata') {\n                        def processedValue = (v instanceof Map || v instanceof List) ? toPGobject(v) : v\n\n                        insertNative[k] = processedValue\n                        if (k != '_id' && k != '_create_time') {\n                            updateNative[k] = processedValue\n                        }\n                    } else if (!NATIVE_COLUMNS.contains(k)) {\n                        // 只有非原生列才进这个 metadata 暂存区\n                        metadata[k] = v\n                    }\n                }\n\n                // 4. 构建 SQL 元素\n                def insertCols = insertNative.keySet().toList()\n                def insertValues = insertNative.values().toList()\n\n                def setClauses = updateNative.keySet().collect { \"${it} = ?\" }\n                def updateParams = updateNative.values().toList()\n\n                // 处理 metadata (这里是 _metadata 唯一进入 SQL 的地方)\n                if (!metadata.isEmpty()) {\n                    def pgMeta = toPGobject(metadata)\n                    insertCols << \"_metadata\"\n                    insertValues << pgMeta\n\n                    setClauses << \"_metadata = COALESCE(data_record._metadata, '{}'::jsonb) || ?\"\n                    updateParams << pgMeta\n                }\n\n                // 5. 组装最终 SQL\n                def placeholders = (1..insertCols.size()).collect { '?' }.join(\", \")\n                def upsertSql = \"\"\"\n                    INSERT INTO data_record (${insertCols.join(\", \")})\n                    VALUES (${placeholders})\n                    ON CONFLICT (_id) \n                    DO UPDATE SET ${setClauses.join(\", \")}\n                \"\"\"\n\n\n\n                // 执行\n                sql.execute(upsertSql, insertValues + updateParams)\n                ids.add(_id)\n\n                //生成知识库\n                def resource_id = entry.get(\"_resource_id\")\n                if(resource_id){\n                    IDataEntityRuntime catSettingDERuntime = this.getSystemRuntime().getDataEntityRuntime(\"CATEGORY_SETTINGS\")\n                    def filter = catSettingDERuntime.createSearchContext()\n                    filter.eq(\"resource_id\",resource_id)\n                    def catgSettings = catSettingDERuntime.select(filter)\n                    catgSettings.forEach {catSeting ->\n                        try{\n                            String type = catSeting.getString(\"auto_gen_kb\", \"\")\n                            String category_id = catSeting.getString(\"category_id\", \"\")\n\n                            //生成知识库\n                            if(\"none\".equals(type)){\n                                return\n                            }else if(\"record\".equals(type)){\n                                IEntityDTO tempKb = findKbId(_id)\n                                String kb_id = tempKb.getString(\"kb_id\", \"\")\n                                if(tempKb.get(\"_update\") == 0){\n                                    addRecordKb(kb_id, _id, category_id, entry)\n                                }\n                                addRecordKbDoc(kb_id, _id, entry)\n                            }else if(\"resource\".equals(type)){\n\n                            }\n                            //生成对应知识库文档\n\n                        }\n                        catch (Exception ex) {\n                            log.error(\"同步生成知识库失败：\"+doc.get(\"id\"))\n                        }\n\n                    }\n                }\n\n            }\n        } finally {\n            sql.close()\n        }\n\n        IDataEntityRuntime docDERuntime = this.getSystemRuntime().getDataEntityRuntime(\"AI_KB_DOCUMENT\")\n        def filter = docDERuntime.createSearchContext()\n        filter.eq(\"source_type\",\"DATA_RECORD\")\n        filter.in(\"source_id\",ids)\n        def docs = docDERuntime.select(filter)\n        docs.forEach {doc ->\n            try{\n                docDERuntime.executeAction(\"parse\", null, [doc]);\n            }\n            catch (Exception ex) {\n                try{\n                    log.error(\"知识库文档解析失败：\"+ex.getMessage())\n                }\n                catch (Exception ex2) {\n\n                }\n            }\n\n        }\n    }\n\n    protected void addRecordKb(String kb_id, String record_id, String category_id, Map entry){\n        try{\n            IDataEntityRuntime kbDERuntime = this.getSystemRuntime().getDataEntityRuntime(\"AI_KNOWLEDGE_BASE\")\n            IEntityDTO kbDto = kbDERuntime.createEntity()\n            String org_id = entry[\"_origin_region\"] ?: entry[\"_region\"]\n            String name = entry[\"_origin_title\"] ?: entry[\"_title\"]\n            String key = entry[\"_origin_key\"] ?: entry[\"_key\"]\n            String description = entry[\"_origin_summary\"] ?: entry[\"_summary\"]\n            if(description.length() > 2000){\n                description = description.substring(0, 2000)\n            }\n            String guidance_prompt = String.format(\"%s:%s\", name, description)\n            if(guidance_prompt.length() > 2000){\n                guidance_prompt = guidance_prompt.substring(0, 2000)\n            }\n            kbDto.set(\"id\", kb_id)\n            kbDto.set(\"name\", name)\n            kbDto.set(\"visibility\", \"private\")\n            kbDto.set(\"status\", \"0\")\n            kbDto.set(\"scope_type\", \"organization\")\n            kbDto.set(\"scope_id\", org_id)\n            kbDto.set(\"key\", key)\n            kbDto.set(\"record_id\", record_id)\n            kbDto.set(\"description\", description)\n            kbDto.set(\"guidance_prompt\", guidance_prompt)\n            kbDto.set(\"category_id\", category_id)\n            kbDERuntime.create(kbDto)\n        }\n        catch (Exception ex) {\n            log.error(String.format(\"DataRecord[%s]同步记录知识库[%s]失败，错误原因：%s\", record_id, kb_id, ex.getMessage()))\n        }\n    }\n\n    protected void addRecordKbDoc(String kb_id, String record_id, Map entry){\n        IDataEntityRuntime docDERuntime = this.getSystemRuntime().getDataEntityRuntime(\"AI_KB_DOCUMENT\")\n        def filter = docDERuntime.createSearchContext()\n        filter.eq(\"id\", record_id)\n        def docs = docDERuntime.select(filter)\n        if(docs.size() == 0){\n            IEntityDTO docDto = docDERuntime.createEntity()\n\n            String name = entry[\"_origin_title\"] ?: entry[\"_title\"]\n            String key = entry[\"_origin_key\"] ?: entry[\"_key\"]\n            String resource_id = entry[\"_resource_id\"]\n            String resource_name = entry[\"_resource_name\"]\n\n            docDto.set(\"id\", record_id)\n            docDto.set(\"name\", name)\n            docDto.set(\"key\", key)\n            docDto.set(\"type\", resource_id)\n            docDto.set(\"resource\", resource_name)\n            docDto.set(\"source_type\", \"DATA_RECORD\")\n            docDto.set(\"source_id\", record_id)\n            docDto.set(\"sequence\", 0)\n            docDto.set(\"status\", 0)\n            docDto.set(\"active\", 1)\n            docDto.set(\"kb_id\", kb_id)\n            docDto.set(\"custom_chunk\", 0)\n            docDERuntime.create(docDto)\n        }\n\n    }\n\n    IEntityDTO getData(String id) {\n        def sql = new Sql(net.ibizsys.central.cloud.core.spring.rt.ServiceHub.getInstance().getDataSource(this.getSysDBSchemeRuntime().getDataSourceTag(),true))\n        try {\n            def row = sql.firstRow(\"SELECT t1.* FROM data_record t1  WHERE  t1. _id = ? and t1._enabled = 1\", [id])\n            if (!row) return null\n\n            Map result = [:]\n            Map metadata = [:]\n\n            row.each { k, v ->\n                if (k == '_metadata' && v != null) {\n                    metadata = new HashMap( new JsonSlurper().parseText(v.toString()))\n                } else {\n                    result[k] = v\n                }\n            }\n\n            IEntityDTO dto = this.createEntity()\n            result['_metadata'] = metadata\n            dto.from(result)\n            dto.any().putAll(metadata)\n            String resource_id = dto.get(\"_resource_id\")\n            if(resource_id) {\n                IEntityDTO resource = getResource(resource_id)\n                if(resource) {\n                    dto.set(\"_resource_name\",resource.get(\"name\"))\n                    dto.set(\"_resource_code\",resource.get(\"resource_code\"))\n                    dto.set(\"_schema\",resource.get(\"schema_def\"))\n                }\n            }\n\n            return dto\n        } finally {\n            sql.close()\n        }\n    }\n\n    private Map<String,IEntityDTO> cacheResource = new LinkedHashMap<>()\n\n    private IEntityDTO getResource(String resource_id) {\n\n        IEntityDTO resource = cacheResource.get(resource_id);\n        if (resource != null) {\n            long cacheTime = resource.get(\"_cache_time\");\n            if (System.currentTimeMillis() - cacheTime <= 10 * 60 * 1000) {\n                return resource;\n            }\n        }\n        synchronized (this) {\n            resource = cacheResource.get(resource_id);\n            if (resource != null) {\n                long cacheTime = resource.get(\"_cache_time\");\n                if (System.currentTimeMillis() - cacheTime <= 10 * 60 * 1000) {\n                    return resource;\n                }\n            }\n            else{\n                IDataEntityRuntime resourceDERuntime = this.getSystemRuntime().getDataEntityRuntime(\"DATA_RESOURCE\")\n                resource = resourceDERuntime.get(resource_id)\n                resource.set(\"_cache_time\",System.currentTimeMillis())\n                resource.set(\"schema_def\", JsonUtils.asMap(resource.get(\"schema\")))\n                cacheResource.put(resource_id,resource)\n\n            }\n        }\n        return resource\n    }\n\n    private PGobject toPGobject(Object obj) {\n        if (obj == null) return null\n        def pgObj = new PGobject()\n        pgObj.type = \"jsonb\"\n        pgObj.value = JsonOutput.toJson(obj)\n        return pgObj\n    }\n\n    IEntityDTO findKbId(Object input) {\n        def record_id = input instanceof IEntityDTO ? input.get('_id') : input\n        def kb_id = KeyValueUtils.genUniqueId()\n        def _update = 0\n        IDataEntityRuntime kbDERuntime = this.getSystemRuntime().getDataEntityRuntime(\"AI_KNOWLEDGE_BASE\")\n        def filter = kbDERuntime.createSearchContext()\n        filter.eq(\"record_id\", record_id)\n        def kbs = kbDERuntime.select(filter)\n        if (kbs != null && !kbs.isEmpty()) {\n            kb_id = kbs[0].get('id')\n            _update = 1\n        }\n\n        IEntityDTO dto = this.createEntity()\n        dto.set(\"kb_id\", kb_id)\n        dto.set(\"_update\", _update)\n        return dto;\n    }\n\n}",
     "runtimeObject" : true
   }, {
     "codeName" : "DefaultSysDETaskUtilRuntime",
@@ -2357,6 +2430,19 @@
     "pluginCode" : "GLOBAL_DATAENTITYRUNTIME",
     "pluginType" : "USER",
     "rTObjectName" : "net.ibizsys.central.plugin.util.dataentity.DynaDataEntityRuntime",
+    "rTObjectSource" : 1,
+    "runtimeObject" : true
+  }, {
+    "codeName" : "GroovySysHotCodeUtilRuntime",
+    "dynaModelFilePath" : "PSMODULES/Base/PSSYSSFPLUGINS/GroovySysHotCodeUtilRuntime.json",
+    "name" : "GroovySysHotCodeUtilRuntime",
+    "getPSSystemModule" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base.json"
+    },
+    "pluginCode" : "GroovySysHotCodeUtilRuntime",
+    "pluginType" : "USER",
+    "rTObjectName" : "net.ibizsys.central.plugin.groovy.sysutil.GroovySysHotCodeUtilRuntime",
     "rTObjectSource" : 1,
     "runtimeObject" : true
   }, {
@@ -2599,6 +2685,22 @@
     "resCode" : "AI",
     "id" : "ai__AI"
   }, {
+    "name" : "模型管理",
+    "getPSSystemModule" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai.json"
+    },
+    "resCode" : "MODELMGR",
+    "id" : "ai__MODELMGR"
+  }, {
+    "name" : "知识库高级设置",
+    "getPSSystemModule" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai.json"
+    },
+    "resCode" : "KBMGR",
+    "id" : "ai__KBMGR"
+  }, {
     "name" : "知识管理",
     "getPSSystemModule" : {
       "modelref" : true,
@@ -2614,6 +2716,14 @@
     "name" : "智能报表模型扩展",
     "resCode" : "EXTENSION__MANAGE_PSSYSBIREPORT",
     "id" : "EXTENSION__MANAGE_PSSYSBIREPORT"
+  }, {
+    "name" : "智能体高级设置",
+    "getPSSystemModule" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai.json"
+    },
+    "resCode" : "AGENTMGR",
+    "id" : "ai__AGENTMGR"
   }, {
     "name" : "智能报表立方体维度模型扩展（只读）",
     "resCode" : "EXTENSION__READ_PSSYSBICUBEDIMENSION",
@@ -2718,6 +2828,16 @@
     "dynaModelFilePath" : "PSSYSUSERROLES/AUTHOR_ADMIN.json",
     "name" : "系统管理员",
     "getPSSysUserRoleDatas" : [ {
+      "name" : "系统管理员-SYS_ROLE[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSSYSMODELGROUPS/ebsx/PSMODULES/ebsx/PSDATAENTITIES/Role/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSMODELGROUPS/ebsx/PSMODULES/ebsx/PSDATAENTITIES/Role.json"
+      }
+    }, {
       "name" : "系统管理员-AI_AGENT_FEEDBACK[全部数据（读写）]",
       "getPSDEUserRole" : {
         "modelref" : true,
@@ -2788,6 +2908,16 @@
         "path" : "PSMODULES/Base/PSDATAENTITIES/position.json"
       }
     }, {
+      "name" : "系统管理员-AI_AGENT_MEMORY_TASK[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task.json"
+      }
+    }, {
       "name" : "系统管理员-AI_AGENT_KNOWLEDGE_REL[全部数据（读写）]",
       "getPSDEUserRole" : {
         "modelref" : true,
@@ -2848,6 +2978,16 @@
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_model.json"
       }
     }, {
+      "name" : "系统管理员-ROLE[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role.json"
+      }
+    }, {
       "name" : "系统管理员-AI_KB_DOCUMENT_WIZARD[全部数据（读写）]",
       "getPSDEUserRole" : {
         "modelref" : true,
@@ -2866,6 +3006,16 @@
       "getPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_source.json"
+      }
+    }, {
+      "name" : "系统管理员-AI_SKILL_WORKSPACE[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
       }
     }, {
       "name" : "系统管理员-AI_AGENT_ASSIGNMENT[全部数据（读写）]",
@@ -2906,6 +3056,16 @@
       "getPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunking_strategy.json"
+      }
+    }, {
+      "name" : "系统管理员-ROLE_MEMBER[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role_member/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role_member.json"
       }
     }, {
       "name" : "系统管理员-AI_MODEL_PROVIDER[全部数据（读写）]",
@@ -2978,6 +3138,16 @@
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_tag.json"
       }
     }, {
+      "name" : "系统管理员-SYS_ROLE_MEMBER[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSSYSMODELGROUPS/ibizsysmgr/PSMODULES/ibizsysmgr/PSDATAENTITIES/sys_role_member/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSMODELGROUPS/ibizsysmgr/PSMODULES/ibizsysmgr/PSDATAENTITIES/sys_role_member.json"
+      }
+    }, {
       "name" : "系统管理员-AI_AGENT_TOOL_REL[全部数据（读写）]",
       "getPSDEUserRole" : {
         "modelref" : true,
@@ -3026,6 +3196,16 @@
       "getPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+      }
+    }, {
+      "name" : "系统管理员-SYS_ROLE_UAA[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSSYSMODELGROUPS/ibizsysmgr/PSMODULES/ibizsysmgr/PSDATAENTITIES/sys_role/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSMODELGROUPS/ibizsysmgr/PSMODULES/ibizsysmgr/PSDATAENTITIES/sys_role.json"
       }
     }, {
       "name" : "系统管理员-ORGANIZATION[全部数据（读写）]",
@@ -3088,6 +3268,16 @@
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation.json"
       }
     }, {
+      "name" : "系统管理员-KEYRING[全部密钥环(RW)]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/keyring/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/keyring.json"
+      }
+    }, {
       "name" : "系统管理员-MEMBER[全部数据（读写）]",
       "getPSDEUserRole" : {
         "modelref" : true,
@@ -3128,7 +3318,7 @@
         "path" : "PSMODULES/Base/PSDATAENTITIES/section.json"
       }
     }, {
-      "name" : "系统管理员-AI_REVIEW_REPORT[操作角色]",
+      "name" : "系统管理员-AI_REVIEW_REPORT[全部数据（读）]",
       "getPSDEUserRole" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEUSERROLES/ALL_R.json"
@@ -3158,8 +3348,129 @@
         "path" : "PSMODULES/Base/PSDATAENTITIES/department.json"
       }
     } ],
+    "getPSSysUserRoleReses" : [ {
+      "name" : "系统管理员-智能体高级设置",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "ai__AGENTMGR"
+      },
+      "sysUniResCode" : "AGENTMGR"
+    }, {
+      "name" : "系统管理员-知识库高级设置",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "ai__KBMGR"
+      },
+      "sysUniResCode" : "KBMGR"
+    }, {
+      "name" : "系统管理员-智能协同",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "ai__AI"
+      },
+      "sysUniResCode" : "AI"
+    }, {
+      "name" : "系统管理员-通知模型扩展",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "extension__EXTENSION__MANAGE_PSDENOTIFY"
+      },
+      "sysUniResCode" : "EXTENSION__MANAGE_PSDENOTIFY"
+    }, {
+      "name" : "系统管理员-后台管理",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "Base__BASE"
+      },
+      "sysUniResCode" : "BASE"
+    }, {
+      "name" : "系统管理员-通知模型扩展（只读）",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "extension__EXTENSION__READ_PSDENOTIFY"
+      },
+      "sysUniResCode" : "EXTENSION__READ_PSDENOTIFY"
+    }, {
+      "name" : "系统管理员-知识管理_维护",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "Wiki__SPACE_M"
+      },
+      "sysUniResCode" : "SPACE_M"
+    }, {
+      "name" : "系统管理员-智能报表立方体模型扩展（只读）",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "EXTENSION__READ_PSSYSBICUBE"
+      },
+      "sysUniResCode" : "EXTENSION__READ_PSSYSBICUBE"
+    }, {
+      "name" : "系统管理员-智能报表立方体指标模型扩展",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "EXTENSION__MANAGE_PSSYSBICUBEMEASURE"
+      },
+      "sysUniResCode" : "EXTENSION__MANAGE_PSSYSBICUBEMEASURE"
+    }, {
+      "name" : "系统管理员-智能报表立方体指标模型扩展（只读）",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "EXTENSION__READ_PSSYSBICUBEMEASURE"
+      },
+      "sysUniResCode" : "EXTENSION__READ_PSSYSBICUBEMEASURE"
+    }, {
+      "name" : "系统管理员-智能报表模型扩展（只读）",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "EXTENSION__READ_PSSYSBIREPORT"
+      },
+      "sysUniResCode" : "EXTENSION__READ_PSSYSBIREPORT"
+    }, {
+      "name" : "系统管理员-知识管理",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "Wiki__SPACE"
+      },
+      "sysUniResCode" : "SPACE"
+    }, {
+      "name" : "系统管理员-智能报表立方体维度模型扩展（只读）",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "EXTENSION__READ_PSSYSBICUBEDIMENSION"
+      },
+      "sysUniResCode" : "EXTENSION__READ_PSSYSBICUBEDIMENSION"
+    }, {
+      "name" : "系统管理员-模型管理",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "ai__MODELMGR"
+      },
+      "sysUniResCode" : "MODELMGR"
+    }, {
+      "name" : "系统管理员-智能报表立方体维度模型扩展",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "EXTENSION__MANAGE_PSSYSBICUBEDIMENSION"
+      },
+      "sysUniResCode" : "EXTENSION__MANAGE_PSSYSBICUBEDIMENSION"
+    }, {
+      "name" : "系统管理员-智能报表模型扩展",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "EXTENSION__MANAGE_PSSYSBIREPORT"
+      },
+      "sysUniResCode" : "EXTENSION__MANAGE_PSSYSBIREPORT"
+    }, {
+      "name" : "系统管理员-智能报表立方体模型扩展",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "EXTENSION__MANAGE_PSSYSBICUBE"
+      },
+      "sysUniResCode" : "EXTENSION__MANAGE_PSSYSBICUBE"
+    } ],
     "roleTag" : "AUTHOR_ADMIN",
-    "roleType" : "CUSTOM"
+    "roleType" : "CUSTOM",
+    "uniResTags" : [ "AGENTMGR", "KBMGR", "AI", "EXTENSION__MANAGE_PSDENOTIFY", "BASE", "EXTENSION__READ_PSDENOTIFY", "SPACE_M", "EXTENSION__READ_PSSYSBICUBE", "EXTENSION__MANAGE_PSSYSBICUBEMEASURE", "EXTENSION__READ_PSSYSBICUBEMEASURE", "EXTENSION__READ_PSSYSBIREPORT", "SPACE", "EXTENSION__READ_PSSYSBICUBEDIMENSION", "MODELMGR", "EXTENSION__MANAGE_PSSYSBICUBEDIMENSION", "EXTENSION__MANAGE_PSSYSBIREPORT", "EXTENSION__MANAGE_PSSYSBICUBE" ]
   }, {
     "codeName" : "ROLE_USERS",
     "defaultUser" : "USER",
@@ -3416,6 +3727,16 @@
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
       }
     }, {
+      "name" : "默认用户权限-KEYRING[密钥环所有者]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/keyring/PSDEUSERROLES/KEYRING_OWNER.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/keyring.json"
+      }
+    }, {
       "name" : "默认用户权限-AI_MODEL[全部数据（读）]",
       "getPSDEUserRole" : {
         "modelref" : true,
@@ -3524,6 +3845,16 @@
       "getPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/space.json"
+      }
+    }, {
+      "name" : "默认用户权限-AI_SKILL_WORKSPACE[我创建的（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEUSERROLES/CURDRAFTMAN_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
       }
     }, {
       "name" : "默认用户权限-AI_KB_CHUNK[操作用户(读写)]",
@@ -3876,6 +4207,16 @@
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_credential.json"
       }
     }, {
+      "name" : "默认用户权限-KEYRING[密钥环读取者]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/keyring/PSDEUSERROLES/KEYRING_READER.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/keyring.json"
+      }
+    }, {
       "name" : "默认用户权限-CATEGORY_SETTINGS[操作用户(读写)]",
       "getPSDEUserRole" : {
         "modelref" : true,
@@ -3983,6 +4324,96 @@
     "dynaModelFilePath" : "PSSYSUSERROLES/AI_ADMIN.json",
     "name" : "智能管理员",
     "getPSSysUserRoleDatas" : [ {
+      "name" : "智能管理员-AI_AGENT_CONTEXT[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+      }
+    }, {
+      "name" : "智能管理员-AI_KB_DOCUMENT[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
+      }
+    }, {
+      "name" : "智能管理员-AI_AGENT_MESSAGE[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_message/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_message.json"
+      }
+    }, {
+      "name" : "智能管理员-AI_CREDENTIAL[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_credential/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_credential.json"
+      }
+    }, {
+      "name" : "智能管理员-AI_AGENT_MEMORY_TASK[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task.json"
+      }
+    }, {
+      "name" : "智能管理员-DATA_RESOURCE[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/meta/PSDATAENTITIES/data_resource/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/meta/PSDATAENTITIES/data_resource.json"
+      }
+    }, {
+      "name" : "智能管理员-AI_KB_GRAPH_ENTITY_TYPE[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_graph_entity_type/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_graph_entity_type.json"
+      }
+    }, {
+      "name" : "智能管理员-AI_MODEL[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_model/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_model.json"
+      }
+    }, {
+      "name" : "智能管理员-AI_AGENT_TOOL_REL[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_tool_rel/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_tool_rel.json"
+      }
+    }, {
       "name" : "智能管理员-CATEGORY_SETTINGS[全部数据（读写）]",
       "getPSDEUserRole" : {
         "modelref" : true,
@@ -3993,7 +4424,37 @@
         "path" : "PSMODULES/Base/PSDATAENTITIES/category_settings.json"
       }
     }, {
-      "name" : "智能管理员-AI_REVIEW_REPORT[操作角色]",
+      "name" : "智能管理员-AI_AGENT_CONVERSATION[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation.json"
+      }
+    }, {
+      "name" : "智能管理员-AI_KB_DOCUMENT_WIZARD[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document_wizard/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document_wizard.json"
+      }
+    }, {
+      "name" : "智能管理员-AI_MODEL_PROVIDER[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_model_provider/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_model_provider.json"
+      }
+    }, {
+      "name" : "智能管理员-AI_REVIEW_REPORT[全部数据（读）]",
       "getPSDEUserRole" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEUSERROLES/ALL_R.json"
@@ -4001,6 +4462,76 @@
       "getPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report.json"
+      }
+    }, {
+      "name" : "智能管理员-CATEGORY[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/category/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/category.json"
+      }
+    }, {
+      "name" : "智能管理员-AI_KB_DOCUMENT_SYNC[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document_sync/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document_sync.json"
+      }
+    }, {
+      "name" : "智能管理员-AI_AGENT_KNOWLEDGE_REL[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_knowledge_rel/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_knowledge_rel.json"
+      }
+    }, {
+      "name" : "智能管理员-KEYRING[全部密钥环(RW)]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/keyring/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/keyring.json"
+      }
+    }, {
+      "name" : "智能管理员-AI_TOOL[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_tool/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_tool.json"
+      }
+    }, {
+      "name" : "智能管理员-AI_KNOWLEDGE_SOURCE[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_source/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_source.json"
+      }
+    }, {
+      "name" : "智能管理员-AI_KB_CHUNK[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunk/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunk.json"
       }
     }, {
       "name" : "智能管理员-AI_KNOWLEDGE_BASE[全部数据（读写）]",
@@ -4012,35 +4543,142 @@
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
       }
-    } ],
-    "roleTag" : "AI_ADMIN",
-    "roleType" : "CUSTOM"
-  }, {
-    "codeName" : "WIKI_ADMIN",
-    "dynaModelFilePath" : "PSSYSUSERROLES/WIKI_ADMIN.json",
-    "name" : "知识管理员",
-    "getPSSysUserRoleDatas" : [ {
-      "name" : "知识管理员-SPACE[空间数据（写）]",
+    }, {
+      "name" : "智能管理员-AI_SKILL_WORKSPACE[全部数据（读写）]",
       "getPSDEUserRole" : {
         "modelref" : true,
-        "path" : "PSMODULES/Wiki/PSDATAENTITIES/space/PSDEUSERROLES/ALL_W.json"
+        "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEUSERROLES/ALL_RW.json"
       },
       "getPSDataEntity" : {
         "modelref" : true,
-        "path" : "PSMODULES/Wiki/PSDATAENTITIES/space.json"
+        "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+      }
+    }, {
+      "name" : "智能管理员-AI_AGENT[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent.json"
+      }
+    }, {
+      "name" : "智能管理员-AI_KB_TAG[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_tag/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_tag.json"
+      }
+    }, {
+      "name" : "智能管理员-AI_AGENT_FEEDBACK[全部数据（读写）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_feedback/PSDEUSERROLES/ALL_RW.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_feedback.json"
       }
     } ],
     "getPSSysUserRoleReses" : [ {
-      "name" : "知识管理员-知识管理_维护",
+      "name" : "智能管理员-智能报表立方体指标模型扩展（只读）",
       "getPSSysUniRes" : {
         "modelref" : true,
-        "id" : "Wiki__SPACE_M"
+        "id" : "EXTENSION__READ_PSSYSBICUBEMEASURE"
       },
-      "sysUniResCode" : "SPACE_M"
+      "sysUniResCode" : "EXTENSION__READ_PSSYSBICUBEMEASURE"
+    }, {
+      "name" : "智能管理员-通知模型扩展",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "extension__EXTENSION__MANAGE_PSDENOTIFY"
+      },
+      "sysUniResCode" : "EXTENSION__MANAGE_PSDENOTIFY"
+    }, {
+      "name" : "智能管理员-通知模型扩展（只读）",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "extension__EXTENSION__READ_PSDENOTIFY"
+      },
+      "sysUniResCode" : "EXTENSION__READ_PSDENOTIFY"
+    }, {
+      "name" : "智能管理员-智能报表立方体模型扩展",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "EXTENSION__MANAGE_PSSYSBICUBE"
+      },
+      "sysUniResCode" : "EXTENSION__MANAGE_PSSYSBICUBE"
+    }, {
+      "name" : "智能管理员-智能报表立方体维度模型扩展",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "EXTENSION__MANAGE_PSSYSBICUBEDIMENSION"
+      },
+      "sysUniResCode" : "EXTENSION__MANAGE_PSSYSBICUBEDIMENSION"
+    }, {
+      "name" : "智能管理员-智能报表立方体指标模型扩展",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "EXTENSION__MANAGE_PSSYSBICUBEMEASURE"
+      },
+      "sysUniResCode" : "EXTENSION__MANAGE_PSSYSBICUBEMEASURE"
+    }, {
+      "name" : "智能管理员-智能报表立方体模型扩展（只读）",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "EXTENSION__READ_PSSYSBICUBE"
+      },
+      "sysUniResCode" : "EXTENSION__READ_PSSYSBICUBE"
+    }, {
+      "name" : "智能管理员-智能体高级设置",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "ai__AGENTMGR"
+      },
+      "sysUniResCode" : "AGENTMGR"
+    }, {
+      "name" : "智能管理员-智能报表模型扩展",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "EXTENSION__MANAGE_PSSYSBIREPORT"
+      },
+      "sysUniResCode" : "EXTENSION__MANAGE_PSSYSBIREPORT"
+    }, {
+      "name" : "智能管理员-模型管理",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "ai__MODELMGR"
+      },
+      "sysUniResCode" : "MODELMGR"
+    }, {
+      "name" : "智能管理员-知识库高级设置",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "ai__KBMGR"
+      },
+      "sysUniResCode" : "KBMGR"
+    }, {
+      "name" : "智能管理员-智能报表立方体维度模型扩展（只读）",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "EXTENSION__READ_PSSYSBICUBEDIMENSION"
+      },
+      "sysUniResCode" : "EXTENSION__READ_PSSYSBICUBEDIMENSION"
+    }, {
+      "name" : "智能管理员-智能报表模型扩展（只读）",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "EXTENSION__READ_PSSYSBIREPORT"
+      },
+      "sysUniResCode" : "EXTENSION__READ_PSSYSBIREPORT"
     } ],
-    "roleTag" : "WIKI_ADMIN",
+    "roleTag" : "AI_ADMIN",
     "roleType" : "CUSTOM",
-    "uniResTags" : [ "SPACE_M" ]
+    "uniResTags" : [ "EXTENSION__READ_PSSYSBICUBEMEASURE", "EXTENSION__MANAGE_PSDENOTIFY", "EXTENSION__READ_PSDENOTIFY", "EXTENSION__MANAGE_PSSYSBICUBE", "EXTENSION__MANAGE_PSSYSBICUBEDIMENSION", "EXTENSION__MANAGE_PSSYSBICUBEMEASURE", "EXTENSION__READ_PSSYSBICUBE", "AGENTMGR", "EXTENSION__MANAGE_PSSYSBIREPORT", "MODELMGR", "KBMGR", "EXTENSION__READ_PSSYSBICUBEDIMENSION", "EXTENSION__READ_PSSYSBIREPORT" ]
   } ],
   "getAllPSSysUtils" : [ {
     "codeName" : "AIClientCredentialSyncUtil",
@@ -4113,6 +4751,30 @@
     "utilType" : "USER",
     "regToSys" : false
   }, {
+    "codeName" : "AISkillWorkspaceSyncUtil",
+    "dynaModelFilePath" : "PSMODULES/ai/PSSYSUTILDES/AISkillWorkspaceSyncUtil.json",
+    "name" : "AI技能工作目录凭证同步组件",
+    "getPSSysSFPlugin" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSSYSSFPLUGINS/AISkillWorkspaceDESyncUtilRuntime.json"
+    },
+    "getPSSystemModule" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai.json"
+    },
+    "getUtilPSDE" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+    },
+    "utilPSDEName" : "AI_SKILL_WORKSPACE",
+    "utilParams" : {
+      "util" : "ai",
+      "aifactory" : "ibizintelligence"
+    },
+    "utilTag" : "AISKILLWORKSPACESYNCUTIL",
+    "utilType" : "USER",
+    "regToSys" : false
+  }, {
     "codeName" : "AIToolSyncUtil",
     "dynaModelFilePath" : "PSMODULES/ai/PSSYSUTILDES/AIToolSyncUtil.json",
     "name" : "AI工具同步组件",
@@ -4133,6 +4795,25 @@
       "util" : "ai"
     },
     "utilTag" : "AITOOLSYNCUTIL",
+    "utilType" : "USER",
+    "regToSys" : false
+  }, {
+    "codeName" : "HotCodeUtil",
+    "dynaModelFilePath" : "PSMODULES/Base/PSSYSUTILDES/HotCodeUtil.json",
+    "name" : "热代码组件",
+    "getPSSysResource" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSSYSRESOURCES/HOTCODE.json"
+    },
+    "getPSSysSFPlugin" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSSYSSFPLUGINS/GroovySysHotCodeUtilRuntime.json"
+    },
+    "getPSSystemModule" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base.json"
+    },
+    "utilTag" : "HOTCODEUTIL",
     "utilType" : "USER",
     "regToSys" : false
   }, {
@@ -4327,6 +5008,9 @@
       "path" : "PSMODULES/ai/PSCODELISTS/slice_status.json"
     }, {
       "modelref" : true,
+      "path" : "PSMODULES/ai/PSCODELISTS/agent_code.json"
+    }, {
+      "modelref" : true,
       "path" : "PSMODULES/ai/PSCODELISTS/ai_model_provider.json"
     }, {
       "modelref" : true,
@@ -4441,6 +5125,9 @@
       "path" : "PSMODULES/ai/PSCODELISTS/access_strategy.json"
     } ],
     "getAllPSDataEntities" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+    }, {
       "modelref" : true,
       "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent.json"
     }, {
@@ -4655,6 +5342,9 @@
       "path" : "PSMODULES/Base/PSCODELISTS/recent_type.json"
     }, {
       "modelref" : true,
+      "path" : "PSMODULES/Base/PSCODELISTS/keyring_type.json"
+    }, {
+      "modelref" : true,
       "path" : "PSMODULES/Base/PSCODELISTS/recent_use.json"
     }, {
       "modelref" : true,
@@ -4731,6 +5421,9 @@
       "path" : "PSMODULES/Base/PSDATAENTITIES/job.json"
     }, {
       "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/keyring.json"
+    }, {
+      "modelref" : true,
       "path" : "PSMODULES/Base/PSDATAENTITIES/management.json"
     }, {
       "modelref" : true,
@@ -4753,6 +5446,12 @@
     }, {
       "modelref" : true,
       "path" : "PSMODULES/Base/PSDATAENTITIES/recent.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/role.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/role_member.json"
     }, {
       "modelref" : true,
       "path" : "PSMODULES/Base/PSDATAENTITIES/section.json"
@@ -4789,6 +5488,12 @@
     }, {
       "modelref" : true,
       "path" : "PSSYSMODELGROUPS/ibizsysmgr/PSMODULES/ibizsysmgr/PSDATAENTITIES/sys_person.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSSYSMODELGROUPS/ibizsysmgr/PSMODULES/ibizsysmgr/PSDATAENTITIES/sys_role.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSSYSMODELGROUPS/ibizsysmgr/PSMODULES/ibizsysmgr/PSDATAENTITIES/sys_role_member.json"
     } ],
     "codeName" : "ibizsysmgr",
     "dynaModelFilePath" : "PSSYSMODELGROUPS/ibizsysmgr/PSMODULES/ibizsysmgr.json",
@@ -4805,6 +5510,9 @@
     } ],
     "getAllPSDataEntities" : [ {
       "modelref" : true,
+      "path" : "PSSYSMODELGROUPS/ebsx/PSMODULES/ebsx/PSDATAENTITIES/Role.json"
+    }, {
+      "modelref" : true,
       "path" : "PSSYSMODELGROUPS/ebsx/PSMODULES/ebsx/PSDATAENTITIES/SysDepartment.json"
     }, {
       "modelref" : true,
@@ -4812,6 +5520,9 @@
     }, {
       "modelref" : true,
       "path" : "PSSYSMODELGROUPS/ebsx/PSMODULES/ebsx/PSDATAENTITIES/SysOrganization.json"
+    }, {
+      "modelref" : true,
+      "path" : "PSSYSMODELGROUPS/ebsx/PSMODULES/ebsx/PSDATAENTITIES/UserRole.json"
     } ],
     "codeName" : "ebsx",
     "dynaModelFilePath" : "PSSYSMODELGROUPS/ebsx/PSMODULES/ebsx.json",

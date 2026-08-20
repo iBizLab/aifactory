@@ -21,9 +21,9 @@
   "getPSViewLayoutPanel" : {
     "codeName" : "a24fc6550c400667e1c",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document/PSVIEWLAYOUTPANELS/a24fc6550c400667e1c.json",
     "layoutMode" : "FLEX",
     "logicName" : "filter_grid_view表格视图布局",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
@@ -206,6 +206,7 @@
     "layoutPanel" : true,
     "useDefaultLayout" : false,
     "viewProxyMode" : true,
+    "name" : "layoutpanel",
     "modelid" : "078724b1d37771f8893273ce842ccfca",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL",
     "getPSAppViewEngines" : [ {
@@ -1023,8 +1024,8 @@
     }, {
       "codeName" : "filter_grid_view_toolbar",
       "controlType" : "TOOLBAR",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document/PSTOOLBARS/filter_grid_view_toolbar.json",
       "logicName" : "知识库文档筛选表格视图_工具栏",
-      "name" : "toolbar",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
@@ -1033,6 +1034,7 @@
         "id" : "TOOLBAR"
       },
       "xDataControlName" : "grid",
+      "name" : "toolbar",
       "modelid" : "4c1f92ad5c35bca470c9363dd2e606ff",
       "modeltype" : "PSDETOOLBAR"
     }, {
@@ -1042,12 +1044,13 @@
       "caption" : "文档",
       "codeName" : "filter_grid_view_captionbar",
       "controlType" : "CAPTIONBAR",
-      "name" : "captionbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document/PSCAPTIONBARS/filter_grid_view_captionbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
       },
-      "getPSControlParam" : { }
+      "getPSControlParam" : { },
+      "name" : "captionbar"
     } ]
   },
   "title" : "文档筛选器",

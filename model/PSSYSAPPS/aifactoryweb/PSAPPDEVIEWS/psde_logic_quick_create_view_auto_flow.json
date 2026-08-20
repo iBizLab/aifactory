@@ -262,6 +262,13 @@
         "codeName" : "ToolSpecification"
       }
     }, {
+      "id" : "expirestime",
+      "dataType" : 5,
+      "getPSAppDEField" : {
+        "name" : "EXPIRESTIME",
+        "codeName" : "expirestime"
+      }
+    }, {
       "id" : "codename",
       "hidden" : true,
       "dataType" : 25,
@@ -805,6 +812,66 @@
             },
             "allowEmpty" : false,
             "showCaption" : true
+          }, {
+            "caption" : "过期时间",
+            "codeName" : "expirestime",
+            "dataType" : 5,
+            "detailStyle" : "DEFAULT",
+            "detailType" : "FORMITEM",
+            "enableCond" : 3,
+            "ignoreInput" : 0,
+            "itemWidth" : 260.0,
+            "labelPos" : "TOP",
+            "labelWidth" : 100,
+            "name" : "expirestime",
+            "noPrivDisplayMode" : 1,
+            "getPSAppDEField" : {
+              "name" : "EXPIRESTIME",
+              "codeName" : "expirestime"
+            },
+            "getPSDEFDGroupLogics" : [ {
+              "groupOP" : "AND",
+              "logicCat" : "PANELVISIBLE",
+              "logicType" : "GROUP",
+              "getPSDEFDLogics" : [ {
+                "condOP" : "EQ",
+                "dEFDName" : "logicsubtype",
+                "logicType" : "SINGLE",
+                "name" : "logicsubtype等于(=) WEBHOOK",
+                "value" : "WEBHOOK"
+              } ],
+              "relatedDetailNames" : [ "logicsubtype" ],
+              "notMode" : false
+            }, {
+              "groupOP" : "AND",
+              "logicCat" : "ITEMBLANK",
+              "logicType" : "GROUP",
+              "getPSDEFDLogics" : [ {
+                "condOP" : "NOTEQ",
+                "dEFDName" : "logicsubtype",
+                "logicType" : "SINGLE",
+                "name" : "logicsubtype不等于(<>) WEBHOOK",
+                "value" : "WEBHOOK"
+              } ],
+              "relatedDetailNames" : [ "logicsubtype" ],
+              "notMode" : false
+            } ],
+            "getPSEditor" : {
+              "dateTimeFormat" : "YYYY-MM-DD HH:mm:ss",
+              "editorParams" : {
+                "TIMEFMT" : "YYYY-MM-DD HH:mm:ss"
+              },
+              "editorType" : "DATEPICKER",
+              "editorWidth" : 160.0,
+              "name" : "expirestime"
+            },
+            "getPSLayoutPos" : {
+              "colMD" : 24,
+              "layout" : "TABLE_24COL"
+            },
+            "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+            "allowEmpty" : false,
+            "showCaption" : true
           } ],
           "getPSLayout" : {
             "childColMD" : 24,
@@ -1139,12 +1206,13 @@
     "caption" : "新建规则",
     "codeName" : "quick_create_view_auto_flow_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic/PSCAPTIONBARS/quick_create_view_auto_flow_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "quick_create_view_auto_flow",
   "getPSDEViewId" : "2252096954fffa80bdf61d30bad98103",
@@ -1152,7 +1220,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEOPTVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
@@ -1160,7 +1228,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "实体处理逻辑快速建立视图",
   "viewStyle" : "DEFAULT",

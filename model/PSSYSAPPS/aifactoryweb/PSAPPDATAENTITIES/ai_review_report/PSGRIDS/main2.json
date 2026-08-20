@@ -28,8 +28,8 @@
   "getPSControls" : [ {
     "codeName" : "grid_view_grid_batchtoolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_review_report/PSTOOLBARS/grid_view_grid_batchtoolbar.json",
     "logicName" : "智能审查报告_工具栏",
-    "name" : "grid_batchtoolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_review_report.json"
@@ -85,6 +85,7 @@
       "showCaption" : true,
       "showIcon" : true
     } ],
+    "name" : "grid_batchtoolbar",
     "modelid" : "cfb8d00c194d24ee6ea969134fdd3bc6",
     "modeltype" : "PSDETOOLBAR"
   } ],
@@ -151,6 +152,30 @@
   }, {
     "align" : "LEFT",
     "cLConvertMode" : "NONE",
+    "caption" : "知识库文档",
+    "codeName" : "document_name",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "document_name",
+    "excelCaption" : "知识库文档",
+    "getLinkPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_kb_document_redirect_view.json",
+      "viewType" : "DEREDIRECTVIEW"
+    },
+    "linkValueItem" : "document_id",
+    "name" : "document_name",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "DOCUMENT_NAME",
+      "codeName" : "document_name"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableLinkView" : true,
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
     "caption" : "审查结果",
     "codeName" : "review_result",
     "columnType" : "DEFGRIDCOLUMN",
@@ -207,6 +232,13 @@
     "getPSAppDEField" : {
       "name" : "KB_NAME",
       "codeName" : "kb_name"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "document_name",
+    "getPSAppDEField" : {
+      "name" : "DOCUMENT_NAME",
+      "codeName" : "document_name"
     }
   }, {
     "dataType" : 25,

@@ -22,8 +22,8 @@
   "getPSControls" : [ {
     "codeName" : "page_detail_edit_view_toolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page/PSTOOLBARS/page_detail_edit_view_toolbar.json",
     "logicName" : "页面信息编辑视图_工具栏",
-    "name" : "toolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page.json"
@@ -32,6 +32,7 @@
       "id" : "TOOLBAR"
     },
     "xDataControlName" : "form",
+    "name" : "toolbar",
     "modelid" : "db882d79f09054293d57fc992b4148b9",
     "modeltype" : "PSDETOOLBAR"
   }, {
@@ -462,8 +463,8 @@
               "getPSControls" : [ {
                 "codeName" : "access_record_list_toolbar",
                 "controlType" : "TOOLBAR",
+                "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/recent/PSTOOLBARS/access_record_list_toolbar.json",
                 "logicName" : "访问记录列表视图_工具栏",
-                "name" : "toolbar",
                 "getPSAppDataEntity" : {
                   "modelref" : true,
                   "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/recent.json"
@@ -472,6 +473,7 @@
                   "id" : "TOOLBAR"
                 },
                 "xDataControlName" : "list",
+                "name" : "toolbar",
                 "modelid" : "b718c455f4a867ba010f6c33f1856866",
                 "modeltype" : "PSDETOOLBAR"
               }, {
@@ -869,12 +871,13 @@
                 "caption" : "访问记录",
                 "codeName" : "access_record_list_captionbar",
                 "controlType" : "CAPTIONBAR",
-                "name" : "captionbar",
+                "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/recent/PSCAPTIONBARS/access_record_list_captionbar.json",
                 "getPSAppDataEntity" : {
                   "modelref" : true,
                   "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/recent.json"
                 },
-                "getPSControlParam" : { }
+                "getPSControlParam" : { },
+                "name" : "captionbar"
               } ],
               "getPSDEViewCodeName" : "access_record_list",
               "getPSDEViewId" : "0e296ed1751c710df79ac2d5d382b7ef",
@@ -882,7 +885,7 @@
                 "codeName" : "layoutpanel",
                 "controlStyle" : "APPDELISTVIEW",
                 "controlType" : "VIEWLAYOUTPANEL",
-                "name" : "layoutpanel",
+                "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/recent/PSVIEWLAYOUTPANELS/layoutpanel.json",
                 "getPSAppDataEntity" : {
                   "modelref" : true,
                   "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/recent.json"
@@ -890,7 +893,8 @@
                 "getPSControlParam" : { },
                 "layoutBodyOnly" : true,
                 "layoutPanel" : true,
-                "useDefaultLayout" : true
+                "useDefaultLayout" : true,
+                "name" : "layoutpanel"
               },
               "refFlag" : false,
               "title" : "访问记录",
@@ -1018,24 +1022,26 @@
   }, {
     "codeName" : "page_detail_edit_view_datainfobar",
     "controlType" : "DATAINFOBAR",
-    "name" : "datainfobar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page/PSDATAINFOBARS/page_detail_edit_view_datainfobar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page.json"
     },
     "getPSControlParam" : {
       "id" : "datainfobar"
-    }
+    },
+    "name" : "datainfobar"
   }, {
     "caption" : "页面信息",
     "codeName" : "page_detail_edit_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page/PSCAPTIONBARS/page_detail_edit_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "page_detail_edit_view",
   "getPSDEViewId" : "234b2bccae0a6f9a40858e11c4f4ba07",
@@ -1043,7 +1049,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEEDITVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page.json"
@@ -1051,7 +1057,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "refFlag" : false,
   "title" : "页面信息",

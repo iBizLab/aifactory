@@ -1,0 +1,26 @@
+{
+  "codeName" : "DRItem",
+  "dynaModelFilePath" : "PSMODULES/Base/PSDATAENTITIES/keyring/PSDEDRITEMS/DRItem.json",
+  "itemType" : "DER1N",
+  "name" : "凭证",
+  "getPSDER" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_credential/PSDERS/DER1N_AI_CREDENTIAL_KEYRING_KEYRING_ID.json"
+  },
+  "parentDataJO" : {
+    "SRFPARENTTYPE" : "DER1N",
+    "srfparentdename" : "KEYRING",
+    "srfparentmode" : "DER1N_AI_CREDENTIAL_KEYRING_KEYRING_ID",
+    "srfparentdefname" : "KEYRING_ID",
+    "SRFDER1NID" : "DER1N_AI_CREDENTIAL_KEYRING_KEYRING_ID"
+  },
+  "viewCodeName" : "KeyringGridView",
+  "getViewPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_credential.json"
+  },
+  "viewParamJO" : {
+    "SRFPARENTTYPE" : "DER1N",
+    "SRFDER1NID" : "DER1N_AI_CREDENTIAL_KEYRING_KEYRING_ID"
+  }
+}

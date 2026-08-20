@@ -289,6 +289,7 @@
     "logicName" : "数据查询",
     "name" : "DEFAULT",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Base/PSDATAENTITIES/group.json"
@@ -325,6 +326,7 @@
     "logicName" : "默认（全部数据）",
     "name" : "VIEW",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Base/PSDATAENTITIES/group.json"
@@ -361,6 +363,7 @@
     "logicName" : "无分组",
     "name" : "no_section",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Base/PSDATAENTITIES/group.json"
@@ -411,6 +414,7 @@
     "logicName" : "公开",
     "name" : "public",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Base/PSDATAENTITIES/group.json"
@@ -462,6 +466,7 @@
     "logicName" : "团队成员",
     "name" : "user",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getChildPSDEDQJoins" : [ {
         "getDERPSDataEntity" : {
           "modelref" : true,
@@ -540,6 +545,7 @@
     "logicName" : "团队管理员",
     "name" : "user_group_admin",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getChildPSDEDQJoins" : [ {
         "getDERPSDataEntity" : {
           "modelref" : true,

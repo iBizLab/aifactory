@@ -173,6 +173,13 @@
       "codeName" : "ToolSpecification"
     }
   }, {
+    "id" : "expirestime",
+    "dataType" : 5,
+    "getPSAppDEField" : {
+      "name" : "EXPIRESTIME",
+      "codeName" : "expirestime"
+    }
+  }, {
     "id" : "memo",
     "dataType" : 25,
     "getPSAppDEField" : {
@@ -688,6 +695,66 @@
         },
         "infoGroupMode" : true,
         "showCaption" : false
+      }, {
+        "caption" : "过期时间",
+        "codeName" : "expirestime",
+        "dataType" : 5,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "itemWidth" : 290.0,
+        "labelPos" : "TOP",
+        "labelWidth" : 130,
+        "name" : "expirestime",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "EXPIRESTIME",
+          "codeName" : "expirestime"
+        },
+        "getPSDEFDGroupLogics" : [ {
+          "groupOP" : "AND",
+          "logicCat" : "PANELVISIBLE",
+          "logicType" : "GROUP",
+          "getPSDEFDLogics" : [ {
+            "condOP" : "EQ",
+            "dEFDName" : "logicsubtype",
+            "logicType" : "SINGLE",
+            "name" : "logicsubtype等于(=) WEBHOOK",
+            "value" : "WEBHOOK"
+          } ],
+          "relatedDetailNames" : [ "logicsubtype" ],
+          "notMode" : false
+        }, {
+          "groupOP" : "AND",
+          "logicCat" : "ITEMBLANK",
+          "logicType" : "GROUP",
+          "getPSDEFDLogics" : [ {
+            "condOP" : "NOTEQ",
+            "dEFDName" : "logicsubtype",
+            "logicType" : "SINGLE",
+            "name" : "logicsubtype不等于(<>) WEBHOOK",
+            "value" : "WEBHOOK"
+          } ],
+          "relatedDetailNames" : [ "logicsubtype" ],
+          "notMode" : false
+        } ],
+        "getPSEditor" : {
+          "dateTimeFormat" : "YYYY-MM-DD HH:mm:ss",
+          "editorParams" : {
+            "TIMEFMT" : "YYYY-MM-DD HH:mm:ss"
+          },
+          "editorType" : "DATEPICKEREX_SECOND",
+          "editorWidth" : 160.0,
+          "name" : "expirestime"
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+        "allowEmpty" : false,
+        "showCaption" : true
       }, {
         "caption" : "描述",
         "codeName" : "memo",

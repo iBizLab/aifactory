@@ -1,0 +1,61 @@
+package cn.ibizlab.ai.logic.ai_agent_assignmentlogic.register;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_agent_assignment ai_agent_assignmentregisterdefault;
+                global java.util.Map ai_agent_assignmentregisterncheck;
+                    global cn.ibizlab.core.ai.service.Iai_agent_assignmentService ai_agent_assignmentservice;
+        global cn.ibizlab.core.ai.service.Iai_agent_assignmentService iBzSysAi_agent_assignmentDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_agent_assignmentregisterbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[checkkey]
+            rule "deaction_01"
+            ruleflow-group "ai_agent_assignmentregisterdeaction_01"
+            when
+            then
+                        ai_agent_assignmentservice.checkKey(ai_agent_assignmentregisterdefault);
+                        update(ai_agent_assignmentregisterdefault);//更新fact中变量值
+                        update(ai_agent_assignmentregisterncheck);//更新fact中变量值
+            end
+
+            //逻辑处理节点[create]
+            rule "deaction_02"
+            ruleflow-group "ai_agent_assignmentregisterdeaction_02"
+            when
+            then
+                        ai_agent_assignmentservice.create(ai_agent_assignmentregisterdefault);
+                        update(ai_agent_assignmentregisterdefault);//更新fact中变量值
+                        update(ai_agent_assignmentregisterncheck);//更新fact中变量值
+            end
+
+            //逻辑处理节点[实体行为]
+            rule "deaction_03"
+            ruleflow-group "ai_agent_assignmentregisterdeaction_03"
+            when
+            then
+                            cn.ibizlab.util.helper.CachedBeanCopier.copy(ai_agent_assignmentservice.get(ai_agent_assignmentregisterdefault.getId()),ai_agent_assignmentregisterdefault);
+                        update(ai_agent_assignmentregisterdefault);//更新fact中变量值
+                        update(ai_agent_assignmentregisterncheck);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "ai_agent_assignmentregisterend_01"
+            when
+            then
+                        update(ai_agent_assignmentregisterdefault);//更新fact中变量值
+                        update(ai_agent_assignmentregisterncheck);//更新fact中变量值
+            end

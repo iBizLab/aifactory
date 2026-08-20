@@ -1124,6 +1124,7 @@
     "logicName" : "数据查询",
     "name" : "DEFAULT",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/space.json"
@@ -1160,6 +1161,7 @@
     "logicName" : "默认（全部数据）",
     "name" : "VIEW",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/space.json"
@@ -1196,6 +1198,7 @@
     "logicName" : "管理员",
     "name" : "admin",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getChildPSDEDQJoins" : [ {
         "getDERPSDataEntity" : {
           "modelref" : true,
@@ -1274,6 +1277,7 @@
     "logicName" : "已归档",
     "name" : "archived",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/space.json"
@@ -1335,6 +1339,7 @@
     "logicName" : "目录下空间",
     "name" : "category_space",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/space.json"
@@ -1413,6 +1418,7 @@
     "logicName" : "当前空间",
     "name" : "cur_space",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/space.json"
@@ -1448,6 +1454,7 @@
     "logicName" : "当前空间",
     "name" : "current",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/space.json"
@@ -1501,6 +1508,7 @@
     "logicName" : "已删除",
     "name" : "deleted",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/space.json"
@@ -1552,6 +1560,7 @@
     "logicName" : "查询星标",
     "name" : "favorite",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/space.json"
@@ -1623,6 +1632,7 @@
     "logicName" : "查询星标（管理用户）",
     "name" : "favorite_user",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getChildPSDEDQJoins" : [ {
         "getDERPSDataEntity" : {
           "modelref" : true,
@@ -1737,6 +1747,7 @@
     "logicName" : "移动端非星标空间",
     "name" : "mob_unfavorite",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/space.json"
@@ -1773,6 +1784,7 @@
     "logicName" : "未存在目录中的空间",
     "name" : "no_category_space",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/space.json"
@@ -1843,6 +1855,7 @@
     "logicName" : "正常状态",
     "name" : "normal",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/space.json"
@@ -1904,6 +1917,7 @@
     "logicName" : "公开",
     "name" : "public",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/space.json"
@@ -1955,6 +1969,7 @@
     "logicName" : "只读用户",
     "name" : "reader",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getChildPSDEDQJoins" : [ {
         "getDERPSDataEntity" : {
           "modelref" : true,
@@ -2033,6 +2048,7 @@
     "logicName" : "非星标空间",
     "name" : "unfavorite",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/space.json"
@@ -2104,6 +2120,7 @@
     "logicName" : "非星标空间（管理用户）",
     "name" : "unfavorite_user",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getChildPSDEDQJoins" : [ {
         "getDERPSDataEntity" : {
           "modelref" : true,
@@ -2218,6 +2235,7 @@
     "logicName" : "操作用户",
     "name" : "user",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getChildPSDEDQJoins" : [ {
         "getDERPSDataEntity" : {
           "modelref" : true,

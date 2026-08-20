@@ -660,6 +660,238 @@
         "uIActionTarget" : "SINGLEDATA",
         "showCaption" : true
       }, {
+        "actionType" : "UIACTION",
+        "caption" : "执行交谈",
+        "codeName" : "button9",
+        "detailStyle" : "DEFAULT",
+        "detailType" : "BUTTON",
+        "name" : "button9",
+        "getPSAppViewUIAction" : {
+          "modelref" : true,
+          "id" : "form_button9"
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "getPSUIAction" : {
+          "actionTarget" : "SINGLEDATA",
+          "caption" : "执行交谈",
+          "codeName" : "run",
+          "frontProcessType" : "CHAT",
+          "fullCodeName" : "ai_knowledge_base_run",
+          "name" : "执行交谈",
+          "getPSAppDEACMode" : {
+            "modelref" : true,
+            "id" : "dyna_agent"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
+          },
+          "getPSNavigateContexts" : [ {
+            "key" : "SRFAIKNOWLEDGEBASES",
+            "name" : "SRFAIKNOWLEDGEBASES",
+            "value" : "ai_knowledge_base",
+            "rawValue" : false
+          }, {
+            "key" : "AI_KNOWLEDGE_BASE",
+            "name" : "AI_KNOWLEDGE_BASE",
+            "value" : "id",
+            "rawValue" : false
+          }, {
+            "key" : "SRFAIAPPENDCURDATA",
+            "name" : "SRFAIAPPENDCURDATA",
+            "value" : "true",
+            "rawValue" : true
+          }, {
+            "key" : "AI_AGENT_CONTEXT",
+            "name" : "AI_AGENT_CONTEXT",
+            "value" : "context_id",
+            "rawValue" : false
+          } ],
+          "getPSNavigateParams" : [ {
+            "key" : "knowledgebases",
+            "name" : "knowledgebases",
+            "value" : "ai_knowledge_base",
+            "rawValue" : false
+          }, {
+            "key" : "srfattachsessiontag",
+            "name" : "srfattachsessiontag",
+            "value" : "_id",
+            "rawValue" : false
+          }, {
+            "key" : "autoquestion",
+            "name" : "autoquestion",
+            "value" : "true",
+            "rawValue" : true
+          }, {
+            "key" : "disabletopicstorage",
+            "name" : "disabletopicstorage",
+            "value" : "false",
+            "rawValue" : true
+          }, {
+            "key" : "srfenableaiagentchange",
+            "name" : "srfenableaiagentchange",
+            "value" : "false",
+            "rawValue" : true
+          }, {
+            "key" : "hidetopicsidebar",
+            "name" : "hidetopicsidebar",
+            "value" : "true",
+            "rawValue" : true
+          }, {
+            "key" : "srfaiagent",
+            "name" : "srfaiagent",
+            "value" : "CONTEXT_CODE_NAME",
+            "rawValue" : false
+          }, {
+            "key" : "srfaiagentscope",
+            "name" : "srfaiagentscope",
+            "value" : "_entity_tag",
+            "rawValue" : false
+          }, {
+            "key" : "srfaiknowledgebases",
+            "name" : "srfaiknowledgebases",
+            "value" : "ai_knowledge_base",
+            "rawValue" : false
+          }, {
+            "key" : "chunkpageindexdefaultvalue",
+            "name" : "chunkpageindexdefaultvalue",
+            "value" : "page_index",
+            "rawValue" : false
+          }, {
+            "key" : "srfattachtimestamp",
+            "name" : "srfattachtimestamp",
+            "value" : "false",
+            "rawValue" : true
+          } ],
+          "uIActionMode" : "FRONT",
+          "uIActionTag" : "run",
+          "uIActionType" : "DEUIACTION",
+          "globalUIAction" : true,
+          "id" : "run@ai_knowledge_base"
+        },
+        "tooltip" : "执行交谈",
+        "uIActionTarget" : "SINGLEDATA",
+        "showCaption" : true
+      }, {
+        "actionType" : "UIACTION",
+        "caption" : "执行交谈",
+        "codeName" : "button10",
+        "detailStyle" : "DEFAULT",
+        "detailType" : "BUTTON",
+        "name" : "button10",
+        "getPSAppViewUIAction" : {
+          "modelref" : true,
+          "id" : "form_button10"
+        },
+        "getPSLayoutPos" : {
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "getPSUIAction" : {
+          "actionTarget" : "SINGLEDATA",
+          "caption" : "执行交谈",
+          "codeName" : "run",
+          "frontProcessType" : "CHAT",
+          "fullCodeName" : "ai_kb_document_run",
+          "name" : "执行交谈",
+          "getPSAppDEACMode" : {
+            "modelref" : true,
+            "id" : "dyna_agent"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
+          },
+          "getPSNavigateContexts" : [ {
+            "key" : "SRFAIKNOWLEDGEBASES",
+            "name" : "SRFAIKNOWLEDGEBASES",
+            "value" : "ai_knowledge_base",
+            "rawValue" : false
+          }, {
+            "key" : "SRFAIAPPENDCURDATA",
+            "name" : "SRFAIAPPENDCURDATA",
+            "value" : "true",
+            "rawValue" : true
+          }, {
+            "key" : "AI_KB_DOCUMENT",
+            "name" : "AI_KB_DOCUMENT",
+            "value" : "id",
+            "rawValue" : false
+          }, {
+            "key" : "AI_AGENT_CONTEXT",
+            "name" : "AI_AGENT_CONTEXT",
+            "value" : "context_id",
+            "rawValue" : false
+          } ],
+          "getPSNavigateParams" : [ {
+            "key" : "knowledgebases",
+            "name" : "knowledgebases",
+            "value" : "ai_knowledge_base",
+            "rawValue" : false
+          }, {
+            "key" : "srfattachsessiontag",
+            "name" : "srfattachsessiontag",
+            "value" : "_id",
+            "rawValue" : false
+          }, {
+            "key" : "autoquestion",
+            "name" : "autoquestion",
+            "value" : "true",
+            "rawValue" : true
+          }, {
+            "key" : "disabletopicstorage",
+            "name" : "disabletopicstorage",
+            "value" : "false",
+            "rawValue" : true
+          }, {
+            "key" : "srfenableaiagentchange",
+            "name" : "srfenableaiagentchange",
+            "value" : "false",
+            "rawValue" : true
+          }, {
+            "key" : "hidetopicsidebar",
+            "name" : "hidetopicsidebar",
+            "value" : "true",
+            "rawValue" : true
+          }, {
+            "key" : "srfaiagent",
+            "name" : "srfaiagent",
+            "value" : "CONTEXT_CODE_NAME",
+            "rawValue" : false
+          }, {
+            "key" : "srfaiagentscope",
+            "name" : "srfaiagentscope",
+            "value" : "_entity_tag",
+            "rawValue" : false
+          }, {
+            "key" : "srfaiknowledgebases",
+            "name" : "srfaiknowledgebases",
+            "value" : "ai_knowledge_base",
+            "rawValue" : false
+          }, {
+            "key" : "chunkpageindexdefaultvalue",
+            "name" : "chunkpageindexdefaultvalue",
+            "value" : "page_index",
+            "rawValue" : false
+          }, {
+            "key" : "srfattachtimestamp",
+            "name" : "srfattachtimestamp",
+            "value" : "false",
+            "rawValue" : true
+          } ],
+          "uIActionMode" : "FRONT",
+          "uIActionTag" : "run",
+          "uIActionType" : "DEUIACTION",
+          "globalUIAction" : true,
+          "id" : "run@ai_kb_document"
+        },
+        "tooltip" : "执行交谈",
+        "uIActionTarget" : "SINGLEDATA",
+        "showCaption" : true
+      }, {
         "caption" : "标识",
         "codeName" : "id",
         "dataType" : 25,
@@ -768,24 +1000,26 @@
   }, {
     "codeName" : "usr12022062_edit_view_datainfobar",
     "controlType" : "DATAINFOBAR",
-    "name" : "datainfobar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page/PSDATAINFOBARS/usr12022062_edit_view_datainfobar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page.json"
     },
     "getPSControlParam" : {
       "id" : "datainfobar"
-    }
+    },
+    "name" : "datainfobar"
   }, {
     "caption" : "测试页面",
     "codeName" : "usr12022062_edit_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page/PSCAPTIONBARS/usr12022062_edit_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "Usr12022062EditView",
   "getPSDEViewId" : "1019b1548c4bbb3cc97048331c0d30bc",
@@ -793,7 +1027,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEEDITVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page.json"
@@ -801,7 +1035,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "测试页面",
   "viewStyle" : "DEFAULT",

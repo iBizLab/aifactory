@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="cn.ibizlab.core.base.service.logic.keyringpreparemykeyrings" isClosed="false" isExecutable="true" name="base_keyring_preparemykeyrings_ruleFlow" processType="Private" tns:packageName="cn.ibizlab.core.base.service.logic.keyringpreparemykeyrings">
+            <extensionElements>
+                <tns:import name="java.util.Map" />
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="cn.ibizlab.util.helper.RuleUtils"/>
+                                <tns:metaData express="" name="keyringpreparemykeyringsdefault" type="entity"/>
+                                <tns:metaData express="new cn.ibizlab.core.base.domain.keyring()" name="keyringpreparemykeyringskeyringfilter" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.base.domain.keyring()" name="keyringpreparemykeyringskeyringlist" type="refentity"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.base.service.IkeyringService))" name="keyringservice" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.base.service.IkeyringService))" name="iBzSysKeyringDefaultService" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
+                            <tns:global identifier="keyringpreparemykeyringsdefault" type="cn.ibizlab.core.base.domain.keyring" />
+                            <tns:global identifier="keyringpreparemykeyringskeyringfilter" type="cn.ibizlab.core.base.domain.keyring" />
+                            <tns:global identifier="keyringpreparemykeyringskeyringlist" type="cn.ibizlab.core.base.domain.keyring" />
+            </extensionElements>
+                        <startEvent id="begin" isInterrupting="true"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="keyringpreparemykeyringsprepareparam_01" id="prepareparam_01" implementation="http://www.jboss.org/drools/rule" name="准备过滤器参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="keyringpreparemykeyringsdedataset_01" id="dedataset_01" implementation="http://www.jboss.org/drools/rule" name="查询个人密钥环"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="keyringpreparemykeyringsrawsfcode_01" id="rawsfcode_01" implementation="http://www.jboss.org/drools/rule" name="检查并创建个人密钥环"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="keyringpreparemykeyringsend_01" id="end_01" implementation="http://www.jboss.org/drools/rule" name="结束"/>
+                        <endEvent id="end_01_end" name="end"/>
+                        <sequenceFlow id="end_01_end_line" sourceRef="end_01" targetRef="end_01_end"/>
+                    <sequenceFlow id="begin_prepareparam_01" sourceRef="begin" targetRef="prepareparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_01_dedataset_01" sourceRef="prepareparam_01" targetRef="dedataset_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="dedataset_01_rawsfcode_01" sourceRef="dedataset_01" targetRef="rawsfcode_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="rawsfcode_01_end_01" sourceRef="rawsfcode_01" targetRef="end_01">
+                    </sequenceFlow>
+        </process>
+    </definitions>

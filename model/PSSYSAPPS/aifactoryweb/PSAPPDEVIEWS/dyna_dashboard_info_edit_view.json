@@ -23,8 +23,8 @@
   "getPSControls" : [ {
     "codeName" : "info_edit_view_toolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dyna_dashboard/PSTOOLBARS/info_edit_view_toolbar.json",
     "logicName" : "仪表盘快速建立视图_工具栏",
-    "name" : "toolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dyna_dashboard.json"
@@ -77,6 +77,7 @@
       "showIcon" : true
     } ],
     "xDataControlName" : "form",
+    "name" : "toolbar",
     "modelid" : "3be67429ecac35f9c230c502d8891a8c",
     "modeltype" : "PSDETOOLBAR"
   }, {
@@ -561,24 +562,26 @@
   }, {
     "codeName" : "info_edit_view_datainfobar",
     "controlType" : "DATAINFOBAR",
-    "name" : "datainfobar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dyna_dashboard/PSDATAINFOBARS/info_edit_view_datainfobar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dyna_dashboard.json"
     },
     "getPSControlParam" : {
       "id" : "datainfobar"
-    }
+    },
+    "name" : "datainfobar"
   }, {
     "caption" : "仪表盘",
     "codeName" : "info_edit_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dyna_dashboard/PSCAPTIONBARS/info_edit_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dyna_dashboard.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "info_edit_view",
   "getPSDEViewId" : "90c18f816ad44e0f426c3c91497bb713",
@@ -586,7 +589,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEEDITVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dyna_dashboard/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dyna_dashboard.json"
@@ -594,7 +597,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "refFlag" : false,
   "title" : "仪表盘编辑视图",

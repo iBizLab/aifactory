@@ -25,8 +25,8 @@
   "getPSControls" : [ {
     "codeName" : "config_view_toolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/notify_setting/PSTOOLBARS/config_view_toolbar.json",
     "logicName" : "config_view_工具栏",
-    "name" : "toolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/notify_setting.json"
@@ -126,6 +126,7 @@
       "showIcon" : true
     } ],
     "xDataControlName" : "form",
+    "name" : "toolbar",
     "modelid" : "9e16cd96e93673123d0a99ff1fa51090",
     "modeltype" : "PSDETOOLBAR"
   }, {
@@ -867,12 +868,13 @@
     "caption" : "通知设置",
     "codeName" : "config_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/notify_setting/PSCAPTIONBARS/config_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/notify_setting.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "config_view",
   "getPSDEViewId" : "b57b4c45a4162fa864c320ed61484119",
@@ -880,7 +882,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEEDITVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/notify_setting/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/notify_setting.json"
@@ -888,7 +890,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "refFlag" : false,
   "title" : "通知设置",

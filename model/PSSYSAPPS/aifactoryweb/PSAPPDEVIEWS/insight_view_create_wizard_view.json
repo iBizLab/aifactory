@@ -1267,8 +1267,8 @@
               "getPSControls" : [ {
                 "codeName" : "assigned_grid_view_toolbar",
                 "controlType" : "TOOLBAR",
+                "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_member/PSTOOLBARS/assigned_grid_view_toolbar.json",
                 "logicName" : "效能成员绑定_工具栏",
-                "name" : "toolbar",
                 "getPSAppDataEntity" : {
                   "modelref" : true,
                   "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_member.json"
@@ -1323,6 +1323,7 @@
                 } ],
                 "toolbarStyle" : "USER",
                 "xDataControlName" : "grid",
+                "name" : "toolbar",
                 "modelid" : "778a84814b5b828b0a51bfbe7df67718",
                 "modeltype" : "PSDETOOLBAR"
               }, {
@@ -1704,12 +1705,13 @@
                 "caption" : "视图成员",
                 "codeName" : "assigned_grid_view_captionbar",
                 "controlType" : "CAPTIONBAR",
-                "name" : "captionbar",
+                "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_member/PSCAPTIONBARS/assigned_grid_view_captionbar.json",
                 "getPSAppDataEntity" : {
                   "modelref" : true,
                   "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_member.json"
                 },
-                "getPSControlParam" : { }
+                "getPSControlParam" : { },
+                "name" : "captionbar"
               } ],
               "getPSDEViewCodeName" : "assigned_grid_view",
               "getPSDEViewId" : "4a20f1d9eeed60ed329085989d1fc9cc",
@@ -1717,7 +1719,7 @@
                 "codeName" : "layoutpanel",
                 "controlStyle" : "APPDEGRIDVIEW",
                 "controlType" : "VIEWLAYOUTPANEL",
-                "name" : "layoutpanel",
+                "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_member/PSVIEWLAYOUTPANELS/layoutpanel.json",
                 "getPSAppDataEntity" : {
                   "modelref" : true,
                   "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_member.json"
@@ -1725,7 +1727,8 @@
                 "getPSControlParam" : { },
                 "layoutBodyOnly" : true,
                 "layoutPanel" : true,
-                "useDefaultLayout" : true
+                "useDefaultLayout" : true,
+                "name" : "layoutpanel"
               },
               "title" : "视图成员",
               "viewStyle" : "DEFAULT",
@@ -1903,12 +1906,13 @@
     "caption" : "新建视图",
     "codeName" : "create_wizard_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_view/PSCAPTIONBARS/create_wizard_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_view.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "create_wizard_view",
   "getPSDEViewId" : "385f3c46a964f47ae94f2b84da260158",
@@ -1916,7 +1920,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEWIZARDVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_view/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_view.json"
@@ -1924,7 +1928,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "新建视图",
   "viewStyle" : "DEFAULT",

@@ -35,6 +35,9 @@
     "expression" : "t1.\"events\"",
     "name" : "EVENTS"
   }, {
+    "expression" : "t1.\"expirestime\"",
+    "name" : "EXPIRESTIME"
+  }, {
     "expression" : "t1.\"extension_tag\"",
     "name" : "EXTENSION_TAG"
   }, {
@@ -122,6 +125,6 @@
     "expression" : "t1.\"validflag\"",
     "name" : "VALIDFLAG"
   } ],
-  "queryCode" : "SELECT\nt1.\"applyflag\",\nt1.\"attachtopsdeactionid\",\nt1.\"attachtopsdeactionname\",\nt1.\"attachtopsdedatasetid\",\nt1.\"attachtopsdedatasetname\",\nt1.\"codename\",\nt1.\"createdate\",\nt1.\"createman\",\nt1.\"dynamodelflag\",\nt1.\"eventmodel\",\nt1.\"events\",\nt1.\"extension_tag\",\nt1.\"extension_tag2\",\nt1.\"extension_tag3\",\nt1.\"extension_tag4\",\nt1.\"ignoreexception\",\nt1.\"logicsubtype\",\nt1.\"logictag\",\nt1.\"logictag2\",\nt1.\"logictag3\",\nt1.\"logictag4\",\nt1.\"logictype\",\nt1.\"memo\",\nt1.\"ordervalue\",\nt1.\"psdeid\",\nt1.\"psdelogicid\",\nt1.\"psdelogiclinks\",\nt1.\"psdelogicname\",\nt1.\"psdelogicnodes\",\nt1.\"psdelogicparams\",\nt1.\"psdename\",\nt1.\"threadmode\",\nt1.\"timerpolicy\",\nt1.\"updatedate\",\nt1.\"updateman\",\nt1.\"usertag\",\nt1.\"usertag2\",\nt1.\"usertag3\",\nt1.\"usertag4\",\nt1.\"validflag\"\nFROM \"\" t1 \n",
+  "queryCode" : "SELECT\nt1.\"applyflag\",\nt1.\"attachtopsdeactionid\",\nt1.\"attachtopsdeactionname\",\nt1.\"attachtopsdedatasetid\",\nt1.\"attachtopsdedatasetname\",\nt1.\"codename\",\nt1.\"createdate\",\nt1.\"createman\",\nt1.\"dynamodelflag\",\nt1.\"eventmodel\",\nt1.\"events\",\nt1.\"expirestime\",\nt1.\"extension_tag\",\nt1.\"extension_tag2\",\nt1.\"extension_tag3\",\nt1.\"extension_tag4\",\nt1.\"ignoreexception\",\nt1.\"logicsubtype\",\nt1.\"logictag\",\nt1.\"logictag2\",\nt1.\"logictag3\",\nt1.\"logictag4\",\nt1.\"logictype\",\nt1.\"memo\",\nt1.\"ordervalue\",\nt1.\"psdeid\",\nt1.\"psdelogicid\",\nt1.\"psdelogiclinks\",\nt1.\"psdelogicname\",\nt1.\"psdelogicnodes\",\nt1.\"psdelogicparams\",\nt1.\"psdename\",\nt1.\"threadmode\",\nt1.\"timerpolicy\",\nt1.\"updatedate\",\nt1.\"updateman\",\nt1.\"usertag\",\nt1.\"usertag2\",\nt1.\"usertag3\",\nt1.\"usertag4\",\nt1.\"validflag\"\nFROM \"\" t1 \n",
   "id" : "PSMODULES/extension/PSDATAENTITIES/PSDELogic/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
 }

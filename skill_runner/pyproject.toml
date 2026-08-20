@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ibiz-afsr"
+version = "1.0.7.1"
+description = "iBizLab AI Factory Skill Runner - Lightweight edge agent for executing AI Skills locally with secure cloud-edge collaboration"
+requires-python = ">=3.11"
+dependencies = [
+    "paho-mqtt>=2.1.0",
+    "requests>=2.31.0",
+    "python-dotenv>=1.2.2",
+    "unidiff>=0.7.5",
+    "qq-botpy>=1.2.1",
+    "wecom-aibot-sdk>=1.0.8",
+]
+
+[project.scripts]
+afsr = "ibiz_afsr.main:main"
+
+[tool.setuptools]
+packages = ["ibiz_afsr"]

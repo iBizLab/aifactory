@@ -17,12 +17,13 @@
     "caption" : "核心产品功能",
     "codeName" : "redirect_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc/PSCAPTIONBARS/redirect_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "RedirectView",
   "getPSDEViewId" : "14ca29074a7fa887dc4c08f2040cb7ed",
@@ -30,7 +31,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEREDIRECTVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc.json"
@@ -38,7 +39,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "getRedirectPSAppViewRefs" : [ {
     "name" : "PSCOREPRDFUNC:EDITVIEW",

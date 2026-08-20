@@ -1,0 +1,27 @@
+{
+  "codeName" : "role",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSSYSMODELGROUPS/ebsx/PSMODULES/ebsx/PSDATAENTITIES/UserRole/PSDERS/DER1N_SYS_USER_ROLE_SYS_ROLE_SYS_ROLEID.json",
+  "fKeyName" : "F950B62203F7E57170",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSMODELGROUPS/ebsx/PSMODULES/ebsx/PSDATAENTITIES/Role.json"
+  },
+  "masterOrder" : 100,
+  "masterRS" : 7,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSMODELGROUPS/ebsx/PSMODULES/ebsx/PSDATAENTITIES/UserRole.json"
+  },
+  "name" : "DER1N_SYS_USER_ROLE_SYS_ROLE_SYS_ROLEID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "SYS_ROLEID",
+    "codeName" : "SYS_ROLEID"
+  },
+  "pickupDEFName" : "SYS_ROLEID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "role",
+  "enableFKey" : true
+}

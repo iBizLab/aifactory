@@ -722,8 +722,8 @@
   }, {
     "codeName" : "team_grid_view_toolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base/PSTOOLBARS/team_grid_view_toolbar.json",
     "logicName" : "新建知识库",
-    "name" : "toolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
@@ -826,6 +826,7 @@
       "showIcon" : true
     } ],
     "xDataControlName" : "grid",
+    "name" : "toolbar",
     "modelid" : "f8b98b7ad14bd6830b376f45306aaf97",
     "modeltype" : "PSDETOOLBAR"
   }, {
@@ -919,8 +920,8 @@
         "detailType" : "FORMITEM",
         "enableCond" : 3,
         "ignoreInput" : 0,
-        "labelPos" : "LEFT",
-        "labelWidth" : 130,
+        "labelPos" : "NONE",
+        "labelWidth" : 0,
         "name" : "n_name_like",
         "noPrivDisplayMode" : 1,
         "getPSAppDEField" : {
@@ -929,15 +930,15 @@
         },
         "getPSEditor" : {
           "editorType" : "TEXTBOX",
-          "name" : "n_name_like"
+          "name" : "n_name_like",
+          "placeHolder" : "按名称搜索"
         },
         "getPSLayoutPos" : {
-          "colLG" : 8,
-          "colMD" : 8,
+          "colLG" : 12,
+          "colMD" : 12,
           "layout" : "TABLE_24COL"
         },
-        "allowEmpty" : true,
-        "showCaption" : true
+        "allowEmpty" : true
       }, {
         "caption" : "资源类型",
         "codeName" : "resource",
@@ -946,8 +947,8 @@
         "detailType" : "FORMITEM",
         "enableCond" : 3,
         "ignoreInput" : 0,
-        "labelPos" : "LEFT",
-        "labelWidth" : 130,
+        "labelPos" : "NONE",
+        "labelWidth" : 0,
         "name" : "resource",
         "noPrivDisplayMode" : 1,
         "getPSEditor" : {
@@ -972,6 +973,7 @@
           "getPSEditorItems" : [ {
             "name" : "resourceid"
           } ],
+          "placeHolder" : "按类型搜索",
           "valueItemName" : "resourceid",
           "enableAC" : true,
           "enablePickupView" : true,
@@ -980,13 +982,12 @@
           "singleSelect" : true
         },
         "getPSLayoutPos" : {
-          "colLG" : 8,
-          "colMD" : 8,
+          "colLG" : 12,
+          "colMD" : 12,
           "layout" : "TABLE_24COL"
         },
         "valueItemName" : "resourceid",
-        "allowEmpty" : true,
-        "showCaption" : true
+        "allowEmpty" : true
       }, {
         "codeName" : "searchconds",
         "dataType" : 25,
@@ -1101,12 +1102,13 @@
     "caption" : "团队知识库",
     "codeName" : "team_grid_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base/PSCAPTIONBARS/team_grid_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "team_grid_view",
   "getPSDEViewId" : "19fa747b4e32659b1f63774c8b9cd545",
@@ -1114,7 +1116,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEGRIDVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
@@ -1122,7 +1124,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "团队知识库",
   "viewStyle" : "DEFAULT",

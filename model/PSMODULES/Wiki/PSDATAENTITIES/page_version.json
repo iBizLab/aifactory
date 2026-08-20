@@ -264,6 +264,7 @@
     "logicName" : "数据查询",
     "name" : "DEFAULT",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/page_version.json"
@@ -301,6 +302,7 @@
     "logicName" : "默认（全部数据）",
     "name" : "VIEW",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/page_version.json"

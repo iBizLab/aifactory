@@ -190,6 +190,42 @@
         "showCaption" : true,
         "showIcon" : true
       }, {
+        "caption" : "模型编辑",
+        "detailType" : "DEUIACTION",
+        "name" : "u07f16dd",
+        "getPSSysImage" : {
+          "glyph" : "xf044@FontAwesome",
+          "cssClass" : "fa fa-edit"
+        },
+        "getPSUIAction" : {
+          "actionTarget" : "SINGLEKEY",
+          "caption" : "模型编辑",
+          "codeName" : "model_data",
+          "getFrontPSAppView" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/psde_logic_model_data_view.json",
+            "viewType" : "DEEDITVIEW"
+          },
+          "frontProcessType" : "WIZARD",
+          "fullCodeName" : "PSDELogic_model_data",
+          "name" : "模型编辑",
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
+          },
+          "getPSSysImage" : {
+            "glyph" : "xf044@FontAwesome",
+            "cssClass" : "fa fa-edit"
+          },
+          "uIActionMode" : "FRONT",
+          "uIActionTag" : "model_data",
+          "uIActionType" : "DEUIACTION",
+          "id" : "model_data@PSDELogic"
+        },
+        "addSeparator" : false,
+        "showCaption" : true,
+        "showIcon" : true
+      }, {
         "caption" : "webhook调试",
         "detailType" : "DEUIACTION",
         "name" : "ucce64e8",

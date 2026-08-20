@@ -94,8 +94,8 @@
   "getPSControls" : [ {
     "codeName" : "in_progress_grid_view_toolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space/PSTOOLBARS/in_progress_grid_view_toolbar.json",
     "logicName" : "空间管理表格视图_进行中_工具栏",
-    "name" : "toolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space.json"
@@ -104,6 +104,7 @@
       "id" : "TOOLBAR"
     },
     "xDataControlName" : "grid",
+    "name" : "toolbar",
     "modelid" : "0d6fce344bad4491df7ba13379f3bde8",
     "modeltype" : "PSDETOOLBAR"
   }, {
@@ -649,12 +650,13 @@
     "caption" : "空间管理",
     "codeName" : "in_progress_grid_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space/PSCAPTIONBARS/in_progress_grid_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "in_progress_grid_view",
   "getPSDEViewId" : "0f8045ad419a76757341e90829224cfb",
@@ -662,7 +664,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEGRIDVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space.json"
@@ -670,7 +672,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "refFlag" : false,
   "title" : "空间管理",

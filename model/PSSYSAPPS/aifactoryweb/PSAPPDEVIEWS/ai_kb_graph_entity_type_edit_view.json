@@ -25,8 +25,8 @@
   "getPSControls" : [ {
     "codeName" : "edit_view_toolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity_type/PSTOOLBARS/edit_view_toolbar.json",
     "logicName" : "工具栏模板（默认编辑界面）",
-    "name" : "toolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity_type.json"
@@ -178,6 +178,7 @@
       "showIcon" : true
     } ],
     "xDataControlName" : "form",
+    "name" : "toolbar",
     "modelid" : "48c8f789be8a5522d3003293c1cf2ffb",
     "modeltype" : "PSDETOOLBAR"
   }, {
@@ -733,14 +734,15 @@
   }, {
     "codeName" : "edit_view_datainfobar",
     "controlType" : "DATAINFOBAR",
-    "name" : "datainfobar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity_type/PSDATAINFOBARS/edit_view_datainfobar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity_type.json"
     },
     "getPSControlParam" : {
       "id" : "datainfobar"
-    }
+    },
+    "name" : "datainfobar"
   }, {
     "getCapPSLanguageRes" : {
       "lanResTag" : "DE.LNAME.AI_KB_GRAPH_ENTITY_TYPE"
@@ -748,12 +750,13 @@
     "caption" : "知识库图谱实体类型",
     "codeName" : "edit_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity_type/PSCAPTIONBARS/edit_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity_type.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "EditView",
   "getPSDEViewId" : "256b211a1c0e91a134cefc15aac0b292",
@@ -761,7 +764,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEEDITVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity_type/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity_type.json"
@@ -769,7 +772,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "知识库图谱实体类型编辑视图",
   "viewStyle" : "DEFAULT",

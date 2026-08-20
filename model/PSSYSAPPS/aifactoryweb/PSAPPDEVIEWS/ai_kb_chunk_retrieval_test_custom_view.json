@@ -53,10 +53,10 @@
     } ],
     "codeName" : "ada9c64b91f377e6a09",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk/PSVIEWLAYOUTPANELS/ada9c64b91f377e6a09.json",
     "hookEventNames" : [ "ONCLICK" ],
     "layoutMode" : "FLEX",
     "logicName" : "retrieval_test_custom_view",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk.json"
@@ -723,6 +723,7 @@
     "layoutPanel" : true,
     "useDefaultLayout" : false,
     "viewProxyMode" : true,
+    "name" : "layoutpanel",
     "modelid" : "1b01412a1393f7f980a9da1ab57e8127",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL",
     "getPSControls" : [ {
@@ -1129,12 +1130,13 @@
       "caption" : "检索测试",
       "codeName" : "retrieval_test_custom_view_captionbar",
       "controlType" : "CAPTIONBAR",
-      "name" : "captionbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk/PSCAPTIONBARS/retrieval_test_custom_view_captionbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk.json"
       },
-      "getPSControlParam" : { }
+      "getPSControlParam" : { },
+      "name" : "captionbar"
     } ]
   },
   "title" : "检索测试",

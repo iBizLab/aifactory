@@ -429,6 +429,7 @@
     "logicName" : "数据查询",
     "name" : "DEFAULT",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Base/PSDATAENTITIES/member.json"
@@ -465,6 +466,7 @@
     "logicName" : "默认（全部数据）",
     "name" : "VIEW",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Base/PSDATAENTITIES/member.json"
@@ -501,6 +503,7 @@
     "logicName" : "未关注成员",
     "name" : "no_attention",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Base/PSDATAENTITIES/member.json"
@@ -546,6 +549,7 @@
     "logicName" : "共享页面_非空间成员",
     "name" : "shared_page_member",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Base/PSDATAENTITIES/member.json"
@@ -619,6 +623,7 @@
     "logicName" : "团队管理员",
     "name" : "user_group_admin",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Base/PSDATAENTITIES/member.json"

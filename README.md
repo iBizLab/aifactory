@@ -17,7 +17,7 @@
 - **Demo 地址**: [https://aifactory.ibizlab.cn/demo/](https://aifactory.ibizlab.cn/demo/)
 - **用户名 / 密码**: `demo_admin / 123456`
 - **技术资料**: [https://aifactory.ibizlab.cn/doc/](https://aifactory.ibizlab.cn/doc/)
-- **ModelingIDE**: [https://aifactory.ibizlab.cn/modeling/](https://aifactory.ibizlab.cn/modeling/)
+- **ModelingIDE**: [Modeling-AIFactory](https://open.ibizlab.cn/modeldesign/#/psdevslnsys=4e91923f01c7e0f5a86ff06e18c053cd/modelingindex/-)
 - **后台技术框架支持**: [https://github.com/ibizlab-cloud/ibiz-service-hub](https://github.com/ibizlab-cloud/ibiz-service-hub)
 - **前端技术框架支持**: [https://open.ibizlab.cn/apphub/](https://open.ibizlab.cn/apphub/)
 

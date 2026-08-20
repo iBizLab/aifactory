@@ -1,0 +1,39 @@
+{
+  "getAllPSPanelFields" : [ {
+    "id" : "show_name",
+    "viewFieldName" : "show_name"
+  } ],
+  "codeName" : "run_view_list_panel",
+  "controlType" : "PANEL",
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_conversation/PSPANELS/run_view_list_panel.json",
+  "layoutMode" : "FLEX",
+  "logicName" : "执行视图会话列表项",
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_conversation.json"
+  },
+  "getPSLayout" : {
+    "layout" : "FLEX"
+  },
+  "getRootPSPanelItems" : [ {
+    "caption" : "文本(动态)",
+    "itemStyle" : "DEFAULT",
+    "itemType" : "FIELD",
+    "name" : "show_name",
+    "getPSEditor" : {
+      "editorType" : "SPAN",
+      "name" : "show_name",
+      "predefinedType" : "FIELD_TEXT_DYNAMIC",
+      "renderMode" : "TEXT_DYNAMIC",
+      "enableLinkView" : false
+    },
+    "getPSLayoutPos" : {
+      "grow" : -1,
+      "layout" : "FLEX"
+    },
+    "viewFieldName" : "show_name"
+  } ],
+  "layoutPanel" : true,
+  "modelid" : "974266d8629a89b6dce4d72790ffd75d",
+  "modeltype" : "PSSYSVIEWPANEL"
+}

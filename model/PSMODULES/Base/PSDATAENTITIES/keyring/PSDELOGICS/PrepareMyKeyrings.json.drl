@@ -1,0 +1,66 @@
+package cn.ibizlab.base.logic.keyringlogic.preparemykeyrings;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.base.domain.keyring keyringpreparemykeyringsdefault;
+                global cn.ibizlab.core.base.domain.keyring keyringpreparemykeyringskeyringfilter;
+                global cn.ibizlab.core.base.domain.keyring keyringpreparemykeyringskeyringlist;
+                    global cn.ibizlab.core.base.service.IkeyringService keyringservice;
+        global cn.ibizlab.core.base.service.IkeyringService iBzSysKeyringDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "keyringpreparemykeyringsbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[准备过滤器参数]
+            rule "prepareparam_01"
+            ruleflow-group "keyringpreparemykeyringsprepareparam_01"
+            when
+            then
+                            keyringpreparemykeyringskeyringfilter.set("n_scope_type_eq","user");
+                                keyringpreparemykeyringskeyringfilter.set("n_scope_id_eq",curuser.getSessionParams().get("srfpersonid"));
+                                keyringpreparemykeyringskeyringfilter.set("personname",curuser.getSessionParams().get("srfpersonname"));
+                        update(keyringpreparemykeyringsdefault);//更新fact中变量值
+                        update(keyringpreparemykeyringskeyringfilter);//更新fact中变量值
+                        update(keyringpreparemykeyringskeyringlist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[查询个人密钥环]
+            rule "dedataset_01"
+            ruleflow-group "keyringpreparemykeyringsdedataset_01"
+            when
+            then
+                        update(keyringpreparemykeyringsdefault);//更新fact中变量值
+                        update(keyringpreparemykeyringskeyringfilter);//更新fact中变量值
+                        update(keyringpreparemykeyringskeyringlist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[检查并创建个人密钥环]
+            rule "rawsfcode_01"
+            ruleflow-group "keyringpreparemykeyringsrawsfcode_01"
+            when
+            then
+                        update(keyringpreparemykeyringsdefault);//更新fact中变量值
+                        update(keyringpreparemykeyringskeyringfilter);//更新fact中变量值
+                        update(keyringpreparemykeyringskeyringlist);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "keyringpreparemykeyringsend_01"
+            when
+            then
+                        update(keyringpreparemykeyringsdefault);//更新fact中变量值
+                        update(keyringpreparemykeyringskeyringfilter);//更新fact中变量值
+                        update(keyringpreparemykeyringskeyringlist);//更新fact中变量值
+            end

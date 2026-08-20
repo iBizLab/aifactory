@@ -358,7 +358,7 @@
   }, {
     "codeName" : "edit_view_toolbar",
     "controlType" : "TOOLBAR",
-    "name" : "toolbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dyna_dashboard/PSTOOLBARS/edit_view_toolbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dyna_dashboard.json"
@@ -367,29 +367,32 @@
       "id" : "TOOLBAR"
     },
     "xDataControlName" : "form",
+    "name" : "toolbar",
     "modelid" : "36110bac274e5db1a992a166d67f170f_toolbar",
     "modeltype" : "PSDETOOLBAR"
   }, {
     "codeName" : "edit_view_datainfobar",
     "controlType" : "DATAINFOBAR",
-    "name" : "datainfobar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dyna_dashboard/PSDATAINFOBARS/edit_view_datainfobar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dyna_dashboard.json"
     },
     "getPSControlParam" : {
       "id" : "datainfobar"
-    }
+    },
+    "name" : "datainfobar"
   }, {
     "caption" : "动态数据看板",
     "codeName" : "edit_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dyna_dashboard/PSCAPTIONBARS/edit_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dyna_dashboard.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "EditView",
   "getPSDEViewId" : "96567c9e083bb6ea184c1cf41bcbeaec",
@@ -397,7 +400,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEEDITVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dyna_dashboard/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dyna_dashboard.json"
@@ -405,7 +408,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "refFlag" : false,
   "title" : "动态数据看板编辑视图",

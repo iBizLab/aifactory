@@ -510,12 +510,13 @@
     "caption" : "会话消息",
     "codeName" : "grid_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_message/PSCAPTIONBARS/grid_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_message.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "GridView",
   "getPSDEViewId" : "e1c5d8039beb70a49ac6508308ce359d",
@@ -523,7 +524,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEGRIDVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_message/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_message.json"
@@ -531,7 +532,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "智能体会话消息表格视图",
   "viewStyle" : "DEFAULT",
@@ -548,6 +550,58 @@
   "modelid" : "6998f6f0817e6b7d436f57901fbfe33f",
   "modeltype" : "PSAPPDEVIEW",
   "getPSAppDERSPaths" : [ [ {
+    "actionRSMode" : 1,
+    "codeName" : "ai_agent_conversations",
+    "dataRSMode" : 0,
+    "majorDECodeName" : "ai_agent_context",
+    "majorDEName" : "AI_AGENT_CONTEXT",
+    "getMajorPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
+    },
+    "minorDECodeName" : "ai_agent_conversation",
+    "minorDEName" : "AI_AGENT_CONVERSATION",
+    "getMinorPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_conversation.json"
+    },
+    "name" : "DER1N_AI_AGENT_CONVERSATION_AI_AGENT_CONTEXT_AI_AGENT_CONTEXT_ID",
+    "getParentPSAppDEField" : {
+      "name" : "AI_AGENT_CONTEXT_ID",
+      "codeName" : "ai_agent_context_id"
+    },
+    "getParentTextPSAppDEField" : {
+      "name" : "AGENT_CONTEXT_NAME",
+      "codeName" : "agent_context_name"
+    },
+    "rSMode" : 2
+  }, {
+    "actionRSMode" : 1,
+    "codeName" : "ai_agent_messages",
+    "dataRSMode" : 0,
+    "majorDECodeName" : "ai_agent_conversation",
+    "majorDEName" : "AI_AGENT_CONVERSATION",
+    "getMajorPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_conversation.json"
+    },
+    "minorDECodeName" : "ai_agent_message",
+    "minorDEName" : "AI_AGENT_MESSAGE",
+    "getMinorPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_message.json"
+    },
+    "name" : "DER1N_AI_AGENT_MESSAGE_AI_AGENT_CONVERSATION_CONVERSATION_ID",
+    "getParentPSAppDEField" : {
+      "name" : "CONVERSATION_ID",
+      "codeName" : "conversation_id"
+    },
+    "getParentTextPSAppDEField" : {
+      "name" : "CONVERSATION_NAME",
+      "codeName" : "conversation_name"
+    },
+    "rSMode" : 2
+  } ], [ {
     "actionRSMode" : 1,
     "codeName" : "ai_agent_messages",
     "dataRSMode" : 0,

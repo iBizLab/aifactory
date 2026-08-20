@@ -335,7 +335,7 @@
     "pluginCode" : "FILE_PREVIEW",
     "pluginType" : "EDITOR_CUSTOMSTYLE",
     "rTObjectName" : "FILE_PREVIEW",
-    "rTObjectRepo" : "@ibiz-template-plugin/file-preview@0.1.8-alpha.448",
+    "rTObjectRepo" : "@ibiz-template-plugin/file-preview@0.1.8-alpha.474",
     "refMode" : "EDITORSTYPE",
     "runtimeObject" : true
   }, {
@@ -1363,14 +1363,15 @@
     "getPSAppViews" : [ ]
   },
   "getUserParam" : {
-    "globalConfig.common.aiChunkView" : "ai_kb_chunk_chunk_info_view",
-    "enableMqtt" : "true",
     "globalConfig.grid.editShowMode" : "cell",
+    "enableMqtt" : "true",
+    "globalConfig.grid.overflowMode" : "ellipsis",
+    "globalConfig.theme" : "app_light",
+    "globalConfig.common.aiUploadMaxSize" : "209715200",
+    "globalConfig.common.aiChunkEntity" : "ai_kb_chunk",
     "globalConfig.common.aiChatTopicCaptionMode" : "summary",
     "globalConfig.appMenu.defaultCollapse" : "true",
-    "globalConfig.theme" : "light",
-    "globalConfig.common.aiChunkEntity" : "ai_kb_chunk",
-    "globalConfig.grid.overflowMode" : "ellipsis"
+    "globalConfig.common.aiChunkView" : "ai_kb_chunk_chunk_info_view"
   },
   "id" : "PSSYSAPPS/aifactoryweb/PSSYSAPP.json"
 }

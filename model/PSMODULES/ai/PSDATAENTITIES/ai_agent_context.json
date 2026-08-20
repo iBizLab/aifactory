@@ -90,6 +90,57 @@
     "enablePagingBar" : false,
     "id" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEACMODES/chat_agent.json"
   }, {
+    "codeName" : "context_selector",
+    "logicName" : "context_selector",
+    "name" : "context_selector",
+    "getPSDEACModeDataItems" : [ {
+      "dataType" : 25,
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "ID",
+        "codeName" : "id"
+      }
+    }, {
+      "dataType" : 25,
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "NAME",
+        "codeName" : "name"
+      }
+    }, {
+      "format" : "%1$s",
+      "dataType" : 25,
+      "name" : "context_id",
+      "getPSDEField" : {
+        "name" : "ID",
+        "codeName" : "id"
+      }
+    }, {
+      "format" : "%1$s",
+      "dataType" : 25,
+      "name" : "context_code_name",
+      "getPSDEField" : {
+        "name" : "CODE_NAME",
+        "codeName" : "code_name"
+      }
+    }, {
+      "format" : "%1$s",
+      "dataType" : 25,
+      "name" : "context_name",
+      "getPSDEField" : {
+        "name" : "NAME",
+        "codeName" : "name"
+      }
+    } ],
+    "getPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "full_info"
+    },
+    "pagingSize" : 50,
+    "defaultMode" : false,
+    "enablePagingBar" : false,
+    "id" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEACMODES/context_selector.json"
+  }, {
     "aCTag" : "CREATE",
     "aCType" : "CHATCOMPLETION",
     "codeName" : "create_ai_agent_context",
@@ -825,7 +876,16 @@
   } ],
   "getAllPSDEDRGroups" : [ {
     "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEDRGROUPS/view.json"
+  }, {
+    "modelref" : true,
     "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEDRGROUPS/DRGroup.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEDRGROUPS/setting.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEDRGROUPS/run.json"
   } ],
   "getAllPSDEDRItems" : [ {
     "modelref" : true,
@@ -833,6 +893,15 @@
   }, {
     "modelref" : true,
     "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEDRITEMS/DRItem2.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEDRITEMS/DRItemIndexEdit.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEDRITEMS/DRItemIndexRun.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEDRITEMS/DRItemIndexView.json"
   }, {
     "modelref" : true,
     "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEDRITEMS/flow.json"
@@ -849,6 +918,7 @@
     "logicName" : "DEFAULT",
     "name" : "DEFAULT",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
@@ -885,6 +955,7 @@
     "logicName" : "默认（全部数据）",
     "name" : "VIEW",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
@@ -918,6 +989,7 @@
     "logicName" : "待绑定",
     "name" : "bind",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getChildPSDEDQJoins" : [ {
         "getDERPSDataEntity" : {
           "modelref" : true,
@@ -983,6 +1055,7 @@
     "logicName" : "deep_research_agent",
     "name" : "deep_research_agent",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
@@ -1032,6 +1105,7 @@
     "logicName" : "dynamic_agent",
     "name" : "dynamic_agent",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
@@ -1117,6 +1191,7 @@
     "logicName" : "业务过滤",
     "name" : "filter",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
@@ -1169,6 +1244,7 @@
     "logicName" : "flow智能体",
     "name" : "flow_agents",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
@@ -1217,6 +1293,7 @@
     "logicName" : "full_text_agent",
     "name" : "full_text_agent",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
@@ -1266,6 +1343,7 @@
     "logicName" : "hub智能体",
     "name" : "hub_agents",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
@@ -1314,6 +1392,7 @@
     "logicName" : "lookup_agent",
     "name" : "lookup_agent",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
@@ -1362,6 +1441,7 @@
     "logicName" : "skill智能体",
     "name" : "skill_agents",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
@@ -1415,6 +1495,7 @@
     "logicName" : "系统的",
     "name" : "system",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
@@ -1461,6 +1542,9 @@
   }, {
     "modelref" : true,
     "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEDATARELATIONS/flow_design_view_DR.json"
+  }, {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEDATARELATIONS/index_view_relation.json"
   } ],
   "getAllPSDEDataSets" : [ {
     "codeName" : "Default",
@@ -2398,7 +2482,7 @@
     "dataType" : "YESNO",
     "defaultValue" : "0",
     "importOrder" : 1000,
-    "logicName" : "系统标记",
+    "logicName" : "是否公开",
     "name" : "SYSTEM_FLAG",
     "orderValue" : 200,
     "getPSCodeList" : {
@@ -5848,7 +5932,7 @@
       "name" : "默认",
       "getPSDEFFormItem" : {
         "editorType" : "TEXTBOX",
-        "maxValueString" : "256000",
+        "maxValueString" : "32000",
         "minValueString" : "0",
         "name" : "默认",
         "uIMode" : "DEFAULT"
@@ -5858,7 +5942,7 @@
       "name" : "移动端默认",
       "getPSDEFFormItem" : {
         "editorType" : "MOBTEXT",
-        "maxValueString" : "256000",
+        "maxValueString" : "32000",
         "minValueString" : "0",
         "name" : "移动端默认",
         "uIMode" : "MOBILEDEFAULT",
@@ -5877,17 +5961,17 @@
         "getPSDEFVRConditions" : [ {
           "condType" : "VALUERANGE2",
           "dEFName" : "MAX_INPUT_TOKENS",
-          "maxValue" : 256000.0,
+          "maxValue" : 32000.0,
           "minValue" : 0.0,
           "name" : "默认值范围",
-          "ruleInfo" : "数值必须大于等于[0]且小于等于[256000]",
+          "ruleInfo" : "数值必须大于等于[0]且小于等于[32000]",
           "includeMaxValue" : true,
           "includeMinValue" : true,
           "keyCond" : true
         } ],
-        "ruleInfo" : "数值必须大于等于[0]且小于等于[256000]"
+        "ruleInfo" : "数值必须大于等于[0]且小于等于[32000]"
       },
-      "ruleInfo" : "数值必须大于等于[0]且小于等于[256000]",
+      "ruleInfo" : "数值必须大于等于[0]且小于等于[32000]",
       "checkDefault" : true,
       "defaultMode" : true,
       "enableBackend" : true,
@@ -5898,7 +5982,7 @@
     "dataType" : "INT",
     "importOrder" : 1000,
     "logicName" : "最大输入token数",
-    "maxValueString" : "256000",
+    "maxValueString" : "32000",
     "minValueString" : "0",
     "name" : "MAX_INPUT_TOKENS",
     "orderValue" : 1000,
@@ -6144,10 +6228,17 @@
           "includeMaxValue" : true,
           "includeMinValue" : false,
           "keyCond" : true
+        }, {
+          "condType" : "REGEX",
+          "dEFName" : "CODE_NAME",
+          "name" : "代码名称",
+          "regExCode" : "[a-zA-Z_$][a-zA-Z0-9_$]*",
+          "ruleInfo" : "内容只能由字母、数字、下划线组成，且开始必须为字母",
+          "keyCond" : true
         } ],
-        "ruleInfo" : "内容长度必须小于等于[30]"
+        "ruleInfo" : "(内容长度必须小于等于[30] 并且 内容只能由字母、数字、下划线组成，且开始必须为字母)"
       },
-      "ruleInfo" : "内容长度必须小于等于[30]",
+      "ruleInfo" : "(内容长度必须小于等于[30] 并且 内容只能由字母、数字、下划线组成，且开始必须为字母)",
       "checkDefault" : true,
       "defaultMode" : true,
       "enableBackend" : true,
@@ -8683,26 +8774,7 @@
       "topPos" : 200,
       "parallelOutput" : true
     }, {
-      "codeName" : "DEACTION_01",
-      "getDstPSDEAction" : {
-        "modelref" : true,
-        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEACTIONS/reason.json"
-      },
-      "getDstPSDELogicParam" : {
-        "modelref" : true,
-        "id" : "kb_temp"
-      },
-      "getDstPSDataEntity" : {
-        "modelref" : true,
-        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
-      },
-      "leftPos" : 830,
-      "logicNodeType" : "DEACTION",
-      "name" : "知识库推理",
-      "topPos" : 280,
-      "parallelOutput" : true
-    }, {
-      "code" : "def _defualt = logic.param('Default').getReal()\r\ndef kb_list = logic.param('kb_list').getReal()\r\ndef kb_ids = _defualt.get('kb_ids')\r\nif(kb_ids) {\r\n    def kb_runtime = sys.dataentity('AI_KNOWLEDGE_BASE')\r\n    groovy.json.JsonSlurper jsonParser = new groovy.json.JsonSlurper()\r\n    def kbs = jsonParser.parseText(kb_ids)\r\n    if (kbs.size() > 0) {\r\n        kbs.each { it ->\r\n            def kb = kb_runtime.entity()\r\n            kb.set('id', it.get('id'))\r\n            kb.set('agenttag', _defualt.get('code_name'))\r\n            kb_list.add(kb)\r\n        }\r\n    }    \r\n}\r\n",
+      "code" : "def _defualt = logic.param('Default').getReal()\r\ndef kb_list = logic.param('kb_list').getReal()\r\ndef kb_ids = _defualt.get('kb_ids')\r\nif(kb_ids) {\r\n    def kb_runtime = sys.dataentity('AI_KNOWLEDGE_BASE')\r\n    def kbs = null\r\n    // 情况1：kb_ids是字符串形式的json数组，如 \"[{\\\"id\\\":\\\"1\\\"},{\\\"id\\\":\\\"2\\\"}]\"\r\n    // 情况2：kb_ids本身就是json数组(List)\r\n    // 情况3：kb_ids是逗号分隔的id字符串，如 \"1,2,3\"\r\n    if (kb_ids instanceof String) {\r\n        def str = kb_ids.trim()\r\n        if (str.startsWith('[')) {\r\n            // 情况1：字符串形式的json数组\r\n            kbs = new groovy.json.JsonSlurper().parseText(str)\r\n        } else {\r\n            // 情况3：逗号分隔的id字符串\r\n            kbs = str.split(',').collect { it.trim() }.findAll { it }\r\n        }\r\n    } else if (kb_ids instanceof List) {\r\n        // 情况2：本身就是json数组(List)\r\n        kbs = kb_ids\r\n    }\r\n    if (kbs && kbs.size() > 0) {\r\n        kbs.each { it ->\r\n            def kb = kb_runtime.entity()\r\n            // 兼容元素为Map（含id属性）或直接为id字符串两种情况\r\n            def id = (it instanceof Map) ? it.get('id') : it\r\n            kb.set('id', id)\r\n            kb.set('agenttag', _defualt.get('code_name'))\r\n            kb_list.add(kb)\r\n        }\r\n    }\r\n}",
       "codeName" : "RAWSFCODE_01",
       "codeType" : "Groovy",
       "leftPos" : 160,
@@ -8764,37 +8836,30 @@
       "topPos" : 350,
       "parallelOutput" : true
     }, {
+      "codeName" : "DELOGIC_01",
+      "getDstPSDELogic" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDELOGICS/deep_research.json"
+      },
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "kb_temp"
+      },
+      "getDstPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+      },
+      "leftPos" : 870,
+      "logicNodeType" : "DELOGIC",
+      "name" : "知识库研究",
+      "topPos" : 360,
+      "parallelOutput" : true
+    }, {
       "codeName" : "PREPAREPARAM_01",
       "leftPos" : 560,
       "logicNodeType" : "PREPAREPARAM",
       "name" : "准备参数",
       "getPSDELogicLinks" : [ {
-        "getDstPSDELogicNode" : {
-          "modelref" : true,
-          "id" : "DEACTION_01"
-        },
-        "name" : "连接名称",
-        "getPSDELogicLinkGroupCond" : {
-          "groupOP" : "AND",
-          "logicType" : "GROUP",
-          "name" : "连接条件组",
-          "getPSDELogicLinkConds" : [ {
-            "condOP" : "EQ",
-            "dstFieldName" : "DEEP_RESEARCH",
-            "getDstLogicParam" : {
-              "modelref" : true,
-              "id" : "Default"
-            },
-            "logicType" : "SINGLE",
-            "name" : "Default[DEEP_RESEARCH] 等于(=) 0",
-            "paramValue" : "0"
-          } ]
-        },
-        "getSrcPSDELogicNode" : {
-          "modelref" : true,
-          "id" : "PREPAREPARAM_01"
-        }
-      }, {
         "getDstPSDELogicNode" : {
           "modelref" : true,
           "id" : "DELOGIC_01"
@@ -8832,42 +8897,33 @@
           "name" : "连接条件组",
           "getPSDELogicLinkConds" : [ {
             "condOP" : "EQ",
-            "dstFieldName" : "DEEP_RESEARCH",
+            "dstFieldName" : "USE_FULLTEXT",
             "getDstLogicParam" : {
               "modelref" : true,
               "id" : "Default"
             },
             "logicType" : "SINGLE",
-            "name" : "Default[DEEP_RESEARCH] 等于(=) 2",
-            "paramValue" : "2"
+            "name" : "Default[USE_FULLTEXT] 等于(=) 1",
+            "paramValue" : "1"
           } ]
         },
         "getSrcPSDELogicNode" : {
           "modelref" : true,
           "id" : "PREPAREPARAM_01"
         }
+      }, {
+        "getDstPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "DEACTION_01"
+        },
+        "name" : "连接名称",
+        "getSrcPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "PREPAREPARAM_01"
+        },
+        "defaultLink" : true
       } ],
-      "topPos" : 390,
-      "parallelOutput" : true
-    }, {
-      "codeName" : "DELOGIC_01",
-      "getDstPSDELogic" : {
-        "modelref" : true,
-        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDELOGICS/deep_research.json"
-      },
-      "getDstPSDELogicParam" : {
-        "modelref" : true,
-        "id" : "kb_temp"
-      },
-      "getDstPSDataEntity" : {
-        "modelref" : true,
-        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
-      },
-      "leftPos" : 830,
-      "logicNodeType" : "DELOGIC",
-      "name" : "知识库研究",
-      "topPos" : 430,
-      "parallelOutput" : true
+      "topPos" : 390
     }, {
       "codeName" : "LOOPSUBCALL_01",
       "getDstPSDELogicParam" : {
@@ -8919,10 +8975,10 @@
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
       },
-      "leftPos" : 830,
+      "leftPos" : 886,
       "logicNodeType" : "DELOGIC",
       "name" : "知识库全文推理",
-      "topPos" : 580,
+      "topPos" : 490,
       "parallelOutput" : true
     }, {
       "codeName" : "END_01",
@@ -8935,6 +8991,25 @@
       },
       "returnType" : "LOGICPARAM",
       "topPos" : 660,
+      "parallelOutput" : true
+    }, {
+      "codeName" : "DEACTION_01",
+      "getDstPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEACTIONS/reason.json"
+      },
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "kb_temp"
+      },
+      "getDstPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+      },
+      "leftPos" : 840,
+      "logicNodeType" : "DEACTION",
+      "name" : "知识库推理",
+      "topPos" : 680,
       "parallelOutput" : true
     } ],
     "getPSDELogicParams" : [ {
@@ -9114,7 +9189,7 @@
           "id" : "Begin"
         }
       } ],
-      "topPos" : 140,
+      "topPos" : 70,
       "parallelOutput" : true
     }, {
       "codeName" : "PREPAREPARAM_01",
@@ -9124,7 +9199,7 @@
       "getPSDELogicLinks" : [ {
         "getDstPSDELogicNode" : {
           "modelref" : true,
-          "id" : "DEBUGPARAM_01"
+          "id" : "DEACTION_02"
         },
         "name" : "连接名称",
         "getSrcPSDELogicNode" : {
@@ -9158,8 +9233,100 @@
           "id" : "Default"
         },
         "srcValueType" : "SRCDLPARAM"
+      }, {
+        "dstFieldName" : "ID",
+        "getDstPSDELogicParam" : {
+          "modelref" : true,
+          "id" : "agent"
+        },
+        "paramAction" : "SETPARAMVALUE",
+        "srcFieldName" : "ID",
+        "getSrcPSDELogicParam" : {
+          "modelref" : true,
+          "id" : "Default"
+        },
+        "srcValueType" : "SRCDLPARAM"
       } ],
-      "topPos" : 302,
+      "topPos" : 232,
+      "parallelOutput" : true
+    }, {
+      "codeName" : "DEACTION_02",
+      "getDstPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEACTIONS/Get.json"
+      },
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "agent"
+      },
+      "getDstPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+      },
+      "leftPos" : 350,
+      "logicNodeType" : "DEACTION",
+      "name" : "agent",
+      "getPSDELogicLinks" : [ {
+        "getDstPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "PREPAREPARAM_02"
+        },
+        "name" : "连接名称",
+        "getSrcPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "DEACTION_02"
+        }
+      } ],
+      "getRetPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "agent"
+      },
+      "topPos" : 320,
+      "parallelOutput" : true
+    }, {
+      "codeName" : "PREPAREPARAM_02",
+      "leftPos" : 350,
+      "logicNodeType" : "PREPAREPARAM",
+      "name" : "准备参数",
+      "getPSDELogicLinks" : [ {
+        "getDstPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "DEBUGPARAM_01"
+        },
+        "name" : "连接名称",
+        "getSrcPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "PREPAREPARAM_02"
+        }
+      } ],
+      "getPSDELogicNodeParams" : [ {
+        "dstFieldName" : "CONTEXT_NAME",
+        "getDstPSDELogicParam" : {
+          "modelref" : true,
+          "id" : "ai_agent_assignment"
+        },
+        "paramAction" : "SETPARAMVALUE",
+        "srcFieldName" : "NAME",
+        "getSrcPSDELogicParam" : {
+          "modelref" : true,
+          "id" : "agent"
+        },
+        "srcValueType" : "SRCDLPARAM"
+      }, {
+        "dstFieldName" : "NAME",
+        "getDstPSDELogicParam" : {
+          "modelref" : true,
+          "id" : "ai_agent_assignment"
+        },
+        "paramAction" : "SETPARAMVALUE",
+        "srcFieldName" : "NAME",
+        "getSrcPSDELogicParam" : {
+          "modelref" : true,
+          "id" : "agent"
+        },
+        "srcValueType" : "SRCDLPARAM"
+      } ],
+      "topPos" : 402,
       "parallelOutput" : true
     }, {
       "codeName" : "DEBUGPARAM_01",
@@ -9181,7 +9348,7 @@
           "id" : "DEBUGPARAM_01"
         }
       } ],
-      "topPos" : 417,
+      "topPos" : 487,
       "parallelOutput" : true
     }, {
       "codeName" : "DEACTION_01",
@@ -9211,7 +9378,7 @@
           "id" : "DEACTION_01"
         }
       } ],
-      "topPos" : 538,
+      "topPos" : 568,
       "parallelOutput" : true
     }, {
       "codeName" : "END_01",
@@ -9230,6 +9397,15 @@
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
       },
       "default" : true,
+      "entityParam" : true
+    }, {
+      "codeName" : "agent",
+      "logicName" : "agent",
+      "name" : "agent",
+      "getParamPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+      },
       "entityParam" : true
     }, {
       "codeName" : "ai_agent_assignment",
@@ -11063,28 +11239,6 @@
       "topPos" : -168,
       "parallelOutput" : true
     }, {
-      "codeName" : "DEBUGPARAM_01",
-      "getDstPSDELogicParam" : {
-        "modelref" : true,
-        "id" : "Default"
-      },
-      "leftPos" : -180,
-      "logicNodeType" : "DEBUGPARAM",
-      "name" : "输出default参数",
-      "getPSDELogicLinks" : [ {
-        "getDstPSDELogicNode" : {
-          "modelref" : true,
-          "id" : "PREPAREPARAM_04"
-        },
-        "name" : "连接名称",
-        "getSrcPSDELogicNode" : {
-          "modelref" : true,
-          "id" : "DEBUGPARAM_01"
-        }
-      } ],
-      "topPos" : -58,
-      "parallelOutput" : true
-    }, {
       "chatRequestAppendMode" : "USER",
       "codeName" : "SYSAICHATAGENT_APPENDCHATREQUEST_01",
       "getDstPSDELogicParam" : {
@@ -11093,7 +11247,7 @@
       },
       "leftPos" : 220,
       "logicNodeType" : "SYSAICHATAGENT_APPENDCHATREQUEST",
-      "message" : "帮我把结果转为json，包含name（请帮我起个智能体的名字，20字以内）、description（用户最早提供的简要描述）、code_name（通过名称起一个英文标识，20字以内）、default_system_prompt",
+      "message" : "帮我把结果转为json，包含name（请帮我起个智能体的名字，20字以内）、description（用户最早提供的简要描述）、code_name（通过名称起一个英文标识，20字以内，snake_case 蛇形命名法）、default_system_prompt（系统提示词）",
       "name" : "附加聊天请求",
       "getPSDELogicLinks" : [ {
         "getDstPSDELogicNode" : {
@@ -11428,7 +11582,7 @@
       "getPSDELogicLinks" : [ {
         "getDstPSDELogicNode" : {
           "modelref" : true,
-          "id" : "DEACTION_03"
+          "id" : "RAWSFCODE_01"
         },
         "name" : "连接名称",
         "getSrcPSDELogicNode" : {
@@ -11501,6 +11655,26 @@
       "title" : "出现异常自检中",
       "topPos" : 460
     }, {
+      "code" : "// 获取ai_agent_context\ndef aiAgentContext = logic.param('ai_agent_context').getReal()\n// 获取flow_mode\ndef flowMode = aiAgentContext.get('flow_mode')\n// 判断如果是SKILL 或者为空 则给系统提示词补开头一行 ${original_prompt}\nif (flowMode == 'SKILL' || flowMode == null || flowMode == '') {\n    // 获取原系统提示词，为空时初始化为空串\n    def systemPrompt = aiAgentContext.get('default_system_prompt')\n    if (systemPrompt == null) {\n        systemPrompt = ''\n    }\n    // 判断是否本来就有 ${original_prompt}，避免重复添加\n    if (!systemPrompt.contains('${original_prompt}')) {\n        // 在系统提示词开头补一行 ${original_prompt}\n        aiAgentContext.set('default_system_prompt', '${original_prompt}\\n' + systemPrompt)\n    }\n}",
+      "codeName" : "RAWSFCODE_01",
+      "codeType" : "Groovy",
+      "leftPos" : 476,
+      "logicNodeType" : "RAWSFCODE",
+      "name" : "执行脚本代码",
+      "getPSDELogicLinks" : [ {
+        "getDstPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "DEACTION_03"
+        },
+        "name" : "连接名称",
+        "getSrcPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "RAWSFCODE_01"
+        }
+      } ],
+      "topPos" : 477,
+      "parallelOutput" : true
+    }, {
       "codeName" : "DEACTION_03",
       "getDstPSDEAction" : {
         "modelref" : true,
@@ -11514,7 +11688,7 @@
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
       },
-      "leftPos" : 470,
+      "leftPos" : 476,
       "logicNodeType" : "DEACTION",
       "name" : "建立智能体",
       "getPSDELogicLinks" : [ {
@@ -11543,7 +11717,29 @@
         "modelref" : true,
         "id" : "ai_agent_context"
       },
-      "topPos" : 470,
+      "topPos" : 600,
+      "parallelOutput" : true
+    }, {
+      "codeName" : "DEBUGPARAM_01",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "leftPos" : -180,
+      "logicNodeType" : "DEBUGPARAM",
+      "name" : "输出default参数",
+      "getPSDELogicLinks" : [ {
+        "getDstPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "PREPAREPARAM_04"
+        },
+        "name" : "连接名称",
+        "getSrcPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "DEBUGPARAM_01"
+        }
+      } ],
+      "topPos" : -58,
       "parallelOutput" : true
     }, {
       "codeName" : "SYSAICHATAGENT_CHATINPUT_02",
@@ -11568,30 +11764,6 @@
       } ],
       "subType" : "CHATINPUT",
       "topPos" : 506
-    }, {
-      "codeName" : "SYSAICHATAGENT_CHATUIACTION_01",
-      "getDstPSDELogicParam" : {
-        "modelref" : true,
-        "id" : "chat_response"
-      },
-      "leftPos" : 300,
-      "logicNodeType" : "SYSAICHATAGENT_CHATUIACTION",
-      "memo" : "[{\n  \"id\": \"open_edit_view\",\n  \"type\": \"uiaction\",\n  \"data\": {\n    \"id\": \"open_edit_view\",\n    \"uiaction_id\": \"open_edit_view@ai_agent_context\",\n    \"de_name\": \"ai_agent_context\"\n  },\n  \"metadata\": {\n   \"name\": \"打开建立的智能体\",\n   \"actionContext\": \"ai_agent_context:${params.ai_agent_context.id}\",\n   \"uiaction_id\": \"open_edit_view@ai_agent_context\"\n  }\n}]",
-      "message" : "[{\n  \"type\": \"action\",\n  \"data\": {\n    \"actionid\": \"open_edit_view@ai_agent_context\"\n  },\n  \"metadata\": {\n   \"content_name\": \"打开建立的智能体\",\n   \"action_context\": \"ai_agent_context:${params.ai_agent_context.id}\"\n  }\n}]",
-      "name" : "回写查看建立数据的按钮",
-      "getPSDELogicLinks" : [ {
-        "getDstPSDELogicNode" : {
-          "modelref" : true,
-          "id" : "END_01"
-        },
-        "name" : "连接名称",
-        "getSrcPSDELogicNode" : {
-          "modelref" : true,
-          "id" : "SYSAICHATAGENT_CHATUIACTION_01"
-        }
-      } ],
-      "subType" : "CHATUIACTION",
-      "topPos" : 590
     }, {
       "codeName" : "PREPAREPARAM_02",
       "leftPos" : 910,
@@ -11684,6 +11856,30 @@
       } ],
       "subType" : "CHATINPUT",
       "topPos" : 710
+    }, {
+      "codeName" : "SYSAICHATAGENT_CHATUIACTION_01",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chat_response"
+      },
+      "leftPos" : 476,
+      "logicNodeType" : "SYSAICHATAGENT_CHATUIACTION",
+      "memo" : "[{\n  \"id\": \"open_edit_view\",\n  \"type\": \"uiaction\",\n  \"data\": {\n    \"id\": \"open_edit_view\",\n    \"uiaction_id\": \"open_edit_view@ai_agent_context\",\n    \"de_name\": \"ai_agent_context\"\n  },\n  \"metadata\": {\n   \"name\": \"打开建立的智能体\",\n   \"actionContext\": \"ai_agent_context:${params.ai_agent_context.id}\",\n   \"uiaction_id\": \"open_edit_view@ai_agent_context\"\n  }\n}]",
+      "message" : "[{\n  \"type\": \"action\",\n  \"data\": {\n    \"actionid\": \"open_edit_view@ai_agent_context\"\n  },\n  \"metadata\": {\n   \"content_name\": \"打开建立的智能体\",\n   \"action_context\": \"ai_agent_context:${params.ai_agent_context.id}\"\n  }\n}]",
+      "name" : "回写查看建立数据的按钮",
+      "getPSDELogicLinks" : [ {
+        "getDstPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "END_01"
+        },
+        "name" : "连接名称",
+        "getSrcPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "SYSAICHATAGENT_CHATUIACTION_01"
+        }
+      } ],
+      "subType" : "CHATUIACTION",
+      "topPos" : 750
     }, {
       "codeName" : "SYSAICHATAGENT_CHATSTEP_04",
       "getDstPSDELogicParam" : {
@@ -14999,7 +15195,7 @@
       "readOnly" : true
     }, {
       "defaultValue" : "0",
-      "logicName" : "系统标记",
+      "logicName" : "是否公开",
       "name" : "system_flag",
       "getPSDEField" : {
         "name" : "SYSTEM_FLAG",
@@ -15492,6 +15688,7 @@
         "name" : "CODE_NAME",
         "codeName" : "code_name"
       },
+      "pattern" : "[a-zA-Z_$][a-zA-Z0-9_$]*",
       "sourceType" : "DEFIELD",
       "stdDataType" : 25,
       "stringLength" : 30,
@@ -15563,7 +15760,7 @@
       "allowEmpty" : false
     }, {
       "logicName" : "最大输入token数",
-      "maxValueString" : "256000",
+      "maxValueString" : "32000",
       "minValueString" : "0",
       "name" : "max_input_tokens",
       "getPSDEField" : {
@@ -15900,7 +16097,7 @@
       "type" : "SIMPLE"
     }, {
       "defaultValue" : "0",
-      "logicName" : "系统标记",
+      "logicName" : "是否公开",
       "name" : "n_system_flag_eq",
       "getPSDEFSearchMode" : {
         "modelref" : true,
@@ -16132,6 +16329,12 @@
     "realModelSubType" : "DEPICKUPGRIDVIEW",
     "realModelType" : "PSDEVIEWBASE"
   }, {
+    "codeName" : "setting",
+    "logicName" : "智能体配置",
+    "name" : "智能体配置",
+    "realModelSubType" : "DEEDITVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
     "codeName" : "flow_agent_clone_view",
     "logicName" : "flow智能体上下文实体克隆视图",
     "name" : "flow智能体上下文实体克隆视图",
@@ -16145,10 +16348,28 @@
     "realModelSubType" : "DEGRIDVIEW",
     "realModelType" : "PSDEVIEWBASE"
   }, {
+    "codeName" : "quick_chat_view",
+    "logicName" : "快速聊天视图",
+    "name" : "快速聊天视图",
+    "realModelSubType" : "DEEDITVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "chat_view",
+    "logicName" : "智能体聊天视图",
+    "name" : "智能体聊天视图",
+    "realModelSubType" : "DEEDITVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
     "codeName" : "card_view",
     "logicName" : "智能体业务上下文卡片视图",
     "name" : "智能体业务上下文卡片视图",
     "realModelSubType" : "DEDATAVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "index_view",
+    "logicName" : "智能体首页视图",
+    "name" : "智能体首页视图",
+    "realModelSubType" : "DEINDEXVIEW",
     "realModelType" : "PSDEVIEWBASE"
   }, {
     "codeName" : "PickupView",
@@ -16189,11 +16410,31 @@
     "realModelSubType" : "DEEDITVIEW",
     "realModelType" : "PSDEVIEWBASE"
   }, {
+    "codeName" : "run_view",
+    "logicName" : "执行视图",
+    "name" : "执行视图",
+    "realModelSubType" : "DELISTEXPVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
     "codeName" : "flow_agent_create_view",
     "logicName" : "flow智能体上下文快速建立视图",
     "name" : "flow智能体上下文快速建立视图",
     "realModelSubType" : "DEOPTVIEW",
     "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "Main6",
+    "logicName" : "智能体首页视图_表单",
+    "modelTag2" : "0",
+    "name" : "智能体首页视图_表单",
+    "realModelSubType" : "EDITFORM",
+    "realModelType" : "PSDEFORM"
+  }, {
+    "codeName" : "Run",
+    "logicName" : "执行_表单",
+    "modelTag2" : "0",
+    "name" : "执行_表单",
+    "realModelSubType" : "EDITFORM",
+    "realModelType" : "PSDEFORM"
   }, {
     "codeName" : "flow_create",
     "logicName" : "flow智能体（新建）",
@@ -16230,6 +16471,13 @@
     "realModelSubType" : "EDITFORM",
     "realModelType" : "PSDEFORM"
   }, {
+    "codeName" : "debug",
+    "logicName" : "调试",
+    "modelTag2" : "0",
+    "name" : "调试",
+    "realModelSubType" : "EDITFORM",
+    "realModelType" : "PSDEFORM"
+  }, {
     "codeName" : "Main5",
     "logicName" : "发现_表单",
     "modelTag2" : "0",
@@ -16262,6 +16510,13 @@
     "logicName" : "主编辑表单",
     "modelTag2" : "0",
     "name" : "主编辑表单",
+    "realModelSubType" : "EDITFORM",
+    "realModelType" : "PSDEFORM"
+  }, {
+    "codeName" : "quick_chat",
+    "logicName" : "快速聊天",
+    "modelTag2" : "0",
+    "name" : "快速聊天",
     "realModelSubType" : "EDITFORM",
     "realModelType" : "PSDEFORM"
   } ],
@@ -16330,8 +16585,8 @@
       "codeName" : "context_id"
     },
     "getPSPickupTextDEField" : {
-      "name" : "NAME",
-      "codeName" : "name"
+      "name" : "CONTEXT_NAME",
+      "codeName" : "context_name"
     },
     "pickupDEFName" : "CONTEXT_ID",
     "removeActionType" : 1,

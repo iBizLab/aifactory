@@ -438,8 +438,8 @@
   }, {
     "codeName" : "grid_view_tab_toolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_scheduled_task/PSTOOLBARS/grid_view_tab_toolbar.json",
     "logicName" : "工具栏模板（表格界面，只有一个新建按钮）",
-    "name" : "tab_toolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_scheduled_task.json"
@@ -496,6 +496,7 @@
       "showIcon" : true
     } ],
     "xDataControlName" : "grid",
+    "name" : "tab_toolbar",
     "modelid" : "cd9eb7eb8c0facf6084ba1508d888eea",
     "modeltype" : "PSDETOOLBAR"
   }, {
@@ -605,12 +606,13 @@
     "caption" : "扩展计划任务",
     "codeName" : "grid_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_scheduled_task/PSCAPTIONBARS/grid_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_scheduled_task.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "GridView",
   "getPSDEViewId" : "723ccf534e53ddf912f9b38ce8b75f61",
@@ -618,7 +620,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEGRIDVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_scheduled_task/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_scheduled_task.json"
@@ -626,7 +628,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "扩展计划任务表格视图",
   "viewStyle" : "DEFAULT",

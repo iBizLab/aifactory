@@ -167,8 +167,8 @@
   "getPSControls" : [ {
     "codeName" : "assigned_grid_view_toolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_member/PSTOOLBARS/assigned_grid_view_toolbar.json",
     "logicName" : "知识库成员绑定表格视图（嵌入）_工具栏",
-    "name" : "toolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_member.json"
@@ -230,6 +230,7 @@
     } ],
     "toolbarStyle" : "USER",
     "xDataControlName" : "grid",
+    "name" : "toolbar",
     "modelid" : "44e49186c92d795164a7f96e98464aef",
     "modeltype" : "PSDETOOLBAR"
   }, {
@@ -541,12 +542,13 @@
     "caption" : "知识库成员",
     "codeName" : "assigned_grid_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_member/PSCAPTIONBARS/assigned_grid_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_member.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "assigned_grid_view",
   "getPSDEViewId" : "c2effd3970cbee6445a3adc6d7085bbb",
@@ -554,7 +556,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEGRIDVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_member/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_member.json"
@@ -562,7 +564,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "refFlag" : false,
   "title" : "知识库成员",

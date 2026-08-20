@@ -54,10 +54,10 @@
     } ],
     "codeName" : "usr0226644544",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page/PSVIEWLAYOUTPANELS/usr0226644544.json",
     "hookEventNames" : [ "ONBLUR", "ONFOCUS" ],
     "layoutMode" : "FLEX",
     "logicName" : "show_view编辑视图布局面板",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page.json"
@@ -757,6 +757,7 @@
     "layoutPanel" : true,
     "useDefaultLayout" : false,
     "viewProxyMode" : true,
+    "name" : "layoutpanel",
     "modelid" : "402b2295882077fc5f3f0825bea33f6d",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL",
     "getPSAppCounterRefs" : [ {
@@ -788,8 +789,8 @@
     "getPSControls" : [ {
       "codeName" : "show_view_toolbar",
       "controlType" : "TOOLBAR",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page/PSTOOLBARS/show_view_toolbar.json",
       "logicName" : "页面实体编辑视图（展示无上下）_工具栏",
-      "name" : "toolbar",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page.json"
@@ -809,8 +810,7 @@
           "id" : "toolbar_deuiaction18"
         },
         "getPSSysImage" : {
-          "glyph" : "xf123@FontAwesome",
-          "cssClass" : "fa fa-star-half-full"
+          "rawContent" : "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <title>robot</title>\n    <g id=\"robot\" stroke=\"none\" fill=\"none\" fill-rule=\"evenodd\" stroke-width=\"1\">\n        <g id=\"编组\">\n            <path d=\"M19.3333333,3.33333333 L12.6666667,3.33333333 L12.6666667,6 L14.6666667,6 L14.6666667,7.33333333 L4.66666667,7.33333333 L4.66666667,28 L27.3333333,28 L27.3333333,7.33333333 L17.3333333,7.33333333 L17.3333333,6 L19.3333333,6 L19.3333333,3.33333333 Z M7.33333333,25.3333333 L7.33333333,10 L24.6666667,10 L24.6666667,25.3333333 L7.33333333,25.3333333 Z M0.666666667,14 L0.666666667,21.3333333 L3.33333333,21.3333333 L3.33333333,14 L0.666666667,14 Z M28.6666667,14 L28.6666667,21.3333333 L31.3333333,21.3333333 L31.3333333,14 L28.6666667,14 Z M14,16 L10.6666667,16 L10.6666667,19.3333333 L14,19.3333333 L14,16 Z M21.3333333,16 L18,16 L18,19.3333333 L21.3333333,19.3333333 L21.3333333,16 Z\" id=\"形状\" fill=\"#4B5156\" fill-rule=\"nonzero\"></path>\n            <rect id=\"矩形\" fill=\"#000000\" opacity=\"0\" x=\"0\" y=\"0\" width=\"32\" height=\"32\"></rect>\n        </g>\n    </g>\n</svg>"
         },
         "getPSUIAction" : {
           "actionTarget" : "SINGLEDATA",
@@ -842,8 +842,7 @@
             "rawValue" : true
           } ],
           "getPSSysImage" : {
-            "glyph" : "xf123@FontAwesome",
-            "cssClass" : "fa fa-star-half-full"
+            "rawContent" : "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <title>robot</title>\n    <g id=\"robot\" stroke=\"none\" fill=\"none\" fill-rule=\"evenodd\" stroke-width=\"1\">\n        <g id=\"编组\">\n            <path d=\"M19.3333333,3.33333333 L12.6666667,3.33333333 L12.6666667,6 L14.6666667,6 L14.6666667,7.33333333 L4.66666667,7.33333333 L4.66666667,28 L27.3333333,28 L27.3333333,7.33333333 L17.3333333,7.33333333 L17.3333333,6 L19.3333333,6 L19.3333333,3.33333333 Z M7.33333333,25.3333333 L7.33333333,10 L24.6666667,10 L24.6666667,25.3333333 L7.33333333,25.3333333 Z M0.666666667,14 L0.666666667,21.3333333 L3.33333333,21.3333333 L3.33333333,14 L0.666666667,14 Z M28.6666667,14 L28.6666667,21.3333333 L31.3333333,21.3333333 L31.3333333,14 L28.6666667,14 Z M14,16 L10.6666667,16 L10.6666667,19.3333333 L14,19.3333333 L14,16 Z M21.3333333,16 L18,16 L18,19.3333333 L21.3333333,19.3333333 L21.3333333,16 Z\" id=\"形状\" fill=\"#4B5156\" fill-rule=\"nonzero\"></path>\n            <rect id=\"矩形\" fill=\"#000000\" opacity=\"0\" x=\"0\" y=\"0\" width=\"32\" height=\"32\"></rect>\n        </g>\n    </g>\n</svg>"
           },
           "uIActionMode" : "FRONT",
           "uIActionTag" : "ai",
@@ -1780,6 +1779,7 @@
       } ],
       "toolbarStyle" : "USER",
       "xDataControlName" : "form",
+      "name" : "toolbar",
       "modelid" : "86edfa3b5bfcf420898ebb9861f7325b",
       "modeltype" : "PSDETOOLBAR"
     }, {
@@ -3901,24 +3901,26 @@
     }, {
       "codeName" : "show_view_datainfobar",
       "controlType" : "DATAINFOBAR",
-      "name" : "datainfobar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page/PSDATAINFOBARS/show_view_datainfobar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page.json"
       },
       "getPSControlParam" : {
         "id" : "datainfobar"
-      }
+      },
+      "name" : "datainfobar"
     }, {
       "caption" : "页面",
       "codeName" : "show_view_captionbar",
       "controlType" : "CAPTIONBAR",
-      "name" : "captionbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page/PSCAPTIONBARS/show_view_captionbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page.json"
       },
-      "getPSControlParam" : { }
+      "getPSControlParam" : { },
+      "name" : "captionbar"
     } ],
     "getPSAppCounterRef" : {
       "modelref" : true,

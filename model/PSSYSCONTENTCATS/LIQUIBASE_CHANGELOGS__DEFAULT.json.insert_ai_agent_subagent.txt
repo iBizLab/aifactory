@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.6.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="insert_ai_agent_subagent" author="system"  failOnError="false">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM ai_agent_context WHERE id = '74445191cc7de6f3a7a9c1243ff02ae0'
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            <![CDATA[
+INSERT INTO ai_agent_context (active, ai_agent_id, ai_model_id, code_name, context_debug_data, create_man, create_time, custom_suggestion_prompt, default_system_prompt, description, enable_suggested_questions, enable_thinking, enable_tools, generation_mode, id, is_default, max_input_tokens, memory_max_turns, memory_mode, name, scopes, sequence, stream, suggested_questions, system_flag, temperature, tool_exceed_message, tool_max_calls, top_p, trimming_strategy, update_man, update_time, welcome_message, rerank, similarity_threshold, top_k, use_kg, vector_similarity_weight, rerank_model, rerank_model_id, ai_agent_knowledge_rels, allow_any_knowledge_base, synthesizer, flow_mode, page_index, publish_skill, skill_prompt, vlm_prompt, enable_searching, memory_doc_tag, memory_kb_tag, spec_kb_id, use_fulltext, memory_isolation_mode, custom_code, skill_readme, agent_group_tag, kb_mode, skill_load_mode, skill_tags, kbs, tools) VALUES (1, null, 'followup', 'delegate_flash_agent', null, null, null, null, '${original_prompt}', null, 0, 0, 1, 'custom', '74445191cc7de6f3a7a9c1243ff02ae0', 0, null, null, 'none', 'delegate_flash_agent', 'ai_knowledge_base', null, 1, null, 1, null, null, null, null, null, null, null, null, 0, 0.20, null, 0, 0.3, null, null, null, 1, null, 'SKILL', 0, null, null, null, null, null, null, null, null, 'NONE', null, null, null, null, 'all', null, null, null);
+            ]]>
+        </sql>
+    </changeSet>
+    <changeSet id="insert_ai_agent_subagent-2" author="system"  failOnError="false">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(*) FROM ai_agent_context WHERE id = '1ecdb532087fcc6b8633eee94b676be4'
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            <![CDATA[
+INSERT INTO ai_agent_context (active, ai_agent_id, ai_model_id, code_name, context_debug_data, create_man, create_time, custom_suggestion_prompt, default_system_prompt, description, enable_suggested_questions, enable_thinking, enable_tools, generation_mode, id, is_default, max_input_tokens, memory_max_turns, memory_mode, name, scopes, sequence, stream, suggested_questions, system_flag, temperature, tool_exceed_message, tool_max_calls, top_p, trimming_strategy, update_man, update_time, welcome_message, rerank, similarity_threshold, top_k, use_kg, vector_similarity_weight, rerank_model, rerank_model_id, ai_agent_knowledge_rels, allow_any_knowledge_base, synthesizer, flow_mode, page_index, publish_skill, skill_prompt, vlm_prompt, enable_searching, memory_doc_tag, memory_kb_tag, spec_kb_id, use_fulltext, memory_isolation_mode, custom_code, skill_readme, agent_group_tag, kb_mode, skill_load_mode, skill_tags, kbs, tools) VALUES (1, null, 'default', 'delegate_default_agent', null, null, null, null, '${original_prompt}', null, 0, 1, 1, 'custom', '1ecdb532087fcc6b8633eee94b676be4', 0, null, null, 'none', 'delegate_default_agent', 'ai_knowledge_base', null, 1, null, 1, null, null, null, null, null, null, null, null, 0, 0.20, null, 0, 0.3, null, null, null, 1, null, 'SKILL', 0, null, null, null, null, null, null, null, null, 'NONE', null, null, null, null, 'all', null, null, null);
+            ]]>
+        </sql>
+    </changeSet>
+</databaseChangeLog>

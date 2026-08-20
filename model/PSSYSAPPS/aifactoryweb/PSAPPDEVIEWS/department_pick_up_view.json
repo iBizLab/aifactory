@@ -22,6 +22,7 @@
   "getPSControls" : [ {
     "codeName" : "pick_up_view_pickupviewpanel",
     "controlType" : "PICKUPVIEWPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/department/PSPICKUPVIEWPANELS/pick_up_view_pickupviewpanel.json",
     "getEmbeddedPSAppDEView" : {
       "accUserMode" : 2,
       "caption" : "部门",
@@ -375,12 +376,13 @@
         "caption" : "部门",
         "codeName" : "pick_up_grid_view_captionbar",
         "controlType" : "CAPTIONBAR",
-        "name" : "captionbar",
+        "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/department/PSCAPTIONBARS/pick_up_grid_view_captionbar.json",
         "getPSAppDataEntity" : {
           "modelref" : true,
           "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/department.json"
         },
-        "getPSControlParam" : { }
+        "getPSControlParam" : { },
+        "name" : "captionbar"
       } ],
       "getPSDEViewCodeName" : "pick_up_grid_view",
       "getPSDEViewId" : "1833a4cf24eff5552cf23e7f2e44fe12",
@@ -388,7 +390,7 @@
         "codeName" : "layoutpanel",
         "controlStyle" : "APPDEPICKUPGRIDVIEW",
         "controlType" : "VIEWLAYOUTPANEL",
-        "name" : "layoutpanel",
+        "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/department/PSVIEWLAYOUTPANELS/layoutpanel.json",
         "getPSAppDataEntity" : {
           "modelref" : true,
           "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/department.json"
@@ -396,7 +398,8 @@
         "getPSControlParam" : { },
         "layoutBodyOnly" : true,
         "layoutPanel" : true,
-        "useDefaultLayout" : true
+        "useDefaultLayout" : true,
+        "name" : "layoutpanel"
       },
       "title" : "部门选择表格视图",
       "viewStyle" : "DEFAULT",
@@ -414,24 +417,25 @@
       "modelid" : "362f2eeff564a74dbd2a7614cad6cb2c",
       "modeltype" : "PSAPPDEVIEW"
     },
-    "name" : "pickupviewpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/department.json"
     },
     "getPSControlParam" : {
       "id" : "PICKUPVIEWPANEL"
-    }
+    },
+    "name" : "pickupviewpanel"
   }, {
     "caption" : "部门",
     "codeName" : "pick_up_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/department/PSCAPTIONBARS/pick_up_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/department.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "pick_up_view",
   "getPSDEViewId" : "e987ce64d8f4b5f6fce1b4e545820cbf",
@@ -439,7 +443,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEPICKUPVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/department/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/department.json"
@@ -447,7 +451,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "部门数据选择视图",
   "viewStyle" : "DEFAULT",

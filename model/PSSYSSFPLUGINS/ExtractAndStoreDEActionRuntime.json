@@ -1,0 +1,11 @@
+{
+  "codeName" : "ExtractAndStoreDEActionRuntime",
+  "dynaModelFilePath" : "PSSYSSFPLUGINS/ExtractAndStoreDEActionRuntime.json",
+  "name" : "ExtractAndStoreDEActionRuntime",
+  "pluginCode" : "ExtractAndStoreDEActionRuntime",
+  "pluginType" : "DEACTION",
+  "rTObjectName" : "cn.ibizlab.user.plugin.groovy.dataentity.action.ExtractAndStoreDEActionRuntime",
+  "rTObjectSource" : 1,
+  "templCode" : "package cn.ibizlab.user.plugin.groovy.dataentity.action;\r\n\r\nimport groovy.transform.CompileStatic\r\nimport net.ibizsys.central.dataentity.action.DEActionRuntimeBase;\r\nimport net.ibizsys.central.util.IEntityDTO;\r\nimport java.text.SimpleDateFormat\r\n\r\n@CompileStatic\r\nclass ExtractAndStoreDEActionRuntime extends DEActionRuntimeBase {\r\n    private static final SimpleDateFormat sdf = new SimpleDateFormat(\"yyyy-MM-dd HH:mm:ss\")\r\n\r\n    @Override\r\n    protected Object onExecute(IEntityDTO iEntityDTO) throws Throwable {\r\n        return iEntityDTO;\r\n    }\r\n}",
+  "runtimeObject" : true
+}

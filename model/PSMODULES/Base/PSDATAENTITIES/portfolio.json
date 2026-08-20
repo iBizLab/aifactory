@@ -783,6 +783,7 @@
     "logicName" : "数据查询",
     "name" : "DEFAULT",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Base/PSDATAENTITIES/portfolio.json"
@@ -819,6 +820,7 @@
     "logicName" : "默认（全部数据）",
     "name" : "VIEW",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Base/PSDATAENTITIES/portfolio.json"
@@ -855,6 +857,7 @@
     "logicName" : "管理员",
     "name" : "admin",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getChildPSDEDQJoins" : [ {
         "getDERPSDataEntity" : {
           "modelref" : true,
@@ -933,6 +936,7 @@
     "logicName" : "选择项目集",
     "name" : "choose_project_portfolio",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Base/PSDATAENTITIES/portfolio.json"
@@ -1003,6 +1007,7 @@
     "logicName" : "查询星标",
     "name" : "favorite",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Base/PSDATAENTITIES/portfolio.json"
@@ -1064,6 +1069,7 @@
     "logicName" : "已删除的项目集",
     "name" : "project_set_deleted",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Base/PSDATAENTITIES/portfolio.json"
@@ -1115,6 +1121,7 @@
     "logicName" : "进行中的项目集",
     "name" : "project_set_going",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Base/PSDATAENTITIES/portfolio.json"
@@ -1166,6 +1173,7 @@
     "logicName" : "只读用户",
     "name" : "reader",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getChildPSDEDQJoins" : [ {
         "getDERPSDataEntity" : {
           "modelref" : true,
@@ -1244,6 +1252,7 @@
     "logicName" : "普通成员",
     "name" : "user",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getChildPSDEDQJoins" : [ {
         "getDERPSDataEntity" : {
           "modelref" : true,
@@ -1322,6 +1331,7 @@
     "logicName" : "工作下的项目集",
     "name" : "work_project_portfolio",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Base/PSDATAENTITIES/portfolio.json"

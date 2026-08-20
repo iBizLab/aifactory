@@ -1487,6 +1487,7 @@
         "dataType" : 25
       }, {
         "id" : "embedding_model",
+        "hidden" : true,
         "dataType" : 25,
         "getPSAppDEField" : {
           "name" : "EMBEDDING_MODEL",
@@ -1494,6 +1495,7 @@
         }
       }, {
         "id" : "chat_model",
+        "hidden" : true,
         "dataType" : 25,
         "getPSAppDEField" : {
           "name" : "CHAT_MODEL",
@@ -1552,6 +1554,77 @@
           "detailType" : "GROUPPANEL",
           "name" : "group1",
           "getPSDEFormDetails" : [ {
+            "codeName" : "grouppanel6",
+            "detailStyle" : "DEFAULT",
+            "detailType" : "GROUPPANEL",
+            "name" : "grouppanel6",
+            "getPSDEFormDetails" : [ {
+              "codeName" : "rawitem21",
+              "contentType" : "IMAGE",
+              "detailStyle" : "DEFAULT",
+              "detailType" : "RAWITEM",
+              "name" : "rawitem21",
+              "getPSLayoutPos" : {
+                "colLG" : 14,
+                "colLGOffset" : 5,
+                "colMD" : 14,
+                "colMDOffset" : 5,
+                "colSM" : 14,
+                "colSMOffset" : 5,
+                "colXS" : 14,
+                "colXSOffset" : 5,
+                "layout" : "TABLE_24COL"
+              },
+              "getPSRawItem" : {
+                "contentType" : "IMAGE",
+                "name" : "rawitem21",
+                "getPSSysImage" : {
+                  "rawContent" : "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg width=\"275px\" height=\"205px\" viewBox=\"0 0 275 205\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <title>动态实体编辑视图（左右关系）</title>\n    <g id=\"动态实体编辑视图（左右关系）\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">\n        <g id=\"新建视图部件/表格\" transform=\"translate(-11, 0)\">\n            <rect id=\"矩形\" fill=\"#FAFAFA\" x=\"0\" y=\"0\" width=\"286\" height=\"206\"></rect>\n            <g id=\"编组-2\" transform=\"translate(18, 32)\">\n                <rect id=\"矩形\" fill=\"#FFFFFF\" x=\"0\" y=\"0\" width=\"261\" height=\"164\"></rect>\n                <g id=\"新建视图/表单窄\" transform=\"translate(84, 3.835)\">\n                    <rect id=\"矩形\" fill=\"#FFFFFF\" x=\"0\" y=\"0\" width=\"176\" height=\"152\"></rect>\n                    <g id=\"新建视图部件/表单\" transform=\"translate(12, 24.1351)\" fill=\"#F3F3F3\">\n                        <g id=\"编组-5\">\n                            <path d=\"M1,0 L65.8221217,0 C66.3744065,-1.01453063e-16 66.8221217,0.44771525 66.8221217,1 L66.8221217,7.91891892 C66.8221217,8.47120367 66.3744065,8.91891892 65.8221217,8.91891892 L1,8.91891892 C0.44771525,8.91891892 6.76353751e-17,8.47120367 0,7.91891892 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 Z\" id=\"矩形备份-10\"></path>\n                        </g>\n                        <g id=\"编组-5备份\" transform=\"translate(0, 19.6216)\">\n                            <path d=\"M1,0 L65.8221217,0 C66.3744065,-1.01453063e-16 66.8221217,0.44771525 66.8221217,1 L66.8221217,7.91891892 C66.8221217,8.47120367 66.3744065,8.91891892 65.8221217,8.91891892 L1,8.91891892 C0.44771525,8.91891892 6.76353751e-17,8.47120367 0,7.91891892 L-2.22044605e-16,1 C-2.8967998e-16,0.44771525 0.44771525,1.01453063e-16 1,0 Z\" id=\"矩形备份-10\"></path>\n                        </g>\n                        <g id=\"编组-5备份-2\" transform=\"translate(0, 39.2432)\">\n                            <path d=\"M1,0 L65.8221217,0 C66.3744065,-1.01453063e-16 66.8221217,0.44771525 66.8221217,1 L66.8221217,7.91891892 C66.8221217,8.47120367 66.3744065,8.91891892 65.8221217,8.91891892 L1,8.91891892 C0.44771525,8.91891892 6.76353751e-17,8.47120367 0,7.91891892 L-1.11022302e-16,1 C-1.78657678e-16,0.44771525 0.44771525,1.01453063e-16 1,0 Z\" id=\"矩形备份-10\"></path>\n                        </g>\n                    </g>\n                    <g id=\"编组-5\" transform=\"translate(12, 19)\">\n                        <rect id=\"矩形备份-10\" fill=\"#F3F3F3\" x=\"0\" y=\"63.1351351\" width=\"148\" height=\"48\" rx=\"1\"></rect>\n                        <polygon id=\"路径\" fill=\"#F1FBF4\" fill-rule=\"nonzero\" points=\"89 0 147 0 147 58 89 58\"></polygon>\n                        <polygon id=\"路径\" fill=\"#73D897\" fill-rule=\"nonzero\" points=\"94 52 142 52 129.960866 33.7037148 122.134005 39.3053856 111.233323 24 94 52\"></polygon>\n                        <path d=\"M127.998122,22 C129.78445,22.0007378 131.435443,20.9531258 132.329188,19.2517891 C133.222933,17.5504524 133.223649,15.4538644 132.331066,13.7517895 C131.438483,12.0497146 129.788206,11.0007385 128.001878,11 C125.240455,10.9988593 123.001038,13.460368 123,16.4979339 C122.998963,19.5354998 125.236698,21.9988585 127.998122,22 L127.998122,22 Z\" id=\"路径\" fill=\"#73D897\" fill-rule=\"nonzero\"></path>\n                    </g>\n                </g>\n                <g id=\"新建视图部件/树形控件\" transform=\"translate(13, 3.835)\">\n                    <rect id=\"矩形备份-4\" stroke=\"#F3F3F3\" fill=\"#FFFFFF\" x=\"65.5\" y=\"0.5\" width=\"1\" height=\"151\"></rect>\n                    <g id=\"编组-4\" transform=\"translate(0, 13)\">\n                        <rect id=\"矩形备份-11\" fill=\"#56ABFB\" x=\"3\" y=\"1\" width=\"2\" height=\"120\" rx=\"1\"></rect>\n                        <g id=\"编组-3\" transform=\"translate(3, 16)\">\n                            <rect id=\"矩形备份-16\" fill=\"#56ABFB\" x=\"0\" y=\"2\" width=\"28\" height=\"2\" rx=\"1\"></rect>\n                            <rect id=\"矩形备份-8\" fill=\"#F3F3F3\" x=\"8\" y=\"0\" width=\"45\" height=\"6\" rx=\"3\"></rect>\n                        </g>\n                        <g id=\"编组-3备份-3\" transform=\"translate(3, 80)\">\n                            <rect id=\"矩形备份-16\" fill=\"#56ABFB\" x=\"0\" y=\"2\" width=\"28\" height=\"2\" rx=\"1\"></rect>\n                            <rect id=\"矩形备份-8\" fill=\"#F3F3F3\" x=\"8\" y=\"0\" width=\"45\" height=\"6\" rx=\"3\"></rect>\n                        </g>\n                        <g id=\"编组-3备份\" transform=\"translate(3, 32)\">\n                            <rect id=\"矩形备份-16\" fill=\"#56ABFB\" x=\"0\" y=\"2\" width=\"28\" height=\"2\" rx=\"1\"></rect>\n                            <rect id=\"矩形备份-8\" fill=\"#F3F3F3\" x=\"8\" y=\"0\" width=\"45\" height=\"6\" rx=\"3\"></rect>\n                        </g>\n                        <g id=\"编组-3备份-4\" transform=\"translate(3, 96)\">\n                            <rect id=\"矩形备份-16\" fill=\"#56ABFB\" x=\"0\" y=\"2\" width=\"28\" height=\"2\" rx=\"1\"></rect>\n                            <rect id=\"矩形备份-8\" fill=\"#F3F3F3\" x=\"8\" y=\"0\" width=\"45\" height=\"6\" rx=\"3\"></rect>\n                        </g>\n                        <g id=\"编组-3备份-2\" transform=\"translate(3, 48)\">\n                            <rect id=\"矩形备份-16\" fill=\"#56ABFB\" x=\"0\" y=\"2\" width=\"28\" height=\"2\" rx=\"1\"></rect>\n                            <rect id=\"矩形备份-8\" fill=\"#F3F3F3\" x=\"8\" y=\"0\" width=\"45\" height=\"6\" rx=\"3\"></rect>\n                        </g>\n                        <g id=\"编组-3备份-5\" transform=\"translate(3, 112)\">\n                            <rect id=\"矩形备份-16\" fill=\"#56ABFB\" x=\"0\" y=\"2\" width=\"28\" height=\"2\" rx=\"1\"></rect>\n                            <rect id=\"矩形备份-8\" fill=\"#F3F3F3\" x=\"8\" y=\"0\" width=\"45\" height=\"6\" rx=\"3\"></rect>\n                        </g>\n                        <g id=\"编组\" fill=\"#F3F3F3\">\n                            <rect id=\"矩形备份-6\" x=\"0\" y=\"0\" width=\"46\" height=\"6\" rx=\"3\"></rect>\n                        </g>\n                        <g id=\"编组备份\" transform=\"translate(0, 64)\" fill=\"#F3F3F3\">\n                            <rect id=\"矩形备份-6\" x=\"0\" y=\"0\" width=\"46\" height=\"6\" rx=\"3\"></rect>\n                        </g>\n                    </g>\n                </g>\n            </g>\n            <g id=\"新建视图部件/按钮\" transform=\"translate(217, 12.065)\">\n                <rect id=\"矩形备份-2\" fill=\"#EDF1FC\" x=\"0\" y=\"0\" width=\"26.8487421\" height=\"11.055\" rx=\"1\"></rect>\n                <rect id=\"矩形备份-3\" fill=\"#F3F3F3\" x=\"35.1512579\" y=\"0\" width=\"26.8487421\" height=\"11.055\" rx=\"1\"></rect>\n            </g>\n            <rect id=\"矩形\" fill=\"#F3F3F3\" x=\"21\" y=\"13.07\" width=\"41\" height=\"8.04\" rx=\"4\"></rect>\n        </g>\n    </g>\n</svg>"
+                },
+                "rawItemHeight" : -1.0,
+                "rawItemWidth" : -1.0
+              },
+              "getPSSysImage" : {
+                "rawContent" : "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg width=\"275px\" height=\"205px\" viewBox=\"0 0 275 205\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <title>动态实体编辑视图（左右关系）</title>\n    <g id=\"动态实体编辑视图（左右关系）\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">\n        <g id=\"新建视图部件/表格\" transform=\"translate(-11, 0)\">\n            <rect id=\"矩形\" fill=\"#FAFAFA\" x=\"0\" y=\"0\" width=\"286\" height=\"206\"></rect>\n            <g id=\"编组-2\" transform=\"translate(18, 32)\">\n                <rect id=\"矩形\" fill=\"#FFFFFF\" x=\"0\" y=\"0\" width=\"261\" height=\"164\"></rect>\n                <g id=\"新建视图/表单窄\" transform=\"translate(84, 3.835)\">\n                    <rect id=\"矩形\" fill=\"#FFFFFF\" x=\"0\" y=\"0\" width=\"176\" height=\"152\"></rect>\n                    <g id=\"新建视图部件/表单\" transform=\"translate(12, 24.1351)\" fill=\"#F3F3F3\">\n                        <g id=\"编组-5\">\n                            <path d=\"M1,0 L65.8221217,0 C66.3744065,-1.01453063e-16 66.8221217,0.44771525 66.8221217,1 L66.8221217,7.91891892 C66.8221217,8.47120367 66.3744065,8.91891892 65.8221217,8.91891892 L1,8.91891892 C0.44771525,8.91891892 6.76353751e-17,8.47120367 0,7.91891892 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 Z\" id=\"矩形备份-10\"></path>\n                        </g>\n                        <g id=\"编组-5备份\" transform=\"translate(0, 19.6216)\">\n                            <path d=\"M1,0 L65.8221217,0 C66.3744065,-1.01453063e-16 66.8221217,0.44771525 66.8221217,1 L66.8221217,7.91891892 C66.8221217,8.47120367 66.3744065,8.91891892 65.8221217,8.91891892 L1,8.91891892 C0.44771525,8.91891892 6.76353751e-17,8.47120367 0,7.91891892 L-2.22044605e-16,1 C-2.8967998e-16,0.44771525 0.44771525,1.01453063e-16 1,0 Z\" id=\"矩形备份-10\"></path>\n                        </g>\n                        <g id=\"编组-5备份-2\" transform=\"translate(0, 39.2432)\">\n                            <path d=\"M1,0 L65.8221217,0 C66.3744065,-1.01453063e-16 66.8221217,0.44771525 66.8221217,1 L66.8221217,7.91891892 C66.8221217,8.47120367 66.3744065,8.91891892 65.8221217,8.91891892 L1,8.91891892 C0.44771525,8.91891892 6.76353751e-17,8.47120367 0,7.91891892 L-1.11022302e-16,1 C-1.78657678e-16,0.44771525 0.44771525,1.01453063e-16 1,0 Z\" id=\"矩形备份-10\"></path>\n                        </g>\n                    </g>\n                    <g id=\"编组-5\" transform=\"translate(12, 19)\">\n                        <rect id=\"矩形备份-10\" fill=\"#F3F3F3\" x=\"0\" y=\"63.1351351\" width=\"148\" height=\"48\" rx=\"1\"></rect>\n                        <polygon id=\"路径\" fill=\"#F1FBF4\" fill-rule=\"nonzero\" points=\"89 0 147 0 147 58 89 58\"></polygon>\n                        <polygon id=\"路径\" fill=\"#73D897\" fill-rule=\"nonzero\" points=\"94 52 142 52 129.960866 33.7037148 122.134005 39.3053856 111.233323 24 94 52\"></polygon>\n                        <path d=\"M127.998122,22 C129.78445,22.0007378 131.435443,20.9531258 132.329188,19.2517891 C133.222933,17.5504524 133.223649,15.4538644 132.331066,13.7517895 C131.438483,12.0497146 129.788206,11.0007385 128.001878,11 C125.240455,10.9988593 123.001038,13.460368 123,16.4979339 C122.998963,19.5354998 125.236698,21.9988585 127.998122,22 L127.998122,22 Z\" id=\"路径\" fill=\"#73D897\" fill-rule=\"nonzero\"></path>\n                    </g>\n                </g>\n                <g id=\"新建视图部件/树形控件\" transform=\"translate(13, 3.835)\">\n                    <rect id=\"矩形备份-4\" stroke=\"#F3F3F3\" fill=\"#FFFFFF\" x=\"65.5\" y=\"0.5\" width=\"1\" height=\"151\"></rect>\n                    <g id=\"编组-4\" transform=\"translate(0, 13)\">\n                        <rect id=\"矩形备份-11\" fill=\"#56ABFB\" x=\"3\" y=\"1\" width=\"2\" height=\"120\" rx=\"1\"></rect>\n                        <g id=\"编组-3\" transform=\"translate(3, 16)\">\n                            <rect id=\"矩形备份-16\" fill=\"#56ABFB\" x=\"0\" y=\"2\" width=\"28\" height=\"2\" rx=\"1\"></rect>\n                            <rect id=\"矩形备份-8\" fill=\"#F3F3F3\" x=\"8\" y=\"0\" width=\"45\" height=\"6\" rx=\"3\"></rect>\n                        </g>\n                        <g id=\"编组-3备份-3\" transform=\"translate(3, 80)\">\n                            <rect id=\"矩形备份-16\" fill=\"#56ABFB\" x=\"0\" y=\"2\" width=\"28\" height=\"2\" rx=\"1\"></rect>\n                            <rect id=\"矩形备份-8\" fill=\"#F3F3F3\" x=\"8\" y=\"0\" width=\"45\" height=\"6\" rx=\"3\"></rect>\n                        </g>\n                        <g id=\"编组-3备份\" transform=\"translate(3, 32)\">\n                            <rect id=\"矩形备份-16\" fill=\"#56ABFB\" x=\"0\" y=\"2\" width=\"28\" height=\"2\" rx=\"1\"></rect>\n                            <rect id=\"矩形备份-8\" fill=\"#F3F3F3\" x=\"8\" y=\"0\" width=\"45\" height=\"6\" rx=\"3\"></rect>\n                        </g>\n                        <g id=\"编组-3备份-4\" transform=\"translate(3, 96)\">\n                            <rect id=\"矩形备份-16\" fill=\"#56ABFB\" x=\"0\" y=\"2\" width=\"28\" height=\"2\" rx=\"1\"></rect>\n                            <rect id=\"矩形备份-8\" fill=\"#F3F3F3\" x=\"8\" y=\"0\" width=\"45\" height=\"6\" rx=\"3\"></rect>\n                        </g>\n                        <g id=\"编组-3备份-2\" transform=\"translate(3, 48)\">\n                            <rect id=\"矩形备份-16\" fill=\"#56ABFB\" x=\"0\" y=\"2\" width=\"28\" height=\"2\" rx=\"1\"></rect>\n                            <rect id=\"矩形备份-8\" fill=\"#F3F3F3\" x=\"8\" y=\"0\" width=\"45\" height=\"6\" rx=\"3\"></rect>\n                        </g>\n                        <g id=\"编组-3备份-5\" transform=\"translate(3, 112)\">\n                            <rect id=\"矩形备份-16\" fill=\"#56ABFB\" x=\"0\" y=\"2\" width=\"28\" height=\"2\" rx=\"1\"></rect>\n                            <rect id=\"矩形备份-8\" fill=\"#F3F3F3\" x=\"8\" y=\"0\" width=\"45\" height=\"6\" rx=\"3\"></rect>\n                        </g>\n                        <g id=\"编组\" fill=\"#F3F3F3\">\n                            <rect id=\"矩形备份-6\" x=\"0\" y=\"0\" width=\"46\" height=\"6\" rx=\"3\"></rect>\n                        </g>\n                        <g id=\"编组备份\" transform=\"translate(0, 64)\" fill=\"#F3F3F3\">\n                            <rect id=\"矩形备份-6\" x=\"0\" y=\"0\" width=\"46\" height=\"6\" rx=\"3\"></rect>\n                        </g>\n                    </g>\n                </g>\n            </g>\n            <g id=\"新建视图部件/按钮\" transform=\"translate(217, 12.065)\">\n                <rect id=\"矩形备份-2\" fill=\"#EDF1FC\" x=\"0\" y=\"0\" width=\"26.8487421\" height=\"11.055\" rx=\"1\"></rect>\n                <rect id=\"矩形备份-3\" fill=\"#F3F3F3\" x=\"35.1512579\" y=\"0\" width=\"26.8487421\" height=\"11.055\" rx=\"1\"></rect>\n            </g>\n            <rect id=\"矩形\" fill=\"#F3F3F3\" x=\"21\" y=\"13.07\" width=\"41\" height=\"8.04\" rx=\"4\"></rect>\n        </g>\n    </g>\n</svg>"
+              },
+              "rawItemHeight" : -1.0,
+              "rawItemWidth" : -1.0,
+              "showCaption" : true
+            }, {
+              "codeName" : "rawitem22",
+              "contentType" : "HTML",
+              "detailStyle" : "DEFAULT",
+              "detailType" : "RAWITEM",
+              "htmlContent" : "<h2 class=\"template-name\" style=\"margin: 0 0 6px; padding-left: 40px;\"><strong>知识库</strong></h2>\n<div class=\"template-desc\" style=\"padding: 0 40px; margin-bottom: 16px;\"><span style=\"color: #95a5a6;\">知识库是一个为智能体提供参考的结构化知识中枢，为AI提供高质量知识燃料。</span></div>\n<div class=\"template-tips\">\n<div class=\"template-tip ng-star-inserted\" style=\"padding-left: 40px; margin-bottom: 12px;\">\n<ul>\n<li style=\"color: #95a5a6;\">直接引入现有页面内容，快速复用</li>\n</ul>\n</div>\n<div class=\"template-tip ng-star-inserted\" style=\"padding-left: 40px; margin-bottom: 12px;\">\n<ul>\n<li style=\"color: #95a5a6;\">支持本地文档一键上传，格式兼容性强</li>\n</ul>\n</div>\n<div class=\"template-tip ng-star-inserted\" style=\"padding-left: 40px; margin-bottom: 12px;\">\n<ul>\n<li style=\"color: #95a5a6;\">按策略自动拆分文档，让AI精准理解与调用</li>\n</ul>\n</div>\n</div>",
+              "name" : "rawitem22",
+              "getPSLayoutPos" : {
+                "colMD" : 24,
+                "layout" : "TABLE_24COL"
+              },
+              "getPSRawItem" : {
+                "content" : "<h2 class=\"template-name\" style=\"margin: 0 0 6px; padding-left: 40px;\"><strong>知识库</strong></h2>\n<div class=\"template-desc\" style=\"padding: 0 40px; margin-bottom: 16px;\"><span style=\"color: #95a5a6;\">知识库是一个为智能体提供参考的结构化知识中枢，为AI提供高质量知识燃料。</span></div>\n<div class=\"template-tips\">\n<div class=\"template-tip ng-star-inserted\" style=\"padding-left: 40px; margin-bottom: 12px;\">\n<ul>\n<li style=\"color: #95a5a6;\">直接引入现有页面内容，快速复用</li>\n</ul>\n</div>\n<div class=\"template-tip ng-star-inserted\" style=\"padding-left: 40px; margin-bottom: 12px;\">\n<ul>\n<li style=\"color: #95a5a6;\">支持本地文档一键上传，格式兼容性强</li>\n</ul>\n</div>\n<div class=\"template-tip ng-star-inserted\" style=\"padding-left: 40px; margin-bottom: 12px;\">\n<ul>\n<li style=\"color: #95a5a6;\">按策略自动拆分文档，让AI精准理解与调用</li>\n</ul>\n</div>\n</div>",
+                "contentType" : "HTML",
+                "name" : "rawitem22",
+                "rawItemHeight" : -1.0,
+                "rawItemWidth" : -1.0
+              },
+              "rawItemHeight" : -1.0,
+              "rawItemWidth" : -1.0,
+              "showCaption" : true
+            } ],
+            "getPSLayout" : {
+              "childColMD" : 24,
+              "columnCount" : 24,
+              "layout" : "TABLE_24COL"
+            },
+            "getPSLayoutPos" : {
+              "colLG" : 12,
+              "colMD" : 12,
+              "layout" : "TABLE_24COL"
+            },
+            "infoGroupMode" : false,
+            "showCaption" : false
+          }, {
             "caption" : "切片策略",
             "codeName" : "grouppanel1",
             "detailStyle" : "DEFAULT",
@@ -1575,28 +1648,24 @@
               },
               "getPSEditor" : {
                 "editorParams" : {
-                  "SRFNAVPARAM.n_model_category_eq" : "embedding",
-                  "AC" : "TRUE",
-                  "TRIGGER" : "TRUE",
-                  "PICKUPVIEW" : "FALSE"
+                  "SRFNAVPARAM.n_model_category_eq" : "embedding"
                 },
-                "editorType" : "PICKEREX_TRIGGER",
-                "handlerType" : "PickupText",
+                "editorType" : "HIDDEN",
                 "name" : "embedding_model",
-                "getPSAppDEACMode" : {
-                  "modelref" : true,
-                  "id" : "Default"
-                },
-                "getPSAppDEDataSet" : {
-                  "modelref" : true,
-                  "id" : "fetch_default"
-                },
-                "getPSAppDataEntity" : {
-                  "modelref" : true,
-                  "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
-                },
                 "getPSEditorItems" : [ {
-                  "name" : "embedding_model_id"
+                  "name" : "embedding_model_id",
+                  "getPSAppDEACMode" : {
+                    "modelref" : true,
+                    "id" : "Default"
+                  },
+                  "getPSAppDEDataSet" : {
+                    "modelref" : true,
+                    "id" : "fetch_default"
+                  },
+                  "getPSAppDataEntity" : {
+                    "modelref" : true,
+                    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+                  }
                 } ],
                 "getPSNavigateParams" : [ {
                   "key" : "n_model_category_eq",
@@ -1604,13 +1673,7 @@
                   "value" : "embedding",
                   "rawValue" : true
                 } ],
-                "placeHolder" : "未指定时使用全局默认",
-                "valueItemName" : "embedding_model_id",
-                "enableAC" : true,
-                "enablePickupView" : false,
-                "forceSelection" : true,
-                "showTrigger" : true,
-                "singleSelect" : true
+                "placeHolder" : "未指定时使用全局默认"
               },
               "getPSLayoutPos" : {
                 "colLG" : 8,
@@ -1619,7 +1682,7 @@
               },
               "valueItemName" : "embedding_model_id",
               "allowEmpty" : true,
-              "showCaption" : true
+              "hidden" : true
             }, {
               "caption" : "交谈模型",
               "codeName" : "chat_model",
@@ -1638,28 +1701,24 @@
               },
               "getPSEditor" : {
                 "editorParams" : {
-                  "SRFNAVPARAM.n_model_category_eq" : "chat",
-                  "AC" : "TRUE",
-                  "TRIGGER" : "TRUE",
-                  "PICKUPVIEW" : "FALSE"
+                  "SRFNAVPARAM.n_model_category_eq" : "chat"
                 },
-                "editorType" : "PICKEREX_TRIGGER",
-                "handlerType" : "PickupText",
+                "editorType" : "HIDDEN",
                 "name" : "chat_model",
-                "getPSAppDEACMode" : {
-                  "modelref" : true,
-                  "id" : "Default"
-                },
-                "getPSAppDEDataSet" : {
-                  "modelref" : true,
-                  "id" : "fetch_default"
-                },
-                "getPSAppDataEntity" : {
-                  "modelref" : true,
-                  "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
-                },
                 "getPSEditorItems" : [ {
-                  "name" : "chat_model_id"
+                  "name" : "chat_model_id",
+                  "getPSAppDEACMode" : {
+                    "modelref" : true,
+                    "id" : "Default"
+                  },
+                  "getPSAppDEDataSet" : {
+                    "modelref" : true,
+                    "id" : "fetch_default"
+                  },
+                  "getPSAppDataEntity" : {
+                    "modelref" : true,
+                    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+                  }
                 } ],
                 "getPSNavigateParams" : [ {
                   "key" : "n_model_category_eq",
@@ -1667,13 +1726,7 @@
                   "value" : "chat",
                   "rawValue" : true
                 } ],
-                "placeHolder" : "未指定时使用全局默认",
-                "valueItemName" : "chat_model_id",
-                "enableAC" : true,
-                "enablePickupView" : false,
-                "forceSelection" : true,
-                "showTrigger" : true,
-                "singleSelect" : true
+                "placeHolder" : "未指定时使用全局默认"
               },
               "getPSLayoutPos" : {
                 "colLG" : 8,
@@ -1682,7 +1735,7 @@
               },
               "valueItemName" : "chat_model_id",
               "allowEmpty" : true,
-              "showCaption" : true
+              "hidden" : true
             }, {
               "caption" : "切片方法",
               "codeName" : "chunk_method",
@@ -1714,8 +1767,8 @@
                 "singleSelect" : true
               },
               "getPSLayoutPos" : {
-                "colLG" : 8,
-                "colMD" : 12,
+                "colLG" : 14,
+                "colMD" : 14,
                 "layout" : "TABLE_24COL"
               },
               "updateDV" : "NAIVE",
@@ -1873,7 +1926,7 @@
                     "notMode" : false
                   } ],
                   "getPSEditor" : {
-                    "editorType" : "NUMBER",
+                    "editorType" : "HIDDEN",
                     "name" : "chunk_token_num"
                   },
                   "getPSLayoutPos" : {
@@ -1883,8 +1936,8 @@
                   },
                   "updateDV" : "512",
                   "allowEmpty" : false,
-                  "repeatContent" : true,
-                  "showCaption" : true
+                  "hidden" : true,
+                  "repeatContent" : true
                 }, {
                   "caption" : "分隔符",
                   "codeName" : "delimiter",
@@ -1913,7 +1966,7 @@
                     "notMode" : false
                   } ],
                   "getPSEditor" : {
-                    "editorType" : "TEXTBOX",
+                    "editorType" : "HIDDEN",
                     "name" : "delimiter"
                   },
                   "getPSLayoutPos" : {
@@ -1923,8 +1976,8 @@
                   },
                   "updateDV" : "\n",
                   "allowEmpty" : false,
-                  "repeatContent" : true,
-                  "showCaption" : true
+                  "hidden" : true,
+                  "repeatContent" : true
                 }, {
                   "caption" : "保留分隔符",
                   "codeName" : "keep_separator",
@@ -1939,7 +1992,7 @@
                   "name" : "keep_separator",
                   "noPrivDisplayMode" : 1,
                   "getPSEditor" : {
-                    "editorType" : "SWITCH",
+                    "editorType" : "HIDDEN",
                     "name" : "keep_separator"
                   },
                   "getPSLayoutPos" : {
@@ -1949,8 +2002,8 @@
                   },
                   "updateDV" : "1",
                   "allowEmpty" : true,
-                  "repeatContent" : true,
-                  "showCaption" : true
+                  "hidden" : true,
+                  "repeatContent" : true
                 }, {
                   "caption" : "块重叠",
                   "codeName" : "chunk_overlap_num",
@@ -1965,7 +2018,7 @@
                   "name" : "chunk_overlap_num",
                   "noPrivDisplayMode" : 1,
                   "getPSEditor" : {
-                    "editorType" : "TEXTBOX",
+                    "editorType" : "HIDDEN",
                     "name" : "chunk_overlap_num"
                   },
                   "getPSLayoutPos" : {
@@ -1975,8 +2028,8 @@
                   },
                   "updateDV" : "30",
                   "allowEmpty" : true,
-                  "repeatContent" : true,
-                  "showCaption" : true
+                  "hidden" : true,
+                  "repeatContent" : true
                 }, {
                   "caption" : "单文档最大块数",
                   "codeName" : "max_chunk_count_per_doc",
@@ -1991,7 +2044,7 @@
                   "name" : "max_chunk_count_per_doc",
                   "noPrivDisplayMode" : 1,
                   "getPSEditor" : {
-                    "editorType" : "TEXTBOX",
+                    "editorType" : "HIDDEN",
                     "name" : "max_chunk_count_per_doc"
                   },
                   "getPSLayoutPos" : {
@@ -2001,8 +2054,8 @@
                   },
                   "updateDV" : "1000",
                   "allowEmpty" : true,
-                  "repeatContent" : true,
-                  "showCaption" : true
+                  "hidden" : true,
+                  "repeatContent" : true
                 }, {
                   "caption" : "处理页面大小",
                   "codeName" : "task_page_size",
@@ -2031,7 +2084,7 @@
                     "notMode" : false
                   } ],
                   "getPSEditor" : {
-                    "editorType" : "NUMBER",
+                    "editorType" : "HIDDEN",
                     "name" : "task_page_size"
                   },
                   "getPSLayoutPos" : {
@@ -2041,8 +2094,8 @@
                   },
                   "updateDV" : "12",
                   "allowEmpty" : false,
-                  "repeatContent" : true,
-                  "showCaption" : true
+                  "hidden" : true,
+                  "repeatContent" : true
                 }, {
                   "caption" : "Excel转HTML",
                   "codeName" : "html4excel",
@@ -2070,7 +2123,7 @@
                     "notMode" : false
                   } ],
                   "getPSEditor" : {
-                    "editorType" : "SWITCH",
+                    "editorType" : "HIDDEN",
                     "name" : "html4excel"
                   },
                   "getPSLayoutPos" : {
@@ -2079,8 +2132,8 @@
                     "layout" : "TABLE_24COL"
                   },
                   "allowEmpty" : false,
-                  "repeatContent" : true,
-                  "showCaption" : true
+                  "hidden" : true,
+                  "repeatContent" : true
                 }, {
                   "caption" : "忽略文件图片",
                   "codeName" : "ignore_parsing_image",
@@ -2095,7 +2148,7 @@
                   "name" : "ignore_parsing_image",
                   "noPrivDisplayMode" : 1,
                   "getPSEditor" : {
-                    "editorType" : "SWITCH",
+                    "editorType" : "HIDDEN",
                     "name" : "ignore_parsing_image"
                   },
                   "getPSLayoutPos" : {
@@ -2104,8 +2157,8 @@
                     "layout" : "TABLE_24COL"
                   },
                   "allowEmpty" : true,
-                  "repeatContent" : true,
-                  "showCaption" : true
+                  "hidden" : true,
+                  "repeatContent" : true
                 }, {
                   "caption" : "忽略文件链接引用",
                   "codeName" : "ignore_parsing_oss_link",
@@ -2120,7 +2173,7 @@
                   "name" : "ignore_parsing_oss_link",
                   "noPrivDisplayMode" : 1,
                   "getPSEditor" : {
-                    "editorType" : "SWITCH",
+                    "editorType" : "HIDDEN",
                     "name" : "ignore_parsing_oss_link"
                   },
                   "getPSLayoutPos" : {
@@ -2129,11 +2182,12 @@
                     "layout" : "TABLE_24COL"
                   },
                   "allowEmpty" : true,
-                  "repeatContent" : true,
-                  "showCaption" : true
+                  "hidden" : true,
+                  "repeatContent" : true
                 }, {
                   "caption" : "布局识别方式",
                   "codeName" : "layout_recognize",
+                  "createDV" : "OCR",
                   "dataType" : 25,
                   "detailStyle" : "DEFAULT",
                   "detailType" : "FORMITEM",
@@ -2167,10 +2221,11 @@
                     "singleSelect" : true
                   },
                   "getPSLayoutPos" : {
-                    "colLG" : 8,
-                    "colMD" : 8,
+                    "colLG" : 14,
+                    "colMD" : 14,
                     "layout" : "TABLE_24COL"
                   },
+                  "updateDV" : "OCR",
                   "allowEmpty" : false,
                   "needCodeListConfig" : true,
                   "repeatContent" : true,
@@ -2178,12 +2233,13 @@
                 }, {
                   "caption" : "自动关键词",
                   "codeName" : "auto_keywords",
+                  "createDV" : "3",
                   "dataType" : 25,
                   "detailStyle" : "DEFAULT",
                   "detailType" : "FORMITEM",
                   "enableCond" : 3,
                   "ignoreInput" : 0,
-                  "itemWidth" : 355.0,
+                  "itemWidth" : 430.0,
                   "labelPos" : "TOP",
                   "labelWidth" : 130,
                   "name" : "auto_keywords",
@@ -2208,28 +2264,30 @@
                       "maxvalue" : "30"
                     },
                     "editorType" : "SLIDER",
-                    "editorWidth" : 225.0,
+                    "editorWidth" : 300.0,
                     "maxValue" : 30.0,
                     "name" : "auto_keywords",
                     "stepValue" : 1.0
                   },
                   "getPSLayoutPos" : {
-                    "colLG" : 8,
-                    "colMD" : 8,
+                    "colLG" : 20,
+                    "colMD" : 20,
                     "layout" : "TABLE_24COL"
                   },
+                  "updateDV" : "3",
                   "allowEmpty" : false,
                   "repeatContent" : true,
                   "showCaption" : true
                 }, {
                   "caption" : "自动问题",
                   "codeName" : "auto_questions",
+                  "createDV" : "5",
                   "dataType" : 25,
                   "detailStyle" : "DEFAULT",
                   "detailType" : "FORMITEM",
                   "enableCond" : 3,
                   "ignoreInput" : 0,
-                  "itemWidth" : 355.0,
+                  "itemWidth" : 430.0,
                   "labelPos" : "TOP",
                   "labelWidth" : 130,
                   "name" : "auto_questions",
@@ -2254,16 +2312,17 @@
                       "maxvalue" : "30"
                     },
                     "editorType" : "SLIDER",
-                    "editorWidth" : 225.0,
+                    "editorWidth" : 300.0,
                     "maxValue" : 30.0,
                     "name" : "auto_questions",
                     "stepValue" : 1.0
                   },
                   "getPSLayoutPos" : {
-                    "colLG" : 8,
-                    "colMD" : 8,
+                    "colLG" : 20,
+                    "colMD" : 20,
                     "layout" : "TABLE_24COL"
                   },
+                  "updateDV" : "5",
                   "allowEmpty" : false,
                   "repeatContent" : true,
                   "showCaption" : true
@@ -2280,12 +2339,8 @@
                   "name" : "pre_process_rules",
                   "noPrivDisplayMode" : 1,
                   "getPSEditor" : {
-                    "editorType" : "CHECKBOXLIST",
-                    "name" : "pre_process_rules",
-                    "getPSAppCodeList" : {
-                      "modelref" : true,
-                      "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__text_clean_config.json"
-                    }
+                    "editorType" : "HIDDEN",
+                    "name" : "pre_process_rules"
                   },
                   "getPSLayoutPos" : {
                     "colLG" : 24,
@@ -2293,9 +2348,8 @@
                     "layout" : "TABLE_24COL"
                   },
                   "allowEmpty" : true,
-                  "needCodeListConfig" : true,
-                  "repeatContent" : true,
-                  "showCaption" : true
+                  "hidden" : true,
+                  "repeatContent" : true
                 }, {
                   "caption" : "片段展开增强提示词",
                   "codeName" : "chunk_extraction_sub_prompt",
@@ -2316,11 +2370,8 @@
                       "AC" : "true",
                       "language" : "markdown"
                     },
-                    "editorType" : "MARKDOWN",
-                    "mode" : "EDIT",
-                    "name" : "chunk_extraction_sub_prompt",
-                    "enableAC" : true,
-                    "showMaxLength" : true
+                    "editorType" : "HIDDEN",
+                    "name" : "chunk_extraction_sub_prompt"
                   },
                   "getPSLayoutPos" : {
                     "colLG" : 24,
@@ -2328,8 +2379,8 @@
                     "layout" : "TABLE_24COL"
                   },
                   "allowEmpty" : true,
-                  "repeatContent" : true,
-                  "showCaption" : true
+                  "hidden" : true,
+                  "repeatContent" : true
                 }, {
                   "codeName" : "grouppanel7",
                   "detailStyle" : "DEFAULT",
@@ -2390,7 +2441,7 @@
                       "enableCond" : 3,
                       "ignoreInput" : 0,
                       "labelPos" : "TOP",
-                      "labelWidth" : 200,
+                      "labelWidth" : 130,
                       "name" : "use_raptor",
                       "noPrivDisplayMode" : 1,
                       "getPSEditor" : {
@@ -2398,8 +2449,8 @@
                         "name" : "use_raptor"
                       },
                       "getPSLayoutPos" : {
-                        "colLG" : 8,
-                        "colMD" : 8,
+                        "colLG" : 12,
+                        "colMD" : 12,
                         "layout" : "TABLE_24COL"
                       },
                       "updateDV" : "0",
@@ -2434,7 +2485,6 @@
                         "detailType" : "FORMITEM",
                         "enableCond" : 3,
                         "ignoreInput" : 0,
-                        "itemHeight" : 220.0,
                         "labelPos" : "TOP",
                         "labelWidth" : 130,
                         "name" : "prompt",
@@ -2454,13 +2504,8 @@
                           "notMode" : false
                         } ],
                         "getPSEditor" : {
-                          "editorHeight" : 200.0,
-                          "editorParams" : {
-                            "HEIGHT" : "200"
-                          },
-                          "editorType" : "TEXTAREA_10",
-                          "name" : "prompt",
-                          "showMaxLength" : true
+                          "editorType" : "HIDDEN",
+                          "name" : "prompt"
                         },
                         "getPSLayoutPos" : {
                           "colLG" : 24,
@@ -2469,8 +2514,8 @@
                         },
                         "updateDV" : "请总结以下段落。 小心数字，不要编造。 段落如下：      \n {cluster_content} \n以上就是你需要总结的内容。",
                         "allowEmpty" : false,
-                        "repeatContent" : true,
-                        "showCaption" : true
+                        "hidden" : true,
+                        "repeatContent" : true
                       }, {
                         "caption" : "最大token数",
                         "codeName" : "max_tokens",
@@ -2490,11 +2535,9 @@
                             "maxvalue" : "2048",
                             "stepvalue" : "1"
                           },
-                          "editorType" : "SLIDER",
+                          "editorType" : "HIDDEN",
                           "editorWidth" : 225.0,
-                          "maxValue" : 2048.0,
-                          "name" : "max_tokens",
-                          "stepValue" : 1.0
+                          "name" : "max_tokens"
                         },
                         "getPSLayoutPos" : {
                           "colLG" : 8,
@@ -2503,8 +2546,8 @@
                         },
                         "updateDV" : "256",
                         "allowEmpty" : true,
-                        "repeatContent" : true,
-                        "showCaption" : true
+                        "hidden" : true,
+                        "repeatContent" : true
                       }, {
                         "caption" : "阈值",
                         "codeName" : "threshold",
@@ -2524,11 +2567,9 @@
                             "maxvalue" : "1",
                             "stepvalue" : "0.01"
                           },
-                          "editorType" : "SLIDER",
+                          "editorType" : "HIDDEN",
                           "editorWidth" : 225.0,
-                          "maxValue" : 1.0,
-                          "name" : "threshold",
-                          "stepValue" : 0.01
+                          "name" : "threshold"
                         },
                         "getPSLayoutPos" : {
                           "colLG" : 8,
@@ -2537,8 +2578,8 @@
                         },
                         "updateDV" : "0.1",
                         "allowEmpty" : true,
-                        "repeatContent" : true,
-                        "showCaption" : true
+                        "hidden" : true,
+                        "repeatContent" : true
                       }, {
                         "caption" : "最大聚类数",
                         "codeName" : "max_clusters",
@@ -2558,11 +2599,9 @@
                             "maxvalue" : "1024",
                             "stepvalue" : "1"
                           },
-                          "editorType" : "SLIDER",
+                          "editorType" : "HIDDEN",
                           "editorWidth" : 225.0,
-                          "maxValue" : 1024.0,
-                          "name" : "max_clusters",
-                          "stepValue" : 1.0
+                          "name" : "max_clusters"
                         },
                         "getPSLayoutPos" : {
                           "colLG" : 8,
@@ -2571,8 +2610,8 @@
                         },
                         "updateDV" : "64",
                         "allowEmpty" : true,
-                        "repeatContent" : true,
-                        "showCaption" : true
+                        "hidden" : true,
+                        "repeatContent" : true
                       }, {
                         "caption" : "随机种子",
                         "codeName" : "random_seed",
@@ -2587,7 +2626,7 @@
                         "name" : "random_seed",
                         "noPrivDisplayMode" : 1,
                         "getPSEditor" : {
-                          "editorType" : "NUMBER",
+                          "editorType" : "HIDDEN",
                           "name" : "random_seed"
                         },
                         "getPSLayoutPos" : {
@@ -2597,8 +2636,8 @@
                         },
                         "updateDV" : "42",
                         "allowEmpty" : true,
-                        "repeatContent" : true,
-                        "showCaption" : true
+                        "hidden" : true,
+                        "repeatContent" : true
                       } ],
                       "getPSLayout" : {
                         "childColLG" : 8,
@@ -2646,7 +2685,7 @@
                       "enableCond" : 3,
                       "ignoreInput" : 0,
                       "labelPos" : "TOP",
-                      "labelWidth" : 250,
+                      "labelWidth" : 130,
                       "name" : "use_pageindex",
                       "noPrivDisplayMode" : 1,
                       "getPSEditor" : {
@@ -2654,7 +2693,7 @@
                         "name" : "use_pageindex"
                       },
                       "getPSLayoutPos" : {
-                        "colLG" : 8,
+                        "colLG" : 12,
                         "colMD" : 12,
                         "layout" : "TABLE_24COL"
                       },
@@ -2694,7 +2733,7 @@
                         "name" : "pages_per_index",
                         "noPrivDisplayMode" : 1,
                         "getPSEditor" : {
-                          "editorType" : "NUMBER",
+                          "editorType" : "HIDDEN",
                           "name" : "pages_per_index"
                         },
                         "getPSLayoutPos" : {
@@ -2704,8 +2743,8 @@
                         },
                         "updateDV" : "5",
                         "allowEmpty" : true,
-                        "repeatContent" : true,
-                        "showCaption" : true
+                        "hidden" : true,
+                        "repeatContent" : true
                       }, {
                         "caption" : "仅构建页面片段",
                         "codeName" : "pageindex_only",
@@ -2720,7 +2759,7 @@
                         "name" : "pageindex_only",
                         "noPrivDisplayMode" : 1,
                         "getPSEditor" : {
-                          "editorType" : "SWITCH",
+                          "editorType" : "HIDDEN",
                           "name" : "pageindex_only"
                         },
                         "getPSLayoutPos" : {
@@ -2730,8 +2769,8 @@
                         },
                         "updateDV" : "0",
                         "allowEmpty" : true,
-                        "repeatContent" : true,
-                        "showCaption" : true
+                        "hidden" : true,
+                        "repeatContent" : true
                       }, {
                         "caption" : "TOC校验提示词",
                         "codeName" : "toc_validation_prompt",
@@ -2752,19 +2791,16 @@
                             "AC" : "true",
                             "language" : "markdown"
                           },
-                          "editorType" : "MARKDOWN",
-                          "mode" : "EDIT",
-                          "name" : "toc_validation_prompt",
-                          "enableAC" : true,
-                          "showMaxLength" : true
+                          "editorType" : "HIDDEN",
+                          "name" : "toc_validation_prompt"
                         },
                         "getPSLayoutPos" : {
                           "colMD" : 24,
                           "layout" : "TABLE_24COL"
                         },
                         "allowEmpty" : true,
-                        "repeatContent" : true,
-                        "showCaption" : true
+                        "hidden" : true,
+                        "repeatContent" : true
                       }, {
                         "caption" : "目录识别提示词",
                         "codeName" : "page_indexer_prompt",
@@ -2785,19 +2821,16 @@
                             "AC" : "true",
                             "language" : "markdown"
                           },
-                          "editorType" : "MARKDOWN",
-                          "mode" : "EDIT",
-                          "name" : "page_indexer_prompt",
-                          "enableAC" : true,
-                          "showMaxLength" : true
+                          "editorType" : "HIDDEN",
+                          "name" : "page_indexer_prompt"
                         },
                         "getPSLayoutPos" : {
                           "colMD" : 24,
                           "layout" : "TABLE_24COL"
                         },
                         "allowEmpty" : true,
-                        "repeatContent" : true,
-                        "showCaption" : true
+                        "hidden" : true,
+                        "repeatContent" : true
                       } ],
                       "getPSLayout" : {
                         "childColMD" : 24,
@@ -2845,7 +2878,7 @@
                       "name" : "use_graphrag",
                       "noPrivDisplayMode" : 1,
                       "getPSEditor" : {
-                        "editorType" : "SWITCH",
+                        "editorType" : "HIDDEN",
                         "name" : "use_graphrag"
                       },
                       "getPSLayoutPos" : {
@@ -2854,8 +2887,8 @@
                         "layout" : "TABLE_24COL"
                       },
                       "allowEmpty" : true,
-                      "repeatContent" : true,
-                      "showCaption" : true
+                      "hidden" : true,
+                      "repeatContent" : true
                     }, {
                       "codeName" : "grouppanel3",
                       "detailStyle" : "DEFAULT",
@@ -2905,13 +2938,8 @@
                           "editorParams" : {
                             "forceselection" : "false"
                           },
-                          "editorType" : "MDROPDOWNLIST",
-                          "name" : "entity_types",
-                          "getPSAppCodeList" : {
-                            "modelref" : true,
-                            "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__entity_types.json"
-                          },
-                          "singleSelect" : false
+                          "editorType" : "HIDDEN",
+                          "name" : "entity_types"
                         },
                         "getPSLayoutPos" : {
                           "colLG" : 8,
@@ -2919,9 +2947,8 @@
                           "layout" : "TABLE_24COL"
                         },
                         "allowEmpty" : false,
-                        "needCodeListConfig" : true,
-                        "repeatContent" : true,
-                        "showCaption" : true
+                        "hidden" : true,
+                        "repeatContent" : true
                       }, {
                         "caption" : "方法",
                         "codeName" : "graphrag_method",
@@ -2936,13 +2963,8 @@
                         "name" : "graphrag_method",
                         "noPrivDisplayMode" : 1,
                         "getPSEditor" : {
-                          "editorType" : "DROPDOWNLIST",
-                          "name" : "graphrag_method",
-                          "getPSAppCodeList" : {
-                            "modelref" : true,
-                            "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__graphrag_method.json"
-                          },
-                          "singleSelect" : true
+                          "editorType" : "HIDDEN",
+                          "name" : "graphrag_method"
                         },
                         "getPSLayoutPos" : {
                           "colLG" : 8,
@@ -2950,9 +2972,8 @@
                           "layout" : "TABLE_24COL"
                         },
                         "allowEmpty" : true,
-                        "needCodeListConfig" : true,
-                        "repeatContent" : true,
-                        "showCaption" : true
+                        "hidden" : true,
+                        "repeatContent" : true
                       }, {
                         "caption" : "实体归一化",
                         "codeName" : "resolution",
@@ -2967,7 +2988,7 @@
                         "name" : "resolution",
                         "noPrivDisplayMode" : 1,
                         "getPSEditor" : {
-                          "editorType" : "SWITCH",
+                          "editorType" : "HIDDEN",
                           "name" : "resolution"
                         },
                         "getPSLayoutPos" : {
@@ -2976,8 +2997,8 @@
                           "layout" : "TABLE_24COL"
                         },
                         "allowEmpty" : true,
-                        "repeatContent" : true,
-                        "showCaption" : true
+                        "hidden" : true,
+                        "repeatContent" : true
                       }, {
                         "caption" : "社区报告生成",
                         "codeName" : "community",
@@ -3036,11 +3057,8 @@
                             "AC" : "true",
                             "language" : "markdown"
                           },
-                          "editorType" : "MARKDOWN",
-                          "mode" : "EDIT",
-                          "name" : "disambiguation_sub_prompt",
-                          "enableAC" : true,
-                          "showMaxLength" : true
+                          "editorType" : "HIDDEN",
+                          "name" : "disambiguation_sub_prompt"
                         },
                         "getPSLayoutPos" : {
                           "colLG" : 24,
@@ -3048,8 +3066,8 @@
                           "layout" : "TABLE_24COL"
                         },
                         "allowEmpty" : true,
-                        "repeatContent" : true,
-                        "showCaption" : true
+                        "hidden" : true,
+                        "repeatContent" : true
                       }, {
                         "caption" : "关系消歧增强提示词",
                         "codeName" : "relation_disambiguation_sub_prompt",
@@ -3084,11 +3102,8 @@
                             "AC" : "true",
                             "language" : "markdown"
                           },
-                          "editorType" : "MARKDOWN",
-                          "mode" : "EDIT",
-                          "name" : "relation_disambiguation_sub_prompt",
-                          "enableAC" : true,
-                          "showMaxLength" : true
+                          "editorType" : "HIDDEN",
+                          "name" : "relation_disambiguation_sub_prompt"
                         },
                         "getPSLayoutPos" : {
                           "colLG" : 24,
@@ -3096,8 +3111,8 @@
                           "layout" : "TABLE_24COL"
                         },
                         "allowEmpty" : true,
-                        "repeatContent" : true,
-                        "showCaption" : true
+                        "hidden" : true,
+                        "repeatContent" : true
                       } ],
                       "getPSLayout" : {
                         "childColLG" : 8,
@@ -3159,6 +3174,20 @@
                 "detailStyle" : "DEFAULT",
                 "detailType" : "GROUPPANEL",
                 "name" : "grouppanel2",
+                "getPSDEFDGroupLogics" : [ {
+                  "groupOP" : "AND",
+                  "logicCat" : "PANELVISIBLE",
+                  "logicType" : "GROUP",
+                  "getPSDEFDLogics" : [ {
+                    "condOP" : "EQ",
+                    "dEFDName" : "chunk_method",
+                    "logicType" : "SINGLE",
+                    "name" : "chunk_method等于(=) 11",
+                    "value" : "11"
+                  } ],
+                  "relatedDetailNames" : [ "chunk_method" ],
+                  "notMode" : false
+                } ],
                 "getPSDEFormDetails" : [ {
                   "buildInActions" : 7,
                   "codeName" : "data_masking_rules",
@@ -3260,14 +3289,16 @@
               "layout" : "TABLE_24COL"
             },
             "getPSLayoutPos" : {
-              "colMD" : 24,
+              "colLG" : 12,
+              "colMD" : 12,
               "layout" : "TABLE_24COL"
             },
             "infoGroupMode" : false,
             "showCaption" : true
           } ],
           "getPSLayout" : {
-            "childColMD" : 24,
+            "childColLG" : 12,
+            "childColMD" : 12,
             "columnCount" : 24,
             "layout" : "TABLE_24COL"
           },
@@ -3473,6 +3504,7 @@
         "dataType" : 25
       }, {
         "id" : "use_kg",
+        "hidden" : true,
         "dataType" : 9,
         "getPSAppDEField" : {
           "name" : "USE_KG",
@@ -3480,6 +3512,7 @@
         }
       }, {
         "id" : "pageindex",
+        "hidden" : true,
         "dataType" : 9,
         "getPSAppDEField" : {
           "name" : "PAGEINDEX",
@@ -3487,7 +3520,10 @@
         }
       }, {
         "id" : "rerank",
+        "hidden" : true,
         "dataType" : 9,
+        "createDV" : "2",
+        "updateDV" : "2",
         "getPSAppDEField" : {
           "name" : "RERANK",
           "codeName" : "rerank"
@@ -3501,6 +3537,7 @@
         }
       }, {
         "id" : "rerank_model",
+        "hidden" : true,
         "dataType" : 25,
         "getPSAppDEField" : {
           "name" : "RERANK_MODEL",
@@ -3638,7 +3675,6 @@
             "detailType" : "FORMITEM",
             "enableCond" : 3,
             "ignoreInput" : 0,
-            "itemWidth" : 230.0,
             "labelPos" : "TOP",
             "labelWidth" : 130,
             "name" : "use_kg",
@@ -3648,14 +3684,8 @@
               "codeName" : "use_kg"
             },
             "getPSEditor" : {
-              "editorType" : "DROPDOWNLIST_100",
-              "editorWidth" : 100.0,
-              "name" : "use_kg",
-              "getPSAppCodeList" : {
-                "modelref" : true,
-                "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/YesNo.json"
-              },
-              "singleSelect" : true
+              "editorType" : "HIDDEN",
+              "name" : "use_kg"
             },
             "getPSLayoutPos" : {
               "colLG" : 12,
@@ -3663,8 +3693,7 @@
               "layout" : "TABLE_24COL"
             },
             "allowEmpty" : true,
-            "needCodeListConfig" : true,
-            "showCaption" : true
+            "hidden" : true
           }, {
             "caption" : "智能目录索引",
             "codeName" : "pageindex",
@@ -3673,7 +3702,6 @@
             "detailType" : "FORMITEM",
             "enableCond" : 3,
             "ignoreInput" : 0,
-            "itemWidth" : 230.0,
             "labelPos" : "TOP",
             "labelWidth" : 130,
             "name" : "pageindex",
@@ -3683,14 +3711,8 @@
               "codeName" : "pageindex"
             },
             "getPSEditor" : {
-              "editorType" : "DROPDOWNLIST_100",
-              "editorWidth" : 100.0,
-              "name" : "pageindex",
-              "getPSAppCodeList" : {
-                "modelref" : true,
-                "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/YesNo.json"
-              },
-              "singleSelect" : true
+              "editorType" : "HIDDEN",
+              "name" : "pageindex"
             },
             "getPSLayoutPos" : {
               "colLG" : 12,
@@ -3698,11 +3720,11 @@
               "layout" : "TABLE_24COL"
             },
             "allowEmpty" : true,
-            "needCodeListConfig" : true,
-            "showCaption" : true
+            "hidden" : true
           }, {
             "caption" : "召回重排",
             "codeName" : "rerank",
+            "createDV" : "2",
             "dataType" : 9,
             "detailStyle" : "DEFAULT",
             "detailType" : "FORMITEM",
@@ -3717,22 +3739,17 @@
               "codeName" : "rerank"
             },
             "getPSEditor" : {
-              "editorType" : "DROPDOWNLIST",
-              "name" : "rerank",
-              "getPSAppCodeList" : {
-                "modelref" : true,
-                "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/YesNoAuto.json"
-              },
-              "singleSelect" : true
+              "editorType" : "HIDDEN",
+              "name" : "rerank"
             },
             "getPSLayoutPos" : {
               "colLG" : 12,
               "colMD" : 12,
               "layout" : "TABLE_24COL"
             },
+            "updateDV" : "2",
             "allowEmpty" : true,
-            "needCodeListConfig" : true,
-            "showCaption" : true
+            "hidden" : true
           }, {
             "caption" : "最大召回数量",
             "codeName" : "top_k",
@@ -3741,6 +3758,7 @@
             "detailType" : "FORMITEM",
             "enableCond" : 3,
             "ignoreInput" : 0,
+            "itemWidth" : 430.0,
             "labelPos" : "TOP",
             "labelWidth" : 130,
             "name" : "top_k",
@@ -3751,11 +3769,12 @@
             },
             "getPSEditor" : {
               "editorType" : "NUMBER",
+              "editorWidth" : 300.0,
               "name" : "top_k"
             },
             "getPSLayoutPos" : {
-              "colLG" : 12,
-              "colMD" : 12,
+              "colLG" : 14,
+              "colMD" : 14,
               "layout" : "TABLE_24COL"
             },
             "allowEmpty" : true,
@@ -3804,28 +3823,24 @@
             } ],
             "getPSEditor" : {
               "editorParams" : {
-                "SRFNAVPARAM.n_model_category_eq" : "text_ranking",
-                "AC" : "TRUE",
-                "TRIGGER" : "TRUE",
-                "PICKUPVIEW" : "FALSE"
+                "SRFNAVPARAM.n_model_category_eq" : "text_ranking"
               },
-              "editorType" : "PICKEREX_TRIGGER",
-              "handlerType" : "PickupText",
+              "editorType" : "HIDDEN",
               "name" : "rerank_model",
-              "getPSAppDEACMode" : {
-                "modelref" : true,
-                "id" : "Default"
-              },
-              "getPSAppDEDataSet" : {
-                "modelref" : true,
-                "id" : "fetch_default"
-              },
-              "getPSAppDataEntity" : {
-                "modelref" : true,
-                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
-              },
               "getPSEditorItems" : [ {
-                "name" : "rerank_model_id"
+                "name" : "rerank_model_id",
+                "getPSAppDEACMode" : {
+                  "modelref" : true,
+                  "id" : "Default"
+                },
+                "getPSAppDEDataSet" : {
+                  "modelref" : true,
+                  "id" : "fetch_default"
+                },
+                "getPSAppDataEntity" : {
+                  "modelref" : true,
+                  "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+                }
               } ],
               "getPSNavigateParams" : [ {
                 "key" : "n_model_category_eq",
@@ -3833,13 +3848,7 @@
                 "value" : "text_ranking",
                 "rawValue" : true
               } ],
-              "placeHolder" : "未指定时使用全局默认",
-              "valueItemName" : "rerank_model_id",
-              "enableAC" : true,
-              "enablePickupView" : false,
-              "forceSelection" : true,
-              "showTrigger" : true,
-              "singleSelect" : true
+              "placeHolder" : "未指定时使用全局默认"
             },
             "getPSLayoutPos" : {
               "colMD" : 24,
@@ -3849,7 +3858,7 @@
             "resetItemNames" : [ "rerank" ],
             "valueItemName" : "rerank_model_id",
             "allowEmpty" : true,
-            "showCaption" : true
+            "hidden" : true
           }, {
             "caption" : "召回重排模型标识",
             "codeName" : "rerank_model_id",
@@ -4153,12 +4162,13 @@
     "caption" : "新建知识库",
     "codeName" : "create_wizard_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base/PSCAPTIONBARS/create_wizard_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "create_wizard_view",
   "getPSDEViewId" : "8ca2fecfc0072490cae62238cbf9596e",
@@ -4166,7 +4176,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEWIZARDVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
@@ -4174,7 +4184,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "新建知识库",
   "viewStyle" : "DEFAULT",

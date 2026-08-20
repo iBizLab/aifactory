@@ -250,6 +250,8 @@
       "id" : "organization_id",
       "hidden" : true,
       "dataType" : 25,
+      "createDVT" : "APPDATA",
+      "createDV" : "organization",
       "getPSAppDEField" : {
         "name" : "ORGANIZATION_ID",
         "codeName" : "organization_id"
@@ -400,6 +402,8 @@
         }, {
           "caption" : "组织标识",
           "codeName" : "organization_id",
+          "createDV" : "organization",
+          "createDVT" : "APPDATA",
           "dataType" : 25,
           "detailStyle" : "DEFAULT",
           "detailType" : "FORMITEM",
@@ -545,24 +549,26 @@
   }, {
     "codeName" : "dept_option_new_view_datainfobar",
     "controlType" : "DATAINFOBAR",
-    "name" : "datainfobar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/department/PSDATAINFOBARS/dept_option_new_view_datainfobar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/department.json"
     },
     "getPSControlParam" : {
       "id" : "datainfobar"
-    }
+    },
+    "name" : "datainfobar"
   }, {
     "caption" : "部门",
     "codeName" : "dept_option_new_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/department/PSCAPTIONBARS/dept_option_new_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/department.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "dept_option_new_view",
   "getPSDEViewId" : "5b845e7ea0359118a5ccf436f94e3c8f",
@@ -570,7 +576,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEOPTVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/department/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/department.json"
@@ -578,7 +584,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "部门选项操作新建视图",
   "viewStyle" : "DEFAULT",

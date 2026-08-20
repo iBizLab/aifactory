@@ -8,6 +8,7 @@ package cn.ibizlab.ai.logic.ai_knowledge_baselogic.ls;
                 global cn.ibizlab.core.ai.domain.ai_knowledge_base ai_knowledge_baselsdefault;
                 global cn.ibizlab.core.ai.domain.ai_kb_document ai_knowledge_baselsdocfilter;
                 global cn.ibizlab.core.ai.domain.ai_kb_document ai_knowledge_baselsdoclist;
+                global java.util.Map ai_knowledge_baselsresultjson;
                     global cn.ibizlab.core.ai.service.Iai_kb_documentService ai_kb_documentservice;
         global cn.ibizlab.core.ai.service.Iai_knowledge_baseService iBzSysAi_knowledge_baseDefaultService;
         global cn.ibizlab.util.security.AuthenticationUser curuser;
@@ -33,6 +34,7 @@ package cn.ibizlab.ai.logic.ai_knowledge_baselogic.ls;
                         update(ai_knowledge_baselsdefault);//更新fact中变量值
                         update(ai_knowledge_baselsdocfilter);//更新fact中变量值
                         update(ai_knowledge_baselsdoclist);//更新fact中变量值
+                        update(ai_knowledge_baselsresultjson);//更新fact中变量值
             end
 
             //逻辑处理节点[实体数据查询]
@@ -43,6 +45,18 @@ package cn.ibizlab.ai.logic.ai_knowledge_baselogic.ls;
                         update(ai_knowledge_baselsdefault);//更新fact中变量值
                         update(ai_knowledge_baselsdocfilter);//更新fact中变量值
                         update(ai_knowledge_baselsdoclist);//更新fact中变量值
+                        update(ai_knowledge_baselsresultjson);//更新fact中变量值
+            end
+
+            //逻辑处理节点[执行脚本代码]
+            rule "rawsfcode_01"
+            ruleflow-group "ai_knowledge_baselsrawsfcode_01"
+            when
+            then
+                        update(ai_knowledge_baselsdefault);//更新fact中变量值
+                        update(ai_knowledge_baselsdocfilter);//更新fact中变量值
+                        update(ai_knowledge_baselsdoclist);//更新fact中变量值
+                        update(ai_knowledge_baselsresultjson);//更新fact中变量值
             end
 
             //逻辑处理节点[结束]
@@ -53,4 +67,5 @@ package cn.ibizlab.ai.logic.ai_knowledge_baselogic.ls;
                         update(ai_knowledge_baselsdefault);//更新fact中变量值
                         update(ai_knowledge_baselsdocfilter);//更新fact中变量值
                         update(ai_knowledge_baselsdoclist);//更新fact中变量值
+                        update(ai_knowledge_baselsresultjson);//更新fact中变量值
             end

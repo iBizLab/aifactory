@@ -179,8 +179,8 @@
   }, {
     "codeName" : "list_view9_toolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk/PSTOOLBARS/list_view9_toolbar.json",
     "logicName" : "文档切片_工具栏",
-    "name" : "toolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk.json"
@@ -189,6 +189,7 @@
       "id" : "TOOLBAR"
     },
     "xDataControlName" : "list",
+    "name" : "toolbar",
     "modelid" : "81862eb1dcf89edbc4d9513007edbd98",
     "modeltype" : "PSDETOOLBAR"
   }, {
@@ -457,12 +458,13 @@
     "caption" : "文档切片",
     "codeName" : "list_view9_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk/PSCAPTIONBARS/list_view9_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "list_view9",
   "getPSDEViewId" : "33f3faaaaae0e4d8ce4e9b9c0d58680e",
@@ -470,7 +472,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDELISTVIEW9",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk.json"
@@ -478,7 +480,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "文档切片",
   "viewStyle" : "DEFAULT",

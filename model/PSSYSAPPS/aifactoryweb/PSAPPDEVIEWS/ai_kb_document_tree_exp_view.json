@@ -54,7 +54,7 @@
   "getPSControls" : [ {
     "codeName" : "tree_exp_view_treeexpbar",
     "controlType" : "TREEEXPBAR",
-    "name" : "treeexpbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document/PSTREEEXPBARS/tree_exp_view_treeexpbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
@@ -219,8 +219,8 @@
       "getPSControls" : [ {
         "codeName" : "tree_exp_view_ai_kb_doc_cm",
         "controlType" : "CONTEXTMENU",
+        "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document/PSCONTEXTMENUS/tree_exp_view_ai_kb_doc_cm.json",
         "logicName" : "树节点工具栏",
-        "name" : "ai_kb_doc_cm",
         "getPSAppDataEntity" : {
           "modelref" : true,
           "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
@@ -461,6 +461,7 @@
           "showCaption" : true,
           "showIcon" : true
         } ],
+        "name" : "ai_kb_doc_cm",
         "modelid" : "da4814fa4409ffe69d77debee333b17a",
         "modeltype" : "PSDETOOLBAR"
       } ],
@@ -569,8 +570,8 @@
         "getPSDEContextMenu" : {
           "codeName" : "tree_exp_view_ai_kb_doc_cm",
           "controlType" : "CONTEXTMENU",
+          "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document/PSCONTEXTMENUS/tree_exp_view_ai_kb_doc_cm.json",
           "logicName" : "树节点工具栏",
-          "name" : "ai_kb_doc_cm",
           "getPSAppDataEntity" : {
             "modelref" : true,
             "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
@@ -811,6 +812,7 @@
             "showCaption" : true,
             "showIcon" : true
           } ],
+          "name" : "ai_kb_doc_cm",
           "modelid" : "da4814fa4409ffe69d77debee333b17a",
           "modeltype" : "PSDETOOLBAR"
         },
@@ -942,8 +944,8 @@
     }, {
       "codeName" : "tree_exp_view_treeexpbar_toolbar",
       "controlType" : "TOOLBAR",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document/PSTOOLBARS/tree_exp_view_treeexpbar_toolbar.json",
       "logicName" : "知识库文档树工具栏",
-      "name" : "treeexpbar_toolbar",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
@@ -1056,6 +1058,7 @@
         "showIcon" : true
       } ],
       "toolbarStyle" : "USER",
+      "name" : "treeexpbar_toolbar",
       "modelid" : "6a4f36c8fed209c1f903266400517bfd",
       "modeltype" : "PSDETOOLBAR"
     } ],
@@ -1064,6 +1067,7 @@
     "enableCounter" : true,
     "enableSearch" : false,
     "showTitleBar" : true,
+    "name" : "treeexpbar",
     "modelid" : "6b833e8357d882067e015b10a5171cff_treeexpbar",
     "modeltype" : "PSEXPBAR"
   }, {
@@ -1090,12 +1094,13 @@
     "caption" : "知识库文档",
     "codeName" : "tree_exp_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document/PSCAPTIONBARS/tree_exp_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "tree_exp_view",
   "getPSDEViewId" : "e53f4a56fb092e653b476addba3d8c2b",
@@ -1103,7 +1108,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDETREEEXPVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
@@ -1111,7 +1116,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "refFlag" : false,
   "title" : "知识库文档",

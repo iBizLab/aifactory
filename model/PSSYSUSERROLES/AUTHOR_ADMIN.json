@@ -3,6 +3,16 @@
   "dynaModelFilePath" : "PSSYSUSERROLES/AUTHOR_ADMIN.json",
   "name" : "系统管理员",
   "getPSSysUserRoleDatas" : [ {
+    "name" : "系统管理员-SYS_ROLE[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSSYSMODELGROUPS/ebsx/PSMODULES/ebsx/PSDATAENTITIES/Role/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSMODELGROUPS/ebsx/PSMODULES/ebsx/PSDATAENTITIES/Role.json"
+    }
+  }, {
     "name" : "系统管理员-AI_AGENT_FEEDBACK[全部数据（读写）]",
     "getPSDEUserRole" : {
       "modelref" : true,
@@ -73,6 +83,16 @@
       "path" : "PSMODULES/Base/PSDATAENTITIES/position.json"
     }
   }, {
+    "name" : "系统管理员-AI_AGENT_MEMORY_TASK[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task.json"
+    }
+  }, {
     "name" : "系统管理员-AI_AGENT_KNOWLEDGE_REL[全部数据（读写）]",
     "getPSDEUserRole" : {
       "modelref" : true,
@@ -133,6 +153,16 @@
       "path" : "PSMODULES/ai/PSDATAENTITIES/ai_model.json"
     }
   }, {
+    "name" : "系统管理员-ROLE[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/role/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/role.json"
+    }
+  }, {
     "name" : "系统管理员-AI_KB_DOCUMENT_WIZARD[全部数据（读写）]",
     "getPSDEUserRole" : {
       "modelref" : true,
@@ -151,6 +181,16 @@
     "getPSDataEntity" : {
       "modelref" : true,
       "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_source.json"
+    }
+  }, {
+    "name" : "系统管理员-AI_SKILL_WORKSPACE[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
     }
   }, {
     "name" : "系统管理员-AI_AGENT_ASSIGNMENT[全部数据（读写）]",
@@ -191,6 +231,16 @@
     "getPSDataEntity" : {
       "modelref" : true,
       "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunking_strategy.json"
+    }
+  }, {
+    "name" : "系统管理员-ROLE_MEMBER[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/role_member/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/role_member.json"
     }
   }, {
     "name" : "系统管理员-AI_MODEL_PROVIDER[全部数据（读写）]",
@@ -263,6 +313,16 @@
       "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_tag.json"
     }
   }, {
+    "name" : "系统管理员-SYS_ROLE_MEMBER[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSSYSMODELGROUPS/ibizsysmgr/PSMODULES/ibizsysmgr/PSDATAENTITIES/sys_role_member/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSMODELGROUPS/ibizsysmgr/PSMODULES/ibizsysmgr/PSDATAENTITIES/sys_role_member.json"
+    }
+  }, {
     "name" : "系统管理员-AI_AGENT_TOOL_REL[全部数据（读写）]",
     "getPSDEUserRole" : {
       "modelref" : true,
@@ -311,6 +371,16 @@
     "getPSDataEntity" : {
       "modelref" : true,
       "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    }
+  }, {
+    "name" : "系统管理员-SYS_ROLE_UAA[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSSYSMODELGROUPS/ibizsysmgr/PSMODULES/ibizsysmgr/PSDATAENTITIES/sys_role/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSMODELGROUPS/ibizsysmgr/PSMODULES/ibizsysmgr/PSDATAENTITIES/sys_role.json"
     }
   }, {
     "name" : "系统管理员-ORGANIZATION[全部数据（读写）]",
@@ -373,6 +443,16 @@
       "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation.json"
     }
   }, {
+    "name" : "系统管理员-KEYRING[全部密钥环(RW)]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/keyring/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/keyring.json"
+    }
+  }, {
     "name" : "系统管理员-MEMBER[全部数据（读写）]",
     "getPSDEUserRole" : {
       "modelref" : true,
@@ -413,7 +493,7 @@
       "path" : "PSMODULES/Base/PSDATAENTITIES/section.json"
     }
   }, {
-    "name" : "系统管理员-AI_REVIEW_REPORT[操作角色]",
+    "name" : "系统管理员-AI_REVIEW_REPORT[全部数据（读）]",
     "getPSDEUserRole" : {
       "modelref" : true,
       "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEUSERROLES/ALL_R.json"
@@ -443,6 +523,127 @@
       "path" : "PSMODULES/Base/PSDATAENTITIES/department.json"
     }
   } ],
+  "getPSSysUserRoleReses" : [ {
+    "name" : "系统管理员-智能体高级设置",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "ai__AGENTMGR"
+    },
+    "sysUniResCode" : "AGENTMGR"
+  }, {
+    "name" : "系统管理员-知识库高级设置",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "ai__KBMGR"
+    },
+    "sysUniResCode" : "KBMGR"
+  }, {
+    "name" : "系统管理员-智能协同",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "ai__AI"
+    },
+    "sysUniResCode" : "AI"
+  }, {
+    "name" : "系统管理员-通知模型扩展",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "extension__EXTENSION__MANAGE_PSDENOTIFY"
+    },
+    "sysUniResCode" : "EXTENSION__MANAGE_PSDENOTIFY"
+  }, {
+    "name" : "系统管理员-后台管理",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "Base__BASE"
+    },
+    "sysUniResCode" : "BASE"
+  }, {
+    "name" : "系统管理员-通知模型扩展（只读）",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "extension__EXTENSION__READ_PSDENOTIFY"
+    },
+    "sysUniResCode" : "EXTENSION__READ_PSDENOTIFY"
+  }, {
+    "name" : "系统管理员-知识管理_维护",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "Wiki__SPACE_M"
+    },
+    "sysUniResCode" : "SPACE_M"
+  }, {
+    "name" : "系统管理员-智能报表立方体模型扩展（只读）",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "EXTENSION__READ_PSSYSBICUBE"
+    },
+    "sysUniResCode" : "EXTENSION__READ_PSSYSBICUBE"
+  }, {
+    "name" : "系统管理员-智能报表立方体指标模型扩展",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "EXTENSION__MANAGE_PSSYSBICUBEMEASURE"
+    },
+    "sysUniResCode" : "EXTENSION__MANAGE_PSSYSBICUBEMEASURE"
+  }, {
+    "name" : "系统管理员-智能报表立方体指标模型扩展（只读）",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "EXTENSION__READ_PSSYSBICUBEMEASURE"
+    },
+    "sysUniResCode" : "EXTENSION__READ_PSSYSBICUBEMEASURE"
+  }, {
+    "name" : "系统管理员-智能报表模型扩展（只读）",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "EXTENSION__READ_PSSYSBIREPORT"
+    },
+    "sysUniResCode" : "EXTENSION__READ_PSSYSBIREPORT"
+  }, {
+    "name" : "系统管理员-知识管理",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "Wiki__SPACE"
+    },
+    "sysUniResCode" : "SPACE"
+  }, {
+    "name" : "系统管理员-智能报表立方体维度模型扩展（只读）",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "EXTENSION__READ_PSSYSBICUBEDIMENSION"
+    },
+    "sysUniResCode" : "EXTENSION__READ_PSSYSBICUBEDIMENSION"
+  }, {
+    "name" : "系统管理员-模型管理",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "ai__MODELMGR"
+    },
+    "sysUniResCode" : "MODELMGR"
+  }, {
+    "name" : "系统管理员-智能报表立方体维度模型扩展",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "EXTENSION__MANAGE_PSSYSBICUBEDIMENSION"
+    },
+    "sysUniResCode" : "EXTENSION__MANAGE_PSSYSBICUBEDIMENSION"
+  }, {
+    "name" : "系统管理员-智能报表模型扩展",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "EXTENSION__MANAGE_PSSYSBIREPORT"
+    },
+    "sysUniResCode" : "EXTENSION__MANAGE_PSSYSBIREPORT"
+  }, {
+    "name" : "系统管理员-智能报表立方体模型扩展",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "EXTENSION__MANAGE_PSSYSBICUBE"
+    },
+    "sysUniResCode" : "EXTENSION__MANAGE_PSSYSBICUBE"
+  } ],
   "roleTag" : "AUTHOR_ADMIN",
-  "roleType" : "CUSTOM"
+  "roleType" : "CUSTOM",
+  "uniResTags" : [ "AGENTMGR", "KBMGR", "AI", "EXTENSION__MANAGE_PSDENOTIFY", "BASE", "EXTENSION__READ_PSDENOTIFY", "SPACE_M", "EXTENSION__READ_PSSYSBICUBE", "EXTENSION__MANAGE_PSSYSBICUBEMEASURE", "EXTENSION__READ_PSSYSBICUBEMEASURE", "EXTENSION__READ_PSSYSBIREPORT", "SPACE", "EXTENSION__READ_PSSYSBICUBEDIMENSION", "MODELMGR", "EXTENSION__MANAGE_PSSYSBICUBEDIMENSION", "EXTENSION__MANAGE_PSSYSBIREPORT", "EXTENSION__MANAGE_PSSYSBICUBE" ]
 }

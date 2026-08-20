@@ -1,6 +1,17 @@
 {
   "actionMode" : "CREATE",
   "actionType" : "BUILTIN",
+  "getAfterPSDEActionLogics" : [ {
+    "actionLogicType" : 1,
+    "attachMode" : "AFTER",
+    "codeName" : "Aae826f4bf15f3458c7",
+    "name" : "附加逻辑",
+    "getPSDELogic" : {
+      "modelref" : true,
+      "path" : "PSMODULES/extension/PSDATAENTITIES/PSDELogic/PSDELOGICS/publishConfig.json"
+    },
+    "internalLogic" : true
+  } ],
   "getBeforePSDEActionLogics" : [ {
     "actionLogicType" : 1,
     "attachMode" : "BEFORE",

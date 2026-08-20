@@ -48,7 +48,7 @@
   "getPSControls" : [ {
     "codeName" : "config_tree_exp_view_treeexpbar",
     "controlType" : "TREEEXPBAR",
-    "name" : "treeexpbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base/PSTREEEXPBARS/config_tree_exp_view_treeexpbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
@@ -644,6 +644,7 @@
     "enableCounter" : true,
     "enableSearch" : false,
     "showTitleBar" : true,
+    "name" : "treeexpbar",
     "modelid" : "3dec22d57d52ca3d99b94cbe8ecbdafd_treeexpbar",
     "modeltype" : "PSEXPBAR"
   }, {
@@ -670,12 +671,13 @@
     "caption" : "知识库",
     "codeName" : "config_tree_exp_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base/PSCAPTIONBARS/config_tree_exp_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "config_tree_exp_view",
   "getPSDEViewId" : "b9c3a5ac79568a246cf8dae01e458e81",
@@ -683,7 +685,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDETREEEXPVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
@@ -691,7 +693,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "知识库",
   "viewStyle" : "DEFAULT",

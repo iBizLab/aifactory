@@ -31,9 +31,9 @@
   "getPSViewLayoutPanel" : {
     "codeName" : "auto21991350",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk/PSVIEWLAYOUTPANELS/auto21991350.json",
     "layoutMode" : "FLEX",
     "logicName" : "retrieval_test_view列表视图布局面板",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk.json"
@@ -257,6 +257,7 @@
     "layoutPanel" : true,
     "useDefaultLayout" : false,
     "viewProxyMode" : true,
+    "name" : "layoutpanel",
     "modelid" : "7d1d13689c517392f53a4d0e876e3e56",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL",
     "getPSAppViewEngines" : [ {
@@ -1161,8 +1162,8 @@
     }, {
       "codeName" : "retrieval_test_view_toolbar",
       "controlType" : "TOOLBAR",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk/PSTOOLBARS/retrieval_test_view_toolbar.json",
       "logicName" : "检索测试列表视图_工具栏",
-      "name" : "toolbar",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk.json"
@@ -1171,6 +1172,7 @@
         "id" : "TOOLBAR"
       },
       "xDataControlName" : "list",
+      "name" : "toolbar",
       "modelid" : "790b6f9912eb877ac0a65564c0381ed5",
       "modeltype" : "PSDETOOLBAR"
     }, {
@@ -1197,12 +1199,13 @@
       "caption" : "检索测试",
       "codeName" : "retrieval_test_view_captionbar",
       "controlType" : "CAPTIONBAR",
-      "name" : "captionbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk/PSCAPTIONBARS/retrieval_test_view_captionbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk.json"
       },
-      "getPSControlParam" : { }
+      "getPSControlParam" : { },
+      "name" : "captionbar"
     } ]
   },
   "refFlag" : false,

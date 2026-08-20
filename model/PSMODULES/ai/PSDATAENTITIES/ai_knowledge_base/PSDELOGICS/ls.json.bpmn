@@ -8,6 +8,7 @@
                                 <tns:metaData express="" name="ai_knowledge_baselsdefault" type="entity"/>
                                 <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_kb_document()" name="ai_knowledge_baselsdocfilter" type="refentity"/>
                                 <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_kb_document()" name="ai_knowledge_baselsdoclist" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_knowledge_baselsresultjson" type="refentity"/>
                                     <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_kb_documentService))" name="ai_kb_documentservice" type="service"/>
                     <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_knowledge_baseService))" name="iBzSysAi_knowledge_baseDefaultService" type="service"/>
                     <tns:metaData express="T(cn.ibizlab.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
@@ -18,6 +19,7 @@
                         <startEvent id="begin" isInterrupting="true"/>
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baselsprepareparam_01" id="prepareparam_01" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baselsdedataquery_01" id="dedataquery_01" implementation="http://www.jboss.org/drools/rule" name="实体数据查询"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baselsrawsfcode_01" id="rawsfcode_01" implementation="http://www.jboss.org/drools/rule" name="执行脚本代码"/>
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baselsend_01" id="end_01" implementation="http://www.jboss.org/drools/rule" name="结束"/>
                         <endEvent id="end_01_end" name="end"/>
                         <sequenceFlow id="end_01_end_line" sourceRef="end_01" targetRef="end_01_end"/>
@@ -25,7 +27,9 @@
                     </sequenceFlow>
                     <sequenceFlow id="prepareparam_01_dedataquery_01" sourceRef="prepareparam_01" targetRef="dedataquery_01">
                     </sequenceFlow>
-                    <sequenceFlow id="dedataquery_01_end_01" sourceRef="dedataquery_01" targetRef="end_01">
+                    <sequenceFlow id="dedataquery_01_rawsfcode_01" sourceRef="dedataquery_01" targetRef="rawsfcode_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="rawsfcode_01_end_01" sourceRef="rawsfcode_01" targetRef="end_01">
                     </sequenceFlow>
         </process>
     </definitions>

@@ -1003,10 +1003,10 @@
             } ],
             "codeName" : "usr0701901658",
             "controlType" : "VIEWLAYOUTPANEL",
+            "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/member/PSVIEWLAYOUTPANELS/usr0701901658.json",
             "hookEventNames" : [ "ONCLICK" ],
             "layoutMode" : "FLEX",
             "logicName" : "shared_page_list_view列表视图布局面板",
-            "name" : "layoutpanel",
             "getPSAppDataEntity" : {
               "modelref" : true,
               "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/member.json"
@@ -1364,6 +1364,7 @@
             "layoutPanel" : true,
             "useDefaultLayout" : false,
             "viewProxyMode" : true,
+            "name" : "layoutpanel",
             "modelid" : "75e8892e6721a0c1a7163fa41ea3a19f",
             "modeltype" : "PSSYSVIEWLAYOUTPANEL",
             "getPSAppViewEngines" : [ {
@@ -1910,12 +1911,13 @@
               "caption" : "成员",
               "codeName" : "shared_page_list_view_captionbar",
               "controlType" : "CAPTIONBAR",
-              "name" : "captionbar",
+              "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/member/PSCAPTIONBARS/shared_page_list_view_captionbar.json",
               "getPSAppDataEntity" : {
                 "modelref" : true,
                 "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/member.json"
               },
-              "getPSControlParam" : { }
+              "getPSControlParam" : { },
+              "name" : "captionbar"
             } ]
           },
           "title" : "成员",
@@ -2095,24 +2097,26 @@
   }, {
     "codeName" : "shared_setting_view_datainfobar",
     "controlType" : "DATAINFOBAR",
-    "name" : "datainfobar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page/PSDATAINFOBARS/shared_setting_view_datainfobar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page.json"
     },
     "getPSControlParam" : {
       "id" : "datainfobar"
-    }
+    },
+    "name" : "datainfobar"
   }, {
     "caption" : "共享设置",
     "codeName" : "shared_setting_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page/PSCAPTIONBARS/shared_setting_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "shared_setting_view",
   "getPSDEViewId" : "be78d213afec39a952d256447f12ea82",
@@ -2120,7 +2124,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEOPTVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page.json"
@@ -2128,7 +2132,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "共享设置",
   "viewStyle" : "DEFAULT",

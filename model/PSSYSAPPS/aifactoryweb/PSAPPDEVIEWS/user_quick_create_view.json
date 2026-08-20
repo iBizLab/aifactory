@@ -20,19 +20,24 @@
     "engineType" : "OptionView",
     "name" : "engine"
   } ],
+  "getPSAppViewNavContexts" : [ {
+    "key" : "USER",
+    "name" : "USER",
+    "rawValue" : true
+  } ],
   "getPSControls" : [ {
     "codeName" : "quick_create",
     "controlType" : "FORM",
     "getCreatePSControlAction" : {
       "modelref" : true,
       "id" : "create",
-      "actionName" : "Create",
+      "actionName" : "custom_create",
       "actionType" : "DEACTION",
       "dataAccessAction" : "CREATE",
       "name" : "create",
       "getPSAppDEMethod" : {
         "modelref" : true,
-        "id" : "create"
+        "id" : "custom_create"
       },
       "getPSAppDataEntity" : {
         "modelref" : true,
@@ -127,13 +132,13 @@
           "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
         }
       }, {
-        "actionName" : "Create",
+        "actionName" : "custom_create",
         "actionType" : "DEACTION",
         "dataAccessAction" : "CREATE",
         "name" : "create",
         "getPSAppDEMethod" : {
           "modelref" : true,
-          "id" : "create"
+          "id" : "custom_create"
         },
         "getPSAppDataEntity" : {
           "modelref" : true,
@@ -612,24 +617,26 @@
   }, {
     "codeName" : "quick_create_view_datainfobar",
     "controlType" : "DATAINFOBAR",
-    "name" : "datainfobar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSDATAINFOBARS/quick_create_view_datainfobar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
     },
     "getPSControlParam" : {
       "id" : "datainfobar"
-    }
+    },
+    "name" : "datainfobar"
   }, {
     "caption" : "添加成员",
     "codeName" : "quick_create_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSCAPTIONBARS/quick_create_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "quick_create_view",
   "getPSDEViewId" : "0ebcbf9236fa975c41086cd0899fa518",
@@ -637,7 +644,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEOPTVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
@@ -645,7 +652,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "添加成员",
   "viewStyle" : "DEFAULT",

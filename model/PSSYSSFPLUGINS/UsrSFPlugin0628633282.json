@@ -1,0 +1,12 @@
+{
+  "codeName" : "UsrSFPlugin0628633282",
+  "dynaModelFilePath" : "PSSYSSFPLUGINS/UsrSFPlugin0628633282.json",
+  "memo" : "排除新建模式行为自动建立版本",
+  "name" : "DEVersionControlUtilRuntimeEx",
+  "pluginCode" : "UsrSFPlugin0628633282",
+  "pluginType" : "USER",
+  "rTObjectName" : "cn.ibizlab.user.plugin.groovy.dataentity.util.DEVersionControlUtilRuntimeEx",
+  "rTObjectSource" : 1,
+  "templCode" : "package cn.ibizlab.user.plugin.groovy.dataentity.util;\n\nimport groovy.transform.CompileStatic;\nimport java.util.Arrays;\nimport java.util.HashMap;\nimport java.util.Iterator;\nimport java.util.List;\nimport java.util.Map;\nimport net.ibizsys.central.dataentity.IDataEntityRuntime;\nimport net.ibizsys.central.util.IEntityDTO;\nimport net.ibizsys.central.util.ISearchContextDTO;\nimport net.ibizsys.model.PSModelEnums.DER1NMasterRS;\nimport net.ibizsys.model.PSModelEnums.DERSubType;\nimport net.ibizsys.model.PSModelEnums.DERType;\nimport net.ibizsys.model.PSModelEnums.DEUtilType;\nimport net.ibizsys.model.PSModelEnums.PredefinedFieldType;\nimport net.ibizsys.model.PSModelEnums.SortDir;\nimport net.ibizsys.model.dataentity.IPSDataEntity;\nimport net.ibizsys.model.dataentity.action.IPSDEAction;\nimport net.ibizsys.runtime.dataentity.DataEntityRuntimeException;\nimport net.ibizsys.runtime.util.ActionSessionManager;\nimport net.ibizsys.runtime.util.DataTypeUtils;\nimport net.ibizsys.runtime.util.IAction;\nimport net.ibizsys.runtime.util.IEntityBase;\nimport net.ibizsys.runtime.util.KeyValueUtils;\nimport org.apache.commons.logging.Log;\nimport org.apache.commons.logging.LogFactory;\nimport org.springframework.util.Assert;\nimport org.springframework.util.ObjectUtils;\nimport org.springframework.util.StringUtils;\nimport net.ibizsys.central.dataentity.util.DEVersionControlUtilRuntime;\n\n@CompileStatic\npublic class DEVersionControlUtilRuntimeEx extends DEVersionControlUtilRuntime {\n\n    @Override\n    public boolean isCommit(String strActionName, IPSDEAction iPSDEAction) {\n        if (\"create\".equalsIgnoreCase(strActionName)) {\n            return true;\n        } else {\n            return this.isAutoCommit() && \"update\".equalsIgnoreCase(strActionName);\n        }\n    }\n}\n",
+  "runtimeObject" : true
+}

@@ -15,8 +15,8 @@
   "getPSControls" : [ {
     "codeName" : "bi_report_content_panel_view_toolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_report/PSTOOLBARS/bi_report_content_panel_view_toolbar.json",
     "logicName" : "BI报表呈现态工具栏",
-    "name" : "toolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_report.json"
@@ -149,18 +149,20 @@
       "showCaption" : true,
       "showIcon" : true
     } ],
+    "name" : "toolbar",
     "modelid" : "150ed6258925c14d302f1272fafaba59",
     "modeltype" : "PSDETOOLBAR"
   }, {
     "caption" : "BI报表",
     "codeName" : "bi_report_content_panel_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_report/PSCAPTIONBARS/bi_report_content_panel_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_report.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "BIReportContentPanelView",
   "getPSDEViewId" : "0424c8ba97bdd9eece8caa4711dadec8",
@@ -173,9 +175,9 @@
     } ],
     "codeName" : "usr0705249058",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_report/PSVIEWLAYOUTPANELS/usr0705249058.json",
     "layoutMode" : "Flex",
     "logicName" : "BI报表呈现态",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_report.json"
@@ -325,6 +327,7 @@
     "layoutBodyOnly" : false,
     "layoutPanel" : true,
     "useDefaultLayout" : false,
+    "name" : "layoutpanel",
     "modelid" : "8ed02539883ad6928cf120e76d1cee19",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL"
   },

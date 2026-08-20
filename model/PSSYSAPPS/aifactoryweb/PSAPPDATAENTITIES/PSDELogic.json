@@ -1575,6 +1575,37 @@
   }, {
     "getAllPSAppDEFUIModes" : [ {
       "codeName" : "Default",
+      "name" : "[EXPIRESTIME][过期时间]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "DATEPICKER",
+        "name" : "[EXPIRESTIME][过期时间]",
+        "uIMode" : "DEFAULT",
+        "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[EXPIRESTIME][过期时间]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBDATE",
+        "name" : "[EXPIRESTIME][过期时间]移动端默认",
+        "uIMode" : "MOBILEDEFAULT",
+        "valueFormat" : "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "codeName" : "expirestime",
+    "logicName" : "过期时间",
+    "name" : "EXPIRESTIME",
+    "stdDataType" : 5,
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss"
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "Default",
       "name" : "[PSDELOGICNAME][实体处理逻辑名称]",
       "getPSDEFFormItem" : {
         "codeName" : "Default",
@@ -2865,6 +2896,18 @@
       },
       "sourceType" : "DEFIELD",
       "stdDataType" : 21,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "expirestime",
+      "jsonFormat" : "yyyy-MM-dd HH:mm:ss",
+      "logicName" : "过期时间",
+      "name" : "expirestime",
+      "getPSAppDEField" : {
+        "name" : "EXPIRESTIME",
+        "codeName" : "expirestime"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 5,
       "type" : "SIMPLE"
     }, {
       "codeName" : "CodeName",
@@ -4256,6 +4299,59 @@
     "closePopupView" : true,
     "id" : "debug_webhook@PSDELogic"
   }, {
+    "actionTarget" : "SINGLEKEY",
+    "caption" : "模型编辑",
+    "codeName" : "model_data",
+    "getFrontPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/psde_logic_model_data_view.json",
+      "viewType" : "DEEDITVIEW"
+    },
+    "frontProcessType" : "WIZARD",
+    "fullCodeName" : "PSDELogic_model_data",
+    "name" : "模型编辑",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
+    },
+    "getPSSysImage" : {
+      "glyph" : "xf044@FontAwesome",
+      "cssClass" : "fa fa-edit"
+    },
+    "uIActionMode" : "FRONT",
+    "uIActionTag" : "model_data",
+    "uIActionType" : "DEUIACTION",
+    "id" : "model_data@PSDELogic"
+  }, {
+    "actionTarget" : "SINGLEDATA",
+    "caption" : "模型更新",
+    "codeName" : "model_update",
+    "dialogResult" : "OK",
+    "frontProcessType" : "WIZARD",
+    "fullCodeName" : "PSDELogic_model_update",
+    "name" : "模型更新",
+    "getPSAppDEUILogic" : {
+      "modelref" : true,
+      "id" : "model_update"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
+    },
+    "getPSSysImage" : {
+      "glyph" : "xf044@FontAwesome",
+      "cssClass" : "fa fa-edit"
+    },
+    "refreshMode" : 2,
+    "uIActionMode" : "FRONT",
+    "uIActionTag" : "model_update",
+    "uIActionType" : "DEUIACTION",
+    "uILogicAttachMode" : "REPLACE",
+    "closeEditView" : true,
+    "closePopupView" : true,
+    "reloadData" : true,
+    "id" : "model_update@PSDELogic"
+  }, {
     "actionTarget" : "NONE",
     "caption" : "全部日志",
     "codeName" : "open_all_log",
@@ -4419,6 +4515,109 @@
       "modelref" : true,
       "id" : "Begin"
     }
+  }, {
+    "codeName" : "model_update",
+    "defaultParamName" : "Default",
+    "logicName" : "模型更新",
+    "name" : "模型更新",
+    "getPSDEUILogicNodes" : [ {
+      "codeName" : "Begin",
+      "leftPos" : -190,
+      "logicNodeType" : "BEGIN",
+      "name" : "开始",
+      "getPSDEUILogicLinks" : [ {
+        "getDstPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "RAWJSCODE_01"
+        },
+        "linkMode" : 0,
+        "name" : "连接名称",
+        "getSrcPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "Begin"
+        }
+      } ],
+      "topPos" : -10,
+      "parallelOutput" : true
+    }, {
+      "codeName" : "END_01",
+      "leftPos" : 464,
+      "logicNodeType" : "END",
+      "name" : "结束",
+      "getReturnParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "returnType" : "LOGICPARAM",
+      "topPos" : 46,
+      "parallelOutput" : true
+    }, {
+      "code" : "var model_data = uiLogic.default.model_data;\r\nif (model_data) {\r\n    try {\r\n        var dataObj = JSON.parse(model_data);\r\n        dataObj.updatedate = null;\r\n        dataObj.updateman = null;\r\n        uiLogic.default = dataObj;\r\n        console.log(\"------更新后的model数据-----\", uiLogic.default);\r\n    } catch (e) {\r\n        console.error(\"JSON 解析失败，请检查数据格式\", e);\r\n    }\r\n} else {\r\n    console.warn(\"model_data 为空，不进行模型更新\");\r\n}\r\n\r\n",
+      "codeName" : "RAWJSCODE_01",
+      "leftPos" : -50,
+      "logicNodeType" : "RAWJSCODE",
+      "name" : "注入脚本代码",
+      "getPSDEUILogicLinks" : [ {
+        "getDstPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "DEACTION_01"
+        },
+        "linkMode" : 0,
+        "name" : "连接名称",
+        "getSrcPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "RAWJSCODE_01"
+        }
+      } ],
+      "topPos" : 108,
+      "parallelOutput" : true
+    }, {
+      "codeName" : "DEACTION_01",
+      "getDstPSAppDEAction" : {
+        "modelref" : true,
+        "id" : "Update"
+      },
+      "getDstPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
+      },
+      "getDstPSDEUILogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "leftPos" : 210,
+      "logicNodeType" : "DEACTION",
+      "name" : "模型更新",
+      "getPSDEUILogicLinks" : [ {
+        "getDstPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "END_01"
+        },
+        "linkMode" : 0,
+        "name" : "连接名称",
+        "getSrcPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "DEACTION_01"
+        }
+      } ],
+      "getRetPSDEUILogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "topPos" : 108,
+      "parallelOutput" : true
+    } ],
+    "getPSDEUILogicParams" : [ {
+      "codeName" : "Default",
+      "logicName" : "传入变量",
+      "name" : "传入变量",
+      "default" : true,
+      "entityParam" : true
+    } ],
+    "getStartPSDEUILogicNode" : {
+      "modelref" : true,
+      "id" : "Begin"
+    }
   } ],
   "getAllPSAppViews" : [ {
     "modelref" : true,
@@ -4432,6 +4631,10 @@
     "modelref" : true,
     "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/psde_logic_quick_cfg_view.json",
     "viewType" : "DEOPTVIEW"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/psde_logic_model_data_view.json",
+    "viewType" : "DEEDITVIEW"
   }, {
     "modelref" : true,
     "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/psde_logic_flow_main_view.json",
@@ -4585,6 +4788,25 @@
         },
         "modelref" : true,
         "id" : "open_quick_cfg_view@PSDELogic"
+      }
+    }, {
+      "caption" : "模型编辑",
+      "detailType" : "DEUIACTION",
+      "name" : "u07f16dd",
+      "getPSSysImage" : {
+        "glyph" : "xf044@FontAwesome",
+        "cssClass" : "fa fa-edit"
+      },
+      "addSeparator" : false,
+      "showCaption" : true,
+      "showIcon" : true,
+      "getPSUIAction" : {
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
+        },
+        "modelref" : true,
+        "id" : "model_data@PSDELogic"
       }
     }, {
       "caption" : "webhook调试",

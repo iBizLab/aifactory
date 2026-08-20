@@ -134,6 +134,10 @@ package cn.ibizlab.extension.logic.psdelogiclogic.initlogic;
                             psdelogicinitlogicdefault.set("psdelogicname",psdelogicinitlogiclogic_data.get("psdelogicname"));
                                 psdelogicinitlogicdefault.set("laststate",null);
                                 psdelogicinitlogicdefault.set("laststartat",null);
+                                psdelogicinitlogicdefault.set("createman",null);
+                                psdelogicinitlogicdefault.set("createdate",null);
+                                psdelogicinitlogicdefault.set("updatedate",null);
+                                psdelogicinitlogicdefault.set("updateman",null);
                         update(psdelogicinitlogicdefault);//更新fact中变量值
                         update(psdelogicinitlogicdelogicparam);//更新fact中变量值
                         update(psdelogicinitlogicdelogicparams);//更新fact中变量值

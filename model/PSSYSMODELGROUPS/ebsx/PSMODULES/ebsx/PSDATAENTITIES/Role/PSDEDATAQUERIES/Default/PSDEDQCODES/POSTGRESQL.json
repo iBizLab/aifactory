@@ -1,0 +1,49 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"authorizeall\"",
+    "name" : "AUTHORIZEALL"
+  }, {
+    "expression" : "t1.\"createdate\"",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.\"createman\"",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.\"dcsystemid\"",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t1.\"globalflag\"",
+    "name" : "GLOBALFLAG"
+  }, {
+    "expression" : "t1.\"memo\"",
+    "name" : "MEMO"
+  }, {
+    "expression" : "t1.\"proleid\"",
+    "name" : "PROLEID"
+  }, {
+    "expression" : "t1.\"roletag\"",
+    "name" : "ROLETAG"
+  }, {
+    "expression" : "t1.\"systemflag\"",
+    "name" : "SYSTEMFLAG"
+  }, {
+    "expression" : "t1.\"sys_roleid\"",
+    "name" : "SYS_ROLEID"
+  }, {
+    "expression" : "t1.\"sys_rolename\"",
+    "name" : "SYS_ROLENAME"
+  }, {
+    "expression" : "t1.\"updatedate\"",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.\"updateman\"",
+    "name" : "UPDATEMAN"
+  }, {
+    "expression" : "t1.\"usermode\"",
+    "name" : "USERMODE"
+  } ],
+  "queryCode" : "SELECT\nt1.\"authorizeall\",\nt1.\"createdate\",\nt1.\"createman\",\nt1.\"dcsystemid\",\nt1.\"globalflag\",\nt1.\"memo\",\nt1.\"proleid\",\nt1.\"roletag\",\nt1.\"systemflag\",\nt1.\"sys_roleid\",\nt1.\"sys_rolename\",\nt1.\"updatedate\",\nt1.\"updateman\",\nt1.\"usermode\"\nFROM \"\" t1 \n",
+  "id" : "PSSYSMODELGROUPS/ebsx/PSMODULES/ebsx/PSDATAENTITIES/Role/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

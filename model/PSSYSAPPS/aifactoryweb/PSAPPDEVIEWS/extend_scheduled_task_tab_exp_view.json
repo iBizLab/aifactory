@@ -20,9 +20,9 @@
   "getPSViewLayoutPanel" : {
     "codeName" : "usr0523312624",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_scheduled_task/PSVIEWLAYOUTPANELS/usr0523312624.json",
     "layoutMode" : "FLEX",
     "logicName" : "tab_exp_view分页导航视图布局面板",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_scheduled_task.json"
@@ -237,6 +237,7 @@
     "layoutPanel" : true,
     "useDefaultLayout" : false,
     "viewProxyMode" : true,
+    "name" : "layoutpanel",
     "modelid" : "d955eb98e0e3deaed73224331d20c284",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL",
     "getPSAppViewEngines" : [ {
@@ -248,11 +249,11 @@
       "codeName" : "default",
       "controlType" : "DRTAB",
       "dataRelationTag" : "Default",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_scheduled_task/PSDRTABS/default.json",
       "getEditItemCapPSLanguageRes" : {
         "lanResTag" : "DE.LNAME.EXTEND_SCHEDULED_TASK"
       },
       "editItemCaption" : "扩展计划任务",
-      "name" : "tabexppanel",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_scheduled_task.json"
@@ -284,6 +285,7 @@
         }
       } ],
       "uniqueTag" : "extend_scheduled_task_tab_exp_view__tabexppanel",
+      "name" : "tabexppanel",
       "modelid" : "7766166ed68a380d49b4f8b231ba7d21",
       "modeltype" : "PSDEDRTAB"
     }, {
@@ -293,12 +295,13 @@
       "caption" : "计划任务作业",
       "codeName" : "tab_exp_view_captionbar",
       "controlType" : "CAPTIONBAR",
-      "name" : "captionbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_scheduled_task/PSCAPTIONBARS/tab_exp_view_captionbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_scheduled_task.json"
       },
-      "getPSControlParam" : { }
+      "getPSControlParam" : { },
+      "name" : "captionbar"
     } ]
   },
   "tabLayout" : "TOP",

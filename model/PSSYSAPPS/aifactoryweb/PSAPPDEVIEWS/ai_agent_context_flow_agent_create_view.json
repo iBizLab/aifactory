@@ -360,7 +360,17 @@
           "getPSEditor" : {
             "editorType" : "TEXTBOX",
             "maxLength" : 30,
-            "name" : "code_name"
+            "name" : "code_name",
+            "getPSSysValueRule" : {
+              "codeName" : "CodeName",
+              "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPVALUERULES/CodeName.json",
+              "name" : "代码名称",
+              "regExCode" : "[a-zA-Z_$][a-zA-Z0-9_$]*",
+              "ruleInfo" : "内容只能由字母、数字、下划线组成，且开始必须为字母",
+              "ruleType" : "REG",
+              "uniqueTag" : "CodeName",
+              "enableFront" : true
+            }
           },
           "getPSLayoutPos" : {
             "colLG" : 12,
@@ -731,14 +741,15 @@
   }, {
     "codeName" : "flow_agent_create_view_datainfobar",
     "controlType" : "DATAINFOBAR",
-    "name" : "datainfobar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context/PSDATAINFOBARS/flow_agent_create_view_datainfobar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
     },
     "getPSControlParam" : {
       "id" : "datainfobar"
-    }
+    },
+    "name" : "datainfobar"
   }, {
     "getCapPSLanguageRes" : {
       "lanResTag" : "DE.LNAME.AI_AGENT_CONTEXT"
@@ -746,12 +757,13 @@
     "caption" : "Flow智能体新建",
     "codeName" : "flow_agent_create_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context/PSCAPTIONBARS/flow_agent_create_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "flow_agent_create_view",
   "getPSDEViewId" : "fcbff7cbcbaefcdaa5c3db04b1e9f6d9",
@@ -759,7 +771,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEOPTVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
@@ -767,7 +779,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "flow智能体上下文快速建立",
   "viewStyle" : "DEFAULT",

@@ -191,8 +191,8 @@
   }, {
     "codeName" : "tree_grid_view_toolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk/PSTOOLBARS/tree_grid_view_toolbar.json",
     "logicName" : "知识库文档分块树表格视图_工具栏",
-    "name" : "toolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk.json"
@@ -245,6 +245,7 @@
       "showCaption" : true,
       "showIcon" : true
     } ],
+    "name" : "toolbar",
     "modelid" : "e092bf422852cdf0629bbb4aaeca0530",
     "modeltype" : "PSDETOOLBAR"
   }, {
@@ -576,12 +577,13 @@
     "caption" : "知识库文档分块",
     "codeName" : "tree_grid_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk/PSCAPTIONBARS/tree_grid_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "tree_grid_view",
   "getPSDEViewId" : "d328fc369013f2550ff46fcdcb712158",
@@ -589,7 +591,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDETREEGRIDVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk.json"
@@ -597,7 +599,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "文档分块",
   "viewStyle" : "DEFAULT",

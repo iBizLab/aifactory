@@ -6,15 +6,20 @@
                 <tns:import name="org.springframework.util.StringUtils"/>
                 <tns:import name="cn.ibizlab.util.helper.RuleUtils"/>
                                 <tns:metaData express="" name="ai_agent_contextbinddefault" type="entity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_agent_context()" name="ai_agent_contextbindagent" type="refentity"/>
                                 <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_agent_assignment()" name="ai_agent_contextbindai_agent_assignment" type="refentity"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_agent_contextService))" name="ai_agent_contextservice" type="service"/>
                                     <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_agent_assignmentService))" name="ai_agent_assignmentservice" type="service"/>
                     <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_agent_contextService))" name="iBzSysAi_agent_contextDefaultService" type="service"/>
                     <tns:metaData express="T(cn.ibizlab.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
                             <tns:global identifier="ai_agent_contextbinddefault" type="cn.ibizlab.core.ai.domain.ai_agent_context" />
+                            <tns:global identifier="ai_agent_contextbindagent" type="cn.ibizlab.core.ai.domain.ai_agent_context" />
                             <tns:global identifier="ai_agent_contextbindai_agent_assignment" type="cn.ibizlab.core.ai.domain.ai_agent_assignment" />
             </extensionElements>
                         <startEvent id="begin" isInterrupting="true"/>
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextbindprepareparam_01" id="prepareparam_01" implementation="http://www.jboss.org/drools/rule" name="准备绑定智能体参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextbinddeaction_02" id="deaction_02" implementation="http://www.jboss.org/drools/rule" name="agent"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextbindprepareparam_02" id="prepareparam_02" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextbinddebugparam_01" id="debugparam_01" implementation="http://www.jboss.org/drools/rule" name="调试逻辑参数"/>
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextbinddeaction_01" id="deaction_01" implementation="http://www.jboss.org/drools/rule" name="绑定智能体"/>
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextbindend_01" id="end_01" implementation="http://www.jboss.org/drools/rule" name="结束"/>
@@ -22,7 +27,11 @@
                         <sequenceFlow id="end_01_end_line" sourceRef="end_01" targetRef="end_01_end"/>
                     <sequenceFlow id="begin_prepareparam_01" sourceRef="begin" targetRef="prepareparam_01">
                     </sequenceFlow>
-                    <sequenceFlow id="prepareparam_01_debugparam_01" sourceRef="prepareparam_01" targetRef="debugparam_01">
+                    <sequenceFlow id="prepareparam_01_deaction_02" sourceRef="prepareparam_01" targetRef="deaction_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="deaction_02_prepareparam_02" sourceRef="deaction_02" targetRef="prepareparam_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_02_debugparam_01" sourceRef="prepareparam_02" targetRef="debugparam_01">
                     </sequenceFlow>
                     <sequenceFlow id="debugparam_01_deaction_01" sourceRef="debugparam_01" targetRef="deaction_01">
                     </sequenceFlow>

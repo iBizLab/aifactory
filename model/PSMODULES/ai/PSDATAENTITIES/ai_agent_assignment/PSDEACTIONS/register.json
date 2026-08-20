@@ -1,0 +1,31 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "DELOGIC",
+  "codeName" : "register",
+  "dataAccessAction" : "CREATE",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDEACTIONS/register.json",
+  "logicName" : "register",
+  "name" : "register",
+  "getPSDEActionInput" : {
+    "name" : "RegisterInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_agent_assignment_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "RegisterResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_agent_assignment_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDELOGICS/register.json"
+  },
+  "enableFront" : false
+}

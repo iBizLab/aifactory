@@ -1,0 +1,32 @@
+{
+  "codeName" : "DRItem",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDEDRITEMS/DRItem.json",
+  "itemType" : "DER1N",
+  "name" : "编排",
+  "getPSDER" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDERS/DER1N_AI_AGENT_ASSIGNMENT_AI_AGENT_ASSIGNMENT_COMPOSE_ID.json"
+  },
+  "getPSNavigateParams" : [ {
+    "key" : "n_compose_id_eq",
+    "name" : "n_compose_id_eq",
+    "value" : "n_compose_id_eq",
+    "rawValue" : false
+  } ],
+  "parentDataJO" : {
+    "SRFPARENTTYPE" : "DER1N",
+    "srfparentdename" : "AI_AGENT_ASSIGNMENT",
+    "srfparentmode" : "DER1N_AI_AGENT_ASSIGNMENT_AI_AGENT_ASSIGNMENT_COMPOSE_ID",
+    "srfparentdefname" : "COMPOSE_ID",
+    "SRFDER1NID" : "DER1N_AI_AGENT_ASSIGNMENT_AI_AGENT_ASSIGNMENT_COMPOSE_ID"
+  },
+  "viewCodeName" : "compose",
+  "getViewPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment.json"
+  },
+  "viewParamJO" : {
+    "SRFPARENTTYPE" : "DER1N",
+    "SRFDER1NID" : "DER1N_AI_AGENT_ASSIGNMENT_AI_AGENT_ASSIGNMENT_COMPOSE_ID"
+  }
+}

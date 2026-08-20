@@ -88,7 +88,7 @@
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk.json"
       }
     },
-    "hookEventNames" : [ "ONLOADSUCCESS" ],
+    "hookEventNames" : [ "ONCUSTOMACTION", "ONLOADSUCCESS" ],
     "logicName" : "知识库文档分块信息页_预览_表单",
     "getPSAppDataEntity" : {
       "modelref" : true,
@@ -174,6 +174,13 @@
       "id" : "编辑表单处理器"
     },
     "getPSControlLogics" : [ {
+      "eventNames" : "onCustomAction",
+      "itemName" : "file_preview",
+      "logicTag" : "form",
+      "logicType" : "SCRIPT",
+      "name" : "onInitialized",
+      "scriptCode" : "console.log('编辑器滚动至目标分页---------------');\r\nif(args.tag==='onInitialized' && args.data && args.data.controller && ctrl.state.data.sequence){\r\n    args.data.controller.goToPage(ctrl.state.data.sequence)\r\n}"
+    }, {
       "eventNames" : "onLoadSuccess",
       "logicTag" : "form",
       "logicType" : "SCRIPT",
@@ -961,8 +968,8 @@
   }, {
     "codeName" : "chunk_info_view_toolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk/PSTOOLBARS/chunk_info_view_toolbar.json",
     "logicName" : "知识库文档分块信息页_工具栏",
-    "name" : "toolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk.json"
@@ -971,19 +978,21 @@
       "id" : "TOOLBAR"
     },
     "xDataControlName" : "form",
+    "name" : "toolbar",
     "modelid" : "d3c6040801318f5ae9885e874e97db03",
     "modeltype" : "PSDETOOLBAR"
   }, {
     "codeName" : "chunk_info_view_datainfobar",
     "controlType" : "DATAINFOBAR",
-    "name" : "datainfobar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk/PSDATAINFOBARS/chunk_info_view_datainfobar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk.json"
     },
     "getPSControlParam" : {
       "id" : "datainfobar"
-    }
+    },
+    "name" : "datainfobar"
   }, {
     "getCapPSLanguageRes" : {
       "lanResTag" : "DE.LNAME.AI_KB_CHUNK"
@@ -991,12 +1000,13 @@
     "caption" : "切片",
     "codeName" : "chunk_info_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk/PSCAPTIONBARS/chunk_info_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "chunk_info_view",
   "getPSDEViewId" : "94b8dadb75fb45ab5c8144706d601392",
@@ -1004,7 +1014,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEEDITVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk.json"
@@ -1012,7 +1022,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "文档分块信息",
   "viewStyle" : "DEFAULT",

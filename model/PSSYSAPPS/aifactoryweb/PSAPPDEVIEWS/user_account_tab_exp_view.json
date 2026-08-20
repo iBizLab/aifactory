@@ -18,9 +18,9 @@
   "getPSViewLayoutPanel" : {
     "codeName" : "usr1022583243",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSVIEWLAYOUTPANELS/usr1022583243.json",
     "layoutMode" : "FLEX",
     "logicName" : "account_tab_exp_view分页导航视图布局面板",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
@@ -238,6 +238,7 @@
     "layoutPanel" : true,
     "useDefaultLayout" : false,
     "viewProxyMode" : true,
+    "name" : "layoutpanel",
     "modelid" : "99386e39a9e1b64718f9f7dc6105f21a",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL",
     "getPSAppViewEngines" : [ {
@@ -248,7 +249,7 @@
     "getPSControls" : [ {
       "codeName" : "account_tab_exp_view_tabexppanel",
       "controlType" : "TABEXPPANEL",
-      "name" : "tabexppanel",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSTABEXPPANELS/account_tab_exp_view_tabexppanel.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
@@ -275,7 +276,7 @@
         "caption" : "正常成员",
         "codeName" : "account_tab_exp_view_valid_user",
         "controlType" : "TABVIEWPANEL",
-        "name" : "valid_user",
+        "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSTABVIEWPANELS/account_tab_exp_view_valid_user.json",
         "getPSAppDataEntity" : {
           "modelref" : true,
           "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
@@ -283,6 +284,7 @@
         "getPSControlParam" : {
           "id" : "valid_user"
         },
+        "name" : "valid_user",
         "modelid" : "88548ee5d98c0daa19e8630fb15a8a80_valid_user",
         "modeltype" : "PSVIEWPANEL",
         "getEmbeddedPSAppDEView" : {
@@ -317,9 +319,9 @@
           "getPSViewLayoutPanel" : {
             "codeName" : "usr1022273487",
             "controlType" : "VIEWLAYOUTPANEL",
+            "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSVIEWLAYOUTPANELS/usr1022273487.json",
             "layoutMode" : "FLEX",
             "logicName" : "valid_grid_view表格视图布局",
-            "name" : "layoutpanel",
             "getPSAppDataEntity" : {
               "modelref" : true,
               "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
@@ -497,6 +499,7 @@
             "layoutPanel" : true,
             "useDefaultLayout" : false,
             "viewProxyMode" : true,
+            "name" : "layoutpanel",
             "modelid" : "67cd26f82c073a1c83b762811cba023a",
             "modeltype" : "PSSYSVIEWLAYOUTPANEL",
             "getPSAppViewEngines" : [ {
@@ -1279,8 +1282,8 @@
             }, {
               "codeName" : "valid_grid_view_tabtoolbar",
               "controlType" : "TOOLBAR",
+              "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSTOOLBARS/valid_grid_view_tabtoolbar.json",
               "logicName" : "用户快速新建_工具栏",
-              "name" : "tabtoolbar",
               "getPSAppDataEntity" : {
                 "modelref" : true,
                 "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
@@ -1395,6 +1398,7 @@
                 "showIcon" : true
               } ],
               "xDataControlName" : "grid",
+              "name" : "tabtoolbar",
               "modelid" : "84ed6e4bdf6837f0cf24ef85ebad3275",
               "modeltype" : "PSDETOOLBAR"
             }, {
@@ -1418,12 +1422,13 @@
               "caption" : "正常帐号管理",
               "codeName" : "valid_grid_view_captionbar",
               "controlType" : "CAPTIONBAR",
-              "name" : "captionbar",
+              "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSCAPTIONBARS/valid_grid_view_captionbar.json",
               "getPSAppDataEntity" : {
                 "modelref" : true,
                 "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
               },
-              "getPSControlParam" : { }
+              "getPSControlParam" : { },
+              "name" : "captionbar"
             } ]
           },
           "title" : "正常帐号",
@@ -1499,12 +1504,12 @@
         "caption" : "失效成员",
         "codeName" : "account_tab_exp_view_invalid_user",
         "controlType" : "TABVIEWPANEL",
+        "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSTABVIEWPANELS/account_tab_exp_view_invalid_user.json",
         "getEmbeddedPSAppDEView" : {
           "modelref" : true,
           "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/user_invalid_grid_view.json",
           "viewType" : "DEGRIDVIEW"
         },
-        "name" : "invalid_user",
         "getPSAppDataEntity" : {
           "modelref" : true,
           "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
@@ -1512,6 +1517,7 @@
         "getPSControlParam" : {
           "id" : "invalid_user"
         },
+        "name" : "invalid_user",
         "modelid" : "88548ee5d98c0daa19e8630fb15a8a80_invalid_user",
         "modeltype" : "PSVIEWPANEL"
       } ],
@@ -1522,18 +1528,20 @@
       } ],
       "tabLayout" : "TOP",
       "uniqueTag" : "user_account_tab_exp_view__tabexppanel",
+      "name" : "tabexppanel",
       "modelid" : "88548ee5d98c0daa19e8630fb15a8a80_tabexppanel",
       "modeltype" : "PSTABEXPPANEL"
     }, {
       "caption" : "成员帐号",
       "codeName" : "account_tab_exp_view_captionbar",
       "controlType" : "CAPTIONBAR",
-      "name" : "captionbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSCAPTIONBARS/account_tab_exp_view_captionbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
       },
-      "getPSControlParam" : { }
+      "getPSControlParam" : { },
+      "name" : "captionbar"
     } ]
   },
   "tabLayout" : "TOP",

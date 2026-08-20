@@ -1,0 +1,11 @@
+{
+  "codeName" : "AIDocListByKBDataSetRuntime",
+  "dynaModelFilePath" : "PSSYSSFPLUGINS/AIDocListByKBDataSetRuntime.json",
+  "name" : "AI知识库目录查询",
+  "pluginCode" : "AIDocListByKBDataSetRuntime",
+  "pluginType" : "DEDATASET",
+  "rTObjectName" : "cn.ibizlab.user.plugin.groovy.dataentity.ds.AIDocListByKBDataSetRuntime",
+  "rTObjectSource" : 1,
+  "templCode" : "package cn.ibizlab.user.plugin.groovy.dataentity.ds;\r\n\r\nimport net.ibizsys.central.plugin.util.dataentity.ds.DEDataSetRuntimeBase;\r\nimport org.springframework.data.domain.Page;\r\nimport net.ibizsys.central.util.IEntityDTO;\r\nimport net.ibizsys.central.util.ISearchContextDTO;\r\nimport net.ibizsys.central.util.PageImpl;\r\n\r\n/**\r\n * AI知识库目录查询\r\n */\r\nclass AIDocListByKBDataSetRuntime extends DEDataSetRuntimeBase {\r\n\r\n    @Override\r\n    protected Page<?> doFetchReal(ISearchContextDTO iSearchContextDTO) throws Throwable {\r\n        def kb_id = iSearchContextDTO.get(\"kb_id\")\r\n        def kb_name = iSearchContextDTO.get(\"kb_name\")\r\n        if (!kb_id && !kb_name) {\r\n            throw new RuntimeException(\"请输入查询知识库\")\r\n        }\r\n\r\n        def kb_search = this.getDataEntityRuntime().createSearchContext()\r\n        def kb_list = []\r\n        def doc_runtime = this.getSystemRuntime().dataentity(\"AI_KB_DOCUMENT\")\r\n\r\n        if (!kb_id) {\r\n            kb_search.set(\"query\", kb_name)\r\n            kb_list = this.getDataEntityRuntime().selectDataSet(\"ai_kb_query\", kb_search)\r\n        } else {\r\n            kb_search.eq(\"id\", kb_id)\r\n            kb_list = this.getDataEntityRuntime().select(kb_search)\r\n        }\r\n\r\n        //附带知识库文档目录\r\n        for (kb in kb_list) {\r\n            def doc_search = doc_runtime.createSearchContext().eq(\"kb_id\", kb.get(\"id\"))\r\n            //获取文档清单\r\n            def docs = doc_runtime.selectDataQuery(\"ai_doc_list\", doc_search)\r\n            kb.set(\"docs\", docs)\r\n        }\r\n\r\n        return new PageImpl<IEntityDTO>(kb_list, iSearchContextDTO.getPageable(), kb_list.size(), 1);\r\n\r\n    }\r\n\r\n}\r\n",
+  "runtimeObject" : true
+}

@@ -232,18 +232,21 @@
     "getPSDEGridColumns" : [ {
       "align" : "LEFT",
       "cLConvertMode" : "NONE",
-      "caption" : "模型",
-      "codeName" : "code_name",
+      "getCapPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.AI_MODEL.NAME"
+      },
+      "caption" : "模型名称",
+      "codeName" : "name",
       "columnType" : "DEFGRIDCOLUMN",
-      "dataItemName" : "code_name",
-      "excelCaption" : "模型",
-      "name" : "code_name",
+      "dataItemName" : "name",
+      "excelCaption" : "模型名称",
+      "name" : "name",
       "noPrivDisplayMode" : 1,
       "getPSAppDEField" : {
-        "name" : "CODE_NAME",
-        "codeName" : "code_name"
+        "name" : "NAME",
+        "codeName" : "name"
       },
-      "width" : 250,
+      "width" : 200,
       "widthUnit" : "PX",
       "enableSort" : true
     }, {
@@ -384,13 +387,31 @@
       "width" : 100,
       "widthUnit" : "PX",
       "enableSort" : false
+    }, {
+      "align" : "LEFT",
+      "cLConvertMode" : "NONE",
+      "caption" : "更新时间",
+      "codeName" : "update_time",
+      "columnType" : "DEFGRIDCOLUMN",
+      "dataItemName" : "update_time",
+      "excelCaption" : "更新时间",
+      "name" : "update_time",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "UPDATE_TIME",
+        "codeName" : "update_time"
+      },
+      "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+      "width" : 200,
+      "widthUnit" : "PX",
+      "enableSort" : true
     } ],
     "getPSDEGridDataItems" : [ {
       "dataType" : 25,
-      "name" : "code_name",
+      "name" : "name",
       "getPSAppDEField" : {
-        "name" : "CODE_NAME",
-        "codeName" : "code_name"
+        "name" : "NAME",
+        "codeName" : "name"
       }
     }, {
       "dataType" : 25,
@@ -405,6 +426,14 @@
       "getPSAppDEField" : {
         "name" : "MODEL_CAPABILITY",
         "codeName" : "model_capability"
+      }
+    }, {
+      "format" : "YYYY-MM-DD HH:mm:ss",
+      "dataType" : 5,
+      "name" : "update_time",
+      "getPSAppDEField" : {
+        "name" : "UPDATE_TIME",
+        "codeName" : "update_time"
       }
     }, {
       "dataType" : 25,
@@ -535,8 +564,8 @@
   }, {
     "codeName" : "embedding_provider_grid_view_toolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model/PSTOOLBARS/embedding_provider_grid_view_toolbar.json",
     "logicName" : "嵌入模型提供商工具栏",
-    "name" : "toolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
@@ -618,6 +647,7 @@
       "showIcon" : true
     } ],
     "xDataControlName" : "grid",
+    "name" : "toolbar",
     "modelid" : "8cc40e44c4a46c219c45d1beeac7dfb2",
     "modeltype" : "PSDETOOLBAR"
   }, {
@@ -727,12 +757,13 @@
     "caption" : "模型",
     "codeName" : "embedding_provider_grid_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model/PSCAPTIONBARS/embedding_provider_grid_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "embedding_provider_grid_view",
   "getPSDEViewId" : "81630904564edd38d85a07aa1d52f7eb",
@@ -740,7 +771,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEGRIDVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
@@ -748,7 +779,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "AI大模型表格视图",
   "viewStyle" : "DEFAULT",

@@ -27,9 +27,9 @@
   "getPSViewLayoutPanel" : {
     "codeName" : "usr1213403052",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc/PSVIEWLAYOUTPANELS/usr1213403052.json",
     "layoutMode" : "FLEX",
     "logicName" : "MarketApplicationView卡片视图布局面",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc.json"
@@ -187,6 +187,7 @@
     "layoutPanel" : true,
     "useDefaultLayout" : false,
     "viewProxyMode" : true,
+    "name" : "layoutpanel",
     "modelid" : "1ee60867e9f4b464983e55afd5f10833",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL",
     "getPSAppViewEngines" : [ {
@@ -266,8 +267,8 @@
     "getPSControls" : [ {
       "codeName" : "market_application_view_toolbar",
       "controlType" : "TOOLBAR",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc/PSTOOLBARS/market_application_view_toolbar.json",
       "logicName" : "应用市场_工具栏",
-      "name" : "toolbar",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc.json"
@@ -276,6 +277,7 @@
         "id" : "TOOLBAR"
       },
       "xDataControlName" : "dataview",
+      "name" : "toolbar",
       "modelid" : "3a784b49178fb5317c08568c7227a1d3",
       "modeltype" : "PSDETOOLBAR"
     }, {
@@ -1590,12 +1592,13 @@
       "caption" : "应用市场",
       "codeName" : "market_application_view_captionbar",
       "controlType" : "CAPTIONBAR",
-      "name" : "captionbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc/PSCAPTIONBARS/market_application_view_captionbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc.json"
       },
-      "getPSControlParam" : { }
+      "getPSControlParam" : { },
+      "name" : "captionbar"
     } ]
   },
   "title" : "应用市场",

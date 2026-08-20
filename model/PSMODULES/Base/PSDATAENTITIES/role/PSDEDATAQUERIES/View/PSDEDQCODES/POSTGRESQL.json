@@ -1,0 +1,37 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"authority\"",
+    "name" : "AUTHORITY"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"dcsystemid\"",
+    "name" : "DCSYSTEMID"
+  }, {
+    "expression" : "t1.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.\"globalflag\"",
+    "name" : "GLOBALFLAG"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"authority\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"dcsystemid\",\nt1.\"description\",\nt1.\"globalflag\",\nt1.\"id\",\nt1.\"name\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"\" t1 \n",
+  "id" : "PSMODULES/Base/PSDATAENTITIES/role/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

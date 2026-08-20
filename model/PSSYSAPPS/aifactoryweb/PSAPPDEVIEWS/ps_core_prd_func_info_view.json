@@ -21,9 +21,9 @@
   "getPSViewLayoutPanel" : {
     "codeName" : "usr1205319042",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc/PSVIEWLAYOUTPANELS/usr1205319042.json",
     "layoutMode" : "FLEX",
     "logicName" : "InfoView编辑视图布局面板",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc.json"
@@ -176,6 +176,7 @@
     "layoutPanel" : true,
     "useDefaultLayout" : false,
     "viewProxyMode" : true,
+    "name" : "layoutpanel",
     "modelid" : "0db8f95b8c2c4301402459aff913b45c",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL",
     "getPSAppViewEngines" : [ {
@@ -1993,24 +1994,26 @@
     }, {
       "codeName" : "info_view_datainfobar",
       "controlType" : "DATAINFOBAR",
-      "name" : "datainfobar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc/PSDATAINFOBARS/info_view_datainfobar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc.json"
       },
       "getPSControlParam" : {
         "id" : "datainfobar"
-      }
+      },
+      "name" : "datainfobar"
     }, {
       "caption" : "核心产品功能",
       "codeName" : "info_view_captionbar",
       "controlType" : "CAPTIONBAR",
-      "name" : "captionbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc/PSCAPTIONBARS/info_view_captionbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc.json"
       },
-      "getPSControlParam" : { }
+      "getPSControlParam" : { },
+      "name" : "captionbar"
     } ]
   },
   "title" : "核心产品功能编辑视图",

@@ -1,0 +1,27 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "DELOGIC",
+  "codeName" : "custom_create",
+  "dataAccessAction" : "CREATE",
+  "dynaModelFilePath" : "PSMODULES/Base/PSDATAENTITIES/user/PSDEACTIONS/custom_create.json",
+  "logicName" : "custom_create",
+  "name" : "custom_create",
+  "getPSDEActionInput" : {
+    "name" : "Custom_createInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "user_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "Custom_createResult",
+    "type" : "VOID"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/Base/PSDATAENTITIES/user/PSDELOGICS/custom_create.json"
+  },
+  "enableFront" : false
+}

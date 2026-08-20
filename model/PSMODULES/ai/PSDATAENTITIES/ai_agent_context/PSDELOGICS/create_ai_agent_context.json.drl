@@ -25,19 +25,6 @@ package cn.ibizlab.ai.logic.ai_agent_contextlogic.create_ai_agent_context;
             then
             end
 
-            //逻辑处理节点[输出default参数]
-            rule "debugparam_01"
-            ruleflow-group "ai_agent_contextcreate_ai_agent_contextdebugparam_01"
-            when
-            then
-                        update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
-                        update(ai_agent_contextcreate_ai_agent_contextai_agent_context);//更新fact中变量值
-                        update(ai_agent_contextcreate_ai_agent_contextchat_response);//更新fact中变量值
-                        update(ai_agent_contextcreate_ai_agent_contextlast_return);//更新fact中变量值
-                        update(ai_agent_contextcreate_ai_agent_contextsrfextparams);//更新fact中变量值
-                        update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
-            end
-
             //逻辑处理节点[附加聊天请求]
             rule "sysaichatagent_appendchatrequest_01"
             ruleflow-group "ai_agent_contextcreate_ai_agent_contextsysaichatagent_appendchatrequest_01"
@@ -237,6 +224,19 @@ package cn.ibizlab.ai.logic.ai_agent_contextlogic.create_ai_agent_context;
                         update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
             end
 
+            //逻辑处理节点[执行脚本代码]
+            rule "rawsfcode_01"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextrawsfcode_01"
+            when
+            then
+                        update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextai_agent_context);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextchat_response);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextlast_return);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextsrfextparams);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
+            end
+
             //逻辑处理节点[建立智能体]
             rule "deaction_03"
             ruleflow-group "ai_agent_contextcreate_ai_agent_contextdeaction_03"
@@ -251,9 +251,9 @@ package cn.ibizlab.ai.logic.ai_agent_contextlogic.create_ai_agent_context;
                         update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
             end
 
-            //逻辑处理节点[下一步或重新生成]
-            rule "sysaichatagent_chatinput_02"
-            ruleflow-group "ai_agent_contextcreate_ai_agent_contextsysaichatagent_chatinput_02"
+            //逻辑处理节点[输出default参数]
+            rule "debugparam_01"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextdebugparam_01"
             when
             then
                         update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
@@ -264,9 +264,9 @@ package cn.ibizlab.ai.logic.ai_agent_contextlogic.create_ai_agent_context;
                         update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
             end
 
-            //逻辑处理节点[回写查看建立数据的按钮]
-            rule "sysaichatagent_chatuiaction_01"
-            ruleflow-group "ai_agent_contextcreate_ai_agent_contextsysaichatagent_chatuiaction_01"
+            //逻辑处理节点[下一步或重新生成]
+            rule "sysaichatagent_chatinput_02"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextsysaichatagent_chatinput_02"
             when
             then
                         update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
@@ -307,6 +307,19 @@ package cn.ibizlab.ai.logic.ai_agent_contextlogic.create_ai_agent_context;
             //逻辑处理节点[等待输入]
             rule "sysaichatagent_chatinput_04"
             ruleflow-group "ai_agent_contextcreate_ai_agent_contextsysaichatagent_chatinput_04"
+            when
+            then
+                        update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextai_agent_context);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextchat_response);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextlast_return);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contextsrfextparams);//更新fact中变量值
+                        update(ai_agent_contextcreate_ai_agent_contexttemp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[回写查看建立数据的按钮]
+            rule "sysaichatagent_chatuiaction_01"
+            ruleflow-group "ai_agent_contextcreate_ai_agent_contextsysaichatagent_chatuiaction_01"
             when
             then
                         update(ai_agent_contextcreate_ai_agent_contextdefault);//更新fact中变量值

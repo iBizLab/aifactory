@@ -144,6 +144,8 @@
     "id" : "organization_id",
     "hidden" : true,
     "dataType" : 25,
+    "createDVT" : "APPDATA",
+    "createDV" : "organization",
     "getPSAppDEField" : {
       "name" : "ORGANIZATION_ID",
       "codeName" : "organization_id"
@@ -294,6 +296,8 @@
       }, {
         "caption" : "组织标识",
         "codeName" : "organization_id",
+        "createDV" : "organization",
+        "createDVT" : "APPDATA",
         "dataType" : 25,
         "detailStyle" : "DEFAULT",
         "detailType" : "FORMITEM",

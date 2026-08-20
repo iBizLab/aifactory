@@ -111,8 +111,8 @@
   "getPSControls" : [ {
     "codeName" : "global_flow_grid_view_toolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic/PSTOOLBARS/global_flow_grid_view_toolbar.json",
     "logicName" : "自动化规则逻辑表格视图_工具栏",
-    "name" : "toolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
@@ -247,6 +247,7 @@
       "showIcon" : true
     } ],
     "xDataControlName" : "grid",
+    "name" : "toolbar",
     "modelid" : "fd611a209d7424558911bccc18da22a3",
     "modeltype" : "PSDETOOLBAR"
   }, {
@@ -523,6 +524,42 @@
             "uIActionTag" : "open_quick_cfg_view",
             "uIActionType" : "DEUIACTION",
             "id" : "open_quick_cfg_view@PSDELogic"
+          },
+          "addSeparator" : false,
+          "showCaption" : true,
+          "showIcon" : true
+        }, {
+          "caption" : "模型编辑",
+          "detailType" : "DEUIACTION",
+          "name" : "u07f16dd",
+          "getPSSysImage" : {
+            "glyph" : "xf044@FontAwesome",
+            "cssClass" : "fa fa-edit"
+          },
+          "getPSUIAction" : {
+            "actionTarget" : "SINGLEKEY",
+            "caption" : "模型编辑",
+            "codeName" : "model_data",
+            "getFrontPSAppView" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/psde_logic_model_data_view.json",
+              "viewType" : "DEEDITVIEW"
+            },
+            "frontProcessType" : "WIZARD",
+            "fullCodeName" : "PSDELogic_model_data",
+            "name" : "模型编辑",
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
+            },
+            "getPSSysImage" : {
+              "glyph" : "xf044@FontAwesome",
+              "cssClass" : "fa fa-edit"
+            },
+            "uIActionMode" : "FRONT",
+            "uIActionTag" : "model_data",
+            "uIActionType" : "DEUIACTION",
+            "id" : "model_data@PSDELogic"
           },
           "addSeparator" : false,
           "showCaption" : true,
@@ -958,12 +995,13 @@
     "caption" : "全部规则",
     "codeName" : "global_flow_grid_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic/PSCAPTIONBARS/global_flow_grid_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "global_flow_grid_view",
   "getPSDEViewId" : "f7acd05981401ad39ea18f10765a77ca",
@@ -971,7 +1009,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEGRIDVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
@@ -979,7 +1017,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "自动化规则",
   "viewStyle" : "DEFAULT",

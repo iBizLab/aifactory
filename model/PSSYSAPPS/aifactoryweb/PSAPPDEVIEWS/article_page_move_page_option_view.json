@@ -24,9 +24,9 @@
   "getPSViewLayoutPanel" : {
     "codeName" : "usr0528297807",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page/PSVIEWLAYOUTPANELS/usr0528297807.json",
     "layoutMode" : "FLEX",
     "logicName" : "move_page_option_view选项操作视图布局面",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page.json"
@@ -251,6 +251,7 @@
     "layoutPanel" : true,
     "useDefaultLayout" : false,
     "viewProxyMode" : true,
+    "name" : "layoutpanel",
     "modelid" : "7158595f6ffbb061685e09488aecfd5f",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL",
     "getPSAppViewEngines" : [ {
@@ -777,24 +778,26 @@
     }, {
       "codeName" : "move_page_option_view_datainfobar",
       "controlType" : "DATAINFOBAR",
-      "name" : "datainfobar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page/PSDATAINFOBARS/move_page_option_view_datainfobar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page.json"
       },
       "getPSControlParam" : {
         "id" : "datainfobar"
-      }
+      },
+      "name" : "datainfobar"
     }, {
       "caption" : "移动页面",
       "codeName" : "move_page_option_view_captionbar",
       "controlType" : "CAPTIONBAR",
-      "name" : "captionbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page/PSCAPTIONBARS/move_page_option_view_captionbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page.json"
       },
-      "getPSControlParam" : { }
+      "getPSControlParam" : { },
+      "name" : "captionbar"
     } ]
   },
   "refFlag" : false,

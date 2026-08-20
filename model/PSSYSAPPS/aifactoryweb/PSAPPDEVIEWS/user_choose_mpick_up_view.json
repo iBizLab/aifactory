@@ -18,6 +18,7 @@
   "getPSControls" : [ {
     "codeName" : "choose_mpick_up_view_pickupviewpanel",
     "controlType" : "PICKUPVIEWPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSPICKUPVIEWPANELS/choose_mpick_up_view_pickupviewpanel.json",
     "getEmbeddedPSAppDEView" : {
       "accUserMode" : 2,
       "caption" : "用户选择",
@@ -473,12 +474,13 @@
         "caption" : "用户选择",
         "codeName" : "choose_pick_up_grid_view_captionbar",
         "controlType" : "CAPTIONBAR",
-        "name" : "captionbar",
+        "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSCAPTIONBARS/choose_pick_up_grid_view_captionbar.json",
         "getPSAppDataEntity" : {
           "modelref" : true,
           "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
         },
-        "getPSControlParam" : { }
+        "getPSControlParam" : { },
+        "name" : "captionbar"
       } ],
       "getPSDEViewCodeName" : "choose_pick_up_grid_view",
       "getPSDEViewId" : "77e604f6ea062c6064bad9a11d0f0032",
@@ -486,7 +488,7 @@
         "codeName" : "layoutpanel",
         "controlStyle" : "APPDEPICKUPGRIDVIEW",
         "controlType" : "VIEWLAYOUTPANEL",
-        "name" : "layoutpanel",
+        "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSVIEWLAYOUTPANELS/layoutpanel.json",
         "getPSAppDataEntity" : {
           "modelref" : true,
           "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
@@ -494,7 +496,8 @@
         "getPSControlParam" : { },
         "layoutBodyOnly" : true,
         "layoutPanel" : true,
-        "useDefaultLayout" : true
+        "useDefaultLayout" : true,
+        "name" : "layoutpanel"
       },
       "title" : "用户选择",
       "viewStyle" : "DEFAULT",
@@ -565,14 +568,14 @@
         "rSMode" : 2
       } ] ]
     },
-    "name" : "pickupviewpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
     },
     "getPSControlParam" : {
       "id" : "PICKUPVIEWPANEL"
-    }
+    },
+    "name" : "pickupviewpanel"
   }, {
     "codeName" : "simplelist",
     "controlStyle" : "SAMPLE_LIST",
@@ -863,7 +866,7 @@
   }, {
     "codeName" : "choose_mpick_up_view_treeexpbar",
     "controlType" : "TREEEXPBAR",
-    "name" : "treeexpbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSTREEEXPBARS/choose_mpick_up_view_treeexpbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
@@ -1062,8 +1065,8 @@
       "getPSControls" : [ {
         "codeName" : "choose_mpick_up_view_dept_cm",
         "controlType" : "CONTEXTMENU",
+        "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSCONTEXTMENUS/choose_mpick_up_view_dept_cm.json",
         "logicName" : "下级部门快速新建_工具栏",
-        "name" : "dept_cm",
         "getPSAppDataEntity" : {
           "modelref" : true,
           "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
@@ -1192,13 +1195,14 @@
           "showCaption" : true,
           "showIcon" : true
         } ],
+        "name" : "dept_cm",
         "modelid" : "c4d4eced9cb95f03417018e3f8fd3d99",
         "modeltype" : "PSDETOOLBAR"
       }, {
         "codeName" : "choose_mpick_up_view_node1_cm",
         "controlType" : "CONTEXTMENU",
+        "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSCONTEXTMENUS/choose_mpick_up_view_node1_cm.json",
         "logicName" : "组织快速操作_工具栏",
-        "name" : "node_1_cm",
         "getPSAppDataEntity" : {
           "modelref" : true,
           "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
@@ -1287,13 +1291,14 @@
           "showCaption" : true,
           "showIcon" : true
         } ],
+        "name" : "node_1_cm",
         "modelid" : "725a0db169f6f701334ab99085014162",
         "modeltype" : "PSDETOOLBAR"
       }, {
         "codeName" : "choose_mpick_up_view_node_cm",
         "controlType" : "CONTEXTMENU",
+        "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSCONTEXTMENUS/choose_mpick_up_view_node_cm.json",
         "logicName" : "下级部门快速新建_工具栏",
-        "name" : "node_cm",
         "getPSAppDataEntity" : {
           "modelref" : true,
           "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
@@ -1422,6 +1427,7 @@
           "showCaption" : true,
           "showIcon" : true
         } ],
+        "name" : "node_cm",
         "modelid" : "c4d4eced9cb95f03417018e3f8fd3d99",
         "modeltype" : "PSDETOOLBAR"
       } ],
@@ -1670,8 +1676,8 @@
         "getPSDEContextMenu" : {
           "codeName" : "choose_mpick_up_view_dept_cm",
           "controlType" : "CONTEXTMENU",
+          "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSCONTEXTMENUS/choose_mpick_up_view_dept_cm.json",
           "logicName" : "下级部门快速新建_工具栏",
-          "name" : "dept_cm",
           "getPSAppDataEntity" : {
             "modelref" : true,
             "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
@@ -1800,6 +1806,7 @@
             "showCaption" : true,
             "showIcon" : true
           } ],
+          "name" : "dept_cm",
           "modelid" : "c4d4eced9cb95f03417018e3f8fd3d99",
           "modeltype" : "PSDETOOLBAR"
         },
@@ -1896,8 +1903,8 @@
         "getPSDEContextMenu" : {
           "codeName" : "choose_mpick_up_view_node_cm",
           "controlType" : "CONTEXTMENU",
+          "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSCONTEXTMENUS/choose_mpick_up_view_node_cm.json",
           "logicName" : "下级部门快速新建_工具栏",
-          "name" : "node_cm",
           "getPSAppDataEntity" : {
             "modelref" : true,
             "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
@@ -2026,6 +2033,7 @@
             "showCaption" : true,
             "showIcon" : true
           } ],
+          "name" : "node_cm",
           "modelid" : "c4d4eced9cb95f03417018e3f8fd3d99",
           "modeltype" : "PSDETOOLBAR"
         },
@@ -2118,8 +2126,8 @@
         "getPSDEContextMenu" : {
           "codeName" : "choose_mpick_up_view_node1_cm",
           "controlType" : "CONTEXTMENU",
+          "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSCONTEXTMENUS/choose_mpick_up_view_node1_cm.json",
           "logicName" : "组织快速操作_工具栏",
-          "name" : "node_1_cm",
           "getPSAppDataEntity" : {
             "modelref" : true,
             "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
@@ -2208,6 +2216,7 @@
             "showCaption" : true,
             "showIcon" : true
           } ],
+          "name" : "node_1_cm",
           "modelid" : "725a0db169f6f701334ab99085014162",
           "modeltype" : "PSDETOOLBAR"
         },
@@ -2316,27 +2325,29 @@
     "enableCounter" : true,
     "enableSearch" : false,
     "showTitleBar" : true,
+    "name" : "treeexpbar",
     "modelid" : "1193760e980f4a9a0e4b127870cc2d47_treeexpbar",
     "modeltype" : "PSEXPBAR"
   }, {
     "caption" : "选择成员",
     "codeName" : "choose_mpick_up_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSCAPTIONBARS/choose_mpick_up_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "choose_mpick_up_view",
   "getPSDEViewId" : "ffe9f80c210c789a89cd5c9a8e20223d",
   "getPSViewLayoutPanel" : {
     "codeName" : "ex_m_pickup_view2_layout",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSVIEWLAYOUTPANELS/ex_m_pickup_view2_layout.json",
     "layoutMode" : "Flex",
     "logicName" : "多项数据选择视图(左右关系)布局面板(扩展)",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
@@ -2648,6 +2659,7 @@
     "layoutBodyOnly" : false,
     "layoutPanel" : true,
     "useDefaultLayout" : false,
+    "name" : "layoutpanel",
     "modelid" : "1846bc936df8e5bd158805cd594484b3",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL"
   },

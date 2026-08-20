@@ -94,13 +94,7 @@
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/article_page/PSDEACTIONS/commit_version.json"
       },
       "name" : "附加逻辑",
-      "getPSDELogic" : {
-        "modelref" : true,
-        "path" : "PSMODULES/Wiki/PSDATAENTITIES/article_page/PSDELOGICS/commit_version.json"
-      },
-      "prepareLastMode" : 1,
-      "internalLogic" : false,
-      "prepareLast" : true
+      "internalLogic" : false
     } ],
     "codeName" : "Update",
     "dataAccessAction" : "UPDATE",
@@ -121,9 +115,7 @@
       "name" : "UpdateResult",
       "type" : "VOID"
     },
-    "prepareLastMode" : 1,
-    "builtinAction" : true,
-    "prepareLast" : true
+    "builtinAction" : true
   }, {
     "actionMode" : "DELETE",
     "actionType" : "BUILTIN",
@@ -1336,6 +1328,7 @@
     "logicName" : "数据查询",
     "name" : "DEFAULT",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/article_page.json"
@@ -1372,6 +1365,7 @@
     "logicName" : "默认（全部数据）",
     "name" : "VIEW",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/article_page.json"
@@ -1408,6 +1402,7 @@
     "logicName" : "高级搜索",
     "name" : "advanced_search",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/article_page.json"
@@ -1484,6 +1479,7 @@
     "logicName" : "全部共享页面查询",
     "name" : "all_shared_pages",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/article_page.json"
@@ -1560,6 +1556,7 @@
     "logicName" : "子页面",
     "name" : "child_page",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/article_page.json"
@@ -1641,6 +1638,7 @@
     "logicName" : "选择共享页面",
     "name" : "choose_shared",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/article_page.json"
@@ -1707,6 +1705,7 @@
     "logicName" : "草稿页面",
     "name" : "draft_page",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/article_page.json"
@@ -1778,6 +1777,7 @@
     "logicName" : "主页",
     "name" : "home_page",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/article_page.json"
@@ -1830,6 +1830,7 @@
     "logicName" : "已删除页面",
     "name" : "is_deleted",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/article_page.json"
@@ -1881,6 +1882,7 @@
     "logicName" : "我的收藏",
     "name" : "my_favorite_page",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getChildPSDEDQJoins" : [ {
         "getDERPSDataEntity" : {
           "modelref" : true,
@@ -1984,6 +1986,7 @@
     "logicName" : "过滤器默认查询",
     "name" : "my_filter",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getChildPSDEDQJoins" : [ {
         "getDERPSDataEntity" : {
           "modelref" : true,
@@ -2097,6 +2100,7 @@
     "logicName" : "无父页面",
     "name" : "no_parent_page",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/article_page.json"
@@ -2188,6 +2192,7 @@
     "logicName" : "正常",
     "name" : "normal",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/article_page.json"
@@ -2260,6 +2265,7 @@
     "memo" : "只查询页面。不包含分组及草稿",
     "name" : "only_page",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/article_page.json"
@@ -2331,6 +2337,7 @@
     "logicName" : "public",
     "name" : "public",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getChildPSDEDQJoins" : [ {
         "getDERPSDataEntity" : {
           "modelref" : true,
@@ -2398,6 +2405,7 @@
     "logicName" : "reader",
     "name" : "reader",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getChildPSDEDQJoins" : [ {
         "getChildPSDEDQJoins" : [ {
           "getDERPSDataEntity" : {
@@ -2482,6 +2490,7 @@
     "logicName" : "共享页面",
     "name" : "shared_page",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/article_page.json"
@@ -2565,6 +2574,7 @@
     "logicName" : "共享自读权限",
     "name" : "shared_reader",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/article_page.json"
@@ -2656,6 +2666,7 @@
     "logicName" : "共享搜索页面",
     "name" : "shared_search",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/article_page.json"
@@ -2738,6 +2749,7 @@
     "logicName" : "共享子页面",
     "name" : "shared_sub_pages",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Wiki/PSDATAENTITIES/article_page.json"
@@ -2811,6 +2823,7 @@
     "logicName" : "与我共享",
     "name" : "shared_with_me",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getChildPSDEDQJoins" : [ {
         "getDERPSDataEntity" : {
           "modelref" : true,
@@ -2951,6 +2964,7 @@
     "logicName" : "与我共享编辑权限",
     "name" : "shared_with_me_edit",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getChildPSDEDQJoins" : [ {
         "getDERPSDataEntity" : {
           "modelref" : true,

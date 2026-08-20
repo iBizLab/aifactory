@@ -23,26 +23,7 @@
     "topPos" : 200,
     "parallelOutput" : true
   }, {
-    "codeName" : "DEACTION_01",
-    "getDstPSDEAction" : {
-      "modelref" : true,
-      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEACTIONS/reason.json"
-    },
-    "getDstPSDELogicParam" : {
-      "modelref" : true,
-      "id" : "kb_temp"
-    },
-    "getDstPSDataEntity" : {
-      "modelref" : true,
-      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
-    },
-    "leftPos" : 830,
-    "logicNodeType" : "DEACTION",
-    "name" : "知识库推理",
-    "topPos" : 280,
-    "parallelOutput" : true
-  }, {
-    "code" : "def _defualt = logic.param('Default').getReal()\r\ndef kb_list = logic.param('kb_list').getReal()\r\ndef kb_ids = _defualt.get('kb_ids')\r\nif(kb_ids) {\r\n    def kb_runtime = sys.dataentity('AI_KNOWLEDGE_BASE')\r\n    groovy.json.JsonSlurper jsonParser = new groovy.json.JsonSlurper()\r\n    def kbs = jsonParser.parseText(kb_ids)\r\n    if (kbs.size() > 0) {\r\n        kbs.each { it ->\r\n            def kb = kb_runtime.entity()\r\n            kb.set('id', it.get('id'))\r\n            kb.set('agenttag', _defualt.get('code_name'))\r\n            kb_list.add(kb)\r\n        }\r\n    }    \r\n}\r\n",
+    "code" : "def _defualt = logic.param('Default').getReal()\r\ndef kb_list = logic.param('kb_list').getReal()\r\ndef kb_ids = _defualt.get('kb_ids')\r\nif(kb_ids) {\r\n    def kb_runtime = sys.dataentity('AI_KNOWLEDGE_BASE')\r\n    def kbs = null\r\n    // 情况1：kb_ids是字符串形式的json数组，如 \"[{\\\"id\\\":\\\"1\\\"},{\\\"id\\\":\\\"2\\\"}]\"\r\n    // 情况2：kb_ids本身就是json数组(List)\r\n    // 情况3：kb_ids是逗号分隔的id字符串，如 \"1,2,3\"\r\n    if (kb_ids instanceof String) {\r\n        def str = kb_ids.trim()\r\n        if (str.startsWith('[')) {\r\n            // 情况1：字符串形式的json数组\r\n            kbs = new groovy.json.JsonSlurper().parseText(str)\r\n        } else {\r\n            // 情况3：逗号分隔的id字符串\r\n            kbs = str.split(',').collect { it.trim() }.findAll { it }\r\n        }\r\n    } else if (kb_ids instanceof List) {\r\n        // 情况2：本身就是json数组(List)\r\n        kbs = kb_ids\r\n    }\r\n    if (kbs && kbs.size() > 0) {\r\n        kbs.each { it ->\r\n            def kb = kb_runtime.entity()\r\n            // 兼容元素为Map（含id属性）或直接为id字符串两种情况\r\n            def id = (it instanceof Map) ? it.get('id') : it\r\n            kb.set('id', id)\r\n            kb.set('agenttag', _defualt.get('code_name'))\r\n            kb_list.add(kb)\r\n        }\r\n    }\r\n}",
     "codeName" : "RAWSFCODE_01",
     "codeType" : "Groovy",
     "leftPos" : 160,
@@ -104,37 +85,30 @@
     "topPos" : 350,
     "parallelOutput" : true
   }, {
+    "codeName" : "DELOGIC_01",
+    "getDstPSDELogic" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDELOGICS/deep_research.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "kb_temp"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+    },
+    "leftPos" : 870,
+    "logicNodeType" : "DELOGIC",
+    "name" : "知识库研究",
+    "topPos" : 360,
+    "parallelOutput" : true
+  }, {
     "codeName" : "PREPAREPARAM_01",
     "leftPos" : 560,
     "logicNodeType" : "PREPAREPARAM",
     "name" : "准备参数",
     "getPSDELogicLinks" : [ {
-      "getDstPSDELogicNode" : {
-        "modelref" : true,
-        "id" : "DEACTION_01"
-      },
-      "name" : "连接名称",
-      "getPSDELogicLinkGroupCond" : {
-        "groupOP" : "AND",
-        "logicType" : "GROUP",
-        "name" : "连接条件组",
-        "getPSDELogicLinkConds" : [ {
-          "condOP" : "EQ",
-          "dstFieldName" : "DEEP_RESEARCH",
-          "getDstLogicParam" : {
-            "modelref" : true,
-            "id" : "Default"
-          },
-          "logicType" : "SINGLE",
-          "name" : "Default[DEEP_RESEARCH] 等于(=) 0",
-          "paramValue" : "0"
-        } ]
-      },
-      "getSrcPSDELogicNode" : {
-        "modelref" : true,
-        "id" : "PREPAREPARAM_01"
-      }
-    }, {
       "getDstPSDELogicNode" : {
         "modelref" : true,
         "id" : "DELOGIC_01"
@@ -172,42 +146,33 @@
         "name" : "连接条件组",
         "getPSDELogicLinkConds" : [ {
           "condOP" : "EQ",
-          "dstFieldName" : "DEEP_RESEARCH",
+          "dstFieldName" : "USE_FULLTEXT",
           "getDstLogicParam" : {
             "modelref" : true,
             "id" : "Default"
           },
           "logicType" : "SINGLE",
-          "name" : "Default[DEEP_RESEARCH] 等于(=) 2",
-          "paramValue" : "2"
+          "name" : "Default[USE_FULLTEXT] 等于(=) 1",
+          "paramValue" : "1"
         } ]
       },
       "getSrcPSDELogicNode" : {
         "modelref" : true,
         "id" : "PREPAREPARAM_01"
       }
+    }, {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_01"
+      },
+      "defaultLink" : true
     } ],
-    "topPos" : 390,
-    "parallelOutput" : true
-  }, {
-    "codeName" : "DELOGIC_01",
-    "getDstPSDELogic" : {
-      "modelref" : true,
-      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDELOGICS/deep_research.json"
-    },
-    "getDstPSDELogicParam" : {
-      "modelref" : true,
-      "id" : "kb_temp"
-    },
-    "getDstPSDataEntity" : {
-      "modelref" : true,
-      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
-    },
-    "leftPos" : 830,
-    "logicNodeType" : "DELOGIC",
-    "name" : "知识库研究",
-    "topPos" : 430,
-    "parallelOutput" : true
+    "topPos" : 390
   }, {
     "codeName" : "LOOPSUBCALL_01",
     "getDstPSDELogicParam" : {
@@ -259,10 +224,10 @@
       "modelref" : true,
       "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
     },
-    "leftPos" : 830,
+    "leftPos" : 886,
     "logicNodeType" : "DELOGIC",
     "name" : "知识库全文推理",
-    "topPos" : 580,
+    "topPos" : 490,
     "parallelOutput" : true
   }, {
     "codeName" : "END_01",
@@ -275,6 +240,25 @@
     },
     "returnType" : "LOGICPARAM",
     "topPos" : 660,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEACTION_01",
+    "getDstPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base/PSDEACTIONS/reason.json"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "kb_temp"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+    },
+    "leftPos" : 840,
+    "logicNodeType" : "DEACTION",
+    "name" : "知识库推理",
+    "topPos" : 680,
     "parallelOutput" : true
   } ],
   "getPSDELogicParams" : [ {

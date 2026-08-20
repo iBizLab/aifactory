@@ -1,0 +1,237 @@
+package cn.ibizlab.base.logic.userlogic.custom_create;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.base.domain.user usercustom_createdefault;
+                global cn.ibizlab.core.base.domain.role_member usercustom_creatememberfilter;
+                global cn.ibizlab.core.base.domain.role_member usercustom_creatememberlist;
+                global cn.ibizlab.core.base.domain.role usercustom_createrole;
+                global cn.ibizlab.core.base.domain.role usercustom_createrolefilter;
+                global cn.ibizlab.core.base.domain.role usercustom_createrolelist;
+                global cn.ibizlab.core.base.domain.role_member usercustom_createrole_member;
+                global cn.ibizlab.core.base.domain.role usercustom_createsub_role;
+                    global cn.ibizlab.core.base.service.IuserService userservice;
+                    global cn.ibizlab.core.base.service.Irole_memberService role_memberservice;
+                    global cn.ibizlab.core.base.service.IroleService roleservice;
+        global cn.ibizlab.core.base.service.IuserService iBzSysUserDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "usercustom_createbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[设置属性]
+            rule "prepareparam_01"
+            ruleflow-group "usercustom_createprepareparam_01"
+            when
+            then
+                                usercustom_createdefault.set("id",null);
+                            usercustom_createdefault.set("password","207CF410532F92A47DEE245CE9B11FF71F578EBD763EB3BBEA44EBD043D018FB");
+                        update(usercustom_createdefault);//更新fact中变量值
+                        update(usercustom_creatememberfilter);//更新fact中变量值
+                        update(usercustom_creatememberlist);//更新fact中变量值
+                        update(usercustom_createrole);//更新fact中变量值
+                        update(usercustom_createrolefilter);//更新fact中变量值
+                        update(usercustom_createrolelist);//更新fact中变量值
+                        update(usercustom_createrole_member);//更新fact中变量值
+                        update(usercustom_createsub_role);//更新fact中变量值
+            end
+
+            //逻辑处理节点[设置角色成员查询条件]
+            rule "prepareparam_04"
+            ruleflow-group "usercustom_createprepareparam_04"
+            when
+            then
+                            usercustom_creatememberfilter.set("n_role_id_eq","ROLE_USERS");
+                            usercustom_creatememberfilter.set("n_member_uid_eq",usercustom_createdefault.get("id"));
+                        update(usercustom_createdefault);//更新fact中变量值
+                        update(usercustom_creatememberfilter);//更新fact中变量值
+                        update(usercustom_creatememberlist);//更新fact中变量值
+                        update(usercustom_createrole);//更新fact中变量值
+                        update(usercustom_createrolefilter);//更新fact中变量值
+                        update(usercustom_createrolelist);//更新fact中变量值
+                        update(usercustom_createrole_member);//更新fact中变量值
+                        update(usercustom_createsub_role);//更新fact中变量值
+            end
+
+            //逻辑处理节点[创建成员]
+            rule "deaction_01"
+            ruleflow-group "usercustom_createdeaction_01"
+            when
+            then
+                        userservice.create(usercustom_createdefault);
+                        update(usercustom_createdefault);//更新fact中变量值
+                        update(usercustom_creatememberfilter);//更新fact中变量值
+                        update(usercustom_creatememberlist);//更新fact中变量值
+                        update(usercustom_createrole);//更新fact中变量值
+                        update(usercustom_createrolefilter);//更新fact中变量值
+                        update(usercustom_createrolelist);//更新fact中变量值
+                        update(usercustom_createrole_member);//更新fact中变量值
+                        update(usercustom_createsub_role);//更新fact中变量值
+            end
+
+            //逻辑处理节点[查询默认角色]
+            rule "dedataset_02"
+            ruleflow-group "usercustom_creatededataset_02"
+            when
+            then
+                        update(usercustom_createdefault);//更新fact中变量值
+                        update(usercustom_creatememberfilter);//更新fact中变量值
+                        update(usercustom_creatememberlist);//更新fact中变量值
+                        update(usercustom_createrole);//更新fact中变量值
+                        update(usercustom_createrolefilter);//更新fact中变量值
+                        update(usercustom_createrolelist);//更新fact中变量值
+                        update(usercustom_createrole_member);//更新fact中变量值
+                        update(usercustom_createsub_role);//更新fact中变量值
+            end
+
+            //逻辑处理节点[初始化密码]
+            rule "deaction_03"
+            ruleflow-group "usercustom_createdeaction_03"
+            when
+            then
+                        userservice.initPwd(usercustom_createdefault);
+                        update(usercustom_createdefault);//更新fact中变量值
+                        update(usercustom_creatememberfilter);//更新fact中变量值
+                        update(usercustom_creatememberlist);//更新fact中变量值
+                        update(usercustom_createrole);//更新fact中变量值
+                        update(usercustom_createrolefilter);//更新fact中变量值
+                        update(usercustom_createrolelist);//更新fact中变量值
+                        update(usercustom_createrole_member);//更新fact中变量值
+                        update(usercustom_createsub_role);//更新fact中变量值
+            end
+
+            //逻辑处理节点[设置角色查询条件]
+            rule "prepareparam_02"
+            ruleflow-group "usercustom_createprepareparam_02"
+            when
+            then
+                            usercustom_createrolefilter.set("n_dcsystemid_eq","ibizaifactory");
+                            usercustom_createrolefilter.set("n_authority_eq","AIFACTORY_ACCESS");
+                        update(usercustom_createdefault);//更新fact中变量值
+                        update(usercustom_creatememberfilter);//更新fact中变量值
+                        update(usercustom_creatememberlist);//更新fact中变量值
+                        update(usercustom_createrole);//更新fact中变量值
+                        update(usercustom_createrolefilter);//更新fact中变量值
+                        update(usercustom_createrolelist);//更新fact中变量值
+                        update(usercustom_createrole_member);//更新fact中变量值
+                        update(usercustom_createsub_role);//更新fact中变量值
+            end
+
+            //逻辑处理节点[查询默认角色]
+            rule "dedataset_01"
+            ruleflow-group "usercustom_creatededataset_01"
+            when
+            then
+                        update(usercustom_createdefault);//更新fact中变量值
+                        update(usercustom_creatememberfilter);//更新fact中变量值
+                        update(usercustom_creatememberlist);//更新fact中变量值
+                        update(usercustom_createrole);//更新fact中变量值
+                        update(usercustom_createrolefilter);//更新fact中变量值
+                        update(usercustom_createrolelist);//更新fact中变量值
+                        update(usercustom_createrole_member);//更新fact中变量值
+                        update(usercustom_createsub_role);//更新fact中变量值
+            end
+
+            //逻辑处理节点[循环子调用]
+            rule "loopsubcall_01"
+            ruleflow-group "usercustom_createloopsubcall_01"
+            when
+            then
+                        update(usercustom_createdefault);//更新fact中变量值
+                        update(usercustom_creatememberfilter);//更新fact中变量值
+                        update(usercustom_creatememberlist);//更新fact中变量值
+                        update(usercustom_createrole);//更新fact中变量值
+                        update(usercustom_createrolefilter);//更新fact中变量值
+                        update(usercustom_createrolelist);//更新fact中变量值
+                        update(usercustom_createrole_member);//更新fact中变量值
+                        update(usercustom_createsub_role);//更新fact中变量值
+            end
+
+            //逻辑处理节点[调试逻辑参数]
+            rule "debugparam_01"
+            ruleflow-group "usercustom_createdebugparam_01"
+            when
+            then
+                        update(usercustom_createdefault);//更新fact中变量值
+                        update(usercustom_creatememberfilter);//更新fact中变量值
+                        update(usercustom_creatememberlist);//更新fact中变量值
+                        update(usercustom_createrole);//更新fact中变量值
+                        update(usercustom_createrolefilter);//更新fact中变量值
+                        update(usercustom_createrolelist);//更新fact中变量值
+                        update(usercustom_createrole_member);//更新fact中变量值
+                        update(usercustom_createsub_role);//更新fact中变量值
+            end
+
+            //逻辑处理节点[设置用户权限]
+            rule "prepareparam_03"
+            ruleflow-group "usercustom_createprepareparam_03"
+            when
+            then
+                            usercustom_createrole_member.set("roleid",usercustom_createsub_role.get("id"));
+                            usercustom_createrole_member.set("memberuid",usercustom_createdefault.get("id"));
+                            usercustom_createrole_member.set("name",usercustom_createdefault.get("displayname"));
+                        update(usercustom_createdefault);//更新fact中变量值
+                        update(usercustom_creatememberfilter);//更新fact中变量值
+                        update(usercustom_creatememberlist);//更新fact中变量值
+                        update(usercustom_createrole);//更新fact中变量值
+                        update(usercustom_createrolefilter);//更新fact中变量值
+                        update(usercustom_createrolelist);//更新fact中变量值
+                        update(usercustom_createrole_member);//更新fact中变量值
+                        update(usercustom_createsub_role);//更新fact中变量值
+            end
+
+            //逻辑处理节点[绑定参数]
+            rule "bindparam_01"
+            ruleflow-group "usercustom_createbindparam_01"
+            when
+            then
+                        update(usercustom_createdefault);//更新fact中变量值
+                        update(usercustom_creatememberfilter);//更新fact中变量值
+                        update(usercustom_creatememberlist);//更新fact中变量值
+                        update(usercustom_createrole);//更新fact中变量值
+                        update(usercustom_createrolefilter);//更新fact中变量值
+                        update(usercustom_createrolelist);//更新fact中变量值
+                        update(usercustom_createrole_member);//更新fact中变量值
+                        update(usercustom_createsub_role);//更新fact中变量值
+            end
+
+            //逻辑处理节点[初始化用户角色]
+            rule "deaction_02"
+            ruleflow-group "usercustom_createdeaction_02"
+            when
+            then
+                        role_memberservice.create(usercustom_createrole_member);
+                        update(usercustom_createdefault);//更新fact中变量值
+                        update(usercustom_creatememberfilter);//更新fact中变量值
+                        update(usercustom_creatememberlist);//更新fact中变量值
+                        update(usercustom_createrole);//更新fact中变量值
+                        update(usercustom_createrolefilter);//更新fact中变量值
+                        update(usercustom_createrolelist);//更新fact中变量值
+                        update(usercustom_createrole_member);//更新fact中变量值
+                        update(usercustom_createsub_role);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "usercustom_createend_01"
+            when
+            then
+                        update(usercustom_createdefault);//更新fact中变量值
+                        update(usercustom_creatememberfilter);//更新fact中变量值
+                        update(usercustom_creatememberlist);//更新fact中变量值
+                        update(usercustom_createrole);//更新fact中变量值
+                        update(usercustom_createrolefilter);//更新fact中变量值
+                        update(usercustom_createrolelist);//更新fact中变量值
+                        update(usercustom_createrole_member);//更新fact中变量值
+                        update(usercustom_createsub_role);//更新fact中变量值
+            end

@@ -453,6 +453,7 @@
     "logicName" : "DEFAULT",
     "name" : "DEFAULT",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent.json"
@@ -489,6 +490,7 @@
     "logicName" : "默认（全部数据）",
     "name" : "VIEW",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent.json"
@@ -2767,10 +2769,17 @@
           "includeMaxValue" : true,
           "includeMinValue" : false,
           "keyCond" : true
+        }, {
+          "condType" : "REGEX",
+          "dEFName" : "CODE_NAME",
+          "name" : "代码名称",
+          "regExCode" : "[a-zA-Z_$][a-zA-Z0-9_$]*",
+          "ruleInfo" : "内容只能由字母、数字、下划线组成，且开始必须为字母",
+          "keyCond" : true
         } ],
-        "ruleInfo" : "内容长度必须小于等于[100]"
+        "ruleInfo" : "(内容长度必须小于等于[100] 并且 内容只能由字母、数字、下划线组成，且开始必须为字母)"
       },
-      "ruleInfo" : "内容长度必须小于等于[100]",
+      "ruleInfo" : "(内容长度必须小于等于[100] 并且 内容只能由字母、数字、下划线组成，且开始必须为字母)",
       "checkDefault" : true,
       "defaultMode" : true,
       "enableBackend" : true,
@@ -4909,6 +4918,7 @@
         "name" : "CODE_NAME",
         "codeName" : "code_name"
       },
+      "pattern" : "[a-zA-Z_$][a-zA-Z0-9_$]*",
       "sourceType" : "DEFIELD",
       "stdDataType" : 25,
       "stringLength" : 100,

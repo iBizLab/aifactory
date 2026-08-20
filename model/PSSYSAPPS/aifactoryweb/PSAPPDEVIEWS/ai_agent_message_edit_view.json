@@ -294,6 +294,13 @@
         "codeName" : "latency_ms"
       }
     }, {
+      "id" : "tool_calls",
+      "dataType" : 9,
+      "getPSAppDEField" : {
+        "name" : "TOOL_CALLS",
+        "codeName" : "tool_calls"
+      }
+    }, {
       "id" : "conversation_id",
       "hidden" : true,
       "dataType" : 25,
@@ -617,6 +624,34 @@
           "allowEmpty" : true,
           "showCaption" : true
         }, {
+          "caption" : "工具调用数",
+          "codeName" : "tool_calls",
+          "dataType" : 9,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "labelPos" : "LEFT",
+          "labelWidth" : 130,
+          "name" : "tool_calls",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "TOOL_CALLS",
+            "codeName" : "tool_calls"
+          },
+          "getPSEditor" : {
+            "editorType" : "SPAN",
+            "name" : "tool_calls",
+            "enableLinkView" : false
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 12,
+            "colMD" : 12,
+            "layout" : "TABLE_24COL"
+          },
+          "allowEmpty" : true,
+          "showCaption" : true
+        }, {
           "caption" : "会话标识",
           "codeName" : "conversation_id",
           "createDV" : "ai_agent_conversation",
@@ -739,14 +774,15 @@
   }, {
     "codeName" : "edit_view_datainfobar",
     "controlType" : "DATAINFOBAR",
-    "name" : "datainfobar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_message/PSDATAINFOBARS/edit_view_datainfobar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_message.json"
     },
     "getPSControlParam" : {
       "id" : "datainfobar"
-    }
+    },
+    "name" : "datainfobar"
   }, {
     "getCapPSLanguageRes" : {
       "lanResTag" : "DE.LNAME.AI_AGENT_MESSAGE"
@@ -754,12 +790,13 @@
     "caption" : "智能体会话消息",
     "codeName" : "edit_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_message/PSCAPTIONBARS/edit_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_message.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "EditView",
   "getPSDEViewId" : "49aebfab75b35cdd5be15fcc2a324ac0",
@@ -767,7 +804,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEEDITVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_message/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_message.json"
@@ -775,7 +812,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "智能体会话消息编辑视图",
   "viewStyle" : "DEFAULT",
@@ -787,6 +825,58 @@
   "modelid" : "31678dc265ec87ded1a868d56dc8351b",
   "modeltype" : "PSAPPDEVIEW",
   "getPSAppDERSPaths" : [ [ {
+    "actionRSMode" : 1,
+    "codeName" : "ai_agent_conversations",
+    "dataRSMode" : 0,
+    "majorDECodeName" : "ai_agent_context",
+    "majorDEName" : "AI_AGENT_CONTEXT",
+    "getMajorPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
+    },
+    "minorDECodeName" : "ai_agent_conversation",
+    "minorDEName" : "AI_AGENT_CONVERSATION",
+    "getMinorPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_conversation.json"
+    },
+    "name" : "DER1N_AI_AGENT_CONVERSATION_AI_AGENT_CONTEXT_AI_AGENT_CONTEXT_ID",
+    "getParentPSAppDEField" : {
+      "name" : "AI_AGENT_CONTEXT_ID",
+      "codeName" : "ai_agent_context_id"
+    },
+    "getParentTextPSAppDEField" : {
+      "name" : "AGENT_CONTEXT_NAME",
+      "codeName" : "agent_context_name"
+    },
+    "rSMode" : 2
+  }, {
+    "actionRSMode" : 1,
+    "codeName" : "ai_agent_messages",
+    "dataRSMode" : 0,
+    "majorDECodeName" : "ai_agent_conversation",
+    "majorDEName" : "AI_AGENT_CONVERSATION",
+    "getMajorPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_conversation.json"
+    },
+    "minorDECodeName" : "ai_agent_message",
+    "minorDEName" : "AI_AGENT_MESSAGE",
+    "getMinorPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_message.json"
+    },
+    "name" : "DER1N_AI_AGENT_MESSAGE_AI_AGENT_CONVERSATION_CONVERSATION_ID",
+    "getParentPSAppDEField" : {
+      "name" : "CONVERSATION_ID",
+      "codeName" : "conversation_id"
+    },
+    "getParentTextPSAppDEField" : {
+      "name" : "CONVERSATION_NAME",
+      "codeName" : "conversation_name"
+    },
+    "rSMode" : 2
+  } ], [ {
     "actionRSMode" : 1,
     "codeName" : "ai_agent_messages",
     "dataRSMode" : 0,

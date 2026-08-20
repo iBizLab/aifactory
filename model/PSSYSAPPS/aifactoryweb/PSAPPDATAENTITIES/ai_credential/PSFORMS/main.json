@@ -336,7 +336,7 @@
         "allowEmpty" : false,
         "showCaption" : true
       }, {
-        "caption" : "模型提供商",
+        "caption" : "服务提供商",
         "codeName" : "provider",
         "dataType" : 25,
         "detailStyle" : "DEFAULT",
@@ -352,6 +352,9 @@
           "codeName" : "provider"
         },
         "getPSEditor" : {
+          "editorParams" : {
+            "forceselection" : ""
+          },
           "editorType" : "DROPDOWNLIST",
           "name" : "provider",
           "getPSAppCodeList" : {

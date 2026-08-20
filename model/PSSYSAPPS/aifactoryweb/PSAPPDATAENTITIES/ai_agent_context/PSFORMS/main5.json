@@ -113,7 +113,7 @@
     "hidden" : true,
     "dataType" : 25
   }, {
-    "id" : "formitem",
+    "id" : "message",
     "dataType" : 25
   }, {
     "id" : "id",
@@ -132,57 +132,77 @@
     "name" : "formpage1",
     "getPSDEFormDetails" : [ {
       "codeName" : "group1",
-      "detailStyle" : "STYLE4",
+      "detailStyle" : "DEFAULT",
       "detailType" : "GROUPPANEL",
       "name" : "group1",
       "getPSDEFormDetails" : [ {
-        "codeName" : "formitem",
-        "dataType" : 25,
+        "codeName" : "grouppanel1",
         "detailStyle" : "DEFAULT",
-        "detailType" : "FORMITEM",
-        "enableCond" : 3,
-        "ignoreInput" : 0,
-        "labelPos" : "NONE",
-        "labelWidth" : 0,
-        "name" : "formitem",
-        "noPrivDisplayMode" : 1,
-        "getPSEditor" : {
-          "editorParams" : {
-            "ac" : "true",
-            "autoquestion" : "true",
-            "srfaitopiccaption" : "开启会话",
-            "srfaiagent" : "kb_switch"
+        "detailType" : "GROUPPANEL",
+        "name" : "grouppanel1",
+        "getPSDEFormDetails" : [ {
+          "codeName" : "message",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "labelPos" : "NONE",
+          "labelWidth" : 0,
+          "name" : "message",
+          "noPrivDisplayMode" : 1,
+          "getPSEditor" : {
+            "editorParams" : {
+              "srfainewtopic" : "true",
+              "ac" : "true",
+              "srfaitopiccaption" : "开启会话",
+              "srfaiagent" : "kb_switch"
+            },
+            "editorStyle" : "EMBED_AI_CHAT",
+            "editorType" : "TEXTAREA",
+            "name" : "message",
+            "getPSAppDEACMode" : {
+              "modelref" : true,
+              "id" : "dyna_agent"
+            },
+            "getPSAppDEDataSet" : {
+              "modelref" : true,
+              "id" : "fetch_default"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_session.json"
+            },
+            "enableAC" : true,
+            "showMaxLength" : true
           },
-          "editorStyle" : "EMBED_AI_CHAT",
-          "editorType" : "TEXTAREA",
-          "name" : "formitem",
-          "getPSAppDEACMode" : {
-            "modelref" : true,
-            "id" : "dyna_agent"
+          "getPSLayoutPos" : {
+            "grow" : -1,
+            "layout" : "FLEX"
           },
-          "getPSAppDEDataSet" : {
-            "modelref" : true,
-            "id" : "fetch_default"
-          },
-          "getPSAppDataEntity" : {
-            "modelref" : true,
-            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_session.json"
-          },
-          "enableAC" : true,
-          "showMaxLength" : true
+          "allowEmpty" : true
+        } ],
+        "getPSLayout" : {
+          "align" : "center",
+          "dir" : "column",
+          "layout" : "FLEX",
+          "vAlign" : "center"
         },
         "getPSLayoutPos" : {
-          "grow" : -1,
-          "layout" : "FLEX"
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
         },
-        "allowEmpty" : true
+        "infoGroupMode" : false,
+        "showCaption" : false
       } ],
       "getPSLayout" : {
-        "layout" : "FLEX"
+        "childColMD" : 24,
+        "columnCount" : 24,
+        "layout" : "TABLE_24COL"
       },
       "getPSLayoutPos" : {
-        "grow" : -1,
-        "layout" : "FLEX"
+        "colMD" : 24,
+        "layout" : "TABLE_24COL"
       },
       "infoGroupMode" : false,
       "showCaption" : false
@@ -210,14 +230,16 @@
         "name" : "id"
       },
       "getPSLayoutPos" : {
-        "grow" : -1,
-        "layout" : "FLEX"
+        "colMD" : 24,
+        "layout" : "TABLE_24COL"
       },
       "allowEmpty" : true,
       "hidden" : true
     } ],
     "getPSLayout" : {
-      "layout" : "FLEX"
+      "childColMD" : 24,
+      "columnCount" : 24,
+      "layout" : "TABLE_24COL"
     },
     "infoGroupMode" : false
   } ],

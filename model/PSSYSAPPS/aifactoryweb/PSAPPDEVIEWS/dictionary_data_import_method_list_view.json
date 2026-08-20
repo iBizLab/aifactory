@@ -169,7 +169,8 @@
             "getPSEditor" : {
               "editorParams" : {
                 "RAWCONTENT" : "TRUE",
-                "MAXCOUNT" : "1"
+                "MAXCOUNT" : "1",
+                "stoppropagation" : "false"
               },
               "editorType" : "PICTURE_ONE_RAW",
               "maxFileCount" : 1,
@@ -423,12 +424,13 @@
     "caption" : "知识库文档导入方式字典",
     "codeName" : "import_method_list_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dictionary_data/PSCAPTIONBARS/import_method_list_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dictionary_data.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "import_method_list_view",
   "getPSDEViewId" : "886a7b5415eb1508534ea449a86ce7d2",
@@ -439,7 +441,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDELISTVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dictionary_data/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/dictionary_data.json"
@@ -447,8 +449,10 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
+  "refFlag" : false,
   "title" : "知识库文档导入方式字典",
   "viewStyle" : "DEFAULT",
   "viewType" : "DELISTVIEW",

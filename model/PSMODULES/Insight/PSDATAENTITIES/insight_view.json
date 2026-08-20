@@ -803,6 +803,7 @@
     "logicName" : "数据查询",
     "name" : "DEFAULT",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Insight/PSDATAENTITIES/insight_view.json"
@@ -836,6 +837,7 @@
     "logicName" : "默认（全部数据）",
     "name" : "VIEW",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Insight/PSDATAENTITIES/insight_view.json"
@@ -869,6 +871,7 @@
     "logicName" : "管理员",
     "name" : "admin",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getChildPSDEDQJoins" : [ {
         "getDERPSDataEntity" : {
           "modelref" : true,
@@ -954,6 +957,7 @@
     "logicName" : "已删除",
     "name" : "deleted",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Insight/PSDATAENTITIES/insight_view.json"
@@ -1002,6 +1006,7 @@
     "logicName" : "星标页面",
     "name" : "favorite",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Insight/PSDATAENTITIES/insight_view.json"
@@ -1070,6 +1075,7 @@
     "logicName" : "正常状态",
     "name" : "normal",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Insight/PSDATAENTITIES/insight_view.json"
@@ -1128,6 +1134,7 @@
     "logicName" : "公开",
     "name" : "public",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Insight/PSDATAENTITIES/insight_view.json"
@@ -1176,6 +1183,7 @@
     "logicName" : "只读用户",
     "name" : "reader",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getChildPSDEDQJoins" : [ {
         "getDERPSDataEntity" : {
           "modelref" : true,
@@ -1261,6 +1269,7 @@
     "logicName" : "非星标",
     "name" : "unfavorite",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Insight/PSDATAENTITIES/insight_view.json"
@@ -1329,6 +1338,7 @@
     "logicName" : "操作用户",
     "name" : "user",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getChildPSDEDQJoins" : [ {
         "getDERPSDataEntity" : {
           "modelref" : true,
@@ -1414,6 +1424,7 @@
     "logicName" : "团队管理员",
     "name" : "user_group_admin",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getChildPSDEDQJoins" : [ {
         "getDERPSDataEntity" : {
           "modelref" : true,
@@ -2384,7 +2395,7 @@
     "orderValue" : 250,
     "getPSCodeList" : {
       "modelref" : true,
-      "path" : "PSMODULES/Base/PSCODELISTS/user_scope_type.json"
+      "path" : "PSMODULES/Wiki/PSCODELISTS/user_scope_type.json"
     },
     "getPSDEDBTable" : {
       "modelref" : true,

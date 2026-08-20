@@ -1131,6 +1131,13 @@
     "stdDataType" : 25,
     "stringLength" : 100
   }, {
+    "codeName" : "name",
+    "logicName" : "名称",
+    "name" : "NAME",
+    "stdDataType" : 25,
+    "stringLength" : 1000,
+    "majorField" : true
+  }, {
     "getAllPSAppDEFUIModes" : [ {
       "codeName" : "Default",
       "name" : "[CREATE_TIME][建立时间]",
@@ -1542,6 +1549,18 @@
       "getPSAppDEField" : {
         "name" : "ID",
         "codeName" : "id"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE",
+      "allowEmpty" : false
+    }, {
+      "codeName" : "name",
+      "logicName" : "名称",
+      "name" : "name",
+      "getPSAppDEField" : {
+        "name" : "NAME",
+        "codeName" : "name"
       },
       "sourceType" : "DEFIELD",
       "stdDataType" : 25,
@@ -2076,6 +2095,10 @@
     "codeName" : "id"
   },
   "logicName" : "人员",
+  "getMajorPSAppDEField" : {
+    "name" : "NAME",
+    "codeName" : "name"
+  },
   "name" : "SYS_PERSON",
   "getPSDEName" : "SYS_PERSON",
   "getPSDEServiceAPI" : {

@@ -262,8 +262,8 @@
     "getPSControls" : [ {
       "codeName" : "config_grid_view_grid_batchtoolbar",
       "controlType" : "TOOLBAR",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_member/PSTOOLBARS/config_grid_view_grid_batchtoolbar.json",
       "logicName" : "删除&&设置角色",
-      "name" : "grid_batchtoolbar",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_member.json"
@@ -378,6 +378,7 @@
         "showCaption" : true,
         "showIcon" : true
       } ],
+      "name" : "grid_batchtoolbar",
       "modelid" : "abdb6d9e55cbc19628d524915afd9cb5",
       "modeltype" : "PSDETOOLBAR"
     } ],
@@ -669,8 +670,8 @@
   }, {
     "codeName" : "config_grid_view_toolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_member/PSTOOLBARS/config_grid_view_toolbar.json",
     "logicName" : "知识库成员配置表格_工具栏",
-    "name" : "toolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_member.json"
@@ -731,6 +732,7 @@
       "showIcon" : true
     } ],
     "xDataControlName" : "grid",
+    "name" : "toolbar",
     "modelid" : "a23b1e998cf866cbde21395f7e9b6705",
     "modeltype" : "PSDETOOLBAR"
   }, {
@@ -757,12 +759,13 @@
     "caption" : "知识库成员",
     "codeName" : "config_grid_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_member/PSCAPTIONBARS/config_grid_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_member.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "config_grid_view",
   "getPSDEViewId" : "449dc190bcea50e1c2d4f064661f0701",
@@ -770,7 +773,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEGRIDVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_member/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_member.json"
@@ -778,7 +781,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "知识库成员",
   "viewStyle" : "DEFAULT",

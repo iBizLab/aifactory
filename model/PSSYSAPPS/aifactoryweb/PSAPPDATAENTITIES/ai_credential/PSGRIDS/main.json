@@ -99,11 +99,11 @@
   }, {
     "align" : "LEFT",
     "cLConvertMode" : "FRONT",
-    "caption" : "模型提供商",
+    "caption" : "服务提供商",
     "codeName" : "provider",
     "columnType" : "DEFGRIDCOLUMN",
     "dataItemName" : "provider",
-    "excelCaption" : "模型提供商",
+    "excelCaption" : "服务提供商",
     "name" : "provider",
     "noPrivDisplayMode" : 1,
     "getPSAppCodeList" : {
@@ -227,6 +227,13 @@
     "dataAccessAction" : true
   }, {
     "dataType" : 25,
+    "name" : "keyring_id",
+    "getPSAppDEField" : {
+      "name" : "KEYRING_ID",
+      "codeName" : "keyring_id"
+    }
+  }, {
+    "dataType" : 25,
     "name" : "srfmajortext",
     "getPSAppDEField" : {
       "name" : "NAME",
@@ -277,7 +284,7 @@
   "forceFit" : false,
   "hideHeader" : false,
   "noSort" : false,
-  "singleSelect" : true,
+  "singleSelect" : false,
   "modelid" : "8aae80a3e5006731c1d9ba07f3bf4811",
   "modeltype" : "PSDEGRID"
 }

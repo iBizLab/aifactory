@@ -25,28 +25,6 @@
     "topPos" : -168,
     "parallelOutput" : true
   }, {
-    "codeName" : "DEBUGPARAM_01",
-    "getDstPSDELogicParam" : {
-      "modelref" : true,
-      "id" : "Default"
-    },
-    "leftPos" : -180,
-    "logicNodeType" : "DEBUGPARAM",
-    "name" : "输出default参数",
-    "getPSDELogicLinks" : [ {
-      "getDstPSDELogicNode" : {
-        "modelref" : true,
-        "id" : "PREPAREPARAM_04"
-      },
-      "name" : "连接名称",
-      "getSrcPSDELogicNode" : {
-        "modelref" : true,
-        "id" : "DEBUGPARAM_01"
-      }
-    } ],
-    "topPos" : -58,
-    "parallelOutput" : true
-  }, {
     "chatRequestAppendMode" : "USER",
     "codeName" : "SYSAICHATAGENT_APPENDCHATREQUEST_01",
     "getDstPSDELogicParam" : {
@@ -55,7 +33,7 @@
     },
     "leftPos" : 220,
     "logicNodeType" : "SYSAICHATAGENT_APPENDCHATREQUEST",
-    "message" : "帮我把结果转为json，包含name（请帮我起个智能体的名字，20字以内）、description（用户最早提供的简要描述）、code_name（通过名称起一个英文标识，20字以内）、default_system_prompt",
+    "message" : "帮我把结果转为json，包含name（请帮我起个智能体的名字，20字以内）、description（用户最早提供的简要描述）、code_name（通过名称起一个英文标识，20字以内，snake_case 蛇形命名法）、default_system_prompt（系统提示词）",
     "name" : "附加聊天请求",
     "getPSDELogicLinks" : [ {
       "getDstPSDELogicNode" : {
@@ -390,7 +368,7 @@
     "getPSDELogicLinks" : [ {
       "getDstPSDELogicNode" : {
         "modelref" : true,
-        "id" : "DEACTION_03"
+        "id" : "RAWSFCODE_01"
       },
       "name" : "连接名称",
       "getSrcPSDELogicNode" : {
@@ -463,6 +441,26 @@
     "title" : "出现异常自检中",
     "topPos" : 460
   }, {
+    "code" : "// 获取ai_agent_context\ndef aiAgentContext = logic.param('ai_agent_context').getReal()\n// 获取flow_mode\ndef flowMode = aiAgentContext.get('flow_mode')\n// 判断如果是SKILL 或者为空 则给系统提示词补开头一行 ${original_prompt}\nif (flowMode == 'SKILL' || flowMode == null || flowMode == '') {\n    // 获取原系统提示词，为空时初始化为空串\n    def systemPrompt = aiAgentContext.get('default_system_prompt')\n    if (systemPrompt == null) {\n        systemPrompt = ''\n    }\n    // 判断是否本来就有 ${original_prompt}，避免重复添加\n    if (!systemPrompt.contains('${original_prompt}')) {\n        // 在系统提示词开头补一行 ${original_prompt}\n        aiAgentContext.set('default_system_prompt', '${original_prompt}\\n' + systemPrompt)\n    }\n}",
+    "codeName" : "RAWSFCODE_01",
+    "codeType" : "Groovy",
+    "leftPos" : 476,
+    "logicNodeType" : "RAWSFCODE",
+    "name" : "执行脚本代码",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEACTION_03"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      }
+    } ],
+    "topPos" : 477,
+    "parallelOutput" : true
+  }, {
     "codeName" : "DEACTION_03",
     "getDstPSDEAction" : {
       "modelref" : true,
@@ -476,7 +474,7 @@
       "modelref" : true,
       "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
     },
-    "leftPos" : 470,
+    "leftPos" : 476,
     "logicNodeType" : "DEACTION",
     "name" : "建立智能体",
     "getPSDELogicLinks" : [ {
@@ -505,7 +503,29 @@
       "modelref" : true,
       "id" : "ai_agent_context"
     },
-    "topPos" : 470,
+    "topPos" : 600,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEBUGPARAM_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "leftPos" : -180,
+    "logicNodeType" : "DEBUGPARAM",
+    "name" : "输出default参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_04"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEBUGPARAM_01"
+      }
+    } ],
+    "topPos" : -58,
     "parallelOutput" : true
   }, {
     "codeName" : "SYSAICHATAGENT_CHATINPUT_02",
@@ -530,30 +550,6 @@
     } ],
     "subType" : "CHATINPUT",
     "topPos" : 506
-  }, {
-    "codeName" : "SYSAICHATAGENT_CHATUIACTION_01",
-    "getDstPSDELogicParam" : {
-      "modelref" : true,
-      "id" : "chat_response"
-    },
-    "leftPos" : 300,
-    "logicNodeType" : "SYSAICHATAGENT_CHATUIACTION",
-    "memo" : "[{\n  \"id\": \"open_edit_view\",\n  \"type\": \"uiaction\",\n  \"data\": {\n    \"id\": \"open_edit_view\",\n    \"uiaction_id\": \"open_edit_view@ai_agent_context\",\n    \"de_name\": \"ai_agent_context\"\n  },\n  \"metadata\": {\n   \"name\": \"打开建立的智能体\",\n   \"actionContext\": \"ai_agent_context:${params.ai_agent_context.id}\",\n   \"uiaction_id\": \"open_edit_view@ai_agent_context\"\n  }\n}]",
-    "message" : "[{\n  \"type\": \"action\",\n  \"data\": {\n    \"actionid\": \"open_edit_view@ai_agent_context\"\n  },\n  \"metadata\": {\n   \"content_name\": \"打开建立的智能体\",\n   \"action_context\": \"ai_agent_context:${params.ai_agent_context.id}\"\n  }\n}]",
-    "name" : "回写查看建立数据的按钮",
-    "getPSDELogicLinks" : [ {
-      "getDstPSDELogicNode" : {
-        "modelref" : true,
-        "id" : "END_01"
-      },
-      "name" : "连接名称",
-      "getSrcPSDELogicNode" : {
-        "modelref" : true,
-        "id" : "SYSAICHATAGENT_CHATUIACTION_01"
-      }
-    } ],
-    "subType" : "CHATUIACTION",
-    "topPos" : 590
   }, {
     "codeName" : "PREPAREPARAM_02",
     "leftPos" : 910,
@@ -646,6 +642,30 @@
     } ],
     "subType" : "CHATINPUT",
     "topPos" : 710
+  }, {
+    "codeName" : "SYSAICHATAGENT_CHATUIACTION_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_response"
+    },
+    "leftPos" : 476,
+    "logicNodeType" : "SYSAICHATAGENT_CHATUIACTION",
+    "memo" : "[{\n  \"id\": \"open_edit_view\",\n  \"type\": \"uiaction\",\n  \"data\": {\n    \"id\": \"open_edit_view\",\n    \"uiaction_id\": \"open_edit_view@ai_agent_context\",\n    \"de_name\": \"ai_agent_context\"\n  },\n  \"metadata\": {\n   \"name\": \"打开建立的智能体\",\n   \"actionContext\": \"ai_agent_context:${params.ai_agent_context.id}\",\n   \"uiaction_id\": \"open_edit_view@ai_agent_context\"\n  }\n}]",
+    "message" : "[{\n  \"type\": \"action\",\n  \"data\": {\n    \"actionid\": \"open_edit_view@ai_agent_context\"\n  },\n  \"metadata\": {\n   \"content_name\": \"打开建立的智能体\",\n   \"action_context\": \"ai_agent_context:${params.ai_agent_context.id}\"\n  }\n}]",
+    "name" : "回写查看建立数据的按钮",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATUIACTION_01"
+      }
+    } ],
+    "subType" : "CHATUIACTION",
+    "topPos" : 750
   }, {
     "codeName" : "SYSAICHATAGENT_CHATSTEP_04",
     "getDstPSDELogicParam" : {

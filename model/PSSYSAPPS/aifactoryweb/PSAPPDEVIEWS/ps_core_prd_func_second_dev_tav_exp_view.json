@@ -21,8 +21,8 @@
     "codeName" : "second_dev_tab_exp_view_dr",
     "controlType" : "DRTAB",
     "dataRelationTag" : "second_dev_tab_exp_view_DR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc/PSDRTABS/second_dev_tab_exp_view_dr.json",
     "editItemCaption" : "核心产品功能",
-    "name" : "tabexppanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc.json"
@@ -62,18 +62,20 @@
       }
     } ],
     "uniqueTag" : "ps_core_prd_func_second_dev_tav_exp_view__tabexppanel",
+    "name" : "tabexppanel",
     "modelid" : "1f8a922a4af74e38c4813891a047545f",
     "modeltype" : "PSDEDRTAB"
   }, {
     "caption" : "二次开发",
     "codeName" : "second_dev_tav_exp_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc/PSCAPTIONBARS/second_dev_tav_exp_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "second_dev_tav_exp_view",
   "getPSDEViewId" : "708bde8f961ca4347d6b009a80d7209c",
@@ -84,7 +86,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDETABEXPVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc.json"
@@ -92,7 +94,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "refFlag" : false,
   "tabLayout" : "TOP",

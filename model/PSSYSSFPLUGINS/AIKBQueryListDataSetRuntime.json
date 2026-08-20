@@ -1,0 +1,11 @@
+{
+  "codeName" : "AIKBQueryListDataSetRuntime",
+  "dynaModelFilePath" : "PSSYSSFPLUGINS/AIKBQueryListDataSetRuntime.json",
+  "name" : "AI知识库清单查询",
+  "pluginCode" : "AIKBQueryListDataSetRuntime",
+  "pluginType" : "DEDATASET",
+  "rTObjectName" : "cn.ibizlab.user.plugin.groovy.dataentity.ds.AIKBQueryListDataSetRuntime",
+  "rTObjectSource" : 1,
+  "templCode" : "package cn.ibizlab.user.plugin.groovy.dataentity.ds;\r\n\r\nimport net.ibizsys.central.plugin.util.dataentity.ds.DEDataSetRuntimeBase\r\nimport net.ibizsys.runtime.util.JsonUtils\r\nimport org.springframework.data.domain.Page;\r\nimport net.ibizsys.central.util.ISearchContextDTO;\r\nimport net.ibizsys.central.util.PageImpl;\r\n\r\n/**\r\n * AI知识库清单查询\r\n */\r\nclass AIKBQueryListDataSetRuntime extends DEDataSetRuntimeBase {\r\n\r\n    @Override\r\n    protected Page<?> doFetchReal(ISearchContextDTO iSearchContextDTO) throws Throwable {\r\n        String query = iSearchContextDTO.get(\"query\")\r\n        if (!query) {\r\n            throw new RuntimeException(\"请输入查询\")\r\n        }\r\n        def kbutil = sys.util(\"AI.SYSKNOWLEDGEBASEUTIL\")\r\n\r\n        def vector = JsonUtils.toString(kbutil.getEmbedding(null, query))\r\n\r\n        //相似度查询 5 条\r\n        String querySql = \"\"\"\r\nSELECT *\r\nFROM (\r\n         SELECT DISTINCT ON (kb.id)\r\n             kb.id,\r\n             kb.name,\r\n             kb.description,\r\n             kb.source_name,\r\n             kb.category_name ,\r\n             (1 - (chunk.content_vector <=> '${vector}')) / 2 AS similarity,\r\n             kb.update_time,\r\n             kb.guidance_prompt\r\n         FROM ai_kb_chunk chunk\r\n                  JOIN ai_kb_document doc ON chunk.document_id = doc.id\r\n                  JOIN ai_knowledge_base kb ON doc.kb_id = kb.id\r\n         WHERE\r\n             (1 - (chunk.content_vector <=> '${vector}')) / 2 > 0.2\r\n           AND chunk.pid IS NULL   \r\n         ORDER BY\r\n             kb.id,\r\n             (1 - (chunk.content_vector <=> '${vector}')) / 2 DESC\r\n     ) AS unique_kbs\r\nORDER BY similarity DESC\r\nLIMIT 5\r\n\"\"\"\r\n\r\n        def list = this.getDataEntityRuntime().getSysDBSchemeRuntime().executeSelectSQL(querySql, null)\r\n\r\n        return new PageImpl(list, iSearchContextDTO.getPageable(), list.size(), 1)\r\n\r\n    }\r\n\r\n}\r\n",
+  "runtimeObject" : true
+}

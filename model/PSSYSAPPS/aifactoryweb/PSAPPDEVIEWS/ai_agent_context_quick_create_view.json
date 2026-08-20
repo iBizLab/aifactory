@@ -26,8 +26,8 @@
   "getPSControls" : [ {
     "codeName" : "quick_create_view_toolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context/PSTOOLBARS/quick_create_view_toolbar.json",
     "logicName" : "工具栏模板（嵌入编辑表单，只有一个保存按钮）",
-    "name" : "toolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
@@ -125,6 +125,11 @@
               "rawValue" : false
             } ],
             "getPSNavigateParams" : [ {
+              "key" : "srfaichatcaption",
+              "name" : "srfaichatcaption",
+              "value" : "提示词智能生成",
+              "rawValue" : true
+            }, {
               "key" : "srfenableaiagentchange",
               "name" : "srfenableaiagentchange",
               "value" : "false",
@@ -194,42 +199,6 @@
           "showCaption" : true,
           "showIcon" : true
         }, {
-          "caption" : "打开调试页面",
-          "detailType" : "DEUIACTION",
-          "name" : "u4deb125",
-          "getPSSysImage" : {
-            "glyph" : "xf0f6@FontAwesome",
-            "cssClass" : "fa fa-file-text-o"
-          },
-          "getPSUIAction" : {
-            "actionTarget" : "NONE",
-            "caption" : "打开调试页面",
-            "codeName" : "open_debug_view",
-            "getFrontPSAppView" : {
-              "modelref" : true,
-              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_agent_session_debug_view.json",
-              "viewType" : "DEEDITVIEW"
-            },
-            "frontProcessType" : "WIZARD",
-            "fullCodeName" : "ai_agent_context_open_debug_view",
-            "name" : "打开调试页面",
-            "getPSAppDataEntity" : {
-              "modelref" : true,
-              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
-            },
-            "getPSSysImage" : {
-              "glyph" : "xf0f6@FontAwesome",
-              "cssClass" : "fa fa-file-text-o"
-            },
-            "uIActionMode" : "FRONT",
-            "uIActionTag" : "open_debug_view",
-            "uIActionType" : "DEUIACTION",
-            "id" : "open_debug_view@ai_agent_context"
-          },
-          "addSeparator" : true,
-          "showCaption" : true,
-          "showIcon" : true
-        }, {
           "getCapPSLanguageRes" : {
             "lanResTag" : "TBB.TEXT.EDITVIEW.REMOVEANDCLOSE"
           },
@@ -275,6 +244,7 @@
       "showIcon" : true
     } ],
     "xDataControlName" : "form",
+    "name" : "toolbar",
     "modelid" : "25823041a044e2dfc60cdebdb06ebd82",
     "modeltype" : "PSDETOOLBAR"
   }, {
@@ -870,6 +840,15 @@
         "codeName" : "enable_searching"
       }
     }, {
+      "id" : "system_flag",
+      "dataType" : 9,
+      "createDV" : "0",
+      "updateDV" : "0",
+      "getPSAppDEField" : {
+        "name" : "SYSTEM_FLAG",
+        "codeName" : "system_flag"
+      }
+    }, {
       "id" : "vlm_prompt",
       "dataType" : 21,
       "getPSAppDEField" : {
@@ -1049,7 +1028,17 @@
           "getPSEditor" : {
             "editorType" : "TEXTBOX",
             "maxLength" : 30,
-            "name" : "code_name"
+            "name" : "code_name",
+            "getPSSysValueRule" : {
+              "codeName" : "CodeName",
+              "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPVALUERULES/CodeName.json",
+              "name" : "代码名称",
+              "regExCode" : "[a-zA-Z_$][a-zA-Z0-9_$]*",
+              "ruleInfo" : "内容只能由字母、数字、下划线组成，且开始必须为字母",
+              "ruleType" : "REG",
+              "uniqueTag" : "CodeName",
+              "enableFront" : true
+            }
           },
           "getPSLayoutPos" : {
             "colLG" : 8,
@@ -1379,6 +1368,9 @@
               "notMode" : false
             } ],
             "getPSEditor" : {
+              "editorParams" : {
+                "forceSelection" : "false"
+              },
               "editorType" : "MDROPDOWNLIST",
               "name" : "skill_tags",
               "getPSAppCodeList" : {
@@ -3021,7 +3013,7 @@
             },
             "getPSEditor" : {
               "editorType" : "TEXTBOX",
-              "maxValue" : 256000.0,
+              "maxValue" : 32000.0,
               "minValue" : 0.0,
               "name" : "max_input_tokens",
               "placeHolder" : "继承自模版"
@@ -3165,6 +3157,43 @@
               "layout" : "TABLE_24COL"
             },
             "allowEmpty" : true,
+            "showCaption" : true
+          }, {
+            "caption" : "是否公开",
+            "codeName" : "system_flag",
+            "createDV" : "0",
+            "dataType" : 9,
+            "detailStyle" : "DEFAULT",
+            "detailType" : "FORMITEM",
+            "enableCond" : 3,
+            "ignoreInput" : 0,
+            "itemWidth" : 230.0,
+            "labelPos" : "TOP",
+            "labelWidth" : 130,
+            "name" : "system_flag",
+            "noPrivDisplayMode" : 1,
+            "getPSAppDEField" : {
+              "name" : "SYSTEM_FLAG",
+              "codeName" : "system_flag"
+            },
+            "getPSEditor" : {
+              "editorType" : "DROPDOWNLIST_100",
+              "editorWidth" : 100.0,
+              "name" : "system_flag",
+              "getPSAppCodeList" : {
+                "modelref" : true,
+                "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/YesNo.json"
+              },
+              "singleSelect" : true
+            },
+            "getPSLayoutPos" : {
+              "colLG" : 8,
+              "colMD" : 8,
+              "layout" : "TABLE_24COL"
+            },
+            "updateDV" : "0",
+            "allowEmpty" : true,
+            "needCodeListConfig" : true,
             "showCaption" : true
           }, {
             "caption" : "视觉识别提示词",
@@ -3457,14 +3486,15 @@
   }, {
     "codeName" : "quick_create_view_datainfobar",
     "controlType" : "DATAINFOBAR",
-    "name" : "datainfobar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context/PSDATAINFOBARS/quick_create_view_datainfobar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
     },
     "getPSControlParam" : {
       "id" : "datainfobar"
-    }
+    },
+    "name" : "datainfobar"
   }, {
     "getCapPSLanguageRes" : {
       "lanResTag" : "DE.LNAME.AI_AGENT_CONTEXT"
@@ -3472,12 +3502,13 @@
     "caption" : "智能体",
     "codeName" : "quick_create_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context/PSCAPTIONBARS/quick_create_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "quick_create_view",
   "getPSDEViewId" : "f0a329ea01df83a3056392f354ef7b3b",
@@ -3485,7 +3516,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEEDITVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
@@ -3493,7 +3524,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "智能体业务上下文",
   "viewStyle" : "DEFAULT",

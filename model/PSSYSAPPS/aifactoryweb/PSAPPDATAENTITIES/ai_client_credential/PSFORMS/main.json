@@ -239,7 +239,7 @@
           "dataType" : 21,
           "detailStyle" : "DEFAULT",
           "detailType" : "FORMITEM",
-          "enableCond" : 0,
+          "enableCond" : 1,
           "ignoreInput" : 0,
           "labelPos" : "LEFT",
           "labelWidth" : 130,
@@ -540,6 +540,60 @@
             "content" : "<ul><li><span style=\"color: rgb(38, 38, 38); background-color: rgb(251, 233, 230);\"><strong>模型 </strong></span></li><li><span style=\"color: rgb(38, 38, 38); background-color: rgb(251, 233, 230);\"><strong>[GET]</strong></span><span style=\"color: rgb(38, 38, 38); background-color: rgb(251, 233, 230);\"> &nbsp;http(s)://{host}:{port}/api/ibizaifactory__aifactoryweb/factories/ai.iBizIntelligence/compatible-mode/v1/models</span></li></ul><p><br></p><ul><li><span style=\"color: rgb(38, 38, 38); background-color: rgb(251, 233, 230);\"><strong>对话</strong></span></li><li><span style=\"color: rgb(38, 38, 38); background-color: rgb(251, 233, 230);\"><strong> [POST]</strong></span><span style=\"color: rgb(38, 38, 38); background-color: rgb(251, 233, 230);\"> &nbsp;http(s)://{host}:{port}/api/ibizaifactory__aifactoryweb/factories/ai.iBizIntelligence/compatible-mode/v1/chat/completions</span></li></ul>",
             "contentType" : "HTML",
             "name" : "rawitem1",
+            "rawItemHeight" : -1.0,
+            "rawItemWidth" : -1.0
+          },
+          "rawItemHeight" : -1.0,
+          "rawItemWidth" : -1.0,
+          "showCaption" : true
+        } ],
+        "getPSLayout" : {
+          "childColMD" : 24,
+          "columnCount" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 24,
+          "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "infoGroupMode" : false,
+        "showCaption" : true
+      }, {
+        "caption" : "skill-runner 接口",
+        "codeName" : "grouppanel52",
+        "detailStyle" : "DEFAULT",
+        "detailType" : "GROUPPANEL",
+        "name" : "grouppanel52",
+        "getPSDEFDGroupLogics" : [ {
+          "groupOP" : "AND",
+          "logicCat" : "PANELVISIBLE",
+          "logicType" : "GROUP",
+          "getPSDEFDLogics" : [ {
+            "condOP" : "LIKE",
+            "dEFDName" : "access_types",
+            "logicType" : "SINGLE",
+            "name" : "access_types文本包含(%) SKILLRUNNER",
+            "value" : "SKILLRUNNER"
+          } ],
+          "relatedDetailNames" : [ "access_types" ],
+          "notMode" : false
+        } ],
+        "getPSDEFormDetails" : [ {
+          "codeName" : "rawitem2",
+          "contentType" : "HTML",
+          "detailStyle" : "DEFAULT",
+          "detailType" : "RAWITEM",
+          "htmlContent" : "<ul><li><span style=\"color: rgb(38, 38, 38); background-color: rgb(251, 233, 230);\"><strong>服务配置 </strong></span></li><li><span style=\"color: rgb(38, 38, 38); background-color: rgb(251, 233, 230);\">http(s)://{host}:{port}/api/ibizaifactory__aifactoryweb/factories/ai.iBizIntelligence/skill_runners</span></li></ul><p>\n</p>",
+          "name" : "rawitem2",
+          "getPSLayoutPos" : {
+            "colMD" : 24,
+            "layout" : "TABLE_24COL"
+          },
+          "getPSRawItem" : {
+            "content" : "<ul><li><span style=\"color: rgb(38, 38, 38); background-color: rgb(251, 233, 230);\"><strong>服务配置 </strong></span></li><li><span style=\"color: rgb(38, 38, 38); background-color: rgb(251, 233, 230);\">http(s)://{host}:{port}/api/ibizaifactory__aifactoryweb/factories/ai.iBizIntelligence/skill_runners</span></li></ul><p>\n</p>",
+            "contentType" : "HTML",
+            "name" : "rawitem2",
             "rawItemHeight" : -1.0,
             "rawItemWidth" : -1.0
           },

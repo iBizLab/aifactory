@@ -25,8 +25,8 @@
   "getPSControls" : [ {
     "codeName" : "main_view_toolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model/PSTOOLBARS/main_view_toolbar.json",
     "logicName" : "工具栏模板（默认主视图）",
-    "name" : "toolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
@@ -186,6 +186,7 @@
       "showIcon" : true
     } ],
     "xDataControlName" : "form",
+    "name" : "toolbar",
     "modelid" : "8f5624914fcfc7bbc63de650a6b2aa59",
     "modeltype" : "PSDETOOLBAR"
   }, {
@@ -1232,8 +1233,8 @@
   }, {
     "codeName" : "main_view_toolbar1",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model/PSTOOLBARS/main_view_toolbar1.json",
     "logicName" : "工具栏模板（嵌入编辑表单，只有一个新建按钮）",
-    "name" : "toolbar1",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
@@ -1285,19 +1286,21 @@
       "showIcon" : false
     } ],
     "xDataControlName" : "form",
+    "name" : "toolbar1",
     "modelid" : "6a271f6ceebaa5b850a3e67f7ec201b2",
     "modeltype" : "PSDETOOLBAR"
   }, {
     "codeName" : "main_view_datainfobar",
     "controlType" : "DATAINFOBAR",
-    "name" : "datainfobar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model/PSDATAINFOBARS/main_view_datainfobar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
     },
     "getPSControlParam" : {
       "id" : "datainfobar"
-    }
+    },
+    "name" : "datainfobar"
   }, {
     "getCapPSLanguageRes" : {
       "lanResTag" : "DE.LNAME.AI_MODEL"
@@ -1305,12 +1308,13 @@
     "caption" : "AI大模型",
     "codeName" : "main_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model/PSCAPTIONBARS/main_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "main_view",
   "getPSDEViewId" : "daafe88d074f2771611426e9ed463fc8",
@@ -1318,7 +1322,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEEDITVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
@@ -1326,7 +1330,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "AI大模型",
   "viewStyle" : "DEFAULT",

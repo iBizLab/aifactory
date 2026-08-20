@@ -1,0 +1,40 @@
+{
+  "codeName" : "index_view_relation",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEDATARELATIONS/index_view_relation.json",
+  "getFormCapPSLanguageRes" : {
+    "lanResTag" : "DE.LNAME.AI_AGENT_CONTEXT"
+  },
+  "formCaption" : "智能体业务上下文",
+  "name" : "智能体上下文首页视图_关系界面组",
+  "getPSDEDRDetails" : [ {
+    "caption" : "智能体",
+    "detailType" : "DRITEM",
+    "name" : "VIEW",
+    "orderValue" : 1000,
+    "originCaption" : "智能体",
+    "getPSDEDRItem" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEDRITEMS/DRItemIndexView.json"
+    }
+  }, {
+    "caption" : "执行记录",
+    "detailType" : "DRITEM",
+    "name" : "RUN",
+    "orderValue" : 1001,
+    "originCaption" : "执行记录",
+    "getPSDEDRItem" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEDRITEMS/DRItemIndexRun.json"
+    }
+  }, {
+    "caption" : "配置",
+    "detailType" : "DRITEM",
+    "name" : "SETTING",
+    "orderValue" : 1003,
+    "originCaption" : "配置",
+    "getPSDEDRItem" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEDRITEMS/DRItemIndexEdit.json"
+    }
+  } ]
+}

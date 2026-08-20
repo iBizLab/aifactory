@@ -1,0 +1,39 @@
+{
+  "dynaModelFilePath" : "PSMODULES/Base/PSDATAENTITIES/keyring/PSDEUSERROLES/KEYRING_OWNER.json",
+  "name" : "密钥环所有者",
+  "getPSDEDataSet" : {
+    "modelref" : true,
+    "id" : "Myself"
+  },
+  "getPSDEUserRoleOPPrivs" : [ {
+    "dataAccessAction" : "UPDATE",
+    "name" : "OWNER_UPDATE",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "UPDATE"
+    }
+  }, {
+    "dataAccessAction" : "DELETE",
+    "name" : "OWNER_DELETE",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "DELETE"
+    }
+  }, {
+    "dataAccessAction" : "READ",
+    "name" : "OWNER_READ",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "READ"
+    }
+  }, {
+    "dataAccessAction" : "CREATE",
+    "name" : "OWNER_CREATE",
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "CREATE"
+    }
+  } ],
+  "roleTag" : "KEYRING_OWNER",
+  "userDRAction" : "READ"
+}

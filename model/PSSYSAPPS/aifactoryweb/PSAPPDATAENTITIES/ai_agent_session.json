@@ -1455,7 +1455,7 @@
     "uILogicAttachMode" : "REPLACE",
     "id" : "debug_context@ai_agent_session"
   }, {
-    "actionTarget" : "NONE",
+    "actionTarget" : "SINGLEDATA",
     "caption" : "深度研究",
     "codeName" : "deep_research",
     "frontProcessType" : "CHAT",
@@ -1474,6 +1474,16 @@
       "name" : "SRFAIKNOWLEDGEBASES",
       "value" : "ai_knowledge_base",
       "rawValue" : false
+    }, {
+      "key" : "AI_AGENT_SESSION",
+      "name" : "AI_AGENT_SESSION",
+      "value" : "_id",
+      "rawValue" : false
+    }, {
+      "key" : "AI_AGENT_CONTEXT",
+      "name" : "AI_AGENT_CONTEXT",
+      "value" : "context_id",
+      "rawValue" : false
     } ],
     "getPSNavigateParams" : [ {
       "key" : "knowledgebases",
@@ -1486,9 +1496,19 @@
       "value" : "true",
       "rawValue" : true
     }, {
+      "key" : "srfattachsessiontag",
+      "name" : "srfattachsessiontag",
+      "value" : "_id",
+      "rawValue" : false
+    }, {
       "key" : "disabletopicstorage",
       "name" : "disabletopicstorage",
-      "value" : "true",
+      "value" : "false",
+      "rawValue" : true
+    }, {
+      "key" : "srfenableaiagentchange",
+      "name" : "srfenableaiagentchange",
+      "value" : "false",
       "rawValue" : true
     }, {
       "key" : "hidetopicsidebar",
@@ -1520,6 +1540,11 @@
       "name" : "chunkpageindexdefaultvalue",
       "value" : "page_index",
       "rawValue" : false
+    }, {
+      "key" : "srfattachtimestamp",
+      "name" : "srfattachtimestamp",
+      "value" : "false",
+      "rawValue" : true
     } ],
     "getPSSysImage" : {
       "glyph" : "xf231@FontAwesome",
@@ -1531,7 +1556,7 @@
     "globalUIAction" : true,
     "id" : "deep_research@ai_agent_session"
   }, {
-    "actionTarget" : "NONE",
+    "actionTarget" : "SINGLEDATA",
     "caption" : "全文推理",
     "codeName" : "fulltext_reason",
     "frontProcessType" : "CHAT",
@@ -1572,6 +1597,11 @@
       "value" : "ai_knowledge_base",
       "rawValue" : false
     }, {
+      "key" : "srfattachsessiontag",
+      "name" : "srfattachsessiontag",
+      "value" : "_id",
+      "rawValue" : false
+    }, {
       "key" : "autoquestion",
       "name" : "autoquestion",
       "value" : "true",
@@ -1579,7 +1609,7 @@
     }, {
       "key" : "disabletopicstorage",
       "name" : "disabletopicstorage",
-      "value" : "true",
+      "value" : "false",
       "rawValue" : true
     }, {
       "key" : "srfenableaiagentchange",
@@ -1594,7 +1624,7 @@
     }, {
       "key" : "srfaiagent",
       "name" : "srfaiagent",
-      "value" : "CONTEXT_CODE_NAME",
+      "value" : "context_code_name",
       "rawValue" : false
     }, {
       "key" : "srfaiagentscope",
@@ -1611,6 +1641,11 @@
       "name" : "chunkpageindexdefaultvalue",
       "value" : "page_index",
       "rawValue" : false
+    }, {
+      "key" : "srfattachtimestamp",
+      "name" : "srfattachtimestamp",
+      "value" : "false",
+      "rawValue" : true
     } ],
     "getPSSysImage" : {
       "glyph" : "xf231@FontAwesome",
@@ -1649,7 +1684,7 @@
     "reloadData" : true,
     "id" : "jenkinsrun@ai_agent_session"
   }, {
-    "actionTarget" : "NONE",
+    "actionTarget" : "SINGLEDATA",
     "caption" : "查表审查",
     "codeName" : "lookup",
     "frontProcessType" : "CHAT",
@@ -1668,6 +1703,16 @@
       "name" : "SRFAIKNOWLEDGEBASES",
       "value" : "ai_knowledge_base",
       "rawValue" : false
+    }, {
+      "key" : "AI_AGENT_SESSION",
+      "name" : "AI_AGENT_SESSION",
+      "value" : "_id",
+      "rawValue" : false
+    }, {
+      "key" : "AI_AGENT_CONTEXT",
+      "name" : "AI_AGENT_CONTEXT",
+      "value" : "context_id",
+      "rawValue" : false
     } ],
     "getPSNavigateParams" : [ {
       "key" : "knowledgebases",
@@ -1680,9 +1725,19 @@
       "value" : "true",
       "rawValue" : true
     }, {
+      "key" : "srfattachsessiontag",
+      "name" : "srfattachsessiontag",
+      "value" : "_id",
+      "rawValue" : false
+    }, {
       "key" : "disabletopicstorage",
       "name" : "disabletopicstorage",
-      "value" : "true",
+      "value" : "false",
+      "rawValue" : true
+    }, {
+      "key" : "srfenableaiagentchange",
+      "name" : "srfenableaiagentchange",
+      "value" : "false",
       "rawValue" : true
     }, {
       "key" : "hidetopicsidebar",
@@ -1693,6 +1748,11 @@
       "key" : "srfaiagent",
       "name" : "srfaiagent",
       "value" : "CONTEXT_CODE_NAME",
+      "rawValue" : false
+    }, {
+      "key" : "srfaiagentscope",
+      "name" : "srfaiagentscope",
+      "value" : "_entity_tag",
       "rawValue" : false
     }, {
       "key" : "srfaiappendcurdata",
@@ -1709,6 +1769,11 @@
       "name" : "chunkpageindexdefaultvalue",
       "value" : "page_index",
       "rawValue" : false
+    }, {
+      "key" : "srfattachtimestamp",
+      "name" : "srfattachtimestamp",
+      "value" : "false",
+      "rawValue" : true
     } ],
     "getPSSysImage" : {
       "glyph" : "xf231@FontAwesome",
@@ -1830,6 +1895,11 @@
       "value" : "ai_knowledge_base",
       "rawValue" : false
     }, {
+      "key" : "srfattachsessiontag",
+      "name" : "srfattachsessiontag",
+      "value" : "_id",
+      "rawValue" : false
+    }, {
       "key" : "autoquestion",
       "name" : "autoquestion",
       "value" : "true",
@@ -1837,7 +1907,7 @@
     }, {
       "key" : "disabletopicstorage",
       "name" : "disabletopicstorage",
-      "value" : "true",
+      "value" : "false",
       "rawValue" : true
     }, {
       "key" : "srfenableaiagentchange",
@@ -1869,6 +1939,11 @@
       "name" : "chunkpageindexdefaultvalue",
       "value" : "page_index",
       "rawValue" : false
+    }, {
+      "key" : "srfattachtimestamp",
+      "name" : "srfattachtimestamp",
+      "value" : "false",
+      "rawValue" : true
     } ],
     "uIActionMode" : "FRONT",
     "uIActionTag" : "run",
@@ -2148,6 +2223,14 @@
       "topPos" : 180,
       "parallelOutput" : true
     }, {
+      "code" : "// 从uiLogic中获取实体标识和行标识\nconsole.log('autoFoward');\nconst entityTag = uiLogic.default._entity_tag;\nconst entityRowTag = uiLogic.default._entity_row_tag;\n\n// 设置context值，key为实体标识，value为行标识\nuiLogic.context[entityTag] = entityRowTag;\n\n// 调用实体界面行为run（自动处理返回值，如关闭视图、刷新等）\nawait ibiz.util.action.execAndResolved(\n  `run@${entityTag}`,\n  {\n    context: uiLogic.context,\n    params: uiLogic.nav,\n    data: [uiLogic.default],\n    view: uiLogic.view\n  },\n  ibiz.env.appId\n);",
+      "codeName" : "RAWJSCODE_02",
+      "leftPos" : 270,
+      "logicNodeType" : "RAWJSCODE",
+      "name" : "自动转发已注册交谈行为",
+      "topPos" : 630,
+      "parallelOutput" : true
+    }, {
       "codeName" : "DEUIACTION_01",
       "getDstPSAppDEUIAction" : {
         "getPSAppDataEntity" : {
@@ -2175,15 +2258,96 @@
       "topPos" : 560,
       "parallelOutput" : true
     }, {
-      "code" : "console.log(uiLogic.default);\n\nconst target = uiLogic.default;\n\n// 检查context_data是否存在且为字符串\nif (target.context_debug_data && typeof target.context_debug_data === 'string') {\n    try {\n        // 将JSON字符串解析为对象\n        const contextObj = JSON.parse(target.context_debug_data);\n        console.log('解析后的context_data对象:', contextObj);\n        //const _id = uiLogic.default.id;\n\n        // 将解析后的对象合并到uiLogic.default中\n        // 使用Object.assign进行浅合并\n        if (!Array.isArray(contextObj)) {\n            Object.assign(uiLogic.default, contextObj);\n        }\n    } catch (parseError) {\n        console.error('JSON解析错误:', parseError);\n        console.error('无效的JSON字符串:', target.context_debug_data);\n    }\n\n}       \n //uiLogic.default.id = _id; \nuiLogic.default._id =uiLogic.default.context_id + '-' + uiLogic.context.srfviewid + '-' + (target?.id || (Date.now().toString(36) + Math.random().toString(36).substr(2, 5)))+'-'+uiLogic.default._entity_tag;\nconsole.log('合并后的uiLogic.default:', uiLogic.default);\nuiLogic.view.closeView();\n\n",
+      "codeName" : "DEUIACTION_02",
+      "getDstPSAppDEUIAction" : {
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_session.json"
+        },
+        "modelref" : true,
+        "id" : "lookup@ai_agent_session"
+      },
+      "getDstPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_session.json"
+      },
+      "getDstPSDEUILogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "leftPos" : 650,
+      "logicNodeType" : "DEUIACTION",
+      "name" : "打开带引用参考文件的智能体对话",
+      "getRetPSDEUILogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "topPos" : 660,
+      "parallelOutput" : true
+    }, {
+      "codeName" : "DEUIACTION_03",
+      "getDstPSAppDEUIAction" : {
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_session.json"
+        },
+        "modelref" : true,
+        "id" : "fulltext_reason@ai_agent_session"
+      },
+      "getDstPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_session.json"
+      },
+      "getDstPSDEUILogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "leftPos" : 760,
+      "logicNodeType" : "DEUIACTION",
+      "name" : "全文推理",
+      "getRetPSDEUILogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "topPos" : 510,
+      "parallelOutput" : true
+    }, {
+      "codeName" : "DEUIACTION_04",
+      "getDstPSAppDEUIAction" : {
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_session.json"
+        },
+        "modelref" : true,
+        "id" : "deep_research@ai_agent_session"
+      },
+      "getDstPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_session.json"
+      },
+      "getDstPSDEUILogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "leftPos" : 740,
+      "logicNodeType" : "DEUIACTION",
+      "name" : "研究",
+      "getRetPSDEUILogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "topPos" : 350,
+      "parallelOutput" : true
+    }, {
+      "code" : "console.log(uiLogic.default);\n\nconst target = uiLogic.default;\n\n// 检查context_data是否存在且为字符串\nif (target.context_debug_data && typeof target.context_debug_data === 'string') {\n    try {\n        // 将JSON字符串解析为对象\n        const contextObj = JSON.parse(target.context_debug_data);\n        console.log('解析后的context_data对象:', contextObj);\n        //const _id = uiLogic.default.id;\n\n        // 将解析后的对象合并到uiLogic.default中\n        // 使用Object.assign进行浅合并\n        if (!Array.isArray(contextObj)) {\n            Object.assign(uiLogic.default, contextObj);\n        }\n    } catch (parseError) {\n        console.error('JSON解析错误:', parseError);\n        console.error('无效的JSON字符串:', target.context_debug_data);\n    }\n\n}       \n //uiLogic.default.id = _id; \nvar cview = uiLogic.view;\nwhile(cview.name.indexOf('ai_agent_assignment')>=0 && cview.parentView) {\n    cview=cview.parentView;\n}\nvar viewName = cview.name;\n\nif(!viewName) {\n    viewName=uiLogic.context.srfviewid;\n}\nvar _entity_row_key = target?._entity_row_key;\n\nif (!_entity_row_key && target?.id && target.id !== target.context_id) {\n    _entity_row_key = target.id;\n    uiLogic.default._entity_row_key = _entity_row_key;\n}\nif (!_entity_row_key) {\n    _entity_row_key = uiLogic.context.ai_knowledge_base;\n    uiLogic.default._entity_row_key = _entity_row_key;\n}\n\nif (!_entity_row_key) {\n    _entity_row_key = Date.now().toString(36) + Math.random().toString(36).substr(2, 5);\n}\nvar uid=uiLogic.default.context_id + '-' + viewName + '-' + _entity_row_key+'-'+uiLogic.context.srfpersonid;\nif(uiLogic.context.ai_agent_assignment && uiLogic.default.compose_id ) {\n    uid=uid+'-'+uiLogic.context.ai_agent_assignment;\n}\nuiLogic.default._id =ibiz.util.md5(uid)+'-'+uiLogic.default._entity_tag;\n \nif (['ai_knowledge_base', 'ai_kb_document'].includes(uiLogic.default._entity_tag)) {\n    uiLogic.default._auto_forword = 1;\n}\n\nconsole.log('合并后的uiLogic.default:', uiLogic.default);\nuiLogic.view.closeView();\n\n",
       "codeName" : "RAWJSCODE_01",
-      "leftPos" : 250,
+      "leftPos" : 230,
       "logicNodeType" : "RAWJSCODE",
       "name" : "注入脚本代码",
       "getPSDEUILogicLinks" : [ {
         "getDstPSDEUILogicNode" : {
           "modelref" : true,
-          "id" : "DEUIACTION_01"
+          "id" : "DEUIACTION_03"
         },
         "linkMode" : 0,
         "name" : "连接名称",
@@ -2191,14 +2355,65 @@
           "groupOP" : "AND",
           "logicType" : "GROUP",
           "getPSDEUILogicLinkConds" : [ {
-            "condOP" : "ISNULL",
-            "dstFieldName" : "spec_kb_id",
+            "condOP" : "EQ",
+            "dstFieldName" : "use_fulltext",
             "getDstLogicParam" : {
               "modelref" : true,
               "id" : "Default"
             },
             "logicType" : "SINGLE",
-            "name" : "Default[spec_kb_id] 值为空(Nil) "
+            "name" : "Default[use_fulltext] 等于(=) 1",
+            "paramValue" : "1",
+            "value" : "1"
+          }, {
+            "condOP" : "EQ",
+            "dstFieldName" : "flow_mode",
+            "getDstLogicParam" : {
+              "modelref" : true,
+              "id" : "Default"
+            },
+            "logicType" : "SINGLE",
+            "name" : "Default[flow_mode] 等于(=) DEFAULT",
+            "paramValue" : "DEFAULT",
+            "value" : "DEFAULT"
+          } ]
+        },
+        "getSrcPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "RAWJSCODE_01"
+        }
+      }, {
+        "getDstPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "DEUIACTION_04"
+        },
+        "linkMode" : 0,
+        "name" : "连接名称",
+        "getPSDEUILogicLinkGroupCond" : {
+          "groupOP" : "AND",
+          "logicType" : "GROUP",
+          "getPSDEUILogicLinkConds" : [ {
+            "condOP" : "EQ",
+            "dstFieldName" : "deep_research",
+            "getDstLogicParam" : {
+              "modelref" : true,
+              "id" : "Default"
+            },
+            "logicType" : "SINGLE",
+            "name" : "Default[deep_research] 等于(=) 1",
+            "paramValue" : "1",
+            "value" : "1"
+          }, {
+            "condOP" : "EQ",
+            "dstFieldName" : "flow_mode",
+            "getDstLogicParam" : {
+              "modelref" : true,
+              "id" : "Default"
+            },
+            "logicType" : "SINGLE",
+            "name" : "Default[flow_mode] 等于(=) DEFAULT",
+            "paramValue" : "DEFAULT",
+            "value" : "DEFAULT"
           } ]
         },
         "getSrcPSDEUILogicNode" : {
@@ -2224,48 +2439,84 @@
             },
             "logicType" : "SINGLE",
             "name" : "Default[spec_kb_id] 值不为空(NotNil) "
+          }, {
+            "condOP" : "EQ",
+            "dstFieldName" : "flow_mode",
+            "getDstLogicParam" : {
+              "modelref" : true,
+              "id" : "Default"
+            },
+            "logicType" : "SINGLE",
+            "name" : "Default[flow_mode] 等于(=) DEFAULT",
+            "paramValue" : "DEFAULT",
+            "value" : "DEFAULT"
           } ]
         },
         "getSrcPSDEUILogicNode" : {
           "modelref" : true,
           "id" : "RAWJSCODE_01"
         }
-      } ],
-      "topPos" : 370,
-      "parallelOutput" : true
-    }, {
-      "codeName" : "DEUIACTION_02",
-      "getDstPSAppDEUIAction" : {
-        "getPSAppDataEntity" : {
+      }, {
+        "getDstPSDEUILogicNode" : {
           "modelref" : true,
-          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_session.json"
+          "id" : "RAWJSCODE_02"
         },
-        "modelref" : true,
-        "id" : "lookup@ai_agent_session"
-      },
-      "getDstPSAppDataEntity" : {
-        "modelref" : true,
-        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_session.json"
-      },
-      "getDstPSDEUILogicParam" : {
-        "modelref" : true,
-        "id" : "Default"
-      },
-      "leftPos" : 420,
-      "logicNodeType" : "DEUIACTION",
-      "name" : "打开带引用参考文件的智能体对话",
-      "getRetPSDEUILogicParam" : {
-        "modelref" : true,
-        "id" : "Default"
-      },
-      "topPos" : 540,
-      "parallelOutput" : true
+        "linkMode" : 0,
+        "name" : "连接名称",
+        "getPSDEUILogicLinkGroupCond" : {
+          "groupOP" : "AND",
+          "logicType" : "GROUP",
+          "getPSDEUILogicLinkConds" : [ {
+            "condOP" : "EQ",
+            "dstFieldName" : "_auto_forword",
+            "getDstLogicParam" : {
+              "modelref" : true,
+              "id" : "Default"
+            },
+            "logicType" : "SINGLE",
+            "name" : "Default[_auto_forword] 等于(=) 1",
+            "paramValue" : "1",
+            "value" : "1"
+          } ]
+        },
+        "getSrcPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "RAWJSCODE_01"
+        }
+      }, {
+        "getDstPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "DEUIACTION_01"
+        },
+        "linkMode" : 1,
+        "name" : "连接名称",
+        "getPSDEUILogicLinkGroupCond" : {
+          "groupOP" : "AND",
+          "logicType" : "GROUP",
+          "getPSDEUILogicLinkConds" : [ {
+            "condOP" : "ISNOTNULL",
+            "dstFieldName" : "spec_kb_id",
+            "getDstLogicParam" : {
+              "modelref" : true,
+              "id" : "Default"
+            },
+            "logicType" : "SINGLE",
+            "name" : "Default[spec_kb_id] 值不为空(NotNil) "
+          } ]
+        },
+        "getSrcPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "RAWJSCODE_01"
+        },
+        "defaultLink" : true
+      } ],
+      "topPos" : 340
     } ],
     "getPSDEUILogicParams" : [ {
-      "codeName" : "nav",
-      "logicName" : "nav",
-      "name" : "nav",
-      "viewNavDataParam" : true
+      "codeName" : "context",
+      "logicName" : "context",
+      "name" : "context",
+      "navContextParam" : true
     }, {
       "codeName" : "Default",
       "logicName" : "传入变量",
@@ -2273,15 +2524,15 @@
       "default" : true,
       "entityParam" : true
     }, {
+      "codeName" : "nav",
+      "logicName" : "nav",
+      "name" : "nav",
+      "viewNavDataParam" : true
+    }, {
       "codeName" : "router",
       "logicName" : "router",
       "name" : "router",
       "navViewParamParam" : true
-    }, {
-      "codeName" : "context",
-      "logicName" : "context",
-      "name" : "context",
-      "navContextParam" : true
     }, {
       "codeName" : "view",
       "logicName" : "当前视图",
@@ -2485,7 +2736,7 @@
   "getLNPSLanguageRes" : {
     "lanResTag" : "DE.LNAME.AI_AGENT_SESSION"
   },
-  "logicName" : "智能体会话",
+  "logicName" : "智能体SESSION",
   "getMajorPSAppDEField" : {
     "name" : "NAME",
     "codeName" : "name"

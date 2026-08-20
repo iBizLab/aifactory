@@ -24,13 +24,7 @@
       "path" : "PSMODULES/Wiki/PSDATAENTITIES/article_page/PSDEACTIONS/commit_version.json"
     },
     "name" : "附加逻辑",
-    "getPSDELogic" : {
-      "modelref" : true,
-      "path" : "PSMODULES/Wiki/PSDATAENTITIES/article_page/PSDELOGICS/commit_version.json"
-    },
-    "prepareLastMode" : 1,
-    "internalLogic" : false,
-    "prepareLast" : true
+    "internalLogic" : false
   } ],
   "codeName" : "Update",
   "dataAccessAction" : "UPDATE",
@@ -51,7 +45,5 @@
     "name" : "UpdateResult",
     "type" : "VOID"
   },
-  "prepareLastMode" : 1,
-  "builtinAction" : true,
-  "prepareLast" : true
+  "builtinAction" : true
 }

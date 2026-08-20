@@ -1,0 +1,31 @@
+{
+  "codeName" : "skill_workspace",
+  "dERType" : "DER1N",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDERS/DER1N_AI_AGENT_ASSIGNMENT_AI_SKILL_WORKSPACE_SKILL_WORKSPACE_ID.json",
+  "fKeyName" : "F05ADA8E038E97A3CA",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+  },
+  "masterOrder" : -1,
+  "masterRS" : 0,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment.json"
+  },
+  "name" : "DER1N_AI_AGENT_ASSIGNMENT_AI_SKILL_WORKSPACE_SKILL_WORKSPACE_ID",
+  "orderValue" : 100,
+  "getPSPickupDEField" : {
+    "name" : "SKILL_WORKSPACE_ID",
+    "codeName" : "skill_workspace_id"
+  },
+  "getPSPickupTextDEField" : {
+    "name" : "SKILL_RUNNER",
+    "codeName" : "skill_runner"
+  },
+  "pickupDEFName" : "SKILL_WORKSPACE_ID",
+  "removeActionType" : -1,
+  "removeOrder" : 0,
+  "serviceCodeName" : "skill_workspace",
+  "enableFKey" : true
+}

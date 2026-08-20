@@ -1,0 +1,80 @@
+{
+  "codeName" : "currole",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/Base/PSDATAENTITIES/role_member/PSDELOGICS/currole.json",
+  "logicName" : "currole",
+  "name" : "currole",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : -270,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : -110,
+    "parallelOutput" : true
+  }, {
+    "code" : " def defaultParam = logic.param('Default').getReal()\n  def filteredRoles = logic.param('filteredRoles').getReal()\n def roleid =  defaultParam.get(\"role\")\n if(!roleid)\n    roleid=defaultParam.get(\"role_id\")\n if(!roleid)\n    roleid=defaultParam.get(\"n_role_id_eq\")\n   def iAppContext = net.ibizsys.runtime.util.AppContext.newInstance(net.ibizsys.runtime.util.ActionSessionManager.getCurrentSessionMust().getAppContext());\n        iAppContext.set(\"SYS_ROLE\", roleid);\n        net.ibizsys.runtime.util.ActionSessionManager.getCurrentSessionMust().setAppContext(iAppContext);\n        \n        def userRoleDERuntime = sys.dataentity(\"SYS_USER_ROLE\");\n \n        defaultParam.eq(\"sys_roleid\", role.get(\"sys_roleid\"));\n        def userRole = userRoleDERuntime.select(defaultParam);\n        if(userRole) {\n            userRole.each { role ->\n              filteredRoles.add(role)\n            }\n        }",
+    "codeName" : "RAWSFCODE_01",
+    "codeType" : "Groovy",
+    "leftPos" : -290,
+    "logicNodeType" : "RAWSFCODE",
+    "name" : "执行脚本代码",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      }
+    } ],
+    "topPos" : 50,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "END_01",
+    "leftPos" : -250,
+    "logicNodeType" : "END",
+    "name" : "结束",
+    "getReturnParam" : {
+      "modelref" : true,
+      "id" : "filteredRoles"
+    },
+    "returnType" : "LOGICPARAM",
+    "topPos" : 205,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/role_member.json"
+    },
+    "default" : true,
+    "filterParam" : true
+  }, {
+    "codeName" : "filteredRoles",
+    "logicName" : "filteredRoles",
+    "name" : "filteredRoles",
+    "entityParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

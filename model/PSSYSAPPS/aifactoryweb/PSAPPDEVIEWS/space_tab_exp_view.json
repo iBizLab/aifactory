@@ -18,9 +18,9 @@
   "getPSViewLayoutPanel" : {
     "codeName" : "usr0416959845",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space/PSVIEWLAYOUTPANELS/usr0416959845.json",
     "layoutMode" : "FLEX",
     "logicName" : "tab_exp_view分页导航视图布局面板",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space.json"
@@ -223,6 +223,7 @@
     "layoutPanel" : true,
     "useDefaultLayout" : false,
     "viewProxyMode" : true,
+    "name" : "layoutpanel",
     "modelid" : "7cfcde648844fa99b98f3f1555defe73",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL",
     "getPSAppViewEngines" : [ {
@@ -233,7 +234,7 @@
     "getPSControls" : [ {
       "codeName" : "tab_exp_view_tabexppanel",
       "controlType" : "TABEXPPANEL",
-      "name" : "tabexppanel",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space/PSTABEXPPANELS/tab_exp_view_tabexppanel.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space.json"
@@ -276,7 +277,7 @@
         "caption" : "进行中",
         "codeName" : "tab_exp_view_is_running",
         "controlType" : "TABVIEWPANEL",
-        "name" : "is_running",
+        "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space/PSTABVIEWPANELS/tab_exp_view_is_running.json",
         "getPSAppDataEntity" : {
           "modelref" : true,
           "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space.json"
@@ -284,6 +285,7 @@
         "getPSControlParam" : {
           "id" : "is_running"
         },
+        "name" : "is_running",
         "modelid" : "fbc96c6b492b56fd852d7526ff3767eb_is_running",
         "modeltype" : "PSVIEWPANEL",
         "getEmbeddedPSAppDEView" : {
@@ -382,8 +384,8 @@
           "getPSControls" : [ {
             "codeName" : "in_progress_grid_view_toolbar",
             "controlType" : "TOOLBAR",
+            "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space/PSTOOLBARS/in_progress_grid_view_toolbar.json",
             "logicName" : "空间管理表格视图_进行中_工具栏",
-            "name" : "toolbar",
             "getPSAppDataEntity" : {
               "modelref" : true,
               "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space.json"
@@ -392,6 +394,7 @@
               "id" : "TOOLBAR"
             },
             "xDataControlName" : "grid",
+            "name" : "toolbar",
             "modelid" : "0d6fce344bad4491df7ba13379f3bde8",
             "modeltype" : "PSDETOOLBAR"
           }, {
@@ -937,12 +940,13 @@
             "caption" : "空间管理",
             "codeName" : "in_progress_grid_view_captionbar",
             "controlType" : "CAPTIONBAR",
-            "name" : "captionbar",
+            "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space/PSCAPTIONBARS/in_progress_grid_view_captionbar.json",
             "getPSAppDataEntity" : {
               "modelref" : true,
               "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space.json"
             },
-            "getPSControlParam" : { }
+            "getPSControlParam" : { },
+            "name" : "captionbar"
           } ],
           "getPSDEViewCodeName" : "in_progress_grid_view",
           "getPSDEViewId" : "0f8045ad419a76757341e90829224cfb",
@@ -950,7 +954,7 @@
             "codeName" : "layoutpanel",
             "controlStyle" : "APPDEGRIDVIEW",
             "controlType" : "VIEWLAYOUTPANEL",
-            "name" : "layoutpanel",
+            "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space/PSVIEWLAYOUTPANELS/layoutpanel.json",
             "getPSAppDataEntity" : {
               "modelref" : true,
               "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space.json"
@@ -958,7 +962,8 @@
             "getPSControlParam" : { },
             "layoutBodyOnly" : true,
             "layoutPanel" : true,
-            "useDefaultLayout" : true
+            "useDefaultLayout" : true,
+            "name" : "layoutpanel"
           },
           "refFlag" : false,
           "title" : "空间管理",
@@ -980,12 +985,12 @@
         "caption" : "共享中",
         "codeName" : "tab_exp_view_is_shared",
         "controlType" : "TABVIEWPANEL",
+        "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space/PSTABVIEWPANELS/tab_exp_view_is_shared.json",
         "getEmbeddedPSAppDEView" : {
           "modelref" : true,
           "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/shared_space_shared_grid_view.json",
           "viewType" : "DEGRIDVIEW"
         },
-        "name" : "is_shared",
         "getPSAppDataEntity" : {
           "modelref" : true,
           "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space.json"
@@ -993,18 +998,19 @@
         "getPSControlParam" : {
           "id" : "is_shared"
         },
+        "name" : "is_shared",
         "modelid" : "fbc96c6b492b56fd852d7526ff3767eb_is_shared",
         "modeltype" : "PSVIEWPANEL"
       }, {
         "caption" : "已归档",
         "codeName" : "tab_exp_view_is_archived",
         "controlType" : "TABVIEWPANEL",
+        "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space/PSTABVIEWPANELS/tab_exp_view_is_archived.json",
         "getEmbeddedPSAppDEView" : {
           "modelref" : true,
           "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/space_archived_grid_view.json",
           "viewType" : "DEGRIDVIEW"
         },
-        "name" : "is_archived",
         "getPSAppDataEntity" : {
           "modelref" : true,
           "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space.json"
@@ -1012,18 +1018,19 @@
         "getPSControlParam" : {
           "id" : "is_archived"
         },
+        "name" : "is_archived",
         "modelid" : "fbc96c6b492b56fd852d7526ff3767eb_is_archived",
         "modeltype" : "PSVIEWPANEL"
       }, {
         "caption" : "已删除",
         "codeName" : "tab_exp_view_is_deleted",
         "controlType" : "TABVIEWPANEL",
+        "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space/PSTABVIEWPANELS/tab_exp_view_is_deleted.json",
         "getEmbeddedPSAppDEView" : {
           "modelref" : true,
           "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/space_deleted_grid_view.json",
           "viewType" : "DEGRIDVIEW"
         },
-        "name" : "is_deleted",
         "getPSAppDataEntity" : {
           "modelref" : true,
           "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space.json"
@@ -1031,6 +1038,7 @@
         "getPSControlParam" : {
           "id" : "is_deleted"
         },
+        "name" : "is_deleted",
         "modelid" : "fbc96c6b492b56fd852d7526ff3767eb_is_deleted",
         "modeltype" : "PSVIEWPANEL"
       } ],
@@ -1045,18 +1053,20 @@
       } ],
       "tabLayout" : "TOP",
       "uniqueTag" : "space_tab_exp_view__tabexppanel",
+      "name" : "tabexppanel",
       "modelid" : "fbc96c6b492b56fd852d7526ff3767eb_tabexppanel",
       "modeltype" : "PSTABEXPPANEL"
     }, {
       "caption" : "空间管理",
       "codeName" : "tab_exp_view_captionbar",
       "controlType" : "CAPTIONBAR",
-      "name" : "captionbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space/PSCAPTIONBARS/tab_exp_view_captionbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space.json"
       },
-      "getPSControlParam" : { }
+      "getPSControlParam" : { },
+      "name" : "captionbar"
     } ]
   },
   "refFlag" : false,

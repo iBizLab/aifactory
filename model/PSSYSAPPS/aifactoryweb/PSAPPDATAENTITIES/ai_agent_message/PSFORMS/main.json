@@ -184,6 +184,13 @@
       "codeName" : "latency_ms"
     }
   }, {
+    "id" : "tool_calls",
+    "dataType" : 9,
+    "getPSAppDEField" : {
+      "name" : "TOOL_CALLS",
+      "codeName" : "tool_calls"
+    }
+  }, {
     "id" : "conversation_id",
     "hidden" : true,
     "dataType" : 25,
@@ -502,6 +509,34 @@
         "getPSLayoutPos" : {
           "colLG" : 12,
           "colMD" : 24,
+          "layout" : "TABLE_24COL"
+        },
+        "allowEmpty" : true,
+        "showCaption" : true
+      }, {
+        "caption" : "工具调用数",
+        "codeName" : "tool_calls",
+        "dataType" : 9,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "tool_calls",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "TOOL_CALLS",
+          "codeName" : "tool_calls"
+        },
+        "getPSEditor" : {
+          "editorType" : "SPAN",
+          "name" : "tool_calls",
+          "enableLinkView" : false
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 12,
+          "colMD" : 12,
           "layout" : "TABLE_24COL"
         },
         "allowEmpty" : true,

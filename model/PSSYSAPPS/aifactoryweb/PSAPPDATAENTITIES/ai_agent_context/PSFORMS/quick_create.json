@@ -507,6 +507,15 @@
       "codeName" : "enable_searching"
     }
   }, {
+    "id" : "system_flag",
+    "dataType" : 9,
+    "createDV" : "0",
+    "updateDV" : "0",
+    "getPSAppDEField" : {
+      "name" : "SYSTEM_FLAG",
+      "codeName" : "system_flag"
+    }
+  }, {
     "id" : "vlm_prompt",
     "dataType" : 21,
     "getPSAppDEField" : {
@@ -686,7 +695,17 @@
         "getPSEditor" : {
           "editorType" : "TEXTBOX",
           "maxLength" : 30,
-          "name" : "code_name"
+          "name" : "code_name",
+          "getPSSysValueRule" : {
+            "codeName" : "CodeName",
+            "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPVALUERULES/CodeName.json",
+            "name" : "代码名称",
+            "regExCode" : "[a-zA-Z_$][a-zA-Z0-9_$]*",
+            "ruleInfo" : "内容只能由字母、数字、下划线组成，且开始必须为字母",
+            "ruleType" : "REG",
+            "uniqueTag" : "CodeName",
+            "enableFront" : true
+          }
         },
         "getPSLayoutPos" : {
           "colLG" : 8,
@@ -1016,6 +1035,9 @@
             "notMode" : false
           } ],
           "getPSEditor" : {
+            "editorParams" : {
+              "forceSelection" : "false"
+            },
             "editorType" : "MDROPDOWNLIST",
             "name" : "skill_tags",
             "getPSAppCodeList" : {
@@ -2658,7 +2680,7 @@
           },
           "getPSEditor" : {
             "editorType" : "TEXTBOX",
-            "maxValue" : 256000.0,
+            "maxValue" : 32000.0,
             "minValue" : 0.0,
             "name" : "max_input_tokens",
             "placeHolder" : "继承自模版"
@@ -2802,6 +2824,43 @@
             "layout" : "TABLE_24COL"
           },
           "allowEmpty" : true,
+          "showCaption" : true
+        }, {
+          "caption" : "是否公开",
+          "codeName" : "system_flag",
+          "createDV" : "0",
+          "dataType" : 9,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "itemWidth" : 230.0,
+          "labelPos" : "TOP",
+          "labelWidth" : 130,
+          "name" : "system_flag",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "SYSTEM_FLAG",
+            "codeName" : "system_flag"
+          },
+          "getPSEditor" : {
+            "editorType" : "DROPDOWNLIST_100",
+            "editorWidth" : 100.0,
+            "name" : "system_flag",
+            "getPSAppCodeList" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/YesNo.json"
+            },
+            "singleSelect" : true
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 8,
+            "colMD" : 8,
+            "layout" : "TABLE_24COL"
+          },
+          "updateDV" : "0",
+          "allowEmpty" : true,
+          "needCodeListConfig" : true,
           "showCaption" : true
         }, {
           "caption" : "视觉识别提示词",

@@ -1,0 +1,40 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"createdate\"",
+    "name" : "CREATEDATE"
+  }, {
+    "expression" : "t1.\"createman\"",
+    "name" : "CREATEMAN"
+  }, {
+    "expression" : "t1.\"createmanname\"",
+    "name" : "CREATEMANNAME"
+  }, {
+    "expression" : "t1.\"isvalid\"",
+    "name" : "ISVALID"
+  }, {
+    "expression" : "t1.\"personname\"",
+    "name" : "PERSONNAME"
+  }, {
+    "expression" : "t1.\"sys_roleid\"",
+    "name" : "SYS_ROLEID"
+  }, {
+    "expression" : "t1.\"sys_user_roleid\"",
+    "name" : "SYS_USER_ROLEID"
+  }, {
+    "expression" : "t1.\"updatedate\"",
+    "name" : "UPDATEDATE"
+  }, {
+    "expression" : "t1.\"updateman\"",
+    "name" : "UPDATEMAN"
+  }, {
+    "expression" : "t1.\"updatemanname\"",
+    "name" : "UPDATEMANNAME"
+  }, {
+    "expression" : "t1.\"userid\"",
+    "name" : "USERID"
+  } ],
+  "queryCode" : "SELECT\nt1.\"createdate\",\nt1.\"createman\",\nt1.\"createmanname\",\nt1.\"isvalid\",\nt1.\"personname\",\nt1.\"sys_roleid\",\nt1.\"sys_user_roleid\",\nt1.\"updatedate\",\nt1.\"updateman\",\nt1.\"updatemanname\",\nt1.\"userid\"\nFROM \"\" t1 \n",
+  "id" : "PSSYSMODELGROUPS/ebsx/PSMODULES/ebsx/PSDATAENTITIES/UserRole/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

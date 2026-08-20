@@ -1,0 +1,58 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"adv_settings\"",
+    "name" : "ADV_SETTINGS"
+  }, {
+    "expression" : "t1.\"access_token\"",
+    "name" : "ACCESS_TOKEN"
+  }, {
+    "expression" : "t1.\"client_id\"",
+    "name" : "CLIENT_ID"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.\"home_path\"",
+    "name" : "HOME_PATH"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"last_heartbeat\"",
+    "name" : "LAST_HEARTBEAT"
+  }, {
+    "expression" : "t1.\"mqtt_address\"",
+    "name" : "MQTT_ADDRESS"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"portal_address\"",
+    "name" : "PORTAL_ADDRESS"
+  }, {
+    "expression" : "t1.\"skill_hub_repo\"",
+    "name" : "SKILL_HUB_REPO"
+  }, {
+    "expression" : "t1.\"status\"",
+    "name" : "STATUS"
+  }, {
+    "expression" : "t1.\"topic\"",
+    "name" : "TOPIC"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"access_token\",\nt1.\"client_id\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"description\",\nt1.\"home_path\",\nt1.\"id\",\nt1.\"last_heartbeat\",\nt1.\"mqtt_address\",\nt1.\"name\",\nt1.\"portal_address\",\nt1.\"skill_hub_repo\",\nt1.\"status\",\nt1.\"topic\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"ai_skill_workspace\" t1 \n",
+  "id" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEDATAQUERIES/Default/PSDEDQCODES/POSTGRESQL.json"
+}

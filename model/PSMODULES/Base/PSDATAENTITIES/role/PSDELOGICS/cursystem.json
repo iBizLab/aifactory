@@ -1,0 +1,192 @@
+{
+  "codeName" : "cursystem",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/Base/PSDATAENTITIES/role/PSDELOGICS/cursystem.json",
+  "logicName" : "本系统角色",
+  "memo" : "移除循环节点，直接在Groovy脚本中过滤角色数据（当前系统角色或全局角色）",
+  "name" : "本系统角色",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : 200,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM"
+      },
+      "name" : "开始到准备参数",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : 200,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM",
+    "leftPos" : 200,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "准备过滤器参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEBUGPARAM_01"
+      },
+      "name" : "准备参数到调试参数",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "dcsystemid",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "sysarg"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "srfdcsystemid",
+      "srcValueType" : "SESSION"
+    }, {
+      "dstFieldName" : "size",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcValue" : "1000",
+      "srcValueType" : "SRCVALUE"
+    } ],
+    "topPos" : 350,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEBUGPARAM_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "leftPos" : 210,
+    "logicNodeType" : "DEBUGPARAM",
+    "name" : "调试逻辑参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEDATASET_01"
+      },
+      "name" : "调试参数到数据集",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEBUGPARAM_01"
+      }
+    } ],
+    "topPos" : 533,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEDATASET_01",
+    "getDstPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/role.json"
+    },
+    "leftPos" : 210,
+    "logicNodeType" : "DEDATASET",
+    "name" : "实体数据集",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE"
+      },
+      "name" : "数据集到脚本过滤",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEDATASET_01"
+      }
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "resultPage"
+    },
+    "topPos" : 672,
+    "parallelOutput" : true
+  }, {
+    "code" : "def defaultParam = logic.param('Default').getReal()\ndef sysarg = logic.param('sysarg').getReal()\n\ndef resultPage = logic.param('resultPage').getReal()\ndef filteredRoles = logic.param('filteredRoles').getReal()\n System.out.println(\"sysarg.dcsystemid:\"+sysarg.dcsystemid)\nresultPage.getContent().each { role ->\n    if (role.dcsystemid == sysarg.dcsystemid ||role.globalflag == 1) {\n        filteredRoles.add(role)\n    }\n}",
+    "codeName" : "RAWSFCODE",
+    "codeType" : "Groovy",
+    "leftPos" : 210,
+    "logicNodeType" : "RAWSFCODE",
+    "name" : "过滤角色数据",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END"
+      },
+      "name" : "脚本过滤到结束",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE"
+      }
+    } ],
+    "topPos" : 800,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "END",
+    "leftPos" : 200,
+    "logicNodeType" : "END",
+    "name" : "结束",
+    "getReturnParam" : {
+      "modelref" : true,
+      "id" : "filteredRoles"
+    },
+    "returnType" : "LOGICPARAM",
+    "topPos" : 1100,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/role.json"
+    },
+    "default" : true,
+    "filterParam" : true
+  }, {
+    "codeName" : "filteredRoles",
+    "logicName" : "过滤后的角色列表",
+    "name" : "过滤后的角色列表",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/role.json"
+    },
+    "entityListParam" : true
+  }, {
+    "codeName" : "resultPage",
+    "logicName" : "分页结果",
+    "name" : "分页结果",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/role.json"
+    },
+    "entityPageParam" : true
+  }, {
+    "codeName" : "sysarg",
+    "logicName" : "sysarg",
+    "name" : "sysarg",
+    "entityParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

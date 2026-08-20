@@ -55,10 +55,10 @@
     } ],
     "codeName" : "usr0226644544",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page/PSVIEWLAYOUTPANELS/usr0226644544.json",
     "hookEventNames" : [ "ONBLUR", "ONFOCUS" ],
     "layoutMode" : "FLEX",
     "logicName" : "show_view编辑视图布局面板",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page.json"
@@ -758,6 +758,7 @@
     "layoutPanel" : true,
     "useDefaultLayout" : false,
     "viewProxyMode" : true,
+    "name" : "layoutpanel",
     "modelid" : "402b2295882077fc5f3f0825bea33f6d",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL",
     "getPSAppViewEngines" : [ {
@@ -809,8 +810,8 @@
     "getPSControls" : [ {
       "codeName" : "model_show_view_toolbar",
       "controlType" : "TOOLBAR",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page/PSTOOLBARS/model_show_view_toolbar.json",
       "logicName" : "页面实体编辑视图（展示）_工具栏",
-      "name" : "toolbar",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page.json"
@@ -1757,6 +1758,7 @@
       } ],
       "toolbarStyle" : "USER",
       "xDataControlName" : "form",
+      "name" : "toolbar",
       "modelid" : "36a5362979b253edf7a837c3c57cb97f",
       "modeltype" : "PSDETOOLBAR"
     }, {
@@ -3877,24 +3879,26 @@
     }, {
       "codeName" : "model_show_view_datainfobar",
       "controlType" : "DATAINFOBAR",
-      "name" : "datainfobar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page/PSDATAINFOBARS/model_show_view_datainfobar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page.json"
       },
       "getPSControlParam" : {
         "id" : "datainfobar"
-      }
+      },
+      "name" : "datainfobar"
     }, {
       "caption" : "页面",
       "codeName" : "model_show_view_captionbar",
       "controlType" : "CAPTIONBAR",
-      "name" : "captionbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page/PSCAPTIONBARS/model_show_view_captionbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page.json"
       },
-      "getPSControlParam" : { }
+      "getPSControlParam" : { },
+      "name" : "captionbar"
     } ]
   },
   "title" : "页面",

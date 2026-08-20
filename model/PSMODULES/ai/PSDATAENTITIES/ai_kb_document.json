@@ -22,6 +22,40 @@
     "defaultMode" : true,
     "enablePagingBar" : false,
     "id" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDEACMODES/Default.json"
+  }, {
+    "aCTag" : "run",
+    "aCType" : "CHATCOMPLETION",
+    "codeName" : "dyna_agent",
+    "logicName" : "开启对话",
+    "name" : "dyna_agent",
+    "getPSDEACModeDataItems" : [ {
+      "dataType" : 25,
+      "name" : "value",
+      "getPSDEField" : {
+        "name" : "ID",
+        "codeName" : "id"
+      }
+    }, {
+      "dataType" : 25,
+      "name" : "text",
+      "getPSDEField" : {
+        "name" : "NAME",
+        "codeName" : "name"
+      }
+    } ],
+    "getPSSysAIChatAgent" : {
+      "modelref" : true,
+      "id" : "DynamicAgent"
+    },
+    "getPSSysAIFactory" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSSYSAIFACTORIES/iBizIntelligence.json"
+    },
+    "pagingSize" : 50,
+    "defaultMode" : false,
+    "enableBackend" : true,
+    "enablePagingBar" : false,
+    "id" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDEACMODES/dyna_agent.json"
   } ],
   "getAllPSDEActions" : [ {
     "actionMode" : "CREATE",
@@ -894,6 +928,7 @@
     "logicName" : "DEFAULT",
     "name" : "DEFAULT",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
@@ -930,6 +965,7 @@
     "logicName" : "默认（全部数据）",
     "name" : "VIEW",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
@@ -964,6 +1000,7 @@
     "logicName" : "AI文档内容",
     "name" : "ai_doc_content",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
@@ -1002,6 +1039,7 @@
     "logicName" : "AI文档清单",
     "name" : "ai_doc_list",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
@@ -1039,6 +1077,7 @@
     "logicName" : "当前知识库",
     "name" : "cur_kb",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
@@ -1091,6 +1130,7 @@
     "logicName" : "exp_list",
     "name" : "exp_list",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
@@ -1125,6 +1165,7 @@
     "logicName" : "数据查询",
     "name" : "ls",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
@@ -1162,6 +1203,7 @@
     "logicName" : "过滤器查询",
     "name" : "my_filter",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
@@ -1197,6 +1239,7 @@
     "logicName" : "reader",
     "name" : "reader",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getChildPSDEDQJoins" : [ {
         "getDERPSDataEntity" : {
           "modelref" : true,
@@ -1322,6 +1365,7 @@
     "logicName" : "最近文档",
     "name" : "recent",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
@@ -1357,6 +1401,7 @@
     "logicName" : "资源分类",
     "name" : "resource_classification",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
@@ -1404,6 +1449,7 @@
     "logicName" : "选中的数据",
     "name" : "selected_data",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
@@ -1457,6 +1503,7 @@
     "logicName" : "简单查询",
     "name" : "simple",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
@@ -1497,6 +1544,7 @@
     "logicName" : "未解析文档",
     "name" : "UNPARSED",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"

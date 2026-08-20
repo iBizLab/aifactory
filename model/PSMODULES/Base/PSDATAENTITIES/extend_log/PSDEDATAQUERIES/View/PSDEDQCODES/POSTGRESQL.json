@@ -47,12 +47,15 @@
     "expression" : "t1.\"state\"",
     "name" : "STATE"
   }, {
+    "expression" : "t1.\"trigger_node_id\"",
+    "name" : "TRIGGER_NODE_ID"
+  }, {
     "expression" : "t1.\"update_man\"",
     "name" : "UPDATE_MAN"
   }, {
     "expression" : "t1.\"update_time\"",
     "name" : "UPDATE_TIME"
   } ],
-  "queryCode" : "SELECT\nt1.\"category\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"debug_info\",\nt1.\"elapsed_time\",\nt1.\"end_at\",\nt1.\"id\",\nt1.\"info\",\nt1.\"level\",\nt1.\"name\",\nt1.\"owner_id\",\nt1.\"owner_subtype\",\nt1.\"owner_type\",\nt1.\"start_at\",\nt1.\"state\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"extend_log\" t1 \n",
+  "queryCode" : "SELECT\nt1.\"category\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"debug_info\",\nt1.\"elapsed_time\",\nt1.\"end_at\",\nt1.\"id\",\nt1.\"info\",\nt1.\"level\",\nt1.\"name\",\nt1.\"owner_id\",\nt1.\"owner_subtype\",\nt1.\"owner_type\",\nt1.\"start_at\",\nt1.\"state\",\nt1.\"trigger_node_id\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"extend_log\" t1 \n",
   "id" : "PSMODULES/Base/PSDATAENTITIES/extend_log/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
 }

@@ -342,8 +342,8 @@
             "getPSControls" : [ {
               "codeName" : "access_record_list_toolbar",
               "controlType" : "TOOLBAR",
+              "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/recent/PSTOOLBARS/access_record_list_toolbar.json",
               "logicName" : "访问记录列表视图_工具栏",
-              "name" : "toolbar",
               "getPSAppDataEntity" : {
                 "modelref" : true,
                 "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/recent.json"
@@ -352,6 +352,7 @@
                 "id" : "TOOLBAR"
               },
               "xDataControlName" : "list",
+              "name" : "toolbar",
               "modelid" : "b718c455f4a867ba010f6c33f1856866",
               "modeltype" : "PSDETOOLBAR"
             }, {
@@ -749,12 +750,13 @@
               "caption" : "访问记录",
               "codeName" : "access_record_list_captionbar",
               "controlType" : "CAPTIONBAR",
-              "name" : "captionbar",
+              "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/recent/PSCAPTIONBARS/access_record_list_captionbar.json",
               "getPSAppDataEntity" : {
                 "modelref" : true,
                 "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/recent.json"
               },
-              "getPSControlParam" : { }
+              "getPSControlParam" : { },
+              "name" : "captionbar"
             } ],
             "getPSDEViewCodeName" : "access_record_list",
             "getPSDEViewId" : "0e296ed1751c710df79ac2d5d382b7ef",
@@ -762,7 +764,7 @@
               "codeName" : "layoutpanel",
               "controlStyle" : "APPDELISTVIEW",
               "controlType" : "VIEWLAYOUTPANEL",
-              "name" : "layoutpanel",
+              "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/recent/PSVIEWLAYOUTPANELS/layoutpanel.json",
               "getPSAppDataEntity" : {
                 "modelref" : true,
                 "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/recent.json"
@@ -770,7 +772,8 @@
               "getPSControlParam" : { },
               "layoutBodyOnly" : true,
               "layoutPanel" : true,
-              "useDefaultLayout" : true
+              "useDefaultLayout" : true,
+              "name" : "layoutpanel"
             },
             "refFlag" : false,
             "title" : "访问记录",

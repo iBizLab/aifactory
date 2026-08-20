@@ -22,17 +22,6 @@ package cn.ibizlab.ai.logic.ai_agent_contextlogic.batch_execution;
             then
             end
 
-            //逻辑处理节点[知识库推理]
-            rule "deaction_01"
-            ruleflow-group "ai_agent_contextbatch_executiondeaction_01"
-            when
-            then
-                        ai_knowledge_baseservice.reason(ai_agent_contextbatch_executionkb_temp);
-                        update(ai_agent_contextbatch_executiondefault);//更新fact中变量值
-                        update(ai_agent_contextbatch_executionkb_list);//更新fact中变量值
-                        update(ai_agent_contextbatch_executionkb_temp);//更新fact中变量值
-            end
-
             //逻辑处理节点[解析所选择的知识库]
             rule "rawsfcode_01"
             ruleflow-group "ai_agent_contextbatch_executionrawsfcode_01"
@@ -43,9 +32,9 @@ package cn.ibizlab.ai.logic.ai_agent_contextlogic.batch_execution;
                         update(ai_agent_contextbatch_executionkb_temp);//更新fact中变量值
             end
 
-            //逻辑处理节点[准备参数]
-            rule "prepareparam_01"
-            ruleflow-group "ai_agent_contextbatch_executionprepareparam_01"
+            //逻辑处理节点[知识库研究]
+            rule "delogic_01"
+            ruleflow-group "ai_agent_contextbatch_executiondelogic_01"
             when
             then
                         update(ai_agent_contextbatch_executiondefault);//更新fact中变量值
@@ -53,9 +42,9 @@ package cn.ibizlab.ai.logic.ai_agent_contextlogic.batch_execution;
                         update(ai_agent_contextbatch_executionkb_temp);//更新fact中变量值
             end
 
-            //逻辑处理节点[知识库研究]
-            rule "delogic_01"
-            ruleflow-group "ai_agent_contextbatch_executiondelogic_01"
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_01"
+            ruleflow-group "ai_agent_contextbatch_executionprepareparam_01"
             when
             then
                         update(ai_agent_contextbatch_executiondefault);//更新fact中变量值
@@ -88,6 +77,17 @@ package cn.ibizlab.ai.logic.ai_agent_contextlogic.batch_execution;
             ruleflow-group "ai_agent_contextbatch_executionend_01"
             when
             then
+                        update(ai_agent_contextbatch_executiondefault);//更新fact中变量值
+                        update(ai_agent_contextbatch_executionkb_list);//更新fact中变量值
+                        update(ai_agent_contextbatch_executionkb_temp);//更新fact中变量值
+            end
+
+            //逻辑处理节点[知识库推理]
+            rule "deaction_01"
+            ruleflow-group "ai_agent_contextbatch_executiondeaction_01"
+            when
+            then
+                        ai_knowledge_baseservice.reason(ai_agent_contextbatch_executionkb_temp);
                         update(ai_agent_contextbatch_executiondefault);//更新fact中变量值
                         update(ai_agent_contextbatch_executionkb_list);//更新fact中变量值
                         update(ai_agent_contextbatch_executionkb_temp);//更新fact中变量值

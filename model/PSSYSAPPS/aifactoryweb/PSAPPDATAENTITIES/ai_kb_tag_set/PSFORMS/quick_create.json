@@ -425,8 +425,8 @@
           }, {
             "codeName" : "nested_grid_view_toolbar",
             "controlType" : "TOOLBAR",
+            "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_tag/PSTOOLBARS/nested_grid_view_toolbar.json",
             "logicName" : "嵌入知识库表格工具栏",
-            "name" : "toolbar",
             "getPSAppDataEntity" : {
               "modelref" : true,
               "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_tag.json"
@@ -527,6 +527,7 @@
               "showIcon" : true
             } ],
             "xDataControlName" : "grid",
+            "name" : "toolbar",
             "modelid" : "ed65a5c15e666a6939231403db296764",
             "modeltype" : "PSDETOOLBAR"
           }, {
@@ -936,12 +937,13 @@
             "caption" : "标签",
             "codeName" : "nested_grid_view_captionbar",
             "controlType" : "CAPTIONBAR",
-            "name" : "captionbar",
+            "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_tag/PSCAPTIONBARS/nested_grid_view_captionbar.json",
             "getPSAppDataEntity" : {
               "modelref" : true,
               "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_tag.json"
             },
-            "getPSControlParam" : { }
+            "getPSControlParam" : { },
+            "name" : "captionbar"
           } ],
           "getPSDEViewCodeName" : "nested_grid_view",
           "getPSDEViewId" : "d39dc089cba7612ac48f989983555aed",
@@ -949,7 +951,7 @@
             "codeName" : "layoutpanel",
             "controlStyle" : "APPDEGRIDVIEW",
             "controlType" : "VIEWLAYOUTPANEL",
-            "name" : "layoutpanel",
+            "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_tag/PSVIEWLAYOUTPANELS/layoutpanel.json",
             "getPSAppDataEntity" : {
               "modelref" : true,
               "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_tag.json"
@@ -957,7 +959,8 @@
             "getPSControlParam" : { },
             "layoutBodyOnly" : true,
             "layoutPanel" : true,
-            "useDefaultLayout" : true
+            "useDefaultLayout" : true,
+            "name" : "layoutpanel"
           },
           "title" : "知识库标签",
           "viewStyle" : "DEFAULT",

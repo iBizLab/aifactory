@@ -103,8 +103,8 @@
   "getPSControls" : [ {
     "codeName" : "selector_toolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_assignment/PSTOOLBARS/selector_toolbar.json",
     "logicName" : "智能体选择器_工具栏",
-    "name" : "toolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_assignment.json"
@@ -228,6 +228,7 @@
       "showIcon" : true
     } ],
     "xDataControlName" : "list",
+    "name" : "toolbar",
     "modelid" : "5e29f456b98686c0b6108fdee7addf8b",
     "modeltype" : "PSDETOOLBAR"
   }, {
@@ -612,12 +613,13 @@
     "caption" : "智能体选择器",
     "codeName" : "selector_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_assignment/PSCAPTIONBARS/selector_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_assignment.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "selector",
   "getPSDEViewId" : "739413e78300cdc6167c36f27d9be2ba",
@@ -628,7 +630,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDELISTVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_assignment/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_assignment.json"
@@ -636,7 +638,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "智能体选择器",
   "viewStyle" : "DEFAULT",

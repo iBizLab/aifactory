@@ -61,7 +61,7 @@
   "getPSControls" : [ {
     "codeName" : "report_tree_exp_view_treeexpbar",
     "controlType" : "TREEEXPBAR",
-    "name" : "treeexpbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_report/PSTREEEXPBARS/report_tree_exp_view_treeexpbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_report.json"
@@ -331,8 +331,8 @@
     }, {
       "codeName" : "report_tree_exp_view_treeexpbar_toolbar",
       "controlType" : "TOOLBAR",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_report/PSTOOLBARS/report_tree_exp_view_treeexpbar_toolbar.json",
       "logicName" : "新建类别或分组",
-      "name" : "treeexpbar_toolbar",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_report.json"
@@ -482,6 +482,7 @@
         "showIcon" : true
       } ],
       "toolbarStyle" : "USER",
+      "name" : "treeexpbar_toolbar",
       "modelid" : "b147f7034f4d16b376978e85ef13e0c1",
       "modeltype" : "PSDETOOLBAR"
     } ],
@@ -490,6 +491,7 @@
     "enableCounter" : true,
     "enableSearch" : false,
     "showTitleBar" : true,
+    "name" : "treeexpbar",
     "modelid" : "5c149a16da4e1b185dfd1aa946f34500_treeexpbar",
     "modeltype" : "PSEXPBAR"
   }, {
@@ -513,12 +515,13 @@
     "caption" : "报表树导航",
     "codeName" : "report_tree_exp_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_report/PSCAPTIONBARS/report_tree_exp_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_report.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "report_tree_exp_view",
   "getPSDEViewId" : "0a212b8919589bb3ab2bbdd6d72605df",
@@ -526,7 +529,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDETREEEXPVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_report/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_report.json"
@@ -534,7 +537,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "报表树导航",
   "viewStyle" : "DEFAULT",

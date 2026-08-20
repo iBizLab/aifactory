@@ -3704,14 +3704,15 @@
             }, {
               "codeName" : "chunking_view_readonly_datainfobar",
               "controlType" : "DATAINFOBAR",
-              "name" : "datainfobar",
+              "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base/PSDATAINFOBARS/chunking_view_readonly_datainfobar.json",
               "getPSAppDataEntity" : {
                 "modelref" : true,
                 "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
               },
               "getPSControlParam" : {
                 "id" : "datainfobar"
-              }
+              },
+              "name" : "datainfobar"
             }, {
               "getCapPSLanguageRes" : {
                 "lanResTag" : "DE.LNAME.AI_KNOWLEDGE_BASE"
@@ -3719,12 +3720,13 @@
               "caption" : "切片策略",
               "codeName" : "chunking_view_readonly_captionbar",
               "controlType" : "CAPTIONBAR",
-              "name" : "captionbar",
+              "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base/PSCAPTIONBARS/chunking_view_readonly_captionbar.json",
               "getPSAppDataEntity" : {
                 "modelref" : true,
                 "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
               },
-              "getPSControlParam" : { }
+              "getPSControlParam" : { },
+              "name" : "captionbar"
             } ],
             "getPSDEViewCodeName" : "chunking_view_readonly",
             "getPSDEViewId" : "029375d448617dda658e20c8f263f4e6",
@@ -3732,7 +3734,7 @@
               "codeName" : "layoutpanel",
               "controlStyle" : "APPDEEDITVIEW",
               "controlType" : "VIEWLAYOUTPANEL",
-              "name" : "layoutpanel",
+              "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base/PSVIEWLAYOUTPANELS/layoutpanel.json",
               "getPSAppDataEntity" : {
                 "modelref" : true,
                 "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
@@ -3740,7 +3742,8 @@
               "getPSControlParam" : { },
               "layoutBodyOnly" : true,
               "layoutPanel" : true,
-              "useDefaultLayout" : true
+              "useDefaultLayout" : true,
+              "name" : "layoutpanel"
             },
             "title" : "切片策略",
             "viewStyle" : "DEFAULT",
@@ -3955,14 +3958,15 @@
   }, {
     "codeName" : "rechunk_option_view_datainfobar",
     "controlType" : "DATAINFOBAR",
-    "name" : "datainfobar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document/PSDATAINFOBARS/rechunk_option_view_datainfobar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
     },
     "getPSControlParam" : {
       "id" : "datainfobar"
-    }
+    },
+    "name" : "datainfobar"
   }, {
     "getCapPSLanguageRes" : {
       "lanResTag" : "DE.LNAME.AI_KB_DOCUMENT"
@@ -3970,12 +3974,13 @@
     "caption" : "重新切片",
     "codeName" : "rechunk_option_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document/PSCAPTIONBARS/rechunk_option_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "rechunk_option_view",
   "getPSDEViewId" : "bc1c374b26ad9ceb1f4d54d28b1bcb42",
@@ -3983,7 +3988,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEOPTVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
@@ -3991,7 +3996,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "重新切片",
   "viewStyle" : "DEFAULT",

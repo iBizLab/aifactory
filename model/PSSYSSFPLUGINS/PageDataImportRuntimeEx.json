@@ -1,0 +1,12 @@
+{
+  "codeName" : "PageDataImportRuntimeEx",
+  "dynaModelFilePath" : "PSSYSSFPLUGINS/PageDataImportRuntimeEx.json",
+  "memo" : "页面导入使用",
+  "name" : "PageDataImportRuntimeEx",
+  "pluginCode" : "PageDataImportRuntimeEx",
+  "pluginType" : "USER",
+  "rTObjectName" : "cn.ibizlab.user.plugin.groovy.dataentity.dataimport.PageDataImportRuntimeEx",
+  "rTObjectSource" : 1,
+  "templCode" : "package cn.ibizlab.user.plugin.groovy.dataentity.dataimport\n\nimport com.fasterxml.jackson.databind.JsonNode\nimport groovy.transform.CompileStatic;\nimport net.ibizsys.central.cloud.core.util.domain.V2ImportSchema;\nimport net.ibizsys.central.plugin.poi.dataentity.dataimport.POIDEDataImportRuntime\nimport net.ibizsys.central.util.IEntityDTO;\nimport net.ibizsys.model.dataentity.dataimport.IPSDEDataImportItem;\nimport net.ibizsys.model.dataentity.defield.IPSDEField;\nimport net.ibizsys.runtime.dataentity.DataEntityRuntimeException;\nimport net.ibizsys.runtime.util.IEntity;\nimport org.apache.poi.ss.usermodel.Workbook;\nimport org.springframework.util.StringUtils;\n\nimport java.util.ArrayList;\nimport java.util.List;\nimport java.util.Map;\n\n@CompileStatic\npublic class PageDataImportRuntimeEx extends POIDEDataImportRuntime  {\n\n\n}",
+  "runtimeObject" : true
+}

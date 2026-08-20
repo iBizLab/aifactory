@@ -521,6 +521,14 @@
     "existingModel" : false
   }, {
     "getAllPSSysDBColumns" : [ {
+      "codeName" : "COMPOSE_ID",
+      "length" : 100,
+      "logicName" : "编排标识",
+      "name" : "COMPOSE_ID",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
       "codeName" : "CONTEXT_ID",
       "length" : 100,
       "logicName" : "智能体业务上下文标识",
@@ -552,10 +560,26 @@
       "stdDataType" : 25,
       "nullable" : true
     }, {
+      "codeName" : "ENTITY_ROW_KEY",
+      "length" : 100,
+      "logicName" : "数据主键",
+      "name" : "ENTITY_ROW_KEY",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
       "codeName" : "ENTITY_TAG",
       "length" : 100,
       "logicName" : "实体标记",
       "name" : "ENTITY_TAG",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "EXTRA_OSS_FILE",
+      "length" : 2000,
+      "logicName" : "附加参考资料",
+      "name" : "EXTRA_OSS_FILE",
       "scale" : 0,
       "stdDataType" : 25,
       "nullable" : true
@@ -568,12 +592,59 @@
       "stdDataType" : 25,
       "pKey" : true
     }, {
+      "codeName" : "IDENTIFIER",
+      "length" : 100,
+      "logicName" : "编号",
+      "name" : "IDENTIFIER",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "INPUT_EXTRA_INST",
+      "length" : 2000,
+      "logicName" : "输入附加说明",
+      "name" : "INPUT_EXTRA_INST",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
       "codeName" : "NAME",
       "length" : 200,
       "logicName" : "名称",
       "name" : "NAME",
       "scale" : 0,
       "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "OUTPUT_EXTRA_INST",
+      "length" : 2000,
+      "logicName" : "输出附加说明",
+      "name" : "OUTPUT_EXTRA_INST",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "REQUIREMENT",
+      "length" : 2000,
+      "logicName" : "附加执行要求",
+      "name" : "REQUIREMENT",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SKILL_WORKSPACE_ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "SKILL_WORKSPACE_ID",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SORT",
+      "logicName" : "排序",
+      "name" : "SORT",
+      "scale" : 0,
+      "stdDataType" : 9,
       "nullable" : true
     }, {
       "codeName" : "SYSTEM_FLAG",
@@ -616,6 +687,18 @@
     } ],
     "getAllPSSysDBIndices" : [ {
       "getAllPSSysDBIndexColumns" : [ {
+        "name" : "COMPOSE_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "COMPOSE_ID"
+        }
+      } ],
+      "codeName" : "IF_F42F0D37091A8D7",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_AI_AGENT_ASSIGNMENT_AI_AGENT_ASSIGNMENT_COMPOSE_ID",
+      "sourceType" : "DER"
+    }, {
+      "getAllPSSysDBIndexColumns" : [ {
         "name" : "CONTEXT_ID",
         "getPSSysDBColumn" : {
           "modelref" : true,
@@ -625,6 +708,18 @@
       "codeName" : "IF_F35149F966687E7",
       "indexType" : "NORMAL",
       "name" : "DER1N_AI_AGENT_ASSIGNMENT_AI_AGENT_CONTEXT_CONTEXT_ID",
+      "sourceType" : "DER"
+    }, {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "SKILL_WORKSPACE_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "SKILL_WORKSPACE_ID"
+        }
+      } ],
+      "codeName" : "IF_F05ADA8E038E97A",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_AI_AGENT_ASSIGNMENT_AI_SKILL_WORKSPACE_SKILL_WORKSPACE_ID",
       "sourceType" : "DER"
     } ],
     "codeName" : "AI_AGENT_ASSIGNMENT",
@@ -1235,7 +1330,7 @@
       "nullable" : true
     }, {
       "codeName" : "SESSION_ID",
-      "length" : 200,
+      "length" : 400,
       "logicName" : "外部会话ID",
       "name" : "SESSION_ID",
       "scale" : 0,
@@ -1767,6 +1862,13 @@
       "stdDataType" : 25,
       "pKey" : true
     }, {
+      "codeName" : "INPUT_TOKENS",
+      "logicName" : "输入token数",
+      "name" : "INPUT_TOKENS",
+      "scale" : 0,
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
       "codeName" : "METADATA",
       "length" : 1048576,
       "logicName" : "消息元数据",
@@ -1781,6 +1883,13 @@
       "name" : "NAME",
       "scale" : 0,
       "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "OUTPUT_TOKENS",
+      "logicName" : "输出token数",
+      "name" : "OUTPUT_TOKENS",
+      "scale" : 0,
+      "stdDataType" : 9,
       "nullable" : true
     }, {
       "codeName" : "SENDER_TYPE",
@@ -1804,6 +1913,20 @@
       "name" : "STATUS",
       "scale" : 0,
       "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "TOOL_CALLS",
+      "logicName" : "工具调用数",
+      "name" : "TOOL_CALLS",
+      "scale" : 0,
+      "stdDataType" : 9,
+      "nullable" : true
+    }, {
+      "codeName" : "TOTAL_TOKENS",
+      "logicName" : "总token数",
+      "name" : "TOTAL_TOKENS",
+      "scale" : 0,
+      "stdDataType" : 9,
       "nullable" : true
     }, {
       "codeName" : "UPDATE_MAN",
@@ -2151,6 +2274,14 @@
       "stdDataType" : 25,
       "pKey" : true
     }, {
+      "codeName" : "KEYRING_ID",
+      "length" : 60,
+      "logicName" : "主键",
+      "name" : "KEYRING_ID",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
       "codeName" : "NAME",
       "length" : 200,
       "logicName" : "名称",
@@ -2213,6 +2344,19 @@
       "scale" : 0,
       "stdDataType" : 5,
       "nullable" : true
+    } ],
+    "getAllPSSysDBIndices" : [ {
+      "getAllPSSysDBIndexColumns" : [ {
+        "name" : "KEYRING_ID",
+        "getPSSysDBColumn" : {
+          "modelref" : true,
+          "id" : "KEYRING_ID"
+        }
+      } ],
+      "codeName" : "IF_FCF67C97C4178DF",
+      "indexType" : "NORMAL",
+      "name" : "DER1N_AI_CREDENTIAL_KEYRING_KEYRING_ID",
+      "sourceType" : "DER"
     } ],
     "codeName" : "AI_CREDENTIAL",
     "logicName" : "AI凭证",
@@ -4953,6 +5097,146 @@
     "existingModel" : false
   }, {
     "getAllPSSysDBColumns" : [ {
+      "codeName" : "ACCESS_TOKEN",
+      "length" : 500,
+      "logicName" : "访问令牌",
+      "name" : "ACCESS_TOKEN",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ADV_SETTINGS",
+      "length" : 1048576,
+      "logicName" : "高级设置",
+      "name" : "ADV_SETTINGS",
+      "scale" : 0,
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "CLIENT_ID",
+      "length" : 100,
+      "logicName" : "客户端标识",
+      "name" : "CLIENT_ID",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "创建人",
+      "name" : "CREATE_MAN",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "创建时间",
+      "name" : "CREATE_TIME",
+      "scale" : 0,
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "DESCRIPTION",
+      "length" : 2000,
+      "logicName" : "描述",
+      "name" : "DESCRIPTION",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "HOME_PATH",
+      "length" : 500,
+      "logicName" : "工作空间目录",
+      "name" : "HOME_PATH",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 100,
+      "logicName" : "标识",
+      "name" : "ID",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "LAST_HEARTBEAT",
+      "logicName" : "最后心跳时间",
+      "name" : "LAST_HEARTBEAT",
+      "scale" : 0,
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "MQTT_ADDRESS",
+      "length" : 500,
+      "logicName" : "MQTT地址",
+      "name" : "MQTT_ADDRESS",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 200,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "PORTAL_ADDRESS",
+      "length" : 500,
+      "logicName" : "访问地址",
+      "name" : "PORTAL_ADDRESS",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SKILL_HUB_REPO",
+      "length" : 500,
+      "logicName" : "Skill Hub仓库地址",
+      "name" : "SKILL_HUB_REPO",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "STATUS",
+      "length" : 100,
+      "logicName" : "状态",
+      "name" : "STATUS",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "TOPIC",
+      "length" : 200,
+      "logicName" : "消息主题",
+      "name" : "TOPIC",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "scale" : 0,
+      "stdDataType" : 5,
+      "nullable" : true
+    } ],
+    "codeName" : "AI_SKILL_WORKSPACE",
+    "logicName" : "技能工作空间",
+    "name" : "AI_SKILL_WORKSPACE",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
       "codeName" : "ACCESS_KEY",
       "length" : 1048576,
       "logicName" : "访问密钥",
@@ -6770,6 +7054,14 @@
       "stdDataType" : 25,
       "nullable" : true
     }, {
+      "codeName" : "TRIGGER_NODE_ID",
+      "length" : 100,
+      "logicName" : "触发节点标识",
+      "name" : "TRIGGER_NODE_ID",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
       "codeName" : "UPDATE_MAN",
       "length" : 100,
       "logicName" : "更新人",
@@ -7785,6 +8077,137 @@
     "codeName" : "INSIGHT_VIEW",
     "logicName" : "效能视图",
     "name" : "INSIGHT_VIEW",
+    "autoExtendModel" : true,
+    "existingModel" : false
+  }, {
+    "getAllPSSysDBColumns" : [ {
+      "codeName" : "CREATEDATE",
+      "logicName" : "建立时间",
+      "name" : "CREATEDATE",
+      "scale" : 0,
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATEMAN",
+      "length" : 60,
+      "logicName" : "建立人",
+      "name" : "CREATEMAN",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_MAN",
+      "length" : 100,
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "CREATE_TIME",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "scale" : 0,
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "DESCRIPTION",
+      "length" : 1048576,
+      "logicName" : "描述",
+      "name" : "DESCRIPTION",
+      "scale" : 0,
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
+      "codeName" : "ID",
+      "length" : 60,
+      "logicName" : "主键",
+      "name" : "ID",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "pKey" : true
+    }, {
+      "codeName" : "KEYRING_TYPE",
+      "length" : 50,
+      "logicName" : "密钥环类型",
+      "name" : "KEYRING_TYPE",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "NAME",
+      "length" : 255,
+      "logicName" : "名称",
+      "name" : "NAME",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "OWNER_ID",
+      "length" : 255,
+      "logicName" : "所有者标识",
+      "name" : "OWNER_ID",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "OWNER_TYPE",
+      "length" : 50,
+      "logicName" : "所有者类型",
+      "name" : "OWNER_TYPE",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_ID",
+      "length" : 100,
+      "logicName" : "所属对象",
+      "name" : "SCOPE_ID",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "SCOPE_TYPE",
+      "length" : 60,
+      "logicName" : "所属",
+      "name" : "SCOPE_TYPE",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATEDATE",
+      "logicName" : "更新时间",
+      "name" : "UPDATEDATE",
+      "scale" : 0,
+      "stdDataType" : 5,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATEMAN",
+      "length" : 60,
+      "logicName" : "更新人",
+      "name" : "UPDATEMAN",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_MAN",
+      "length" : 100,
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
+      "codeName" : "UPDATE_TIME",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "scale" : 0,
+      "stdDataType" : 5,
+      "nullable" : true
+    } ],
+    "codeName" : "keyrings",
+    "logicName" : "密钥环",
+    "name" : "KEYRINGS",
     "autoExtendModel" : true,
     "existingModel" : false
   }, {

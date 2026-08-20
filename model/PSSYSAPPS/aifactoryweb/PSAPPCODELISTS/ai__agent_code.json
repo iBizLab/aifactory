@@ -1,0 +1,26 @@
+{
+  "codeListTag" : "ai__agent_code",
+  "codeListType" : "DYNAMIC",
+  "codeName" : "ai__agent_code",
+  "dynaInstMode" : 0,
+  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__agent_code.json",
+  "emptyText" : "未定义",
+  "name" : "智能体（代码名）",
+  "getPSAppDEDataSet" : {
+    "modelref" : true,
+    "id" : "fetch_full_info"
+  },
+  "getPSAppDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
+  },
+  "getTextPSAppDEField" : {
+    "name" : "CODE_NAME",
+    "codeName" : "code_name"
+  },
+  "getValuePSAppDEField" : {
+    "name" : "ID",
+    "codeName" : "id"
+  },
+  "enableCache" : true
+}

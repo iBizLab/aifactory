@@ -1,0 +1,31 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "DELOGIC",
+  "codeName" : "FindMyself",
+  "dataAccessAction" : "READ",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_credential/PSDEACTIONS/FindMyself.json",
+  "logicName" : "查找我的凭证",
+  "name" : "FindMyself",
+  "getPSDEActionInput" : {
+    "name" : "FindMyselfInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_credential_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "FindMyselfResult",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_credential_dto"
+    },
+    "type" : "DTOS"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_credential/PSDELOGICS/FindMyCredential.json"
+  },
+  "enableFront" : false
+}

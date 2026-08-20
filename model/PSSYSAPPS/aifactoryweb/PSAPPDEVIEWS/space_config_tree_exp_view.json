@@ -45,7 +45,7 @@
   "getPSControls" : [ {
     "codeName" : "config_tree_exp_view_treeexpbar",
     "controlType" : "TREEEXPBAR",
-    "name" : "treeexpbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space/PSTREEEXPBARS/config_tree_exp_view_treeexpbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space.json"
@@ -611,8 +611,8 @@
     }, {
       "codeName" : "config_tree_exp_view_treeexpbar_toolbar",
       "controlType" : "TOOLBAR",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space/PSTOOLBARS/config_tree_exp_view_treeexpbar_toolbar.json",
       "logicName" : "工具栏模板（只有返回按钮）",
-      "name" : "treeexpbar_toolbar",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space.json"
@@ -621,6 +621,7 @@
         "id" : "treeexpbar_toolbar"
       },
       "toolbarStyle" : "USER",
+      "name" : "treeexpbar_toolbar",
       "modelid" : "be873c7b0d54fcd8bd373a87dc6c926b",
       "modeltype" : "PSDETOOLBAR"
     } ],
@@ -629,6 +630,7 @@
     "enableCounter" : true,
     "enableSearch" : false,
     "showTitleBar" : true,
+    "name" : "treeexpbar",
     "modelid" : "2a9d0187e6b6150728fea72577209d1c_treeexpbar",
     "modeltype" : "PSEXPBAR"
   }, {
@@ -652,12 +654,13 @@
     "caption" : "配置中心",
     "codeName" : "config_tree_exp_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space/PSCAPTIONBARS/config_tree_exp_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "config_tree_exp_view",
   "getPSDEViewId" : "a19dad17404136a830fbab202d80fdd9",
@@ -665,7 +668,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDETREEEXPVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/space.json"
@@ -673,7 +676,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "refFlag" : false,
   "title" : "配置中心",

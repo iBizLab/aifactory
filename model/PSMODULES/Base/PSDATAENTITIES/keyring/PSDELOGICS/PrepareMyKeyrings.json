@@ -1,0 +1,178 @@
+{
+  "codeName" : "PrepareMyKeyrings",
+  "defaultParamName" : "Default",
+  "dynaModelFilePath" : "PSMODULES/Base/PSDATAENTITIES/keyring/PSDELOGICS/PrepareMyKeyrings.json",
+  "logicName" : "准备我的密钥环参数",
+  "name" : "准备我的密钥环参数",
+  "getPSDELogicNodes" : [ {
+    "codeName" : "Begin",
+    "leftPos" : 100,
+    "logicNodeType" : "BEGIN",
+    "name" : "开始",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_01"
+      },
+      "name" : "开始到准备参数",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "Begin"
+      }
+    } ],
+    "topPos" : 200,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "PREPAREPARAM_01",
+    "leftPos" : 100,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "准备过滤器参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEDATASET_01"
+      },
+      "name" : "准备参数到查询",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_01"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "n_scope_type_eq",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "keyringFilter"
+      },
+      "name" : "设置scope_type等于user",
+      "paramAction" : "SETPARAMVALUE",
+      "srcValue" : "user",
+      "srcValueType" : "SRCVALUE"
+    }, {
+      "dstFieldName" : "n_scope_id_eq",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "keyringFilter"
+      },
+      "name" : "设置scope_id等于当前用户标识",
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "srfpersonid",
+      "srcValue" : "srfpersonid",
+      "srcValueType" : "SESSION"
+    }, {
+      "dstFieldName" : "personname",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "keyringFilter"
+      },
+      "name" : "设置scope_id等于当前用户标识",
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "srfpersonname",
+      "srcValue" : "srfpersonid",
+      "srcValueType" : "SESSION"
+    } ],
+    "topPos" : 350,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "DEDATASET_01",
+    "getDstPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "keyringFilter"
+    },
+    "getDstPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/keyring.json"
+    },
+    "leftPos" : 100,
+    "logicNodeType" : "DEDATASET",
+    "name" : "查询个人密钥环",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      },
+      "name" : "查询到脚本",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEDATASET_01"
+      }
+    } ],
+    "getRetPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "keyringList"
+    },
+    "topPos" : 490,
+    "parallelOutput" : true
+  }, {
+    "code" : "    def keyringFilter = logic.param('keyringFilter').getReal()\n    def keyringList = logic.param('keyringList').getReal()\n    if (keyringList == null || keyringList.isEmpty()) {\n        def srfpersonname = keyringFilter.get('personname')\n        def srfpersonid = keyringFilter.get('n_scope_id_eq')\n        def de = sys.dataentity('Base.KEYRING')\n        def keyring = de.entity()\n        keyring.set('name', srfpersonname + '的密钥')\n        keyring.set('scope_type', 'user')\n        keyring.set('scope_id', srfpersonid)\n        keyring.create()\n    }",
+    "codeName" : "RAWSFCODE_01",
+    "codeType" : "Groovy",
+    "leftPos" : 100,
+    "logicNodeType" : "RAWSFCODE",
+    "name" : "检查并创建个人密钥环",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_01"
+      },
+      "name" : "脚本到结束",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      }
+    } ],
+    "topPos" : 650,
+    "parallelOutput" : true
+  }, {
+    "codeName" : "END_01",
+    "leftPos" : 100,
+    "logicNodeType" : "END",
+    "name" : "结束",
+    "getReturnParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "returnType" : "LOGICPARAM",
+    "topPos" : 800,
+    "parallelOutput" : true
+  } ],
+  "getPSDELogicParams" : [ {
+    "codeName" : "Default",
+    "logicName" : "传入变量",
+    "name" : "传入变量",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/keyring.json"
+    },
+    "default" : true,
+    "filterParam" : true
+  }, {
+    "codeName" : "keyringFilter",
+    "logicName" : "密钥环过滤器",
+    "name" : "密钥环过滤器",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/keyring.json"
+    },
+    "filterParam" : true
+  }, {
+    "codeName" : "keyringList",
+    "logicName" : "密钥环列表",
+    "name" : "密钥环列表",
+    "getParamPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/keyring.json"
+    },
+    "entityListParam" : true
+  } ],
+  "getStartPSDELogicNode" : {
+    "modelref" : true,
+    "id" : "Begin"
+  },
+  "enableBackend" : true,
+  "enableFront" : false
+}

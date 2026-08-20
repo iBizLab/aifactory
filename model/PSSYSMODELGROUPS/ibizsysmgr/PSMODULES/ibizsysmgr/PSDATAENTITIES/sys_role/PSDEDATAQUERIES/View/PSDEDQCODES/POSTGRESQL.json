@@ -1,0 +1,51 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "t1.enabled = 1",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"authority\"",
+    "name" : "AUTHORITY"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"creator\"",
+    "name" : "CREATOR"
+  }, {
+    "expression" : "t1.\"dc\"",
+    "name" : "DC"
+  }, {
+    "expression" : "t1.\"deploy_system_id\"",
+    "name" : "DEPLOY_SYSTEM_ID"
+  }, {
+    "expression" : "t1.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.\"enabled\"",
+    "name" : "ENABLED"
+  }, {
+    "expression" : "t1.\"group_scope\"",
+    "name" : "GROUP_SCOPE"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"updater\"",
+    "name" : "UPDATER"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"workflow_group\"",
+    "name" : "WORKFLOW_GROUP"
+  } ],
+  "queryCode" : "SELECT\nt1.\"authority\",\nt1.\"create_time\",\nt1.\"creator\",\nt1.\"dc\",\nt1.\"deploy_system_id\",\nt1.\"description\",\nt1.\"enabled\",\nt1.\"group_scope\",\nt1.\"id\",\nt1.\"name\",\nt1.\"updater\",\nt1.\"update_time\",\nt1.\"workflow_group\"\nFROM \"\" t1 \n",
+  "id" : "PSSYSMODELGROUPS/ibizsysmgr/PSMODULES/ibizsysmgr/PSDATAENTITIES/sys_role/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

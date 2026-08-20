@@ -205,7 +205,7 @@
         } ]
       },
       "width" : 200,
-      "widthUnit" : "STAR",
+      "widthUnit" : "PX",
       "enableSort" : true
     }, {
       "align" : "LEFT",
@@ -247,6 +247,27 @@
       "enableSort" : true
     }, {
       "align" : "LEFT",
+      "cLConvertMode" : "FRONT",
+      "caption" : "模型能力",
+      "codeName" : "model_capability",
+      "columnType" : "DEFGRIDCOLUMN",
+      "dataItemName" : "model_capability",
+      "excelCaption" : "模型能力",
+      "name" : "model_capability",
+      "noPrivDisplayMode" : 1,
+      "getPSAppCodeList" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__model_capability.json"
+      },
+      "getPSAppDEField" : {
+        "name" : "MODEL_CAPABILITY",
+        "codeName" : "model_capability"
+      },
+      "width" : 100,
+      "widthUnit" : "STAR",
+      "enableSort" : true
+    }, {
+      "align" : "LEFT",
       "cLConvertMode" : "NONE",
       "caption" : "模型 API 地址",
       "codeName" : "api_base_url",
@@ -260,6 +281,24 @@
         "codeName" : "api_base_url"
       },
       "width" : 350,
+      "widthUnit" : "PX",
+      "enableSort" : true
+    }, {
+      "align" : "LEFT",
+      "cLConvertMode" : "NONE",
+      "caption" : "更新时间",
+      "codeName" : "update_time",
+      "columnType" : "DEFGRIDCOLUMN",
+      "dataItemName" : "update_time",
+      "excelCaption" : "更新时间",
+      "name" : "update_time",
+      "noPrivDisplayMode" : 1,
+      "getPSAppDEField" : {
+        "name" : "UPDATE_TIME",
+        "codeName" : "update_time"
+      },
+      "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+      "width" : 200,
       "widthUnit" : "PX",
       "enableSort" : true
     } ],
@@ -286,10 +325,25 @@
       }
     }, {
       "dataType" : 25,
+      "name" : "model_capability",
+      "getPSAppDEField" : {
+        "name" : "MODEL_CAPABILITY",
+        "codeName" : "model_capability"
+      }
+    }, {
+      "dataType" : 25,
       "name" : "api_base_url",
       "getPSAppDEField" : {
         "name" : "API_BASE_URL",
         "codeName" : "api_base_url"
+      }
+    }, {
+      "format" : "YYYY-MM-DD HH:mm:ss",
+      "dataType" : 5,
+      "name" : "update_time",
+      "getPSAppDEField" : {
+        "name" : "UPDATE_TIME",
+        "codeName" : "update_time"
       }
     }, {
       "dataType" : 25,
@@ -483,12 +537,13 @@
     "caption" : "AI大模型",
     "codeName" : "pickup_grid_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model/PSCAPTIONBARS/pickup_grid_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "PickupGridView",
   "getPSDEViewId" : "39d2bf719cb5369eddfe7314a53fb978",
@@ -496,7 +551,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEPICKUPGRIDVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
@@ -504,7 +559,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "AI大模型选择表格视图",
   "viewStyle" : "DEFAULT",

@@ -301,6 +301,7 @@
     "logicName" : "Bykb_id_agent",
     "name" : "Bykb_id_agent",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report.json"
@@ -361,6 +362,7 @@
     "logicName" : "DEFAULT",
     "name" : "DEFAULT",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report.json"
@@ -394,6 +396,7 @@
     "logicName" : "默认（全部数据）",
     "name" : "VIEW",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report.json"
@@ -430,6 +433,7 @@
     "logicName" : "reader",
     "name" : "reader",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getChildPSDEDQJoins" : [ {
         "getDERPSDataEntity" : {
           "modelref" : true,
@@ -3157,7 +3161,7 @@
   } ],
   "getAllPSDEUserRoles" : [ {
     "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEUSERROLES/ALL_R.json",
-    "name" : "操作角色",
+    "name" : "全部数据（读）",
     "getPSDEUserRoleOPPrivs" : [ {
       "dataAccessAction" : "READ",
       "name" : "READ",
@@ -3281,6 +3285,12 @@
     "codeName" : "review_grid",
     "logicName" : "智能审查记录",
     "name" : "智能审查记录",
+    "realModelSubType" : "DEGRIDVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "agent_grid",
+    "logicName" : "智能体审查记录",
+    "name" : "智能体审查记录",
     "realModelSubType" : "DEGRIDVIEW",
     "realModelType" : "PSDEVIEWBASE"
   }, {

@@ -43,6 +43,7 @@ package cn.ibizlab.ai.logic.ai_knowledge_baselogic.switch_set;
             then
                             ai_knowledge_baseswitch_setmainfilter.set("size","100");
                             ai_knowledge_baseswitch_setmainfilter.set("n_id_noteq",ai_knowledge_baseswitch_setdefault.get("knowledgebases"));
+                            ai_knowledge_baseswitch_setmainfilter.set("query",ai_knowledge_baseswitch_setdefault.get("query"));
                         update(ai_knowledge_baseswitch_setdefault);//更新fact中变量值
                         update(ai_knowledge_baseswitch_setcurselectedlist);//更新fact中变量值
                         update(ai_knowledge_baseswitch_setmainfilter);//更新fact中变量值

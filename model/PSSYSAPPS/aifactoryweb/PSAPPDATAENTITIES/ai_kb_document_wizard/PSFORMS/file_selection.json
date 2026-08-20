@@ -19,13 +19,20 @@
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document_wizard.json"
     }
   },
-  "hookEventNames" : [ "SAVE", "LOAD" ],
+  "hookEventNames" : [ "ONCUSTOMACTION", "SAVE", "LOAD" ],
   "logicName" : "选择文件",
   "getPSAppDataEntity" : {
     "modelref" : true,
     "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document_wizard.json"
   },
   "getPSControlLogics" : [ {
+    "eventNames" : "onCustomAction",
+    "itemName" : "selection_file_ids",
+    "logicTag" : "wizardpanel_form_file_selection",
+    "logicType" : "SCRIPT",
+    "name" : "local_upload_script",
+    "scriptCode" : "const actionTag = args.tag;\r\nconst wizardPanel = view.getCtrl('WIZARDPANEL', 'wizardpanel');\r\nif(actionTag === \"beforeUpload\"){\r\n    ctrl.startLoading();\r\n    if(wizardPanel && wizardPanel.state.buttonsState && wizardPanel.state.buttonsState[\"file_selection@NEXT\"]){\r\n        wizardPanel.state.buttonsState[\"file_selection@NEXT\"].disabled = true; \r\n    }\r\n}\r\nif(actionTag === \"onSuccess\" || actionTag === \"onError\"){\r\n    ctrl.endLoading();\r\n    if(wizardPanel && wizardPanel.state.buttonsState && wizardPanel.state.buttonsState[\"file_selection@NEXT\"]){\r\n        wizardPanel.state.buttonsState[\"file_selection@NEXT\"].disabled = false; \r\n    }\r\n}\r\n"
+  }, {
     "eventNames" : "SAVE",
     "logicTag" : "wizardpanel_form_file_selection",
     "logicType" : "CUSTOM",
@@ -144,6 +151,8 @@
     "id" : "import_method",
     "hidden" : true,
     "dataType" : 25,
+    "createDV" : "local_upload",
+    "updateDV" : "local_upload",
     "getPSAppDEField" : {
       "name" : "IMPORT_METHOD",
       "codeName" : "import_method"
@@ -576,6 +585,7 @@
         "getPSEditor" : {
           "editorHeight" : 50.0,
           "editorParams" : {
+            "hiddenfileregex" : "^\\.",
             "unzipfileext" : ".zip,.rar,.7z",
             "unzip" : "true",
             "accept" : ".txt,.md,.doc,.docx,.pdf,.ppt,.pptx,.jpg,.jpeg,.png,.gif,.tif,.tiff,.wps,.et,.ofd,.xml,.json,.xls,.xlsx,.et,.dps,.bmp,.htm,.html,.zip,.rar,.7z,.tar,.gz,.csv",
@@ -626,9 +636,14 @@
         "showCaption" : true
       }, {
         "codeName" : "selected_file_name",
+        "contentHeight" : 384.0,
         "contentType" : "REPEATER",
+        "ctrlParams" : {
+          "chunkSize" : "50"
+        },
         "detailStyle" : "STYLE2",
         "detailType" : "MDCTRL",
+        "height" : 400.0,
         "name" : "selected_file_name",
         "getPSAppDEField" : {
           "name" : "SELECTED_FILE_NAME",
@@ -690,6 +705,8 @@
         },
         "getPSLayoutPos" : {
           "colMD" : 24,
+          "height" : 400,
+          "heightMode" : "PX",
           "layout" : "TABLE_24COL"
         },
         "infoGroupMode" : false,
@@ -709,6 +726,7 @@
     }, {
       "caption" : "导入方式",
       "codeName" : "import_method",
+      "createDV" : "local_upload",
       "dataType" : 25,
       "detailStyle" : "DEFAULT",
       "detailType" : "FORMITEM",
@@ -730,6 +748,7 @@
         "colMD" : 24,
         "layout" : "TABLE_24COL"
       },
+      "updateDV" : "local_upload",
       "allowEmpty" : true,
       "hidden" : true
     }, {
@@ -777,9 +796,9 @@
       "modelref" : true,
       "id" : "选择文件"
     },
-    "stepActions" : [ "PREV", "NEXT" ],
+    "stepActions" : [ "NEXT" ],
     "stepTag" : "file_selection",
-    "firstForm" : false
+    "firstForm" : true
   },
   "getPSLayout" : {
     "childColMD" : 24,

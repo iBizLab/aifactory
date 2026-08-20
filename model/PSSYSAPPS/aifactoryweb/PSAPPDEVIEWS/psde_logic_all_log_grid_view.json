@@ -21,9 +21,9 @@
   "getPSViewLayoutPanel" : {
     "codeName" : "usr0729601274",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic/PSVIEWLAYOUTPANELS/usr0729601274.json",
     "layoutMode" : "FLEX",
     "logicName" : "all_log_grid_view表格视图布局",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
@@ -157,6 +157,7 @@
     "layoutPanel" : true,
     "useDefaultLayout" : false,
     "viewProxyMode" : true,
+    "name" : "layoutpanel",
     "modelid" : "95a828a6d4bb97381ef8e44aa22d9b17",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL",
     "getPSAppViewEngines" : [ {
@@ -236,8 +237,8 @@
     "getPSControls" : [ {
       "codeName" : "all_log_grid_view_toolbar",
       "controlType" : "TOOLBAR",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic/PSTOOLBARS/all_log_grid_view_toolbar.json",
       "logicName" : "全部日志_工具栏",
-      "name" : "toolbar",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
@@ -246,6 +247,7 @@
         "id" : "TOOLBAR"
       },
       "xDataControlName" : "grid",
+      "name" : "toolbar",
       "modelid" : "f9621319dd347f1b67224ef7832d94f1",
       "modeltype" : "PSDETOOLBAR"
     }, {
@@ -593,12 +595,13 @@
       "caption" : "全部日志",
       "codeName" : "all_log_grid_view_captionbar",
       "controlType" : "CAPTIONBAR",
-      "name" : "captionbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic/PSCAPTIONBARS/all_log_grid_view_captionbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
       },
-      "getPSControlParam" : { }
+      "getPSControlParam" : { },
+      "name" : "captionbar"
     } ]
   },
   "title" : "全部日志",

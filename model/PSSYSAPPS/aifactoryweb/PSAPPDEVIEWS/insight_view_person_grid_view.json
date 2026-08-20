@@ -52,7 +52,7 @@
   "getPSControls" : [ {
     "codeName" : "person_grid_view_toolbar",
     "controlType" : "TOOLBAR",
-    "name" : "toolbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_view/PSTOOLBARS/person_grid_view_toolbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_view.json"
@@ -61,6 +61,7 @@
       "id" : "TOOLBAR"
     },
     "xDataControlName" : "grid",
+    "name" : "toolbar",
     "modelid" : "6f383e3e6acd721865f3869fc7912012_toolbar",
     "modeltype" : "PSDETOOLBAR"
   }, {
@@ -769,12 +770,13 @@
     "caption" : "个人视图",
     "codeName" : "person_grid_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_view/PSCAPTIONBARS/person_grid_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_view.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "person_grid_view",
   "getPSDEViewId" : "7f3ca4a855944e7fa30744ba448c99f8",
@@ -782,7 +784,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEGRIDVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_view/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_view.json"
@@ -790,7 +792,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "效能度量个人表格",
   "viewStyle" : "DEFAULT",

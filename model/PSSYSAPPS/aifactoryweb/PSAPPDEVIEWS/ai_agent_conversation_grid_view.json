@@ -507,12 +507,13 @@
     "caption" : "智能体会话",
     "codeName" : "grid_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_conversation/PSCAPTIONBARS/grid_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_conversation.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "GridView",
   "getPSDEViewId" : "d873acf3db23959f1a327f4c3b983d18",
@@ -520,7 +521,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEGRIDVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_conversation/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_conversation.json"
@@ -528,7 +529,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "智能体会话表格视图",
   "viewStyle" : "DEFAULT",
@@ -543,5 +545,32 @@
   "enableSearch" : true,
   "rowEditDefault" : false,
   "modelid" : "e23bd2d29a7f0a421d5e6aa0ea6d2ec1",
-  "modeltype" : "PSAPPDEVIEW"
+  "modeltype" : "PSAPPDEVIEW",
+  "getPSAppDERSPaths" : [ [ {
+    "actionRSMode" : 1,
+    "codeName" : "ai_agent_conversations",
+    "dataRSMode" : 0,
+    "majorDECodeName" : "ai_agent_context",
+    "majorDEName" : "AI_AGENT_CONTEXT",
+    "getMajorPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
+    },
+    "minorDECodeName" : "ai_agent_conversation",
+    "minorDEName" : "AI_AGENT_CONVERSATION",
+    "getMinorPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_conversation.json"
+    },
+    "name" : "DER1N_AI_AGENT_CONVERSATION_AI_AGENT_CONTEXT_AI_AGENT_CONTEXT_ID",
+    "getParentPSAppDEField" : {
+      "name" : "AI_AGENT_CONTEXT_ID",
+      "codeName" : "ai_agent_context_id"
+    },
+    "getParentTextPSAppDEField" : {
+      "name" : "AGENT_CONTEXT_NAME",
+      "codeName" : "agent_context_name"
+    },
+    "rSMode" : 2
+  } ] ]
 }

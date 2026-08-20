@@ -8,6 +8,9 @@
     "expression" : "t1.\"ai_agent_context_id\"",
     "name" : "AI_AGENT_CONTEXT_ID"
   }, {
+    "expression" : "t11.\"code_name\"",
+    "name" : "CONTEXT_CODE_NAME"
+  }, {
     "expression" : "t1.\"create_man\"",
     "name" : "CREATE_MAN"
   }, {
@@ -56,6 +59,6 @@
     "expression" : "t1.\"user_id\"",
     "name" : "USER_ID"
   } ],
-  "queryCode" : "SELECT\nt11.\"name\" AS \"agent_context_name\",\nt1.\"ai_agent_context_id\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"id\",\nt1.\"is_top\",\n(SELECT MAX(m.create_time) FROM AI_AGENT_MESSAGE m LEFT JOIN AI_AGENT_CONVERSATION conv ON m.conversation_id = conv.id WHERE conv.id = t1.\"id\") AS \"last_active_at\",\nt1.\"name\",\nt1.\"scope\",\nt1.\"sequence\",\nt1.\"session_id\",\ncase when t1.\"title\" is null then t11.\"name\" else t1.\"title\" end AS \"show_name\",\nt1.\"status\",\nt1.\"title\",\nt1.\"type\",\nt1.\"update_man\",\nt1.\"update_time\",\nt1.\"user_id\"\nFROM \"ai_agent_conversation\" t1 \nLEFT JOIN \"ai_agent_context\" t11 ON t1.\"ai_agent_context_id\" = t11.\"id\" \n",
+  "queryCode" : "SELECT\nt11.\"name\" AS \"agent_context_name\",\nt1.\"ai_agent_context_id\",\nt11.\"code_name\" AS \"context_code_name\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"id\",\nt1.\"is_top\",\n(SELECT MAX(m.create_time) FROM AI_AGENT_MESSAGE m LEFT JOIN AI_AGENT_CONVERSATION conv ON m.conversation_id = conv.id WHERE conv.id = t1.\"id\") AS \"last_active_at\",\nt1.\"name\",\nt1.\"scope\",\nt1.\"sequence\",\nt1.\"session_id\",\ncase when t1.\"title\" is null then t11.\"name\" else t1.\"title\" end AS \"show_name\",\nt1.\"status\",\nt1.\"title\",\nt1.\"type\",\nt1.\"update_man\",\nt1.\"update_time\",\nt1.\"user_id\"\nFROM \"ai_agent_conversation\" t1 \nLEFT JOIN \"ai_agent_context\" t11 ON t1.\"ai_agent_context_id\" = t11.\"id\" \n",
   "id" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
 }

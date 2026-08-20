@@ -6,7 +6,9 @@ package cn.ibizlab.ai.logic.ai_agent_contextlogic.bind;
         import org.springframework.util.ObjectUtils;
         import cn.ibizlab.util.errors.BadRequestAlertException;
                 global cn.ibizlab.core.ai.domain.ai_agent_context ai_agent_contextbinddefault;
+                global cn.ibizlab.core.ai.domain.ai_agent_context ai_agent_contextbindagent;
                 global cn.ibizlab.core.ai.domain.ai_agent_assignment ai_agent_contextbindai_agent_assignment;
+                    global cn.ibizlab.core.ai.service.Iai_agent_contextService ai_agent_contextservice;
                     global cn.ibizlab.core.ai.service.Iai_agent_assignmentService ai_agent_assignmentservice;
         global cn.ibizlab.core.ai.service.Iai_agent_contextService iBzSysAi_agent_contextDefaultService;
         global cn.ibizlab.util.security.AuthenticationUser curuser;
@@ -28,7 +30,32 @@ package cn.ibizlab.ai.logic.ai_agent_contextlogic.bind;
             then
                             ai_agent_contextbindai_agent_assignment.set("contextid",ai_agent_contextbinddefault.get("id"));
                             ai_agent_contextbindai_agent_assignment.set("usetag",ai_agent_contextbinddefault.get("use_tag"));
+                            ai_agent_contextbindagent.set("id",ai_agent_contextbinddefault.get("id"));
                         update(ai_agent_contextbinddefault);//更新fact中变量值
+                        update(ai_agent_contextbindagent);//更新fact中变量值
+                        update(ai_agent_contextbindai_agent_assignment);//更新fact中变量值
+            end
+
+            //逻辑处理节点[agent]
+            rule "deaction_02"
+            ruleflow-group "ai_agent_contextbinddeaction_02"
+            when
+            then
+                            cn.ibizlab.util.helper.CachedBeanCopier.copy(ai_agent_contextservice.get(ai_agent_contextbindagent.getId()),ai_agent_contextbindagent);
+                        update(ai_agent_contextbinddefault);//更新fact中变量值
+                        update(ai_agent_contextbindagent);//更新fact中变量值
+                        update(ai_agent_contextbindai_agent_assignment);//更新fact中变量值
+            end
+
+            //逻辑处理节点[准备参数]
+            rule "prepareparam_02"
+            ruleflow-group "ai_agent_contextbindprepareparam_02"
+            when
+            then
+                            ai_agent_contextbindai_agent_assignment.set("contextname",ai_agent_contextbindagent.get("name"));
+                            ai_agent_contextbindai_agent_assignment.set("name",ai_agent_contextbindagent.get("name"));
+                        update(ai_agent_contextbinddefault);//更新fact中变量值
+                        update(ai_agent_contextbindagent);//更新fact中变量值
                         update(ai_agent_contextbindai_agent_assignment);//更新fact中变量值
             end
 
@@ -38,6 +65,7 @@ package cn.ibizlab.ai.logic.ai_agent_contextlogic.bind;
             when
             then
                         update(ai_agent_contextbinddefault);//更新fact中变量值
+                        update(ai_agent_contextbindagent);//更新fact中变量值
                         update(ai_agent_contextbindai_agent_assignment);//更新fact中变量值
             end
 
@@ -48,6 +76,7 @@ package cn.ibizlab.ai.logic.ai_agent_contextlogic.bind;
             then
                         ai_agent_assignmentservice.create(ai_agent_contextbindai_agent_assignment);
                         update(ai_agent_contextbinddefault);//更新fact中变量值
+                        update(ai_agent_contextbindagent);//更新fact中变量值
                         update(ai_agent_contextbindai_agent_assignment);//更新fact中变量值
             end
 
@@ -57,5 +86,6 @@ package cn.ibizlab.ai.logic.ai_agent_contextlogic.bind;
             when
             then
                         update(ai_agent_contextbinddefault);//更新fact中变量值
+                        update(ai_agent_contextbindagent);//更新fact中变量值
                         update(ai_agent_contextbindai_agent_assignment);//更新fact中变量值
             end

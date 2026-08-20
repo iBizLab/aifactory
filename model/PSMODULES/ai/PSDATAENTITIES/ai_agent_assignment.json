@@ -189,6 +189,36 @@
       "type" : "VOID"
     },
     "builtinAction" : true
+  }, {
+    "actionHolder" : 1,
+    "actionMode" : "CUSTOM",
+    "actionType" : "DELOGIC",
+    "codeName" : "register",
+    "dataAccessAction" : "CREATE",
+    "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDEACTIONS/register.json",
+    "logicName" : "register",
+    "name" : "register",
+    "getPSDEActionInput" : {
+      "name" : "RegisterInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_agent_assignment_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "RegisterResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_agent_assignment_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSDELogic" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDELOGICS/register.json"
+    },
+    "enableFront" : false
   } ],
   "getAllPSDEDBConfigs" : [ {
     "dBType" : "MYSQL5",
@@ -229,11 +259,41 @@
       "name" : "CONTEXT_ID",
       "codeName" : "context_id"
     }, {
+      "name" : "IDENTIFIER",
+      "codeName" : "identifier"
+    }, {
       "name" : "USE_TAG",
       "codeName" : "use_tag"
     }, {
       "name" : "SYSTEM_FLAG",
       "codeName" : "system_flag"
+    }, {
+      "name" : "ENTITY_TAG",
+      "codeName" : "EntityTag"
+    }, {
+      "name" : "REQUIREMENT",
+      "codeName" : "Requirement"
+    }, {
+      "name" : "SORT",
+      "codeName" : "Sort"
+    }, {
+      "name" : "INPUT_EXTRA_INST",
+      "codeName" : "input_extra_inst"
+    }, {
+      "name" : "OUTPUT_EXTRA_INST",
+      "codeName" : "output_extra_inst"
+    }, {
+      "name" : "ENTITY_ROW_KEY",
+      "codeName" : "entity_row_key"
+    }, {
+      "name" : "EXTRA_OSS_FILE",
+      "codeName" : "extra_oss_file"
+    }, {
+      "name" : "SKILL_WORKSPACE_ID",
+      "codeName" : "skill_workspace_id"
+    }, {
+      "name" : "COMPOSE_ID",
+      "codeName" : "compose_id"
     } ],
     "codeName" : "Table",
     "name" : "AI_AGENT_ASSIGNMENT",
@@ -242,6 +302,10 @@
       "id" : "AI_AGENT_ASSIGNMENT"
     },
     "tableType" : "MAIN"
+  } ],
+  "getAllPSDEDRItems" : [ {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDEDRITEMS/DRItem.json"
   } ],
   "getAllPSDEDataQueries" : [ {
     "getAllPSDEDataQueryCodes" : [ {
@@ -255,6 +319,7 @@
     "logicName" : "DEFAULT",
     "name" : "DEFAULT",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment.json"
@@ -291,6 +356,7 @@
     "logicName" : "系统的",
     "name" : "System",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment.json"
@@ -357,6 +423,7 @@
     "logicName" : "默认（全部数据）",
     "name" : "VIEW",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment.json"
@@ -393,6 +460,7 @@
     "logicName" : "bind",
     "name" : "bind",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment.json"
@@ -424,6 +492,16 @@
   "getAllPSDEDataSets" : [ {
     "codeName" : "Default",
     "logicName" : "DEFAULT",
+    "majorSortDir" : "ASC",
+    "getMajorSortPSDEField" : {
+      "name" : "SORT",
+      "codeName" : "Sort"
+    },
+    "minorSortDir" : "DESC",
+    "getMinorSortPSDEField" : {
+      "name" : "UPDATE_TIME",
+      "codeName" : "update_time"
+    },
     "name" : "DEFAULT",
     "getPSDEDataQueries" : [ {
       "modelref" : true,
@@ -445,6 +523,7 @@
       },
       "type" : "PAGE"
     },
+    "pageSize" : 1000,
     "defaultMode" : true,
     "enableBackend" : true,
     "enableFront" : true
@@ -492,6 +571,38 @@
     },
     "getPSDEDataSetReturn" : {
       "name" : "BindResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_agent_assignment_dto"
+      },
+      "type" : "PAGE"
+    },
+    "pageSize" : 1000,
+    "enableBackend" : true,
+    "enableFront" : true
+  }, {
+    "codeName" : "step",
+    "logicName" : "step",
+    "majorSortDir" : "ASC",
+    "getMajorSortPSDEField" : {
+      "name" : "IDENTIFIER",
+      "codeName" : "identifier"
+    },
+    "name" : "step",
+    "getPSDEDataQueries" : [ {
+      "modelref" : true,
+      "id" : "Default"
+    } ],
+    "getPSDEDataSetInput" : {
+      "name" : "StepInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "ai_agent_assignment_filter_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataSetReturn" : {
+      "name" : "StepResult",
       "getPSDEMethodDTO" : {
         "modelref" : true,
         "id" : "ai_agent_assignment_dto"
@@ -600,13 +711,15 @@
       "dBType" : "MYSQL5",
       "name" : "NAME",
       "queryCodeExp" : "t1.`NAME`",
-      "standardColumnName" : "`NAME`"
+      "standardColumnName" : "`NAME`",
+      "valueAutoGen" : true
     }, {
       "columnName" : "name",
       "dBType" : "POSTGRESQL",
       "name" : "NAME",
       "queryCodeExp" : "t1.\"name\"",
-      "standardColumnName" : "\"name\""
+      "standardColumnName" : "\"name\"",
+      "valueAutoGen" : true
     } ],
     "getAllPSDEFSearchModes" : [ {
       "codeName" : "N_NAME_LIKE",
@@ -622,19 +735,8 @@
           "lanResTag" : "DEF.LNAME.AI_AGENT_ASSIGNMENT.NAME"
         },
         "codeName" : "Default",
-        "editorType" : "PICKER",
+        "editorType" : "TEXTBOX",
         "name" : "[NAME][名称]",
-        "refLinkPSDEViewCodeName" : "RedirectView",
-        "refMPickupPSDEViewCodeName" : "MPickupView",
-        "getRefPSDEACMode" : {
-          "modelref" : true,
-          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEACMODES/Default.json"
-        },
-        "getRefPSDataEntity" : {
-          "modelref" : true,
-          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
-        },
-        "refPickupPSDEViewCodeName" : "PickupView",
         "stringLength" : 200,
         "uIMode" : "DEFAULT",
         "allowEmpty" : false
@@ -648,19 +750,8 @@
           "lanResTag" : "DEF.LNAME.AI_AGENT_ASSIGNMENT.NAME"
         },
         "codeName" : "MobileDefault",
-        "editorType" : "MOBPICKER",
+        "editorType" : "MOBTEXT",
         "name" : "[NAME][名称]移动端默认",
-        "refLinkPSDEViewCodeName" : "RedirectView",
-        "refMPickupPSDEViewCodeName" : "MPickupView",
-        "getRefPSDEACMode" : {
-          "modelref" : true,
-          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEACMODES/Default.json"
-        },
-        "getRefPSDataEntity" : {
-          "modelref" : true,
-          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
-        },
-        "refPickupPSDEViewCodeName" : "PickupView",
         "stringLength" : 200,
         "uIMode" : "MOBILEDEFAULT",
         "allowEmpty" : false,
@@ -696,7 +787,9 @@
     } ],
     "codeName" : "name",
     "dEFType" : 1,
-    "dataType" : "PICKUPTEXT",
+    "dataType" : "TEXT",
+    "defaultValue" : "context_name",
+    "defaultValueType" : "PARAM",
     "importOrder" : 1000,
     "getLNPSLanguageRes" : {
       "lanResTag" : "DEF.LNAME.AI_AGENT_ASSIGNMENT.NAME"
@@ -709,41 +802,16 @@
       "modelref" : true,
       "id" : "Table"
     },
-    "getPSDER" : {
-      "modelref" : true,
-      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDERS/DER1N_AI_AGENT_ASSIGNMENT_AI_AGENT_CONTEXT_CONTEXT_ID.json"
-    },
     "getPSSysDBColumn" : {
       "modelref" : true,
       "id" : "NAME"
-    },
-    "getRealPSDEField" : {
-      "name" : "NAME",
-      "codeName" : "name"
-    },
-    "getRealPSDataEntity" : {
-      "modelref" : true,
-      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
-    },
-    "getRelatedPSDEField" : {
-      "name" : "NAME",
-      "codeName" : "name"
-    },
-    "getRelatedPSDataEntity" : {
-      "modelref" : true,
-      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
     },
     "serviceCodeName" : "name",
     "stdDataType" : 25,
     "stringLength" : 200,
     "valueFormat" : "%1$s",
-    "getValuePSDEField" : {
-      "name" : "CONTEXT_ID",
-      "codeName" : "context_id"
-    },
     "allowEmpty" : false,
     "enableQuickSearch" : true,
-    "linkDEField" : true,
     "majorDEField" : true
   }, {
     "getAllPSDEFDTColumns" : [ {
@@ -1224,6 +1292,91 @@
     "linkDEField" : true
   }, {
     "getAllPSDEFDTColumns" : [ {
+      "columnName" : "IDENTIFIER",
+      "dBType" : "MYSQL5",
+      "name" : "IDENTIFIER",
+      "standardColumnName" : "`IDENTIFIER`"
+    }, {
+      "columnName" : "identifier",
+      "dBType" : "POSTGRESQL",
+      "name" : "IDENTIFIER",
+      "queryCodeExp" : "t1.\"identifier\"",
+      "standardColumnName" : "\"identifier\""
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "name" : "默认",
+      "getPSDEFFormItem" : {
+        "editorType" : "TEXTBOX",
+        "name" : "默认",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "name" : "移动端默认",
+      "getPSDEFFormItem" : {
+        "editorType" : "MOBTEXT",
+        "name" : "移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "IDENTIFIER",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "identifier",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "dupCheckMode" : "NOTNULL",
+    "getDupCheckPSDEFields" : [ {
+      "name" : "COMPOSE_ID",
+      "codeName" : "compose_id"
+    } ],
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "编号",
+    "name" : "IDENTIFIER",
+    "orderValue" : 110,
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "IDENTIFIER"
+    },
+    "serviceCodeName" : "identifier",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "enableQuickSearch" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
       "columnName" : "CONTEXT_CODE_NAME",
       "dBType" : "MYSQL5",
       "name" : "CONTEXT_CODE_NAME",
@@ -1455,6 +1608,124 @@
     "phisicalDEField" : false
   }, {
     "getAllPSDEFDTColumns" : [ {
+      "columnName" : "FLOW_MODE",
+      "dBType" : "MYSQL5",
+      "name" : "FLOW_MODE",
+      "standardColumnName" : "`FLOW_MODE`"
+    }, {
+      "columnName" : "flow_mode",
+      "dBType" : "POSTGRESQL",
+      "name" : "FLOW_MODE",
+      "queryCodeExp" : "t11.\"flow_mode\"",
+      "standardColumnName" : "\"flow_mode\""
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[FLOW_MODE][智能体模式]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[FLOW_MODE][智能体模式]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+        },
+        "stringLength" : 60,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[FLOW_MODE][智能体模式]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[FLOW_MODE][智能体模式]移动端默认",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+        },
+        "stringLength" : 60,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "FLOW_MODE",
+          "maxValue" : 60,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[60]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[60]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[60]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "flow_mode",
+    "dEFType" : 3,
+    "dataType" : "PICKUPDATA",
+    "importOrder" : 1000,
+    "length" : 60,
+    "logicName" : "智能体模式",
+    "name" : "FLOW_MODE",
+    "orderValue" : 170,
+    "getPSCodeList" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSCODELISTS/flow_mode.json"
+    },
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDERS/DER1N_AI_AGENT_ASSIGNMENT_AI_AGENT_CONTEXT_CONTEXT_ID.json"
+    },
+    "getRealPSDEField" : {
+      "name" : "FLOW_MODE",
+      "codeName" : "flow_mode"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "FLOW_MODE",
+      "codeName" : "flow_mode"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    },
+    "serviceCodeName" : "flow_mode",
+    "stdDataType" : 25,
+    "stringLength" : 60,
+    "valueFormat" : "%1$s",
+    "viewLevel" : 0,
+    "linkDEField" : true,
+    "phisicalDEField" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
       "columnName" : "USE_TAG",
       "dBType" : "MYSQL5",
       "name" : "USE_TAG",
@@ -1472,6 +1743,11 @@
       "name" : "N_USE_TAG_EQ",
       "stdDataType" : 25,
       "valueOP" : "EQ"
+    }, {
+      "codeName" : "N_USE_TAG_LIKE",
+      "name" : "N_USE_TAG_LIKE",
+      "stdDataType" : 25,
+      "valueOP" : "LIKE"
     } ],
     "getAllPSDEFUIModes" : [ {
       "codeName" : "Default",
@@ -1643,8 +1919,10 @@
       "name" : "[CONTEXT_NAME][智能体上下文名称]移动端默认",
       "getPSDEFFormItem" : {
         "codeName" : "MobileDefault",
-        "editorType" : "SPAN",
+        "editorType" : "MOBPICKER",
         "name" : "[CONTEXT_NAME][智能体上下文名称]移动端默认",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
         "getRefPSDEACMode" : {
           "modelref" : true,
           "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEACMODES/Default.json"
@@ -1653,6 +1931,7 @@
           "modelref" : true,
           "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
         },
+        "refPickupPSDEViewCodeName" : "PickupView",
         "stringLength" : 200,
         "uIMode" : "MOBILEDEFAULT",
         "mobileMode" : true
@@ -1664,8 +1943,10 @@
       "name" : "[CONTEXT_NAME][智能体上下文名称]",
       "getPSDEFFormItem" : {
         "codeName" : "Default",
-        "editorType" : "SPAN",
+        "editorType" : "PICKER",
         "name" : "[CONTEXT_NAME][智能体上下文名称]",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
         "getRefPSDEACMode" : {
           "modelref" : true,
           "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEACMODES/Default.json"
@@ -1674,6 +1955,7 @@
           "modelref" : true,
           "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
         },
+        "refPickupPSDEViewCodeName" : "PickupView",
         "stringLength" : 200,
         "uIMode" : "DEFAULT"
       },
@@ -1706,10 +1988,10 @@
     } ],
     "codeName" : "context_name",
     "dEFType" : 3,
-    "dataType" : "PICKUPDATA",
+    "dataType" : "PICKUPTEXT",
     "importOrder" : 1000,
     "length" : 200,
-    "logicName" : "智能体上下文名称",
+    "logicName" : "智能体名称",
     "name" : "CONTEXT_NAME",
     "orderValue" : 210,
     "getPSDER" : {
@@ -1736,6 +2018,10 @@
     "stdDataType" : 25,
     "stringLength" : 200,
     "valueFormat" : "%1$s",
+    "getValuePSDEField" : {
+      "name" : "CONTEXT_ID",
+      "codeName" : "context_id"
+    },
     "viewLevel" : 0,
     "enableQuickSearch" : true,
     "linkDEField" : true,
@@ -2407,6 +2693,1473 @@
     "viewLevel" : 0,
     "linkDEField" : true,
     "phisicalDEField" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "ENTITY_TAG",
+      "dBType" : "MYSQL5",
+      "name" : "ENTITY_TAG",
+      "standardColumnName" : "`ENTITY_TAG`"
+    }, {
+      "columnName" : "entity_tag",
+      "dBType" : "POSTGRESQL",
+      "name" : "ENTITY_TAG",
+      "queryCodeExp" : "t1.\"entity_tag\"",
+      "standardColumnName" : "\"entity_tag\""
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[ENTITY_TAG][实体标记]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[ENTITY_TAG][实体标记]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[ENTITY_TAG][实体标记]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[ENTITY_TAG][实体标记]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "ENTITY_TAG",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "EntityTag",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "实体标记",
+    "name" : "ENTITY_TAG",
+    "orderValue" : 280,
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "ENTITY_TAG"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "serviceCodeName" : "entity_tag"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "REQUIREMENT",
+      "dBType" : "MYSQL5",
+      "name" : "REQUIREMENT",
+      "standardColumnName" : "`REQUIREMENT`"
+    }, {
+      "columnName" : "requirement",
+      "dBType" : "POSTGRESQL",
+      "name" : "REQUIREMENT",
+      "queryCodeExp" : "t1.\"requirement\"",
+      "standardColumnName" : "\"requirement\""
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[REQUIREMENT][附加执行要求]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTAREA_10",
+        "name" : "[REQUIREMENT][附加执行要求]",
+        "stringLength" : 2000,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[REQUIREMENT][附加执行要求]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXTAREA",
+        "name" : "[REQUIREMENT][附加执行要求]移动端默认",
+        "stringLength" : 2000,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "REQUIREMENT",
+          "maxValue" : 2000,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[2000]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[2000]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[2000]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "Requirement",
+    "dEFType" : 1,
+    "dataType" : "LONGTEXT_1000",
+    "importOrder" : 1000,
+    "length" : 2000,
+    "logicName" : "附加执行要求",
+    "name" : "REQUIREMENT",
+    "orderValue" : 300,
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "REQUIREMENT"
+    },
+    "stdDataType" : 25,
+    "stringLength" : 2000,
+    "valueFormat" : "%1$s",
+    "serviceCodeName" : "requirement"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "SORT",
+      "dBType" : "MYSQL5",
+      "name" : "SORT",
+      "standardColumnName" : "`SORT`"
+    }, {
+      "columnName" : "sort",
+      "dBType" : "POSTGRESQL",
+      "name" : "SORT",
+      "queryCodeExp" : "t1.\"sort\"",
+      "standardColumnName" : "\"sort\""
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[SORT][排序]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[SORT][排序]",
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[SORT][排序]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[SORT][排序]移动端默认",
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组"
+      },
+      "ruleInfo" : "默认规则",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "Sort",
+    "dEFType" : 1,
+    "dataType" : "INT",
+    "importOrder" : 1000,
+    "logicName" : "排序",
+    "name" : "SORT",
+    "orderValue" : 310,
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "SORT"
+    },
+    "stdDataType" : 9,
+    "valueFormat" : "%1$s",
+    "serviceCodeName" : "sort"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "INPUT_EXTRA_INST",
+      "dBType" : "MYSQL5",
+      "name" : "INPUT_EXTRA_INST",
+      "standardColumnName" : "`INPUT_EXTRA_INST`"
+    }, {
+      "columnName" : "input_extra_inst",
+      "dBType" : "POSTGRESQL",
+      "name" : "INPUT_EXTRA_INST",
+      "queryCodeExp" : "t1.\"input_extra_inst\"",
+      "standardColumnName" : "\"input_extra_inst\""
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[INPUT_EXTRA_INST][输入附加说明]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTAREA_10",
+        "name" : "[INPUT_EXTRA_INST][输入附加说明]",
+        "stringLength" : 2000,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[INPUT_EXTRA_INST][输入附加说明]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXTAREA",
+        "name" : "[INPUT_EXTRA_INST][输入附加说明]移动端默认",
+        "stringLength" : 2000,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "INPUT_EXTRA_INST",
+          "maxValue" : 2000,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[2000]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[2000]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[2000]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "input_extra_inst",
+    "dEFType" : 1,
+    "dataType" : "LONGTEXT_1000",
+    "importOrder" : 1000,
+    "length" : 2000,
+    "logicName" : "输入附加说明",
+    "name" : "INPUT_EXTRA_INST",
+    "orderValue" : 320,
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "INPUT_EXTRA_INST"
+    },
+    "serviceCodeName" : "input_extra_inst",
+    "stdDataType" : 25,
+    "stringLength" : 2000,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "OUTPUT_EXTRA_INST",
+      "dBType" : "MYSQL5",
+      "name" : "OUTPUT_EXTRA_INST",
+      "standardColumnName" : "`OUTPUT_EXTRA_INST`"
+    }, {
+      "columnName" : "output_extra_inst",
+      "dBType" : "POSTGRESQL",
+      "name" : "OUTPUT_EXTRA_INST",
+      "queryCodeExp" : "t1.\"output_extra_inst\"",
+      "standardColumnName" : "\"output_extra_inst\""
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[OUTPUT_EXTRA_INST][输出附加说明]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTAREA_10",
+        "name" : "[OUTPUT_EXTRA_INST][输出附加说明]",
+        "stringLength" : 2000,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[OUTPUT_EXTRA_INST][输出附加说明]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXTAREA",
+        "name" : "[OUTPUT_EXTRA_INST][输出附加说明]移动端默认",
+        "stringLength" : 2000,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "OUTPUT_EXTRA_INST",
+          "maxValue" : 2000,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[2000]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[2000]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[2000]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "output_extra_inst",
+    "dEFType" : 1,
+    "dataType" : "LONGTEXT_1000",
+    "importOrder" : 1000,
+    "length" : 2000,
+    "logicName" : "输出附加说明",
+    "name" : "OUTPUT_EXTRA_INST",
+    "orderValue" : 320,
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "OUTPUT_EXTRA_INST"
+    },
+    "serviceCodeName" : "output_extra_inst",
+    "stdDataType" : 25,
+    "stringLength" : 2000,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "ENTITY_ROW_KEY",
+      "dBType" : "MYSQL5",
+      "name" : "ENTITY_ROW_KEY",
+      "standardColumnName" : "`ENTITY_ROW_KEY`"
+    }, {
+      "columnName" : "entity_row_key",
+      "dBType" : "POSTGRESQL",
+      "name" : "ENTITY_ROW_KEY",
+      "queryCodeExp" : "t1.\"entity_row_key\"",
+      "standardColumnName" : "\"entity_row_key\""
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[ENTITY_ROW_KEY][数据主键]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[ENTITY_ROW_KEY][数据主键]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[ENTITY_ROW_KEY][数据主键]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[ENTITY_ROW_KEY][数据主键]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "ENTITY_ROW_KEY",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "entity_row_key",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "数据主键",
+    "name" : "ENTITY_ROW_KEY",
+    "orderValue" : 350,
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "ENTITY_ROW_KEY"
+    },
+    "serviceCodeName" : "entity_row_key",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "SKILL_RUNNER",
+      "dBType" : "MYSQL5",
+      "name" : "SKILL_RUNNER",
+      "standardColumnName" : "`SKILL_RUNNER`"
+    }, {
+      "columnName" : "skill_runner",
+      "dBType" : "POSTGRESQL",
+      "name" : "SKILL_RUNNER",
+      "queryCodeExp" : "t21.\"name\"",
+      "standardColumnName" : "\"skill_runner\""
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_SKILL_RUNNER_EQ",
+      "name" : "N_SKILL_RUNNER_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    }, {
+      "codeName" : "N_SKILL_RUNNER_LIKE",
+      "name" : "N_SKILL_RUNNER_LIKE",
+      "stdDataType" : 25,
+      "valueOP" : "LIKE"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[SKILL_RUNNER][技能执行容器]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "PICKER",
+        "name" : "[SKILL_RUNNER][技能执行容器]",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+        },
+        "refPickupPSDEViewCodeName" : "PickupView",
+        "stringLength" : 200,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[SKILL_RUNNER][技能执行容器]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBPICKER",
+        "name" : "[SKILL_RUNNER][技能执行容器]移动端默认",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+        },
+        "refPickupPSDEViewCodeName" : "PickupView",
+        "stringLength" : 200,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "SKILL_RUNNER",
+          "maxValue" : 200,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[200]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[200]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[200]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "skill_runner",
+    "dEFType" : 3,
+    "dataType" : "PICKUPTEXT",
+    "importOrder" : 1000,
+    "length" : 200,
+    "logicName" : "技能执行容器",
+    "name" : "SKILL_RUNNER",
+    "orderValue" : 360,
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDERS/DER1N_AI_AGENT_ASSIGNMENT_AI_SKILL_WORKSPACE_SKILL_WORKSPACE_ID.json"
+    },
+    "getRealPSDEField" : {
+      "name" : "NAME",
+      "codeName" : "name"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "NAME",
+      "codeName" : "name"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+    },
+    "serviceCodeName" : "skill_runner",
+    "stdDataType" : 25,
+    "stringLength" : 200,
+    "valueFormat" : "%1$s",
+    "getValuePSDEField" : {
+      "name" : "SKILL_WORKSPACE_ID",
+      "codeName" : "skill_workspace_id"
+    },
+    "viewLevel" : 0,
+    "linkDEField" : true,
+    "phisicalDEField" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "INFORMTOPIC",
+      "dBType" : "MYSQL5",
+      "name" : "INFORMTOPIC",
+      "standardColumnName" : "`INFORMTOPIC`"
+    }, {
+      "columnName" : "informtopic",
+      "dBType" : "POSTGRESQL",
+      "name" : "INFORMTOPIC",
+      "queryCodeExp" : "t21.\"topic\"",
+      "standardColumnName" : "\"informtopic\""
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[INFORMTOPIC][技能执行容器topic]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[INFORMTOPIC][技能执行容器topic]移动端默认",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+        },
+        "stringLength" : 200,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[INFORMTOPIC][技能执行容器topic]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[INFORMTOPIC][技能执行容器topic]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+        },
+        "stringLength" : 200,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "INFORMTOPIC",
+          "maxValue" : 200,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[200]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[200]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[200]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "informtopic",
+    "dEFType" : 3,
+    "dataType" : "PICKUPDATA",
+    "importOrder" : 1000,
+    "length" : 200,
+    "logicName" : "技能执行容器topic",
+    "name" : "INFORMTOPIC",
+    "orderValue" : 360,
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDERS/DER1N_AI_AGENT_ASSIGNMENT_AI_SKILL_WORKSPACE_SKILL_WORKSPACE_ID.json"
+    },
+    "getRealPSDEField" : {
+      "name" : "TOPIC",
+      "codeName" : "topic"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "TOPIC",
+      "codeName" : "topic"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+    },
+    "serviceCodeName" : "informtopic",
+    "stdDataType" : 25,
+    "stringLength" : 200,
+    "valueFormat" : "%1$s",
+    "viewLevel" : 0,
+    "linkDEField" : true,
+    "phisicalDEField" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "PORTAL_ADDRESS",
+      "dBType" : "MYSQL5",
+      "name" : "PORTAL_ADDRESS",
+      "standardColumnName" : "`PORTAL_ADDRESS`"
+    }, {
+      "columnName" : "portal_address",
+      "dBType" : "POSTGRESQL",
+      "name" : "PORTAL_ADDRESS",
+      "queryCodeExp" : "t21.\"portal_address\"",
+      "standardColumnName" : "\"portal_address\""
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[PORTAL_ADDRESS][容器访问地址]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[PORTAL_ADDRESS][容器访问地址]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+        },
+        "stringLength" : 500,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[PORTAL_ADDRESS][容器访问地址]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[PORTAL_ADDRESS][容器访问地址]移动端默认",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+        },
+        "stringLength" : 500,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "PORTAL_ADDRESS",
+          "maxValue" : 500,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[500]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[500]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[500]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "portal_address",
+    "dEFType" : 3,
+    "dataType" : "PICKUPDATA",
+    "importOrder" : 1000,
+    "length" : 500,
+    "logicName" : "容器访问地址",
+    "name" : "PORTAL_ADDRESS",
+    "orderValue" : 360,
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDERS/DER1N_AI_AGENT_ASSIGNMENT_AI_SKILL_WORKSPACE_SKILL_WORKSPACE_ID.json"
+    },
+    "getRealPSDEField" : {
+      "name" : "PORTAL_ADDRESS",
+      "codeName" : "portal_address"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "PORTAL_ADDRESS",
+      "codeName" : "portal_address"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+    },
+    "serviceCodeName" : "portal_address",
+    "stdDataType" : 25,
+    "stringLength" : 500,
+    "valueFormat" : "%1$s",
+    "viewLevel" : 0,
+    "linkDEField" : true,
+    "phisicalDEField" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "HOME_PATH",
+      "dBType" : "MYSQL5",
+      "name" : "HOME_PATH",
+      "standardColumnName" : "`HOME_PATH`"
+    }, {
+      "columnName" : "home_path",
+      "dBType" : "POSTGRESQL",
+      "name" : "HOME_PATH",
+      "queryCodeExp" : "t21.\"home_path\"",
+      "standardColumnName" : "\"home_path\""
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[HOME_PATH][根工作目录]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[HOME_PATH][根工作目录]移动端默认",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+        },
+        "stringLength" : 500,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[HOME_PATH][根工作目录]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[HOME_PATH][根工作目录]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+        },
+        "stringLength" : 500,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "HOME_PATH",
+          "maxValue" : 500,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[500]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[500]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[500]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "home_path",
+    "dEFType" : 3,
+    "dataType" : "PICKUPDATA",
+    "importOrder" : 1000,
+    "length" : 500,
+    "logicName" : "根工作目录",
+    "name" : "HOME_PATH",
+    "orderValue" : 360,
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDERS/DER1N_AI_AGENT_ASSIGNMENT_AI_SKILL_WORKSPACE_SKILL_WORKSPACE_ID.json"
+    },
+    "getRealPSDEField" : {
+      "name" : "HOME_PATH",
+      "codeName" : "home_path"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "HOME_PATH",
+      "codeName" : "home_path"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+    },
+    "serviceCodeName" : "home_path",
+    "stdDataType" : 25,
+    "stringLength" : 500,
+    "valueFormat" : "%1$s",
+    "viewLevel" : 0,
+    "linkDEField" : true,
+    "phisicalDEField" : false
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "EXTRA_OSS_FILE",
+      "dBType" : "MYSQL5",
+      "name" : "EXTRA_OSS_FILE",
+      "standardColumnName" : "`EXTRA_OSS_FILE`"
+    }, {
+      "columnName" : "extra_oss_file",
+      "dBType" : "POSTGRESQL",
+      "name" : "EXTRA_OSS_FILE",
+      "queryCodeExp" : "t1.\"extra_oss_file\"",
+      "standardColumnName" : "\"extra_oss_file\""
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[EXTRA_OSS_FILE][附加参考资料]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTAREA_10",
+        "name" : "[EXTRA_OSS_FILE][附加参考资料]",
+        "stringLength" : 2000,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[EXTRA_OSS_FILE][附加参考资料]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXTAREA",
+        "name" : "[EXTRA_OSS_FILE][附加参考资料]移动端默认",
+        "stringLength" : 2000,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "EXTRA_OSS_FILE",
+          "maxValue" : 2000,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[2000]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[2000]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[2000]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "extra_oss_file",
+    "dEFType" : 1,
+    "dataType" : "LONGTEXT_1000",
+    "importOrder" : 1000,
+    "length" : 2000,
+    "logicName" : "附加参考资料",
+    "name" : "EXTRA_OSS_FILE",
+    "orderValue" : 370,
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "EXTRA_OSS_FILE"
+    },
+    "serviceCodeName" : "extra_oss_file",
+    "stdDataType" : 25,
+    "stringLength" : 2000,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "SKILL_WORKSPACE_ID",
+      "dBType" : "MYSQL5",
+      "name" : "SKILL_WORKSPACE_ID",
+      "standardColumnName" : "`SKILL_WORKSPACE_ID`"
+    }, {
+      "columnName" : "skill_workspace_id",
+      "dBType" : "POSTGRESQL",
+      "name" : "SKILL_WORKSPACE_ID",
+      "queryCodeExp" : "t1.\"skill_workspace_id\"",
+      "standardColumnName" : "\"skill_workspace_id\""
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_SKILL_WORKSPACE_ID_EQ",
+      "name" : "N_SKILL_WORKSPACE_ID_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[SKILL_WORKSPACE_ID][标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "HIDDEN",
+        "name" : "[SKILL_WORKSPACE_ID][标识]",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[SKILL_WORKSPACE_ID][标识]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "HIDDEN",
+        "name" : "[SKILL_WORKSPACE_ID][标识]移动端默认",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "SKILL_WORKSPACE_ID",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "skill_workspace_id",
+    "dEFType" : 1,
+    "dataType" : "PICKUP",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "runner标识",
+    "name" : "SKILL_WORKSPACE_ID",
+    "orderValue" : 1000,
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDERS/DER1N_AI_AGENT_ASSIGNMENT_AI_SKILL_WORKSPACE_SKILL_WORKSPACE_ID.json"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "SKILL_WORKSPACE_ID"
+    },
+    "getRealPSDEField" : {
+      "name" : "ID",
+      "codeName" : "id"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "ID",
+      "codeName" : "id"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+    },
+    "serviceCodeName" : "skill_workspace_id",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "linkDEField" : true
+  }, {
+    "getAllPSDEFDTColumns" : [ {
+      "columnName" : "COMPOSE_ID",
+      "dBType" : "MYSQL5",
+      "name" : "COMPOSE_ID",
+      "standardColumnName" : "`COMPOSE_ID`"
+    }, {
+      "columnName" : "compose_id",
+      "dBType" : "POSTGRESQL",
+      "name" : "COMPOSE_ID",
+      "queryCodeExp" : "t1.\"compose_id\"",
+      "standardColumnName" : "\"compose_id\""
+    } ],
+    "getAllPSDEFSearchModes" : [ {
+      "codeName" : "N_COMPOSE_ID_EQ",
+      "name" : "N_COMPOSE_ID_EQ",
+      "stdDataType" : 25,
+      "valueOP" : "EQ"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[COMPOSE_ID][标识]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "HIDDEN",
+        "name" : "[COMPOSE_ID][标识]移动端默认",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[COMPOSE_ID][标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "HIDDEN",
+        "name" : "[COMPOSE_ID][标识]",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "COMPOSE_ID",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "compose_id",
+    "dEFType" : 1,
+    "dataType" : "PICKUP",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "编排标识",
+    "name" : "COMPOSE_ID",
+    "orderValue" : 1000,
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDERS/DER1N_AI_AGENT_ASSIGNMENT_AI_AGENT_ASSIGNMENT_COMPOSE_ID.json"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "COMPOSE_ID"
+    },
+    "getRealPSDEField" : {
+      "name" : "ID",
+      "codeName" : "id"
+    },
+    "getRealPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment.json"
+    },
+    "getRelatedPSDEField" : {
+      "name" : "ID",
+      "codeName" : "id"
+    },
+    "getRelatedPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment.json"
+    },
+    "serviceCodeName" : "compose_id",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s",
+    "linkDEField" : true
+  } ],
+  "getAllPSDELogics" : [ {
+    "codeName" : "register",
+    "defaultParamName" : "Default",
+    "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDELOGICS/register.json",
+    "logicName" : "register",
+    "name" : "register",
+    "getPSDELogicNodes" : [ {
+      "codeName" : "Begin",
+      "leftPos" : 200,
+      "logicNodeType" : "BEGIN",
+      "name" : "开始",
+      "getPSDELogicLinks" : [ {
+        "getDstPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "DEACTION_01"
+        },
+        "name" : "连接名称",
+        "getSrcPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "Begin"
+        }
+      } ],
+      "topPos" : 200,
+      "parallelOutput" : true
+    }, {
+      "codeName" : "DEACTION_01",
+      "getDstPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDEACTIONS/CheckKey.json"
+      },
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getDstPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment.json"
+      },
+      "leftPos" : 160,
+      "logicNodeType" : "DEACTION",
+      "name" : "checkkey",
+      "getPSDELogicLinks" : [ {
+        "getDstPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "DEACTION_02"
+        },
+        "name" : "连接名称",
+        "getPSDELogicLinkGroupCond" : {
+          "groupOP" : "AND",
+          "logicType" : "GROUP",
+          "name" : "连接条件组",
+          "getPSDELogicLinkConds" : [ {
+            "condOP" : "EQ",
+            "getDstLogicParam" : {
+              "modelref" : true,
+              "id" : "ncheck"
+            },
+            "logicType" : "SINGLE",
+            "name" : "ncheck 等于(=) 0",
+            "paramValue" : "0"
+          } ]
+        },
+        "getSrcPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "DEACTION_01"
+        }
+      }, {
+        "getDstPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "DEACTION_03"
+        },
+        "name" : "连接名称",
+        "getSrcPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "DEACTION_01"
+        },
+        "defaultLink" : true
+      } ],
+      "getRetPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "ncheck"
+      },
+      "topPos" : 340
+    }, {
+      "codeName" : "DEACTION_02",
+      "getDstPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDEACTIONS/Create.json"
+      },
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getDstPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment.json"
+      },
+      "leftPos" : -30,
+      "logicNodeType" : "DEACTION",
+      "name" : "create",
+      "getPSDELogicLinks" : [ {
+        "getDstPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "END_01"
+        },
+        "name" : "连接名称",
+        "getSrcPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "DEACTION_02"
+        }
+      } ],
+      "getRetPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "topPos" : 500,
+      "parallelOutput" : true
+    }, {
+      "codeName" : "DEACTION_03",
+      "getDstPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDEACTIONS/Get.json"
+      },
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getDstPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment.json"
+      },
+      "leftPos" : 160,
+      "logicNodeType" : "DEACTION",
+      "name" : "实体行为",
+      "getPSDELogicLinks" : [ {
+        "getDstPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "END_01"
+        },
+        "name" : "连接名称",
+        "getSrcPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "DEACTION_03"
+        }
+      } ],
+      "getRetPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "topPos" : 500,
+      "parallelOutput" : true
+    }, {
+      "codeName" : "END_01",
+      "leftPos" : 200,
+      "logicNodeType" : "END",
+      "name" : "结束",
+      "getReturnParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "returnType" : "LOGICPARAM",
+      "topPos" : 680,
+      "parallelOutput" : true
+    } ],
+    "getPSDELogicParams" : [ {
+      "codeName" : "Default",
+      "logicName" : "传入变量",
+      "name" : "传入变量",
+      "getParamPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment.json"
+      },
+      "default" : true,
+      "entityParam" : true
+    }, {
+      "codeName" : "ncheck",
+      "logicName" : "ncheck",
+      "name" : "ncheck",
+      "stdDataType" : 9,
+      "simpleParam" : true
+    } ],
+    "getStartPSDELogicNode" : {
+      "modelref" : true,
+      "id" : "Begin"
+    },
+    "enableBackend" : true,
+    "enableFront" : false
   } ],
   "getAllPSDEMethodDTOs" : [ {
     "name" : "ai_agent_assignment_dto",
@@ -2422,6 +4175,8 @@
       "stringLength" : 100,
       "type" : "SIMPLE"
     }, {
+      "defaultValue" : "context_name",
+      "defaultValueType" : "PARAM",
       "logicName" : "名称",
       "name" : "name",
       "getPSDEField" : {
@@ -2498,6 +4253,17 @@
       "type" : "SIMPLE",
       "allowEmpty" : false
     }, {
+      "logicName" : "编号",
+      "name" : "identifier",
+      "getPSDEField" : {
+        "name" : "IDENTIFIER",
+        "codeName" : "identifier"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
       "logicName" : "智能体标记",
       "name" : "context_code_name",
       "getPSDEField" : {
@@ -2518,6 +4284,17 @@
       "sourceType" : "DEFIELD",
       "stdDataType" : 25,
       "stringLength" : 2000,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "智能体模式",
+      "name" : "flow_mode",
+      "getPSDEField" : {
+        "name" : "FLOW_MODE",
+        "codeName" : "flow_mode"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 60,
       "type" : "SIMPLE"
     }, {
       "logicName" : "引用标记",
@@ -2543,7 +4320,7 @@
       "stdDataType" : 9,
       "type" : "SIMPLE"
     }, {
-      "logicName" : "智能体上下文名称",
+      "logicName" : "智能体名称",
       "name" : "context_name",
       "getPSDEField" : {
         "name" : "CONTEXT_NAME",
@@ -2615,6 +4392,148 @@
       "sourceType" : "DEFIELD",
       "stdDataType" : 9,
       "type" : "SIMPLE"
+    }, {
+      "logicName" : "实体标记",
+      "name" : "entity_tag",
+      "getPSDEField" : {
+        "name" : "ENTITY_TAG",
+        "codeName" : "EntityTag"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "附加执行要求",
+      "name" : "requirement",
+      "getPSDEField" : {
+        "name" : "REQUIREMENT",
+        "codeName" : "Requirement"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 2000,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "排序",
+      "name" : "sort",
+      "getPSDEField" : {
+        "name" : "SORT",
+        "codeName" : "Sort"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "输入附加说明",
+      "name" : "input_extra_inst",
+      "getPSDEField" : {
+        "name" : "INPUT_EXTRA_INST",
+        "codeName" : "input_extra_inst"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 2000,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "输出附加说明",
+      "name" : "output_extra_inst",
+      "getPSDEField" : {
+        "name" : "OUTPUT_EXTRA_INST",
+        "codeName" : "output_extra_inst"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 2000,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "数据主键",
+      "name" : "entity_row_key",
+      "getPSDEField" : {
+        "name" : "ENTITY_ROW_KEY",
+        "codeName" : "entity_row_key"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "根工作目录",
+      "name" : "home_path",
+      "getPSDEField" : {
+        "name" : "HOME_PATH",
+        "codeName" : "home_path"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 500,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "技能执行容器topic",
+      "name" : "informtopic",
+      "getPSDEField" : {
+        "name" : "INFORMTOPIC",
+        "codeName" : "informtopic"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "容器访问地址",
+      "name" : "portal_address",
+      "getPSDEField" : {
+        "name" : "PORTAL_ADDRESS",
+        "codeName" : "portal_address"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 500,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "技能执行容器",
+      "name" : "skill_runner",
+      "getPSDEField" : {
+        "name" : "SKILL_RUNNER",
+        "codeName" : "skill_runner"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "附加参考资料",
+      "name" : "extra_oss_file",
+      "getPSDEField" : {
+        "name" : "EXTRA_OSS_FILE",
+        "codeName" : "extra_oss_file"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 2000,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "编排标识",
+      "name" : "compose_id",
+      "getPSDEField" : {
+        "name" : "COMPOSE_ID",
+        "codeName" : "compose_id"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "runner标识",
+      "name" : "skill_workspace_id",
+      "getPSDEField" : {
+        "name" : "SKILL_WORKSPACE_ID",
+        "codeName" : "skill_workspace_id"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
     } ],
     "sourceType" : "DE",
     "type" : "DEFAULT",
@@ -2622,6 +4541,21 @@
   }, {
     "name" : "ai_agent_assignment_filter_dto",
     "getPSDEFilterDTOFields" : [ {
+      "logicName" : "编排标识",
+      "name" : "n_compose_id_eq",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_COMPOSE_ID_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "COMPOSE_ID",
+        "codeName" : "compose_id"
+      },
+      "scale" : 0,
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
       "logicName" : "智能体业务上下文标识",
       "name" : "n_context_id_eq",
       "getPSDEFSearchMode" : {
@@ -2667,6 +4601,8 @@
       "stdDataType" : 25,
       "type" : "SIMPLE"
     }, {
+      "defaultValue" : "context_name",
+      "defaultValueType" : "PARAM",
       "logicName" : "名称",
       "name" : "n_name_like",
       "getPSDEFSearchMode" : {
@@ -2727,11 +4663,71 @@
       "stdDataType" : 25,
       "type" : "SIMPLE"
     }, {
+      "logicName" : "技能执行容器",
+      "name" : "n_skill_runner_eq",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_SKILL_RUNNER_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "SKILL_RUNNER",
+        "codeName" : "skill_runner"
+      },
+      "scale" : 0,
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "技能执行容器",
+      "name" : "n_skill_runner_like",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_SKILL_RUNNER_LIKE"
+      },
+      "getPSDEField" : {
+        "name" : "SKILL_RUNNER",
+        "codeName" : "skill_runner"
+      },
+      "scale" : 0,
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "runner标识",
+      "name" : "n_skill_workspace_id_eq",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_SKILL_WORKSPACE_ID_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "SKILL_WORKSPACE_ID",
+        "codeName" : "skill_workspace_id"
+      },
+      "scale" : 0,
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
       "logicName" : "引用标记",
       "name" : "n_use_tag_eq",
       "getPSDEFSearchMode" : {
         "modelref" : true,
         "id" : "N_USE_TAG_EQ"
+      },
+      "getPSDEField" : {
+        "name" : "USE_TAG",
+        "codeName" : "use_tag"
+      },
+      "scale" : 0,
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "引用标记",
+      "name" : "n_use_tag_like",
+      "getPSDEFSearchMode" : {
+        "modelref" : true,
+        "id" : "N_USE_TAG_LIKE"
       },
       "getPSDEField" : {
         "name" : "USE_TAG",
@@ -2913,10 +4909,22 @@
     "realModelSubType" : "DEPICKUPGRIDVIEW",
     "realModelType" : "PSDEVIEWBASE"
   }, {
+    "codeName" : "compose",
+    "logicName" : "执行步骤",
+    "name" : "执行步骤",
+    "realModelSubType" : "DEMEDITVIEW9",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
     "codeName" : "selector",
     "logicName" : "智能体选择器",
     "name" : "智能体选择器",
     "realModelSubType" : "DELISTVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
+    "codeName" : "list_edit",
+    "logicName" : "执行编排行编辑",
+    "name" : "执行编排行编辑",
+    "realModelSubType" : "DEEDITVIEW9",
     "realModelType" : "PSDEVIEWBASE"
   }, {
     "codeName" : "EditView",
@@ -2946,6 +4954,12 @@
     "realModelSubType" : "DEEDITVIEW2",
     "realModelType" : "PSDEVIEWBASE"
   }, {
+    "codeName" : "compose_edit",
+    "logicName" : "编排",
+    "name" : "编排",
+    "realModelSubType" : "DEEDITVIEW",
+    "realModelType" : "PSDEVIEWBASE"
+  }, {
     "codeName" : "Main3",
     "logicName" : "绑定智能体_表单",
     "modelTag2" : "0",
@@ -2953,10 +4967,24 @@
     "realModelSubType" : "EDITFORM",
     "realModelType" : "PSDEFORM"
   }, {
+    "codeName" : "Main5",
+    "logicName" : "编排_表单",
+    "modelTag2" : "0",
+    "name" : "编排_表单",
+    "realModelSubType" : "EDITFORM",
+    "realModelType" : "PSDEFORM"
+  }, {
     "codeName" : "Main",
     "logicName" : "主编辑表单",
     "modelTag2" : "0",
     "name" : "主编辑表单",
+    "realModelSubType" : "EDITFORM",
+    "realModelType" : "PSDEFORM"
+  }, {
+    "codeName" : "Main4",
+    "logicName" : "执行编排行编辑_表单",
+    "modelTag2" : "0",
+    "name" : "执行编排行编辑_表单",
     "realModelSubType" : "EDITFORM",
     "realModelType" : "PSDEFORM"
   } ],
@@ -3001,7 +5029,60 @@
     "name" : "NAME",
     "codeName" : "name"
   },
+  "getMajorPSDERs" : [ {
+    "codeName" : "compose",
+    "dERType" : "DER1N",
+    "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDERS/DER1N_AI_AGENT_ASSIGNMENT_AI_AGENT_ASSIGNMENT_COMPOSE_ID.json",
+    "fKeyName" : "F42F0D37091A8D76C6",
+    "getMajorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment.json"
+    },
+    "masterOrder" : -1,
+    "masterRS" : 0,
+    "getMinorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment.json"
+    },
+    "name" : "DER1N_AI_AGENT_ASSIGNMENT_AI_AGENT_ASSIGNMENT_COMPOSE_ID",
+    "orderValue" : 100,
+    "getPSPickupDEField" : {
+      "name" : "COMPOSE_ID",
+      "codeName" : "compose_id"
+    },
+    "pickupDEFName" : "COMPOSE_ID",
+    "removeActionType" : -1,
+    "removeOrder" : 0,
+    "serviceCodeName" : "compose",
+    "enableFKey" : true
+  } ],
   "getMinorPSDERs" : [ {
+    "codeName" : "compose",
+    "dERType" : "DER1N",
+    "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDERS/DER1N_AI_AGENT_ASSIGNMENT_AI_AGENT_ASSIGNMENT_COMPOSE_ID.json",
+    "fKeyName" : "F42F0D37091A8D76C6",
+    "getMajorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment.json"
+    },
+    "masterOrder" : -1,
+    "masterRS" : 0,
+    "getMinorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment.json"
+    },
+    "name" : "DER1N_AI_AGENT_ASSIGNMENT_AI_AGENT_ASSIGNMENT_COMPOSE_ID",
+    "orderValue" : 100,
+    "getPSPickupDEField" : {
+      "name" : "COMPOSE_ID",
+      "codeName" : "compose_id"
+    },
+    "pickupDEFName" : "COMPOSE_ID",
+    "removeActionType" : -1,
+    "removeOrder" : 0,
+    "serviceCodeName" : "compose",
+    "enableFKey" : true
+  }, {
     "codeName" : "context",
     "dERType" : "DER1N",
     "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDERS/DER1N_AI_AGENT_ASSIGNMENT_AI_AGENT_CONTEXT_CONTEXT_ID.json",
@@ -3024,8 +5105,8 @@
       "codeName" : "context_id"
     },
     "getPSPickupTextDEField" : {
-      "name" : "NAME",
-      "codeName" : "name"
+      "name" : "CONTEXT_NAME",
+      "codeName" : "context_name"
     },
     "pickupDEFName" : "CONTEXT_ID",
     "removeActionType" : 1,
@@ -3033,6 +5114,36 @@
     "serviceCodeName" : "context",
     "enableFKey" : true,
     "enablePhysicalDEFieldUpdate" : true
+  }, {
+    "codeName" : "skill_workspace",
+    "dERType" : "DER1N",
+    "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDERS/DER1N_AI_AGENT_ASSIGNMENT_AI_SKILL_WORKSPACE_SKILL_WORKSPACE_ID.json",
+    "fKeyName" : "F05ADA8E038E97A3CA",
+    "getMajorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+    },
+    "masterOrder" : -1,
+    "masterRS" : 0,
+    "getMinorPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment.json"
+    },
+    "name" : "DER1N_AI_AGENT_ASSIGNMENT_AI_SKILL_WORKSPACE_SKILL_WORKSPACE_ID",
+    "orderValue" : 100,
+    "getPSPickupDEField" : {
+      "name" : "SKILL_WORKSPACE_ID",
+      "codeName" : "skill_workspace_id"
+    },
+    "getPSPickupTextDEField" : {
+      "name" : "SKILL_RUNNER",
+      "codeName" : "skill_runner"
+    },
+    "pickupDEFName" : "SKILL_WORKSPACE_ID",
+    "removeActionType" : -1,
+    "removeOrder" : 0,
+    "serviceCodeName" : "skill_workspace",
+    "enableFKey" : true
   } ],
   "name" : "AI_AGENT_ASSIGNMENT",
   "getPSSysDBScheme" : {

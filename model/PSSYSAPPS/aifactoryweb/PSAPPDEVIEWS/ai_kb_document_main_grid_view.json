@@ -21,10 +21,10 @@
   "getPSViewLayoutPanel" : {
     "codeName" : "af29c6862f0a6175561",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document/PSVIEWLAYOUTPANELS/af29c6862f0a6175561.json",
     "hookEventNames" : [ "ONLOADSUCCESS" ],
     "layoutMode" : "FLEX",
     "logicName" : "main_grid_view表格视图布局",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
@@ -203,6 +203,7 @@
     "layoutPanel" : true,
     "useDefaultLayout" : false,
     "viewProxyMode" : true,
+    "name" : "layoutpanel",
     "modelid" : "7be51c6712e84e37d003f8caaf743ce8",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL",
     "getPSAppViewEngines" : [ {
@@ -455,8 +456,8 @@
       "getPSControls" : [ {
         "codeName" : "main_grid_view_grid_batchtoolbar",
         "controlType" : "TOOLBAR",
+        "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document/PSTOOLBARS/main_grid_view_grid_batchtoolbar.json",
         "logicName" : "文档清单批操作工具栏",
-        "name" : "grid_batchtoolbar",
         "getPSAppDataEntity" : {
           "modelref" : true,
           "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
@@ -556,6 +557,7 @@
           "showCaption" : true,
           "showIcon" : true
         } ],
+        "name" : "grid_batchtoolbar",
         "modelid" : "7ac0adb26e7630a63d1bb4813b6fecff",
         "modeltype" : "PSDETOOLBAR"
       } ],
@@ -1460,194 +1462,19 @@
       "modelid" : "ea9408c396563b9790893885d81c7e37",
       "modeltype" : "PSDEFORM_SEARCHFORM"
     }, {
-      "codeName" : "main_grid_view_toolbar",
-      "controlType" : "TOOLBAR",
-      "logicName" : "知识库文档_工具栏",
-      "name" : "toolbar",
-      "getPSAppDataEntity" : {
-        "modelref" : true,
-        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
-      },
-      "getPSControlParam" : {
-        "id" : "TOOLBAR"
-      },
-      "getPSDEToolbarItems" : [ {
-        "caption" : "批量解析",
-        "groupExtractMode" : "ITEM",
-        "itemType" : "DEUIACTION",
-        "name" : "item_parse",
-        "noPrivDisplayMode" : 2,
-        "getPSAppViewUIAction" : {
-          "modelref" : true,
-          "id" : "toolbar_item_parse"
-        },
-        "getPSSysImage" : {
-          "rawContent" : "<?xml version=\"1.0\" standalone=\"no\"?><!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\"><svg t=\"1767152299747\" class=\"icon\" viewBox=\"0 0 1024 1024\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" p-id=\"4707\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"16\" height=\"16\" fill=\"currentColor\"><path d=\"M112.48 642.352c13.504 0 24.464 10.96 24.464 24.48v122.352l0.064 3.664a97.888 97.888 0 0 0 97.808 94.208h122.368l2.352 0.112a24.48 24.48 0 0 1-2.352 48.832h-122.368l-4.32-0.064A146.832 146.832 0 0 1 88 789.184v-122.368l0.112-2.352a24.48 24.48 0 0 1 24.352-22.112z m783.04 0a24.48 24.48 0 0 1 24.368 22.112l0.112 2.352v122.368a146.832 146.832 0 0 1-142.496 146.752l-4.32 0.064h-122.368a24.48 24.48 0 0 1-2.352-48.832l2.352-0.112h122.368a97.888 97.888 0 0 0 97.808-94.208l0.064-3.68v-122.352c0-13.504 10.96-24.464 24.48-24.464z m-212.064-375.2a57.104 57.104 0 0 1 57.008 53.952l0.08 3.136v391.52a57.104 57.104 0 0 1-53.968 57.024l-3.12 0.08H324.544a57.104 57.104 0 0 1-57.008-53.968l-0.08-3.136v-391.52a57.104 57.104 0 0 1 53.968-57.024l3.12-0.08h358.912z m0 48.928H324.544a8.16 8.16 0 0 0-8.016 6.688l-0.128 1.472v391.52c0 4 2.88 7.344 6.688 8.032l1.456 0.128h358.912a8.16 8.16 0 0 0 8.016-6.688l0.128-1.472v-391.52a8.16 8.16 0 0 0-8.16-8.16z m-57.104 285.488a24.48 24.48 0 0 1 0 48.944h-146.816a24.48 24.48 0 0 1 0-48.944h146.816z m-244.704 0a24.48 24.48 0 1 1 0 48.944 24.48 24.48 0 0 1 0-48.944z m244.704-114.192a24.48 24.48 0 0 1 0 48.944h-146.816a24.48 24.48 0 0 1 0-48.96h146.816z m-244.704 0a24.48 24.48 0 1 1 0 48.944 24.48 24.48 0 0 1 0-48.96z m244.704-114.192a24.48 24.48 0 0 1 0 48.928h-146.816a24.48 24.48 0 0 1 0-48.928h146.816z m-244.704 0a24.48 24.48 0 1 1 0 48.928 24.48 24.48 0 0 1 0-48.928zM357.168 104a24.48 24.48 0 0 1 2.368 48.832l-2.352 0.112h-122.368a97.888 97.888 0 0 0-97.808 94.208l-0.064 3.68v122.352a24.48 24.48 0 0 1-48.832 2.352l-0.112-2.352v-122.368a146.832 146.832 0 0 1 142.496-146.752l4.32-0.064h122.368z m416 0l4.336 0.064a146.832 146.832 0 0 1 142.496 146.752v122.368l-0.112 2.352a24.48 24.48 0 0 1-48.832-2.352v-122.368l-0.064-3.664a97.888 97.888 0 0 0-97.808-94.208h-122.368l-2.352-0.112a24.48 24.48 0 0 1 2.352-48.832h122.368z\" p-id=\"4708\"></path></svg>"
-        },
-        "getPSUIAction" : {
-          "actionTarget" : "MULTIKEY",
-          "caption" : "批量解析",
-          "codeName" : "batch_parse",
-          "fullCodeName" : "ai_kb_document_batch_parse",
-          "name" : "批量解析",
-          "getPSAppDEMethod" : {
-            "modelref" : true,
-            "id" : "batch_parse"
-          },
-          "getPSAppDataEntity" : {
-            "modelref" : true,
-            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
-          },
-          "getPSSysImage" : {
-            "rawContent" : "<?xml version=\"1.0\" standalone=\"no\"?><!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\"><svg t=\"1767152299747\" class=\"icon\" viewBox=\"0 0 1024 1024\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" p-id=\"4707\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"16\" height=\"16\" fill=\"currentColor\"><path d=\"M112.48 642.352c13.504 0 24.464 10.96 24.464 24.48v122.352l0.064 3.664a97.888 97.888 0 0 0 97.808 94.208h122.368l2.352 0.112a24.48 24.48 0 0 1-2.352 48.832h-122.368l-4.32-0.064A146.832 146.832 0 0 1 88 789.184v-122.368l0.112-2.352a24.48 24.48 0 0 1 24.352-22.112z m783.04 0a24.48 24.48 0 0 1 24.368 22.112l0.112 2.352v122.368a146.832 146.832 0 0 1-142.496 146.752l-4.32 0.064h-122.368a24.48 24.48 0 0 1-2.352-48.832l2.352-0.112h122.368a97.888 97.888 0 0 0 97.808-94.208l0.064-3.68v-122.352c0-13.504 10.96-24.464 24.48-24.464z m-212.064-375.2a57.104 57.104 0 0 1 57.008 53.952l0.08 3.136v391.52a57.104 57.104 0 0 1-53.968 57.024l-3.12 0.08H324.544a57.104 57.104 0 0 1-57.008-53.968l-0.08-3.136v-391.52a57.104 57.104 0 0 1 53.968-57.024l3.12-0.08h358.912z m0 48.928H324.544a8.16 8.16 0 0 0-8.016 6.688l-0.128 1.472v391.52c0 4 2.88 7.344 6.688 8.032l1.456 0.128h358.912a8.16 8.16 0 0 0 8.016-6.688l0.128-1.472v-391.52a8.16 8.16 0 0 0-8.16-8.16z m-57.104 285.488a24.48 24.48 0 0 1 0 48.944h-146.816a24.48 24.48 0 0 1 0-48.944h146.816z m-244.704 0a24.48 24.48 0 1 1 0 48.944 24.48 24.48 0 0 1 0-48.944z m244.704-114.192a24.48 24.48 0 0 1 0 48.944h-146.816a24.48 24.48 0 0 1 0-48.96h146.816z m-244.704 0a24.48 24.48 0 1 1 0 48.944 24.48 24.48 0 0 1 0-48.96z m244.704-114.192a24.48 24.48 0 0 1 0 48.928h-146.816a24.48 24.48 0 0 1 0-48.928h146.816z m-244.704 0a24.48 24.48 0 1 1 0 48.928 24.48 24.48 0 0 1 0-48.928zM357.168 104a24.48 24.48 0 0 1 2.368 48.832l-2.352 0.112h-122.368a97.888 97.888 0 0 0-97.808 94.208l-0.064 3.68v122.352a24.48 24.48 0 0 1-48.832 2.352l-0.112-2.352v-122.368a146.832 146.832 0 0 1 142.496-146.752l4.32-0.064h122.368z m416 0l4.336 0.064a146.832 146.832 0 0 1 142.496 146.752v122.368l-0.112 2.352a24.48 24.48 0 0 1-48.832-2.352v-122.368l-0.064-3.664a97.888 97.888 0 0 0-97.808-94.208h-122.368l-2.352-0.112a24.48 24.48 0 0 1 2.352-48.832h122.368z\" p-id=\"4708\"></path></svg>"
-          },
-          "refreshMode" : 1,
-          "successMsg" : "已加入到待处理队列",
-          "timeout" : 60000,
-          "uIActionMode" : "BACKEND",
-          "uIActionTag" : "batch_parse",
-          "uIActionType" : "DEUIACTION",
-          "enableConfirm" : true,
-          "reloadData" : true,
-          "id" : "batch_parse@ai_kb_document"
-        },
-        "tooltip" : "批量解析",
-        "uIActionTarget" : "MULTIKEY",
-        "hiddenItem" : true,
-        "showCaption" : true,
-        "showIcon" : true
-      }, {
-        "buttonStyle" : "WARNING",
-        "caption" : "AI+",
-        "groupExtractMode" : "ITEM",
-        "itemType" : "DEUIACTION",
-        "name" : "deuiaction1",
-        "noPrivDisplayMode" : 2,
-        "getPSAppViewUIAction" : {
-          "modelref" : true,
-          "id" : "toolbar_deuiaction1"
-        },
-        "getPSSysImage" : {
-          "glyph" : "xf123@FontAwesome",
-          "cssClass" : "fa fa-star-half-full"
-        },
-        "getPSUIAction" : {
-          "actionTarget" : "NONE",
-          "buttonStyle" : "WARNING",
-          "caption" : "AI+",
-          "codeName" : "ai_nodata",
-          "getFrontPSAppView" : {
-            "modelref" : true,
-            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_agent_assignment_selector.json",
-            "viewType" : "DELISTVIEW"
-          },
-          "frontProcessType" : "WIZARD",
-          "fullCodeName" : "ai_agent_assignment_ai_nodata",
-          "name" : "AI+无数据",
-          "getPSAppDataEntity" : {
-            "modelref" : true,
-            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_assignment.json"
-          },
-          "getPSNavigateContexts" : [ {
-            "key" : "N_DEEP_RESEARCH_EQ",
-            "name" : "N_DEEP_RESEARCH_EQ",
-            "value" : "0",
-            "rawValue" : true
-          } ],
-          "getPSNavigateParams" : [ {
-            "key" : "n_deep_research_eq",
-            "name" : "n_deep_research_eq",
-            "value" : "0",
-            "rawValue" : true
-          } ],
-          "getPSSysImage" : {
-            "glyph" : "xf123@FontAwesome",
-            "cssClass" : "fa fa-star-half-full"
-          },
-          "uIActionMode" : "FRONT",
-          "uIActionTag" : "ai_nodata",
-          "uIActionType" : "DEUIACTION",
-          "globalUIAction" : true,
-          "id" : "ai_nodata@ai_agent_assignment"
-        },
-        "tooltip" : "AI+",
-        "uIActionTarget" : "NONE",
-        "showCaption" : true,
-        "showIcon" : true
-      }, {
-        "caption" : "研究",
-        "groupExtractMode" : "ITEM",
-        "itemType" : "DEUIACTION",
-        "name" : "deuiaction2",
-        "noPrivDisplayMode" : 2,
-        "getPSAppViewUIAction" : {
-          "modelref" : true,
-          "id" : "toolbar_deuiaction2"
-        },
-        "getPSSysImage" : {
-          "glyph" : "xf123@FontAwesome",
-          "cssClass" : "fa fa-star-half-full"
-        },
-        "getPSUIAction" : {
-          "actionTarget" : "NONE",
-          "caption" : "研究",
-          "codeName" : "research_nodata",
-          "getFrontPSAppView" : {
-            "modelref" : true,
-            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_agent_assignment_selector.json",
-            "viewType" : "DELISTVIEW"
-          },
-          "frontProcessType" : "WIZARD",
-          "fullCodeName" : "ai_agent_assignment_research_nodata",
-          "name" : "研究+无数据",
-          "getPSAppDataEntity" : {
-            "modelref" : true,
-            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_assignment.json"
-          },
-          "getPSNavigateContexts" : [ {
-            "key" : "N_DEEP_RESEARCH_EQ",
-            "name" : "N_DEEP_RESEARCH_EQ",
-            "value" : "1",
-            "rawValue" : true
-          } ],
-          "getPSNavigateParams" : [ {
-            "key" : "n_deep_research_eq",
-            "name" : "n_deep_research_eq",
-            "value" : "1",
-            "rawValue" : true
-          } ],
-          "getPSSysImage" : {
-            "glyph" : "xf123@FontAwesome",
-            "cssClass" : "fa fa-star-half-full"
-          },
-          "uIActionMode" : "FRONT",
-          "uIActionTag" : "research_nodata",
-          "uIActionType" : "DEUIACTION",
-          "globalUIAction" : true,
-          "id" : "research_nodata@ai_agent_assignment"
-        },
-        "tooltip" : "研究",
-        "uIActionTarget" : "NONE",
-        "showCaption" : true,
-        "showIcon" : true
-      } ],
-      "toolbarStyle" : "USER",
-      "xDataControlName" : "grid",
-      "modelid" : "e287f81af0bc4e8385b9e2a4b030c6bd",
-      "modeltype" : "PSDETOOLBAR"
-    }, {
       "getCapPSLanguageRes" : {
         "lanResTag" : "DE.LNAME.AI_KB_DOCUMENT"
       },
       "caption" : "文档清单",
       "codeName" : "main_grid_view_captionbar",
       "controlType" : "CAPTIONBAR",
-      "name" : "captionbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document/PSCAPTIONBARS/main_grid_view_captionbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
       },
-      "getPSControlParam" : { }
+      "getPSControlParam" : { },
+      "name" : "captionbar"
     } ]
   },
   "getQuickGroupPSCodeList" : {

@@ -349,6 +349,7 @@
     "logicName" : "DEFAULT",
     "name" : "DEFAULT",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunk.json"
@@ -386,6 +387,7 @@
     "logicName" : "默认（全部数据）",
     "name" : "VIEW",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunk.json"
@@ -422,6 +424,7 @@
     "logicName" : "reader",
     "name" : "reader",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getChildPSDEDQJoins" : [ {
         "getChildPSDEDQJoins" : [ {
           "getDERPSDataEntity" : {
@@ -537,6 +540,7 @@
     "logicName" : "指定知识库",
     "name" : "specified_kb",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getChildPSDEDQJoins" : [ {
         "getChildPSDEDQJoins" : [ {
           "getDERPSDataEntity" : {
@@ -636,6 +640,7 @@
     "logicName" : "tree",
     "name" : "tree",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunk.json"
@@ -690,6 +695,7 @@
     "logicName" : "启用",
     "name" : "VALID",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunk.json"

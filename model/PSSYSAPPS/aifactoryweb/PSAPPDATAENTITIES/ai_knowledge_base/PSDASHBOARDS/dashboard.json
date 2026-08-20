@@ -15,8 +15,8 @@
   "getPSControls" : [ {
     "codeName" : "base",
     "controlType" : "PORTLET",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base/PSPORTLETS/base.json",
     "height" : 950.0,
-    "name" : "dashboard_sysportlet1",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
@@ -70,9 +70,9 @@
         } ],
         "codeName" : "usr0621731521",
         "controlType" : "VIEWLAYOUTPANEL",
+        "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_view/PSVIEWLAYOUTPANELS/usr0621731521.json",
         "layoutMode" : "FLEX",
         "logicName" : "效能度量仪表盘自定义视图布局面板",
-        "name" : "layoutpanel",
         "getPSAppDataEntity" : {
           "modelref" : true,
           "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_view.json"
@@ -307,6 +307,7 @@
         "layoutPanel" : true,
         "useDefaultLayout" : false,
         "viewProxyMode" : true,
+        "name" : "layoutpanel",
         "modelid" : "fbe920ac84bd5fadcb293d2e7299fd7d",
         "modeltype" : "PSSYSVIEWLAYOUTPANEL",
         "getPSControls" : [ {
@@ -355,12 +356,13 @@
           "caption" : "仪表盘",
           "codeName" : "custom_view_captionbar",
           "controlType" : "CAPTIONBAR",
-          "name" : "captionbar",
+          "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_view/PSCAPTIONBARS/custom_view_captionbar.json",
           "getPSAppDataEntity" : {
             "modelref" : true,
             "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_view.json"
           },
-          "getPSControlParam" : { }
+          "getPSControlParam" : { },
+          "name" : "captionbar"
         } ]
       },
       "title" : "效能度量仪表盘",
@@ -373,6 +375,7 @@
     "portletType" : "VIEW",
     "title" : "资产全景：知识库家底",
     "showTitleBar" : false,
+    "name" : "dashboard_sysportlet1",
     "modelid" : "c9fc49e7fc18c60cfaaa46a0bb3ac6a5",
     "modeltype" : "PSSYSDBPART"
   } ],

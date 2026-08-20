@@ -383,6 +383,39 @@
     "requestPath" : "/save",
     "builtinMethod" : false
   }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "skill_runner_info",
+    "methodType" : "DEACTION",
+    "name" : "skill_runner_info",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_tool_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_tool/PSDEACTIONS/skill_runner_info.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "NONE"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "skill_runner_info"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/skill_runner_info",
+    "builtinMethod" : false
+  }, {
     "actionMode" : "UPDATE",
     "actionTag" : "Update",
     "codeName" : "update",
@@ -1990,6 +2023,39 @@
     "requestMethod" : "POST",
     "requestParamType" : "ENTITY",
     "requestPath" : "/save",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "skill_runner_info",
+    "methodType" : "DEACTION",
+    "name" : "skill_runner_info",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_tool_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "type" : "VOID"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_tool/PSDEACTIONS/skill_runner_info.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "NONE"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "skill_runner_info"
+    },
+    "requestMethod" : "GET",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/skill_runner_info",
     "builtinMethod" : false
   }, {
     "actionMode" : "UPDATE",

@@ -1,0 +1,40 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"creator\"",
+    "name" : "CREATOR"
+  }, {
+    "expression" : "t1.\"dc\"",
+    "name" : "DC"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"member_uid\"",
+    "name" : "MAIL"
+  }, {
+    "expression" : "t1.\"member_name\"",
+    "name" : "MEMBER_GROUP_NAME"
+  }, {
+    "expression" : "t1.\"member_name\"",
+    "name" : "MEMBER_NAME"
+  }, {
+    "expression" : "t1.\"member_uid\"",
+    "name" : "MEMBER_UID"
+  }, {
+    "expression" : "t1.\"role_id\"",
+    "name" : "ROLE_ID"
+  }, {
+    "expression" : "t1.\"updater\"",
+    "name" : "UPDATER"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"create_time\",\nt1.\"creator\",\nt1.\"dc\",\nt1.\"id\",\nt1.\"member_uid\" AS \"mail\",\nt1.\"member_name\" AS \"member_group_name\",\nt1.\"member_name\",\nt1.\"member_uid\",\nt1.\"role_id\",\nt1.\"updater\",\nt1.\"update_time\"\nFROM \"\" t1 \n",
+  "id" : "PSSYSMODELGROUPS/ibizsysmgr/PSMODULES/ibizsysmgr/PSDATAENTITIES/sys_role_member/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
+}

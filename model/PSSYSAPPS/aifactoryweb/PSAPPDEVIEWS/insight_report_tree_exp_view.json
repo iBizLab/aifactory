@@ -29,9 +29,9 @@
   "getPSViewLayoutPanel" : {
     "codeName" : "usr0708314116",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_report/PSVIEWLAYOUTPANELS/usr0708314116.json",
     "layoutMode" : "FLEX",
     "logicName" : "tree_exp_view实体树导航视图布局面板",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_report.json"
@@ -153,6 +153,7 @@
     "layoutPanel" : true,
     "useDefaultLayout" : false,
     "viewProxyMode" : true,
+    "name" : "layoutpanel",
     "modelid" : "f74972deea8c016facc3696bd6272101",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL",
     "getPSAppViewEngines" : [ {
@@ -187,7 +188,7 @@
     "getPSControls" : [ {
       "codeName" : "tree_exp_view_treeexpbar",
       "controlType" : "TREEEXPBAR",
-      "name" : "treeexpbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_report/PSTREEEXPBARS/tree_exp_view_treeexpbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_report.json"
@@ -1016,6 +1017,7 @@
       "enableCounter" : true,
       "enableSearch" : false,
       "showTitleBar" : true,
+      "name" : "treeexpbar",
       "modelid" : "f7d79226e50ef4d6b8aea2da881a5780_treeexpbar",
       "modeltype" : "PSEXPBAR"
     }, {
@@ -1039,12 +1041,13 @@
       "caption" : "模板报表",
       "codeName" : "tree_exp_view_captionbar",
       "controlType" : "CAPTIONBAR",
-      "name" : "captionbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_report/PSCAPTIONBARS/tree_exp_view_captionbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/insight_report.json"
       },
-      "getPSControlParam" : { }
+      "getPSControlParam" : { },
+      "name" : "captionbar"
     } ]
   },
   "title" : "模板报表",

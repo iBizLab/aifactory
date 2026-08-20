@@ -1,0 +1,27 @@
+{
+  "actionHolder" : 1,
+  "actionMode" : "CUSTOM",
+  "actionType" : "DELOGIC",
+  "codeName" : "skill_runner_info",
+  "dataAccessAction" : "NONE",
+  "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_tool/PSDEACTIONS/skill_runner_info.json",
+  "logicName" : "skill_runner_info",
+  "name" : "skill_runner_info",
+  "getPSDEActionInput" : {
+    "name" : "Skill_runner_infoInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "ai_tool_dto"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "Skill_runner_infoResult",
+    "type" : "VOID"
+  },
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_tool/PSDELOGICS/get_skill_runner_info.json"
+  },
+  "enableFront" : false
+}

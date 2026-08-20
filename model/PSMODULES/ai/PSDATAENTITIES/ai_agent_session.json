@@ -295,19 +295,9 @@
     "batchAction" : true,
     "builtinAction" : true
   }, {
+    "actionHolder" : 1,
     "actionMode" : "READ",
-    "actionType" : "BUILTIN",
-    "getAfterPSDEActionLogics" : [ {
-      "actionLogicType" : 1,
-      "attachMode" : "AFTER",
-      "codeName" : "A09c446f437843cf9ea",
-      "name" : "附加逻辑",
-      "getPSDELogic" : {
-        "modelref" : true,
-        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_session/PSDELOGICS/get_info.json"
-      },
-      "internalLogic" : true
-    } ],
+    "actionType" : "DELOGIC",
     "codeName" : "Get",
     "dataAccessAction" : "READ",
     "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_session/PSDEACTIONS/Get.json",
@@ -330,7 +320,11 @@
       },
       "type" : "DTO"
     },
-    "builtinAction" : true
+    "getPSDELogic" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_session/PSDELOGICS/get_info.json"
+    },
+    "enableFront" : false
   }, {
     "actionMode" : "GETDRAFT",
     "actionType" : "BUILTIN",
@@ -426,6 +420,7 @@
     "logicName" : "DEFAULT",
     "name" : "DEFAULT",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_session.json"
@@ -462,6 +457,7 @@
     "logicName" : "默认（全部数据）",
     "name" : "VIEW",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_session.json"
@@ -1213,7 +1209,7 @@
               "id" : "Default"
             },
             "logicType" : "SINGLE",
-            "name" : "Default[NAME] 值为空(Nil)"
+            "name" : "Default[NAME] 值为空(Nil) "
           } ]
         },
         "getSrcPSDELogicNode" : {
@@ -1246,7 +1242,7 @@
           "id" : "Default"
         },
         "paramAction" : "SETPARAMVALUE",
-        "srcValue" : "调试数据",
+        "srcValue" : "数据",
         "srcValueType" : "SRCVALUE"
       } ],
       "topPos" : 374,
@@ -1588,7 +1584,7 @@
   "getLNPSLanguageRes" : {
     "lanResTag" : "DE.LNAME.AI_AGENT_SESSION"
   },
-  "logicName" : "智能体会话",
+  "logicName" : "智能体SESSION",
   "getMajorPSDEField" : {
     "name" : "NAME",
     "codeName" : "_name"

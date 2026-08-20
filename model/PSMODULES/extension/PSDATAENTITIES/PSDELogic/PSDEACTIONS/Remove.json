@@ -2,6 +2,17 @@
   "actionMode" : "DELETE",
   "actionType" : "BUILTIN",
   "batchActionMode" : 1,
+  "getBeforePSDEActionLogics" : [ {
+    "actionLogicType" : 1,
+    "attachMode" : "BEFORE",
+    "codeName" : "A440fdd69cda58ef45c",
+    "name" : "附加逻辑",
+    "getPSDELogic" : {
+      "modelref" : true,
+      "path" : "PSMODULES/extension/PSDATAENTITIES/PSDELogic/PSDELOGICS/removeConfig.json"
+    },
+    "internalLogic" : true
+  } ],
   "codeName" : "Remove",
   "dataAccessAction" : "DELETE",
   "dynaModelFilePath" : "PSMODULES/extension/PSDATAENTITIES/PSDELogic/PSDEACTIONS/Remove.json",

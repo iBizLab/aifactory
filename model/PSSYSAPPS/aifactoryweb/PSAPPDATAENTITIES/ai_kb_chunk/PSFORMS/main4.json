@@ -63,13 +63,20 @@
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk.json"
     }
   },
-  "hookEventNames" : [ "ONLOADSUCCESS" ],
+  "hookEventNames" : [ "ONCUSTOMACTION", "ONLOADSUCCESS" ],
   "logicName" : "知识库文档分块信息页_预览_表单",
   "getPSAppDataEntity" : {
     "modelref" : true,
     "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk.json"
   },
   "getPSControlLogics" : [ {
+    "eventNames" : "onCustomAction",
+    "itemName" : "file_preview",
+    "logicTag" : "form",
+    "logicType" : "SCRIPT",
+    "name" : "onInitialized",
+    "scriptCode" : "console.log('编辑器滚动至目标分页---------------');\r\nif(args.tag==='onInitialized' && args.data && args.data.controller && ctrl.state.data.sequence){\r\n    args.data.controller.goToPage(ctrl.state.data.sequence)\r\n}"
+  }, {
     "eventNames" : "onLoadSuccess",
     "logicTag" : "form",
     "logicType" : "SCRIPT",

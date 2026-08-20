@@ -22,8 +22,8 @@
     "codeName" : "tab_exp_view_dr",
     "controlType" : "DRTAB",
     "dataRelationTag" : "tab_exp_view_DR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic/PSDRTABS/tab_exp_view_dr.json",
     "editItemCaption" : "实体处理逻辑",
-    "name" : "tabexppanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
@@ -48,13 +48,14 @@
     } ],
     "uniqueTag" : "psde_logic_tab_exp_view__tabexppanel",
     "hideEditItem" : true,
+    "name" : "tabexppanel",
     "modelid" : "f0894e316f3d70dec5ec218be1006841",
     "modeltype" : "PSDEDRTAB"
   }, {
     "caption" : "自动化",
     "codeName" : "tab_exp_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic/PSCAPTIONBARS/tab_exp_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
@@ -63,7 +64,8 @@
     "getPSSysImage" : {
       "glyph" : "xf135@FontAwesome",
       "cssClass" : "fa fa-rocket"
-    }
+    },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "tab_exp_view",
   "getPSDEViewId" : "9d3ed6eda0d63daaeb00a5f00eb09236",
@@ -75,7 +77,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDETABEXPVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
@@ -83,7 +85,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "tabLayout" : "TOP",
   "title" : "自动化",

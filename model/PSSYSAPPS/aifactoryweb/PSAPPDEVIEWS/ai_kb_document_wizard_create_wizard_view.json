@@ -97,301 +97,6 @@
       "id" : "WIZARDPANEL"
     },
     "getPSDEEditForms" : [ {
-      "codeName" : "data_source",
-      "controlType" : "FORM",
-      "defaultLabelWidth" : 130,
-      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document_wizard/PSFORMS/data_source.json",
-      "formFuncMode" : "WIZARDFORM",
-      "getGetPSControlAction" : {
-        "modelref" : true,
-        "id" : "load",
-        "actionName" : "GetTemp",
-        "actionType" : "DEACTION",
-        "name" : "load",
-        "getPSAppDEMethod" : {
-          "modelref" : true,
-          "id" : "GetTemp"
-        },
-        "getPSAppDataEntity" : {
-          "modelref" : true,
-          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document_wizard.json"
-        }
-      },
-      "hookEventNames" : [ "SAVE", "LOAD" ],
-      "logicName" : "数据来源",
-      "getPSAppDataEntity" : {
-        "modelref" : true,
-        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document_wizard.json"
-      },
-      "getPSControlHandler" : {
-        "getPSHandlerActions" : [ {
-          "actionName" : "GetTemp",
-          "actionType" : "DEACTION",
-          "name" : "load",
-          "getPSAppDEMethod" : {
-            "modelref" : true,
-            "id" : "GetTemp"
-          },
-          "getPSAppDataEntity" : {
-            "modelref" : true,
-            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document_wizard.json"
-          }
-        }, {
-          "actionName" : "UpdateTemp",
-          "actionType" : "DEACTION",
-          "name" : "update",
-          "getPSAppDEMethod" : {
-            "modelref" : true,
-            "id" : "UpdateTemp"
-          },
-          "getPSAppDataEntity" : {
-            "modelref" : true,
-            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document_wizard.json"
-          }
-        } ],
-        "enableDEFieldPrivilege" : false,
-        "id" : "wizardpanel_form_data_source"
-      },
-      "getPSControlLogics" : [ {
-        "eventNames" : "SAVE",
-        "logicTag" : "wizardpanel_form_data_source",
-        "logicType" : "CUSTOM",
-        "name" : "wizardpanel_formsave"
-      }, {
-        "eventNames" : "LOAD",
-        "logicTag" : "wizardpanel_form_data_source",
-        "logicType" : "CUSTOM",
-        "name" : "wizardpanel_formload"
-      } ],
-      "getPSControlParam" : {
-        "getPSDEWizardForm" : {
-          "modelref" : true,
-          "id" : "数据来源"
-        },
-        "autoLoad" : true,
-        "showBusyIndicator" : true,
-        "id" : "wizardpanel_form_data_source"
-      },
-      "getPSDEFormItems" : [ {
-        "id" : "srfupdatedate",
-        "hidden" : true,
-        "dataType" : 5,
-        "getPSAppDEField" : {
-          "name" : "UPDATE_TIME",
-          "codeName" : "update_time"
-        }
-      }, {
-        "id" : "srforikey",
-        "hidden" : true,
-        "dataType" : 25
-      }, {
-        "id" : "srfkey",
-        "hidden" : true,
-        "dataType" : 25,
-        "getPSAppDEField" : {
-          "name" : "ID",
-          "codeName" : "id"
-        }
-      }, {
-        "id" : "srfmajortext",
-        "hidden" : true,
-        "dataType" : 25,
-        "getPSAppDEField" : {
-          "name" : "NAME",
-          "codeName" : "name"
-        }
-      }, {
-        "id" : "srftempmode",
-        "hidden" : true,
-        "dataType" : 25
-      }, {
-        "id" : "srfuf",
-        "hidden" : true,
-        "dataType" : 25
-      }, {
-        "id" : "srfdeid",
-        "hidden" : true,
-        "dataType" : 25
-      }, {
-        "id" : "srfsourcekey",
-        "hidden" : true,
-        "dataType" : 25
-      }, {
-        "id" : "im_method",
-        "dataType" : 25
-      }, {
-        "id" : "import_method",
-        "hidden" : true,
-        "dataType" : 25,
-        "getPSAppDEField" : {
-          "name" : "IMPORT_METHOD",
-          "codeName" : "import_method"
-        }
-      }, {
-        "id" : "id",
-        "hidden" : true,
-        "dataType" : 25,
-        "getPSAppDEField" : {
-          "name" : "ID",
-          "codeName" : "id"
-        }
-      } ],
-      "getPSDEFormPages" : [ {
-        "caption" : "基本信息",
-        "codeName" : "formpage1",
-        "detailStyle" : "DEFAULT",
-        "detailType" : "FORMPAGE",
-        "name" : "formpage1",
-        "getPSDEFormDetails" : [ {
-          "caption" : "数据来源表单",
-          "codeName" : "import_method_group",
-          "detailStyle" : "DEFAULT",
-          "detailType" : "GROUPPANEL",
-          "name" : "import_method_group",
-          "getPSDEFormDetails" : [ {
-            "caption" : "导入方式",
-            "codeName" : "im_method",
-            "dataType" : 25,
-            "detailStyle" : "DEFAULT",
-            "detailType" : "FORMITEM",
-            "enableCond" : 3,
-            "ignoreInput" : 0,
-            "labelPos" : "NONE",
-            "labelWidth" : 0,
-            "name" : "im_method",
-            "noPrivDisplayMode" : 1,
-            "getPSEditor" : {
-              "editorType" : "PICKUPVIEW",
-              "name" : "im_method",
-              "getPSEditorItems" : [ {
-                "name" : "import_method"
-              } ],
-              "getPickupPSAppView" : {
-                "modelref" : true,
-                "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/dictionary_data_import_method_list_view.json",
-                "viewType" : "DELISTVIEW"
-              },
-              "valueItemName" : "import_method"
-            },
-            "getPSLayoutPos" : {
-              "colMD" : 24,
-              "layout" : "TABLE_24COL"
-            },
-            "valueItemName" : "import_method",
-            "allowEmpty" : false
-          }, {
-            "caption" : "导入方式",
-            "codeName" : "import_method",
-            "dataType" : 25,
-            "detailStyle" : "DEFAULT",
-            "detailType" : "FORMITEM",
-            "enableCond" : 3,
-            "ignoreInput" : 0,
-            "labelPos" : "TOP",
-            "labelWidth" : 130,
-            "name" : "import_method",
-            "noPrivDisplayMode" : 1,
-            "getPSAppDEField" : {
-              "name" : "IMPORT_METHOD",
-              "codeName" : "import_method"
-            },
-            "getPSEditor" : {
-              "editorType" : "HIDDEN",
-              "name" : "import_method"
-            },
-            "getPSLayoutPos" : {
-              "colMD" : 24,
-              "layout" : "TABLE_24COL"
-            },
-            "allowEmpty" : false,
-            "hidden" : true
-          } ],
-          "getPSLayout" : {
-            "childColMD" : 24,
-            "columnCount" : 24,
-            "layout" : "TABLE_24COL"
-          },
-          "getPSLayoutPos" : {
-            "colMD" : 24,
-            "layout" : "TABLE_24COL"
-          },
-          "infoGroupMode" : false,
-          "showCaption" : false
-        }, {
-          "getCapPSLanguageRes" : {
-            "lanResTag" : "DEF.LNAME.AI_KB_DOCUMENT_WIZARD.ID"
-          },
-          "caption" : "标识",
-          "codeName" : "id",
-          "dataType" : 25,
-          "detailStyle" : "DEFAULT",
-          "detailType" : "FORMITEM",
-          "enableCond" : 3,
-          "ignoreInput" : 0,
-          "labelPos" : "LEFT",
-          "labelWidth" : 130,
-          "name" : "id",
-          "noPrivDisplayMode" : 1,
-          "getPSAppDEField" : {
-            "name" : "ID",
-            "codeName" : "id"
-          },
-          "getPSEditor" : {
-            "editorType" : "HIDDEN",
-            "name" : "id"
-          },
-          "getPSLayoutPos" : {
-            "colMD" : 24,
-            "layout" : "TABLE_24COL"
-          },
-          "allowEmpty" : true,
-          "hidden" : true
-        } ],
-        "getPSLayout" : {
-          "childColMD" : 24,
-          "columnCount" : 24,
-          "layout" : "TABLE_24COL"
-        },
-        "infoGroupMode" : false
-      } ],
-      "getPSDEWizardForm" : {
-        "formTag" : "data_source",
-        "name" : "数据来源",
-        "getPSDEFormName" : "数据来源",
-        "getPSDEWizardStep" : {
-          "modelref" : true,
-          "id" : "数据来源"
-        },
-        "stepActions" : [ "NEXT" ],
-        "stepTag" : "data_source",
-        "firstForm" : true
-      },
-      "getPSLayout" : {
-        "childColMD" : 24,
-        "columnCount" : 24,
-        "layout" : "TABLE_24COL"
-      },
-      "tabHeaderPos" : "TOP",
-      "getUpdatePSControlAction" : {
-        "modelref" : true,
-        "id" : "update",
-        "actionName" : "UpdateTemp",
-        "actionType" : "DEACTION",
-        "name" : "update",
-        "getPSAppDEMethod" : {
-          "modelref" : true,
-          "id" : "UpdateTemp"
-        },
-        "getPSAppDataEntity" : {
-          "modelref" : true,
-          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document_wizard.json"
-        }
-      },
-      "noTabHeader" : true,
-      "name" : "wizardpanel_form_data_source",
-      "modelid" : "8f6ad389c5e7ab493ef25e5abe4f37e2",
-      "modeltype" : "PSDEFORM_EDITFORM"
-    }, {
       "codeName" : "file_selection",
       "controlType" : "FORM",
       "defaultLabelWidth" : 130,
@@ -412,7 +117,7 @@
           "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document_wizard.json"
         }
       },
-      "hookEventNames" : [ "SAVE", "LOAD" ],
+      "hookEventNames" : [ "ONCUSTOMACTION", "SAVE", "LOAD" ],
       "logicName" : "选择文件",
       "getPSAppDataEntity" : {
         "modelref" : true,
@@ -448,6 +153,13 @@
         "id" : "wizardpanel_form_file_selection"
       },
       "getPSControlLogics" : [ {
+        "eventNames" : "onCustomAction",
+        "itemName" : "selection_file_ids",
+        "logicTag" : "wizardpanel_form_file_selection",
+        "logicType" : "SCRIPT",
+        "name" : "local_upload_script",
+        "scriptCode" : "const actionTag = args.tag;\r\nconst wizardPanel = view.getCtrl('WIZARDPANEL', 'wizardpanel');\r\nif(actionTag === \"beforeUpload\"){\r\n    ctrl.startLoading();\r\n    if(wizardPanel && wizardPanel.state.buttonsState && wizardPanel.state.buttonsState[\"file_selection@NEXT\"]){\r\n        wizardPanel.state.buttonsState[\"file_selection@NEXT\"].disabled = true; \r\n    }\r\n}\r\nif(actionTag === \"onSuccess\" || actionTag === \"onError\"){\r\n    ctrl.endLoading();\r\n    if(wizardPanel && wizardPanel.state.buttonsState && wizardPanel.state.buttonsState[\"file_selection@NEXT\"]){\r\n        wizardPanel.state.buttonsState[\"file_selection@NEXT\"].disabled = false; \r\n    }\r\n}\r\n"
+      }, {
         "eventNames" : "SAVE",
         "logicTag" : "wizardpanel_form_file_selection",
         "logicType" : "CUSTOM",
@@ -575,6 +287,8 @@
         "id" : "import_method",
         "hidden" : true,
         "dataType" : 25,
+        "createDV" : "local_upload",
+        "updateDV" : "local_upload",
         "getPSAppDEField" : {
           "name" : "IMPORT_METHOD",
           "codeName" : "import_method"
@@ -1007,6 +721,7 @@
             "getPSEditor" : {
               "editorHeight" : 50.0,
               "editorParams" : {
+                "hiddenfileregex" : "^\\.",
                 "unzipfileext" : ".zip,.rar,.7z",
                 "unzip" : "true",
                 "accept" : ".txt,.md,.doc,.docx,.pdf,.ppt,.pptx,.jpg,.jpeg,.png,.gif,.tif,.tiff,.wps,.et,.ofd,.xml,.json,.xls,.xlsx,.et,.dps,.bmp,.htm,.html,.zip,.rar,.7z,.tar,.gz,.csv",
@@ -1057,9 +772,14 @@
             "showCaption" : true
           }, {
             "codeName" : "selected_file_name",
+            "contentHeight" : 384.0,
             "contentType" : "REPEATER",
+            "ctrlParams" : {
+              "chunkSize" : "50"
+            },
             "detailStyle" : "STYLE2",
             "detailType" : "MDCTRL",
+            "height" : 400.0,
             "name" : "selected_file_name",
             "getPSAppDEField" : {
               "name" : "SELECTED_FILE_NAME",
@@ -1121,6 +841,8 @@
             },
             "getPSLayoutPos" : {
               "colMD" : 24,
+              "height" : 400,
+              "heightMode" : "PX",
               "layout" : "TABLE_24COL"
             },
             "infoGroupMode" : false,
@@ -1140,6 +862,7 @@
         }, {
           "caption" : "导入方式",
           "codeName" : "import_method",
+          "createDV" : "local_upload",
           "dataType" : 25,
           "detailStyle" : "DEFAULT",
           "detailType" : "FORMITEM",
@@ -1161,6 +884,7 @@
             "colMD" : 24,
             "layout" : "TABLE_24COL"
           },
+          "updateDV" : "local_upload",
           "allowEmpty" : true,
           "hidden" : true
         }, {
@@ -1208,9 +932,9 @@
           "modelref" : true,
           "id" : "选择文件"
         },
-        "stepActions" : [ "PREV", "NEXT" ],
+        "stepActions" : [ "NEXT" ],
         "stepTag" : "file_selection",
-        "firstForm" : false
+        "firstForm" : true
       },
       "getPSLayout" : {
         "childColMD" : 24,
@@ -1238,10 +962,10 @@
       "modelid" : "a1bd39f750bc83a2a4db4923646476ae",
       "modeltype" : "PSDEFORM_EDITFORM"
     }, {
-      "codeName" : "chunk_settings",
+      "codeName" : "data_processing2",
       "controlType" : "FORM",
       "defaultLabelWidth" : 130,
-      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document_wizard/PSFORMS/chunk_settings.json",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document_wizard/PSFORMS/data_processing2.json",
       "formFuncMode" : "WIZARDFORM",
       "getGetPSControlAction" : {
         "modelref" : true,
@@ -1259,7 +983,7 @@
         }
       },
       "hookEventNames" : [ "ONLOADSUCCESS", "ONLOADDRAFTSUCCESS", "SAVE", "LOAD" ],
-      "logicName" : "切片设置",
+      "logicName" : "数据处理2",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document_wizard.json"
@@ -1291,46 +1015,43 @@
           }
         } ],
         "enableDEFieldPrivilege" : false,
-        "id" : "wizardpanel_form_chunk_settings"
+        "id" : "wizardpanel_form_data_processing"
       },
       "getPSControlLogics" : [ {
         "eventNames" : "onLoadSuccess",
-        "logicTag" : "wizardpanel_form_chunk_settings",
+        "logicTag" : "wizardpanel_form_data_processing",
         "logicType" : "SCRIPT",
         "name" : "logic1",
         "scriptCode" : "var chunk_method = data[0].chunk_method\ndata[0].parser_config.method = chunk_method"
       }, {
         "eventNames" : "onLoadDraftSuccess",
-        "logicTag" : "wizardpanel_form_chunk_settings",
+        "logicTag" : "wizardpanel_form_data_processing",
         "logicType" : "SCRIPT",
         "name" : "logic2",
         "scriptCode" : "var chunk_method = data[0].chunk_method\ndata[0].parser_config.method = chunk_method"
       }, {
         "eventNames" : "SAVE",
-        "logicTag" : "wizardpanel_form_chunk_settings",
+        "logicTag" : "wizardpanel_form_data_processing",
         "logicType" : "CUSTOM",
         "name" : "wizardpanel_formsave"
       }, {
         "eventNames" : "LOAD",
-        "logicTag" : "wizardpanel_form_chunk_settings",
+        "logicTag" : "wizardpanel_form_data_processing",
         "logicType" : "CUSTOM",
         "name" : "wizardpanel_formload"
       } ],
       "getPSControlParam" : {
         "getPSDEWizardForm" : {
           "modelref" : true,
-          "id" : "切片设置"
+          "id" : "数据处理"
         },
         "autoLoad" : true,
         "showBusyIndicator" : true,
-        "id" : "wizardpanel_form_chunk_settings"
+        "id" : "wizardpanel_form_data_processing"
       },
       "getPSDEFormItemUpdates" : [ {
         "codeName" : "update_method",
         "name" : "update_method",
-        "getPSDEFIUpdateDetails" : [ {
-          "name" : "method"
-        } ],
         "scriptCode" : "console.log(\"update_metho\");\nconst chunk_method = data.chunk_method\ndata.parser_config.method = chunk_method\n",
         "customCode" : true
       } ],
@@ -1379,6 +1100,13 @@
         "hidden" : true,
         "dataType" : 25
       }, {
+        "id" : "is_parse_now",
+        "dataType" : 9,
+        "getPSAppDEField" : {
+          "name" : "IS_PARSE_NOW",
+          "codeName" : "is_parse_now"
+        }
+      }, {
         "id" : "custom_chunk",
         "dataType" : 9,
         "createDV" : "0",
@@ -1397,6 +1125,34 @@
           "codeName" : "chunk_method"
         }
       }, {
+        "id" : "import_method",
+        "hidden" : true,
+        "dataType" : 25,
+        "getPSAppDEField" : {
+          "name" : "IMPORT_METHOD",
+          "codeName" : "import_method"
+        }
+      }, {
+        "id" : "space_selection",
+        "hidden" : true,
+        "dataType" : 25,
+        "getPSAppDEField" : {
+          "name" : "SPACE_SELECTION",
+          "codeName" : "space_selection"
+        }
+      }, {
+        "id" : "kb_id",
+        "hidden" : true,
+        "dataType" : 25,
+        "createDVT" : "APPDATA",
+        "createDV" : "ai_knowledge_base",
+        "updateDVT" : "APPDATA",
+        "updateDV" : "ai_knowledge_base",
+        "getPSAppDEField" : {
+          "name" : "KB_ID",
+          "codeName" : "kb_id"
+        }
+      }, {
         "id" : "id",
         "hidden" : true,
         "dataType" : 25,
@@ -1412,19 +1168,52 @@
         "detailType" : "FORMPAGE",
         "name" : "formpage1",
         "getPSDEFormDetails" : [ {
-          "caption" : "切片设置表单",
-          "codeName" : "group1",
+          "codeName" : "grouppanel2",
           "detailStyle" : "DEFAULT",
           "detailType" : "GROUPPANEL",
-          "name" : "group1",
+          "name" : "grouppanel2",
           "getPSDEFormDetails" : [ {
-            "caption" : "切片策略",
-            "codeName" : "grouppanel1",
+            "codeName" : "grouppanel4",
             "detailStyle" : "DEFAULT",
             "detailType" : "GROUPPANEL",
-            "name" : "grouppanel1",
+            "name" : "grouppanel4",
             "getPSDEFormDetails" : [ {
-              "caption" : "自定义切片",
+              "caption" : "是否立即解析",
+              "codeName" : "is_parse_now",
+              "dataType" : 9,
+              "detailStyle" : "DEFAULT",
+              "detailType" : "FORMITEM",
+              "enableCond" : 3,
+              "ignoreInput" : 0,
+              "itemWidth" : 330.0,
+              "labelPos" : "LEFT",
+              "labelWidth" : 130,
+              "name" : "is_parse_now",
+              "noPrivDisplayMode" : 1,
+              "getPSAppDEField" : {
+                "name" : "IS_PARSE_NOW",
+                "codeName" : "is_parse_now"
+              },
+              "getPSEditor" : {
+                "editorType" : "DROPDOWNLIST_100",
+                "editorWidth" : 200.0,
+                "name" : "is_parse_now",
+                "getPSAppCodeList" : {
+                  "modelref" : true,
+                  "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/YesNo.json"
+                },
+                "singleSelect" : true
+              },
+              "getPSLayoutPos" : {
+                "colLG" : 12,
+                "colMD" : 12,
+                "layout" : "TABLE_24COL"
+              },
+              "allowEmpty" : false,
+              "needCodeListConfig" : true,
+              "showCaption" : true
+            }, {
+              "caption" : "切片策略",
               "codeName" : "custom_chunk",
               "createDV" : "0",
               "dataType" : 9,
@@ -1452,8 +1241,8 @@
                 "singleSelect" : true
               },
               "getPSLayoutPos" : {
-                "colLG" : 8,
-                "colMD" : 8,
+                "colLG" : 12,
+                "colMD" : 12,
                 "layout" : "TABLE_24COL"
               },
               "updateDV" : "0",
@@ -1469,6 +1258,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
+              "itemWidth" : 330.0,
               "labelPos" : "LEFT",
               "labelWidth" : 130,
               "name" : "chunk_method",
@@ -1497,6 +1287,7 @@
               },
               "getPSEditor" : {
                 "editorType" : "DROPDOWNLIST",
+                "editorWidth" : 200.0,
                 "name" : "chunk_method",
                 "getPSAppCodeList" : {
                   "modelref" : true,
@@ -1505,8 +1296,8 @@
                 "singleSelect" : true
               },
               "getPSLayoutPos" : {
-                "colLG" : 8,
-                "colMD" : 8,
+                "colLG" : 12,
+                "colMD" : 12,
                 "layout" : "TABLE_24COL"
               },
               "updateDV" : "NAIVE",
@@ -1562,10 +1353,10 @@
                 "notMode" : false
               } ],
               "getPSDEFormDetails" : [ {
-                "codeName" : "grouppanel4",
+                "codeName" : "grouppanel14",
                 "detailStyle" : "DEFAULT",
                 "detailType" : "GROUPPANEL",
-                "name" : "grouppanel4",
+                "name" : "grouppanel14",
                 "getPSDEFormDetails" : [ {
                   "caption" : "切片方法",
                   "codeName" : "method",
@@ -1618,7 +1409,7 @@
                     "notMode" : false
                   } ],
                   "getPSEditor" : {
-                    "editorType" : "NUMBER",
+                    "editorType" : "HIDDEN",
                     "name" : "chunk_token_num"
                   },
                   "getPSLayoutPos" : {
@@ -1628,8 +1419,8 @@
                   },
                   "updateDV" : "512",
                   "allowEmpty" : false,
-                  "repeatContent" : true,
-                  "showCaption" : true
+                  "hidden" : true,
+                  "repeatContent" : true
                 }, {
                   "caption" : "分隔符",
                   "codeName" : "delimiter",
@@ -1658,7 +1449,7 @@
                     "notMode" : false
                   } ],
                   "getPSEditor" : {
-                    "editorType" : "TEXTBOX",
+                    "editorType" : "HIDDEN",
                     "name" : "delimiter"
                   },
                   "getPSLayoutPos" : {
@@ -1668,8 +1459,8 @@
                   },
                   "updateDV" : "\n",
                   "allowEmpty" : false,
-                  "repeatContent" : true,
-                  "showCaption" : true
+                  "hidden" : true,
+                  "repeatContent" : true
                 }, {
                   "caption" : "保留分隔符",
                   "codeName" : "keep_separator",
@@ -1684,7 +1475,7 @@
                   "name" : "keep_separator",
                   "noPrivDisplayMode" : 1,
                   "getPSEditor" : {
-                    "editorType" : "SWITCH",
+                    "editorType" : "HIDDEN",
                     "name" : "keep_separator"
                   },
                   "getPSLayoutPos" : {
@@ -1694,8 +1485,8 @@
                   },
                   "updateDV" : "1",
                   "allowEmpty" : true,
-                  "repeatContent" : true,
-                  "showCaption" : true
+                  "hidden" : true,
+                  "repeatContent" : true
                 }, {
                   "caption" : "块重叠",
                   "codeName" : "chunk_overlap_num",
@@ -1710,7 +1501,7 @@
                   "name" : "chunk_overlap_num",
                   "noPrivDisplayMode" : 1,
                   "getPSEditor" : {
-                    "editorType" : "TEXTBOX",
+                    "editorType" : "HIDDEN",
                     "name" : "chunk_overlap_num"
                   },
                   "getPSLayoutPos" : {
@@ -1720,8 +1511,8 @@
                   },
                   "updateDV" : "30",
                   "allowEmpty" : true,
-                  "repeatContent" : true,
-                  "showCaption" : true
+                  "hidden" : true,
+                  "repeatContent" : true
                 }, {
                   "caption" : "单文档最大块数",
                   "codeName" : "max_chunk_count_per_doc",
@@ -1736,7 +1527,7 @@
                   "name" : "max_chunk_count_per_doc",
                   "noPrivDisplayMode" : 1,
                   "getPSEditor" : {
-                    "editorType" : "TEXTBOX",
+                    "editorType" : "HIDDEN",
                     "name" : "max_chunk_count_per_doc"
                   },
                   "getPSLayoutPos" : {
@@ -1746,8 +1537,8 @@
                   },
                   "updateDV" : "1000",
                   "allowEmpty" : true,
-                  "repeatContent" : true,
-                  "showCaption" : true
+                  "hidden" : true,
+                  "repeatContent" : true
                 }, {
                   "caption" : "处理页面大小",
                   "codeName" : "task_page_size",
@@ -1776,7 +1567,7 @@
                     "notMode" : false
                   } ],
                   "getPSEditor" : {
-                    "editorType" : "NUMBER",
+                    "editorType" : "HIDDEN",
                     "name" : "task_page_size"
                   },
                   "getPSLayoutPos" : {
@@ -1786,8 +1577,8 @@
                   },
                   "updateDV" : "12",
                   "allowEmpty" : false,
-                  "repeatContent" : true,
-                  "showCaption" : true
+                  "hidden" : true,
+                  "repeatContent" : true
                 }, {
                   "caption" : "Excel转HTML",
                   "codeName" : "html4excel",
@@ -1815,7 +1606,7 @@
                     "notMode" : false
                   } ],
                   "getPSEditor" : {
-                    "editorType" : "SWITCH",
+                    "editorType" : "HIDDEN",
                     "name" : "html4excel"
                   },
                   "getPSLayoutPos" : {
@@ -1824,8 +1615,8 @@
                     "layout" : "TABLE_24COL"
                   },
                   "allowEmpty" : false,
-                  "repeatContent" : true,
-                  "showCaption" : true
+                  "hidden" : true,
+                  "repeatContent" : true
                 }, {
                   "caption" : "忽略文件图片",
                   "codeName" : "ignore_parsing_image",
@@ -1840,7 +1631,7 @@
                   "name" : "ignore_parsing_image",
                   "noPrivDisplayMode" : 1,
                   "getPSEditor" : {
-                    "editorType" : "SWITCH",
+                    "editorType" : "HIDDEN",
                     "name" : "ignore_parsing_image"
                   },
                   "getPSLayoutPos" : {
@@ -1849,8 +1640,8 @@
                     "layout" : "TABLE_24COL"
                   },
                   "allowEmpty" : true,
-                  "repeatContent" : true,
-                  "showCaption" : true
+                  "hidden" : true,
+                  "repeatContent" : true
                 }, {
                   "caption" : "忽略文件链接引用",
                   "codeName" : "ignore_parsing_oss_link",
@@ -1865,7 +1656,7 @@
                   "name" : "ignore_parsing_oss_link",
                   "noPrivDisplayMode" : 1,
                   "getPSEditor" : {
-                    "editorType" : "SWITCH",
+                    "editorType" : "HIDDEN",
                     "name" : "ignore_parsing_oss_link"
                   },
                   "getPSLayoutPos" : {
@@ -1874,16 +1665,18 @@
                     "layout" : "TABLE_24COL"
                   },
                   "allowEmpty" : true,
-                  "repeatContent" : true,
-                  "showCaption" : true
+                  "hidden" : true,
+                  "repeatContent" : true
                 }, {
                   "caption" : "布局识别方式",
                   "codeName" : "layout_recognize",
+                  "createDV" : "OCR",
                   "dataType" : 25,
                   "detailStyle" : "DEFAULT",
                   "detailType" : "FORMITEM",
                   "enableCond" : 3,
                   "ignoreInput" : 0,
+                  "itemWidth" : 330.0,
                   "labelPos" : "LEFT",
                   "labelWidth" : 130,
                   "name" : "layout_recognize",
@@ -1904,6 +1697,7 @@
                   } ],
                   "getPSEditor" : {
                     "editorType" : "DROPDOWNLIST",
+                    "editorWidth" : 200.0,
                     "name" : "layout_recognize",
                     "getPSAppCodeList" : {
                       "modelref" : true,
@@ -1912,10 +1706,11 @@
                     "singleSelect" : true
                   },
                   "getPSLayoutPos" : {
-                    "colLG" : 8,
-                    "colMD" : 8,
+                    "colLG" : 12,
+                    "colMD" : 12,
                     "layout" : "TABLE_24COL"
                   },
+                  "updateDV" : "OCR",
                   "allowEmpty" : false,
                   "needCodeListConfig" : true,
                   "repeatContent" : true,
@@ -1923,6 +1718,7 @@
                 }, {
                   "caption" : "自动关键词",
                   "codeName" : "auto_keywords",
+                  "createDV" : "3",
                   "dataType" : 25,
                   "detailStyle" : "DEFAULT",
                   "detailType" : "FORMITEM",
@@ -1959,16 +1755,18 @@
                     "stepValue" : 1.0
                   },
                   "getPSLayoutPos" : {
-                    "colLG" : 8,
-                    "colMD" : 8,
+                    "colLG" : 14,
+                    "colMD" : 14,
                     "layout" : "TABLE_24COL"
                   },
+                  "updateDV" : "3",
                   "allowEmpty" : false,
                   "repeatContent" : true,
                   "showCaption" : true
                 }, {
                   "caption" : "自动问题",
                   "codeName" : "auto_questions",
+                  "createDV" : "5",
                   "dataType" : 25,
                   "detailStyle" : "DEFAULT",
                   "detailType" : "FORMITEM",
@@ -2005,10 +1803,11 @@
                     "stepValue" : 1.0
                   },
                   "getPSLayoutPos" : {
-                    "colLG" : 8,
-                    "colMD" : 8,
+                    "colLG" : 14,
+                    "colMD" : 14,
                     "layout" : "TABLE_24COL"
                   },
+                  "updateDV" : "5",
                   "allowEmpty" : false,
                   "repeatContent" : true,
                   "showCaption" : true
@@ -2025,12 +1824,8 @@
                   "name" : "pre_process_rules",
                   "noPrivDisplayMode" : 1,
                   "getPSEditor" : {
-                    "editorType" : "CHECKBOXLIST",
-                    "name" : "pre_process_rules",
-                    "getPSAppCodeList" : {
-                      "modelref" : true,
-                      "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__text_clean_config.json"
-                    }
+                    "editorType" : "HIDDEN",
+                    "name" : "pre_process_rules"
                   },
                   "getPSLayoutPos" : {
                     "colLG" : 24,
@@ -2038,9 +1833,8 @@
                     "layout" : "TABLE_24COL"
                   },
                   "allowEmpty" : true,
-                  "needCodeListConfig" : true,
-                  "repeatContent" : true,
-                  "showCaption" : true
+                  "hidden" : true,
+                  "repeatContent" : true
                 }, {
                   "caption" : "片段展开子提示词",
                   "codeName" : "chunk_extraction_sub_prompt",
@@ -2061,11 +1855,8 @@
                       "AC" : "true",
                       "language" : "markdown"
                     },
-                    "editorType" : "MARKDOWN",
-                    "mode" : "EDIT",
-                    "name" : "chunk_extraction_sub_prompt",
-                    "enableAC" : true,
-                    "showMaxLength" : true
+                    "editorType" : "HIDDEN",
+                    "name" : "chunk_extraction_sub_prompt"
                   },
                   "getPSLayoutPos" : {
                     "colLG" : 24,
@@ -2073,8 +1864,8 @@
                     "layout" : "TABLE_24COL"
                   },
                   "allowEmpty" : true,
-                  "repeatContent" : true,
-                  "showCaption" : true
+                  "hidden" : true,
+                  "repeatContent" : true
                 }, {
                   "codeName" : "grouppanel7",
                   "detailStyle" : "DEFAULT",
@@ -2128,7 +1919,7 @@
                     "getPSDEFormDetails" : [ {
                       "caption" : "使用召回增强 RAPTOR 策略",
                       "codeName" : "use_raptor",
-                      "createDV" : "0",
+                      "createDV" : "1",
                       "dataType" : 25,
                       "detailStyle" : "DEFAULT",
                       "detailType" : "FORMITEM",
@@ -2143,11 +1934,11 @@
                         "name" : "use_raptor"
                       },
                       "getPSLayoutPos" : {
-                        "colLG" : 8,
-                        "colMD" : 8,
+                        "colLG" : 12,
+                        "colMD" : 12,
                         "layout" : "TABLE_24COL"
                       },
-                      "updateDV" : "0",
+                      "updateDV" : "1",
                       "allowEmpty" : true,
                       "repeatContent" : true,
                       "showCaption" : true
@@ -2173,12 +1964,12 @@
                       "getPSDEFormDetails" : [ {
                         "caption" : "提示词",
                         "codeName" : "prompt",
+                        "createDV" : "请总结以下段落。 小心数字，不要编造。 段落如下：       {cluster_content} 以上就是你需要总结的内容。",
                         "dataType" : 25,
                         "detailStyle" : "DEFAULT",
                         "detailType" : "FORMITEM",
                         "enableCond" : 3,
                         "ignoreInput" : 0,
-                        "itemHeight" : 200.0,
                         "labelPos" : "LEFT",
                         "labelWidth" : 130,
                         "name" : "prompt",
@@ -2198,22 +1989,18 @@
                           "notMode" : false
                         } ],
                         "getPSEditor" : {
-                          "editorHeight" : 200.0,
-                          "editorParams" : {
-                            "HEIGHT" : "200"
-                          },
-                          "editorType" : "TEXTAREA_10",
-                          "name" : "prompt",
-                          "showMaxLength" : true
+                          "editorType" : "HIDDEN",
+                          "name" : "prompt"
                         },
                         "getPSLayoutPos" : {
                           "colLG" : 24,
                           "colMD" : 24,
                           "layout" : "TABLE_24COL"
                         },
+                        "updateDV" : "请总结以下段落。 小心数字，不要编造。 段落如下：       {cluster_content} 以上就是你需要总结的内容。",
                         "allowEmpty" : false,
-                        "repeatContent" : true,
-                        "showCaption" : true
+                        "hidden" : true,
+                        "repeatContent" : true
                       }, {
                         "caption" : "最大token数",
                         "codeName" : "max_token",
@@ -2233,11 +2020,9 @@
                             "maxvalue" : "2048",
                             "stepvalue" : "1"
                           },
-                          "editorType" : "SLIDER",
+                          "editorType" : "HIDDEN",
                           "editorWidth" : 225.0,
-                          "maxValue" : 2048.0,
-                          "name" : "max_token",
-                          "stepValue" : 1.0
+                          "name" : "max_token"
                         },
                         "getPSLayoutPos" : {
                           "colLG" : 8,
@@ -2246,8 +2031,8 @@
                         },
                         "updateDV" : "256",
                         "allowEmpty" : true,
-                        "repeatContent" : true,
-                        "showCaption" : true
+                        "hidden" : true,
+                        "repeatContent" : true
                       }, {
                         "caption" : "阈值",
                         "codeName" : "threshold",
@@ -2267,11 +2052,9 @@
                             "maxvalue" : "1",
                             "stepvalue" : "0.01"
                           },
-                          "editorType" : "SLIDER",
+                          "editorType" : "HIDDEN",
                           "editorWidth" : 225.0,
-                          "maxValue" : 1.0,
-                          "name" : "threshold",
-                          "stepValue" : 0.01
+                          "name" : "threshold"
                         },
                         "getPSLayoutPos" : {
                           "colLG" : 8,
@@ -2280,8 +2063,8 @@
                         },
                         "updateDV" : "0.1",
                         "allowEmpty" : true,
-                        "repeatContent" : true,
-                        "showCaption" : true
+                        "hidden" : true,
+                        "repeatContent" : true
                       }, {
                         "caption" : "最大聚类数",
                         "codeName" : "max_cluster",
@@ -2301,11 +2084,9 @@
                             "maxvalue" : "1024",
                             "stepvalue" : "1"
                           },
-                          "editorType" : "SLIDER",
+                          "editorType" : "HIDDEN",
                           "editorWidth" : 225.0,
-                          "maxValue" : 1024.0,
-                          "name" : "max_cluster",
-                          "stepValue" : 1.0
+                          "name" : "max_cluster"
                         },
                         "getPSLayoutPos" : {
                           "colLG" : 8,
@@ -2314,8 +2095,8 @@
                         },
                         "updateDV" : "64",
                         "allowEmpty" : true,
-                        "repeatContent" : true,
-                        "showCaption" : true
+                        "hidden" : true,
+                        "repeatContent" : true
                       }, {
                         "caption" : "随机种子",
                         "codeName" : "random_seed",
@@ -2330,7 +2111,7 @@
                         "name" : "random_seed",
                         "noPrivDisplayMode" : 1,
                         "getPSEditor" : {
-                          "editorType" : "NUMBER",
+                          "editorType" : "HIDDEN",
                           "name" : "random_seed"
                         },
                         "getPSLayoutPos" : {
@@ -2340,8 +2121,8 @@
                         },
                         "updateDV" : "42",
                         "allowEmpty" : true,
-                        "repeatContent" : true,
-                        "showCaption" : true
+                        "hidden" : true,
+                        "repeatContent" : true
                       } ],
                       "getPSLayout" : {
                         "childColLG" : 8,
@@ -2397,7 +2178,7 @@
                         "name" : "use_pageindex"
                       },
                       "getPSLayoutPos" : {
-                        "colLG" : 8,
+                        "colLG" : 12,
                         "colMD" : 12,
                         "layout" : "TABLE_24COL"
                       },
@@ -2437,7 +2218,7 @@
                         "name" : "pages_per_index",
                         "noPrivDisplayMode" : 1,
                         "getPSEditor" : {
-                          "editorType" : "NUMBER",
+                          "editorType" : "HIDDEN",
                           "name" : "pages_per_index"
                         },
                         "getPSLayoutPos" : {
@@ -2447,8 +2228,8 @@
                         },
                         "updateDV" : "5",
                         "allowEmpty" : true,
-                        "repeatContent" : true,
-                        "showCaption" : true
+                        "hidden" : true,
+                        "repeatContent" : true
                       }, {
                         "caption" : "仅构建页面片段",
                         "codeName" : "pageindex_only",
@@ -2463,7 +2244,7 @@
                         "name" : "pageindex_only",
                         "noPrivDisplayMode" : 1,
                         "getPSEditor" : {
-                          "editorType" : "SWITCH",
+                          "editorType" : "HIDDEN",
                           "name" : "pageindex_only"
                         },
                         "getPSLayoutPos" : {
@@ -2473,8 +2254,8 @@
                         },
                         "updateDV" : "0",
                         "allowEmpty" : true,
-                        "repeatContent" : true,
-                        "showCaption" : true
+                        "hidden" : true,
+                        "repeatContent" : true
                       }, {
                         "caption" : "TOC校验提示词",
                         "codeName" : "toc_validation_prompt",
@@ -2495,19 +2276,16 @@
                             "AC" : "true",
                             "language" : "markdown"
                           },
-                          "editorType" : "MARKDOWN",
-                          "mode" : "EDIT",
-                          "name" : "toc_validation_prompt",
-                          "enableAC" : true,
-                          "showMaxLength" : true
+                          "editorType" : "HIDDEN",
+                          "name" : "toc_validation_prompt"
                         },
                         "getPSLayoutPos" : {
                           "colMD" : 24,
                           "layout" : "TABLE_24COL"
                         },
                         "allowEmpty" : true,
-                        "repeatContent" : true,
-                        "showCaption" : true
+                        "hidden" : true,
+                        "repeatContent" : true
                       }, {
                         "caption" : "目录识别提示词",
                         "codeName" : "page_indexer_prompt",
@@ -2528,19 +2306,16 @@
                             "AC" : "true",
                             "language" : "markdown"
                           },
-                          "editorType" : "MARKDOWN",
-                          "mode" : "EDIT",
-                          "name" : "page_indexer_prompt",
-                          "enableAC" : true,
-                          "showMaxLength" : true
+                          "editorType" : "HIDDEN",
+                          "name" : "page_indexer_prompt"
                         },
                         "getPSLayoutPos" : {
                           "colMD" : 24,
                           "layout" : "TABLE_24COL"
                         },
                         "allowEmpty" : true,
-                        "repeatContent" : true,
-                        "showCaption" : true
+                        "hidden" : true,
+                        "repeatContent" : true
                       } ],
                       "getPSLayout" : {
                         "childColMD" : 24,
@@ -2588,7 +2363,7 @@
                       "name" : "use_graphrag",
                       "noPrivDisplayMode" : 1,
                       "getPSEditor" : {
-                        "editorType" : "SWITCH",
+                        "editorType" : "HIDDEN",
                         "name" : "use_graphrag"
                       },
                       "getPSLayoutPos" : {
@@ -2597,8 +2372,8 @@
                         "layout" : "TABLE_24COL"
                       },
                       "allowEmpty" : true,
-                      "repeatContent" : true,
-                      "showCaption" : true
+                      "hidden" : true,
+                      "repeatContent" : true
                     }, {
                       "caption" : "实体类型",
                       "codeName" : "entity_types",
@@ -2655,13 +2430,8 @@
                         "editorParams" : {
                           "forceselection" : "false"
                         },
-                        "editorType" : "MDROPDOWNLIST",
-                        "name" : "entity_types",
-                        "getPSAppCodeList" : {
-                          "modelref" : true,
-                          "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__entity_types.json"
-                        },
-                        "singleSelect" : false
+                        "editorType" : "HIDDEN",
+                        "name" : "entity_types"
                       },
                       "getPSLayoutPos" : {
                         "colLG" : 16,
@@ -2669,9 +2439,8 @@
                         "layout" : "TABLE_24COL"
                       },
                       "allowEmpty" : false,
-                      "needCodeListConfig" : true,
-                      "repeatContent" : true,
-                      "showCaption" : true
+                      "hidden" : true,
+                      "repeatContent" : true
                     }, {
                       "caption" : "方法",
                       "codeName" : "graphrag_method",
@@ -2713,13 +2482,8 @@
                         "notMode" : false
                       } ],
                       "getPSEditor" : {
-                        "editorType" : "DROPDOWNLIST",
-                        "name" : "graphrag_method",
-                        "getPSAppCodeList" : {
-                          "modelref" : true,
-                          "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__graphrag_method.json"
-                        },
-                        "singleSelect" : true
+                        "editorType" : "HIDDEN",
+                        "name" : "graphrag_method"
                       },
                       "getPSLayoutPos" : {
                         "colLG" : 8,
@@ -2727,9 +2491,8 @@
                         "layout" : "TABLE_24COL"
                       },
                       "allowEmpty" : true,
-                      "needCodeListConfig" : true,
-                      "repeatContent" : true,
-                      "showCaption" : true
+                      "hidden" : true,
+                      "repeatContent" : true
                     }, {
                       "caption" : "实体归一化",
                       "codeName" : "resolution",
@@ -2771,7 +2534,7 @@
                         "notMode" : false
                       } ],
                       "getPSEditor" : {
-                        "editorType" : "SWITCH",
+                        "editorType" : "HIDDEN",
                         "name" : "resolution"
                       },
                       "getPSLayoutPos" : {
@@ -2780,8 +2543,8 @@
                         "layout" : "TABLE_24COL"
                       },
                       "allowEmpty" : true,
-                      "repeatContent" : true,
-                      "showCaption" : true
+                      "hidden" : true,
+                      "repeatContent" : true
                     }, {
                       "caption" : "消除歧义子提示词",
                       "codeName" : "disambiguation_sub_prompt",
@@ -2816,11 +2579,8 @@
                           "AC" : "true",
                           "language" : "markdown"
                         },
-                        "editorType" : "MARKDOWN",
-                        "mode" : "EDIT",
-                        "name" : "disambiguation_sub_prompt",
-                        "enableAC" : true,
-                        "showMaxLength" : true
+                        "editorType" : "HIDDEN",
+                        "name" : "disambiguation_sub_prompt"
                       },
                       "getPSLayoutPos" : {
                         "colLG" : 24,
@@ -2828,8 +2588,8 @@
                         "layout" : "TABLE_24COL"
                       },
                       "allowEmpty" : true,
-                      "repeatContent" : true,
-                      "showCaption" : true
+                      "hidden" : true,
+                      "repeatContent" : true
                     }, {
                       "caption" : "关系消歧子提示词",
                       "codeName" : "relation_disambiguation_sub_prompt",
@@ -2864,11 +2624,8 @@
                           "AC" : "true",
                           "language" : "markdown"
                         },
-                        "editorType" : "MARKDOWN",
-                        "mode" : "EDIT",
-                        "name" : "relation_disambiguation_sub_prompt",
-                        "enableAC" : true,
-                        "showMaxLength" : true
+                        "editorType" : "HIDDEN",
+                        "name" : "relation_disambiguation_sub_prompt"
                       },
                       "getPSLayoutPos" : {
                         "colLG" : 24,
@@ -2876,8 +2633,8 @@
                         "layout" : "TABLE_24COL"
                       },
                       "allowEmpty" : true,
-                      "repeatContent" : true,
-                      "showCaption" : true
+                      "hidden" : true,
+                      "repeatContent" : true
                     } ],
                     "getPSLayout" : {
                       "childColMD" : 24,
@@ -2919,94 +2676,6 @@
                 "infoGroupMode" : false,
                 "repeatContent" : true,
                 "showCaption" : false
-              }, {
-                "caption" : "自定义脱敏规则",
-                "codeName" : "grouppanel2",
-                "detailStyle" : "DEFAULT",
-                "detailType" : "GROUPPANEL",
-                "name" : "grouppanel2",
-                "getPSDEFormDetails" : [ {
-                  "buildInActions" : 7,
-                  "codeName" : "data_masking_rules",
-                  "contentType" : "REPEATER",
-                  "detailStyle" : "DEFAULT",
-                  "detailType" : "MDCTRL",
-                  "name" : "data_masking_rules",
-                  "getPSDEFormDetails" : [ {
-                    "caption" : "匹配规则",
-                    "codeName" : "pattern",
-                    "dataType" : 25,
-                    "detailStyle" : "DEFAULT",
-                    "detailType" : "FORMITEM",
-                    "enableCond" : 3,
-                    "ignoreInput" : 0,
-                    "labelPos" : "LEFT",
-                    "labelWidth" : 130,
-                    "name" : "pattern",
-                    "noPrivDisplayMode" : 1,
-                    "getPSEditor" : {
-                      "editorType" : "TEXTBOX",
-                      "name" : "pattern",
-                      "placeHolder" : "正则式"
-                    },
-                    "getPSLayoutPos" : {
-                      "colLG" : 8,
-                      "colMD" : 12,
-                      "layout" : "TABLE_24COL"
-                    },
-                    "allowEmpty" : true,
-                    "repeatContent" : true,
-                    "showCaption" : true
-                  }, {
-                    "caption" : "替换文本",
-                    "codeName" : "replacement",
-                    "dataType" : 25,
-                    "detailStyle" : "DEFAULT",
-                    "detailType" : "FORMITEM",
-                    "enableCond" : 3,
-                    "ignoreInput" : 0,
-                    "labelPos" : "LEFT",
-                    "labelWidth" : 130,
-                    "name" : "replacement",
-                    "noPrivDisplayMode" : 1,
-                    "getPSEditor" : {
-                      "editorType" : "TEXTBOX",
-                      "name" : "replacement"
-                    },
-                    "getPSLayoutPos" : {
-                      "colLG" : 16,
-                      "colMD" : 12,
-                      "layout" : "TABLE_24COL"
-                    },
-                    "allowEmpty" : true,
-                    "repeatContent" : true,
-                    "showCaption" : true
-                  } ],
-                  "getPSLayout" : {
-                    "childColMD" : 24,
-                    "columnCount" : 24,
-                    "layout" : "TABLE_24COL"
-                  },
-                  "getPSLayoutPos" : {
-                    "colMD" : 24,
-                    "layout" : "TABLE_24COL"
-                  },
-                  "infoGroupMode" : false,
-                  "repeatContent" : true,
-                  "showCaption" : true
-                } ],
-                "getPSLayout" : {
-                  "childColMD" : 24,
-                  "columnCount" : 24,
-                  "layout" : "TABLE_24COL"
-                },
-                "getPSLayoutPos" : {
-                  "colMD" : 24,
-                  "layout" : "TABLE_24COL"
-                },
-                "infoGroupMode" : false,
-                "repeatContent" : true,
-                "showCaption" : true
               } ],
               "getPSLayout" : {
                 "childColMD" : 24,
@@ -3018,2254 +2687,6 @@
                 "layout" : "TABLE_24COL"
               },
               "infoGroupMode" : false,
-              "showCaption" : true
-            }, {
-              "codeName" : "druipart1",
-              "contentHeight" : 400.0,
-              "dRItemTag" : "DRItem3",
-              "detailStyle" : "DEFAULT",
-              "detailType" : "DRUIPART",
-              "height" : 400.0,
-              "name" : "druipart1",
-              "getPSAppView" : {
-                "accUserMode" : 2,
-                "getCapPSLanguageRes" : {
-                  "lanResTag" : "DE.LNAME.AI_KNOWLEDGE_BASE"
-                },
-                "caption" : "切片策略",
-                "codeName" : "ai_knowledge_base_chunking_view_readonly",
-                "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_knowledge_base_chunking_view_readonly.json",
-                "memo" : "系统自动添加",
-                "name" : "ai_knowledge_basechunking_view_readonly",
-                "getPSAppDataEntity" : {
-                  "modelref" : true,
-                  "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
-                },
-                "getPSAppModule" : {
-                  "modelref" : true,
-                  "path" : "PSSYSAPPS/aifactoryweb/PSAPPMODULES/ai.json"
-                },
-                "getPSAppViewEngines" : [ {
-                  "engineCat" : "VIEW",
-                  "engineType" : "EditView",
-                  "name" : "engine"
-                } ],
-                "getPSControls" : [ {
-                  "codeName" : "chunking_strategy",
-                  "controlType" : "FORM",
-                  "getCreatePSControlAction" : {
-                    "modelref" : true,
-                    "id" : "create",
-                    "actionName" : "Create",
-                    "actionType" : "DEACTION",
-                    "dataAccessAction" : "CREATE",
-                    "name" : "create",
-                    "getPSAppDEMethod" : {
-                      "modelref" : true,
-                      "id" : "create"
-                    },
-                    "getPSAppDataEntity" : {
-                      "modelref" : true,
-                      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
-                    }
-                  },
-                  "defaultLabelWidth" : 130,
-                  "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base/PSFORMS/chunking_strategy.json",
-                  "getGetDraftFromPSControlAction" : {
-                    "modelref" : true,
-                    "id" : "loaddraftfrom",
-                    "actionName" : "GETDRAFTFROM",
-                    "actionType" : "DEACTION",
-                    "dataAccessAction" : "CREATE",
-                    "name" : "loaddraftfrom",
-                    "getPSAppDataEntity" : {
-                      "modelref" : true,
-                      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
-                    }
-                  },
-                  "getGetDraftPSControlAction" : {
-                    "modelref" : true,
-                    "id" : "loaddraft",
-                    "actionName" : "GetDraft",
-                    "actionType" : "DEACTION",
-                    "dataAccessAction" : "CREATE",
-                    "name" : "loaddraft",
-                    "getPSAppDEMethod" : {
-                      "modelref" : true,
-                      "id" : "get_draft"
-                    },
-                    "getPSAppDataEntity" : {
-                      "modelref" : true,
-                      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
-                    }
-                  },
-                  "getGetPSControlAction" : {
-                    "modelref" : true,
-                    "id" : "load",
-                    "actionName" : "Get",
-                    "actionType" : "DEACTION",
-                    "dataAccessAction" : "READ",
-                    "name" : "load",
-                    "getPSAppDEMethod" : {
-                      "modelref" : true,
-                      "id" : "get"
-                    },
-                    "getPSAppDataEntity" : {
-                      "modelref" : true,
-                      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
-                    }
-                  },
-                  "hookEventNames" : [ "ONLOADSUCCESS", "ONLOADDRAFTSUCCESS" ],
-                  "logicName" : "切片策略表单(只读)",
-                  "getPSAppDataEntity" : {
-                    "modelref" : true,
-                    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
-                  },
-                  "getPSControlHandler" : {
-                    "getPSHandlerActions" : [ {
-                      "actionName" : "GetDraft",
-                      "actionType" : "DEACTION",
-                      "dataAccessAction" : "CREATE",
-                      "name" : "loaddraft",
-                      "getPSAppDEMethod" : {
-                        "modelref" : true,
-                        "id" : "get_draft"
-                      },
-                      "getPSAppDataEntity" : {
-                        "modelref" : true,
-                        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
-                      }
-                    }, {
-                      "actionName" : "GETDRAFTFROM",
-                      "actionType" : "DEACTION",
-                      "dataAccessAction" : "CREATE",
-                      "name" : "loaddraftfrom",
-                      "getPSAppDataEntity" : {
-                        "modelref" : true,
-                        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
-                      }
-                    }, {
-                      "actionName" : "Get",
-                      "actionType" : "DEACTION",
-                      "dataAccessAction" : "READ",
-                      "name" : "load",
-                      "getPSAppDEMethod" : {
-                        "modelref" : true,
-                        "id" : "get"
-                      },
-                      "getPSAppDataEntity" : {
-                        "modelref" : true,
-                        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
-                      }
-                    }, {
-                      "actionName" : "Create",
-                      "actionType" : "DEACTION",
-                      "dataAccessAction" : "CREATE",
-                      "name" : "create",
-                      "getPSAppDEMethod" : {
-                        "modelref" : true,
-                        "id" : "create"
-                      },
-                      "getPSAppDataEntity" : {
-                        "modelref" : true,
-                        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
-                      }
-                    }, {
-                      "actionName" : "Update",
-                      "actionType" : "DEACTION",
-                      "dataAccessAction" : "UPDATE",
-                      "name" : "update",
-                      "getPSAppDEMethod" : {
-                        "modelref" : true,
-                        "id" : "update"
-                      },
-                      "getPSAppDataEntity" : {
-                        "modelref" : true,
-                        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
-                      }
-                    }, {
-                      "actionName" : "Remove",
-                      "actionType" : "DEACTION",
-                      "dataAccessAction" : "DELETE",
-                      "name" : "remove",
-                      "getPSAppDEMethod" : {
-                        "modelref" : true,
-                        "id" : "remove"
-                      },
-                      "getPSAppDataEntity" : {
-                        "modelref" : true,
-                        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
-                      }
-                    } ],
-                    "enableDEFieldPrivilege" : false,
-                    "id" : "编辑表单处理器"
-                  },
-                  "getPSControlLogics" : [ {
-                    "eventNames" : "onLoadSuccess",
-                    "logicTag" : "form",
-                    "logicType" : "SCRIPT",
-                    "name" : "logic1",
-                    "scriptCode" : "var chunk_method = data[0].chunk_method\ndata[0].parser_config.method = chunk_method"
-                  }, {
-                    "eventNames" : "onLoadDraftSuccess",
-                    "logicTag" : "form",
-                    "logicType" : "SCRIPT",
-                    "name" : "logic2",
-                    "scriptCode" : "var chunk_method = data[0].chunk_method\ndata[0].parser_config.method = chunk_method"
-                  } ],
-                  "getPSControlParam" : {
-                    "autoLoad" : true,
-                    "showBusyIndicator" : true,
-                    "id" : "FORM"
-                  },
-                  "getPSDEFormItemUpdates" : [ {
-                    "codeName" : "update_method",
-                    "name" : "update_method",
-                    "getPSDEFIUpdateDetails" : [ {
-                      "name" : "method"
-                    } ],
-                    "scriptCode" : "console.log(\"update_metho\");\nconst chunk_method = data.chunk_method\ndata.parser_config.method = chunk_method\n",
-                    "customCode" : true
-                  } ],
-                  "getPSDEFormItems" : [ {
-                    "id" : "srfupdatedate",
-                    "hidden" : true,
-                    "dataType" : 5,
-                    "getPSAppDEField" : {
-                      "name" : "UPDATE_TIME",
-                      "codeName" : "update_time"
-                    }
-                  }, {
-                    "id" : "srforikey",
-                    "hidden" : true,
-                    "dataType" : 25
-                  }, {
-                    "id" : "srfkey",
-                    "hidden" : true,
-                    "dataType" : 25,
-                    "getPSAppDEField" : {
-                      "name" : "ID",
-                      "codeName" : "id"
-                    }
-                  }, {
-                    "id" : "srfmajortext",
-                    "hidden" : true,
-                    "dataType" : 25,
-                    "getPSAppDEField" : {
-                      "name" : "NAME",
-                      "codeName" : "name"
-                    }
-                  }, {
-                    "id" : "srftempmode",
-                    "hidden" : true,
-                    "dataType" : 25
-                  }, {
-                    "id" : "srfuf",
-                    "hidden" : true,
-                    "dataType" : 25
-                  }, {
-                    "id" : "srfdeid",
-                    "hidden" : true,
-                    "dataType" : 25
-                  }, {
-                    "id" : "srfsourcekey",
-                    "hidden" : true,
-                    "dataType" : 25
-                  }, {
-                    "id" : "chunk_method",
-                    "dataType" : 25,
-                    "createDV" : "NAIVE",
-                    "updateDV" : "NAIVE",
-                    "getPSAppDEField" : {
-                      "name" : "CHUNK_METHOD",
-                      "codeName" : "chunk_method"
-                    }
-                  }, {
-                    "id" : "id",
-                    "hidden" : true,
-                    "dataType" : 25,
-                    "getPSAppDEField" : {
-                      "name" : "ID",
-                      "codeName" : "id"
-                    }
-                  } ],
-                  "getPSDEFormPages" : [ {
-                    "caption" : "基本信息",
-                    "codeName" : "formpage1",
-                    "detailStyle" : "DEFAULT",
-                    "detailType" : "FORMPAGE",
-                    "name" : "formpage1",
-                    "getPSDEFormDetails" : [ {
-                      "caption" : "知识库基本信息",
-                      "codeName" : "group1",
-                      "detailStyle" : "DEFAULT",
-                      "detailType" : "GROUPPANEL",
-                      "name" : "group1",
-                      "getPSDEFormDetails" : [ {
-                        "caption" : "切片策略",
-                        "codeName" : "grouppanel1",
-                        "detailStyle" : "DEFAULT",
-                        "detailType" : "GROUPPANEL",
-                        "name" : "grouppanel1",
-                        "getPSDEFormDetails" : [ {
-                          "caption" : "切片方法",
-                          "codeName" : "chunk_method",
-                          "createDV" : "NAIVE",
-                          "dataType" : 25,
-                          "detailStyle" : "DEFAULT",
-                          "detailType" : "FORMITEM",
-                          "enableCond" : 3,
-                          "ignoreInput" : 3,
-                          "labelPos" : "LEFT",
-                          "labelWidth" : 130,
-                          "name" : "chunk_method",
-                          "noPrivDisplayMode" : 1,
-                          "getPSAppDEField" : {
-                            "name" : "CHUNK_METHOD",
-                            "codeName" : "chunk_method"
-                          },
-                          "getPSDEFormItemUpdate" : {
-                            "modelref" : true,
-                            "id" : "update_method"
-                          },
-                          "getPSEditor" : {
-                            "editorType" : "SPAN",
-                            "name" : "chunk_method",
-                            "getPSAppCodeList" : {
-                              "modelref" : true,
-                              "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__chunkingstrategy.json"
-                            },
-                            "enableLinkView" : false
-                          },
-                          "getPSLayoutPos" : {
-                            "colLG" : 8,
-                            "colMD" : 8,
-                            "layout" : "TABLE_24COL"
-                          },
-                          "updateDV" : "NAIVE",
-                          "allowEmpty" : true,
-                          "convertToCodeItemText" : true,
-                          "showCaption" : true
-                        }, {
-                          "codeName" : "parser_config",
-                          "contentType" : "REPEATER",
-                          "detailStyle" : "STYLE3",
-                          "detailType" : "MDCTRL",
-                          "name" : "parser_config",
-                          "getPSAppDEField" : {
-                            "name" : "PARSER_CONFIG",
-                            "codeName" : "parser_config"
-                          },
-                          "getPSDEFDGroupLogics" : [ {
-                            "groupOP" : "AND",
-                            "logicCat" : "PANELVISIBLE",
-                            "logicType" : "GROUP",
-                            "getPSDEFDLogics" : [ {
-                              "groupOP" : "OR",
-                              "logicType" : "GROUP",
-                              "name" : "OR [取反]",
-                              "getPSDEFDLogics" : [ {
-                                "condOP" : "EQ",
-                                "dEFDName" : "chunk_method",
-                                "logicType" : "SINGLE",
-                                "name" : "chunk_method等于(=) EMAIL",
-                                "value" : "EMAIL"
-                              }, {
-                                "condOP" : "EQ",
-                                "dEFDName" : "chunk_method",
-                                "logicType" : "SINGLE",
-                                "name" : "chunk_method等于(=) PICTURE",
-                                "value" : "PICTURE"
-                              }, {
-                                "condOP" : "EQ",
-                                "dEFDName" : "chunk_method",
-                                "logicType" : "SINGLE",
-                                "name" : "chunk_method等于(=) ONE",
-                                "value" : "ONE"
-                              } ],
-                              "notMode" : true
-                            } ],
-                            "relatedDetailNames" : [ "chunk_method" ],
-                            "notMode" : false
-                          } ],
-                          "getPSDEFormDetails" : [ {
-                            "codeName" : "grouppanel4",
-                            "detailStyle" : "DEFAULT",
-                            "detailType" : "GROUPPANEL",
-                            "name" : "grouppanel4",
-                            "getPSDEFormDetails" : [ {
-                              "caption" : "切片方法",
-                              "codeName" : "method",
-                              "dataType" : 25,
-                              "detailStyle" : "DEFAULT",
-                              "detailType" : "FORMITEM",
-                              "enableCond" : 3,
-                              "ignoreInput" : 3,
-                              "labelPos" : "LEFT",
-                              "labelWidth" : 130,
-                              "name" : "method",
-                              "noPrivDisplayMode" : 1,
-                              "getPSEditor" : {
-                                "editorType" : "HIDDEN",
-                                "name" : "method"
-                              },
-                              "getPSLayoutPos" : {
-                                "colLG" : 24,
-                                "colMD" : 12,
-                                "layout" : "TABLE_24COL"
-                              },
-                              "allowEmpty" : true,
-                              "hidden" : true,
-                              "repeatContent" : true
-                            }, {
-                              "caption" : "块大小",
-                              "codeName" : "chunk_token_num",
-                              "createDV" : "512",
-                              "dataType" : 25,
-                              "detailStyle" : "DEFAULT",
-                              "detailType" : "FORMITEM",
-                              "enableCond" : 3,
-                              "ignoreInput" : 0,
-                              "labelPos" : "LEFT",
-                              "labelWidth" : 130,
-                              "name" : "chunk_token_num",
-                              "noPrivDisplayMode" : 1,
-                              "getPSEditor" : {
-                                "editorType" : "SPAN",
-                                "name" : "chunk_token_num",
-                                "enableLinkView" : false
-                              },
-                              "getPSLayoutPos" : {
-                                "colLG" : 12,
-                                "colMD" : 12,
-                                "layout" : "TABLE_24COL"
-                              },
-                              "updateDV" : "512",
-                              "allowEmpty" : true,
-                              "repeatContent" : true,
-                              "showCaption" : true
-                            }, {
-                              "caption" : "分隔符",
-                              "codeName" : "delimiter",
-                              "createDV" : "\n",
-                              "dataType" : 25,
-                              "detailStyle" : "DEFAULT",
-                              "detailType" : "FORMITEM",
-                              "enableCond" : 3,
-                              "ignoreInput" : 0,
-                              "labelPos" : "LEFT",
-                              "labelWidth" : 130,
-                              "name" : "delimiter",
-                              "noPrivDisplayMode" : 1,
-                              "getPSEditor" : {
-                                "editorType" : "SPAN",
-                                "name" : "delimiter",
-                                "enableLinkView" : false
-                              },
-                              "getPSLayoutPos" : {
-                                "colLG" : 12,
-                                "colMD" : 12,
-                                "layout" : "TABLE_24COL"
-                              },
-                              "updateDV" : "\n",
-                              "allowEmpty" : true,
-                              "repeatContent" : true,
-                              "showCaption" : true
-                            }, {
-                              "caption" : "保留分隔符",
-                              "codeName" : "keep_separator",
-                              "createDV" : "1",
-                              "dataType" : 25,
-                              "detailStyle" : "DEFAULT",
-                              "detailType" : "FORMITEM",
-                              "enableCond" : 0,
-                              "ignoreInput" : 0,
-                              "labelPos" : "LEFT",
-                              "labelWidth" : 130,
-                              "name" : "keep_separator",
-                              "noPrivDisplayMode" : 1,
-                              "getPSEditor" : {
-                                "editorType" : "SWITCH",
-                                "name" : "keep_separator"
-                              },
-                              "getPSLayoutPos" : {
-                                "colLG" : 12,
-                                "colMD" : 12,
-                                "layout" : "TABLE_24COL"
-                              },
-                              "updateDV" : "1",
-                              "allowEmpty" : true,
-                              "repeatContent" : true,
-                              "showCaption" : true
-                            }, {
-                              "caption" : "块重叠",
-                              "codeName" : "chunk_overlap_num",
-                              "createDV" : "30",
-                              "dataType" : 25,
-                              "detailStyle" : "DEFAULT",
-                              "detailType" : "FORMITEM",
-                              "enableCond" : 3,
-                              "ignoreInput" : 0,
-                              "labelPos" : "LEFT",
-                              "labelWidth" : 130,
-                              "name" : "chunk_overlap_num",
-                              "noPrivDisplayMode" : 1,
-                              "getPSEditor" : {
-                                "editorType" : "SPAN",
-                                "name" : "chunk_overlap_num",
-                                "enableLinkView" : false
-                              },
-                              "getPSLayoutPos" : {
-                                "colLG" : 12,
-                                "colMD" : 12,
-                                "layout" : "TABLE_24COL"
-                              },
-                              "updateDV" : "30",
-                              "allowEmpty" : true,
-                              "repeatContent" : true,
-                              "showCaption" : true
-                            }, {
-                              "caption" : "单文档最大块数",
-                              "codeName" : "max_chunk_count_per_doc",
-                              "createDV" : "1000",
-                              "dataType" : 25,
-                              "detailStyle" : "DEFAULT",
-                              "detailType" : "FORMITEM",
-                              "enableCond" : 3,
-                              "ignoreInput" : 0,
-                              "labelPos" : "LEFT",
-                              "labelWidth" : 130,
-                              "name" : "max_chunk_count_per_doc",
-                              "noPrivDisplayMode" : 1,
-                              "getPSEditor" : {
-                                "editorType" : "SPAN",
-                                "name" : "max_chunk_count_per_doc",
-                                "enableLinkView" : false
-                              },
-                              "getPSLayoutPos" : {
-                                "colLG" : 12,
-                                "colMD" : 12,
-                                "layout" : "TABLE_24COL"
-                              },
-                              "updateDV" : "1000",
-                              "allowEmpty" : true,
-                              "repeatContent" : true,
-                              "showCaption" : true
-                            }, {
-                              "caption" : "处理页面大小",
-                              "codeName" : "task_page_size",
-                              "createDV" : "12",
-                              "dataType" : 25,
-                              "detailStyle" : "DEFAULT",
-                              "detailType" : "FORMITEM",
-                              "enableCond" : 3,
-                              "ignoreInput" : 0,
-                              "labelPos" : "LEFT",
-                              "labelWidth" : 130,
-                              "name" : "task_page_size",
-                              "noPrivDisplayMode" : 1,
-                              "getPSEditor" : {
-                                "editorType" : "SPAN",
-                                "name" : "task_page_size",
-                                "enableLinkView" : false
-                              },
-                              "getPSLayoutPos" : {
-                                "colLG" : 12,
-                                "colMD" : 12,
-                                "layout" : "TABLE_24COL"
-                              },
-                              "updateDV" : "12",
-                              "allowEmpty" : true,
-                              "repeatContent" : true,
-                              "showCaption" : true
-                            }, {
-                              "caption" : "Excel转HTML",
-                              "codeName" : "html4excel",
-                              "dataType" : 25,
-                              "detailStyle" : "DEFAULT",
-                              "detailType" : "FORMITEM",
-                              "enableCond" : 0,
-                              "ignoreInput" : 0,
-                              "labelPos" : "LEFT",
-                              "labelWidth" : 130,
-                              "name" : "html4excel",
-                              "noPrivDisplayMode" : 1,
-                              "getPSDEFDGroupLogics" : [ {
-                                "groupOP" : "AND",
-                                "logicCat" : "ITEMBLANK",
-                                "logicType" : "GROUP",
-                                "getPSDEFDLogics" : [ {
-                                  "condOP" : "NOTEQ",
-                                  "dEFDName" : "method",
-                                  "logicType" : "SINGLE",
-                                  "name" : "method不等于(<>) NAIVE",
-                                  "value" : "NAIVE"
-                                } ],
-                                "relatedDetailNames" : [ "method" ],
-                                "notMode" : false
-                              } ],
-                              "getPSEditor" : {
-                                "editorType" : "SWITCH",
-                                "name" : "html4excel"
-                              },
-                              "getPSLayoutPos" : {
-                                "colLG" : 12,
-                                "colMD" : 12,
-                                "layout" : "TABLE_24COL"
-                              },
-                              "allowEmpty" : false,
-                              "repeatContent" : true,
-                              "showCaption" : true
-                            }, {
-                              "caption" : "忽略文件图片",
-                              "codeName" : "ignore_parsing_image",
-                              "createDV" : "0",
-                              "dataType" : 25,
-                              "detailStyle" : "DEFAULT",
-                              "detailType" : "FORMITEM",
-                              "enableCond" : 0,
-                              "ignoreInput" : 0,
-                              "labelPos" : "LEFT",
-                              "labelWidth" : 130,
-                              "name" : "ignore_parsing_image",
-                              "noPrivDisplayMode" : 1,
-                              "getPSEditor" : {
-                                "editorType" : "SWITCH",
-                                "name" : "ignore_parsing_image"
-                              },
-                              "getPSLayoutPos" : {
-                                "colLG" : 12,
-                                "colMD" : 12,
-                                "layout" : "TABLE_24COL"
-                              },
-                              "allowEmpty" : true,
-                              "repeatContent" : true,
-                              "showCaption" : true
-                            }, {
-                              "caption" : "忽略文件链接引用",
-                              "codeName" : "ignore_parsing_oss_link",
-                              "createDV" : "0",
-                              "dataType" : 25,
-                              "detailStyle" : "DEFAULT",
-                              "detailType" : "FORMITEM",
-                              "enableCond" : 0,
-                              "ignoreInput" : 0,
-                              "labelPos" : "LEFT",
-                              "labelWidth" : 130,
-                              "name" : "ignore_parsing_oss_link",
-                              "noPrivDisplayMode" : 1,
-                              "getPSEditor" : {
-                                "editorType" : "SWITCH",
-                                "name" : "ignore_parsing_oss_link"
-                              },
-                              "getPSLayoutPos" : {
-                                "colLG" : 12,
-                                "colMD" : 12,
-                                "layout" : "TABLE_24COL"
-                              },
-                              "allowEmpty" : true,
-                              "repeatContent" : true,
-                              "showCaption" : true
-                            }, {
-                              "caption" : "布局识别方式",
-                              "codeName" : "layout_recognize",
-                              "dataType" : 25,
-                              "detailStyle" : "DEFAULT",
-                              "detailType" : "FORMITEM",
-                              "enableCond" : 0,
-                              "ignoreInput" : 0,
-                              "labelPos" : "LEFT",
-                              "labelWidth" : 130,
-                              "name" : "layout_recognize",
-                              "noPrivDisplayMode" : 1,
-                              "getPSDEFDGroupLogics" : [ {
-                                "groupOP" : "AND",
-                                "logicCat" : "ITEMBLANK",
-                                "logicType" : "GROUP",
-                                "getPSDEFDLogics" : [ {
-                                  "condOP" : "NOTEQ",
-                                  "dEFDName" : "method",
-                                  "logicType" : "SINGLE",
-                                  "name" : "method不等于(<>) NAIVE",
-                                  "value" : "NAIVE"
-                                } ],
-                                "relatedDetailNames" : [ "method" ],
-                                "notMode" : false
-                              } ],
-                              "getPSEditor" : {
-                                "editorType" : "DROPDOWNLIST",
-                                "name" : "layout_recognize",
-                                "getPSAppCodeList" : {
-                                  "modelref" : true,
-                                  "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__layout_recognize.json"
-                                },
-                                "singleSelect" : true
-                              },
-                              "getPSLayoutPos" : {
-                                "colLG" : 12,
-                                "colMD" : 12,
-                                "layout" : "TABLE_24COL"
-                              },
-                              "allowEmpty" : false,
-                              "needCodeListConfig" : true,
-                              "repeatContent" : true,
-                              "showCaption" : true
-                            }, {
-                              "caption" : "自动关键词",
-                              "codeName" : "auto_keywords",
-                              "dataType" : 25,
-                              "detailStyle" : "DEFAULT",
-                              "detailType" : "FORMITEM",
-                              "enableCond" : 0,
-                              "ignoreInput" : 0,
-                              "itemWidth" : 355.0,
-                              "labelPos" : "LEFT",
-                              "labelWidth" : 130,
-                              "name" : "auto_keywords",
-                              "noPrivDisplayMode" : 1,
-                              "getPSDEFDGroupLogics" : [ {
-                                "groupOP" : "AND",
-                                "logicCat" : "ITEMBLANK",
-                                "logicType" : "GROUP",
-                                "getPSDEFDLogics" : [ {
-                                  "condOP" : "NOTEQ",
-                                  "dEFDName" : "method",
-                                  "logicType" : "SINGLE",
-                                  "name" : "method不等于(<>) NAIVE",
-                                  "value" : "NAIVE"
-                                } ],
-                                "relatedDetailNames" : [ "method" ],
-                                "notMode" : false
-                              } ],
-                              "getPSEditor" : {
-                                "cssStyle" : "padding-left: 5px;\n",
-                                "editorParams" : {
-                                  "maxvalue" : "30"
-                                },
-                                "editorType" : "SLIDER",
-                                "editorWidth" : 225.0,
-                                "maxValue" : 30.0,
-                                "name" : "auto_keywords",
-                                "stepValue" : 1.0
-                              },
-                              "getPSLayoutPos" : {
-                                "colLG" : 12,
-                                "colMD" : 12,
-                                "layout" : "TABLE_24COL"
-                              },
-                              "allowEmpty" : false,
-                              "repeatContent" : true,
-                              "showCaption" : true
-                            }, {
-                              "caption" : "自动问题",
-                              "codeName" : "auto_questions",
-                              "dataType" : 25,
-                              "detailStyle" : "DEFAULT",
-                              "detailType" : "FORMITEM",
-                              "enableCond" : 0,
-                              "ignoreInput" : 0,
-                              "itemWidth" : 355.0,
-                              "labelPos" : "LEFT",
-                              "labelWidth" : 130,
-                              "name" : "auto_questions",
-                              "noPrivDisplayMode" : 1,
-                              "getPSDEFDGroupLogics" : [ {
-                                "groupOP" : "AND",
-                                "logicCat" : "ITEMBLANK",
-                                "logicType" : "GROUP",
-                                "getPSDEFDLogics" : [ {
-                                  "condOP" : "NOTEQ",
-                                  "dEFDName" : "method",
-                                  "logicType" : "SINGLE",
-                                  "name" : "method不等于(<>) NAIVE",
-                                  "value" : "NAIVE"
-                                } ],
-                                "relatedDetailNames" : [ "method" ],
-                                "notMode" : false
-                              } ],
-                              "getPSEditor" : {
-                                "cssStyle" : "padding-left: 5px;\n",
-                                "editorParams" : {
-                                  "maxvalue" : "30"
-                                },
-                                "editorType" : "SLIDER",
-                                "editorWidth" : 225.0,
-                                "maxValue" : 30.0,
-                                "name" : "auto_questions",
-                                "stepValue" : 1.0
-                              },
-                              "getPSLayoutPos" : {
-                                "colLG" : 12,
-                                "colMD" : 12,
-                                "layout" : "TABLE_24COL"
-                              },
-                              "allowEmpty" : false,
-                              "repeatContent" : true,
-                              "showCaption" : true
-                            }, {
-                              "caption" : "文本预处理规则",
-                              "codeName" : "pre_process_rules",
-                              "dataType" : 25,
-                              "detailStyle" : "DEFAULT",
-                              "detailType" : "FORMITEM",
-                              "enableCond" : 0,
-                              "ignoreInput" : 0,
-                              "labelPos" : "LEFT",
-                              "labelWidth" : 130,
-                              "name" : "pre_process_rules",
-                              "noPrivDisplayMode" : 1,
-                              "getPSEditor" : {
-                                "editorType" : "CHECKBOXLIST",
-                                "name" : "pre_process_rules",
-                                "getPSAppCodeList" : {
-                                  "modelref" : true,
-                                  "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__text_clean_config.json"
-                                }
-                              },
-                              "getPSLayoutPos" : {
-                                "colLG" : 24,
-                                "colMD" : 24,
-                                "layout" : "TABLE_24COL"
-                              },
-                              "allowEmpty" : true,
-                              "needCodeListConfig" : true,
-                              "repeatContent" : true,
-                              "showCaption" : true
-                            }, {
-                              "caption" : "片段展开子提示词",
-                              "codeName" : "chunk_extraction_sub_prompt",
-                              "dataType" : 25,
-                              "detailStyle" : "DEFAULT",
-                              "detailType" : "FORMITEM",
-                              "enableCond" : 0,
-                              "ignoreInput" : 0,
-                              "itemHeight" : 300.0,
-                              "labelPos" : "LEFT",
-                              "labelWidth" : 130,
-                              "name" : "chunk_extraction_sub_prompt",
-                              "noPrivDisplayMode" : 1,
-                              "getPSEditor" : {
-                                "editorHeight" : 300.0,
-                                "editorType" : "MARKDOWN",
-                                "mode" : "EDIT",
-                                "name" : "chunk_extraction_sub_prompt",
-                                "showMaxLength" : true
-                              },
-                              "getPSLayoutPos" : {
-                                "colLG" : 24,
-                                "colMD" : 24,
-                                "layout" : "TABLE_24COL"
-                              },
-                              "allowEmpty" : true,
-                              "repeatContent" : true,
-                              "showCaption" : true
-                            }, {
-                              "codeName" : "grouppanel7",
-                              "detailStyle" : "DEFAULT",
-                              "detailType" : "GROUPPANEL",
-                              "name" : "grouppanel7",
-                              "getPSDEFDGroupLogics" : [ {
-                                "groupOP" : "AND",
-                                "logicCat" : "PANELVISIBLE",
-                                "logicType" : "GROUP",
-                                "getPSDEFDLogics" : [ {
-                                  "groupOP" : "OR",
-                                  "logicType" : "GROUP",
-                                  "name" : "OR [取反]",
-                                  "getPSDEFDLogics" : [ {
-                                    "condOP" : "EQ",
-                                    "dEFDName" : "method",
-                                    "logicType" : "SINGLE",
-                                    "name" : "method等于(=) QA",
-                                    "value" : "QA"
-                                  }, {
-                                    "condOP" : "EQ",
-                                    "dEFDName" : "method",
-                                    "logicType" : "SINGLE",
-                                    "name" : "method等于(=) MANUAL",
-                                    "value" : "MANUAL"
-                                  }, {
-                                    "condOP" : "EQ",
-                                    "dEFDName" : "method",
-                                    "logicType" : "SINGLE",
-                                    "name" : "method等于(=) BOOK",
-                                    "value" : "BOOK"
-                                  }, {
-                                    "condOP" : "EQ",
-                                    "dEFDName" : "method",
-                                    "logicType" : "SINGLE",
-                                    "name" : "method等于(=) PRESENTATION",
-                                    "value" : "PRESENTATION"
-                                  } ],
-                                  "notMode" : true
-                                } ],
-                                "relatedDetailNames" : [ "method" ],
-                                "notMode" : false
-                              } ],
-                              "getPSDEFormDetails" : [ {
-                                "caption" : "RAPTOR设置",
-                                "codeName" : "raptor",
-                                "contentType" : "REPEATER",
-                                "detailStyle" : "STYLE3",
-                                "detailType" : "MDCTRL",
-                                "fieldName" : "raptor",
-                                "name" : "raptor",
-                                "getPSDEFormDetails" : [ {
-                                  "caption" : "使用召回增强 RAPTOR 策略",
-                                  "codeName" : "use_raptor",
-                                  "createDV" : "0",
-                                  "dataType" : 25,
-                                  "detailStyle" : "DEFAULT",
-                                  "detailType" : "FORMITEM",
-                                  "enableCond" : 0,
-                                  "ignoreInput" : 0,
-                                  "labelPos" : "LEFT",
-                                  "labelWidth" : 250,
-                                  "name" : "use_raptor",
-                                  "noPrivDisplayMode" : 1,
-                                  "getPSEditor" : {
-                                    "editorType" : "SWITCH",
-                                    "name" : "use_raptor"
-                                  },
-                                  "getPSLayoutPos" : {
-                                    "colLG" : 8,
-                                    "colMD" : 8,
-                                    "layout" : "TABLE_24COL"
-                                  },
-                                  "updateDV" : "0",
-                                  "allowEmpty" : true,
-                                  "repeatContent" : true,
-                                  "showCaption" : true
-                                }, {
-                                  "codeName" : "grouppanel5",
-                                  "detailStyle" : "DEFAULT",
-                                  "detailType" : "GROUPPANEL",
-                                  "name" : "grouppanel5",
-                                  "getPSDEFDGroupLogics" : [ {
-                                    "groupOP" : "AND",
-                                    "logicCat" : "PANELVISIBLE",
-                                    "logicType" : "GROUP",
-                                    "getPSDEFDLogics" : [ {
-                                      "condOP" : "EQ",
-                                      "dEFDName" : "use_raptor",
-                                      "logicType" : "SINGLE",
-                                      "name" : "use_raptor等于(=) 1",
-                                      "value" : "1"
-                                    } ],
-                                    "relatedDetailNames" : [ "use_raptor" ],
-                                    "notMode" : false
-                                  } ],
-                                  "getPSDEFormDetails" : [ {
-                                    "caption" : "提示词",
-                                    "codeName" : "prompt",
-                                    "dataType" : 25,
-                                    "detailStyle" : "DEFAULT",
-                                    "detailType" : "FORMITEM",
-                                    "enableCond" : 0,
-                                    "ignoreInput" : 0,
-                                    "itemHeight" : 200.0,
-                                    "labelPos" : "LEFT",
-                                    "labelWidth" : 130,
-                                    "name" : "prompt",
-                                    "noPrivDisplayMode" : 1,
-                                    "getPSDEFDGroupLogics" : [ {
-                                      "groupOP" : "AND",
-                                      "logicCat" : "ITEMBLANK",
-                                      "logicType" : "GROUP",
-                                      "getPSDEFDLogics" : [ {
-                                        "condOP" : "NOTEQ",
-                                        "dEFDName" : "use_raptor",
-                                        "logicType" : "SINGLE",
-                                        "name" : "use_raptor不等于(<>) 1",
-                                        "value" : "1"
-                                      } ],
-                                      "relatedDetailNames" : [ "use_raptor" ],
-                                      "notMode" : false
-                                    } ],
-                                    "getPSEditor" : {
-                                      "editorHeight" : 200.0,
-                                      "editorParams" : {
-                                        "HEIGHT" : "200"
-                                      },
-                                      "editorType" : "TEXTAREA_10",
-                                      "name" : "prompt",
-                                      "showMaxLength" : true
-                                    },
-                                    "getPSLayoutPos" : {
-                                      "colLG" : 24,
-                                      "colMD" : 24,
-                                      "layout" : "TABLE_24COL"
-                                    },
-                                    "allowEmpty" : false,
-                                    "repeatContent" : true,
-                                    "showCaption" : true
-                                  }, {
-                                    "caption" : "最大token数",
-                                    "codeName" : "max_tokens",
-                                    "createDV" : "256",
-                                    "dataType" : 25,
-                                    "detailStyle" : "DEFAULT",
-                                    "detailType" : "FORMITEM",
-                                    "enableCond" : 0,
-                                    "ignoreInput" : 0,
-                                    "itemWidth" : 355.0,
-                                    "labelPos" : "LEFT",
-                                    "labelWidth" : 130,
-                                    "name" : "max_tokens",
-                                    "noPrivDisplayMode" : 1,
-                                    "getPSEditor" : {
-                                      "editorParams" : {
-                                        "maxvalue" : "2048",
-                                        "stepvalue" : "1"
-                                      },
-                                      "editorType" : "SLIDER",
-                                      "editorWidth" : 225.0,
-                                      "maxValue" : 2048.0,
-                                      "name" : "max_tokens",
-                                      "stepValue" : 1.0
-                                    },
-                                    "getPSLayoutPos" : {
-                                      "colLG" : 12,
-                                      "colMD" : 12,
-                                      "layout" : "TABLE_24COL"
-                                    },
-                                    "updateDV" : "256",
-                                    "allowEmpty" : true,
-                                    "repeatContent" : true,
-                                    "showCaption" : true
-                                  }, {
-                                    "caption" : "阈值",
-                                    "codeName" : "threshold",
-                                    "createDV" : "0.1",
-                                    "dataType" : 25,
-                                    "detailStyle" : "DEFAULT",
-                                    "detailType" : "FORMITEM",
-                                    "enableCond" : 0,
-                                    "ignoreInput" : 0,
-                                    "itemWidth" : 355.0,
-                                    "labelPos" : "LEFT",
-                                    "labelWidth" : 130,
-                                    "name" : "threshold",
-                                    "noPrivDisplayMode" : 1,
-                                    "getPSEditor" : {
-                                      "editorParams" : {
-                                        "maxvalue" : "1",
-                                        "stepvalue" : "0.01"
-                                      },
-                                      "editorType" : "SLIDER",
-                                      "editorWidth" : 225.0,
-                                      "maxValue" : 1.0,
-                                      "name" : "threshold",
-                                      "stepValue" : 0.01
-                                    },
-                                    "getPSLayoutPos" : {
-                                      "colLG" : 12,
-                                      "colMD" : 12,
-                                      "layout" : "TABLE_24COL"
-                                    },
-                                    "updateDV" : "0.1",
-                                    "allowEmpty" : true,
-                                    "repeatContent" : true,
-                                    "showCaption" : true
-                                  }, {
-                                    "caption" : "最大聚类数",
-                                    "codeName" : "max_clusters",
-                                    "createDV" : "64",
-                                    "dataType" : 25,
-                                    "detailStyle" : "DEFAULT",
-                                    "detailType" : "FORMITEM",
-                                    "enableCond" : 0,
-                                    "ignoreInput" : 0,
-                                    "itemWidth" : 355.0,
-                                    "labelPos" : "LEFT",
-                                    "labelWidth" : 130,
-                                    "name" : "max_clusters",
-                                    "noPrivDisplayMode" : 1,
-                                    "getPSEditor" : {
-                                      "editorParams" : {
-                                        "maxvalue" : "1024",
-                                        "stepvalue" : "1"
-                                      },
-                                      "editorType" : "SLIDER",
-                                      "editorWidth" : 225.0,
-                                      "maxValue" : 1024.0,
-                                      "name" : "max_clusters",
-                                      "stepValue" : 1.0
-                                    },
-                                    "getPSLayoutPos" : {
-                                      "colLG" : 12,
-                                      "colMD" : 12,
-                                      "layout" : "TABLE_24COL"
-                                    },
-                                    "updateDV" : "64",
-                                    "allowEmpty" : true,
-                                    "repeatContent" : true,
-                                    "showCaption" : true
-                                  }, {
-                                    "caption" : "随机种子",
-                                    "codeName" : "random_seed",
-                                    "createDV" : "42",
-                                    "dataType" : 25,
-                                    "detailStyle" : "DEFAULT",
-                                    "detailType" : "FORMITEM",
-                                    "enableCond" : 0,
-                                    "ignoreInput" : 0,
-                                    "labelPos" : "LEFT",
-                                    "labelWidth" : 130,
-                                    "name" : "random_seed",
-                                    "noPrivDisplayMode" : 1,
-                                    "getPSEditor" : {
-                                      "editorType" : "NUMBER",
-                                      "name" : "random_seed"
-                                    },
-                                    "getPSLayoutPos" : {
-                                      "colLG" : 12,
-                                      "colMD" : 12,
-                                      "layout" : "TABLE_24COL"
-                                    },
-                                    "updateDV" : "42",
-                                    "allowEmpty" : true,
-                                    "repeatContent" : true,
-                                    "showCaption" : true
-                                  } ],
-                                  "getPSLayout" : {
-                                    "childColLG" : 12,
-                                    "childColMD" : 12,
-                                    "columnCount" : 24,
-                                    "layout" : "TABLE_24COL"
-                                  },
-                                  "getPSLayoutPos" : {
-                                    "colLG" : 24,
-                                    "colMD" : 24,
-                                    "layout" : "TABLE_24COL"
-                                  },
-                                  "infoGroupMode" : true,
-                                  "repeatContent" : true,
-                                  "showCaption" : false
-                                } ],
-                                "getPSLayout" : {
-                                  "childColLG" : 8,
-                                  "childColMD" : 8,
-                                  "columnCount" : 24,
-                                  "layout" : "TABLE_24COL"
-                                },
-                                "getPSLayoutPos" : {
-                                  "colLG" : 24,
-                                  "colMD" : 24,
-                                  "layout" : "TABLE_24COL"
-                                },
-                                "infoGroupMode" : true,
-                                "repeatContent" : true,
-                                "showCaption" : true
-                              }, {
-                                "caption" : "PAGEINDEX设置",
-                                "codeName" : "pageindex",
-                                "contentType" : "REPEATER",
-                                "detailStyle" : "STYLE3",
-                                "detailType" : "MDCTRL",
-                                "fieldName" : "pageindex",
-                                "name" : "pageindex",
-                                "getPSDEFormDetails" : [ {
-                                  "caption" : "使用目录增强 PAGEINDEX 策略",
-                                  "codeName" : "use_pageindex",
-                                  "createDV" : "0",
-                                  "dataType" : 25,
-                                  "detailStyle" : "DEFAULT",
-                                  "detailType" : "FORMITEM",
-                                  "enableCond" : 0,
-                                  "ignoreInput" : 0,
-                                  "labelPos" : "LEFT",
-                                  "labelWidth" : 250,
-                                  "name" : "use_pageindex",
-                                  "noPrivDisplayMode" : 1,
-                                  "getPSEditor" : {
-                                    "editorType" : "SWITCH",
-                                    "name" : "use_pageindex"
-                                  },
-                                  "getPSLayoutPos" : {
-                                    "colLG" : 8,
-                                    "colMD" : 12,
-                                    "layout" : "TABLE_24COL"
-                                  },
-                                  "allowEmpty" : true,
-                                  "repeatContent" : true,
-                                  "showCaption" : true
-                                }, {
-                                  "codeName" : "grouppanel118",
-                                  "detailStyle" : "DEFAULT",
-                                  "detailType" : "GROUPPANEL",
-                                  "name" : "grouppanel118",
-                                  "getPSDEFDGroupLogics" : [ {
-                                    "groupOP" : "AND",
-                                    "logicCat" : "PANELVISIBLE",
-                                    "logicType" : "GROUP",
-                                    "getPSDEFDLogics" : [ {
-                                      "condOP" : "EQ",
-                                      "dEFDName" : "use_pageindex",
-                                      "logicType" : "SINGLE",
-                                      "name" : "use_pageindex等于(=) 1",
-                                      "value" : "1"
-                                    } ],
-                                    "relatedDetailNames" : [ "use_pageindex" ],
-                                    "notMode" : false
-                                  } ],
-                                  "getPSDEFormDetails" : [ {
-                                    "caption" : "每次构建页面数",
-                                    "codeName" : "pages_per_index",
-                                    "createDV" : "5",
-                                    "dataType" : 25,
-                                    "detailStyle" : "DEFAULT",
-                                    "detailType" : "FORMITEM",
-                                    "enableCond" : 3,
-                                    "ignoreInput" : 0,
-                                    "labelPos" : "LEFT",
-                                    "labelWidth" : 130,
-                                    "name" : "pages_per_index",
-                                    "noPrivDisplayMode" : 1,
-                                    "getPSEditor" : {
-                                      "editorType" : "NUMBER",
-                                      "name" : "pages_per_index"
-                                    },
-                                    "getPSLayoutPos" : {
-                                      "colLG" : 8,
-                                      "colMD" : 12,
-                                      "layout" : "TABLE_24COL"
-                                    },
-                                    "updateDV" : "5",
-                                    "allowEmpty" : true,
-                                    "repeatContent" : true,
-                                    "showCaption" : true
-                                  }, {
-                                    "caption" : "仅构建页面片段",
-                                    "codeName" : "pageindex_only",
-                                    "createDV" : "0",
-                                    "dataType" : 25,
-                                    "detailStyle" : "DEFAULT",
-                                    "detailType" : "FORMITEM",
-                                    "enableCond" : 3,
-                                    "ignoreInput" : 0,
-                                    "labelPos" : "LEFT",
-                                    "labelWidth" : 130,
-                                    "name" : "pageindex_only",
-                                    "noPrivDisplayMode" : 1,
-                                    "getPSEditor" : {
-                                      "editorType" : "SWITCH",
-                                      "name" : "pageindex_only"
-                                    },
-                                    "getPSLayoutPos" : {
-                                      "colLG" : 8,
-                                      "colMD" : 12,
-                                      "layout" : "TABLE_24COL"
-                                    },
-                                    "updateDV" : "0",
-                                    "allowEmpty" : true,
-                                    "repeatContent" : true,
-                                    "showCaption" : true
-                                  }, {
-                                    "caption" : "TOC校验提示词",
-                                    "codeName" : "toc_validation_prompt",
-                                    "dataType" : 25,
-                                    "detailStyle" : "DEFAULT",
-                                    "detailType" : "FORMITEM",
-                                    "enableCond" : 3,
-                                    "ignoreInput" : 0,
-                                    "itemHeight" : 320.0,
-                                    "labelPos" : "TOP",
-                                    "labelWidth" : 130,
-                                    "name" : "toc_validation_prompt",
-                                    "noPrivDisplayMode" : 1,
-                                    "getPSEditor" : {
-                                      "editorHeight" : 300.0,
-                                      "editorParams" : {
-                                        "ISAUTO" : "true",
-                                        "AC" : "true",
-                                        "language" : "markdown"
-                                      },
-                                      "editorType" : "MARKDOWN",
-                                      "mode" : "EDIT",
-                                      "name" : "toc_validation_prompt",
-                                      "enableAC" : true,
-                                      "showMaxLength" : true
-                                    },
-                                    "getPSLayoutPos" : {
-                                      "colMD" : 24,
-                                      "layout" : "TABLE_24COL"
-                                    },
-                                    "allowEmpty" : true,
-                                    "repeatContent" : true,
-                                    "showCaption" : true
-                                  }, {
-                                    "caption" : "目录识别提示词",
-                                    "codeName" : "page_indexer_prompt",
-                                    "dataType" : 25,
-                                    "detailStyle" : "DEFAULT",
-                                    "detailType" : "FORMITEM",
-                                    "enableCond" : 3,
-                                    "ignoreInput" : 0,
-                                    "itemHeight" : 320.0,
-                                    "labelPos" : "TOP",
-                                    "labelWidth" : 130,
-                                    "name" : "page_indexer_prompt",
-                                    "noPrivDisplayMode" : 1,
-                                    "getPSEditor" : {
-                                      "editorHeight" : 300.0,
-                                      "editorParams" : {
-                                        "ISAUTO" : "true",
-                                        "AC" : "true",
-                                        "language" : "markdown"
-                                      },
-                                      "editorType" : "MARKDOWN",
-                                      "mode" : "EDIT",
-                                      "name" : "page_indexer_prompt",
-                                      "enableAC" : true,
-                                      "showMaxLength" : true
-                                    },
-                                    "getPSLayoutPos" : {
-                                      "colMD" : 24,
-                                      "layout" : "TABLE_24COL"
-                                    },
-                                    "allowEmpty" : true,
-                                    "repeatContent" : true,
-                                    "showCaption" : true
-                                  } ],
-                                  "getPSLayout" : {
-                                    "childColMD" : 24,
-                                    "columnCount" : 24,
-                                    "layout" : "TABLE_24COL"
-                                  },
-                                  "getPSLayoutPos" : {
-                                    "colMD" : 24,
-                                    "layout" : "TABLE_24COL"
-                                  },
-                                  "infoGroupMode" : true,
-                                  "repeatContent" : true,
-                                  "showCaption" : false
-                                } ],
-                                "getPSLayout" : {
-                                  "childColMD" : 24,
-                                  "columnCount" : 24,
-                                  "layout" : "TABLE_24COL"
-                                },
-                                "getPSLayoutPos" : {
-                                  "colMD" : 24,
-                                  "layout" : "TABLE_24COL"
-                                },
-                                "infoGroupMode" : true,
-                                "repeatContent" : true,
-                                "showCaption" : true
-                              }, {
-                                "caption" : "Graphrag设置",
-                                "codeName" : "graphrag",
-                                "contentType" : "REPEATER",
-                                "detailStyle" : "STYLE3",
-                                "detailType" : "MDCTRL",
-                                "fieldName" : "graphrag",
-                                "name" : "graphrag",
-                                "getPSDEFormDetails" : [ {
-                                  "caption" : "提取知识图谱",
-                                  "codeName" : "use_graphrag",
-                                  "createDV" : "0",
-                                  "dataType" : 25,
-                                  "detailStyle" : "DEFAULT",
-                                  "detailType" : "FORMITEM",
-                                  "enableCond" : 0,
-                                  "ignoreInput" : 0,
-                                  "labelPos" : "LEFT",
-                                  "labelWidth" : 250,
-                                  "name" : "use_graphrag",
-                                  "noPrivDisplayMode" : 1,
-                                  "getPSEditor" : {
-                                    "editorType" : "SWITCH",
-                                    "name" : "use_graphrag"
-                                  },
-                                  "getPSLayoutPos" : {
-                                    "colLG" : 12,
-                                    "colMD" : 12,
-                                    "layout" : "TABLE_24COL"
-                                  },
-                                  "allowEmpty" : true,
-                                  "repeatContent" : true,
-                                  "showCaption" : true
-                                }, {
-                                  "codeName" : "grouppanel3",
-                                  "detailStyle" : "DEFAULT",
-                                  "detailType" : "GROUPPANEL",
-                                  "name" : "grouppanel3",
-                                  "getPSDEFDGroupLogics" : [ {
-                                    "groupOP" : "AND",
-                                    "logicCat" : "PANELVISIBLE",
-                                    "logicType" : "GROUP",
-                                    "getPSDEFDLogics" : [ {
-                                      "condOP" : "EQ",
-                                      "dEFDName" : "use_graphrag",
-                                      "logicType" : "SINGLE",
-                                      "name" : "use_graphrag等于(=) 1",
-                                      "value" : "1"
-                                    } ],
-                                    "relatedDetailNames" : [ "use_graphrag" ],
-                                    "notMode" : false
-                                  } ],
-                                  "getPSDEFormDetails" : [ {
-                                    "caption" : "实体类型",
-                                    "codeName" : "entity_types",
-                                    "dataType" : 25,
-                                    "detailStyle" : "DEFAULT",
-                                    "detailType" : "FORMITEM",
-                                    "enableCond" : 0,
-                                    "ignoreInput" : 0,
-                                    "labelPos" : "LEFT",
-                                    "labelWidth" : 130,
-                                    "name" : "entity_types",
-                                    "noPrivDisplayMode" : 1,
-                                    "getPSDEFDGroupLogics" : [ {
-                                      "groupOP" : "AND",
-                                      "logicCat" : "ITEMBLANK",
-                                      "logicType" : "GROUP",
-                                      "getPSDEFDLogics" : [ {
-                                        "condOP" : "NOTEQ",
-                                        "dEFDName" : "use_graphrag",
-                                        "logicType" : "SINGLE",
-                                        "name" : "use_graphrag不等于(<>) 1",
-                                        "value" : "1"
-                                      } ],
-                                      "relatedDetailNames" : [ "use_graphrag" ],
-                                      "notMode" : false
-                                    } ],
-                                    "getPSEditor" : {
-                                      "editorParams" : {
-                                        "forceselection" : "false"
-                                      },
-                                      "editorType" : "MDROPDOWNLIST",
-                                      "name" : "entity_types",
-                                      "getPSAppCodeList" : {
-                                        "modelref" : true,
-                                        "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__entity_types.json"
-                                      },
-                                      "singleSelect" : false
-                                    },
-                                    "getPSLayoutPos" : {
-                                      "colLG" : 12,
-                                      "colMD" : 12,
-                                      "layout" : "TABLE_24COL"
-                                    },
-                                    "allowEmpty" : false,
-                                    "needCodeListConfig" : true,
-                                    "repeatContent" : true,
-                                    "showCaption" : true
-                                  }, {
-                                    "caption" : "方法",
-                                    "codeName" : "graphrag_method",
-                                    "dataType" : 25,
-                                    "detailStyle" : "DEFAULT",
-                                    "detailType" : "FORMITEM",
-                                    "enableCond" : 0,
-                                    "fieldName" : "method",
-                                    "ignoreInput" : 0,
-                                    "labelPos" : "LEFT",
-                                    "labelWidth" : 130,
-                                    "name" : "graphrag_method",
-                                    "noPrivDisplayMode" : 1,
-                                    "getPSEditor" : {
-                                      "editorType" : "DROPDOWNLIST",
-                                      "name" : "graphrag_method",
-                                      "getPSAppCodeList" : {
-                                        "modelref" : true,
-                                        "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/ai__graphrag_method.json"
-                                      },
-                                      "singleSelect" : true
-                                    },
-                                    "getPSLayoutPos" : {
-                                      "colLG" : 12,
-                                      "colMD" : 12,
-                                      "layout" : "TABLE_24COL"
-                                    },
-                                    "allowEmpty" : true,
-                                    "needCodeListConfig" : true,
-                                    "repeatContent" : true,
-                                    "showCaption" : true
-                                  }, {
-                                    "caption" : "实体归一化",
-                                    "codeName" : "resolution",
-                                    "createDV" : "1",
-                                    "dataType" : 25,
-                                    "detailStyle" : "DEFAULT",
-                                    "detailType" : "FORMITEM",
-                                    "enableCond" : 0,
-                                    "ignoreInput" : 0,
-                                    "labelPos" : "LEFT",
-                                    "labelWidth" : 130,
-                                    "name" : "resolution",
-                                    "noPrivDisplayMode" : 1,
-                                    "getPSEditor" : {
-                                      "editorType" : "SWITCH",
-                                      "name" : "resolution"
-                                    },
-                                    "getPSLayoutPos" : {
-                                      "colLG" : 12,
-                                      "colMD" : 12,
-                                      "layout" : "TABLE_24COL"
-                                    },
-                                    "allowEmpty" : true,
-                                    "repeatContent" : true,
-                                    "showCaption" : true
-                                  }, {
-                                    "caption" : "社区报告生成",
-                                    "codeName" : "community",
-                                    "dataType" : 25,
-                                    "detailStyle" : "DEFAULT",
-                                    "detailType" : "FORMITEM",
-                                    "enableCond" : 0,
-                                    "ignoreInput" : 0,
-                                    "labelPos" : "LEFT",
-                                    "labelWidth" : 130,
-                                    "name" : "community",
-                                    "noPrivDisplayMode" : 1,
-                                    "getPSEditor" : {
-                                      "editorType" : "HIDDEN",
-                                      "name" : "community"
-                                    },
-                                    "getPSLayoutPos" : {
-                                      "colLG" : 12,
-                                      "colMD" : 12,
-                                      "layout" : "TABLE_24COL"
-                                    },
-                                    "allowEmpty" : true,
-                                    "hidden" : true,
-                                    "repeatContent" : true
-                                  }, {
-                                    "caption" : "消除歧义子提示词",
-                                    "codeName" : "disambiguation_sub_prompt",
-                                    "dataType" : 25,
-                                    "detailStyle" : "DEFAULT",
-                                    "detailType" : "FORMITEM",
-                                    "enableCond" : 0,
-                                    "ignoreInput" : 0,
-                                    "itemHeight" : 300.0,
-                                    "labelPos" : "LEFT",
-                                    "labelWidth" : 130,
-                                    "name" : "disambiguation_sub_prompt",
-                                    "noPrivDisplayMode" : 1,
-                                    "getPSEditor" : {
-                                      "editorHeight" : 300.0,
-                                      "editorType" : "MARKDOWN",
-                                      "mode" : "EDIT",
-                                      "name" : "disambiguation_sub_prompt",
-                                      "showMaxLength" : true
-                                    },
-                                    "getPSLayoutPos" : {
-                                      "colLG" : 24,
-                                      "colMD" : 24,
-                                      "layout" : "TABLE_24COL"
-                                    },
-                                    "allowEmpty" : true,
-                                    "repeatContent" : true,
-                                    "showCaption" : true
-                                  }, {
-                                    "caption" : "关系消歧子提示词",
-                                    "codeName" : "relation_disambiguation_sub_prompt",
-                                    "dataType" : 25,
-                                    "detailStyle" : "DEFAULT",
-                                    "detailType" : "FORMITEM",
-                                    "enableCond" : 0,
-                                    "ignoreInput" : 0,
-                                    "itemHeight" : 300.0,
-                                    "labelPos" : "LEFT",
-                                    "labelWidth" : 130,
-                                    "name" : "relation_disambiguation_sub_prompt",
-                                    "noPrivDisplayMode" : 1,
-                                    "getPSEditor" : {
-                                      "editorHeight" : 300.0,
-                                      "editorType" : "MARKDOWN",
-                                      "mode" : "EDIT",
-                                      "name" : "relation_disambiguation_sub_prompt",
-                                      "showMaxLength" : true
-                                    },
-                                    "getPSLayoutPos" : {
-                                      "colLG" : 24,
-                                      "colMD" : 24,
-                                      "layout" : "TABLE_24COL"
-                                    },
-                                    "allowEmpty" : true,
-                                    "repeatContent" : true,
-                                    "showCaption" : true
-                                  } ],
-                                  "getPSLayout" : {
-                                    "childColLG" : 12,
-                                    "childColMD" : 12,
-                                    "columnCount" : 24,
-                                    "layout" : "TABLE_24COL"
-                                  },
-                                  "getPSLayoutPos" : {
-                                    "colLG" : 24,
-                                    "colMD" : 24,
-                                    "layout" : "TABLE_24COL"
-                                  },
-                                  "infoGroupMode" : true,
-                                  "repeatContent" : true,
-                                  "showCaption" : false
-                                } ],
-                                "getPSLayout" : {
-                                  "childColLG" : 12,
-                                  "childColMD" : 12,
-                                  "columnCount" : 24,
-                                  "layout" : "TABLE_24COL"
-                                },
-                                "getPSLayoutPos" : {
-                                  "colMD" : 24,
-                                  "layout" : "TABLE_24COL"
-                                },
-                                "infoGroupMode" : true,
-                                "repeatContent" : true,
-                                "showCaption" : true
-                              } ],
-                              "getPSLayout" : {
-                                "childColMD" : 24,
-                                "columnCount" : 24,
-                                "layout" : "TABLE_24COL"
-                              },
-                              "getPSLayoutPos" : {
-                                "colLG" : 24,
-                                "colMD" : 24,
-                                "layout" : "TABLE_24COL"
-                              },
-                              "infoGroupMode" : true,
-                              "repeatContent" : true,
-                              "showCaption" : false
-                            } ],
-                            "getPSLayout" : {
-                              "childColLG" : 12,
-                              "childColMD" : 12,
-                              "columnCount" : 24,
-                              "layout" : "TABLE_24COL"
-                            },
-                            "getPSLayoutPos" : {
-                              "colMD" : 24,
-                              "layout" : "TABLE_24COL"
-                            },
-                            "infoGroupMode" : true,
-                            "repeatContent" : true,
-                            "showCaption" : false
-                          }, {
-                            "caption" : "自定义脱敏规则",
-                            "codeName" : "grouppanel2",
-                            "detailStyle" : "DEFAULT",
-                            "detailType" : "GROUPPANEL",
-                            "name" : "grouppanel2",
-                            "getPSDEFormDetails" : [ {
-                              "codeName" : "data_masking_rules",
-                              "contentType" : "REPEATER",
-                              "detailStyle" : "DEFAULT",
-                              "detailType" : "MDCTRL",
-                              "name" : "data_masking_rules",
-                              "getPSDEFormDetails" : [ {
-                                "caption" : "匹配规则",
-                                "codeName" : "pattern",
-                                "dataType" : 25,
-                                "detailStyle" : "DEFAULT",
-                                "detailType" : "FORMITEM",
-                                "enableCond" : 3,
-                                "ignoreInput" : 0,
-                                "labelPos" : "LEFT",
-                                "labelWidth" : 130,
-                                "name" : "pattern",
-                                "noPrivDisplayMode" : 1,
-                                "getPSEditor" : {
-                                  "editorType" : "TEXTBOX",
-                                  "name" : "pattern",
-                                  "placeHolder" : "正则式"
-                                },
-                                "getPSLayoutPos" : {
-                                  "colLG" : 8,
-                                  "colMD" : 12,
-                                  "layout" : "TABLE_24COL"
-                                },
-                                "allowEmpty" : true,
-                                "repeatContent" : true,
-                                "showCaption" : true
-                              }, {
-                                "caption" : "替换文本",
-                                "codeName" : "replacement",
-                                "dataType" : 25,
-                                "detailStyle" : "DEFAULT",
-                                "detailType" : "FORMITEM",
-                                "enableCond" : 3,
-                                "ignoreInput" : 0,
-                                "labelPos" : "LEFT",
-                                "labelWidth" : 130,
-                                "name" : "replacement",
-                                "noPrivDisplayMode" : 1,
-                                "getPSEditor" : {
-                                  "editorType" : "TEXTBOX",
-                                  "name" : "replacement"
-                                },
-                                "getPSLayoutPos" : {
-                                  "colLG" : 16,
-                                  "colMD" : 12,
-                                  "layout" : "TABLE_24COL"
-                                },
-                                "allowEmpty" : true,
-                                "repeatContent" : true,
-                                "showCaption" : true
-                              } ],
-                              "getPSLayout" : {
-                                "childColMD" : 24,
-                                "columnCount" : 24,
-                                "layout" : "TABLE_24COL"
-                              },
-                              "getPSLayoutPos" : {
-                                "colMD" : 24,
-                                "layout" : "TABLE_24COL"
-                              },
-                              "infoGroupMode" : true,
-                              "repeatContent" : true,
-                              "showCaption" : true
-                            } ],
-                            "getPSLayout" : {
-                              "childColMD" : 24,
-                              "columnCount" : 24,
-                              "layout" : "TABLE_24COL"
-                            },
-                            "getPSLayoutPos" : {
-                              "colMD" : 24,
-                              "layout" : "TABLE_24COL"
-                            },
-                            "infoGroupMode" : true,
-                            "repeatContent" : true,
-                            "showCaption" : true
-                          } ],
-                          "getPSLayout" : {
-                            "childColMD" : 24,
-                            "columnCount" : 24,
-                            "layout" : "TABLE_24COL"
-                          },
-                          "getPSLayoutPos" : {
-                            "colMD" : 24,
-                            "layout" : "TABLE_24COL"
-                          },
-                          "infoGroupMode" : true,
-                          "showCaption" : true
-                        } ],
-                        "getPSLayout" : {
-                          "childColMD" : 24,
-                          "columnCount" : 24,
-                          "layout" : "TABLE_24COL"
-                        },
-                        "getPSLayoutPos" : {
-                          "colMD" : 24,
-                          "layout" : "TABLE_24COL"
-                        },
-                        "infoGroupMode" : true,
-                        "showCaption" : false
-                      } ],
-                      "getPSLayout" : {
-                        "childColMD" : 24,
-                        "columnCount" : 24,
-                        "layout" : "TABLE_24COL"
-                      },
-                      "getPSLayoutPos" : {
-                        "colMD" : 24,
-                        "layout" : "TABLE_24COL"
-                      },
-                      "infoGroupMode" : true,
-                      "showCaption" : false
-                    }, {
-                      "getCapPSLanguageRes" : {
-                        "lanResTag" : "DEF.LNAME.AI_KNOWLEDGE_BASE.ID"
-                      },
-                      "caption" : "知识库标识",
-                      "codeName" : "id",
-                      "dataType" : 25,
-                      "detailStyle" : "DEFAULT",
-                      "detailType" : "FORMITEM",
-                      "enableCond" : 3,
-                      "ignoreInput" : 0,
-                      "labelPos" : "LEFT",
-                      "labelWidth" : 130,
-                      "name" : "id",
-                      "noPrivDisplayMode" : 1,
-                      "getPSAppDEField" : {
-                        "name" : "ID",
-                        "codeName" : "id"
-                      },
-                      "getPSEditor" : {
-                        "editorType" : "HIDDEN",
-                        "name" : "id"
-                      },
-                      "getPSLayoutPos" : {
-                        "colMD" : 24,
-                        "layout" : "TABLE_24COL"
-                      },
-                      "allowEmpty" : true,
-                      "hidden" : true
-                    } ],
-                    "getPSLayout" : {
-                      "childColMD" : 24,
-                      "columnCount" : 24,
-                      "layout" : "TABLE_24COL"
-                    },
-                    "infoGroupMode" : true
-                  } ],
-                  "getPSLayout" : {
-                    "childColMD" : 24,
-                    "columnCount" : 24,
-                    "layout" : "TABLE_24COL"
-                  },
-                  "getRemovePSControlAction" : {
-                    "modelref" : true,
-                    "id" : "remove",
-                    "actionName" : "Remove",
-                    "actionType" : "DEACTION",
-                    "dataAccessAction" : "DELETE",
-                    "name" : "remove",
-                    "getPSAppDEMethod" : {
-                      "modelref" : true,
-                      "id" : "remove"
-                    },
-                    "getPSAppDataEntity" : {
-                      "modelref" : true,
-                      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
-                    }
-                  },
-                  "tabHeaderPos" : "TOP",
-                  "getUpdatePSControlAction" : {
-                    "modelref" : true,
-                    "id" : "update",
-                    "actionName" : "Update",
-                    "actionType" : "DEACTION",
-                    "dataAccessAction" : "UPDATE",
-                    "name" : "update",
-                    "getPSAppDEMethod" : {
-                      "modelref" : true,
-                      "id" : "update"
-                    },
-                    "getPSAppDataEntity" : {
-                      "modelref" : true,
-                      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
-                    }
-                  },
-                  "infoFormMode" : true,
-                  "noTabHeader" : true,
-                  "name" : "form",
-                  "modelid" : "8d1a2bcdd5f757e37a7b197305ea5c86",
-                  "modeltype" : "PSDEFORM_EDITFORM"
-                }, {
-                  "codeName" : "chunking_view_readonly_datainfobar",
-                  "controlType" : "DATAINFOBAR",
-                  "name" : "datainfobar",
-                  "getPSAppDataEntity" : {
-                    "modelref" : true,
-                    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
-                  },
-                  "getPSControlParam" : {
-                    "id" : "datainfobar"
-                  }
-                }, {
-                  "getCapPSLanguageRes" : {
-                    "lanResTag" : "DE.LNAME.AI_KNOWLEDGE_BASE"
-                  },
-                  "caption" : "切片策略",
-                  "codeName" : "chunking_view_readonly_captionbar",
-                  "controlType" : "CAPTIONBAR",
-                  "name" : "captionbar",
-                  "getPSAppDataEntity" : {
-                    "modelref" : true,
-                    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
-                  },
-                  "getPSControlParam" : { }
-                } ],
-                "getPSDEViewCodeName" : "chunking_view_readonly",
-                "getPSDEViewId" : "029375d448617dda658e20c8f263f4e6",
-                "getPSViewLayoutPanel" : {
-                  "codeName" : "layoutpanel",
-                  "controlStyle" : "APPDEEDITVIEW",
-                  "controlType" : "VIEWLAYOUTPANEL",
-                  "name" : "layoutpanel",
-                  "getPSAppDataEntity" : {
-                    "modelref" : true,
-                    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
-                  },
-                  "getPSControlParam" : { },
-                  "layoutBodyOnly" : true,
-                  "layoutPanel" : true,
-                  "useDefaultLayout" : true
-                },
-                "title" : "切片策略",
-                "viewStyle" : "DEFAULT",
-                "viewType" : "DEEDITVIEW",
-                "xDataControlName" : "form",
-                "enableDP" : true,
-                "showCaptionBar" : false,
-                "showDataInfoBar" : true,
-                "modelid" : "9a417344c5ef436e56ab2363b91236bc",
-                "modeltype" : "PSAPPDEVIEW"
-              },
-              "getPSDEFDGroupLogics" : [ {
-                "groupOP" : "AND",
-                "logicCat" : "PANELVISIBLE",
-                "logicType" : "GROUP",
-                "getPSDEFDLogics" : [ {
-                  "condOP" : "EQ",
-                  "dEFDName" : "custom_chunk",
-                  "logicType" : "SINGLE",
-                  "name" : "custom_chunk等于(=) 0",
-                  "value" : "0"
-                } ],
-                "relatedDetailNames" : [ "custom_chunk" ],
-                "notMode" : false
-              } ],
-              "getPSLayoutPos" : {
-                "colMD" : 24,
-                "height" : 400,
-                "heightMode" : "PX",
-                "layout" : "TABLE_24COL"
-              },
-              "getPSNavigateContexts" : [ {
-                "key" : "AI_KNOWLEDGE_BASE",
-                "name" : "AI_KNOWLEDGE_BASE",
-                "value" : "ai_knowledge_base",
-                "rawValue" : false
-              } ],
-              "parentDataJO" : {
-                "srfparentdename" : "AI_KB_DOCUMENT_WIZARD",
-                "SRFPARENTTYPE" : "CUSTOM"
-              },
-              "needSave" : false,
-              "refreshItemsSetParamOnly" : false,
-              "showCaption" : true
-            } ],
-            "getPSLayout" : {
-              "childColMD" : 24,
-              "columnCount" : 24,
-              "layout" : "TABLE_24COL"
-            },
-            "getPSLayoutPos" : {
-              "colMD" : 24,
-              "layout" : "TABLE_24COL"
-            },
-            "infoGroupMode" : false,
-            "showCaption" : true
-          } ],
-          "getPSLayout" : {
-            "childColMD" : 24,
-            "columnCount" : 24,
-            "layout" : "TABLE_24COL"
-          },
-          "getPSLayoutPos" : {
-            "colMD" : 24,
-            "layout" : "TABLE_24COL"
-          },
-          "infoGroupMode" : false,
-          "showCaption" : false
-        }, {
-          "getCapPSLanguageRes" : {
-            "lanResTag" : "DEF.LNAME.AI_KB_DOCUMENT_WIZARD.ID"
-          },
-          "caption" : "标识",
-          "codeName" : "id",
-          "dataType" : 25,
-          "detailStyle" : "DEFAULT",
-          "detailType" : "FORMITEM",
-          "enableCond" : 3,
-          "ignoreInput" : 0,
-          "labelPos" : "LEFT",
-          "labelWidth" : 130,
-          "name" : "id",
-          "noPrivDisplayMode" : 1,
-          "getPSAppDEField" : {
-            "name" : "ID",
-            "codeName" : "id"
-          },
-          "getPSEditor" : {
-            "editorType" : "HIDDEN",
-            "name" : "id"
-          },
-          "getPSLayoutPos" : {
-            "colMD" : 24,
-            "layout" : "TABLE_24COL"
-          },
-          "allowEmpty" : true,
-          "hidden" : true
-        } ],
-        "getPSLayout" : {
-          "childColMD" : 24,
-          "columnCount" : 24,
-          "layout" : "TABLE_24COL"
-        },
-        "infoGroupMode" : false
-      } ],
-      "getPSDEWizardForm" : {
-        "formTag" : "chunk_settings",
-        "name" : "切片设置",
-        "getPSDEFormName" : "切片设置",
-        "getPSDEWizardStep" : {
-          "modelref" : true,
-          "id" : "切片设置"
-        },
-        "stepActions" : [ "PREV", "NEXT" ],
-        "stepTag" : "chunk_settings",
-        "firstForm" : false
-      },
-      "getPSLayout" : {
-        "childColMD" : 24,
-        "columnCount" : 24,
-        "layout" : "TABLE_24COL"
-      },
-      "tabHeaderPos" : "TOP",
-      "getUpdatePSControlAction" : {
-        "modelref" : true,
-        "id" : "update",
-        "actionName" : "UpdateTemp",
-        "actionType" : "DEACTION",
-        "name" : "update",
-        "getPSAppDEMethod" : {
-          "modelref" : true,
-          "id" : "UpdateTemp"
-        },
-        "getPSAppDataEntity" : {
-          "modelref" : true,
-          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document_wizard.json"
-        }
-      },
-      "noTabHeader" : true,
-      "name" : "wizardpanel_form_chunk_settings",
-      "modelid" : "f5aee17134c32746a57839880936943e",
-      "modeltype" : "PSDEFORM_EDITFORM"
-    }, {
-      "codeName" : "data_processing",
-      "controlType" : "FORM",
-      "defaultLabelWidth" : 130,
-      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document_wizard/PSFORMS/data_processing.json",
-      "formFuncMode" : "WIZARDFORM",
-      "getGetPSControlAction" : {
-        "modelref" : true,
-        "id" : "load",
-        "actionName" : "GetTemp",
-        "actionType" : "DEACTION",
-        "name" : "load",
-        "getPSAppDEMethod" : {
-          "modelref" : true,
-          "id" : "GetTemp"
-        },
-        "getPSAppDataEntity" : {
-          "modelref" : true,
-          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document_wizard.json"
-        }
-      },
-      "hookEventNames" : [ "SAVE", "LOAD" ],
-      "logicName" : "数据处理",
-      "getPSAppDataEntity" : {
-        "modelref" : true,
-        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document_wizard.json"
-      },
-      "getPSControlHandler" : {
-        "getPSHandlerActions" : [ {
-          "actionName" : "GetTemp",
-          "actionType" : "DEACTION",
-          "name" : "load",
-          "getPSAppDEMethod" : {
-            "modelref" : true,
-            "id" : "GetTemp"
-          },
-          "getPSAppDataEntity" : {
-            "modelref" : true,
-            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document_wizard.json"
-          }
-        }, {
-          "actionName" : "UpdateTemp",
-          "actionType" : "DEACTION",
-          "name" : "update",
-          "getPSAppDEMethod" : {
-            "modelref" : true,
-            "id" : "UpdateTemp"
-          },
-          "getPSAppDataEntity" : {
-            "modelref" : true,
-            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document_wizard.json"
-          }
-        } ],
-        "enableDEFieldPrivilege" : false,
-        "id" : "wizardpanel_form_data_processing"
-      },
-      "getPSControlLogics" : [ {
-        "eventNames" : "SAVE",
-        "logicTag" : "wizardpanel_form_data_processing",
-        "logicType" : "CUSTOM",
-        "name" : "wizardpanel_formsave"
-      }, {
-        "eventNames" : "LOAD",
-        "logicTag" : "wizardpanel_form_data_processing",
-        "logicType" : "CUSTOM",
-        "name" : "wizardpanel_formload"
-      } ],
-      "getPSControlParam" : {
-        "getPSDEWizardForm" : {
-          "modelref" : true,
-          "id" : "数据处理"
-        },
-        "autoLoad" : true,
-        "showBusyIndicator" : true,
-        "id" : "wizardpanel_form_data_processing"
-      },
-      "getPSDEFormItems" : [ {
-        "id" : "srfupdatedate",
-        "hidden" : true,
-        "dataType" : 5,
-        "getPSAppDEField" : {
-          "name" : "UPDATE_TIME",
-          "codeName" : "update_time"
-        }
-      }, {
-        "id" : "srforikey",
-        "hidden" : true,
-        "dataType" : 25
-      }, {
-        "id" : "srfkey",
-        "hidden" : true,
-        "dataType" : 25,
-        "getPSAppDEField" : {
-          "name" : "ID",
-          "codeName" : "id"
-        }
-      }, {
-        "id" : "srfmajortext",
-        "hidden" : true,
-        "dataType" : 25,
-        "getPSAppDEField" : {
-          "name" : "NAME",
-          "codeName" : "name"
-        }
-      }, {
-        "id" : "srftempmode",
-        "hidden" : true,
-        "dataType" : 25
-      }, {
-        "id" : "srfuf",
-        "hidden" : true,
-        "dataType" : 25
-      }, {
-        "id" : "srfdeid",
-        "hidden" : true,
-        "dataType" : 25
-      }, {
-        "id" : "srfsourcekey",
-        "hidden" : true,
-        "dataType" : 25
-      }, {
-        "id" : "is_parse_now",
-        "dataType" : 9,
-        "getPSAppDEField" : {
-          "name" : "IS_PARSE_NOW",
-          "codeName" : "is_parse_now"
-        }
-      }, {
-        "id" : "import_method",
-        "hidden" : true,
-        "dataType" : 25,
-        "getPSAppDEField" : {
-          "name" : "IMPORT_METHOD",
-          "codeName" : "import_method"
-        }
-      }, {
-        "id" : "space_selection",
-        "hidden" : true,
-        "dataType" : 25,
-        "getPSAppDEField" : {
-          "name" : "SPACE_SELECTION",
-          "codeName" : "space_selection"
-        }
-      }, {
-        "id" : "kb_id",
-        "hidden" : true,
-        "dataType" : 25,
-        "createDVT" : "APPDATA",
-        "createDV" : "ai_knowledge_base",
-        "updateDVT" : "APPDATA",
-        "updateDV" : "ai_knowledge_base",
-        "getPSAppDEField" : {
-          "name" : "KB_ID",
-          "codeName" : "kb_id"
-        }
-      }, {
-        "id" : "id",
-        "hidden" : true,
-        "dataType" : 25,
-        "getPSAppDEField" : {
-          "name" : "ID",
-          "codeName" : "id"
-        }
-      } ],
-      "getPSDEFormPages" : [ {
-        "caption" : "基本信息",
-        "codeName" : "formpage1",
-        "detailStyle" : "DEFAULT",
-        "detailType" : "FORMPAGE",
-        "name" : "formpage1",
-        "getPSDEFormDetails" : [ {
-          "codeName" : "grouppanel2",
-          "detailStyle" : "DEFAULT",
-          "detailType" : "GROUPPANEL",
-          "name" : "grouppanel2",
-          "getPSDEFormDetails" : [ {
-            "codeName" : "grouppanel4",
-            "detailStyle" : "DEFAULT",
-            "detailType" : "GROUPPANEL",
-            "name" : "grouppanel4",
-            "getPSDEFormDetails" : [ {
-              "codeName" : "rawitem1",
-              "contentType" : "RAW",
-              "detailStyle" : "DEFAULT",
-              "detailType" : "RAWITEM",
-              "name" : "rawitem1",
-              "getPSLayoutPos" : {
-                "colLG" : 12,
-                "colMD" : 24,
-                "layout" : "TABLE_24COL"
-              },
-              "getPSRawItem" : {
-                "caption" : "以下文件会同步到知识库中，点击「确定」开始同步",
-                "contentType" : "RAW",
-                "name" : "rawitem1",
-                "rawItemHeight" : -1.0,
-                "rawItemWidth" : -1.0
-              },
-              "rawContent" : "以下文件会同步到知识库中，点击「确定」开始同步",
-              "rawItemHeight" : -1.0,
-              "rawItemWidth" : -1.0,
-              "showCaption" : true
-            }, {
-              "caption" : "是否立即解析",
-              "codeName" : "is_parse_now",
-              "dataType" : 9,
-              "detailStyle" : "DEFAULT",
-              "detailType" : "FORMITEM",
-              "enableCond" : 3,
-              "ignoreInput" : 0,
-              "itemWidth" : 230.0,
-              "labelPos" : "LEFT",
-              "labelWidth" : 130,
-              "name" : "is_parse_now",
-              "noPrivDisplayMode" : 1,
-              "getPSAppDEField" : {
-                "name" : "IS_PARSE_NOW",
-                "codeName" : "is_parse_now"
-              },
-              "getPSEditor" : {
-                "editorType" : "DROPDOWNLIST_100",
-                "editorWidth" : 100.0,
-                "name" : "is_parse_now",
-                "getPSAppCodeList" : {
-                  "modelref" : true,
-                  "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/YesNo.json"
-                },
-                "singleSelect" : true
-              },
-              "getPSLayoutPos" : {
-                "colLG" : 12,
-                "colMD" : 24,
-                "layout" : "TABLE_24COL"
-              },
-              "allowEmpty" : false,
-              "needCodeListConfig" : true,
               "showCaption" : true
             } ],
             "getPSLayout" : {
@@ -5785,8 +3206,8 @@
               }, {
                 "codeName" : "nested_doc_grid_view_toolbar",
                 "controlType" : "TOOLBAR",
+                "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page/PSTOOLBARS/nested_doc_grid_view_toolbar.json",
                 "logicName" : "工具栏模板（默认表格界面）",
-                "name" : "toolbar",
                 "getPSAppDataEntity" : {
                   "modelref" : true,
                   "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page.json"
@@ -6252,6 +3673,7 @@
                   "showIcon" : true
                 } ],
                 "xDataControlName" : "grid",
+                "name" : "toolbar",
                 "modelid" : "ec6fbb681f5e3e6783c2af57e5eefaaa",
                 "modeltype" : "PSDETOOLBAR"
               }, {
@@ -6275,12 +3697,13 @@
                 "caption" : "知识库文档",
                 "codeName" : "nested_doc_grid_view_captionbar",
                 "controlType" : "CAPTIONBAR",
-                "name" : "captionbar",
+                "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page/PSCAPTIONBARS/nested_doc_grid_view_captionbar.json",
                 "getPSAppDataEntity" : {
                   "modelref" : true,
                   "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page.json"
                 },
-                "getPSControlParam" : { }
+                "getPSControlParam" : { },
+                "name" : "captionbar"
               } ],
               "getPSDEViewCodeName" : "nested_doc_grid_view",
               "getPSDEViewId" : "674e338f1637368cb194cfd4c3d87d14",
@@ -6288,7 +3711,7 @@
                 "codeName" : "layoutpanel",
                 "controlStyle" : "APPDEGRIDVIEW",
                 "controlType" : "VIEWLAYOUTPANEL",
-                "name" : "layoutpanel",
+                "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page/PSVIEWLAYOUTPANELS/layoutpanel.json",
                 "getPSAppDataEntity" : {
                   "modelref" : true,
                   "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/article_page.json"
@@ -6296,7 +3719,8 @@
                 "getPSControlParam" : { },
                 "layoutBodyOnly" : true,
                 "layoutPanel" : true,
-                "useDefaultLayout" : true
+                "useDefaultLayout" : true,
+                "name" : "layoutpanel"
               },
               "title" : "知识库文档",
               "viewStyle" : "DEFAULT",
@@ -6599,7 +4023,7 @@
       "getPSDEWizardForm" : {
         "formTag" : "data_processing",
         "name" : "数据处理",
-        "getPSDEFormName" : "数据处理",
+        "getPSDEFormName" : "数据处理2",
         "getPSDEWizardStep" : {
           "modelref" : true,
           "id" : "数据处理"
@@ -6631,7 +4055,7 @@
       },
       "noTabHeader" : true,
       "name" : "wizardpanel_form_data_processing",
-      "modelid" : "b5f859f8c1fd275f1305d43ff0545540",
+      "modelid" : "db1882b323d9da19b88d0ebec6fea73c",
       "modeltype" : "PSDEFORM_EDITFORM"
     } ],
     "getPSDEWizard" : {
@@ -6640,22 +4064,11 @@
       "finishCaption" : "确定",
       "getFirstPSDEWizardForm" : {
         "modelref" : true,
-        "id" : "数据来源"
+        "id" : "选择文件"
       },
       "name" : "知识库文档实体新建向导视图_向导",
       "nextCaption" : "下一步",
       "getPSDEWizardForms" : [ {
-        "formTag" : "data_source",
-        "name" : "数据来源",
-        "getPSDEFormName" : "数据来源",
-        "getPSDEWizardStep" : {
-          "modelref" : true,
-          "id" : "数据来源"
-        },
-        "stepActions" : [ "NEXT" ],
-        "stepTag" : "data_source",
-        "firstForm" : true
-      }, {
         "formTag" : "file_selection",
         "name" : "选择文件",
         "getPSDEFormName" : "选择文件",
@@ -6663,24 +4076,13 @@
           "modelref" : true,
           "id" : "选择文件"
         },
-        "stepActions" : [ "PREV", "NEXT" ],
+        "stepActions" : [ "NEXT" ],
         "stepTag" : "file_selection",
-        "firstForm" : false
-      }, {
-        "formTag" : "chunk_settings",
-        "name" : "切片设置",
-        "getPSDEFormName" : "切片设置",
-        "getPSDEWizardStep" : {
-          "modelref" : true,
-          "id" : "切片设置"
-        },
-        "stepActions" : [ "PREV", "NEXT" ],
-        "stepTag" : "chunk_settings",
-        "firstForm" : false
+        "firstForm" : true
       }, {
         "formTag" : "data_processing",
         "name" : "数据处理",
-        "getPSDEFormName" : "数据处理",
+        "getPSDEFormName" : "数据处理2",
         "getPSDEWizardStep" : {
           "modelref" : true,
           "id" : "数据处理"
@@ -6690,19 +4092,9 @@
         "firstForm" : false
       } ],
       "getPSDEWizardSteps" : [ {
-        "name" : "数据来源",
-        "stepTag" : "data_source",
-        "title" : "数据来源",
-        "enableLink" : false
-      }, {
         "name" : "选择文件",
         "stepTag" : "file_selection",
         "title" : "选择文件",
-        "enableLink" : false
-      }, {
-        "name" : "切片设置",
-        "stepTag" : "chunk_settings",
-        "title" : "切片设置",
         "enableLink" : false
       }, {
         "name" : "数据处理",
@@ -6727,12 +4119,13 @@
     "caption" : "知识库文档向导",
     "codeName" : "create_wizard_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document_wizard/PSCAPTIONBARS/create_wizard_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document_wizard.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "create_wizard_view",
   "getPSDEViewId" : "de161d3a8e68afdb25d80f0e43520b73",
@@ -6740,7 +4133,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEWIZARDVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document_wizard/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document_wizard.json"
@@ -6748,7 +4141,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "新建知识库文档",
   "viewStyle" : "DEFAULT",

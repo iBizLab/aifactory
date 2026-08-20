@@ -290,6 +290,32 @@
     },
     "customParam" : true,
     "enableFront" : false
+  }, {
+    "actionHolder" : 1,
+    "actionMode" : "CUSTOM",
+    "actionType" : "DELOGIC",
+    "codeName" : "skill_runner_info",
+    "dataAccessAction" : "NONE",
+    "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_tool/PSDEACTIONS/skill_runner_info.json",
+    "logicName" : "skill_runner_info",
+    "name" : "skill_runner_info",
+    "getPSDEActionInput" : {
+      "name" : "Skill_runner_infoInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_tool_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "Skill_runner_infoResult",
+      "type" : "VOID"
+    },
+    "getPSDELogic" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_tool/PSDELOGICS/get_skill_runner_info.json"
+    },
+    "enableFront" : false
   } ],
   "getAllPSDEDBConfigs" : [ {
     "dBType" : "MYSQL5",
@@ -410,6 +436,7 @@
     "logicName" : "DEFAULT",
     "name" : "DEFAULT",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_tool.json"
@@ -446,6 +473,7 @@
     "logicName" : "默认（全部数据）",
     "name" : "VIEW",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_tool.json"
@@ -482,6 +510,7 @@
     "logicName" : "内置扩展mcp服务",
     "name" : "extension_mcp_server",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_tool.json"
@@ -531,6 +560,7 @@
     "memo" : "插件使用",
     "name" : "SKILL_VALID",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_tool.json"
@@ -2946,6 +2976,81 @@
     "stdDataType" : 25,
     "stringLength" : 2000,
     "valueFormat" : "%1$s"
+  } ],
+  "getAllPSDELogics" : [ {
+    "codeName" : "get_skill_runner_info",
+    "defaultParamName" : "Default",
+    "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_tool/PSDELOGICS/get_skill_runner_info.json",
+    "logicName" : "get_skill_runner_info",
+    "name" : "get_skill_runner_info",
+    "getPSDELogicNodes" : [ {
+      "codeName" : "Begin",
+      "leftPos" : 50,
+      "logicNodeType" : "BEGIN",
+      "name" : "开始",
+      "getPSDELogicLinks" : [ {
+        "getDstPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "RAWSFCODE_01"
+        },
+        "name" : "连接名称",
+        "getSrcPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "Begin"
+        }
+      } ],
+      "topPos" : 10,
+      "parallelOutput" : true
+    }, {
+      "code" : "def _default = logic.param('Default').getReal()\n \n\n    def setting = sys.getSystemRuntimeSetting()\n    if (setting) {\n        def uri = setting.getParam(\"sysresource.ai.aifactory.resourceuri\",\"\")\n        def mqtt = setting.getParam(\"sysaifactory.ai.ibizintelligence.informagent.serviceurl\",\"\")\n        if(uri) {\n            _default.set(\"aifactory_skillrepo\",uri)\n            _default.set(\"aifactory_mqtt\",mqtt)\n        }\n    }\n",
+      "codeName" : "RAWSFCODE_01",
+      "codeType" : "Groovy",
+      "leftPos" : 50,
+      "logicNodeType" : "RAWSFCODE",
+      "name" : "获取runner配置",
+      "getPSDELogicLinks" : [ {
+        "getDstPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "END_01"
+        },
+        "name" : "连接名称",
+        "getSrcPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "RAWSFCODE_01"
+        }
+      } ],
+      "topPos" : 123,
+      "parallelOutput" : true
+    }, {
+      "codeName" : "END_01",
+      "leftPos" : 106,
+      "logicNodeType" : "END",
+      "name" : "结束",
+      "getReturnParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "returnType" : "LOGICPARAM",
+      "topPos" : 255,
+      "parallelOutput" : true
+    } ],
+    "getPSDELogicParams" : [ {
+      "codeName" : "Default",
+      "logicName" : "传入变量",
+      "name" : "传入变量",
+      "getParamPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_tool.json"
+      },
+      "default" : true,
+      "entityParam" : true
+    } ],
+    "getStartPSDELogicNode" : {
+      "modelref" : true,
+      "id" : "Begin"
+    },
+    "enableBackend" : true,
+    "enableFront" : false
   } ],
   "getAllPSDEMethodDTOs" : [ {
     "name" : "ai_tool_dto",

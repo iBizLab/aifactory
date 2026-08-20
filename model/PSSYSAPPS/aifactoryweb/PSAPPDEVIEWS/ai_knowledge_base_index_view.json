@@ -24,10 +24,10 @@
     } ],
     "codeName" : "ai_knowledge_base_index_view",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base/PSVIEWLAYOUTPANELS/ai_knowledge_base_index_view.json",
     "hookEventNames" : [ "ONCHANGE" ],
     "layoutMode" : "FLEX",
     "logicName" : "自定义实体首页视图布局面板（知识库）",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
@@ -38,7 +38,7 @@
       "logicTag" : "layoutpanel",
       "logicType" : "SCRIPT",
       "name" : "logic",
-      "scriptCode" : "console.log('测试下拉')\r\nibiz.mc.command.update.send({srfdecodename:context.ai_knowledge_base})"
+      "scriptCode" : "console.log('测试下拉')\nibiz.mc.command.update.send({srfdecodename:context.ai_knowledge_base})"
     } ],
     "getPSControlParam" : { },
     "getPSLayout" : {
@@ -260,6 +260,31 @@
             "contentType" : "DIVIDER",
             "itemStyle" : "DEFAULT",
             "itemType" : "RAWITEM",
+            "name" : "divider1",
+            "getPSLayoutPos" : {
+              "grow" : -1,
+              "layout" : "FLEX",
+              "shrink" : 0,
+              "spacingLeft" : "INNERSMALL",
+              "spacingRight" : "INNERSMALL"
+            },
+            "getPSRawItem" : {
+              "contentType" : "DIVIDER",
+              "name" : "divider1",
+              "getPSSysCss" : {
+                "cssName" : "vertical-divider"
+              },
+              "predefinedType" : "DIVIDER"
+            },
+            "getPSSysCss" : {
+              "cssName" : "vertical-divider"
+            },
+            "showCaption" : true
+          }, {
+            "caption" : "分割线",
+            "contentType" : "DIVIDER",
+            "itemStyle" : "DEFAULT",
+            "itemType" : "RAWITEM",
             "name" : "divider",
             "getPSLayoutPos" : {
               "grow" : -1,
@@ -293,7 +318,38 @@
               "cssName" : "vertical-divider"
             },
             "showCaption" : true
-          }, {
+          } ]
+        }, {
+          "caption" : "数据关系栏",
+          "itemStyle" : "DEFAULT",
+          "itemType" : "CTRLPOS",
+          "name" : "drbar",
+          "getPSLayoutPos" : {
+            "grow" : -1,
+            "heightMode" : "FULL",
+            "layout" : "FLEX",
+            "spacingLeft" : "OUTERLARGE",
+            "widthMode" : "FULL"
+          },
+          "showCaption" : true
+        }, {
+          "caption" : "容器",
+          "contentWidth" : 450.0,
+          "itemStyle" : "DEFAULT",
+          "itemType" : "CONTAINER",
+          "name" : "container1",
+          "getPSLayout" : {
+            "dir" : "row-reverse",
+            "layout" : "FLEX"
+          },
+          "getPSLayoutPos" : {
+            "grow" : -1,
+            "heightMode" : "FULL",
+            "layout" : "FLEX",
+            "width" : 450,
+            "widthMode" : "PX"
+          },
+          "getPSPanelItems" : [ {
             "caption" : "工具栏",
             "itemStyle" : "DEFAULT",
             "itemType" : "CTRLPOS",
@@ -306,44 +362,8 @@
               "cssName" : "star_css"
             },
             "showCaption" : true
-          }, {
-            "caption" : "分割线",
-            "contentType" : "DIVIDER",
-            "itemStyle" : "DEFAULT",
-            "itemType" : "RAWITEM",
-            "name" : "divider1",
-            "getPSLayoutPos" : {
-              "grow" : -1,
-              "layout" : "FLEX",
-              "shrink" : 0,
-              "spacingLeft" : "INNERSMALL",
-              "spacingRight" : "INNERSMALL"
-            },
-            "getPSRawItem" : {
-              "contentType" : "DIVIDER",
-              "name" : "divider1",
-              "getPSSysCss" : {
-                "cssName" : "vertical-divider"
-              },
-              "predefinedType" : "DIVIDER"
-            },
-            "getPSSysCss" : {
-              "cssName" : "vertical-divider"
-            },
-            "showCaption" : true
-          } ]
-        }, {
-          "caption" : "数据关系栏",
-          "itemStyle" : "DEFAULT",
-          "itemType" : "CTRLPOS",
-          "name" : "drbar",
-          "getPSLayoutPos" : {
-            "grow" : -1,
-            "heightMode" : "FULL",
-            "layout" : "FLEX",
-            "widthMode" : "FULL"
-          },
-          "showCaption" : true
+          } ],
+          "width" : 450.0
         } ],
         "getPSSysCss" : {
           "cssName" : "drbar-ex-underline"
@@ -384,6 +404,7 @@
     "layoutPanel" : true,
     "useDefaultLayout" : false,
     "viewProxyMode" : true,
+    "name" : "layoutpanel",
     "modelid" : "7f1e7f29e3e43de68b991ea129754b98",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL",
     "getPSAppViewLogics" : [ {
@@ -694,15 +715,315 @@
       "modelid" : "28434fe099788b01b2689e703eded184",
       "modeltype" : "PSDEFORM_EDITFORM"
     }, {
+      "codeName" : "index_view_toolbar",
+      "controlType" : "TOOLBAR",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base/PSTOOLBARS/index_view_toolbar.json",
+      "logicName" : "知识库首页视图工具栏",
+      "getPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
+      },
+      "getPSControlParam" : {
+        "id" : "TOOLBAR"
+      },
+      "getPSDEToolbarItems" : [ {
+        "buttonStyle" : "WARNING",
+        "caption" : "执行智能体",
+        "groupExtractMode" : "ITEM",
+        "itemType" : "DEUIACTION",
+        "name" : "deuiaction6",
+        "noPrivDisplayMode" : 2,
+        "getPSAppViewUIAction" : {
+          "modelref" : true,
+          "id" : "toolbar_deuiaction6"
+        },
+        "getPSSysImage" : {
+          "rawContent" : "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <title>robot</title>\n    <g id=\"robot\" stroke=\"none\" fill=\"none\" fill-rule=\"evenodd\" stroke-width=\"1\">\n        <g id=\"编组\">\n            <path d=\"M19.3333333,3.33333333 L12.6666667,3.33333333 L12.6666667,6 L14.6666667,6 L14.6666667,7.33333333 L4.66666667,7.33333333 L4.66666667,28 L27.3333333,28 L27.3333333,7.33333333 L17.3333333,7.33333333 L17.3333333,6 L19.3333333,6 L19.3333333,3.33333333 Z M7.33333333,25.3333333 L7.33333333,10 L24.6666667,10 L24.6666667,25.3333333 L7.33333333,25.3333333 Z M0.666666667,14 L0.666666667,21.3333333 L3.33333333,21.3333333 L3.33333333,14 L0.666666667,14 Z M28.6666667,14 L28.6666667,21.3333333 L31.3333333,21.3333333 L31.3333333,14 L28.6666667,14 Z M14,16 L10.6666667,16 L10.6666667,19.3333333 L14,19.3333333 L14,16 Z M21.3333333,16 L18,16 L18,19.3333333 L21.3333333,19.3333333 L21.3333333,16 Z\" id=\"形状\" fill=\"#4B5156\" fill-rule=\"nonzero\"></path>\n            <rect id=\"矩形\" fill=\"#000000\" opacity=\"0\" x=\"0\" y=\"0\" width=\"32\" height=\"32\"></rect>\n        </g>\n    </g>\n</svg>"
+        },
+        "getPSUIAction" : {
+          "actionTarget" : "SINGLEDATA",
+          "buttonStyle" : "WARNING",
+          "caption" : "AI+",
+          "codeName" : "ai",
+          "getFrontPSAppView" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_agent_assignment_selector.json",
+            "viewType" : "DELISTVIEW"
+          },
+          "frontProcessType" : "WIZARD",
+          "fullCodeName" : "ai_agent_assignment_ai",
+          "name" : "AI+",
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_assignment.json"
+          },
+          "getPSNavigateContexts" : [ {
+            "key" : "N_DEEP_RESEARCH_EQ",
+            "name" : "N_DEEP_RESEARCH_EQ",
+            "value" : "0",
+            "rawValue" : true
+          } ],
+          "getPSNavigateParams" : [ {
+            "key" : "n_deep_research_eq",
+            "name" : "n_deep_research_eq",
+            "value" : "0",
+            "rawValue" : true
+          } ],
+          "getPSSysImage" : {
+            "rawContent" : "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <title>robot</title>\n    <g id=\"robot\" stroke=\"none\" fill=\"none\" fill-rule=\"evenodd\" stroke-width=\"1\">\n        <g id=\"编组\">\n            <path d=\"M19.3333333,3.33333333 L12.6666667,3.33333333 L12.6666667,6 L14.6666667,6 L14.6666667,7.33333333 L4.66666667,7.33333333 L4.66666667,28 L27.3333333,28 L27.3333333,7.33333333 L17.3333333,7.33333333 L17.3333333,6 L19.3333333,6 L19.3333333,3.33333333 Z M7.33333333,25.3333333 L7.33333333,10 L24.6666667,10 L24.6666667,25.3333333 L7.33333333,25.3333333 Z M0.666666667,14 L0.666666667,21.3333333 L3.33333333,21.3333333 L3.33333333,14 L0.666666667,14 Z M28.6666667,14 L28.6666667,21.3333333 L31.3333333,21.3333333 L31.3333333,14 L28.6666667,14 Z M14,16 L10.6666667,16 L10.6666667,19.3333333 L14,19.3333333 L14,16 Z M21.3333333,16 L18,16 L18,19.3333333 L21.3333333,19.3333333 L21.3333333,16 Z\" id=\"形状\" fill=\"#4B5156\" fill-rule=\"nonzero\"></path>\n            <rect id=\"矩形\" fill=\"#000000\" opacity=\"0\" x=\"0\" y=\"0\" width=\"32\" height=\"32\"></rect>\n        </g>\n    </g>\n</svg>"
+          },
+          "uIActionMode" : "FRONT",
+          "uIActionTag" : "ai",
+          "uIActionType" : "DEUIACTION",
+          "globalUIAction" : true,
+          "id" : "ai@ai_agent_assignment"
+        },
+        "tooltip" : "执行智能体",
+        "uIActionTarget" : "SINGLEDATA",
+        "showCaption" : true,
+        "showIcon" : true
+      }, {
+        "caption" : "研究",
+        "groupExtractMode" : "ITEM",
+        "itemType" : "DEUIACTION",
+        "name" : "deuiaction2",
+        "noPrivDisplayMode" : 2,
+        "getPSAppViewUIAction" : {
+          "modelref" : true,
+          "id" : "toolbar_deuiaction2"
+        },
+        "getPSSysImage" : {
+          "glyph" : "xf123@FontAwesome",
+          "cssClass" : "fa fa-star-half-full"
+        },
+        "getPSUIAction" : {
+          "actionTarget" : "SINGLEDATA",
+          "caption" : "研究",
+          "codeName" : "research",
+          "getFrontPSAppView" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_agent_assignment_selector.json",
+            "viewType" : "DELISTVIEW"
+          },
+          "frontProcessType" : "WIZARD",
+          "fullCodeName" : "ai_agent_assignment_research",
+          "name" : "研究",
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_assignment.json"
+          },
+          "getPSNavigateContexts" : [ {
+            "key" : "N_DEEP_RESEARCH_EQ",
+            "name" : "N_DEEP_RESEARCH_EQ",
+            "value" : "1",
+            "rawValue" : true
+          } ],
+          "getPSNavigateParams" : [ {
+            "key" : "n_deep_research_eq",
+            "name" : "n_deep_research_eq",
+            "value" : "1",
+            "rawValue" : true
+          } ],
+          "getPSSysImage" : {
+            "glyph" : "xf123@FontAwesome",
+            "cssClass" : "fa fa-star-half-full"
+          },
+          "uIActionMode" : "FRONT",
+          "uIActionTag" : "research",
+          "uIActionType" : "DEUIACTION",
+          "globalUIAction" : true,
+          "id" : "research@ai_agent_assignment"
+        },
+        "tooltip" : "研究",
+        "uIActionTarget" : "SINGLEDATA",
+        "showCaption" : true,
+        "showIcon" : true
+      }, {
+        "caption" : "设置星标",
+        "groupExtractMode" : "ITEM",
+        "itemType" : "DEUIACTION",
+        "name" : "deuiaction3",
+        "noPrivDisplayMode" : 2,
+        "getPSAppViewUIAction" : {
+          "modelref" : true,
+          "id" : "toolbar_deuiaction3"
+        },
+        "getPSControlLogics" : [ {
+          "itemName" : "deuiaction3",
+          "logicTag" : "toolbar",
+          "logicType" : "SCRIPT",
+          "name" : "ac3",
+          "scriptCode" : "data.is_favorite == 0",
+          "triggerType" : "ITEMVISIBLE"
+        } ],
+        "getPSSysImage" : {
+          "rawContent" : "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\" class=\"design-iconfont\" width=\"16\" height=\"16\">\n  <path d=\"M9.54013,6.48742551 L8,3.36677551 L6.45987,6.48742551 L3.01604,6.98784551 L5.50802,9.41692551 L4.91975,12.8468255 L8,11.2274255 L11.08025,12.8468255 L10.49195,9.41692551 L12.98395,6.98784551 L9.54013,6.48742551 Z M14.53135,6.20219551 C14.77745,6.23794551 14.87565,6.54033551 14.69765,6.71389551 L11.56645,9.76604551 L12.30565,14.0757255 C12.34765,14.3208255 12.09045,14.5077255 11.87035,14.3920255 L8,12.3572255 L4.12966,14.3920255 C3.90957,14.5077255 3.65234,14.3208255 3.69437,14.0757255 L4.43354,9.76604551 L1.30237,6.71389551 C1.12431,6.54033551 1.22256,6.23794551 1.46863,6.20219551 L5.79581,5.57341551 L7.73098,1.65232551 C7.84103,1.42934551 8.15898,1.42935551 8.26902,1.65232551 L10.20415,5.57341551 L14.53135,6.20219551 Z\" fill-opacity=\".9\" fill=\"#557DA5\" fill-rule=\"nonzero\"></path>\n</svg>"
+        },
+        "getPSUIAction" : {
+          "actionTarget" : "SINGLEKEY",
+          "caption" : "设置星标",
+          "codeName" : "add_favorite",
+          "fullCodeName" : "ai_knowledge_base_add_favorite",
+          "name" : "设置星标",
+          "getPSAppDEMethod" : {
+            "modelref" : true,
+            "id" : "favorite"
+          },
+          "getPSAppDEUILogic" : {
+            "modelref" : true,
+            "id" : "refresh_current_grid"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
+          },
+          "getPSNavigateParams" : [ {
+            "key" : "owner_id",
+            "name" : "owner_id",
+            "value" : "ai_knowledge_base",
+            "rawValue" : false
+          } ],
+          "getPSSysImage" : {
+            "rawContent" : "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\" class=\"design-iconfont\" width=\"16\" height=\"16\">\n  <path d=\"M9.54013,6.48742551 L8,3.36677551 L6.45987,6.48742551 L3.01604,6.98784551 L5.50802,9.41692551 L4.91975,12.8468255 L8,11.2274255 L11.08025,12.8468255 L10.49195,9.41692551 L12.98395,6.98784551 L9.54013,6.48742551 Z M14.53135,6.20219551 C14.77745,6.23794551 14.87565,6.54033551 14.69765,6.71389551 L11.56645,9.76604551 L12.30565,14.0757255 C12.34765,14.3208255 12.09045,14.5077255 11.87035,14.3920255 L8,12.3572255 L4.12966,14.3920255 C3.90957,14.5077255 3.65234,14.3208255 3.69437,14.0757255 L4.43354,9.76604551 L1.30237,6.71389551 C1.12431,6.54033551 1.22256,6.23794551 1.46863,6.20219551 L5.79581,5.57341551 L7.73098,1.65232551 C7.84103,1.42934551 8.15898,1.42935551 8.26902,1.65232551 L10.20415,5.57341551 L14.53135,6.20219551 Z\" fill-opacity=\".9\" fill=\"#557DA5\" fill-rule=\"nonzero\"></path>\n</svg>"
+          },
+          "refreshMode" : 2,
+          "timeout" : 60000,
+          "tooltip" : "星标",
+          "uIActionMode" : "BACKEND",
+          "uIActionTag" : "add_favorite",
+          "uIActionType" : "DEUIACTION",
+          "uILogicAttachMode" : "AFTER",
+          "enableConfirm" : true,
+          "reloadData" : true,
+          "id" : "add_favorite@ai_knowledge_base"
+        },
+        "tooltip" : "星标",
+        "uIActionTarget" : "SINGLEKEY",
+        "showCaption" : false,
+        "showIcon" : true
+      }, {
+        "caption" : "取消星标",
+        "groupExtractMode" : "ITEM",
+        "itemType" : "DEUIACTION",
+        "name" : "deuiaction4",
+        "noPrivDisplayMode" : 2,
+        "getPSAppViewUIAction" : {
+          "modelref" : true,
+          "id" : "toolbar_deuiaction4"
+        },
+        "getPSControlLogics" : [ {
+          "itemName" : "deuiaction4",
+          "logicTag" : "toolbar",
+          "logicType" : "SCRIPT",
+          "name" : "ac4",
+          "scriptCode" : "data.is_favorite == 1",
+          "triggerType" : "ITEMVISIBLE"
+        } ],
+        "getPSSysImage" : {
+          "rawContent" : "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\" class=\"design-iconfont\" width=\"16\" height=\"16\">\n  <path d=\"M14.53135,6.20219551 C14.77745,6.23794551 14.87565,6.54033551 14.69765,6.71389551 L11.56645,9.76604551 L12.30565,14.0757255 C12.34765,14.3208255 12.09045,14.5077255 11.87035,14.3920255 L8,12.3572255 L4.12966,14.3920255 C3.90957,14.5077255 3.65234,14.3208255 3.69437,14.0757255 L4.43354,9.76604551 L1.30237,6.71389551 C1.12431,6.54033551 1.22256,6.23794551 1.46863,6.20219551 L5.79581,5.57341551 L7.73098,1.65232551 C7.84103,1.42934551 8.15898,1.42935551 8.26902,1.65232551 L10.20415,5.57341551 L14.53135,6.20219551 Z\" fill-opacity=\".9\" fill=\"#FFB31A\" fill-rule=\"nonzero\"></path>\n</svg>"
+        },
+        "getPSUIAction" : {
+          "actionTarget" : "SINGLEKEY",
+          "caption" : "取消星标",
+          "codeName" : "cancel_favorite",
+          "fullCodeName" : "ai_knowledge_base_cancel_favorite",
+          "name" : "取消星标",
+          "getPSAppDEMethod" : {
+            "modelref" : true,
+            "id" : "un_favorite"
+          },
+          "getPSAppDEUILogic" : {
+            "modelref" : true,
+            "id" : "refresh_current_grid"
+          },
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
+          },
+          "getPSNavigateParams" : [ {
+            "key" : "owner_id",
+            "name" : "owner_id",
+            "value" : "ai_knowledge_base",
+            "rawValue" : false
+          } ],
+          "getPSSysImage" : {
+            "rawContent" : "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\" class=\"design-iconfont\" width=\"16\" height=\"16\">\n  <path d=\"M14.53135,6.20219551 C14.77745,6.23794551 14.87565,6.54033551 14.69765,6.71389551 L11.56645,9.76604551 L12.30565,14.0757255 C12.34765,14.3208255 12.09045,14.5077255 11.87035,14.3920255 L8,12.3572255 L4.12966,14.3920255 C3.90957,14.5077255 3.65234,14.3208255 3.69437,14.0757255 L4.43354,9.76604551 L1.30237,6.71389551 C1.12431,6.54033551 1.22256,6.23794551 1.46863,6.20219551 L5.79581,5.57341551 L7.73098,1.65232551 C7.84103,1.42934551 8.15898,1.42935551 8.26902,1.65232551 L10.20415,5.57341551 L14.53135,6.20219551 Z\" fill-opacity=\".9\" fill=\"#FFB31A\" fill-rule=\"nonzero\"></path>\n</svg>"
+          },
+          "refreshMode" : 2,
+          "timeout" : 60000,
+          "tooltip" : "取消星标",
+          "uIActionMode" : "BACKEND",
+          "uIActionTag" : "cancel_favorite",
+          "uIActionType" : "DEUIACTION",
+          "uILogicAttachMode" : "AFTER",
+          "enableConfirm" : true,
+          "reloadData" : true,
+          "id" : "cancel_favorite@ai_knowledge_base"
+        },
+        "tooltip" : "取消星标",
+        "uIActionTarget" : "SINGLEKEY",
+        "showCaption" : false,
+        "showIcon" : true
+      }, {
+        "caption" : "AI辅助执行编排",
+        "groupExtractMode" : "ITEM",
+        "itemType" : "DEUIACTION",
+        "name" : "deuiaction1",
+        "noPrivDisplayMode" : 2,
+        "getPSAppViewUIAction" : {
+          "modelref" : true,
+          "id" : "toolbar_deuiaction1"
+        },
+        "getPSSysImage" : {
+          "glyph" : "xf0cb@FontAwesome",
+          "cssClass" : "fa fa-list-ol"
+        },
+        "getPSUIAction" : {
+          "actionTarget" : "SINGLEDATA",
+          "caption" : "执行编排",
+          "codeName" : "ai_compose",
+          "getFrontPSAppView" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_agent_assignment_compose_edit.json",
+            "viewType" : "DEEDITVIEW"
+          },
+          "frontProcessType" : "WIZARD",
+          "fullCodeName" : "ai_agent_assignment_ai_compose",
+          "name" : "执行编排",
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_assignment.json"
+          },
+          "getPSSysImage" : {
+            "rawContent" : "<?xml version=\"1.0\" standalone=\"no\"?><!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\"><svg t=\"1772015010169\" class=\"icon\" viewBox=\"0 0 1024 1024\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" p-id=\"14054\" width=\"16\" height=\"16\" fill=\"currentColor\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><path d=\"M149.333333 704c-34.133333 0-64 29.866667-64 64s29.866667 64 64 64S213.333333 802.133333 213.333333 768s-29.866667-64-64-64zM938.666667 213.333333H298.666667v85.333334h640V213.333333zM149.333333 448c-34.133333 0-64 29.866667-64 64s29.866667 64 64 64S213.333333 546.133333 213.333333 512s-29.866667-64-64-64zM938.666667 469.333333H298.666667v85.333334h640v-85.333334zM149.333333 192C115.2 192 85.333333 221.866667 85.333333 256s29.866667 64 64 64S213.333333 290.133333 213.333333 256s-29.866667-64-64-64zM298.666667 810.666667h213.333333c0-29.866667 4.266667-59.733333 12.8-85.333334H298.666667v85.333334z m512-213.333334c-119.466667 0-213.333333 93.866667-213.333334 213.333334s93.866667 213.333333 213.333334 213.333333 213.333333-93.866667 213.333333-213.333333-93.866667-213.333333-213.333333-213.333334z m-21.333334 341.333334l-123.733333-123.733334 59.733333-59.733333 68.266667 64 110.933333-106.666667 59.733334 59.733334-174.933334 166.4z\"  p-id=\"14055\"></path></svg>"
+          },
+          "refreshMode" : 1,
+          "uIActionMode" : "FRONT",
+          "uIActionTag" : "ai_compose",
+          "uIActionType" : "DEUIACTION",
+          "globalUIAction" : true,
+          "reloadData" : true,
+          "id" : "ai_compose@ai_agent_assignment"
+        },
+        "tooltip" : "AI辅助执行编排",
+        "uIActionTarget" : "SINGLEDATA",
+        "showCaption" : false,
+        "showIcon" : true
+      } ],
+      "toolbarStyle" : "USER",
+      "name" : "toolbar",
+      "modelid" : "04804a8308e60149d8a4908ca56c94d8",
+      "modeltype" : "PSDETOOLBAR"
+    }, {
       "codeName" : "index_view_relation",
       "controlStyle" : "DRBAR_EX",
       "controlType" : "DRBAR",
       "dataRelationTag" : "index_view_relation",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base/PSDRBARS/index_view_relation.json",
       "getEditItemCapPSLanguageRes" : {
         "lanResTag" : "DE.LNAME.AI_KNOWLEDGE_BASE"
       },
       "editItemCaption" : "知识库",
-      "name" : "drbar",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
@@ -814,6 +1135,7 @@
       },
       "uniqueTag" : "ai_knowledge_base_index_view__drbar",
       "showTitle" : true,
+      "name" : "drbar",
       "modelid" : "12ed542155aba6783dbf8895f71b950b",
       "modeltype" : "PSDEDRBAR"
     }, {
@@ -823,12 +1145,13 @@
       "caption" : "知识库",
       "codeName" : "index_view_captionbar",
       "controlType" : "CAPTIONBAR",
-      "name" : "captionbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base/PSCAPTIONBARS/index_view_captionbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_knowledge_base.json"
       },
-      "getPSControlParam" : { }
+      "getPSControlParam" : { },
+      "name" : "captionbar"
     } ]
   },
   "title" : "知识库",

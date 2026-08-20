@@ -102,7 +102,7 @@
     "getPSDELogicLinks" : [ {
       "getDstPSDELogicNode" : {
         "modelref" : true,
-        "id" : "END_01"
+        "id" : "RAWSFCODE_01"
       },
       "name" : "连接名称",
       "getSrcPSDELogicNode" : {
@@ -117,16 +117,36 @@
     "topPos" : 280,
     "parallelOutput" : true
   }, {
+    "code" : "def defaultObj = logic.param('Default').getReal()\ndef docs = logic.param('doclist').getReal() ?: []\n\n// 规范化查询片段（去除 .md 后缀、空白）\ndef normalizeQueryPart = { text ->\n    if (text == null) {\n        return null\n    }\n    def value = text.trim()\n    if (value.toLowerCase().endsWith('.md')) {\n        value = value.substring(0, value.length() - 3)\n    }\n    return value.trim()\n}\n\n// 按 / 或 \\ 拆分查询词\ndef rawQuery = defaultObj?.get('query')?.toString()\ndef queryParts = []\nif (rawQuery != null && rawQuery.trim().length() > 0) {\n    queryParts = rawQuery\n        .split(\"[/\\\\\\\\]+\")\n        .collect { normalizeQueryPart(it) }\n        .findAll { it != null && it.length() > 0 }\n}\ndef isPathQuery = queryParts.size() > 1\n\n// 由文档 path 字段构建树节点（目录/文件），node_key 为完整路径前缀，文件节点补充 id、size\ndef treeNodes = []\ndef nodeKeySet = new LinkedHashSet()\ndocs.each { doc ->\n    def path = doc.get('path')\n    if (path == null) {\n        return\n    }\n    def segments = path.toString().trim().split('[/\\\\\\\\]+').findAll { it.trim().length() > 0 }\n    if (segments.size() == 0) {\n        return\n    }\n    def pathParts = []\n    segments.eachWithIndex { seg, idx ->\n        pathParts.add(seg)\n        def nodeKey = pathParts.join('/')\n        if (!nodeKeySet.contains(nodeKey)) {\n            nodeKeySet.add(nodeKey)\n            def parentKey = pathParts.size() > 1 ? pathParts.subList(0, pathParts.size() - 1).join('/') : null\n            def isFile = (idx == segments.size() - 1)\n            treeNodes.add([\n                node_key   : nodeKey,\n                parent_key : parentKey,\n                name       : seg,\n                type       : isFile ? 'file' : 'dir',\n                match_text : seg,\n                id         : isFile ? doc.get('id') : null,\n                size       : isFile ? doc.get('size') : null\n            ])\n        }\n    }\n}\n\n// 同级排序：目录优先，再按名称\ntreeNodes.sort { a, b ->\n    if (a.type != b.type) {\n        return a.type == 'dir' ? -1 : 1\n    }\n    return a.name <=> b.name\n}\n\ndef resultNodes = treeNodes\nif (queryParts.size() > 0) {\n    def compilePattern = { text ->\n        return java.util.regex.Pattern.compile(\n            java.util.regex.Pattern.quote(text),\n            java.util.regex.Pattern.CASE_INSENSITIVE | java.util.regex.Pattern.UNICODE_CASE\n        )\n    }\n    def queryPatterns = queryParts.collect { compilePattern(it) }\n    def nodeMap = [:]\n    def childrenMap = [:].withDefault { [] }\n    treeNodes.each { node ->\n        nodeMap[node.node_key] = node\n        childrenMap[node.parent_key].add(node)\n    }\n    def visibleKeys = new LinkedHashSet()\n    def addAncestors\n    addAncestors = { node ->\n        def current = node\n        while (current != null && current.parent_key != null) {\n            def parent = nodeMap[current.parent_key]\n            if (parent == null) {\n                break\n            }\n            visibleKeys.add(parent.node_key)\n            current = parent\n        }\n    }\n    def addSubTree\n    addSubTree = { node ->\n        if (node == null) {\n            return\n        }\n        visibleKeys.add(node.node_key)\n        childrenMap[node.node_key].each { child ->\n            addSubTree(child)\n        }\n    }\n    def getNodePath = { node ->\n        def path = []\n        def current = node\n        while (current != null) {\n            path.add(0, current)\n            current = current.parent_key != null ? nodeMap[current.parent_key] : null\n        }\n        return path\n    }\n    def matchText = { pattern, text ->\n        if (text == null) {\n            return false\n        }\n        return pattern.matcher(text.toString()).find()\n    }\n    if (isPathQuery) {\n        // 路径查询：按完整路径尾部逐级匹配\n        treeNodes.each { node ->\n            def nodePath = getNodePath(node)\n            if (nodePath.size() >= queryPatterns.size()) {\n                def fromIndex = nodePath.size() - queryPatterns.size()\n                def tailPath = nodePath.subList(fromIndex, nodePath.size())\n                def matched = true\n                queryPatterns.eachWithIndex { pattern, index ->\n                    def pathNode = tailPath[index]\n                    def pathText = pathNode.name ?: ''\n                    if (!matchText(pattern, pathText)) {\n                        matched = false\n                    }\n                }\n                if (matched) {\n                    visibleKeys.add(node.node_key)\n                    addAncestors(node)\n                    if (node.type == 'dir') {\n                        addSubTree(node)\n                    }\n                }\n            }\n        }\n    } else {\n        // 关键字查询：匹配节点名称\n        def pattern = queryPatterns[0]\n        treeNodes.each { node ->\n            def matched = matchText(pattern, node.match_text ?: '')\n            if (matched) {\n                visibleKeys.add(node.node_key)\n                addAncestors(node)\n                if (node.type == 'dir') {\n                    addSubTree(node)\n                }\n            }\n        }\n    }\n    resultNodes = treeNodes.findAll { visibleKeys.contains(it.node_key) }\n}\n\n// 输出树形文本（文件节点附带 id、size）\ndef outputChildrenMap = [:].withDefault { [] }\nresultNodes.each { node ->\n    outputChildrenMap[node.parent_key].add(node)\n}\ndef buildTree\nbuildTree = { parentKey, prefix ->\n    def result = []\n    def children = outputChildrenMap[parentKey]\n    children.eachWithIndex { item, idx ->\n        def isLast = idx == children.size() - 1\n        def connector = isLast ? '└── ' : '├── '\n        def typeTag = item.type == 'dir' ? '[目录] ' : ''\n        def extraInfo = ''\n        if (item.type == 'file') {\n            extraInfo = \"  (id: ${item.id}, size: ${item.size})\"\n        }\n        result.add(prefix + connector + typeTag + item.name + extraInfo)\n        def childPrefix = prefix + (isLast ? '    ' : '│   ')\n        result.addAll(buildTree(item.node_key, childPrefix))\n    }\n    return result\n}\ndef treeLines = buildTree(null, '')\nlogic.param('resultJson').bind(treeLines)",
+    "codeName" : "RAWSFCODE_01",
+    "codeType" : "Groovy",
+    "leftPos" : -160,
+    "logicNodeType" : "RAWSFCODE",
+    "name" : "执行脚本代码",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "END_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "RAWSFCODE_01"
+      }
+    } ],
+    "topPos" : 410,
+    "parallelOutput" : true
+  }, {
     "codeName" : "END_01",
-    "leftPos" : -120,
+    "leftPos" : -130,
     "logicNodeType" : "END",
     "name" : "结束",
     "getReturnParam" : {
       "modelref" : true,
-      "id" : "doclist"
+      "id" : "resultJson"
     },
     "returnType" : "LOGICPARAM",
-    "topPos" : 419,
+    "topPos" : 610,
     "parallelOutput" : true
   } ],
   "getPSDELogicParams" : [ {
@@ -157,6 +177,12 @@
       "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
     },
     "entityListParam" : true
+  }, {
+    "codeName" : "resultJson",
+    "logicName" : "resultJson",
+    "name" : "resultJson",
+    "stdDataType" : 25,
+    "simpleListParam" : true
   } ],
   "getStartPSDELogicNode" : {
     "modelref" : true,

@@ -393,6 +393,7 @@
     "logicName" : "DEFAULT",
     "name" : "DEFAULT",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document_wizard.json"
@@ -429,6 +430,7 @@
     "logicName" : "默认（全部数据）",
     "name" : "VIEW",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document_wizard.json"
@@ -1995,7 +1997,7 @@
     "dEFType" : 1,
     "dataType" : "YESNO",
     "importOrder" : 1000,
-    "logicName" : "自定义切片",
+    "logicName" : "切片策略",
     "name" : "CUSTOM_CHUNK",
     "orderValue" : 320,
     "getPSCodeList" : {
@@ -2386,7 +2388,7 @@
       "stdDataType" : 9,
       "type" : "SIMPLE"
     }, {
-      "logicName" : "自定义切片",
+      "logicName" : "切片策略",
       "name" : "custom_chunk",
       "getPSDEField" : {
         "name" : "CUSTOM_CHUNK",
@@ -2664,6 +2666,14 @@
     "logicName" : "主编辑表单",
     "modelTag2" : "0",
     "name" : "主编辑表单",
+    "realModelSubType" : "EDITFORM",
+    "realModelType" : "PSDEFORM"
+  }, {
+    "codeName" : "data_processing2",
+    "logicName" : "数据处理2",
+    "modelTag" : "WIZARDFORM",
+    "modelTag2" : "0",
+    "name" : "数据处理2",
     "realModelSubType" : "EDITFORM",
     "realModelType" : "PSDEFORM"
   }, {

@@ -33,9 +33,9 @@
   "getPSViewLayoutPanel" : {
     "codeName" : "usr0312103524",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/stencil/PSVIEWLAYOUTPANELS/usr0312103524.json",
     "layoutMode" : "FLEX",
     "logicName" : "list_exp_view 实体列表导航视图布局面板",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/stencil.json"
@@ -176,6 +176,7 @@
     "layoutPanel" : true,
     "useDefaultLayout" : false,
     "viewProxyMode" : true,
+    "name" : "layoutpanel",
     "modelid" : "7f8b19caa41cd5f3e29cd1598a77e709",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL",
     "getPSAppViewEngines" : [ {
@@ -210,7 +211,7 @@
     "getPSControls" : [ {
       "codeName" : "list_exp_view_listexpbar",
       "controlType" : "LISTEXPBAR",
-      "name" : "listexpbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/stencil/PSLISTEXPBARS/list_exp_view_listexpbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/stencil.json"
@@ -546,6 +547,7 @@
       "enableCounter" : true,
       "enableSearch" : true,
       "showTitleBar" : true,
+      "name" : "listexpbar",
       "modelid" : "0aede083f3c1d4ac8eeb374bc90c4d6e_listexpbar",
       "modeltype" : "PSEXPBAR"
     }, {
@@ -584,12 +586,13 @@
       "caption" : "模板中心",
       "codeName" : "list_exp_view_captionbar",
       "controlType" : "CAPTIONBAR",
-      "name" : "captionbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/stencil/PSCAPTIONBARS/list_exp_view_captionbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/stencil.json"
       },
-      "getPSControlParam" : { }
+      "getPSControlParam" : { },
+      "name" : "captionbar"
     } ]
   },
   "getQuickGroupPSCodeList" : {

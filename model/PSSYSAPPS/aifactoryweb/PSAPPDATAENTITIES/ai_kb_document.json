@@ -1,4 +1,96 @@
 {
+  "getAllPSAppDEACModes" : [ {
+    "aCTag" : "run",
+    "aCType" : "CHATCOMPLETION",
+    "codeName" : "dyna_agent",
+    "logicName" : "开启对话",
+    "name" : "dyna_agent",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
+    },
+    "getPSDEACModeDataItems" : [ {
+      "dataType" : 25,
+      "name" : "value",
+      "getPSAppDEField" : {
+        "name" : "ID",
+        "codeName" : "id"
+      },
+      "getPSDEField" : {
+        "name" : "ID",
+        "codeName" : "id"
+      }
+    }, {
+      "dataType" : 25,
+      "name" : "text",
+      "getPSAppDEField" : {
+        "name" : "NAME",
+        "codeName" : "name"
+      },
+      "getPSDEField" : {
+        "name" : "NAME",
+        "codeName" : "name"
+      }
+    } ],
+    "getPSDEUIActionGroup" : {
+      "codeName" : "A76267c915687b2ffed",
+      "name" : "AI界面行为组",
+      "getPSAppDataEntity" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
+      },
+      "getPSUIActionGroupDetails" : [ {
+        "caption" : "引用资料",
+        "detailType" : "DEUIACTION",
+        "name" : "ufbb1664",
+        "getPSSysImage" : {
+          "glyph" : "xf0c1@FontAwesome",
+          "cssClass" : "fa fa-link"
+        },
+        "getPSUIAction" : {
+          "actionTarget" : "NONE",
+          "caption" : "引用资料",
+          "codeName" : "question_resource",
+          "getFrontPSAppView" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/search_hub_advance_pick_up_view.json",
+            "viewType" : "DEPICKUPVIEW"
+          },
+          "frontProcessType" : "WIZARD",
+          "fullCodeName" : "ai_kb_document_question_resource",
+          "name" : "引用资料",
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
+          },
+          "getPSSysImage" : {
+            "glyph" : "xf0c1@FontAwesome",
+            "cssClass" : "fa fa-link"
+          },
+          "uIActionMode" : "FRONT",
+          "uIActionTag" : "question_resource",
+          "uIActionType" : "DEUIACTION",
+          "id" : "question_resource@ai_kb_document"
+        },
+        "addSeparator" : false,
+        "showCaption" : true,
+        "showIcon" : true
+      } ],
+      "uniqueTag" : "ai_kb_document__A76267c915687b2ffed"
+    },
+    "pagingSize" : 50,
+    "getTextPSAppDEField" : {
+      "name" : "NAME",
+      "codeName" : "name"
+    },
+    "getValuePSAppDEField" : {
+      "name" : "ID",
+      "codeName" : "id"
+    },
+    "defaultMode" : false,
+    "enableBackend" : true,
+    "enablePagingBar" : false
+  } ],
   "getAllPSAppDEActions" : [ {
     "actionMode" : "GETDRAFT",
     "codeName" : "ai_kb_document_type_counters",
@@ -5105,6 +5197,30 @@
     "reloadData" : true,
     "id" : "parsing@ai_kb_document"
   }, {
+    "actionTarget" : "NONE",
+    "caption" : "引用资料",
+    "codeName" : "question_resource",
+    "getFrontPSAppView" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/search_hub_advance_pick_up_view.json",
+      "viewType" : "DEPICKUPVIEW"
+    },
+    "frontProcessType" : "WIZARD",
+    "fullCodeName" : "ai_kb_document_question_resource",
+    "name" : "引用资料",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
+    },
+    "getPSSysImage" : {
+      "glyph" : "xf0c1@FontAwesome",
+      "cssClass" : "fa fa-link"
+    },
+    "uIActionMode" : "FRONT",
+    "uIActionTag" : "question_resource",
+    "uIActionType" : "DEUIACTION",
+    "id" : "question_resource@ai_kb_document"
+  }, {
     "actionTarget" : "SINGLEDATA",
     "caption" : "重新切片",
     "codeName" : "rechunk",
@@ -5188,6 +5304,103 @@
     "enableConfirm" : true,
     "reloadData" : true,
     "id" : "reparse@ai_kb_document"
+  }, {
+    "actionTarget" : "SINGLEDATA",
+    "caption" : "执行交谈",
+    "codeName" : "run",
+    "frontProcessType" : "CHAT",
+    "fullCodeName" : "ai_kb_document_run",
+    "name" : "执行交谈",
+    "getPSAppDEACMode" : {
+      "modelref" : true,
+      "id" : "dyna_agent"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
+    },
+    "getPSNavigateContexts" : [ {
+      "key" : "SRFAIKNOWLEDGEBASES",
+      "name" : "SRFAIKNOWLEDGEBASES",
+      "value" : "ai_knowledge_base",
+      "rawValue" : false
+    }, {
+      "key" : "SRFAIAPPENDCURDATA",
+      "name" : "SRFAIAPPENDCURDATA",
+      "value" : "true",
+      "rawValue" : true
+    }, {
+      "key" : "AI_KB_DOCUMENT",
+      "name" : "AI_KB_DOCUMENT",
+      "value" : "id",
+      "rawValue" : false
+    }, {
+      "key" : "AI_AGENT_CONTEXT",
+      "name" : "AI_AGENT_CONTEXT",
+      "value" : "context_id",
+      "rawValue" : false
+    } ],
+    "getPSNavigateParams" : [ {
+      "key" : "knowledgebases",
+      "name" : "knowledgebases",
+      "value" : "ai_knowledge_base",
+      "rawValue" : false
+    }, {
+      "key" : "srfattachsessiontag",
+      "name" : "srfattachsessiontag",
+      "value" : "_id",
+      "rawValue" : false
+    }, {
+      "key" : "autoquestion",
+      "name" : "autoquestion",
+      "value" : "true",
+      "rawValue" : true
+    }, {
+      "key" : "disabletopicstorage",
+      "name" : "disabletopicstorage",
+      "value" : "false",
+      "rawValue" : true
+    }, {
+      "key" : "srfenableaiagentchange",
+      "name" : "srfenableaiagentchange",
+      "value" : "false",
+      "rawValue" : true
+    }, {
+      "key" : "hidetopicsidebar",
+      "name" : "hidetopicsidebar",
+      "value" : "true",
+      "rawValue" : true
+    }, {
+      "key" : "srfaiagent",
+      "name" : "srfaiagent",
+      "value" : "CONTEXT_CODE_NAME",
+      "rawValue" : false
+    }, {
+      "key" : "srfaiagentscope",
+      "name" : "srfaiagentscope",
+      "value" : "_entity_tag",
+      "rawValue" : false
+    }, {
+      "key" : "srfaiknowledgebases",
+      "name" : "srfaiknowledgebases",
+      "value" : "ai_knowledge_base",
+      "rawValue" : false
+    }, {
+      "key" : "chunkpageindexdefaultvalue",
+      "name" : "chunkpageindexdefaultvalue",
+      "value" : "page_index",
+      "rawValue" : false
+    }, {
+      "key" : "srfattachtimestamp",
+      "name" : "srfattachtimestamp",
+      "value" : "false",
+      "rawValue" : true
+    } ],
+    "uIActionMode" : "FRONT",
+    "uIActionTag" : "run",
+    "uIActionType" : "DEUIACTION",
+    "globalUIAction" : true,
+    "id" : "run@ai_kb_document"
   }, {
     "actionTarget" : "SINGLEDATA",
     "caption" : "设置元数据",
@@ -6113,6 +6326,34 @@
   "enableWFActions" : false,
   "major" : true,
   "getAllPSAppDEUIActionGroups" : [ {
+    "codeName" : "A76267c915687b2ffed",
+    "name" : "AI界面行为组",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
+    },
+    "uniqueTag" : "ai_kb_document__A76267c915687b2ffed",
+    "getPSUIActionGroupDetails" : [ {
+      "caption" : "引用资料",
+      "detailType" : "DEUIACTION",
+      "name" : "ufbb1664",
+      "getPSSysImage" : {
+        "glyph" : "xf0c1@FontAwesome",
+        "cssClass" : "fa fa-link"
+      },
+      "addSeparator" : false,
+      "showCaption" : true,
+      "showIcon" : true,
+      "getPSUIAction" : {
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
+        },
+        "modelref" : true,
+        "id" : "question_resource@ai_kb_document"
+      }
+    } ]
+  }, {
     "codeName" : "doc_grid_action",
     "name" : "知识库文档操作列",
     "getPSAppDataEntity" : {

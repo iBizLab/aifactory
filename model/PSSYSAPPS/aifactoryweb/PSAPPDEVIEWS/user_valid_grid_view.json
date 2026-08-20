@@ -30,9 +30,9 @@
   "getPSViewLayoutPanel" : {
     "codeName" : "usr1022273487",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSVIEWLAYOUTPANELS/usr1022273487.json",
     "layoutMode" : "FLEX",
     "logicName" : "valid_grid_view表格视图布局",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
@@ -210,6 +210,7 @@
     "layoutPanel" : true,
     "useDefaultLayout" : false,
     "viewProxyMode" : true,
+    "name" : "layoutpanel",
     "modelid" : "67cd26f82c073a1c83b762811cba023a",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL",
     "getPSAppViewEngines" : [ {
@@ -992,8 +993,8 @@
     }, {
       "codeName" : "valid_grid_view_tabtoolbar",
       "controlType" : "TOOLBAR",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSTOOLBARS/valid_grid_view_tabtoolbar.json",
       "logicName" : "用户快速新建_工具栏",
-      "name" : "tabtoolbar",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
@@ -1108,6 +1109,7 @@
         "showIcon" : true
       } ],
       "xDataControlName" : "grid",
+      "name" : "tabtoolbar",
       "modelid" : "84ed6e4bdf6837f0cf24ef85ebad3275",
       "modeltype" : "PSDETOOLBAR"
     }, {
@@ -1131,12 +1133,13 @@
       "caption" : "正常帐号管理",
       "codeName" : "valid_grid_view_captionbar",
       "controlType" : "CAPTIONBAR",
-      "name" : "captionbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSCAPTIONBARS/valid_grid_view_captionbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
       },
-      "getPSControlParam" : { }
+      "getPSControlParam" : { },
+      "name" : "captionbar"
     } ]
   },
   "title" : "正常帐号",

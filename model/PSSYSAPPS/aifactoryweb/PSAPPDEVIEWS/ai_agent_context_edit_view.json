@@ -26,8 +26,8 @@
   "getPSControls" : [ {
     "codeName" : "edit_view_toolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context/PSTOOLBARS/edit_view_toolbar.json",
     "logicName" : "编辑界面_工具栏",
-    "name" : "toolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
@@ -80,13 +80,12 @@
       "showCaption" : true,
       "showIcon" : true
     }, {
-      "caption" : "执行",
+      "caption" : "审查知识库",
       "groupExtractMode" : "ITEMS",
       "itemType" : "ITEMS",
       "name" : "items1",
       "getPSSysImage" : {
-        "glyph" : "xf04b@FontAwesome",
-        "cssClass" : "fa fa-play"
+        "rawContent" : "<svg fill=\"#6698ff\" t=\"1728554005293\" class=\"icon\" viewBox=\"0 0 1024 1024\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" p-id=\"70717\" width=\"16\" height=\"16\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><path d=\"M914.813458 960.223702H236.789127c-54.628263 0-99.218683-43.790592-100.528402-98.108922 0.059987-0.78983 0.099979-1.589658 0.099979-2.399484v-2.019567c2.669426-53.088594 46.689969-95.459491 100.428423-95.459491h677.494445c3.369276 0 6.60858-0.529886 9.657925-1.48968 13.197165-3.939154 22.8051-16.186522 22.755111-30.663412l-1.949581-570.567417c-0.149968-42.650837-16.866376-82.722228-47.069887-112.82576-30.213509-30.103532-70.334889-46.689969-112.985726-46.689969H236.929097C146.308567 0 72.594404 73.724161 72.594404 164.334694v691.94134c-0.039991 1.119759-0.079983 2.249517-0.109977 3.379274l-0.029993 3.149324h0.029993C74.164066 951.975474 147.228369 1024 236.789127 1024H914.813458c17.606217 0 31.88315-14.276933 31.88315-31.88315s-14.266935-31.893148-31.88315-31.893148z m-33.832731-800.498018l1.839605 538.734256H766.635293V63.7663h18.066119c52.908633 0 96.099354 43.050751 96.279315 95.959384zM236.929097 63.7663H702.858995v634.69364H236.789127c-37.791881 0-72.634395 12.817246-100.428423 34.342622V164.334694c0-55.448087 45.110308-100.568394 100.568393-100.568394z\" p-id=\"70718\"></path></svg>"
       },
       "getPSUIActionGroup" : {
         "codeName" : "execute",
@@ -100,8 +99,8 @@
           "detailType" : "DEUIACTION",
           "name" : "uf6937cd",
           "getPSSysImage" : {
-            "glyph" : "xf123@FontAwesome",
-            "cssClass" : "fa fa-star-half-o"
+            "glyph" : "xf04b@FontAwesome",
+            "cssClass" : "fa fa-play"
           },
           "getPSUIAction" : {
             "actionTarget" : "SINGLEKEY",
@@ -121,8 +120,8 @@
               "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
             },
             "getPSSysImage" : {
-              "glyph" : "xf123@FontAwesome",
-              "cssClass" : "fa fa-star-half-o"
+              "glyph" : "xf04b@FontAwesome",
+              "cssClass" : "fa fa-play"
             },
             "uIActionMode" : "FRONT",
             "uIActionTag" : "open_execute_view",
@@ -176,7 +175,7 @@
         } ],
         "uniqueTag" : "ai_agent_context__execute"
       },
-      "tooltip" : "执行",
+      "tooltip" : "审查知识库",
       "showCaption" : true,
       "showIcon" : true
     }, {
@@ -230,6 +229,11 @@
               "rawValue" : false
             } ],
             "getPSNavigateParams" : [ {
+              "key" : "srfaichatcaption",
+              "name" : "srfaichatcaption",
+              "value" : "提示词智能生成",
+              "rawValue" : true
+            }, {
               "key" : "srfenableaiagentchange",
               "name" : "srfenableaiagentchange",
               "value" : "false",
@@ -299,42 +303,6 @@
           "showCaption" : true,
           "showIcon" : true
         }, {
-          "caption" : "打开调试页面",
-          "detailType" : "DEUIACTION",
-          "name" : "u4deb125",
-          "getPSSysImage" : {
-            "glyph" : "xf0f6@FontAwesome",
-            "cssClass" : "fa fa-file-text-o"
-          },
-          "getPSUIAction" : {
-            "actionTarget" : "NONE",
-            "caption" : "打开调试页面",
-            "codeName" : "open_debug_view",
-            "getFrontPSAppView" : {
-              "modelref" : true,
-              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_agent_session_debug_view.json",
-              "viewType" : "DEEDITVIEW"
-            },
-            "frontProcessType" : "WIZARD",
-            "fullCodeName" : "ai_agent_context_open_debug_view",
-            "name" : "打开调试页面",
-            "getPSAppDataEntity" : {
-              "modelref" : true,
-              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
-            },
-            "getPSSysImage" : {
-              "glyph" : "xf0f6@FontAwesome",
-              "cssClass" : "fa fa-file-text-o"
-            },
-            "uIActionMode" : "FRONT",
-            "uIActionTag" : "open_debug_view",
-            "uIActionType" : "DEUIACTION",
-            "id" : "open_debug_view@ai_agent_context"
-          },
-          "addSeparator" : true,
-          "showCaption" : true,
-          "showIcon" : true
-        }, {
           "getCapPSLanguageRes" : {
             "lanResTag" : "TBB.TEXT.EDITVIEW.REMOVEANDCLOSE"
           },
@@ -380,7 +348,9 @@
       "showCaption" : false,
       "showIcon" : true
     } ],
+    "toolbarStyle" : "USER",
     "xDataControlName" : "form",
+    "name" : "toolbar",
     "modelid" : "ddcdd7ca123c669d630f6d3278a1adb8",
     "modeltype" : "PSDETOOLBAR"
   }, {
@@ -983,6 +953,15 @@
         "codeName" : "enable_searching"
       }
     }, {
+      "id" : "system_flag",
+      "dataType" : 9,
+      "createDV" : "0",
+      "updateDV" : "0",
+      "getPSAppDEField" : {
+        "name" : "SYSTEM_FLAG",
+        "codeName" : "system_flag"
+      }
+    }, {
       "id" : "vlm_prompt",
       "dataType" : 21,
       "getPSAppDEField" : {
@@ -1060,7 +1039,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 0,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "name",
           "noPrivDisplayMode" : 1,
@@ -1092,7 +1071,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 0,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "ai_agent_name",
           "noPrivDisplayMode" : 1,
@@ -1151,7 +1130,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 0,
           "ignoreInput" : 0,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 91,
           "name" : "code_name",
           "noPrivDisplayMode" : 1,
@@ -1162,7 +1141,17 @@
           "getPSEditor" : {
             "editorType" : "TEXTBOX",
             "maxLength" : 30,
-            "name" : "code_name"
+            "name" : "code_name",
+            "getPSSysValueRule" : {
+              "codeName" : "CodeName",
+              "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPVALUERULES/CodeName.json",
+              "name" : "代码名称",
+              "regExCode" : "[a-zA-Z_$][a-zA-Z0-9_$]*",
+              "ruleInfo" : "内容只能由字母、数字、下划线组成，且开始必须为字母",
+              "ruleType" : "REG",
+              "uniqueTag" : "CodeName",
+              "enableFront" : true
+            }
           },
           "getPSLayoutPos" : {
             "colLG" : 8,
@@ -1180,7 +1169,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 0,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "flow_mode",
           "noPrivDisplayMode" : 1,
@@ -1218,8 +1207,8 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 0,
-          "itemHeight" : 50.0,
-          "labelPos" : "LEFT",
+          "itemHeight" : 70.0,
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "description",
           "noPrivDisplayMode" : 1,
@@ -1248,7 +1237,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 0,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "scopes",
           "noPrivDisplayMode" : 1,
@@ -1295,7 +1284,7 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 0,
-          "labelPos" : "LEFT",
+          "labelPos" : "TOP",
           "labelWidth" : 130,
           "name" : "agent_group_tag",
           "noPrivDisplayMode" : 1,
@@ -1362,7 +1351,7 @@
             "detailType" : "FORMITEM",
             "enableCond" : 3,
             "ignoreInput" : 0,
-            "labelPos" : "LEFT",
+            "labelPos" : "TOP",
             "labelWidth" : 130,
             "name" : "default_system_prompt",
             "noPrivDisplayMode" : 1,
@@ -1442,7 +1431,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "skill_load_mode",
               "noPrivDisplayMode" : 1,
@@ -1475,7 +1464,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "skill_tags",
               "noPrivDisplayMode" : 1,
@@ -1510,6 +1499,9 @@
                 "notMode" : false
               } ],
               "getPSEditor" : {
+                "editorParams" : {
+                  "forceSelection" : "false"
+                },
                 "editorType" : "MDROPDOWNLIST",
                 "name" : "skill_tags",
                 "getPSAppCodeList" : {
@@ -1574,7 +1566,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "welcome_message",
               "noPrivDisplayMode" : 1,
@@ -1623,7 +1615,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "suggested_questions",
               "noPrivDisplayMode" : 1,
@@ -1684,7 +1676,7 @@
               "enableCond" : 3,
               "ignoreInput" : 0,
               "itemWidth" : 230.0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "enable_suggested_questions",
               "noPrivDisplayMode" : 1,
@@ -1719,7 +1711,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "custom_suggestion_prompt",
               "noPrivDisplayMode" : 1,
@@ -1789,7 +1781,7 @@
               "enableCond" : 3,
               "ignoreInput" : 0,
               "itemWidth" : 230.0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "enable_tools",
               "noPrivDisplayMode" : 1,
@@ -1824,7 +1816,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "tool_max_calls",
               "noPrivDisplayMode" : 1,
@@ -1866,7 +1858,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 150,
               "name" : "tool_exceed_message",
               "noPrivDisplayMode" : 1,
@@ -1913,7 +1905,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "tools",
               "noPrivDisplayMode" : 1,
@@ -2001,7 +1993,7 @@
                 "detailType" : "FORMITEM",
                 "enableCond" : 3,
                 "ignoreInput" : 0,
-                "labelPos" : "LEFT",
+                "labelPos" : "TOP",
                 "labelWidth" : 130,
                 "name" : "ai_model_name",
                 "noPrivDisplayMode" : 1,
@@ -2074,7 +2066,7 @@
                 "detailType" : "FORMITEM",
                 "enableCond" : 3,
                 "ignoreInput" : 0,
-                "labelPos" : "LEFT",
+                "labelPos" : "TOP",
                 "labelWidth" : 77,
                 "name" : "generation_mode",
                 "noPrivDisplayMode" : 1,
@@ -2118,7 +2110,7 @@
                   "detailType" : "FORMITEM",
                   "enableCond" : 3,
                   "ignoreInput" : 0,
-                  "labelPos" : "LEFT",
+                  "labelPos" : "TOP",
                   "labelWidth" : 204,
                   "name" : "temperature",
                   "noPrivDisplayMode" : 1,
@@ -2160,7 +2152,7 @@
                   "detailType" : "FORMITEM",
                   "enableCond" : 3,
                   "ignoreInput" : 0,
-                  "labelPos" : "LEFT",
+                  "labelPos" : "TOP",
                   "labelWidth" : 204,
                   "name" : "top_p",
                   "noPrivDisplayMode" : 1,
@@ -2262,7 +2254,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "rerank",
               "noPrivDisplayMode" : 1,
@@ -2289,7 +2281,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "rerank_model",
               "noPrivDisplayMode" : 1,
@@ -2360,7 +2352,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "page_index",
               "noPrivDisplayMode" : 1,
@@ -2388,7 +2380,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "use_kg",
               "noPrivDisplayMode" : 1,
@@ -2415,7 +2407,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "use_fulltext",
               "noPrivDisplayMode" : 1,
@@ -2442,7 +2434,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "top_k",
               "noPrivDisplayMode" : 1,
@@ -2471,7 +2463,7 @@
               "enableCond" : 3,
               "ignoreInput" : 0,
               "itemWidth" : 430.0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "similarity_threshold",
               "noPrivDisplayMode" : 1,
@@ -2510,7 +2502,7 @@
               "enableCond" : 3,
               "ignoreInput" : 0,
               "itemWidth" : 430.0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "vector_similarity_weight",
               "noPrivDisplayMode" : 1,
@@ -2547,7 +2539,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "kb_mode",
               "noPrivDisplayMode" : 1,
@@ -2580,7 +2572,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "spec_kb_name",
               "noPrivDisplayMode" : 1,
@@ -2639,7 +2631,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "kbs",
               "noPrivDisplayMode" : 1,
@@ -2709,7 +2701,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "memory_mode",
               "noPrivDisplayMode" : 1,
@@ -2743,7 +2735,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "memory_max_turns",
               "noPrivDisplayMode" : 1,
@@ -2771,7 +2763,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "memory_isolation_mode",
               "noPrivDisplayMode" : 1,
@@ -2804,7 +2796,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "memory_kb_tag",
               "noPrivDisplayMode" : 1,
@@ -2838,7 +2830,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "memory_doc_tag",
               "noPrivDisplayMode" : 1,
@@ -2900,8 +2892,8 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "itemHeight" : 300.0,
-              "labelPos" : "LEFT",
+              "itemHeight" : 320.0,
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "skill_readme",
               "noPrivDisplayMode" : 1,
@@ -2939,8 +2931,8 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "itemHeight" : 300.0,
-              "labelPos" : "LEFT",
+              "itemHeight" : 320.0,
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "skill_prompt",
               "noPrivDisplayMode" : 1,
@@ -3086,7 +3078,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "sequence",
               "noPrivDisplayMode" : 1,
@@ -3114,7 +3106,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "active",
               "noPrivDisplayMode" : 1,
@@ -3141,7 +3133,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "is_default",
               "noPrivDisplayMode" : 1,
@@ -3168,7 +3160,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "synthesizer",
               "noPrivDisplayMode" : 1,
@@ -3201,7 +3193,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 131,
               "name" : "max_input_tokens",
               "noPrivDisplayMode" : 1,
@@ -3211,7 +3203,7 @@
               },
               "getPSEditor" : {
                 "editorType" : "TEXTBOX",
-                "maxValue" : 256000.0,
+                "maxValue" : 32000.0,
                 "minValue" : 0.0,
                 "name" : "max_input_tokens",
                 "placeHolder" : "继承自模版"
@@ -3231,7 +3223,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "trimming_strategy",
               "noPrivDisplayMode" : 1,
@@ -3266,7 +3258,7 @@
               "enableCond" : 3,
               "ignoreInput" : 0,
               "itemWidth" : 230.0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "enable_thinking",
               "noPrivDisplayMode" : 1,
@@ -3302,7 +3294,7 @@
               "enableCond" : 3,
               "ignoreInput" : 0,
               "itemWidth" : 230.0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "stream",
               "noPrivDisplayMode" : 1,
@@ -3337,7 +3329,7 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "labelPos" : "LEFT",
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "enable_searching",
               "noPrivDisplayMode" : 1,
@@ -3357,6 +3349,43 @@
               "allowEmpty" : true,
               "showCaption" : true
             }, {
+              "caption" : "是否公开",
+              "codeName" : "system_flag",
+              "createDV" : "0",
+              "dataType" : 9,
+              "detailStyle" : "DEFAULT",
+              "detailType" : "FORMITEM",
+              "enableCond" : 3,
+              "ignoreInput" : 0,
+              "itemWidth" : 230.0,
+              "labelPos" : "TOP",
+              "labelWidth" : 130,
+              "name" : "system_flag",
+              "noPrivDisplayMode" : 1,
+              "getPSAppDEField" : {
+                "name" : "SYSTEM_FLAG",
+                "codeName" : "system_flag"
+              },
+              "getPSEditor" : {
+                "editorType" : "DROPDOWNLIST_100",
+                "editorWidth" : 100.0,
+                "name" : "system_flag",
+                "getPSAppCodeList" : {
+                  "modelref" : true,
+                  "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/YesNo.json"
+                },
+                "singleSelect" : true
+              },
+              "getPSLayoutPos" : {
+                "colLG" : 8,
+                "colMD" : 8,
+                "layout" : "TABLE_24COL"
+              },
+              "updateDV" : "0",
+              "allowEmpty" : true,
+              "needCodeListConfig" : true,
+              "showCaption" : true
+            }, {
               "caption" : "视觉识别提示词",
               "codeName" : "vlm_prompt",
               "dataType" : 21,
@@ -3364,8 +3393,8 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "itemHeight" : 300.0,
-              "labelPos" : "LEFT",
+              "itemHeight" : 320.0,
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "vlm_prompt",
               "noPrivDisplayMode" : 1,
@@ -3403,8 +3432,8 @@
               "detailType" : "FORMITEM",
               "enableCond" : 3,
               "ignoreInput" : 0,
-              "itemHeight" : 200.0,
-              "labelPos" : "LEFT",
+              "itemHeight" : 220.0,
+              "labelPos" : "TOP",
               "labelWidth" : 130,
               "name" : "context_debug_data",
               "noPrivDisplayMode" : 1,
@@ -3502,12 +3531,13 @@
                 "caption" : "实体处理逻辑",
                 "codeName" : "logic_design_readonly_captionbar",
                 "controlType" : "CAPTIONBAR",
-                "name" : "captionbar",
+                "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic/PSCAPTIONBARS/logic_design_readonly_captionbar.json",
                 "getPSAppDataEntity" : {
                   "modelref" : true,
                   "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
                 },
-                "getPSControlParam" : { }
+                "getPSControlParam" : { },
+                "name" : "captionbar"
               } ],
               "getPSDEViewCodeName" : "LogicDesign_Readonly",
               "getPSDEViewId" : "137f9770315887cde9c2feda2b587682",
@@ -3515,7 +3545,7 @@
                 "codeName" : "layoutpanel",
                 "controlStyle" : "APPDESUBAPPREFVIEW",
                 "controlType" : "VIEWLAYOUTPANEL",
-                "name" : "layoutpanel",
+                "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic/PSVIEWLAYOUTPANELS/layoutpanel.json",
                 "getPSAppDataEntity" : {
                   "modelref" : true,
                   "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
@@ -3523,7 +3553,8 @@
                 "getPSControlParam" : { },
                 "layoutBodyOnly" : true,
                 "layoutPanel" : true,
-                "useDefaultLayout" : true
+                "useDefaultLayout" : true,
+                "name" : "layoutpanel"
               },
               "priority" : 90,
               "title" : "设计",
@@ -3833,14 +3864,15 @@
   }, {
     "codeName" : "edit_view_datainfobar",
     "controlType" : "DATAINFOBAR",
-    "name" : "datainfobar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context/PSDATAINFOBARS/edit_view_datainfobar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
     },
     "getPSControlParam" : {
       "id" : "datainfobar"
-    }
+    },
+    "name" : "datainfobar"
   }, {
     "getCapPSLanguageRes" : {
       "lanResTag" : "DE.LNAME.AI_AGENT_CONTEXT"
@@ -3848,12 +3880,13 @@
     "caption" : "智能体",
     "codeName" : "edit_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context/PSCAPTIONBARS/edit_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "EditView",
   "getPSDEViewId" : "01a5a46b0e20cf3c9e44955448e08d31",
@@ -3861,7 +3894,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEEDITVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
@@ -3869,7 +3902,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "智能体业务上下文编辑视图",
   "viewStyle" : "DEFAULT",

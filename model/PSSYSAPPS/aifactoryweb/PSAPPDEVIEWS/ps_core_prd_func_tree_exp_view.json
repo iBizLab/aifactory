@@ -17,9 +17,9 @@
   "getPSViewLayoutPanel" : {
     "codeName" : "usr1206423734",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc/PSVIEWLAYOUTPANELS/usr1206423734.json",
     "layoutMode" : "FLEX",
     "logicName" : "TreeExpView实体树导航视图布局面板",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc.json"
@@ -106,6 +106,7 @@
     "layoutPanel" : true,
     "useDefaultLayout" : false,
     "viewProxyMode" : true,
+    "name" : "layoutpanel",
     "modelid" : "1c6eca106fa669749794ecec8e520f91",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL",
     "getPSAppViewEngines" : [ {
@@ -140,7 +141,7 @@
     "getPSControls" : [ {
       "codeName" : "tree_exp_view_treeexpbar",
       "controlType" : "TREEEXPBAR",
-      "name" : "treeexpbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc/PSTREEEXPBARS/tree_exp_view_treeexpbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc.json"
@@ -695,6 +696,7 @@
       "enableCounter" : true,
       "enableSearch" : false,
       "showTitleBar" : false,
+      "name" : "treeexpbar",
       "modelid" : "6fc247b52f1c3bb5c3f634915e54ca6a_treeexpbar",
       "modeltype" : "PSEXPBAR"
     }, {
@@ -718,12 +720,13 @@
       "caption" : "应用市场",
       "codeName" : "tree_exp_view_captionbar",
       "controlType" : "CAPTIONBAR",
-      "name" : "captionbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc/PSCAPTIONBARS/tree_exp_view_captionbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc.json"
       },
-      "getPSControlParam" : { }
+      "getPSControlParam" : { },
+      "name" : "captionbar"
     } ]
   },
   "title" : "应用管理",

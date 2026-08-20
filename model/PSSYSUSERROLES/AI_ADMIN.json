@@ -3,6 +3,96 @@
   "dynaModelFilePath" : "PSSYSUSERROLES/AI_ADMIN.json",
   "name" : "智能管理员",
   "getPSSysUserRoleDatas" : [ {
+    "name" : "智能管理员-AI_AGENT_CONTEXT[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+    }
+  }, {
+    "name" : "智能管理员-AI_KB_DOCUMENT[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
+    }
+  }, {
+    "name" : "智能管理员-AI_AGENT_MESSAGE[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_message/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_message.json"
+    }
+  }, {
+    "name" : "智能管理员-AI_CREDENTIAL[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_credential/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_credential.json"
+    }
+  }, {
+    "name" : "智能管理员-AI_AGENT_MEMORY_TASK[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task.json"
+    }
+  }, {
+    "name" : "智能管理员-DATA_RESOURCE[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/meta/PSDATAENTITIES/data_resource/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/meta/PSDATAENTITIES/data_resource.json"
+    }
+  }, {
+    "name" : "智能管理员-AI_KB_GRAPH_ENTITY_TYPE[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_graph_entity_type/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_graph_entity_type.json"
+    }
+  }, {
+    "name" : "智能管理员-AI_MODEL[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_model/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_model.json"
+    }
+  }, {
+    "name" : "智能管理员-AI_AGENT_TOOL_REL[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_tool_rel/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_tool_rel.json"
+    }
+  }, {
     "name" : "智能管理员-CATEGORY_SETTINGS[全部数据（读写）]",
     "getPSDEUserRole" : {
       "modelref" : true,
@@ -13,7 +103,37 @@
       "path" : "PSMODULES/Base/PSDATAENTITIES/category_settings.json"
     }
   }, {
-    "name" : "智能管理员-AI_REVIEW_REPORT[操作角色]",
+    "name" : "智能管理员-AI_AGENT_CONVERSATION[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation.json"
+    }
+  }, {
+    "name" : "智能管理员-AI_KB_DOCUMENT_WIZARD[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document_wizard/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document_wizard.json"
+    }
+  }, {
+    "name" : "智能管理员-AI_MODEL_PROVIDER[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_model_provider/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_model_provider.json"
+    }
+  }, {
+    "name" : "智能管理员-AI_REVIEW_REPORT[全部数据（读）]",
     "getPSDEUserRole" : {
       "modelref" : true,
       "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEUSERROLES/ALL_R.json"
@@ -21,6 +141,76 @@
     "getPSDataEntity" : {
       "modelref" : true,
       "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report.json"
+    }
+  }, {
+    "name" : "智能管理员-CATEGORY[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/category/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/category.json"
+    }
+  }, {
+    "name" : "智能管理员-AI_KB_DOCUMENT_SYNC[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document_sync/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document_sync.json"
+    }
+  }, {
+    "name" : "智能管理员-AI_AGENT_KNOWLEDGE_REL[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_knowledge_rel/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_knowledge_rel.json"
+    }
+  }, {
+    "name" : "智能管理员-KEYRING[全部密钥环(RW)]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/keyring/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/keyring.json"
+    }
+  }, {
+    "name" : "智能管理员-AI_TOOL[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_tool/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_tool.json"
+    }
+  }, {
+    "name" : "智能管理员-AI_KNOWLEDGE_SOURCE[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_source/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_source.json"
+    }
+  }, {
+    "name" : "智能管理员-AI_KB_CHUNK[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunk/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_chunk.json"
     }
   }, {
     "name" : "智能管理员-AI_KNOWLEDGE_BASE[全部数据（读写）]",
@@ -32,7 +222,140 @@
       "modelref" : true,
       "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
     }
+  }, {
+    "name" : "智能管理员-AI_SKILL_WORKSPACE[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+    }
+  }, {
+    "name" : "智能管理员-AI_AGENT[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent.json"
+    }
+  }, {
+    "name" : "智能管理员-AI_KB_TAG[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_tag/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_tag.json"
+    }
+  }, {
+    "name" : "智能管理员-AI_AGENT_FEEDBACK[全部数据（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_feedback/PSDEUSERROLES/ALL_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_feedback.json"
+    }
+  } ],
+  "getPSSysUserRoleReses" : [ {
+    "name" : "智能管理员-智能报表立方体指标模型扩展（只读）",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "EXTENSION__READ_PSSYSBICUBEMEASURE"
+    },
+    "sysUniResCode" : "EXTENSION__READ_PSSYSBICUBEMEASURE"
+  }, {
+    "name" : "智能管理员-通知模型扩展",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "extension__EXTENSION__MANAGE_PSDENOTIFY"
+    },
+    "sysUniResCode" : "EXTENSION__MANAGE_PSDENOTIFY"
+  }, {
+    "name" : "智能管理员-通知模型扩展（只读）",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "extension__EXTENSION__READ_PSDENOTIFY"
+    },
+    "sysUniResCode" : "EXTENSION__READ_PSDENOTIFY"
+  }, {
+    "name" : "智能管理员-智能报表立方体模型扩展",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "EXTENSION__MANAGE_PSSYSBICUBE"
+    },
+    "sysUniResCode" : "EXTENSION__MANAGE_PSSYSBICUBE"
+  }, {
+    "name" : "智能管理员-智能报表立方体维度模型扩展",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "EXTENSION__MANAGE_PSSYSBICUBEDIMENSION"
+    },
+    "sysUniResCode" : "EXTENSION__MANAGE_PSSYSBICUBEDIMENSION"
+  }, {
+    "name" : "智能管理员-智能报表立方体指标模型扩展",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "EXTENSION__MANAGE_PSSYSBICUBEMEASURE"
+    },
+    "sysUniResCode" : "EXTENSION__MANAGE_PSSYSBICUBEMEASURE"
+  }, {
+    "name" : "智能管理员-智能报表立方体模型扩展（只读）",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "EXTENSION__READ_PSSYSBICUBE"
+    },
+    "sysUniResCode" : "EXTENSION__READ_PSSYSBICUBE"
+  }, {
+    "name" : "智能管理员-智能体高级设置",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "ai__AGENTMGR"
+    },
+    "sysUniResCode" : "AGENTMGR"
+  }, {
+    "name" : "智能管理员-智能报表模型扩展",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "EXTENSION__MANAGE_PSSYSBIREPORT"
+    },
+    "sysUniResCode" : "EXTENSION__MANAGE_PSSYSBIREPORT"
+  }, {
+    "name" : "智能管理员-模型管理",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "ai__MODELMGR"
+    },
+    "sysUniResCode" : "MODELMGR"
+  }, {
+    "name" : "智能管理员-知识库高级设置",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "ai__KBMGR"
+    },
+    "sysUniResCode" : "KBMGR"
+  }, {
+    "name" : "智能管理员-智能报表立方体维度模型扩展（只读）",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "EXTENSION__READ_PSSYSBICUBEDIMENSION"
+    },
+    "sysUniResCode" : "EXTENSION__READ_PSSYSBICUBEDIMENSION"
+  }, {
+    "name" : "智能管理员-智能报表模型扩展（只读）",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "EXTENSION__READ_PSSYSBIREPORT"
+    },
+    "sysUniResCode" : "EXTENSION__READ_PSSYSBIREPORT"
   } ],
   "roleTag" : "AI_ADMIN",
-  "roleType" : "CUSTOM"
+  "roleType" : "CUSTOM",
+  "uniResTags" : [ "EXTENSION__READ_PSSYSBICUBEMEASURE", "EXTENSION__MANAGE_PSDENOTIFY", "EXTENSION__READ_PSDENOTIFY", "EXTENSION__MANAGE_PSSYSBICUBE", "EXTENSION__MANAGE_PSSYSBICUBEDIMENSION", "EXTENSION__MANAGE_PSSYSBICUBEMEASURE", "EXTENSION__READ_PSSYSBICUBE", "AGENTMGR", "EXTENSION__MANAGE_PSSYSBIREPORT", "MODELMGR", "KBMGR", "EXTENSION__READ_PSSYSBICUBEDIMENSION", "EXTENSION__READ_PSSYSBIREPORT" ]
 }

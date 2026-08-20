@@ -18,9 +18,9 @@
   "getPSViewLayoutPanel" : {
     "codeName" : "usr0125490545",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic/PSVIEWLAYOUTPANELS/usr0125490545.json",
     "layoutMode" : "FLEX",
     "logicName" : "flow_panel_view实体面板视图布局面板",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
@@ -280,6 +280,7 @@
     "layoutPanel" : true,
     "useDefaultLayout" : false,
     "viewProxyMode" : true,
+    "name" : "layoutpanel",
     "modelid" : "efb7b990d7d29a42b776adec2f3e3e8a",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL",
     "getPSControls" : [ {
@@ -2353,9 +2354,9 @@
     }, {
       "codeName" : "flow_panel_view_toolbar",
       "controlType" : "TOOLBAR",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic/PSTOOLBARS/flow_panel_view_toolbar.json",
       "logicName" : "更多日志_工具栏",
       "memo" : "只有一个更多按钮",
-      "name" : "toolbar",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
@@ -2403,18 +2404,20 @@
       "getPSSysCss" : {
         "cssName" : "more_log_style"
       },
+      "name" : "toolbar",
       "modelid" : "342d32b8bc80b432bd25cd06f4e4f940",
       "modeltype" : "PSDETOOLBAR"
     }, {
       "caption" : "自动化规则看板",
       "codeName" : "flow_panel_view_captionbar",
       "controlType" : "CAPTIONBAR",
-      "name" : "captionbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic/PSCAPTIONBARS/flow_panel_view_captionbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSDELogic.json"
       },
-      "getPSControlParam" : { }
+      "getPSControlParam" : { },
+      "name" : "captionbar"
     } ]
   },
   "title" : "自动化规则看板",

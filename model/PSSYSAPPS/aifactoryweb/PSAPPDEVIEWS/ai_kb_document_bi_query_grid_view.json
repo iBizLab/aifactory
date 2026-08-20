@@ -215,8 +215,8 @@
     "getPSControls" : [ {
       "codeName" : "bi_query_grid_view_grid_batchtoolbar",
       "controlType" : "TOOLBAR",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document/PSTOOLBARS/bi_query_grid_view_grid_batchtoolbar.json",
       "logicName" : "文档清单批操作工具栏",
-      "name" : "grid_batchtoolbar",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
@@ -316,6 +316,7 @@
         "showCaption" : true,
         "showIcon" : true
       } ],
+      "name" : "grid_batchtoolbar",
       "modelid" : "7ac0adb26e7630a63d1bb4813b6fecff",
       "modeltype" : "PSDETOOLBAR"
     } ],
@@ -1070,12 +1071,13 @@
     "caption" : "知识库文档反查",
     "codeName" : "bi_query_grid_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document/PSCAPTIONBARS/bi_query_grid_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "bi_query_grid_view",
   "getPSDEViewId" : "35F259A2-3083-41A1-AEE8-381E46F99077",
@@ -1083,7 +1085,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEGRIDVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
@@ -1091,7 +1093,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "refFlag" : false,
   "title" : "知识库文档反查",

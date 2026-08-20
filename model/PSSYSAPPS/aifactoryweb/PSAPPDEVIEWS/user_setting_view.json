@@ -28,8 +28,8 @@
     "codeName" : "setting_view",
     "controlType" : "DRBAR",
     "dataRelationTag" : "setting_view",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSDRBARS/setting_view.json",
     "editItemCaption" : "企业用户",
-    "name" : "drbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
@@ -105,10 +105,23 @@
         "modelref" : true,
         "id" : "UsrDRGroup1205428411"
       }
+    }, {
+      "caption" : "我的密钥环",
+      "name" : "my_keyring",
+      "getPSAppView" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/keyring_my_grid_view.json",
+        "viewType" : "DEGRIDVIEW"
+      },
+      "getPSDEDRBarGroup" : {
+        "modelref" : true,
+        "id" : "UsrDRGroup1205428411"
+      }
     } ],
     "uniqueTag" : "user_setting_view__drbar",
     "hideEditItem" : true,
     "showTitle" : true,
+    "name" : "drbar",
     "modelid" : "e8891331c1c90abe1e0c9a11bb7e5ca9",
     "modeltype" : "PSDEDRBAR"
   }, {
@@ -403,24 +416,26 @@
   }, {
     "codeName" : "setting_view_datainfobar",
     "controlType" : "DATAINFOBAR",
-    "name" : "datainfobar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSDATAINFOBARS/setting_view_datainfobar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
     },
     "getPSControlParam" : {
       "id" : "datainfobar"
-    }
+    },
+    "name" : "datainfobar"
   }, {
     "caption" : "帐号设置",
     "codeName" : "setting_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSCAPTIONBARS/setting_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "setting_view",
   "getPSDEViewId" : "e8891331c1c90abe1e0c9a11bb7e5ca9",
@@ -431,7 +446,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEEDITVIEW2",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
@@ -439,7 +454,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "帐号设置",
   "viewStyle" : "DEFAULT",

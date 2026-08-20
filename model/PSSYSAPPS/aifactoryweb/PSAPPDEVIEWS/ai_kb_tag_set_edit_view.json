@@ -27,8 +27,8 @@
   "getPSControls" : [ {
     "codeName" : "edit_view_toolbar",
     "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_tag_set/PSTOOLBARS/edit_view_toolbar.json",
     "logicName" : "工具栏模板（嵌入编辑表单，只有一个保存按钮）",
-    "name" : "toolbar",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_tag_set.json"
@@ -82,6 +82,7 @@
       "showIcon" : true
     } ],
     "xDataControlName" : "form",
+    "name" : "toolbar",
     "modelid" : "25823041a044e2dfc60cdebdb06ebd82",
     "modeltype" : "PSDETOOLBAR"
   }, {
@@ -597,8 +598,8 @@
             }, {
               "codeName" : "nested_grid_view_toolbar",
               "controlType" : "TOOLBAR",
+              "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_tag/PSTOOLBARS/nested_grid_view_toolbar.json",
               "logicName" : "嵌入知识库表格工具栏",
-              "name" : "toolbar",
               "getPSAppDataEntity" : {
                 "modelref" : true,
                 "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_tag.json"
@@ -699,6 +700,7 @@
                 "showIcon" : true
               } ],
               "xDataControlName" : "grid",
+              "name" : "toolbar",
               "modelid" : "ed65a5c15e666a6939231403db296764",
               "modeltype" : "PSDETOOLBAR"
             }, {
@@ -1108,12 +1110,13 @@
               "caption" : "标签",
               "codeName" : "nested_grid_view_captionbar",
               "controlType" : "CAPTIONBAR",
-              "name" : "captionbar",
+              "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_tag/PSCAPTIONBARS/nested_grid_view_captionbar.json",
               "getPSAppDataEntity" : {
                 "modelref" : true,
                 "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_tag.json"
               },
-              "getPSControlParam" : { }
+              "getPSControlParam" : { },
+              "name" : "captionbar"
             } ],
             "getPSDEViewCodeName" : "nested_grid_view",
             "getPSDEViewId" : "d39dc089cba7612ac48f989983555aed",
@@ -1121,7 +1124,7 @@
               "codeName" : "layoutpanel",
               "controlStyle" : "APPDEGRIDVIEW",
               "controlType" : "VIEWLAYOUTPANEL",
-              "name" : "layoutpanel",
+              "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_tag/PSVIEWLAYOUTPANELS/layoutpanel.json",
               "getPSAppDataEntity" : {
                 "modelref" : true,
                 "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_tag.json"
@@ -1129,7 +1132,8 @@
               "getPSControlParam" : { },
               "layoutBodyOnly" : true,
               "layoutPanel" : true,
-              "useDefaultLayout" : true
+              "useDefaultLayout" : true,
+              "name" : "layoutpanel"
             },
             "title" : "知识库标签",
             "viewStyle" : "DEFAULT",
@@ -1260,14 +1264,15 @@
   }, {
     "codeName" : "edit_view_datainfobar",
     "controlType" : "DATAINFOBAR",
-    "name" : "datainfobar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_tag_set/PSDATAINFOBARS/edit_view_datainfobar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_tag_set.json"
     },
     "getPSControlParam" : {
       "id" : "datainfobar"
-    }
+    },
+    "name" : "datainfobar"
   }, {
     "getCapPSLanguageRes" : {
       "lanResTag" : "DE.LNAME.AI_KB_TAG_SET"
@@ -1275,12 +1280,13 @@
     "caption" : "标签集",
     "codeName" : "edit_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_tag_set/PSCAPTIONBARS/edit_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_tag_set.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "EditView",
   "getPSDEViewId" : "2236a66c7101d1a61098829db85e3cbb",
@@ -1291,7 +1297,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDEEDITVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_tag_set/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_tag_set.json"
@@ -1299,7 +1305,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "知识库标签集编辑视图",
   "viewStyle" : "DEFAULT",

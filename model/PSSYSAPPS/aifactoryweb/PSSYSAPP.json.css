@@ -25,6 +25,16 @@
     background-color: #1C1C1C;
 }
 */
+    .chat-form .ibiz-form-page,
+.chat-form .ibiz-col--grid,
+.chat-form .ibiz-form-page-item {
+  height: 100%;
+}
+.chat-form .ibiz-control-edit-form,
+.chat-form .ibiz-form-group-content,
+.chat-form .ibiz-form-item-container {
+  padding: 0;
+}
     .ai_selector_style .ibiz-panel-button--default {
     padding: 0px !important;
 }
@@ -46,6 +56,15 @@
 .ai_selector_style .ibiz-panel-field--context_name {
     font-weight: 800;
 }
+    .assignment_list_edit{
+      margin:0px 0px 0px 0px
+    }
+    .assignment_list_edit .ibiz-view--ai_agent_assignment_list_edit {
+    border: var(--ibiz-color-secondary) 1px solid;
+    border-top: var(--ibiz-color-secondary) 8px solid;
+    border-radius: 0px 0px 30px 0px;
+    margin: 30px 30px 0px 30px;
+}
     .drbar-ex-underline {
 border-bottom: 1px solid var(--ibiz-color-border);
 }
@@ -53,7 +72,7 @@ border-bottom: 1px solid var(--ibiz-color-border);
 /* drbar头部样式 */
 .drbar-ex-underline .ibiz-control-toolbar__menu .ibiz-control-toolbar-submenu .el-sub-menu__title,
 .drbar-ex-underline .ibiz-control-toolbar .ibiz-control-toolbar__item .el-button {
-padding: 8px 0px;
+padding: 8px 4px;
 }
 .drbar-ex-underline .ibiz-control-toolbar__menu .ibiz-control-toolbar-submenu .el-sub-menu__title,
 .drbar-ex-underline .ibiz-control-toolbar__item ~ .ibiz-control-toolbar__item .el-button {
@@ -738,6 +757,45 @@ max-width: 250px;
 .ibiz-control-group-tree-node .ibiz-context-menu__item > .el-icon {
 font-size: 16px;
 }
+    
+.topic-list-style .ibiz-rawitem{
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.topic-list-style .ibiz-control-list-scroll-item{
+    margin-top: 5px;
+    margin-right: 5px;
+    border-radius: 16px;
+    background-color: transparent;
+}
+.topic-list-style .ibiz-control-list-scroll-item.is-active{
+        background-color: var(--ibiz-color-bg-2);
+}
+.topic-list-style .ibiz-control-list-content.is-show-underLine .ibiz-control-list-scroll-item {
+    border-bottom: 0px;
+}
+
+.topic-list-style .el-input-group--prepend>.el-input__wrapper {
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+     border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+.topic-list-style .ibiz-control-searchbar-quick-search {
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 5px;
+}
+
+:root.light .topic-list-style {
+    --ibiz-color-bg-2: #2e323721;
+    --ibiz-color-info-active: #D9ECFF;
+}
+    :root .ibiz-flat-chat-container-main__spinner,
+:root .ibiz-simple-chat-container__loading--spinner {
+  border: 4px solid var(--ibiz-ai-chat-hover-background-color);
+  border-top: 4px solid var(--ibiz-ai-chat-hover-background-color-2);
+}
     .ibiz-control-grid{
   --ibiz-control-grid-scrollbar-width: 8px;
 }
@@ -812,6 +870,12 @@ font-size: 16px;
 }
 
 
+    .split-container .ibiz-split-pane--right .ibiz-col--grid {
+  height: 100%;
+}
+.split-container .ibiz-split-pane--right .ibiz-panel-container--container1 {
+  padding: 4px 8px;
+}
     .divider_style .el-divider--horizontal{
         margin: 0px;
 }
@@ -907,17 +971,91 @@ font-size: 16px;
     .overflow-visible>.ibiz-row {
     overflow: visible;
 }
-    .embed-ai-chat-view-content .ibiz-panel-view-content{
-  padding: 0;
-}
-.embed-ai-chat-view-content .ibiz-panel-view-content .ibiz-control-edit-form{
-  padding: 0;
-}
-.embed-ai-chat-view-content .ibiz-form-group-content__row >.ibiz-col.ibiz-col--flex{
+    .nav_embed_ai_chat_form_style  .ibiz-form-group-content 
+.ibiz-col{
     height: 100%;
 }
-.embed-ai-chat-view-content .ibiz-form-group-content__row .ibiz-form-item-container{
+    .embed-ai-chat-view-content {
+  background-color: transparent !important;
+}
+.embed-ai-chat-view-content .ibiz-panel-view-content,
+.embed-ai-chat-view-content .ibiz-control-edit-form,
+.embed-ai-chat-view-content .ibiz-form-group-content,
+.embed-ai-chat-view-content .ibiz-form-item-container {
   padding: 0;
+}
+.embed-ai-chat-view-content .ibiz-panel-container-image {
+  background-size: cover;
+  border-radius: 16px;
+}
+.embed-ai-chat-view-content .ibiz-form-page,
+.embed-ai-chat-view-content .ibiz-form-page-item,
+.embed-ai-chat-view-content .ibiz-form-page-item .ibiz-col--grid,
+.embed-ai-chat-view-content .ibiz-control-viewlayoutpanel-content>.ibiz-col.ibiz-col--flex,
+.embed-ai-chat-view-content .ibiz-panel-container-image >.ibiz-row--flex >.ibiz-col--flex {
+  height: 100%;
+}
+
+    .embed-ai-chat-view-content .ibiz-form-group-content__row .ibiz-col.ibiz-col--flex {
+  width: 100%;
+  height: 100%;
+}
+.embed-ai-chat-view-content .ibiz-flat-chat-container .ibiz-flat-chat-container-header {
+  display: none;
+}
+.embed-ai-chat-view-content .ibiz-flat-chat-container .ibiz-flat-chat-container-main {
+  height: 100%;
+}
+    .embed-ai-chat-view-content .ibiz-flat-chat-container.is-empty-message {
+  background-color: transparent;
+  border: none;
+}
+.embed-ai-chat-view-content .ibiz-flat-chat-container.is-empty-message .ibiz-chat-toolbar,
+.embed-ai-chat-view-content .ibiz-flat-chat-container.is-empty-message .ibiz-flat-chat-container-content {
+  display: none;
+}
+.embed-ai-chat-view-content .ibiz-flat-chat-container.is-empty-message .ibiz-flat-chat-container-main__left {
+  background-color: var(--ibiz-ai-chat-background-color);
+  border: 1px solid var(--ibiz-ai-chat-border-color);
+  border-radius: var(--ibiz-ai-chat-border-radius) 0 0 var(--ibiz-ai-chat-border-radius);
+}
+.embed-ai-chat-view-content .ibiz-flat-chat-container.is-empty-message .ibiz-flat-chat-container-main__right {
+  align-items: center;
+  justify-content: center;
+ 
+}
+.embed-ai-chat-view-content .ibiz-flat-chat-container.is-empty-message .ibiz-flat-chat-container-main__right .ibiz-chat-input-material-wrapper {
+  background-color: transparent;
+}
+    .embed-ai-chat-view-content .ibiz-flat-chat-container.is-empty-message .ibiz-flat-chat-container-main__right  .ibiz-chat-input-main-wrapper {
+  background-color: var(--ibiz-ai-chat-background-color);
+}
+.embed-ai-chat-view-content .ibiz-flat-chat-container.is-empty-message .ibiz-flat-chat-container-footer{
+  position: relative;
+  width: 60%;
+  border: none;
+}
+.embed-ai-chat-view-content .ibiz-flat-chat-container.is-empty-message .ibiz-flat-chat-container-footer::after {
+  position: absolute;
+  top: -26px;
+  left: 50%;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ibiz-color-text-2);
+  content: "AI Factory 已就绪，随时开始";
+  transform: translateX(-50%);
+}
+    :root.light .embed-ai-chat-view-content .ibiz-panel-container-image--container_image_dark,
+:root.blue .embed-ai-chat-view-content .ibiz-panel-container-image--container_image_dark,
+:root.user1 .embed-ai-chat-view-content .ibiz-panel-container-image--container_image_dark,
+:root.user2 .embed-ai-chat-view-content .ibiz-panel-container-image--container_image_dark,
+:root.user3 .embed-ai-chat-view-content .ibiz-panel-container-image--container_image_dark,
+:root.purple .embed-ai-chat-view-content .ibiz-panel-container-image--container_image_dark,
+:root.app_light .embed-ai-chat-view-content .ibiz-panel-container-image--container_image_dark{
+  background-image: none !important;
+}
+:root.dark .embed-ai-chat-view-content .ibiz-panel-container-image--container_image_light{
+  background-image: none !important;
 }
     .ibiz-nav-pos > .ibiz-view-detreeexpview .ibiz-panel-ctrl-pos--treeexpbar_tree > .ibiz-control-treeview {
   padding-left: 0;
@@ -1194,6 +1332,55 @@ color: var(--ibiz-color-text-3);
 .activate_button .ibiz-panel-button.ibiz-panel-button--default{
     height: 19px;
     padding: 0px;
+}
+    .quick-chat-view .ibiz-split-pane--right .ibiz-col--grid,
+.quick-chat-view .ibiz-split-pane--right .ibiz-form-page,
+.quick-chat-view .ibiz-split-pane--right .ibiz-form-page-item,
+.quick-chat-view .ibiz-split-pane--right .ibiz-panel-container-image >.ibiz-row--flex >.ibiz-col--flex,
+.quick-chat-view .ibiz-split-pane--right .ibiz-panel-container--container2 >.ibiz-row--flex >.ibiz-col--flex,
+.quick-chat-view .ibiz-split-pane--right .ibiz-panel-container--container2.default .ibiz-form-group-content__row .ibiz-col.ibiz-col--flex:first-child {
+  height: 100%;
+}
+.quick-chat-view .ibiz-split-pane--right .ibiz-form-raw-item .ibiz-rawitem__text {
+  font-size: 18px;
+  font-weight: 600;
+}
+.quick-chat-view .ibiz-split-pane--right .ibiz-control-edit-form,
+.quick-chat-view .ibiz-split-pane--right .ibiz-form-group-content,
+.quick-chat-view .ibiz-split-pane--right .ibiz-form-item-container {
+  padding: 0;
+}
+
+    .quick-chat-view .ibiz-split-pane--right .ibiz-panel-container--container1 {
+  padding: 4px 8px;
+}
+.quick-chat-view .ibiz-split-pane--right .ibiz-panel-container-image {
+  background-size: cover;
+}
+.quick-chat-view .ibiz-split-pane--right .ibiz-form-group-content__row .ibiz-col.ibiz-col--flex:first-child {
+  width: 100%;
+}
+.quick-chat-view .ibiz-split-pane--right .ibiz-embed-ai-chat.is-simple {
+  display: flex;
+  justify-content: center;
+}
+.quick-chat-view .ibiz-split-pane--right .ibiz-embed-ai-chat.is-simple .ibiz-embed-ai-chat__container {
+  width: 60%;
+}
+.quick-chat-view .ibiz-split-pane--right .ibiz-panel-container--container2.default .ibiz-panel-container-image {
+  background-image: none !important;
+}
+    :root.light .quick-chat-view .ibiz-split-pane--right .ibiz-panel-container-image--container_image_dark,
+:root.blue .quick-chat-view .ibiz-split-pane--right .ibiz-panel-container-image--container_image_dark,
+:root.user1 .quick-chat-view .ibiz-split-pane--right .ibiz-panel-container-image--container_image_dark,
+:root.user2 .quick-chat-view .ibiz-split-pane--right .ibiz-panel-container-image--container_image_dark,
+:root.user3 .quick-chat-view .ibiz-split-pane--right .ibiz-panel-container-image--container_image_dark,
+:root.purple .quick-chat-view .ibiz-split-pane--right .ibiz-panel-container-image--container_image_dark,
+:root.app_light .quick-chat-view .ibiz-split-pane--right .ibiz-panel-container-image--container_image_dark {
+  background-image: none !important;
+}
+:root.dark .quick-chat-view .ibiz-split-pane--right .ibiz-panel-container-image--container_image_light{
+  background-image: none !important;
 }
     .mob_member_title_style .ibiz-panel-field--title {
     background-color: lightgrey;
@@ -1884,10 +2071,13 @@ margin-bottom: 5px;
     margin-top: 5px;
     margin-right: 5px;
     border-radius: 8px;
-    background-color: var(--ibiz-color-bg-2);
+    background-color: transparent;
 }
 .document-list-style .ibiz-control-list-scroll-item.is-active{
-    background-color: var(--ibiz-color-info-active);
+        background-color: var(--ibiz-color-bg-2);
+}
+.document-list-style .ibiz-control-list-content.is-show-underLine .ibiz-control-list-scroll-item {
+    border-bottom: 0px;
 }
     .document-list-style .ibiz-panel-exp-header--control_header{
     padding: 0;
@@ -1973,8 +2163,8 @@ margin-bottom: 5px;
     .zjwd_style .ibiz-control.ibiz-control-panel.ibiz-control--list_itempanel.ibiz-control-list-item{
     margin-top: 5px;
     margin-right: 5px;
-    border-radius: 8px;
-    background-color: var(--ibiz-color-bg-2);
+    border-radius: 0px;
+    background-color: transparent;
 }
 .zjwd_style .ibiz-rawitem{
     font-size: var(--el-font-size-medium);
@@ -1987,19 +2177,19 @@ margin-bottom: 5px;
     background-color: var(--ibiz-color-bg-2);
 }
 .zjwd_style .ibiz-control-list-scroll-item is-active{
-    background-color: transparent;
+    background-color: var(--ibiz-color-bg-2);
 }
 .zjwd_style .ibiz-control-list-scroll-item.is-active{
-    background-color: transparent;
+    background-color: var(--ibiz-color-bg-2);
 }
 /*
 .zjwd_style .ibiz-control-list-scroll-item:hover{
     background-color: transparent;
 }
 */
-.zjwd_style .ibiz-control-list-content.is-show-underLine .ibiz-control-list-scroll-item{
+/* .zjwd_style .ibiz-control-list-content.is-show-underLine .ibiz-control-list-scroll-item{
     border-bottom:0px;
-}
+} */
     .tree_style .el-tree-node__content{
     font-size: 16px;
 }
@@ -2334,6 +2524,10 @@ color: var(--ibiz-color-primary);
 }
 
 
+    .el-table__row.invalidlink .el-table_1_column_1.is-left.defgridcolumn.defgridcolumn-name.el-table__cell .ibiz-grid-field-column__text {
+    pointer-events: none;
+    color: var(--ibiz-color-text-0);
+}
     .page_info_style .ibiz-form-item-container--left {
   text-align: left;
 }

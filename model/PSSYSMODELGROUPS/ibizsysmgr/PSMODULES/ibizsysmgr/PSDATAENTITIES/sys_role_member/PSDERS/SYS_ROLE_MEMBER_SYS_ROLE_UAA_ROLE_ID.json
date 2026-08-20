@@ -1,0 +1,26 @@
+{
+  "codeName" : "sys_role_uaa",
+  "dERSubType" : "DER1N",
+  "dERType" : "DERCUSTOM",
+  "dynaModelFilePath" : "PSSYSMODELGROUPS/ibizsysmgr/PSMODULES/ibizsysmgr/PSDATAENTITIES/sys_role_member/PSDERS/SYS_ROLE_MEMBER_SYS_ROLE_UAA_ROLE_ID.json",
+  "getMajorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSMODELGROUPS/ibizsysmgr/PSMODULES/ibizsysmgr/PSDATAENTITIES/sys_role.json"
+  },
+  "masterOrder" : 100,
+  "masterRS" : 7,
+  "getMinorPSDataEntity" : {
+    "modelref" : true,
+    "path" : "PSSYSMODELGROUPS/ibizsysmgr/PSMODULES/ibizsysmgr/PSDATAENTITIES/sys_role_member.json"
+  },
+  "name" : "SYS_ROLE_MEMBER_SYS_ROLE_UAA_ROLE_ID",
+  "orderValue" : 100,
+  "pickupDEFName" : "ROLE_ID",
+  "getPickupPSDEField" : {
+    "name" : "ROLE_ID",
+    "codeName" : "Role_id"
+  },
+  "removeActionType" : 0,
+  "removeOrder" : -1,
+  "serviceCodeName" : "sys_role_uaa"
+}

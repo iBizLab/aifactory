@@ -114,7 +114,7 @@ services:
 
   #ibiz-ebsx-allinone
   ibiz-ebsx-allinone:
-    image: ${IMAGE_URL}ibiz-ebsx-allinone-rt:8.1.0.578.183-arm64
+    image: ${IMAGE_URL}ibiz-ebsx-allinone-rt:8.1.0.584.0-arm64
     container_name: ibiz-ebsx-allinone
     ports:
       - "30000:30000"
@@ -195,7 +195,7 @@ services:
   #aifactoryservice
   aifactoryservice:
     env_file: .env
-    image: ${IMAGE_URL}ibiz-service-runner:8.1.0.578.187-jdk-arm64
+    image: ${IMAGE_URL}ibiz-service-runner:8.1.0.584.0-jdk-arm64
     container_name: aifactoryservice
     ports:
       - "${SYSTEM_APIPORT}:${SYSTEM_APIPORT}"
@@ -211,7 +211,7 @@ services:
       - IBIZ_SERVICEHUB_DATASOURCES_MASTER_DBTYPE=POSTGRESQL
       - SPRING_DATASOURCE_DRIVER-CLASS-NAME=org.postgresql.Driver
       - SPRING_DATASOURCE_PASSWORD=${POSTGRES_PASSWORD}
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/ai_factory?ssl=false
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/ai_factory?ssl=false
       - SPRING_DATASOURCE_USERNAME=postgres
       - JAVA_OPTS=-Xms512m -Xmx2048m -Xss1024K
     entrypoint: /entrypoint-waitfor.sh
@@ -221,7 +221,7 @@ services:
   #aifactoryweb
   aifactoryweb:
     env_file: .env
-    image: ${IMAGE_URL}ibiz-cloud-web-runner:9.0.7.41-alpha.93.aifactory.260521-arm64
+    image: ${IMAGE_URL}ibiz-cloud-web-runner:9.0.7.41-alpha.121.aifactory.260820-arm64
     container_name: aifactoryweb
     ports:
       - ${SYSTEM_WEBPORT}:80

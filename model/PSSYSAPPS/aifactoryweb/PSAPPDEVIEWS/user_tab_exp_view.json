@@ -22,8 +22,8 @@
     "codeName" : "tab_exp_view_dr",
     "controlType" : "DRTAB",
     "dataRelationTag" : "tab_exp_view_DR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSDRTABS/tab_exp_view_dr.json",
     "editItemCaption" : "企业用户",
-    "name" : "tabexppanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
@@ -61,21 +61,35 @@
         "glyph" : "xf0c0@FontAwesome",
         "cssClass" : "fa fa-group"
       }
+    }, {
+      "caption" : "角色管理",
+      "name" : "role",
+      "getPSAppView" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/role_grid_view.json",
+        "viewType" : "DEGRIDVIEW"
+      },
+      "getPSSysImage" : {
+        "glyph" : "xf084@FontAwesome",
+        "cssClass" : "fa fa-key"
+      }
     } ],
     "uniqueTag" : "user_tab_exp_view__tabexppanel",
     "hideEditItem" : true,
+    "name" : "tabexppanel",
     "modelid" : "26f68a54c0c42c0e964ee1810dba395a",
     "modeltype" : "PSDEDRTAB"
   }, {
     "caption" : "成员",
     "codeName" : "tab_exp_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSCAPTIONBARS/tab_exp_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "tab_exp_view",
   "getPSDEViewId" : "1ecf7ccc8d00b59df4bc34ad09f9bfc8",
@@ -83,7 +97,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDETABEXPVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/user.json"
@@ -91,7 +105,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "tabLayout" : "TOP",
   "title" : "成员",

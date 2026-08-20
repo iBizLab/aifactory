@@ -25,9 +25,9 @@
   "getPSViewLayoutPanel" : {
     "codeName" : "auto7228575",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity/PSVIEWLAYOUTPANELS/auto7228575.json",
     "layoutMode" : "FLEX",
     "logicName" : "custom_view",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
@@ -308,6 +308,7 @@
     "layoutPanel" : true,
     "useDefaultLayout" : false,
     "viewProxyMode" : true,
+    "name" : "layoutpanel",
     "modelid" : "2b1384ea6c44b1eebfced86abab0218e",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL",
     "getPSAppViewLogics" : [ {
@@ -396,7 +397,7 @@
     "getPSControls" : [ {
       "codeName" : "custom_view_treeexpbar1",
       "controlType" : "TREEEXPBAR",
-      "name" : "treeexpbar1",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity/PSTREEEXPBARS/custom_view_treeexpbar1.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
@@ -684,12 +685,13 @@
       "enableCounter" : true,
       "enableSearch" : false,
       "showTitleBar" : true,
+      "name" : "treeexpbar1",
       "modelid" : "1dd5dae6a8a05dce6918e04f7ba309d3_treeexpbar1",
       "modeltype" : "PSEXPBAR"
     }, {
       "codeName" : "custom_view_treeexpbar",
       "controlType" : "TREEEXPBAR",
-      "name" : "treeexpbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity/PSTREEEXPBARS/custom_view_treeexpbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
@@ -862,8 +864,8 @@
         "getPSControls" : [ {
           "codeName" : "custom_view_node_cm",
           "controlType" : "CONTEXTMENU",
+          "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity/PSCONTEXTMENUS/custom_view_node_cm.json",
           "logicName" : "图谱实体树工作栏",
-          "name" : "node_cm",
           "getPSAppDataEntity" : {
             "modelref" : true,
             "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
@@ -1026,13 +1028,14 @@
             "showCaption" : true,
             "showIcon" : true
           } ],
+          "name" : "node_cm",
           "modelid" : "6cabf7178653052cfb9208e15dd02be8",
           "modeltype" : "PSDETOOLBAR"
         }, {
           "codeName" : "custom_view_node3_cm",
           "controlType" : "CONTEXTMENU",
+          "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity/PSCONTEXTMENUS/custom_view_node3_cm.json",
           "logicName" : "图谱实体树工作栏",
-          "name" : "node_3_cm",
           "getPSAppDataEntity" : {
             "modelref" : true,
             "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
@@ -1195,6 +1198,7 @@
             "showCaption" : true,
             "showIcon" : true
           } ],
+          "name" : "node_3_cm",
           "modelid" : "6cabf7178653052cfb9208e15dd02be8",
           "modeltype" : "PSDETOOLBAR"
         } ],
@@ -1284,8 +1288,8 @@
           "getPSDEContextMenu" : {
             "codeName" : "custom_view_node_cm",
             "controlType" : "CONTEXTMENU",
+            "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity/PSCONTEXTMENUS/custom_view_node_cm.json",
             "logicName" : "图谱实体树工作栏",
-            "name" : "node_cm",
             "getPSAppDataEntity" : {
               "modelref" : true,
               "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
@@ -1448,6 +1452,7 @@
               "showCaption" : true,
               "showIcon" : true
             } ],
+            "name" : "node_cm",
             "modelid" : "6cabf7178653052cfb9208e15dd02be8",
             "modeltype" : "PSDETOOLBAR"
           },
@@ -1546,8 +1551,8 @@
           "getPSDEContextMenu" : {
             "codeName" : "custom_view_node3_cm",
             "controlType" : "CONTEXTMENU",
+            "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity/PSCONTEXTMENUS/custom_view_node3_cm.json",
             "logicName" : "图谱实体树工作栏",
-            "name" : "node_3_cm",
             "getPSAppDataEntity" : {
               "modelref" : true,
               "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
@@ -1710,6 +1715,7 @@
               "showCaption" : true,
               "showIcon" : true
             } ],
+            "name" : "node_3_cm",
             "modelid" : "6cabf7178653052cfb9208e15dd02be8",
             "modeltype" : "PSDETOOLBAR"
           },
@@ -1788,12 +1794,13 @@
       "enableCounter" : true,
       "enableSearch" : true,
       "showTitleBar" : true,
+      "name" : "treeexpbar",
       "modelid" : "1dd5dae6a8a05dce6918e04f7ba309d3_treeexpbar",
       "modeltype" : "PSEXPBAR"
     }, {
       "codeName" : "custom_view_treeexpbar2",
       "controlType" : "TREEEXPBAR",
-      "name" : "treeexpbar2",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity/PSTREEEXPBARS/custom_view_treeexpbar2.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
@@ -2157,6 +2164,7 @@
       "enableCounter" : true,
       "enableSearch" : false,
       "showTitleBar" : true,
+      "name" : "treeexpbar2",
       "modelid" : "1dd5dae6a8a05dce6918e04f7ba309d3_treeexpbar2",
       "modeltype" : "PSEXPBAR"
     }, {
@@ -2180,12 +2188,13 @@
       "caption" : "知识图谱",
       "codeName" : "custom_view_captionbar",
       "controlType" : "CAPTIONBAR",
-      "name" : "captionbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity/PSCAPTIONBARS/custom_view_captionbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_graph_entity.json"
       },
-      "getPSControlParam" : { }
+      "getPSControlParam" : { },
+      "name" : "captionbar"
     } ]
   },
   "title" : "知识图谱",

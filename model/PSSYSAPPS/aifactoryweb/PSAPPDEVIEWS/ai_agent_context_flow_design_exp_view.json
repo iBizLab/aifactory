@@ -26,11 +26,11 @@
     "codeName" : "flow_design_view_dr",
     "controlType" : "DRTAB",
     "dataRelationTag" : "flow_design_view_DR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context/PSDRTABS/flow_design_view_dr.json",
     "getEditItemCapPSLanguageRes" : {
       "lanResTag" : "DE.LNAME.AI_AGENT_CONTEXT"
     },
     "editItemCaption" : "智能体业务上下文",
-    "name" : "tabexppanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
@@ -55,6 +55,7 @@
     } ],
     "uniqueTag" : "ai_agent_context_flow_design_exp_view__tabexppanel",
     "hideEditItem" : true,
+    "name" : "tabexppanel",
     "modelid" : "f49d49486f19b8406d75236bf1215c08",
     "modeltype" : "PSDEDRTAB"
   }, {
@@ -64,12 +65,13 @@
     "caption" : "flow智能体设计",
     "codeName" : "flow_design_exp_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context/PSCAPTIONBARS/flow_design_exp_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "flow_design_exp_view",
   "getPSDEViewId" : "e6c324c8be1814a7b65c8e693d005cbb",
@@ -77,7 +79,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDETABEXPVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
@@ -85,7 +87,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "tabLayout" : "TOP",
   "title" : "flow智能体设计",

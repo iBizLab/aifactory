@@ -694,7 +694,7 @@
     },
     "leftPos" : 160,
     "logicNodeType" : "SYSAICHATAGENT_APPENDCHATREQUEST",
-    "message" : "${params.default.name!\"\"}\n<#if params.default.guidance_prompt?? && params.default.guidance_prompt != \"\">${params.default.guidance_prompt}<#else><#if params.default.description?? && params.default.description != \"\">${params.default.description}</#if></#if>\n<#if params.default_temp.context_content?? && params.default_temp.context_content != \"\">${params.default_temp.context_content}</#if>\n<#if params.refrence?? && params.refrence!= \"\">\n\n---\n\n参考资料如下：\n\n${params.refrence}\n</#if>\n",
+    "message" : "${params.default.name!\"\"}\n<#if params.default.guidance_prompt?? && params.default.guidance_prompt != \"\">${params.default.guidance_prompt}<#else><#if params.default.description?? && params.default.description != \"\">${params.default.description}</#if></#if>\n<#if params.default_temp.context_content?? && params.default_temp.context_content != \"\">${params.default_temp.context_content}</#if>\n<#if params.default_temp.request_content?? && params.default_temp.request_content != \"\">${params.default_temp.request_content}</#if>\n<#if params.refrence?? && params.refrence!= \"\">\n\n---\n\n参考资料如下：\n\n${params.refrence}\n</#if>\n",
     "name" : "附加聊天请求",
     "getPSDELogicLinks" : [ {
       "getDstPSDELogicNode" : {

@@ -499,6 +499,7 @@
     "logicName" : "目标节点相关连线",
     "name" : "CurItemByDscNode",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/extension/PSDATAENTITIES/PSDELogicLink.json"
@@ -548,6 +549,7 @@
     "logicName" : "源节点相关连线",
     "name" : "CurItemBySrcNode",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/extension/PSDATAENTITIES/PSDELogicLink.json"
@@ -597,6 +599,7 @@
     "logicName" : "数据查询",
     "name" : "DEFAULT",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/extension/PSDATAENTITIES/PSDELogicLink.json"
@@ -630,6 +633,7 @@
     "logicName" : "默认（全部数据）",
     "name" : "VIEW",
     "getPSDEDQMain" : {
+      "alias" : "main",
       "getJoinPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/extension/PSDATAENTITIES/PSDELogicLink.json"

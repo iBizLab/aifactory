@@ -57,7 +57,7 @@
   "getPSControls" : [ {
     "codeName" : "tree_exp_view_treeexpbar",
     "controlType" : "TREEEXPBAR",
-    "name" : "treeexpbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_scheduled_task/PSTREEEXPBARS/tree_exp_view_treeexpbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_scheduled_task.json"
@@ -229,8 +229,8 @@
       "getPSControls" : [ {
         "codeName" : "tree_exp_view_schedule_cm",
         "controlType" : "CONTEXTMENU",
+        "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_schedule/PSCONTEXTMENUS/tree_exp_view_schedule_cm.json",
         "logicName" : "计划树上下文工具栏",
-        "name" : "schedule_cm",
         "getPSAppDataEntity" : {
           "modelref" : true,
           "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_schedule.json"
@@ -330,6 +330,7 @@
           "showCaption" : true,
           "showIcon" : true
         } ],
+        "name" : "schedule_cm",
         "modelid" : "ff1c4be8deb07ab6ce2cb028219ecdd1",
         "modeltype" : "PSDETOOLBAR"
       } ],
@@ -468,8 +469,8 @@
         "getPSDEContextMenu" : {
           "codeName" : "tree_exp_view_schedule_cm",
           "controlType" : "CONTEXTMENU",
+          "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_schedule/PSCONTEXTMENUS/tree_exp_view_schedule_cm.json",
           "logicName" : "计划树上下文工具栏",
-          "name" : "schedule_cm",
           "getPSAppDataEntity" : {
             "modelref" : true,
             "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_schedule.json"
@@ -569,6 +570,7 @@
             "showCaption" : true,
             "showIcon" : true
           } ],
+          "name" : "schedule_cm",
           "modelid" : "ff1c4be8deb07ab6ce2cb028219ecdd1",
           "modeltype" : "PSDETOOLBAR"
         },
@@ -654,6 +656,7 @@
     "enableCounter" : true,
     "enableSearch" : false,
     "showTitleBar" : false,
+    "name" : "treeexpbar",
     "modelid" : "436dbc8a50099e93de607f0deed8cd1c_treeexpbar",
     "modeltype" : "PSEXPBAR"
   }, {
@@ -680,12 +683,13 @@
     "caption" : "计划任务",
     "codeName" : "tree_exp_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_scheduled_task/PSCAPTIONBARS/tree_exp_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_scheduled_task.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "TreeExpView",
   "getPSDEViewId" : "af34a85fc60fefa20a4b339a777a500e",
@@ -693,7 +697,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDETREEEXPVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_scheduled_task/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/extend_scheduled_task.json"
@@ -701,7 +705,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "计划任务",
   "viewStyle" : "DEFAULT",

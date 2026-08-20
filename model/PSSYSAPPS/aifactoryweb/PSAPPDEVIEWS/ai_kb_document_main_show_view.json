@@ -47,10 +47,10 @@
     } ],
     "codeName" : "a6a4e7e10eef7c8bfe4",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document/PSVIEWLAYOUTPANELS/a6a4e7e10eef7c8bfe4.json",
     "hookEventNames" : [ "ONBLUR", "ONFOCUS" ],
     "layoutMode" : "FLEX",
     "logicName" : "main_show_view编辑视图布局面板",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
@@ -598,6 +598,7 @@
     "layoutPanel" : true,
     "useDefaultLayout" : false,
     "viewProxyMode" : true,
+    "name" : "layoutpanel",
     "modelid" : "f8c7cd042e8cb2e55ed35b2abae79d13",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL",
     "getPSAppCounterRefs" : [ {
@@ -637,8 +638,8 @@
     "getPSControls" : [ {
       "codeName" : "main_show_view_toolbar",
       "controlType" : "TOOLBAR",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document/PSTOOLBARS/main_show_view_toolbar.json",
       "logicName" : "文档展示页_工具栏",
-      "name" : "toolbar",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
@@ -648,7 +649,7 @@
       },
       "getPSDEToolbarItems" : [ {
         "buttonStyle" : "WARNING",
-        "caption" : "AI+",
+        "caption" : "AI+审查文档",
         "groupExtractMode" : "ITEM",
         "itemType" : "DEUIACTION",
         "name" : "deuiaction5",
@@ -658,8 +659,7 @@
           "id" : "toolbar_deuiaction5"
         },
         "getPSSysImage" : {
-          "glyph" : "xf123@FontAwesome",
-          "cssClass" : "fa fa-star-half-full"
+          "rawContent" : "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <title>robot</title>\n    <g id=\"robot\" stroke=\"none\" fill=\"none\" fill-rule=\"evenodd\" stroke-width=\"1\">\n        <g id=\"编组\">\n            <path d=\"M19.3333333,3.33333333 L12.6666667,3.33333333 L12.6666667,6 L14.6666667,6 L14.6666667,7.33333333 L4.66666667,7.33333333 L4.66666667,28 L27.3333333,28 L27.3333333,7.33333333 L17.3333333,7.33333333 L17.3333333,6 L19.3333333,6 L19.3333333,3.33333333 Z M7.33333333,25.3333333 L7.33333333,10 L24.6666667,10 L24.6666667,25.3333333 L7.33333333,25.3333333 Z M0.666666667,14 L0.666666667,21.3333333 L3.33333333,21.3333333 L3.33333333,14 L0.666666667,14 Z M28.6666667,14 L28.6666667,21.3333333 L31.3333333,21.3333333 L31.3333333,14 L28.6666667,14 Z M14,16 L10.6666667,16 L10.6666667,19.3333333 L14,19.3333333 L14,16 Z M21.3333333,16 L18,16 L18,19.3333333 L21.3333333,19.3333333 L21.3333333,16 Z\" id=\"形状\" fill=\"#4B5156\" fill-rule=\"nonzero\"></path>\n            <rect id=\"矩形\" fill=\"#000000\" opacity=\"0\" x=\"0\" y=\"0\" width=\"32\" height=\"32\"></rect>\n        </g>\n    </g>\n</svg>"
         },
         "getPSUIAction" : {
           "actionTarget" : "SINGLEDATA",
@@ -691,8 +691,7 @@
             "rawValue" : true
           } ],
           "getPSSysImage" : {
-            "glyph" : "xf123@FontAwesome",
-            "cssClass" : "fa fa-star-half-full"
+            "rawContent" : "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <title>robot</title>\n    <g id=\"robot\" stroke=\"none\" fill=\"none\" fill-rule=\"evenodd\" stroke-width=\"1\">\n        <g id=\"编组\">\n            <path d=\"M19.3333333,3.33333333 L12.6666667,3.33333333 L12.6666667,6 L14.6666667,6 L14.6666667,7.33333333 L4.66666667,7.33333333 L4.66666667,28 L27.3333333,28 L27.3333333,7.33333333 L17.3333333,7.33333333 L17.3333333,6 L19.3333333,6 L19.3333333,3.33333333 Z M7.33333333,25.3333333 L7.33333333,10 L24.6666667,10 L24.6666667,25.3333333 L7.33333333,25.3333333 Z M0.666666667,14 L0.666666667,21.3333333 L3.33333333,21.3333333 L3.33333333,14 L0.666666667,14 Z M28.6666667,14 L28.6666667,21.3333333 L31.3333333,21.3333333 L31.3333333,14 L28.6666667,14 Z M14,16 L10.6666667,16 L10.6666667,19.3333333 L14,19.3333333 L14,16 Z M21.3333333,16 L18,16 L18,19.3333333 L21.3333333,19.3333333 L21.3333333,16 Z\" id=\"形状\" fill=\"#4B5156\" fill-rule=\"nonzero\"></path>\n            <rect id=\"矩形\" fill=\"#000000\" opacity=\"0\" x=\"0\" y=\"0\" width=\"32\" height=\"32\"></rect>\n        </g>\n    </g>\n</svg>"
           },
           "uIActionMode" : "FRONT",
           "uIActionTag" : "ai",
@@ -700,7 +699,7 @@
           "globalUIAction" : true,
           "id" : "ai@ai_agent_assignment"
         },
-        "tooltip" : "AI+",
+        "tooltip" : "AI+审查文档",
         "uIActionTarget" : "SINGLEDATA",
         "showCaption" : true,
         "showIcon" : true
@@ -758,6 +757,7 @@
         },
         "tooltip" : "研究",
         "uIActionTarget" : "SINGLEDATA",
+        "hiddenItem" : true,
         "showCaption" : true,
         "showIcon" : true
       }, {
@@ -1183,6 +1183,7 @@
       } ],
       "toolbarStyle" : "USER",
       "xDataControlName" : "form",
+      "name" : "toolbar",
       "modelid" : "6fb52d594570101b0b50556fedc3a5c6",
       "modeltype" : "PSDETOOLBAR"
     }, {
@@ -2998,8 +2999,8 @@
               }, {
                 "codeName" : "list_view9_toolbar",
                 "controlType" : "TOOLBAR",
+                "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk/PSTOOLBARS/list_view9_toolbar.json",
                 "logicName" : "文档切片_工具栏",
-                "name" : "toolbar",
                 "getPSAppDataEntity" : {
                   "modelref" : true,
                   "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk.json"
@@ -3008,6 +3009,7 @@
                   "id" : "TOOLBAR"
                 },
                 "xDataControlName" : "list",
+                "name" : "toolbar",
                 "modelid" : "81862eb1dcf89edbc4d9513007edbd98",
                 "modeltype" : "PSDETOOLBAR"
               }, {
@@ -3276,12 +3278,13 @@
                 "caption" : "文档切片",
                 "codeName" : "list_view9_captionbar",
                 "controlType" : "CAPTIONBAR",
-                "name" : "captionbar",
+                "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk/PSCAPTIONBARS/list_view9_captionbar.json",
                 "getPSAppDataEntity" : {
                   "modelref" : true,
                   "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk.json"
                 },
-                "getPSControlParam" : { }
+                "getPSControlParam" : { },
+                "name" : "captionbar"
               } ],
               "getPSDEViewCodeName" : "list_view9",
               "getPSDEViewId" : "33f3faaaaae0e4d8ce4e9b9c0d58680e",
@@ -3289,7 +3292,7 @@
                 "codeName" : "layoutpanel",
                 "controlStyle" : "APPDELISTVIEW9",
                 "controlType" : "VIEWLAYOUTPANEL",
-                "name" : "layoutpanel",
+                "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk/PSVIEWLAYOUTPANELS/layoutpanel.json",
                 "getPSAppDataEntity" : {
                   "modelref" : true,
                   "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_chunk.json"
@@ -3297,7 +3300,8 @@
                 "getPSControlParam" : { },
                 "layoutBodyOnly" : true,
                 "layoutPanel" : true,
-                "useDefaultLayout" : true
+                "useDefaultLayout" : true,
+                "name" : "layoutpanel"
               },
               "title" : "文档切片",
               "viewStyle" : "DEFAULT",
@@ -4321,14 +4325,15 @@
     }, {
       "codeName" : "main_show_view_datainfobar",
       "controlType" : "DATAINFOBAR",
-      "name" : "datainfobar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document/PSDATAINFOBARS/main_show_view_datainfobar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
       },
       "getPSControlParam" : {
         "id" : "datainfobar"
-      }
+      },
+      "name" : "datainfobar"
     }, {
       "getCapPSLanguageRes" : {
         "lanResTag" : "DE.LNAME.AI_KB_DOCUMENT"
@@ -4336,12 +4341,13 @@
       "caption" : "文档展示页",
       "codeName" : "main_show_view_captionbar",
       "controlType" : "CAPTIONBAR",
-      "name" : "captionbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document/PSCAPTIONBARS/main_show_view_captionbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_kb_document.json"
       },
-      "getPSControlParam" : { }
+      "getPSControlParam" : { },
+      "name" : "captionbar"
     } ],
     "getPSAppCounterRef" : {
       "modelref" : true,

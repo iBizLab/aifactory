@@ -29,9 +29,9 @@
   "getPSViewLayoutPanel" : {
     "codeName" : "usr1213474323",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc/PSVIEWLAYOUTPANELS/usr1213474323.json",
     "layoutMode" : "FLEX",
     "logicName" : "InstalledGridView表格视图布局",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc.json"
@@ -189,6 +189,7 @@
     "layoutPanel" : true,
     "useDefaultLayout" : false,
     "viewProxyMode" : true,
+    "name" : "layoutpanel",
     "modelid" : "1fd9c15f70e78a0781146c7ccc5ec51d",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL",
     "getPSAppViewEngines" : [ {
@@ -268,8 +269,8 @@
     "getPSControls" : [ {
       "codeName" : "installed_grid_view_toolbar",
       "controlType" : "TOOLBAR",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc/PSTOOLBARS/installed_grid_view_toolbar.json",
       "logicName" : "应用市场_工具栏",
-      "name" : "toolbar",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc.json"
@@ -278,6 +279,7 @@
         "id" : "TOOLBAR"
       },
       "xDataControlName" : "grid",
+      "name" : "toolbar",
       "modelid" : "3a784b49178fb5317c08568c7227a1d3",
       "modeltype" : "PSDETOOLBAR"
     }, {
@@ -783,12 +785,13 @@
       "caption" : "已安装应用",
       "codeName" : "installed_grid_view_captionbar",
       "controlType" : "CAPTIONBAR",
-      "name" : "captionbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc/PSCAPTIONBARS/installed_grid_view_captionbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/PSCorePrdFunc.json"
       },
-      "getPSControlParam" : { }
+      "getPSControlParam" : { },
+      "name" : "captionbar"
     } ]
   },
   "title" : "已安装应用",

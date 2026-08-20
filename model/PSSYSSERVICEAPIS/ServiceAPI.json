@@ -8,6 +8,445 @@
   "httpPort" : 0,
   "name" : "ServiceAPI",
   "getPSDEServiceAPIRSs" : [ {
+    "codeName" : "ai_agent_conversations",
+    "getMajorPSDEServiceAPI" : {
+      "modelref" : true,
+      "id" : "ai_agent_context"
+    },
+    "getMinorPSDEServiceAPI" : {
+      "modelref" : true,
+      "id" : "ai_agent_conversation"
+    },
+    "name" : "DER1N_AI_AGENT_CONVERSATION_AI_AGENT_CONTEXT_AI_AGENT_CONTEXT_ID",
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation/PSDERS/DER1N_AI_AGENT_CONVERSATION_AI_AGENT_CONTEXT_AI_AGENT_CONTEXT_ID.json"
+    },
+    "getPSDEServiceAPIMethods" : [ {
+      "actionType" : "DEACTION",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_conversation_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_conversation_dto"
+        },
+        "type" : "DTO"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "tempDataMode" : 0,
+      "uniqueTag" : "AI_AGENT_CONVERSATION__DEACTION__CREATE",
+      "enableTestMethod" : false,
+      "noServiceCodeName" : true
+    }, {
+      "actionType" : "DEACTION",
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "getKeyPSDEServiceAPIField" : {
+          "modelref" : true,
+          "id" : "id"
+        },
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_conversation_dto"
+        },
+        "type" : "DTO"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestField" : "ID",
+      "requestMethod" : "GET",
+      "requestParamType" : "FIELD",
+      "tempDataMode" : 0,
+      "uniqueTag" : "AI_AGENT_CONVERSATION__DEACTION__GET",
+      "enableTestMethod" : false,
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "actionType" : "DEACTION",
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "getKeyPSDEServiceAPIField" : {
+          "modelref" : true,
+          "id" : "id"
+        },
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestField" : "ID",
+      "requestMethod" : "DELETE",
+      "requestParamType" : "FIELD",
+      "tempDataMode" : 0,
+      "uniqueTag" : "AI_AGENT_CONVERSATION__DEACTION__REMOVE",
+      "enableTestMethod" : false,
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "actionType" : "DEACTION",
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_conversation_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_conversation_dto"
+        },
+        "type" : "DTO"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "PUT",
+      "requestParamType" : "ENTITY",
+      "tempDataMode" : 0,
+      "uniqueTag" : "AI_AGENT_CONVERSATION__DEACTION__UPDATE",
+      "enableTestMethod" : false,
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "check_key",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_conversation_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/check_key",
+      "tempDataMode" : 0,
+      "uniqueTag" : "AI_AGENT_CONVERSATION__DEACTION__CHECKKEY",
+      "enableTestMethod" : false
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "clear_all_except",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "clear_all_except",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation/PSDEACTIONS/clear_all_except.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_conversation_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/clear_all_except",
+      "tempDataMode" : 0,
+      "uniqueTag" : "AI_AGENT_CONVERSATION__DEACTION__CLEAR_ALL_EXCEPT",
+      "enableTestMethod" : false
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "clear_message",
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "clear_message",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation/PSDEACTIONS/clear_message.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_conversation_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/clear_message",
+      "tempDataMode" : 0,
+      "uniqueTag" : "AI_AGENT_CONVERSATION__DEACTION__CLEAR_MESSAGE",
+      "enableTestMethod" : false,
+      "needResourceKey" : true
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "delete",
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "delete",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation/PSDEACTIONS/delete.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_conversation_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/delete",
+      "tempDataMode" : 0,
+      "uniqueTag" : "AI_AGENT_CONVERSATION__DEACTION__DELETE",
+      "enableTestMethod" : false,
+      "needResourceKey" : true
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "get_draft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_conversation_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_conversation_dto"
+        },
+        "type" : "DTO"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "GET",
+      "requestParamType" : "NONE",
+      "requestPath" : "/get_draft",
+      "tempDataMode" : 0,
+      "uniqueTag" : "AI_AGENT_CONVERSATION__DEACTION__GETDRAFT",
+      "enableTestMethod" : false
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "save",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_conversation_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_conversation_dto"
+        },
+        "type" : "DTO"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/save",
+      "tempDataMode" : 0,
+      "uniqueTag" : "AI_AGENT_CONVERSATION__DEACTION__SAVE",
+      "enableTestMethod" : false
+    }, {
+      "actionType" : "FETCH",
+      "codeName" : "fetch_active",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "fetch_active",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "active"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_conversation_filter_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_conversation_dto"
+        },
+        "type" : "PAGE"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_active",
+      "tempDataMode" : 0,
+      "uniqueTag" : "AI_AGENT_CONVERSATION__FETCH__ACTIVE",
+      "enableTestMethod" : false
+    }, {
+      "actionType" : "FETCH",
+      "codeName" : "fetch_cur_user_active",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "fetch_cur_user_active",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "cur_user_active"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_conversation_filter_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_conversation_dto"
+        },
+        "type" : "PAGE"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_cur_user_active",
+      "tempDataMode" : 0,
+      "uniqueTag" : "AI_AGENT_CONVERSATION__FETCH__CUR_USER_ACTIVE",
+      "enableTestMethod" : false
+    }, {
+      "actionType" : "FETCH",
+      "codeName" : "fetch_default",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "fetch_default",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_conversation_filter_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_conversation_dto"
+        },
+        "type" : "PAGE"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_default",
+      "tempDataMode" : 0,
+      "uniqueTag" : "AI_AGENT_CONVERSATION__FETCH__DEFAULT",
+      "enableTestMethod" : false
+    } ],
+    "getParentIdPSDEField" : {
+      "name" : "AI_AGENT_CONTEXT_ID",
+      "codeName" : "ai_agent_context_id"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "id" : "DER1N_AI_AGENT_CONVERSATION_AI_AGENT_CONTEXT_AI_AGENT_CONTEXT_ID"
+  }, {
     "codeName" : "ai_agent_messages",
     "getMajorPSDEServiceAPI" : {
       "modelref" : true,
@@ -411,6 +850,386 @@
     "enableDataExport" : true,
     "enableDataImport" : true,
     "id" : "DER1N_AI_AGENT_MESSAGE_AI_AGENT_CONVERSATION_CONVERSATION_ID"
+  }, {
+    "codeName" : "ai_credentials",
+    "getMajorPSDEServiceAPI" : {
+      "modelref" : true,
+      "id" : "keyring"
+    },
+    "getMinorPSDEServiceAPI" : {
+      "modelref" : true,
+      "id" : "ai_credential"
+    },
+    "name" : "DER1N_AI_CREDENTIAL_KEYRING_KEYRING_ID",
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_credential/PSDERS/DER1N_AI_CREDENTIAL_KEYRING_KEYRING_ID.json"
+    },
+    "getPSDEServiceAPIMethods" : [ {
+      "actionType" : "DEACTION",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_credential/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_credential_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_credential_dto"
+        },
+        "type" : "DTO"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "tempDataMode" : 0,
+      "uniqueTag" : "AI_CREDENTIAL__DEACTION__CREATE",
+      "enableTestMethod" : false,
+      "noServiceCodeName" : true
+    }, {
+      "actionType" : "DEACTION",
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_credential/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "getKeyPSDEServiceAPIField" : {
+          "modelref" : true,
+          "id" : "id"
+        },
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_credential_dto"
+        },
+        "type" : "DTO"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestField" : "ID",
+      "requestMethod" : "GET",
+      "requestParamType" : "FIELD",
+      "tempDataMode" : 0,
+      "uniqueTag" : "AI_CREDENTIAL__DEACTION__GET",
+      "enableTestMethod" : false,
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "actionType" : "DEACTION",
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_credential/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "getKeyPSDEServiceAPIField" : {
+          "modelref" : true,
+          "id" : "id"
+        },
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestField" : "ID",
+      "requestMethod" : "DELETE",
+      "requestParamType" : "FIELD",
+      "tempDataMode" : 0,
+      "uniqueTag" : "AI_CREDENTIAL__DEACTION__REMOVE",
+      "enableTestMethod" : false,
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "actionType" : "DEACTION",
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_credential/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_credential_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_credential_dto"
+        },
+        "type" : "DTO"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "PUT",
+      "requestParamType" : "ENTITY",
+      "tempDataMode" : 0,
+      "uniqueTag" : "AI_CREDENTIAL__DEACTION__UPDATE",
+      "enableTestMethod" : false,
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "check_key",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_credential/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_credential_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/check_key",
+      "tempDataMode" : 0,
+      "uniqueTag" : "AI_CREDENTIAL__DEACTION__CHECKKEY",
+      "enableTestMethod" : false
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "find_myself",
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "FindMyself",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_credential/PSDEACTIONS/FindMyself.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_credential_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_credential_dto"
+        },
+        "type" : "DTOS"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/find_myself",
+      "tempDataMode" : 0,
+      "uniqueTag" : "AI_CREDENTIAL__DEACTION__FINDMYSELF",
+      "enableTestMethod" : false
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "get_draft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_credential/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_credential_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_credential_dto"
+        },
+        "type" : "DTO"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "GET",
+      "requestParamType" : "NONE",
+      "requestPath" : "/get_draft",
+      "tempDataMode" : 0,
+      "uniqueTag" : "AI_CREDENTIAL__DEACTION__GETDRAFT",
+      "enableTestMethod" : false
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "save",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_credential/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_credential_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_credential_dto"
+        },
+        "type" : "DTO"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/save",
+      "tempDataMode" : 0,
+      "uniqueTag" : "AI_CREDENTIAL__DEACTION__SAVE",
+      "enableTestMethod" : false
+    }, {
+      "actionType" : "FETCH",
+      "codeName" : "fetch_ac",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "fetch_ac",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "ac"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_credential_filter_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_credential_dto"
+        },
+        "type" : "PAGE"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_ac",
+      "tempDataMode" : 0,
+      "uniqueTag" : "AI_CREDENTIAL__FETCH__AC",
+      "enableTestMethod" : false
+    }, {
+      "actionType" : "FETCH",
+      "codeName" : "fetch_ai_model",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "fetch_ai_model",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "AIModel"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_credential_filter_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_credential_dto"
+        },
+        "type" : "PAGE"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_ai_model",
+      "tempDataMode" : 0,
+      "uniqueTag" : "AI_CREDENTIAL__FETCH__AIMODEL",
+      "enableTestMethod" : false
+    }, {
+      "actionType" : "FETCH",
+      "codeName" : "fetch_default",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "fetch_default",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_credential_filter_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_credential_dto"
+        },
+        "type" : "PAGE"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_default",
+      "tempDataMode" : 0,
+      "uniqueTag" : "AI_CREDENTIAL__FETCH__DEFAULT",
+      "enableTestMethod" : false
+    } ],
+    "getParentIdPSDEField" : {
+      "name" : "KEYRING_ID",
+      "codeName" : "keyring_id"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "id" : "DER1N_AI_CREDENTIAL_KEYRING_KEYRING_ID"
   }, {
     "codeName" : "ai_kb_chunks",
     "getMajorPSDEServiceAPI" : {
@@ -9194,6 +10013,568 @@
     "enableDataImport" : true,
     "id" : "DER1N_CATEGORY_CATEGORY_PID"
   }, {
+    "codeName" : "role_members",
+    "getMajorPSDEServiceAPI" : {
+      "modelref" : true,
+      "id" : "role"
+    },
+    "getMinorPSDEServiceAPI" : {
+      "modelref" : true,
+      "id" : "role_member"
+    },
+    "name" : "ROLE_MEMBER_ROLE_ROLE_ID",
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/role_member/PSDERS/ROLE_MEMBER_ROLE_ROLE_ID.json"
+    },
+    "getPSDEServiceAPIMethods" : [ {
+      "actionType" : "DEACTION",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role_member/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "tempDataMode" : 0,
+      "uniqueTag" : "ROLE_MEMBER__DEACTION__CREATE",
+      "enableTestMethod" : false,
+      "noServiceCodeName" : true
+    }, {
+      "actionType" : "DEACTION",
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role_member/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "getKeyPSDEServiceAPIField" : {
+          "modelref" : true,
+          "id" : "id"
+        },
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestField" : "ID",
+      "requestMethod" : "GET",
+      "requestParamType" : "FIELD",
+      "tempDataMode" : 0,
+      "uniqueTag" : "ROLE_MEMBER__DEACTION__GET",
+      "enableTestMethod" : false,
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "actionType" : "DEACTION",
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role_member/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "getKeyPSDEServiceAPIField" : {
+          "modelref" : true,
+          "id" : "id"
+        },
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestField" : "ID",
+      "requestMethod" : "DELETE",
+      "requestParamType" : "FIELD",
+      "tempDataMode" : 0,
+      "uniqueTag" : "ROLE_MEMBER__DEACTION__REMOVE",
+      "enableTestMethod" : false,
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "actionType" : "DEACTION",
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role_member/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "PUT",
+      "requestParamType" : "ENTITY",
+      "tempDataMode" : 0,
+      "uniqueTag" : "ROLE_MEMBER__DEACTION__UPDATE",
+      "enableTestMethod" : false,
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "check_key",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role_member/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/check_key",
+      "tempDataMode" : 0,
+      "uniqueTag" : "ROLE_MEMBER__DEACTION__CHECKKEY",
+      "enableTestMethod" : false
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "get_draft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role_member/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "GET",
+      "requestParamType" : "NONE",
+      "requestPath" : "/get_draft",
+      "tempDataMode" : 0,
+      "uniqueTag" : "ROLE_MEMBER__DEACTION__GETDRAFT",
+      "enableTestMethod" : false
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "save",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role_member/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/save",
+      "tempDataMode" : 0,
+      "uniqueTag" : "ROLE_MEMBER__DEACTION__SAVE",
+      "enableTestMethod" : false
+    }, {
+      "actionType" : "FETCH",
+      "codeName" : "fetch_default",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "fetch_default",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_filter_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "PAGE"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_default",
+      "tempDataMode" : 0,
+      "uniqueTag" : "ROLE_MEMBER__FETCH__DEFAULT",
+      "enableTestMethod" : false
+    } ],
+    "getParentIdPSDEField" : {
+      "name" : "ROLE_ID",
+      "codeName" : "Role_id"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "id" : "ROLE_MEMBER_ROLE_ROLE_ID"
+  }, {
+    "codeName" : "role_members",
+    "getMajorPSDEServiceAPI" : {
+      "modelref" : true,
+      "id" : "user"
+    },
+    "getMinorPSDEServiceAPI" : {
+      "modelref" : true,
+      "id" : "role_member"
+    },
+    "name" : "ROLE_MEMBER_USER_MEMBER_UID",
+    "getPSDER" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/role_member/PSDERS/ROLE_MEMBER_USER_MEMBER_UID.json"
+    },
+    "getPSDEServiceAPIMethods" : [ {
+      "actionType" : "DEACTION",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role_member/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "tempDataMode" : 0,
+      "uniqueTag" : "ROLE_MEMBER__DEACTION__CREATE",
+      "enableTestMethod" : false,
+      "noServiceCodeName" : true
+    }, {
+      "actionType" : "DEACTION",
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role_member/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "getKeyPSDEServiceAPIField" : {
+          "modelref" : true,
+          "id" : "id"
+        },
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestField" : "ID",
+      "requestMethod" : "GET",
+      "requestParamType" : "FIELD",
+      "tempDataMode" : 0,
+      "uniqueTag" : "ROLE_MEMBER__DEACTION__GET",
+      "enableTestMethod" : false,
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "actionType" : "DEACTION",
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role_member/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "getKeyPSDEServiceAPIField" : {
+          "modelref" : true,
+          "id" : "id"
+        },
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestField" : "ID",
+      "requestMethod" : "DELETE",
+      "requestParamType" : "FIELD",
+      "tempDataMode" : 0,
+      "uniqueTag" : "ROLE_MEMBER__DEACTION__REMOVE",
+      "enableTestMethod" : false,
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "actionType" : "DEACTION",
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role_member/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "PUT",
+      "requestParamType" : "ENTITY",
+      "tempDataMode" : 0,
+      "uniqueTag" : "ROLE_MEMBER__DEACTION__UPDATE",
+      "enableTestMethod" : false,
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "check_key",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role_member/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/check_key",
+      "tempDataMode" : 0,
+      "uniqueTag" : "ROLE_MEMBER__DEACTION__CHECKKEY",
+      "enableTestMethod" : false
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "get_draft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role_member/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "GET",
+      "requestParamType" : "NONE",
+      "requestPath" : "/get_draft",
+      "tempDataMode" : 0,
+      "uniqueTag" : "ROLE_MEMBER__DEACTION__GETDRAFT",
+      "enableTestMethod" : false
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "save",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role_member/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/save",
+      "tempDataMode" : 0,
+      "uniqueTag" : "ROLE_MEMBER__DEACTION__SAVE",
+      "enableTestMethod" : false
+    }, {
+      "actionType" : "FETCH",
+      "codeName" : "fetch_default",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "fetch_default",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_filter_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "PAGE"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_default",
+      "tempDataMode" : 0,
+      "uniqueTag" : "ROLE_MEMBER__FETCH__DEFAULT",
+      "enableTestMethod" : false
+    } ],
+    "getParentIdPSDEField" : {
+      "name" : "MEMBER_UID",
+      "codeName" : "Member_uid"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "id" : "ROLE_MEMBER_USER_MEMBER_UID"
+  }, {
     "codeName" : "space_members",
     "getMajorPSDEServiceAPI" : {
       "modelref" : true,
@@ -10273,6 +11654,36 @@
       "enableTestMethod" : false
     }, {
       "actionType" : "DEACTION",
+      "codeName" : "custom_create",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "custom_create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/user/PSDEACTIONS/custom_create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "user_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/custom_create",
+      "tempDataMode" : 0,
+      "uniqueTag" : "USER__DEACTION__CUSTOM_CREATE",
+      "enableTestMethod" : false,
+      "needResourceKey" : true
+    }, {
+      "actionType" : "DEACTION",
       "codeName" : "freeze",
       "dataAccessAction" : "UPDATE",
       "methodType" : "DEACTION",
@@ -10929,6 +12340,36 @@
       "tempDataMode" : 0,
       "uniqueTag" : "USER__DEACTION__CHECKKEY",
       "enableTestMethod" : false
+    }, {
+      "actionType" : "DEACTION",
+      "codeName" : "custom_create",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "custom_create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/user/PSDEACTIONS/custom_create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "user_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/custom_create",
+      "tempDataMode" : 0,
+      "uniqueTag" : "USER__DEACTION__CUSTOM_CREATE",
+      "enableTestMethod" : false,
+      "needResourceKey" : true
     }, {
       "actionType" : "DEACTION",
       "codeName" : "freeze",
@@ -13675,6 +15116,18 @@
       "orderValue" : 600,
       "stdDataType" : 21,
       "stringLength" : 1048576,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "expirestime",
+      "codeName2" : "expirestime",
+      "logicName" : "过期时间",
+      "name" : "EXPIRESTIME",
+      "orderValue" : 610,
+      "stdDataType" : 5,
       "allowEmpty" : true,
       "enableCreate" : true,
       "enableModify" : true,
@@ -22318,6 +23771,19 @@
       "keyField" : false,
       "majorField" : false
     }, {
+      "codeName" : "identifier",
+      "codeName2" : "identifier",
+      "logicName" : "编号",
+      "name" : "IDENTIFIER",
+      "orderValue" : 110,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
       "codeName" : "context_code_name",
       "codeName2" : "context_code_name",
       "logicName" : "智能体标记",
@@ -22338,6 +23804,19 @@
       "orderValue" : 170,
       "stdDataType" : 25,
       "stringLength" : 2000,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "flow_mode",
+      "codeName2" : "flow_mode",
+      "logicName" : "智能体模式",
+      "name" : "FLOW_MODE",
+      "orderValue" : 170,
+      "stdDataType" : 25,
+      "stringLength" : 60,
       "allowEmpty" : true,
       "enableCreate" : true,
       "enableModify" : true,
@@ -22371,7 +23850,7 @@
     }, {
       "codeName" : "context_name",
       "codeName2" : "context_name",
-      "logicName" : "智能体上下文名称",
+      "logicName" : "智能体名称",
       "name" : "CONTEXT_NAME",
       "orderValue" : 210,
       "stdDataType" : 25,
@@ -22450,6 +23929,174 @@
       "name" : "USE_FULLTEXT",
       "orderValue" : 270,
       "stdDataType" : 9,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "entity_tag",
+      "codeName2" : "EntityTag",
+      "logicName" : "实体标记",
+      "name" : "ENTITY_TAG",
+      "orderValue" : 280,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "requirement",
+      "codeName2" : "Requirement",
+      "logicName" : "附加执行要求",
+      "name" : "REQUIREMENT",
+      "orderValue" : 300,
+      "stdDataType" : 25,
+      "stringLength" : 2000,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "sort",
+      "codeName2" : "Sort",
+      "logicName" : "排序",
+      "name" : "SORT",
+      "orderValue" : 310,
+      "stdDataType" : 9,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "input_extra_inst",
+      "codeName2" : "input_extra_inst",
+      "logicName" : "输入附加说明",
+      "name" : "INPUT_EXTRA_INST",
+      "orderValue" : 320,
+      "stdDataType" : 25,
+      "stringLength" : 2000,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "output_extra_inst",
+      "codeName2" : "output_extra_inst",
+      "logicName" : "输出附加说明",
+      "name" : "OUTPUT_EXTRA_INST",
+      "orderValue" : 320,
+      "stdDataType" : 25,
+      "stringLength" : 2000,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "entity_row_key",
+      "codeName2" : "entity_row_key",
+      "logicName" : "数据主键",
+      "name" : "ENTITY_ROW_KEY",
+      "orderValue" : 350,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "skill_runner",
+      "codeName2" : "skill_runner",
+      "logicName" : "技能执行容器",
+      "name" : "SKILL_RUNNER",
+      "orderValue" : 360,
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "informtopic",
+      "codeName2" : "informtopic",
+      "logicName" : "技能执行容器topic",
+      "name" : "INFORMTOPIC",
+      "orderValue" : 360,
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "portal_address",
+      "codeName2" : "portal_address",
+      "logicName" : "容器访问地址",
+      "name" : "PORTAL_ADDRESS",
+      "orderValue" : 360,
+      "stdDataType" : 25,
+      "stringLength" : 500,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "home_path",
+      "codeName2" : "home_path",
+      "logicName" : "根工作目录",
+      "name" : "HOME_PATH",
+      "orderValue" : 360,
+      "stdDataType" : 25,
+      "stringLength" : 500,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "extra_oss_file",
+      "codeName2" : "extra_oss_file",
+      "logicName" : "附加参考资料",
+      "name" : "EXTRA_OSS_FILE",
+      "orderValue" : 370,
+      "stdDataType" : 25,
+      "stringLength" : 2000,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "skill_workspace_id",
+      "codeName2" : "skill_workspace_id",
+      "logicName" : "runner标识",
+      "name" : "SKILL_WORKSPACE_ID",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "compose_id",
+      "codeName2" : "compose_id",
+      "logicName" : "编排标识",
+      "name" : "COMPOSE_ID",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
       "allowEmpty" : true,
       "enableCreate" : true,
       "enableModify" : true,
@@ -22625,6 +24272,35 @@
       "requestPath" : "/get_draft",
       "uniqueTag" : "AI_AGENT_ASSIGNMENT__DEACTION__GETDRAFT"
     }, {
+      "codeName" : "register",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "register",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDEACTIONS/register.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_assignment_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_assignment_dto"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/register",
+      "uniqueTag" : "AI_AGENT_ASSIGNMENT__DEACTION__REGISTER"
+    }, {
       "codeName" : "save",
       "dataAccessAction" : "CREATE",
       "methodType" : "DEACTION",
@@ -22712,6 +24388,35 @@
       "requestPath" : "/fetch_default",
       "uniqueTag" : "AI_AGENT_ASSIGNMENT__FETCH__DEFAULT"
     }, {
+      "codeName" : "fetch_step",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "fetch_step",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "step"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_assignment_filter_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_assignment_dto"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_step",
+      "uniqueTag" : "AI_AGENT_ASSIGNMENT__FETCH__STEP"
+    }, {
       "codeName" : "fetch_system",
       "dataAccessAction" : "READ",
       "methodType" : "FETCH",
@@ -22756,6 +24461,10 @@
       "lanResTag" : "DE.LNAME.AI_AGENT_CONTEXT"
     },
     "logicName" : "智能体业务上下文",
+    "getMajorPSDEServiceAPIRSs" : [ {
+      "modelref" : true,
+      "id" : "DER1N_AI_AGENT_CONVERSATION_AI_AGENT_CONTEXT_AI_AGENT_CONTEXT_ID"
+    } ],
     "name" : "AI_AGENT_CONTEXT",
     "getPSDEServiceAPIFields" : [ {
       "codeName" : "id",
@@ -22842,7 +24551,7 @@
     }, {
       "codeName" : "system_flag",
       "codeName2" : "system_flag",
-      "logicName" : "系统标记",
+      "logicName" : "是否公开",
       "name" : "SYSTEM_FLAG",
       "orderValue" : 200,
       "stdDataType" : 9,
@@ -23391,7 +25100,7 @@
       "codeName" : "max_input_tokens",
       "codeName2" : "max_input_tokens",
       "logicName" : "最大输入token数",
-      "maxValueString" : "256000",
+      "maxValueString" : "32000",
       "minValueString" : "0",
       "name" : "MAX_INPUT_TOKENS",
       "orderValue" : 1000,
@@ -24389,6 +26098,10 @@
       "modelref" : true,
       "id" : "DER1N_AI_AGENT_MESSAGE_AI_AGENT_CONVERSATION_CONVERSATION_ID"
     } ],
+    "getMinorPSDEServiceAPIRSs" : [ {
+      "modelref" : true,
+      "id" : "DER1N_AI_AGENT_CONVERSATION_AI_AGENT_CONTEXT_AI_AGENT_CONTEXT_ID"
+    } ],
     "name" : "AI_AGENT_CONVERSATION",
     "getPSDEServiceAPIFields" : [ {
       "codeName" : "id",
@@ -24536,9 +26249,22 @@
       "keyField" : false,
       "majorField" : false
     }, {
+      "codeName" : "context_code_name",
+      "codeName2" : "context_code_name",
+      "logicName" : "智能体标记",
+      "name" : "CONTEXT_CODE_NAME",
+      "orderValue" : 270,
+      "stdDataType" : 25,
+      "stringLength" : 30,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
       "codeName" : "show_name",
       "codeName2" : "show_name",
-      "logicName" : "会话显示名称",
+      "logicName" : "会话",
       "name" : "SHOW_NAME",
       "orderValue" : 280,
       "stdDataType" : 25,
@@ -24581,7 +26307,7 @@
       "name" : "SESSION_ID",
       "orderValue" : 1000,
       "stdDataType" : 25,
-      "stringLength" : 200,
+      "stringLength" : 400,
       "allowEmpty" : true,
       "enableCreate" : true,
       "enableModify" : true,
@@ -26382,7 +28108,7 @@
       "name" : "SESSION_ID",
       "orderValue" : 340,
       "stdDataType" : 25,
-      "stringLength" : 200,
+      "stringLength" : 400,
       "allowEmpty" : true,
       "enableCreate" : true,
       "enableModify" : true,
@@ -26396,6 +28122,18 @@
       "orderValue" : 350,
       "stdDataType" : 25,
       "stringLength" : 100,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "tool_calls",
+      "codeName2" : "tool_calls",
+      "logicName" : "工具调用数",
+      "name" : "TOOL_CALLS",
+      "orderValue" : 360,
+      "stdDataType" : 9,
       "allowEmpty" : true,
       "enableCreate" : true,
       "enableModify" : true,
@@ -26888,7 +28626,7 @@
     "getLNPSLanguageRes" : {
       "lanResTag" : "DE.LNAME.AI_AGENT_SESSION"
     },
-    "logicName" : "智能体会话",
+    "logicName" : "智能体SESSION",
     "name" : "AI_AGENT_SESSION",
     "getPSDEServiceAPIFields" : [ {
       "codeName" : "id",
@@ -27569,7 +29307,7 @@
       "stdDataType" : 21,
       "stringLength" : 1048576,
       "allowEmpty" : true,
-      "enableCreate" : false,
+      "enableCreate" : true,
       "enableModify" : false,
       "keyField" : false,
       "majorField" : false
@@ -27858,6 +29596,10 @@
       "lanResTag" : "DE.LNAME.AI_CREDENTIAL"
     },
     "logicName" : "AI凭证",
+    "getMinorPSDEServiceAPIRSs" : [ {
+      "modelref" : true,
+      "id" : "DER1N_AI_CREDENTIAL_KEYRING_KEYRING_ID"
+    } ],
     "name" : "AI_CREDENTIAL",
     "getPSDEServiceAPIFields" : [ {
       "codeName" : "id",
@@ -28099,7 +29841,7 @@
     }, {
       "codeName" : "provider",
       "codeName2" : "provider",
-      "logicName" : "模型提供商",
+      "logicName" : "服务提供商",
       "name" : "PROVIDER",
       "orderValue" : 1000,
       "stdDataType" : 25,
@@ -28118,6 +29860,19 @@
       "stdDataType" : 25,
       "stringLength" : 100,
       "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "keyring_id",
+      "codeName2" : "keyring_id",
+      "logicName" : "密钥环",
+      "name" : "KEYRING_ID",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 60,
+      "allowEmpty" : true,
       "enableCreate" : true,
       "enableModify" : true,
       "keyField" : false,
@@ -28263,6 +30018,35 @@
       "requestPath" : "/check_key",
       "uniqueTag" : "AI_CREDENTIAL__DEACTION__CHECKKEY"
     }, {
+      "codeName" : "find_myself",
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "FindMyself",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_credential/PSDEACTIONS/FindMyself.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_credential_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_credential_dto"
+        },
+        "type" : "DTOS"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/find_myself",
+      "uniqueTag" : "AI_CREDENTIAL__DEACTION__FINDMYSELF"
+    }, {
       "codeName" : "get_draft",
       "dataAccessAction" : "CREATE",
       "methodType" : "DEACTION",
@@ -28349,6 +30133,35 @@
       "requestParamType" : "ENTITY",
       "requestPath" : "/fetch_ac",
       "uniqueTag" : "AI_CREDENTIAL__FETCH__AC"
+    }, {
+      "codeName" : "fetch_ai_model",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "fetch_ai_model",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "AIModel"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_credential_filter_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_credential_dto"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_ai_model",
+      "uniqueTag" : "AI_CREDENTIAL__FETCH__AIMODEL"
     }, {
       "codeName" : "fetch_default",
       "dataAccessAction" : "READ",
@@ -31906,7 +33719,7 @@
     }, {
       "codeName" : "custom_chunk",
       "codeName2" : "custom_chunk",
-      "logicName" : "自定义切片",
+      "logicName" : "切片策略",
       "name" : "CUSTOM_CHUNK",
       "orderValue" : 320,
       "stdDataType" : 9,
@@ -40686,6 +42499,486 @@
     "major" : true
   }, {
     "aPIMode" : 1,
+    "codeName" : "ai_skill_workspace",
+    "codeName2" : "ai_skill_workspaces",
+    "getLNPSLanguageRes" : {
+      "lanResTag" : "DE.LNAME.AI_SKILL_WORKSPACE"
+    },
+    "logicName" : "技能工作空间",
+    "name" : "AI_SKILL_WORKSPACE",
+    "getPSDEServiceAPIFields" : [ {
+      "codeName" : "id",
+      "codeName2" : "id",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.AI_SKILL_WORKSPACE.ID"
+      },
+      "logicName" : "标识",
+      "name" : "ID",
+      "orderValue" : 1,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : true,
+      "majorField" : false
+    }, {
+      "codeName" : "name",
+      "codeName2" : "name",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.AI_SKILL_WORKSPACE.NAME"
+      },
+      "logicName" : "名称",
+      "name" : "NAME",
+      "orderValue" : 2,
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : true
+    }, {
+      "codeName" : "create_man",
+      "codeName2" : "create_man",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.CREATE_MAN"
+      },
+      "logicName" : "创建人",
+      "name" : "CREATE_MAN",
+      "orderValue" : 4,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "create_time",
+      "codeName2" : "create_time",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.CREATE_TIME"
+      },
+      "logicName" : "创建时间",
+      "name" : "CREATE_TIME",
+      "orderValue" : 5,
+      "stdDataType" : 5,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "update_man",
+      "codeName2" : "update_man",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.UPDATE_MAN"
+      },
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "orderValue" : 6,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "update_time",
+      "codeName2" : "update_time",
+      "getLNPSLanguageRes" : {
+        "lanResTag" : "DEF.LNAME.UPDATE_TIME"
+      },
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "orderValue" : 7,
+      "stdDataType" : 5,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "portal_address",
+      "codeName2" : "portal_address",
+      "logicName" : "访问地址",
+      "name" : "PORTAL_ADDRESS",
+      "orderValue" : 260,
+      "stdDataType" : 25,
+      "stringLength" : 500,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "status",
+      "codeName2" : "status",
+      "logicName" : "状态",
+      "name" : "STATUS",
+      "orderValue" : 270,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "access_token",
+      "codeName2" : "access_token",
+      "logicName" : "访问令牌",
+      "name" : "ACCESS_TOKEN",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 500,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "client_id",
+      "codeName2" : "client_id",
+      "logicName" : "客户端标识",
+      "name" : "CLIENT_ID",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "topic",
+      "codeName2" : "topic",
+      "logicName" : "消息主题",
+      "name" : "TOPIC",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "last_heartbeat",
+      "codeName2" : "last_heartbeat",
+      "logicName" : "最后心跳时间",
+      "name" : "LAST_HEARTBEAT",
+      "orderValue" : 1000,
+      "stdDataType" : 5,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "mqtt_address",
+      "codeName2" : "mqtt_address",
+      "logicName" : "MQTT地址",
+      "name" : "MQTT_ADDRESS",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 500,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "skill_hub_repo",
+      "codeName2" : "skill_hub_repo",
+      "logicName" : "Skill Hub仓库地址",
+      "name" : "SKILL_HUB_REPO",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 500,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "description",
+      "codeName2" : "description",
+      "logicName" : "描述",
+      "name" : "DESCRIPTION",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 2000,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "adv_settings",
+      "codeName2" : "adv_settings",
+      "logicName" : "高级设置",
+      "name" : "ADV_SETTINGS",
+      "orderValue" : 1000,
+      "stdDataType" : 21,
+      "stringLength" : 1048576,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "home_path",
+      "codeName2" : "home_path",
+      "logicName" : "工作空间目录",
+      "name" : "HOME_PATH",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 500,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    } ],
+    "getPSDEServiceAPIMethods" : [ {
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_skill_workspace_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_skill_workspace_dto"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "uniqueTag" : "AI_SKILL_WORKSPACE__DEACTION__CREATE",
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "getKeyPSDEServiceAPIField" : {
+          "modelref" : true,
+          "id" : "id"
+        },
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_skill_workspace_dto"
+        },
+        "type" : "DTO"
+      },
+      "requestField" : "ID",
+      "requestMethod" : "GET",
+      "requestParamType" : "FIELD",
+      "uniqueTag" : "AI_SKILL_WORKSPACE__DEACTION__GET",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "getKeyPSDEServiceAPIField" : {
+          "modelref" : true,
+          "id" : "id"
+        },
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestField" : "ID",
+      "requestMethod" : "DELETE",
+      "requestParamType" : "FIELD",
+      "uniqueTag" : "AI_SKILL_WORKSPACE__DEACTION__REMOVE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_skill_workspace_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_skill_workspace_dto"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "PUT",
+      "requestParamType" : "ENTITY",
+      "uniqueTag" : "AI_SKILL_WORKSPACE__DEACTION__UPDATE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "codeName" : "check_key",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_skill_workspace_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/check_key",
+      "uniqueTag" : "AI_SKILL_WORKSPACE__DEACTION__CHECKKEY"
+    }, {
+      "codeName" : "get_draft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_skill_workspace_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_skill_workspace_dto"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "requestParamType" : "NONE",
+      "requestPath" : "/get_draft",
+      "uniqueTag" : "AI_SKILL_WORKSPACE__DEACTION__GETDRAFT"
+    }, {
+      "codeName" : "save",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_skill_workspace_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_skill_workspace_dto"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/save",
+      "uniqueTag" : "AI_SKILL_WORKSPACE__DEACTION__SAVE"
+    }, {
+      "codeName" : "fetch_default",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "fetch_default",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_skill_workspace_filter_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_skill_workspace_dto"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_default",
+      "uniqueTag" : "AI_SKILL_WORKSPACE__FETCH__DEFAULT"
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : true
+  }, {
+    "aPIMode" : 1,
     "codeName" : "ai_tool",
     "codeName2" : "ai_tools",
     "getLNPSLanguageRes" : {
@@ -41272,6 +43565,31 @@
       "requestParamType" : "ENTITY",
       "requestPath" : "/save",
       "uniqueTag" : "AI_TOOL__DEACTION__SAVE"
+    }, {
+      "codeName" : "skill_runner_info",
+      "dataAccessAction" : "NONE",
+      "methodType" : "DEACTION",
+      "name" : "skill_runner_info",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_tool/PSDEACTIONS/skill_runner_info.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_tool_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "GET",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/skill_runner_info",
+      "uniqueTag" : "AI_TOOL__DEACTION__SKILL_RUNNER_INFO"
     }, {
       "codeName" : "fetch_default",
       "dataAccessAction" : "READ",
@@ -50126,6 +52444,19 @@
       "keyField" : false,
       "majorField" : false
     }, {
+      "codeName" : "trigger_node_id",
+      "codeName2" : "trigger_node_id",
+      "logicName" : "触发节点标识",
+      "name" : "TRIGGER_NODE_ID",
+      "orderValue" : 270,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
       "codeName" : "create_time",
       "codeName2" : "create_time",
       "logicName" : "建立时间",
@@ -55850,6 +58181,453 @@
     "major" : true
   }, {
     "aPIMode" : 1,
+    "codeName" : "keyring",
+    "codeName2" : "keyrings",
+    "logicName" : "密钥环",
+    "getMajorPSDEServiceAPIRSs" : [ {
+      "modelref" : true,
+      "id" : "DER1N_AI_CREDENTIAL_KEYRING_KEYRING_ID"
+    } ],
+    "name" : "KEYRING",
+    "getPSDEServiceAPIFields" : [ {
+      "codeName" : "create_man",
+      "codeName2" : "create_man",
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "orderValue" : 3,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "create_time",
+      "codeName2" : "create_time",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "orderValue" : 4,
+      "stdDataType" : 5,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "update_man",
+      "codeName2" : "update_man",
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "orderValue" : 5,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "update_time",
+      "codeName2" : "update_time",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "orderValue" : 6,
+      "stdDataType" : 5,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "scope_type",
+      "codeName2" : "scope_type",
+      "logicName" : "所属",
+      "name" : "SCOPE_TYPE",
+      "orderValue" : 250,
+      "stdDataType" : 25,
+      "stringLength" : 60,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "id",
+      "codeName2" : "id",
+      "logicName" : "主键",
+      "name" : "ID",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 60,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : true,
+      "majorField" : false
+    }, {
+      "codeName" : "name",
+      "codeName2" : "name",
+      "logicName" : "名称",
+      "name" : "NAME",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 255,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : true
+    }, {
+      "codeName" : "description",
+      "codeName2" : "description",
+      "logicName" : "描述",
+      "name" : "DESCRIPTION",
+      "orderValue" : 1000,
+      "stdDataType" : 21,
+      "stringLength" : 1048576,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "scope_id",
+      "codeName2" : "scope_id",
+      "logicName" : "所属对象",
+      "name" : "SCOPE_ID",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    } ],
+    "getPSDEServiceAPIMethods" : [ {
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/keyring/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "keyring_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "keyring_dto"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "uniqueTag" : "KEYRING__DEACTION__CREATE",
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/keyring/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "getKeyPSDEServiceAPIField" : {
+          "modelref" : true,
+          "id" : "id"
+        },
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "keyring_dto"
+        },
+        "type" : "DTO"
+      },
+      "requestField" : "ID",
+      "requestMethod" : "GET",
+      "requestParamType" : "FIELD",
+      "uniqueTag" : "KEYRING__DEACTION__GET",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/keyring/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "getKeyPSDEServiceAPIField" : {
+          "modelref" : true,
+          "id" : "id"
+        },
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestField" : "ID",
+      "requestMethod" : "DELETE",
+      "requestParamType" : "FIELD",
+      "uniqueTag" : "KEYRING__DEACTION__REMOVE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/keyring/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "keyring_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "keyring_dto"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "PUT",
+      "requestParamType" : "ENTITY",
+      "uniqueTag" : "KEYRING__DEACTION__UPDATE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "codeName" : "check_key",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/keyring/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "keyring_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/check_key",
+      "uniqueTag" : "KEYRING__DEACTION__CHECKKEY"
+    }, {
+      "codeName" : "get_draft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/keyring/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "keyring_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "keyring_dto"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "requestParamType" : "NONE",
+      "requestPath" : "/get_draft",
+      "uniqueTag" : "KEYRING__DEACTION__GETDRAFT"
+    }, {
+      "codeName" : "save",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/keyring/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "keyring_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "keyring_dto"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/save",
+      "uniqueTag" : "KEYRING__DEACTION__SAVE"
+    }, {
+      "codeName" : "fetch_default",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "fetch_default",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "keyring_filter_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "keyring_dto"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_default",
+      "uniqueTag" : "KEYRING__FETCH__DEFAULT"
+    }, {
+      "codeName" : "fetch_my_keyrings",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "fetch_my_keyrings",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "MyKeyrings"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "keyring_filter_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "keyring_dto"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_my_keyrings",
+      "uniqueTag" : "KEYRING__FETCH__MY_KEYRINGS"
+    }, {
+      "codeName" : "fetch_myself",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "fetch_myself",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Myself"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "keyring_filter_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "keyring_dto"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_myself",
+      "uniqueTag" : "KEYRING__FETCH__MYSELF"
+    }, {
+      "codeName" : "fetch_share_keyrings",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "fetch_share_keyrings",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "ShareKeyrings"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "keyring_filter_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "keyring_dto"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_share_keyrings",
+      "uniqueTag" : "KEYRING__FETCH__SHARE_KEYRINGS"
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/keyring.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : true
+  }, {
+    "aPIMode" : 1,
     "codeName" : "management",
     "codeName2" : "managements",
     "logicName" : "后台管理",
@@ -60659,6 +63437,757 @@
     "getPSDataEntity" : {
       "modelref" : true,
       "path" : "PSMODULES/Base/PSDATAENTITIES/recent.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : true
+  }, {
+    "aPIMode" : 1,
+    "codeName" : "role",
+    "codeName2" : "roles",
+    "logicName" : "角色",
+    "getMajorPSDEServiceAPIRSs" : [ {
+      "modelref" : true,
+      "id" : "ROLE_MEMBER_ROLE_ROLE_ID"
+    } ],
+    "name" : "ROLE",
+    "getPSDEServiceAPIFields" : [ {
+      "codeName" : "authority",
+      "codeName2" : "authority",
+      "logicName" : "角色标识",
+      "name" : "AUTHORITY",
+      "orderValue" : 11,
+      "stdDataType" : 25,
+      "stringLength" : 300,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "description",
+      "codeName2" : "description",
+      "logicName" : "描述",
+      "name" : "DESCRIPTION",
+      "orderValue" : 180,
+      "stdDataType" : 25,
+      "stringLength" : 2000,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "dc_system_id",
+      "codeName2" : "DCSystemId",
+      "logicName" : "租户系统标识",
+      "name" : "DCSYSTEMID",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "global_flag",
+      "codeName2" : "GlobalFlag",
+      "logicName" : "全局标记",
+      "name" : "GLOBALFLAG",
+      "orderValue" : 1000,
+      "stdDataType" : 9,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "create_man",
+      "codeName2" : "create_man",
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "id",
+      "codeName2" : "id",
+      "logicName" : "标识",
+      "name" : "ID",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : true,
+      "majorField" : false
+    }, {
+      "codeName" : "create_time",
+      "codeName2" : "create_time",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "orderValue" : 1000,
+      "stdDataType" : 5,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "name",
+      "codeName2" : "name",
+      "logicName" : "角色名称",
+      "name" : "NAME",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : true
+    }, {
+      "codeName" : "update_time",
+      "codeName2" : "update_time",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "orderValue" : 1000,
+      "stdDataType" : 5,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "update_man",
+      "codeName2" : "update_man",
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    } ],
+    "getPSDEServiceAPIMethods" : [ {
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_dto"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "uniqueTag" : "ROLE__DEACTION__CREATE",
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "getKeyPSDEServiceAPIField" : {
+          "modelref" : true,
+          "id" : "id"
+        },
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_dto"
+        },
+        "type" : "DTO"
+      },
+      "requestField" : "ID",
+      "requestMethod" : "GET",
+      "requestParamType" : "FIELD",
+      "uniqueTag" : "ROLE__DEACTION__GET",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "getKeyPSDEServiceAPIField" : {
+          "modelref" : true,
+          "id" : "id"
+        },
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestField" : "ID",
+      "requestMethod" : "DELETE",
+      "requestParamType" : "FIELD",
+      "uniqueTag" : "ROLE__DEACTION__REMOVE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_dto"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "PUT",
+      "requestParamType" : "ENTITY",
+      "uniqueTag" : "ROLE__DEACTION__UPDATE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "codeName" : "check_key",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/check_key",
+      "uniqueTag" : "ROLE__DEACTION__CHECKKEY"
+    }, {
+      "codeName" : "get_draft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_dto"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "requestParamType" : "NONE",
+      "requestPath" : "/get_draft",
+      "uniqueTag" : "ROLE__DEACTION__GETDRAFT"
+    }, {
+      "codeName" : "save",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_dto"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/save",
+      "uniqueTag" : "ROLE__DEACTION__SAVE"
+    }, {
+      "codeName" : "fetch_cursystem",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "fetch_cursystem",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "cursystem"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_filter_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_dto"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_cursystem",
+      "uniqueTag" : "ROLE__FETCH__CURSYSTEM"
+    }, {
+      "codeName" : "fetch_default",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "fetch_default",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_filter_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_dto"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_default",
+      "uniqueTag" : "ROLE__FETCH__DEFAULT"
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/role.json"
+    },
+    "enableDataExport" : true,
+    "enableDataImport" : true,
+    "major" : true
+  }, {
+    "aPIMode" : 1,
+    "codeName" : "role_member",
+    "codeName2" : "role_members",
+    "logicName" : "系统角色成员",
+    "getMinorPSDEServiceAPIRSs" : [ {
+      "modelref" : true,
+      "id" : "ROLE_MEMBER_ROLE_ROLE_ID"
+    }, {
+      "modelref" : true,
+      "id" : "ROLE_MEMBER_USER_MEMBER_UID"
+    } ],
+    "name" : "ROLE_MEMBER",
+    "getPSDEServiceAPIFields" : [ {
+      "codeName" : "member_uid",
+      "codeName2" : "Member_uid",
+      "logicName" : "用户组/人员标识",
+      "name" : "MEMBER_UID",
+      "orderValue" : 180,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "role_id",
+      "codeName2" : "Role_id",
+      "logicName" : "系统角色标识",
+      "name" : "ROLE_ID",
+      "orderValue" : 190,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "create_man",
+      "codeName2" : "create_man",
+      "logicName" : "建立人",
+      "name" : "CREATE_MAN",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "id",
+      "codeName2" : "id",
+      "logicName" : "标识",
+      "name" : "ID",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : true,
+      "majorField" : false
+    }, {
+      "codeName" : "update_man",
+      "codeName2" : "update_man",
+      "logicName" : "更新人",
+      "name" : "UPDATE_MAN",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "name",
+      "codeName2" : "name",
+      "logicName" : "姓名",
+      "name" : "NAME",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : true
+    }, {
+      "codeName" : "create_time",
+      "codeName2" : "create_time",
+      "logicName" : "建立时间",
+      "name" : "CREATE_TIME",
+      "orderValue" : 1000,
+      "stdDataType" : 5,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "update_time",
+      "codeName2" : "update_time",
+      "logicName" : "更新时间",
+      "name" : "UPDATE_TIME",
+      "orderValue" : 1000,
+      "stdDataType" : 5,
+      "allowEmpty" : false,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    } ],
+    "getPSDEServiceAPIMethods" : [ {
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role_member/PSDEACTIONS/Create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "uniqueTag" : "ROLE_MEMBER__DEACTION__CREATE",
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "READ",
+      "methodType" : "DEACTION",
+      "name" : "Get",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role_member/PSDEACTIONS/Get.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "getKeyPSDEServiceAPIField" : {
+          "modelref" : true,
+          "id" : "id"
+        },
+        "name" : "输入对象",
+        "type" : "KEYFIELD"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "requestField" : "ID",
+      "requestMethod" : "GET",
+      "requestParamType" : "FIELD",
+      "uniqueTag" : "ROLE_MEMBER__DEACTION__GET",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "DELETE",
+      "methodType" : "DEACTION",
+      "name" : "Remove",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role_member/PSDEACTIONS/Remove.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "getKeyPSDEServiceAPIField" : {
+          "modelref" : true,
+          "id" : "id"
+        },
+        "name" : "输入对象",
+        "type" : "KEYFIELDS"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestField" : "ID",
+      "requestMethod" : "DELETE",
+      "requestParamType" : "FIELD",
+      "uniqueTag" : "ROLE_MEMBER__DEACTION__REMOVE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "Update",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role_member/PSDEACTIONS/Update.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "PUT",
+      "requestParamType" : "ENTITY",
+      "uniqueTag" : "ROLE_MEMBER__DEACTION__UPDATE",
+      "needResourceKey" : true,
+      "noServiceCodeName" : true
+    }, {
+      "codeName" : "check_key",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "CheckKey",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role_member/PSDEACTIONS/CheckKey.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "stdDataType" : 9,
+        "type" : "SIMPLE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/check_key",
+      "uniqueTag" : "ROLE_MEMBER__DEACTION__CHECKKEY"
+    }, {
+      "codeName" : "get_draft",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "GetDraft",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role_member/PSDEACTIONS/GetDraft.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "GET",
+      "requestParamType" : "NONE",
+      "requestPath" : "/get_draft",
+      "uniqueTag" : "ROLE_MEMBER__DEACTION__GETDRAFT"
+    }, {
+      "codeName" : "save",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "Save",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/role_member/PSDEACTIONS/Save.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "DTO"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/save",
+      "uniqueTag" : "ROLE_MEMBER__DEACTION__SAVE"
+    }, {
+      "codeName" : "fetch_default",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "fetch_default",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_filter_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "role_member_dto"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_default",
+      "uniqueTag" : "ROLE_MEMBER__FETCH__DEFAULT"
+    } ],
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/role_member.json"
     },
     "enableDataExport" : true,
     "enableDataImport" : true,
@@ -66234,6 +69763,19 @@
       "keyField" : false,
       "majorField" : false
     }, {
+      "codeName" : "name",
+      "codeName2" : "name",
+      "logicName" : "名称",
+      "name" : "NAME",
+      "orderValue" : 1000,
+      "stdDataType" : 25,
+      "stringLength" : 1000,
+      "allowEmpty" : false,
+      "enableCreate" : false,
+      "enableModify" : false,
+      "keyField" : false,
+      "majorField" : true
+    }, {
       "codeName" : "create_time",
       "codeName2" : "create_time",
       "logicName" : "建立时间",
@@ -67124,6 +70666,9 @@
       "id" : "DER1N_AI_KB_MEMBER_USER_USER_ID"
     }, {
       "modelref" : true,
+      "id" : "ROLE_MEMBER_USER_MEMBER_UID"
+    }, {
+      "modelref" : true,
       "id" : "DER1N_SPACE_MEMBER_USER_USER_ID"
     } ],
     "getMinorPSDEServiceAPIRSs" : [ {
@@ -67635,6 +71180,32 @@
       "requestParamType" : "ENTITY",
       "requestPath" : "/check_key",
       "uniqueTag" : "USER__DEACTION__CHECKKEY"
+    }, {
+      "codeName" : "custom_create",
+      "dataAccessAction" : "CREATE",
+      "methodType" : "DEACTION",
+      "name" : "custom_create",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/user/PSDEACTIONS/custom_create.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "user_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/custom_create",
+      "uniqueTag" : "USER__DEACTION__CUSTOM_CREATE",
+      "needResourceKey" : true
     }, {
       "codeName" : "freeze",
       "dataAccessAction" : "UPDATE",

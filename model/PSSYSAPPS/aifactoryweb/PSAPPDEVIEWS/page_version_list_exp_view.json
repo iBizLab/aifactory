@@ -28,10 +28,10 @@
     } ],
     "codeName" : "usr0612132451",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/page_version/PSVIEWLAYOUTPANELS/usr0612132451.json",
     "hookEventNames" : [ "ONCHANGE" ],
     "layoutMode" : "FLEX",
     "logicName" : "page_list_exp_view 实体列表导航视图布局面板",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/page_version.json"
@@ -213,6 +213,7 @@
     "layoutPanel" : true,
     "useDefaultLayout" : false,
     "viewProxyMode" : true,
+    "name" : "layoutpanel",
     "modelid" : "41cc0e3869d11831a788d742a8b2bec8",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL",
     "getPSAppViewEngines" : [ {
@@ -247,7 +248,7 @@
     "getPSControls" : [ {
       "codeName" : "list_exp_view_listexpbar",
       "controlType" : "LISTEXPBAR",
-      "name" : "listexpbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/page_version/PSLISTEXPBARS/list_exp_view_listexpbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/page_version.json"
@@ -607,6 +608,7 @@
       "enableCounter" : true,
       "enableSearch" : false,
       "showTitleBar" : true,
+      "name" : "listexpbar",
       "modelid" : "0b4109858958f04b26ed053f90986890_listexpbar",
       "modeltype" : "PSEXPBAR"
     }, {
@@ -644,12 +646,13 @@
       "caption" : "历史版本",
       "codeName" : "list_exp_view_captionbar",
       "controlType" : "CAPTIONBAR",
-      "name" : "captionbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/page_version/PSCAPTIONBARS/list_exp_view_captionbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/page_version.json"
       },
-      "getPSControlParam" : { }
+      "getPSControlParam" : { },
+      "name" : "captionbar"
     } ]
   },
   "getQuickGroupPSCodeList" : {

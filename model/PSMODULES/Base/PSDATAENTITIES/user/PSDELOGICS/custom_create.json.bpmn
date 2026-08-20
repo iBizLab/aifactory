@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="cn.ibizlab.core.base.service.logic.usercustom_create" isClosed="false" isExecutable="true" name="base_user_custom_create_ruleFlow" processType="Private" tns:packageName="cn.ibizlab.core.base.service.logic.usercustom_create">
+            <extensionElements>
+                <tns:import name="java.util.Map" />
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="cn.ibizlab.util.helper.RuleUtils"/>
+                                <tns:metaData express="" name="usercustom_createdefault" type="entity"/>
+                                <tns:metaData express="new cn.ibizlab.core.base.domain.role_member()" name="usercustom_creatememberfilter" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.base.domain.role_member()" name="usercustom_creatememberlist" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.base.domain.role()" name="usercustom_createrole" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.base.domain.role()" name="usercustom_createrolefilter" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.base.domain.role()" name="usercustom_createrolelist" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.base.domain.role_member()" name="usercustom_createrole_member" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.base.domain.role()" name="usercustom_createsub_role" type="refentity"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.base.service.IuserService))" name="userservice" type="service"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.base.service.Irole_memberService))" name="role_memberservice" type="service"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.base.service.IroleService))" name="roleservice" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.base.service.IuserService))" name="iBzSysUserDefaultService" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
+                            <tns:global identifier="usercustom_createdefault" type="cn.ibizlab.core.base.domain.user" />
+                            <tns:global identifier="usercustom_creatememberfilter" type="cn.ibizlab.core.base.domain.role_member" />
+                            <tns:global identifier="usercustom_creatememberlist" type="cn.ibizlab.core.base.domain.role_member" />
+                            <tns:global identifier="usercustom_createrole" type="cn.ibizlab.core.base.domain.role" />
+                            <tns:global identifier="usercustom_createrolefilter" type="cn.ibizlab.core.base.domain.role" />
+                            <tns:global identifier="usercustom_createrolelist" type="cn.ibizlab.core.base.domain.role" />
+                            <tns:global identifier="usercustom_createrole_member" type="cn.ibizlab.core.base.domain.role_member" />
+                            <tns:global identifier="usercustom_createsub_role" type="cn.ibizlab.core.base.domain.role" />
+            </extensionElements>
+                        <startEvent id="begin" isInterrupting="true"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="usercustom_createprepareparam_01" id="prepareparam_01" implementation="http://www.jboss.org/drools/rule" name="设置属性"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="usercustom_createprepareparam_04" id="prepareparam_04" implementation="http://www.jboss.org/drools/rule" name="设置角色成员查询条件"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="usercustom_createdeaction_01" id="deaction_01" implementation="http://www.jboss.org/drools/rule" name="创建成员"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="usercustom_creatededataset_02" id="dedataset_02" implementation="http://www.jboss.org/drools/rule" name="查询默认角色"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="usercustom_createdeaction_03" id="deaction_03" implementation="http://www.jboss.org/drools/rule" name="初始化密码"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="usercustom_createprepareparam_02" id="prepareparam_02" implementation="http://www.jboss.org/drools/rule" name="设置角色查询条件"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="usercustom_creatededataset_01" id="dedataset_01" implementation="http://www.jboss.org/drools/rule" name="查询默认角色"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="usercustom_createloopsubcall_01" id="loopsubcall_01" implementation="http://www.jboss.org/drools/rule" name="循环子调用"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="usercustom_createdebugparam_01" id="debugparam_01" implementation="http://www.jboss.org/drools/rule" name="调试逻辑参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="usercustom_createprepareparam_03" id="prepareparam_03" implementation="http://www.jboss.org/drools/rule" name="设置用户权限"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="usercustom_createbindparam_01" id="bindparam_01" implementation="http://www.jboss.org/drools/rule" name="绑定参数"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="usercustom_createdeaction_02" id="deaction_02" implementation="http://www.jboss.org/drools/rule" name="初始化用户角色"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="usercustom_createend_01" id="end_01" implementation="http://www.jboss.org/drools/rule" name="结束"/>
+                        <endEvent id="end_01_end" name="end"/>
+                        <sequenceFlow id="end_01_end_line" sourceRef="end_01" targetRef="end_01_end"/>
+                    <sequenceFlow id="begin_prepareparam_01" sourceRef="begin" targetRef="prepareparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_01_deaction_01" sourceRef="prepareparam_01" targetRef="deaction_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_04_dedataset_02" sourceRef="prepareparam_04" targetRef="dedataset_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="deaction_01_deaction_03" sourceRef="deaction_01" targetRef="deaction_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-dedataset_02_deaction_03" sourceRef="gateway-dedataset_02" targetRef="deaction_03">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $usercustom_createdefault:user();
+                                            $usercustom_creatememberfilter:role_member();
+                                            $usercustom_creatememberlist:role_member();
+                                            $usercustom_createrole:role();
+                                            $usercustom_createrolefilter:role();
+                                            $usercustom_createrolelist:role();
+                                            $usercustom_createrole_member:role_member();
+                                            $usercustom_createsub_role:role();
+                                    eval($usercustom_createdefault==usercustom_createdefault && $usercustom_creatememberfilter==usercustom_creatememberfilter && $usercustom_creatememberlist==usercustom_creatememberlist && $usercustom_createrole==usercustom_createrole && $usercustom_createrolefilter==usercustom_createrolefilter && $usercustom_createrolelist==usercustom_createrolelist && $usercustom_createrole_member==usercustom_createrole_member && $usercustom_createsub_role==usercustom_createsub_role);
+                                eval((RuleUtils.test($usercustom_creatememberlist.get("size"),"EQ","0")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="deaction_03_end_01" sourceRef="deaction_03" targetRef="end_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_02_dedataset_01" sourceRef="prepareparam_02" targetRef="dedataset_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="dedataset_01_loopsubcall_01" sourceRef="dedataset_01" targetRef="loopsubcall_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="loopsubcall_01_debugparam_01" sourceRef="loopsubcall_01" targetRef="debugparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="gateway-debugparam_01_prepareparam_03" sourceRef="gateway-debugparam_01" targetRef="prepareparam_03">
+                            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+                                            $usercustom_createdefault:user();
+                                            $usercustom_creatememberfilter:role_member();
+                                            $usercustom_creatememberlist:role_member();
+                                            $usercustom_createrole:role();
+                                            $usercustom_createrolefilter:role();
+                                            $usercustom_createrolelist:role();
+                                            $usercustom_createrole_member:role_member();
+                                            $usercustom_createsub_role:role();
+                                    eval($usercustom_createdefault==usercustom_createdefault && $usercustom_creatememberfilter==usercustom_creatememberfilter && $usercustom_creatememberlist==usercustom_creatememberlist && $usercustom_createrole==usercustom_createrole && $usercustom_createrolefilter==usercustom_createrolefilter && $usercustom_createrolelist==usercustom_createrolelist && $usercustom_createrole_member==usercustom_createrole_member && $usercustom_createsub_role==usercustom_createsub_role);
+                                eval((RuleUtils.test($usercustom_createsub_role.get("authority"),"EQ","AIFACTORY_ACCESS")))
+                                ]]>
+                            </conditionExpression>
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_03_deaction_02" sourceRef="prepareparam_03" targetRef="deaction_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="bindparam_01_prepareparam_03" sourceRef="bindparam_01" targetRef="prepareparam_03">
+                    </sequenceFlow>
+                    <sequenceFlow id="deaction_02_end_01" sourceRef="deaction_02" targetRef="end_01">
+                    </sequenceFlow>
+                            <exclusiveGateway id="gateway-dedataset_02" name="Gateway" gatewayDirection="Diverging" default="gateway-dedataset_02_end_line"></exclusiveGateway>
+                            <sequenceFlow id="dedataset_02_gateway-dedataset_02_gatewayline" sourceRef="dedataset_02" targetRef="gateway-dedataset_02"></sequenceFlow>
+                            <sequenceFlow id="gateway-dedataset_02_end_line" sourceRef="gateway-dedataset_02" targetRef="gateway-dedataset_02_end"/>
+                            <endEvent id="gateway-dedataset_02_end" name="end"/>
+                            <exclusiveGateway id="gateway-debugparam_01" name="Gateway" gatewayDirection="Diverging" default="gateway-debugparam_01_end_line"></exclusiveGateway>
+                            <sequenceFlow id="debugparam_01_gateway-debugparam_01_gatewayline" sourceRef="debugparam_01" targetRef="gateway-debugparam_01"></sequenceFlow>
+                            <sequenceFlow id="gateway-debugparam_01_end_line" sourceRef="gateway-debugparam_01" targetRef="gateway-debugparam_01_end"/>
+                            <endEvent id="gateway-debugparam_01_end" name="end"/>
+        </process>
+    </definitions>

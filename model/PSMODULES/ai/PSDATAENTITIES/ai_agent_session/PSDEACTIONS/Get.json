@@ -1,17 +1,7 @@
 {
+  "actionHolder" : 1,
   "actionMode" : "READ",
-  "actionType" : "BUILTIN",
-  "getAfterPSDEActionLogics" : [ {
-    "actionLogicType" : 1,
-    "attachMode" : "AFTER",
-    "codeName" : "A09c446f437843cf9ea",
-    "name" : "附加逻辑",
-    "getPSDELogic" : {
-      "modelref" : true,
-      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_session/PSDELOGICS/get_info.json"
-    },
-    "internalLogic" : true
-  } ],
+  "actionType" : "DELOGIC",
   "codeName" : "Get",
   "dataAccessAction" : "READ",
   "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_session/PSDEACTIONS/Get.json",
@@ -34,5 +24,9 @@
     },
     "type" : "DTO"
   },
-  "builtinAction" : true
+  "getPSDELogic" : {
+    "modelref" : true,
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_session/PSDELOGICS/get_info.json"
+  },
+  "enableFront" : false
 }

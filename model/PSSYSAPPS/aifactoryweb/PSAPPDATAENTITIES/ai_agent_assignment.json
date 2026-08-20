@@ -152,6 +152,43 @@
     "requestPath" : "/get_draft",
     "builtinMethod" : false
   }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "register",
+    "methodType" : "DEACTION",
+    "name" : "register",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_agent_assignment_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_agent_assignment_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDEACTIONS/register.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "CREATE"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "register"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/register",
+    "builtinMethod" : false
+  }, {
     "actionMode" : "DELETE",
     "actionTag" : "Remove",
     "batchActionMode" : 1,
@@ -346,6 +383,44 @@
     "requestPath" : "/fetch_default",
     "builtinMethod" : false
   }, {
+    "codeName" : "fetch_step",
+    "dataSetName" : "step",
+    "dataSetTag" : "step",
+    "methodType" : "FETCH",
+    "name" : "fetch_step",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_agent_assignment_filter_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_agent_assignment_dto"
+      },
+      "type" : "PAGE"
+    },
+    "getPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "step"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "READ"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "fetch_step"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetch_step",
+    "builtinMethod" : false
+  }, {
     "codeName" : "fetch_system",
     "dataSetName" : "System",
     "dataSetTag" : "System",
@@ -425,19 +500,8 @@
           "lanResTag" : "DEF.LNAME.AI_AGENT_ASSIGNMENT.NAME"
         },
         "codeName" : "Default",
-        "editorType" : "PICKER",
+        "editorType" : "TEXTBOX",
         "name" : "[NAME][名称]",
-        "refLinkPSDEViewCodeName" : "RedirectView",
-        "refMPickupPSDEViewCodeName" : "MPickupView",
-        "getRefPSDEACMode" : {
-          "modelref" : true,
-          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEACMODES/Default.json"
-        },
-        "getRefPSDataEntity" : {
-          "modelref" : true,
-          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
-        },
-        "refPickupPSDEViewCodeName" : "PickupView",
         "stringLength" : 200,
         "uIMode" : "DEFAULT",
         "allowEmpty" : false
@@ -451,19 +515,8 @@
           "lanResTag" : "DEF.LNAME.AI_AGENT_ASSIGNMENT.NAME"
         },
         "codeName" : "MobileDefault",
-        "editorType" : "MOBPICKER",
+        "editorType" : "MOBTEXT",
         "name" : "[NAME][名称]移动端默认",
-        "refLinkPSDEViewCodeName" : "RedirectView",
-        "refMPickupPSDEViewCodeName" : "MPickupView",
-        "getRefPSDEACMode" : {
-          "modelref" : true,
-          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEACMODES/Default.json"
-        },
-        "getRefPSDataEntity" : {
-          "modelref" : true,
-          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
-        },
-        "refPickupPSDEViewCodeName" : "PickupView",
         "stringLength" : 200,
         "uIMode" : "MOBILEDEFAULT",
         "allowEmpty" : false,
@@ -679,6 +732,34 @@
     "stringLength" : 100
   }, {
     "getAllPSAppDEFUIModes" : [ {
+      "name" : "默认",
+      "getPSDEFFormItem" : {
+        "editorType" : "TEXTBOX",
+        "name" : "默认",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "name" : "移动端默认",
+      "getPSDEFFormItem" : {
+        "editorType" : "MOBTEXT",
+        "name" : "移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "codeName" : "identifier",
+    "logicName" : "编号",
+    "name" : "IDENTIFIER",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "enableQuickSearch" : true
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
       "codeName" : "MobileDefault",
       "name" : "[CONTEXT_CODE_NAME][智能体标记]移动端默认",
       "getPSDEFFormItem" : {
@@ -775,6 +856,53 @@
   }, {
     "getAllPSAppDEFUIModes" : [ {
       "codeName" : "Default",
+      "name" : "[FLOW_MODE][智能体模式]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[FLOW_MODE][智能体模式]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+        },
+        "stringLength" : 60,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[FLOW_MODE][智能体模式]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[FLOW_MODE][智能体模式]移动端默认",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+        },
+        "stringLength" : 60,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "codeName" : "flow_mode",
+    "logicName" : "智能体模式",
+    "name" : "FLOW_MODE",
+    "stdDataType" : 25,
+    "stringLength" : 60
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "Default",
       "name" : "[USE_TAG][引用标记]",
       "getPSDEFFormItem" : {
         "codeName" : "Default",
@@ -841,8 +969,10 @@
       "name" : "[CONTEXT_NAME][智能体上下文名称]移动端默认",
       "getPSDEFFormItem" : {
         "codeName" : "MobileDefault",
-        "editorType" : "SPAN",
+        "editorType" : "MOBPICKER",
         "name" : "[CONTEXT_NAME][智能体上下文名称]移动端默认",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
         "getRefPSDEACMode" : {
           "modelref" : true,
           "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEACMODES/Default.json"
@@ -851,6 +981,7 @@
           "modelref" : true,
           "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
         },
+        "refPickupPSDEViewCodeName" : "PickupView",
         "stringLength" : 200,
         "uIMode" : "MOBILEDEFAULT",
         "mobileMode" : true
@@ -862,8 +993,10 @@
       "name" : "[CONTEXT_NAME][智能体上下文名称]",
       "getPSDEFFormItem" : {
         "codeName" : "Default",
-        "editorType" : "SPAN",
+        "editorType" : "PICKER",
         "name" : "[CONTEXT_NAME][智能体上下文名称]",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
         "getRefPSDEACMode" : {
           "modelref" : true,
           "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEACMODES/Default.json"
@@ -872,13 +1005,14 @@
           "modelref" : true,
           "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
         },
+        "refPickupPSDEViewCodeName" : "PickupView",
         "stringLength" : 200,
         "uIMode" : "DEFAULT"
       },
       "type" : "DEFAULT"
     } ],
     "codeName" : "context_name",
-    "logicName" : "智能体上下文名称",
+    "logicName" : "智能体名称",
     "name" : "CONTEXT_NAME",
     "stdDataType" : 25,
     "stringLength" : 200,
@@ -1153,6 +1287,492 @@
     "logicName" : "全文推理",
     "name" : "USE_FULLTEXT",
     "stdDataType" : 9
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[ENTITY_TAG][实体标记]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[ENTITY_TAG][实体标记]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[ENTITY_TAG][实体标记]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[ENTITY_TAG][实体标记]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "codeName" : "entity_tag",
+    "logicName" : "实体标记",
+    "name" : "ENTITY_TAG",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[REQUIREMENT][附加执行要求]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTAREA_10",
+        "name" : "[REQUIREMENT][附加执行要求]",
+        "stringLength" : 2000,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[REQUIREMENT][附加执行要求]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXTAREA",
+        "name" : "[REQUIREMENT][附加执行要求]移动端默认",
+        "stringLength" : 2000,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "codeName" : "requirement",
+    "logicName" : "附加执行要求",
+    "name" : "REQUIREMENT",
+    "stdDataType" : 25,
+    "stringLength" : 2000
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[SORT][排序]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[SORT][排序]",
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[SORT][排序]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[SORT][排序]移动端默认",
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "codeName" : "sort",
+    "logicName" : "排序",
+    "name" : "SORT",
+    "stdDataType" : 9
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[INPUT_EXTRA_INST][输入附加说明]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTAREA_10",
+        "name" : "[INPUT_EXTRA_INST][输入附加说明]",
+        "stringLength" : 2000,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[INPUT_EXTRA_INST][输入附加说明]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXTAREA",
+        "name" : "[INPUT_EXTRA_INST][输入附加说明]移动端默认",
+        "stringLength" : 2000,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "codeName" : "input_extra_inst",
+    "logicName" : "输入附加说明",
+    "name" : "INPUT_EXTRA_INST",
+    "stdDataType" : 25,
+    "stringLength" : 2000
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[OUTPUT_EXTRA_INST][输出附加说明]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTAREA_10",
+        "name" : "[OUTPUT_EXTRA_INST][输出附加说明]",
+        "stringLength" : 2000,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[OUTPUT_EXTRA_INST][输出附加说明]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXTAREA",
+        "name" : "[OUTPUT_EXTRA_INST][输出附加说明]移动端默认",
+        "stringLength" : 2000,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "codeName" : "output_extra_inst",
+    "logicName" : "输出附加说明",
+    "name" : "OUTPUT_EXTRA_INST",
+    "stdDataType" : 25,
+    "stringLength" : 2000
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[ENTITY_ROW_KEY][数据主键]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[ENTITY_ROW_KEY][数据主键]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[ENTITY_ROW_KEY][数据主键]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[ENTITY_ROW_KEY][数据主键]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "codeName" : "entity_row_key",
+    "logicName" : "数据主键",
+    "name" : "ENTITY_ROW_KEY",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[SKILL_RUNNER][技能执行容器]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "PICKER",
+        "name" : "[SKILL_RUNNER][技能执行容器]",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+        },
+        "refPickupPSDEViewCodeName" : "PickupView",
+        "stringLength" : 200,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[SKILL_RUNNER][技能执行容器]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBPICKER",
+        "name" : "[SKILL_RUNNER][技能执行容器]移动端默认",
+        "refLinkPSDEViewCodeName" : "RedirectView",
+        "refMPickupPSDEViewCodeName" : "MPickupView",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+        },
+        "refPickupPSDEViewCodeName" : "PickupView",
+        "stringLength" : 200,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "codeName" : "skill_runner",
+    "logicName" : "技能执行容器",
+    "name" : "SKILL_RUNNER",
+    "stdDataType" : 25,
+    "stringLength" : 200
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[INFORMTOPIC][技能执行容器topic]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[INFORMTOPIC][技能执行容器topic]移动端默认",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+        },
+        "stringLength" : 200,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[INFORMTOPIC][技能执行容器topic]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[INFORMTOPIC][技能执行容器topic]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+        },
+        "stringLength" : 200,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "codeName" : "informtopic",
+    "logicName" : "技能执行容器topic",
+    "name" : "INFORMTOPIC",
+    "stdDataType" : 25,
+    "stringLength" : 200
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[PORTAL_ADDRESS][容器访问地址]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[PORTAL_ADDRESS][容器访问地址]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+        },
+        "stringLength" : 500,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[PORTAL_ADDRESS][容器访问地址]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[PORTAL_ADDRESS][容器访问地址]移动端默认",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+        },
+        "stringLength" : 500,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "codeName" : "portal_address",
+    "logicName" : "容器访问地址",
+    "name" : "PORTAL_ADDRESS",
+    "stdDataType" : 25,
+    "stringLength" : 500
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[HOME_PATH][根工作目录]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "SPAN",
+        "name" : "[HOME_PATH][根工作目录]移动端默认",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+        },
+        "stringLength" : 500,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[HOME_PATH][根工作目录]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "SPAN",
+        "name" : "[HOME_PATH][根工作目录]",
+        "getRefPSDEACMode" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEACMODES/Default.json"
+        },
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+        },
+        "stringLength" : 500,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "codeName" : "home_path",
+    "logicName" : "根工作目录",
+    "name" : "HOME_PATH",
+    "stdDataType" : 25,
+    "stringLength" : 500
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[EXTRA_OSS_FILE][附加参考资料]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTAREA_10",
+        "name" : "[EXTRA_OSS_FILE][附加参考资料]",
+        "stringLength" : 2000,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[EXTRA_OSS_FILE][附加参考资料]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXTAREA",
+        "name" : "[EXTRA_OSS_FILE][附加参考资料]移动端默认",
+        "stringLength" : 2000,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "codeName" : "extra_oss_file",
+    "logicName" : "附加参考资料",
+    "name" : "EXTRA_OSS_FILE",
+    "stdDataType" : 25,
+    "stringLength" : 2000
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[SKILL_WORKSPACE_ID][标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "HIDDEN",
+        "name" : "[SKILL_WORKSPACE_ID][标识]",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[SKILL_WORKSPACE_ID][标识]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "HIDDEN",
+        "name" : "[SKILL_WORKSPACE_ID][标识]移动端默认",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "codeName" : "skill_workspace_id",
+    "logicName" : "runner标识",
+    "name" : "SKILL_WORKSPACE_ID",
+    "stdDataType" : 25,
+    "stringLength" : 100
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "codeName" : "MobileDefault",
+      "name" : "[COMPOSE_ID][标识]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "HIDDEN",
+        "name" : "[COMPOSE_ID][标识]移动端默认",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    }, {
+      "codeName" : "Default",
+      "name" : "[COMPOSE_ID][标识]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "HIDDEN",
+        "name" : "[COMPOSE_ID][标识]",
+        "getRefPSDataEntity" : {
+          "modelref" : true,
+          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment.json"
+        },
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    } ],
+    "codeName" : "compose_id",
+    "logicName" : "编排标识",
+    "name" : "COMPOSE_ID",
+    "stdDataType" : 25,
+    "stringLength" : 100
   } ],
   "getAllPSAppDEMethodDTOs" : [ {
     "codeName" : "ai_agent_assignment_dto",
@@ -1243,6 +1863,17 @@
       "type" : "SIMPLE",
       "allowEmpty" : false
     }, {
+      "codeName" : "identifier",
+      "logicName" : "编号",
+      "name" : "identifier",
+      "getPSAppDEField" : {
+        "name" : "IDENTIFIER",
+        "codeName" : "identifier"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
       "codeName" : "context_code_name",
       "logicName" : "智能体标记",
       "name" : "context_code_name",
@@ -1260,6 +1891,17 @@
       "getPSAppDEField" : {
         "name" : "DESCRIPTION",
         "codeName" : "description"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "flow_mode",
+      "logicName" : "智能体模式",
+      "name" : "flow_mode",
+      "getPSAppDEField" : {
+        "name" : "FLOW_MODE",
+        "codeName" : "flow_mode"
       },
       "sourceType" : "DEFIELD",
       "stdDataType" : 25,
@@ -1289,7 +1931,7 @@
       "type" : "SIMPLE"
     }, {
       "codeName" : "context_name",
-      "logicName" : "智能体上下文名称",
+      "logicName" : "智能体名称",
       "name" : "context_name",
       "getPSAppDEField" : {
         "name" : "CONTEXT_NAME",
@@ -1364,6 +2006,149 @@
       "sourceType" : "DEFIELD",
       "stdDataType" : 9,
       "type" : "SIMPLE"
+    }, {
+      "codeName" : "entity_tag",
+      "logicName" : "实体标记",
+      "name" : "entity_tag",
+      "getPSAppDEField" : {
+        "name" : "ENTITY_TAG",
+        "codeName" : "entity_tag"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "requirement",
+      "logicName" : "附加执行要求",
+      "name" : "requirement",
+      "getPSAppDEField" : {
+        "name" : "REQUIREMENT",
+        "codeName" : "requirement"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "sort",
+      "logicName" : "排序",
+      "name" : "sort",
+      "getPSAppDEField" : {
+        "name" : "SORT",
+        "codeName" : "sort"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "input_extra_inst",
+      "logicName" : "输入附加说明",
+      "name" : "input_extra_inst",
+      "getPSAppDEField" : {
+        "name" : "INPUT_EXTRA_INST",
+        "codeName" : "input_extra_inst"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "output_extra_inst",
+      "logicName" : "输出附加说明",
+      "name" : "output_extra_inst",
+      "getPSAppDEField" : {
+        "name" : "OUTPUT_EXTRA_INST",
+        "codeName" : "output_extra_inst"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "entity_row_key",
+      "logicName" : "数据主键",
+      "name" : "entity_row_key",
+      "getPSAppDEField" : {
+        "name" : "ENTITY_ROW_KEY",
+        "codeName" : "entity_row_key"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "home_path",
+      "logicName" : "根工作目录",
+      "name" : "home_path",
+      "getPSAppDEField" : {
+        "name" : "HOME_PATH",
+        "codeName" : "home_path"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "informtopic",
+      "logicName" : "技能执行容器topic",
+      "name" : "informtopic",
+      "getPSAppDEField" : {
+        "name" : "INFORMTOPIC",
+        "codeName" : "informtopic"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "portal_address",
+      "logicName" : "容器访问地址",
+      "name" : "portal_address",
+      "getPSAppDEField" : {
+        "name" : "PORTAL_ADDRESS",
+        "codeName" : "portal_address"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "skill_runner",
+      "logicName" : "技能执行容器",
+      "name" : "skill_runner",
+      "getPSAppDEField" : {
+        "name" : "SKILL_RUNNER",
+        "codeName" : "skill_runner"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "extra_oss_file",
+      "logicName" : "附加参考资料",
+      "name" : "extra_oss_file",
+      "getPSAppDEField" : {
+        "name" : "EXTRA_OSS_FILE",
+        "codeName" : "extra_oss_file"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "compose_id",
+      "logicName" : "编排标识",
+      "name" : "compose_id",
+      "getPSAppDEField" : {
+        "name" : "COMPOSE_ID",
+        "codeName" : "compose_id"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "skill_workspace_id",
+      "logicName" : "runner标识",
+      "name" : "skill_workspace_id",
+      "getPSAppDEField" : {
+        "name" : "SKILL_WORKSPACE_ID",
+        "codeName" : "skill_workspace_id"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
     } ],
     "sourceType" : "DE",
     "type" : "DEFAULT"
@@ -1371,6 +2156,17 @@
     "codeName" : "ai_agent_assignment_filter_dto",
     "name" : "ai_agent_assignment_filter_dto",
     "getPSAppDEMethodDTOFields" : [ {
+      "codeName" : "n_compose_id_eq",
+      "logicName" : "编排标识",
+      "name" : "n_compose_id_eq",
+      "getPSAppDEField" : {
+        "name" : "COMPOSE_ID",
+        "codeName" : "compose_id"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
       "codeName" : "n_context_id_eq",
       "logicName" : "智能体业务上下文标识",
       "name" : "n_context_id_eq",
@@ -1448,9 +2244,53 @@
       "stdDataType" : 25,
       "type" : "SIMPLE"
     }, {
+      "codeName" : "n_skill_runner_eq",
+      "logicName" : "技能执行容器",
+      "name" : "n_skill_runner_eq",
+      "getPSAppDEField" : {
+        "name" : "SKILL_RUNNER",
+        "codeName" : "skill_runner"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "n_skill_runner_like",
+      "logicName" : "技能执行容器",
+      "name" : "n_skill_runner_like",
+      "getPSAppDEField" : {
+        "name" : "SKILL_RUNNER",
+        "codeName" : "skill_runner"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "n_skill_workspace_id_eq",
+      "logicName" : "runner标识",
+      "name" : "n_skill_workspace_id_eq",
+      "getPSAppDEField" : {
+        "name" : "SKILL_WORKSPACE_ID",
+        "codeName" : "skill_workspace_id"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
       "codeName" : "n_use_tag_eq",
       "logicName" : "引用标记",
       "name" : "n_use_tag_eq",
+      "getPSAppDEField" : {
+        "name" : "USE_TAG",
+        "codeName" : "use_tag"
+      },
+      "sourceType" : "DEFSEARCHMODE",
+      "stdDataType" : 25,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "n_use_tag_like",
+      "logicName" : "引用标记",
+      "name" : "n_use_tag_like",
       "getPSAppDEField" : {
         "name" : "USE_TAG",
         "codeName" : "use_tag"
@@ -1613,6 +2453,43 @@
     "requestMethod" : "GET",
     "requestParamType" : "NONE",
     "requestPath" : "/get_draft",
+    "builtinMethod" : false
+  }, {
+    "actionMode" : "CUSTOM",
+    "codeName" : "register",
+    "methodType" : "DEACTION",
+    "name" : "register",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_agent_assignment_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_agent_assignment_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEAction" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_assignment/PSDEACTIONS/register.json"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "CREATE"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "register"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/register",
     "builtinMethod" : false
   }, {
     "actionMode" : "DELETE",
@@ -1808,6 +2685,44 @@
     "requestPath" : "/fetch_default",
     "builtinMethod" : false
   }, {
+    "codeName" : "fetch_step",
+    "dataSetName" : "step",
+    "dataSetTag" : "step",
+    "methodType" : "FETCH",
+    "name" : "fetch_step",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_agent_assignment_filter_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_agent_assignment_dto"
+      },
+      "type" : "PAGE"
+    },
+    "getPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "step"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "READ"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "fetch_step"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetch_step",
+    "builtinMethod" : false
+  }, {
     "codeName" : "fetch_system",
     "dataSetName" : "System",
     "dataSetTag" : "System",
@@ -1911,8 +2826,7 @@
       "rawValue" : true
     } ],
     "getPSSysImage" : {
-      "glyph" : "xf123@FontAwesome",
-      "cssClass" : "fa fa-star-half-full"
+      "rawContent" : "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg width=\"32px\" height=\"32px\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <title>robot</title>\n    <g id=\"robot\" stroke=\"none\" fill=\"none\" fill-rule=\"evenodd\" stroke-width=\"1\">\n        <g id=\"编组\">\n            <path d=\"M19.3333333,3.33333333 L12.6666667,3.33333333 L12.6666667,6 L14.6666667,6 L14.6666667,7.33333333 L4.66666667,7.33333333 L4.66666667,28 L27.3333333,28 L27.3333333,7.33333333 L17.3333333,7.33333333 L17.3333333,6 L19.3333333,6 L19.3333333,3.33333333 Z M7.33333333,25.3333333 L7.33333333,10 L24.6666667,10 L24.6666667,25.3333333 L7.33333333,25.3333333 Z M0.666666667,14 L0.666666667,21.3333333 L3.33333333,21.3333333 L3.33333333,14 L0.666666667,14 Z M28.6666667,14 L28.6666667,21.3333333 L31.3333333,21.3333333 L31.3333333,14 L28.6666667,14 Z M14,16 L10.6666667,16 L10.6666667,19.3333333 L14,19.3333333 L14,16 Z M21.3333333,16 L18,16 L18,19.3333333 L21.3333333,19.3333333 L21.3333333,16 Z\" id=\"形状\" fill=\"#4B5156\" fill-rule=\"nonzero\"></path>\n            <rect id=\"矩形\" fill=\"#000000\" opacity=\"0\" x=\"0\" y=\"0\" width=\"32\" height=\"32\"></rect>\n        </g>\n    </g>\n</svg>"
     },
     "uIActionMode" : "FRONT",
     "uIActionTag" : "ai",
@@ -1920,43 +2834,31 @@
     "globalUIAction" : true,
     "id" : "ai@ai_agent_assignment"
   }, {
-    "actionTarget" : "NONE",
-    "buttonStyle" : "WARNING",
-    "caption" : "AI+",
-    "codeName" : "ai_nodata",
+    "actionTarget" : "SINGLEDATA",
+    "caption" : "执行编排",
+    "codeName" : "ai_compose",
     "getFrontPSAppView" : {
       "modelref" : true,
-      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_agent_assignment_selector.json",
-      "viewType" : "DELISTVIEW"
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_agent_assignment_compose_edit.json",
+      "viewType" : "DEEDITVIEW"
     },
     "frontProcessType" : "WIZARD",
-    "fullCodeName" : "ai_agent_assignment_ai_nodata",
-    "name" : "AI+无数据",
+    "fullCodeName" : "ai_agent_assignment_ai_compose",
+    "name" : "执行编排",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_assignment.json"
     },
-    "getPSNavigateContexts" : [ {
-      "key" : "N_DEEP_RESEARCH_EQ",
-      "name" : "N_DEEP_RESEARCH_EQ",
-      "value" : "0",
-      "rawValue" : true
-    } ],
-    "getPSNavigateParams" : [ {
-      "key" : "n_deep_research_eq",
-      "name" : "n_deep_research_eq",
-      "value" : "0",
-      "rawValue" : true
-    } ],
     "getPSSysImage" : {
-      "glyph" : "xf123@FontAwesome",
-      "cssClass" : "fa fa-star-half-full"
+      "rawContent" : "<?xml version=\"1.0\" standalone=\"no\"?><!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\"><svg t=\"1772015010169\" class=\"icon\" viewBox=\"0 0 1024 1024\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" p-id=\"14054\" width=\"16\" height=\"16\" fill=\"currentColor\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><path d=\"M149.333333 704c-34.133333 0-64 29.866667-64 64s29.866667 64 64 64S213.333333 802.133333 213.333333 768s-29.866667-64-64-64zM938.666667 213.333333H298.666667v85.333334h640V213.333333zM149.333333 448c-34.133333 0-64 29.866667-64 64s29.866667 64 64 64S213.333333 546.133333 213.333333 512s-29.866667-64-64-64zM938.666667 469.333333H298.666667v85.333334h640v-85.333334zM149.333333 192C115.2 192 85.333333 221.866667 85.333333 256s29.866667 64 64 64S213.333333 290.133333 213.333333 256s-29.866667-64-64-64zM298.666667 810.666667h213.333333c0-29.866667 4.266667-59.733333 12.8-85.333334H298.666667v85.333334z m512-213.333334c-119.466667 0-213.333333 93.866667-213.333334 213.333334s93.866667 213.333333 213.333334 213.333333 213.333333-93.866667 213.333333-213.333333-93.866667-213.333333-213.333333-213.333334z m-21.333334 341.333334l-123.733333-123.733334 59.733333-59.733333 68.266667 64 110.933333-106.666667 59.733334 59.733334-174.933334 166.4z\"  p-id=\"14055\"></path></svg>"
     },
+    "refreshMode" : 1,
     "uIActionMode" : "FRONT",
-    "uIActionTag" : "ai_nodata",
+    "uIActionTag" : "ai_compose",
     "uIActionType" : "DEUIACTION",
     "globalUIAction" : true,
-    "id" : "ai_nodata@ai_agent_assignment"
+    "reloadData" : true,
+    "id" : "ai_compose@ai_agent_assignment"
   }, {
     "actionTarget" : "NONE",
     "caption" : "绑定",
@@ -2006,6 +2908,30 @@
     "uIActionType" : "DEUIACTION",
     "reloadData" : true,
     "id" : "bind@ai_agent_assignment"
+  }, {
+    "actionTarget" : "SINGLEDATA",
+    "caption" : "打开执行容器目录",
+    "codeName" : "open_portal",
+    "frontProcessType" : "OTHER",
+    "fullCodeName" : "ai_agent_assignment_open_portal",
+    "name" : "打开执行容器目录",
+    "getPSAppDEUILogic" : {
+      "modelref" : true,
+      "id" : "open_portal"
+    },
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_assignment.json"
+    },
+    "getPSSysImage" : {
+      "glyph" : "xf115@FontAwesome",
+      "cssClass" : "fa fa-folder-open-o"
+    },
+    "uIActionMode" : "FRONT",
+    "uIActionTag" : "open_portal",
+    "uIActionType" : "DEUIACTION",
+    "uILogicAttachMode" : "REPLACE",
+    "id" : "open_portal@ai_agent_assignment"
   }, {
     "actionLevel" : 50,
     "actionTarget" : "SINGLEKEY",
@@ -2073,43 +2999,6 @@
     "globalUIAction" : true,
     "id" : "research@ai_agent_assignment"
   }, {
-    "actionTarget" : "NONE",
-    "caption" : "研究",
-    "codeName" : "research_nodata",
-    "getFrontPSAppView" : {
-      "modelref" : true,
-      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_agent_assignment_selector.json",
-      "viewType" : "DELISTVIEW"
-    },
-    "frontProcessType" : "WIZARD",
-    "fullCodeName" : "ai_agent_assignment_research_nodata",
-    "name" : "研究+无数据",
-    "getPSAppDataEntity" : {
-      "modelref" : true,
-      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_assignment.json"
-    },
-    "getPSNavigateContexts" : [ {
-      "key" : "N_DEEP_RESEARCH_EQ",
-      "name" : "N_DEEP_RESEARCH_EQ",
-      "value" : "1",
-      "rawValue" : true
-    } ],
-    "getPSNavigateParams" : [ {
-      "key" : "n_deep_research_eq",
-      "name" : "n_deep_research_eq",
-      "value" : "1",
-      "rawValue" : true
-    } ],
-    "getPSSysImage" : {
-      "glyph" : "xf123@FontAwesome",
-      "cssClass" : "fa fa-star-half-full"
-    },
-    "uIActionMode" : "FRONT",
-    "uIActionTag" : "research_nodata",
-    "uIActionType" : "DEUIACTION",
-    "globalUIAction" : true,
-    "id" : "research_nodata@ai_agent_assignment"
-  }, {
     "actionTarget" : "SINGLEDATA",
     "caption" : "执行",
     "codeName" : "run_agent",
@@ -2141,13 +3030,13 @@
     "id" : "run_agent@ai_agent_assignment"
   } ],
   "getAllPSAppDEUILogics" : [ {
-    "codeName" : "run",
+    "codeName" : "compose_init",
     "defaultParamName" : "Default",
-    "logicName" : "run分配智能体逻辑",
-    "name" : "run分配智能体逻辑",
+    "logicName" : "compose_init",
+    "name" : "compose_init",
     "getPSDEUILogicNodes" : [ {
       "codeName" : "Begin",
-      "leftPos" : 200,
+      "leftPos" : -260,
       "logicNodeType" : "BEGIN",
       "name" : "开始",
       "getPSDEUILogicLinks" : [ {
@@ -2162,34 +3051,276 @@
           "id" : "Begin"
         }
       } ],
-      "topPos" : 200,
+      "topPos" : -70,
       "parallelOutput" : true
     }, {
-      "codeName" : "DEUIACTION_02",
-      "getDstPSAppDEUIAction" : {
-        "getPSAppDataEntity" : {
+      "code" : "\n\nvar cview = uiLogic.view;\nvar nview = uiLogic.view\nwhile(cview && cview.name.indexOf('ai_agent_assignment')>=0 && cview.parentView) {\n    nview = cview;\n    cview=cview.parentView;\n}\n\nconsole.log('compose init.')\nuiLogic.view.params.n_compose_id_eq=cview.model.codeName+(uiLogic.view.params.deep_research == '1' ? '-dr' : '' );\n\nif(view && cview) {\n    \n    const appDataEntityId=cview.model.appDataEntityId;\n    if(appDataEntityId && appDataEntityId.indexOf(\".\")>0) {\n        var _entity_tag=appDataEntityId.split(\".\")[1];\n        uiLogic.view.context._entity_tag=_entity_tag;\n\n        var _entity_row_key = '';\n\n        if(!_entity_row_key && uiLogic.context[_entity_tag])  {\n            _entity_row_key=uiLogic.context[_entity_tag];\n        }\n        if(nview.parentData &&  nview.parentData && nview.parentData.length > 0 && nview.parentData[0].id )  {\n            if(!_entity_row_key ) {\n                _entity_row_key = nview.parentData[0].id;\n            }\n            uiLogic.default.name=nview.parentData[0].name;\n        } \n        if(!_entity_row_key ) {\n            _entity_row_key = uiLogic.view.params.n_compose_id_eq;\n        }\n        var profile = uiLogic.context.profile;\n        if(profile) {\n            profile=\":\"+profile+\":\";\n        }\n        else {\n            profile=\":row:\";\n        }\n\n        var n_use_tag_like = _entity_tag+profile+_entity_row_key;\n        uiLogic.view.params.n_compose_id_eq=n_use_tag_like\n        uiLogic.view.context.n_compose_id_eq=n_use_tag_like;\n        uiLogic.view.context._entity_row_key=_entity_row_key;\n        uiLogic.view.context.ai_agent_assignment=n_use_tag_like;\n\n        uiLogic.default.use_tag=n_use_tag_like;\n        uiLogic.default.entity_tag=_entity_tag;\n        uiLogic.default.entity_row_key=_entity_row_key;\n        if(!uiLogic.default.name)\n            uiLogic.default.name=n_use_tag_like;\n        uiLogic.default.id=n_use_tag_like;\n       \n        var homedir=\"${skills_workspace}/\"+_entity_tag+\"/\"+_entity_row_key+\"/\";\n        uiLogic.default.input_extra_inst=\"任务执行主目录：\"+homedir+\"\";\n        uiLogic.default.output_extra_inst=\"任务执行主目录：\"+homedir+\"\";\n \n        uiLogic.default.context_id=\"2bc35967e8b6345965bbf58ef4284778\";\n    }\n}",
+      "codeName" : "RAWJSCODE_01",
+      "leftPos" : -300,
+      "logicNodeType" : "RAWJSCODE",
+      "name" : "准备compose数据",
+      "getPSDEUILogicLinks" : [ {
+        "getDstPSDEUILogicNode" : {
           "modelref" : true,
-          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_session.json"
+          "id" : "DEACTION_01"
         },
+        "linkMode" : 0,
+        "name" : "连接名称",
+        "getSrcPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "RAWJSCODE_01"
+        }
+      } ],
+      "topPos" : 70,
+      "parallelOutput" : true
+    }, {
+      "codeName" : "DEACTION_01",
+      "getDstPSAppDEAction" : {
         "modelref" : true,
-        "id" : "deep_research@ai_agent_session"
+        "id" : "register"
       },
       "getDstPSAppDataEntity" : {
         "modelref" : true,
-        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_session.json"
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_assignment.json"
       },
       "getDstPSDEUILogicParam" : {
         "modelref" : true,
-        "id" : "aicontext"
+        "id" : "Default"
       },
-      "leftPos" : 500,
-      "logicNodeType" : "DEUIACTION",
-      "name" : "界面行为",
+      "leftPos" : -300,
+      "logicNodeType" : "DEACTION",
+      "name" : "init",
       "getRetPSDEUILogicParam" : {
         "modelref" : true,
-        "id" : "aicontext"
+        "id" : "Default"
       },
-      "topPos" : 520,
+      "topPos" : 190,
+      "parallelOutput" : true
+    } ],
+    "getPSDEUILogicParams" : [ {
+      "codeName" : "view",
+      "logicName" : "view",
+      "name" : "view",
+      "activeViewParam" : true
+    }, {
+      "codeName" : "Default",
+      "logicName" : "传入变量",
+      "name" : "传入变量",
+      "default" : true,
+      "entityParam" : true
+    }, {
+      "codeName" : "context",
+      "logicName" : "context",
+      "name" : "context",
+      "navContextParam" : true
+    } ],
+    "getStartPSDEUILogicNode" : {
+      "modelref" : true,
+      "id" : "Begin"
+    }
+  }, {
+    "codeName" : "open_portal",
+    "defaultParamName" : "Default",
+    "logicName" : "open_portal",
+    "name" : "open_portal",
+    "getPSDEUILogicNodes" : [ {
+      "codeName" : "Begin",
+      "leftPos" : -150,
+      "logicNodeType" : "BEGIN",
+      "name" : "开始",
+      "getPSDEUILogicLinks" : [ {
+        "getDstPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "RAWJSCODE_01"
+        },
+        "linkMode" : 0,
+        "name" : "连接名称",
+        "getPSDEUILogicLinkGroupCond" : {
+          "groupOP" : "AND",
+          "logicType" : "GROUP",
+          "getPSDEUILogicLinkConds" : [ {
+            "condOP" : "ISNOTNULL",
+            "dstFieldName" : "home_path",
+            "getDstLogicParam" : {
+              "modelref" : true,
+              "id" : "Default"
+            },
+            "logicType" : "SINGLE",
+            "name" : "Default[home_path] 值不为空(NotNil) "
+          }, {
+            "condOP" : "ISNOTNULL",
+            "dstFieldName" : "portal_address",
+            "getDstLogicParam" : {
+              "modelref" : true,
+              "id" : "Default"
+            },
+            "logicType" : "SINGLE",
+            "name" : "Default[portal_address] 值不为空(NotNil) "
+          } ]
+        },
+        "getSrcPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "Begin"
+        }
+      } ],
+      "topPos" : -270,
+      "parallelOutput" : true
+    }, {
+      "code" : "console.log('预览页面初始化');\n     const globalParam = ibiz.env.customParams;\n    if (!globalParam.windowMap) {\n    globalParam.windowMap = new Map();\n    }\n    var input_dir=uiLogic.default.input_extra_inst;\n    if(input_dir) {\n        input_dir=input_dir.replace('${skills_workspace}','');\n    }\n    const base = uiLogic.default.portal_address;\n    const path = uiLogic.default.home_path;\n\n    // 移除 base 尾部的所有斜杠，再统一加一个\n    const cleanBase = base.replace(/\\/+$/, '');\n    // 移除 path 头部的所有斜杠\n    const cleanPath = path.replace(/^\\/+/, '');\n\n    const openUrl = `${cleanBase}/?folder=/${cleanPath}`;\n\n    const tryWindow = globalParam.windowMap.get(openUrl);\n    if (tryWindow && !tryWindow.closed) {\n    tryWindow.focus();\n    } else {\n    const targetWindow = window.open(openUrl);\n    if (targetWindow) {\n        globalParam.windowMap.set(openUrl, targetWindow);\n    }\n     view.closeView();\n}\n",
+      "codeName" : "RAWJSCODE_01",
+      "leftPos" : -260,
+      "logicNodeType" : "RAWJSCODE",
+      "name" : "注入脚本代码",
+      "topPos" : 140,
+      "parallelOutput" : true
+    } ],
+    "getPSDEUILogicParams" : [ {
+      "codeName" : "Default",
+      "logicName" : "传入变量",
+      "name" : "传入变量",
+      "default" : true,
+      "entityParam" : true
+    } ],
+    "getStartPSDEUILogicNode" : {
+      "modelref" : true,
+      "id" : "Begin"
+    }
+  }, {
+    "codeName" : "run",
+    "defaultParamName" : "Default",
+    "logicName" : "run分配智能体逻辑",
+    "name" : "run分配智能体逻辑",
+    "getPSDEUILogicNodes" : [ {
+      "codeName" : "Begin",
+      "leftPos" : 130,
+      "logicNodeType" : "BEGIN",
+      "name" : "开始",
+      "getPSDEUILogicLinks" : [ {
+        "getDstPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "PREPAREJSPARAM_01"
+        },
+        "linkMode" : 0,
+        "name" : "连接名称",
+        "getPSDEUILogicLinkGroupCond" : {
+          "groupOP" : "AND",
+          "logicType" : "GROUP",
+          "getPSDEUILogicLinkConds" : [ {
+            "condOP" : "ISNULL",
+            "dstFieldName" : "skill_workspace_id",
+            "getDstLogicParam" : {
+              "modelref" : true,
+              "id" : "Default"
+            },
+            "logicType" : "SINGLE",
+            "name" : "Default[skill_workspace_id] 值为空(Nil) "
+          }, {
+            "condOP" : "ISNOTNULL",
+            "dstFieldName" : "compose_id",
+            "getDstLogicParam" : {
+              "modelref" : true,
+              "id" : "Default"
+            },
+            "logicType" : "SINGLE",
+            "name" : "Default[compose_id] 值不为空(NotNil) "
+          } ]
+        },
+        "getSrcPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "Begin"
+        }
+      }, {
+        "getDstPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "RAWJSCODE_01"
+        },
+        "linkMode" : 1,
+        "name" : "连接名称",
+        "getSrcPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "Begin"
+        },
+        "defaultLink" : true
+      } ],
+      "topPos" : -80
+    }, {
+      "codeName" : "PREPAREJSPARAM_01",
+      "leftPos" : 10,
+      "logicNodeType" : "PREPAREJSPARAM",
+      "name" : "填充compose信息",
+      "getPSDEUILogicLinks" : [ {
+        "getDstPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "DEACTION_01"
+        },
+        "linkMode" : 0,
+        "name" : "连接名称",
+        "getSrcPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "PREPAREJSPARAM_01"
+        }
+      } ],
+      "getPSDEUILogicNodeParams" : [ {
+        "dstFieldName" : "id",
+        "getDstPSDEUILogicParam" : {
+          "modelref" : true,
+          "id" : "parent"
+        },
+        "paramAction" : "SETPARAMVALUE",
+        "srcFieldName" : "COMPOSE_ID",
+        "getSrcPSDEUILogicParam" : {
+          "modelref" : true,
+          "id" : "Default"
+        },
+        "srcValueType" : "SRCDLPARAM"
+      } ],
+      "topPos" : 100,
+      "parallelOutput" : true
+    }, {
+      "codeName" : "PREPAREJSPARAM_02",
+      "leftPos" : 10,
+      "logicNodeType" : "PREPAREJSPARAM",
+      "name" : "skill_workspace_id",
+      "getPSDEUILogicLinks" : [ {
+        "getDstPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "RAWJSCODE_01"
+        },
+        "linkMode" : 0,
+        "name" : "连接名称",
+        "getSrcPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "PREPAREJSPARAM_02"
+        }
+      } ],
+      "getPSDEUILogicNodeParams" : [ {
+        "dstFieldName" : "SKILL_WORKSPACE_ID",
+        "getDstPSDEUILogicParam" : {
+          "modelref" : true,
+          "id" : "Default"
+        },
+        "paramAction" : "SETPARAMVALUE",
+        "srcFieldName" : "skill_workspace_id",
+        "getSrcPSDEUILogicParam" : {
+          "modelref" : true,
+          "id" : "parent"
+        },
+        "srcValueType" : "SRCDLPARAM"
+      }, {
+        "dstFieldName" : "informtopic",
+        "getDstPSDEUILogicParam" : {
+          "modelref" : true,
+          "id" : "Default"
+        },
+        "paramAction" : "SETPARAMVALUE",
+        "srcFieldName" : "informtopic",
+        "getSrcPSDEUILogicParam" : {
+          "modelref" : true,
+          "id" : "parent"
+        },
+        "srcValueType" : "SRCDLPARAM"
+      } ],
+      "topPos" : 300,
       "parallelOutput" : true
     }, {
       "codeName" : "DEUIACTION_01",
@@ -2209,44 +3340,52 @@
         "modelref" : true,
         "id" : "aicontext"
       },
-      "leftPos" : 20,
+      "leftPos" : 220,
       "logicNodeType" : "DEUIACTION",
-      "name" : "界面行为",
+      "name" : "执行交谈逻辑",
       "getRetPSDEUILogicParam" : {
         "modelref" : true,
         "id" : "aicontext"
       },
-      "topPos" : 550,
+      "topPos" : 540,
       "parallelOutput" : true
     }, {
-      "codeName" : "DEUIACTION_03",
-      "getDstPSAppDEUIAction" : {
-        "getPSAppDataEntity" : {
-          "modelref" : true,
-          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_session.json"
-        },
+      "codeName" : "DEACTION_01",
+      "getDstPSAppDEAction" : {
         "modelref" : true,
-        "id" : "fulltext_reason@ai_agent_session"
+        "id" : "get"
       },
       "getDstPSAppDataEntity" : {
         "modelref" : true,
-        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_session.json"
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_assignment.json"
       },
       "getDstPSDEUILogicParam" : {
         "modelref" : true,
-        "id" : "aicontext"
+        "id" : "parent"
       },
-      "leftPos" : 256,
-      "logicNodeType" : "DEUIACTION",
-      "name" : "界面行为",
+      "leftPos" : 10,
+      "logicNodeType" : "DEACTION",
+      "name" : "查询compose",
+      "getPSDEUILogicLinks" : [ {
+        "getDstPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "PREPAREJSPARAM_02"
+        },
+        "linkMode" : 0,
+        "name" : "连接名称",
+        "getSrcPSDEUILogicNode" : {
+          "modelref" : true,
+          "id" : "DEACTION_01"
+        }
+      } ],
       "getRetPSDEUILogicParam" : {
         "modelref" : true,
-        "id" : "aicontext"
+        "id" : "parent"
       },
-      "topPos" : 539,
+      "topPos" : 212,
       "parallelOutput" : true
     }, {
-      "code" : "console.log(\"执行智能体\");\n Object.assign(uiLogic.aicontext, uiLogic.default);\nuiLogic.aicontext._name=uiLogic.aicontext.name;\nuiLogic.aicontext.agent_name=uiLogic.aicontext.name;\nuiLogic.aicontext.agent_description=uiLogic.aicontext.description;\nuiLogic.aicontext.srfmajortext = uiLogic.aicontext.agent_name;\nuiLogic.aicontext.name = null;\nuiLogic.aicontext.description = null;\n\nvar context_content = \"\\n---\\n\\n* **执行智能体**: \"+uiLogic.aicontext.agent_name +\"\\n\";\nif(uiLogic.aicontext.agent_description) {\n    context_content = context_content+\"* **智能体描述**: \" + uiLogic.aicontext.agent_description+\"\\n\";\n}\ncontext_content = context_content +\"\\n---\\n\";\nuiLogic.aicontext.context_content=context_content;\n// if(!uiLogic.aicontext.page_index) {\n//     uiLogic.aicontext.page_index=0;\n// }\nconst screenshot = uiLogic.aicontext.agent_description && uiLogic.aicontext.agent_description.indexOf(\"截图\")>=0\nuiLogic.context.ai_agent_context=uiLogic.aicontext.context_id;\nif(view && view.parentView) {\n    \n    const appDataEntityId=view.parentView.model.appDataEntityId;\n    if(appDataEntityId && appDataEntityId.indexOf(\".\")>0) {\n        uiLogic.aicontext._entity_tag=appDataEntityId.split(\".\")[1];\n        uiLogic.context._entity_tag=uiLogic.aicontext._entity_tag;\n    }\n    var contextObj = view.parentView.state.srfactiveviewdata;\n    if((!contextObj) && view.parentData && view.parentData.length > 0) {\n        if (view.parentData.length == 1) {\n            contextObj = view.parentData[0];\n        }\n        else {\n            contextObj = view.parentData;\n        }\n    }\n    else if((!contextObj) && view.parentView.getController(\"form\")) {\n        contextObj = view.parentView.getController(\"form\").data;\n    }\n    if(contextObj) {\n        // 使用Object.assign进行浅合并\n        if (!Array.isArray(contextObj)) {\n            Object.assign(uiLogic.aicontext, contextObj);\n        }\n        else {\n            uiLogic.aicontext.list = contextObj;\n        }\n    }\n     \n    if(screenshot) {\n        try{\n\n            const viewDom = document.getElementById(view.parentView.id);\n            if (viewDom) {\n                const fileName = view.parentView.model.caption || view.parentView.model.codeName;\n                const screenshotElement = document.querySelector('.priority-screenshot') || \n                          document.querySelector('.ibiz-bi-report-panel-content>.el-collapse') || \n                          document.querySelector('.ibiz-custom-dashboard-container') || \n                          viewDom;\n                \n                const canvas = await ibiz.util.html2canvas.getCanvas(screenshotElement, { fileName });\n\n                const blob = await new Promise((resolve) => {\n                    canvas.toBlob((b) => {\n                        if (b) {\n                             const file = new File([b], fileName + '.png', {\n                                type: 'image/png',\n                                lastModified: new Date().getTime()\n                            });\n                            resolve(file);\n                        } else {\n                            resolve(null);\n                        }\n                    }, 'image/png', 0.7);\n                });\n\n                const fileUrlObj = ibiz.util.file.calcFileUpDownUrl(view.parentView.context,view.parentView.params);\n                const fileobj = await ibiz.util.file.fileUpload(fileUrlObj.uploadUrl,blob,ibiz.util.file.getUploadHeaders());\n\n                uiLogic.aicontext.screenshot=\"![img](\"+fileUrlObj.downloadUrl.replace(\"%fileId%\",fileobj.id)+\")\";\n                \n                \n            }\n\n         } catch (error) {\n        }\n        \n    }\n}",
+      "code" : "console.log(\"执行智能体\");\n Object.assign(uiLogic.aicontext, uiLogic.default);\nuiLogic.aicontext._name=uiLogic.aicontext.name;\nuiLogic.aicontext.agent_name=uiLogic.aicontext.name;\nuiLogic.aicontext.agent_description=uiLogic.aicontext.description;\nuiLogic.aicontext.srfmajortext = uiLogic.aicontext.agent_name;\nuiLogic.aicontext.name = null;\nuiLogic.aicontext.description = null;\nuiLogic.aicontext.informtopic=uiLogic.default.informtopic;\nuiLogic.aicontext.skill_runner_id=uiLogic.default.skill_workspace_id;\n\n\n\n// if(!uiLogic.aicontext.page_index) {\n//     uiLogic.aicontext.page_index=0;\n// }\nconst screenshot = uiLogic.aicontext.agent_description && uiLogic.aicontext.agent_description.indexOf(\"截图\")>=0\nuiLogic.context.ai_agent_context=uiLogic.aicontext.context_id;\n\nvar cview = view;\nvar nview = view\nwhile(cview && cview.name.indexOf('ai_agent_assignment')>=0 && cview.parentView) {\n    nview = cview;\n    cview=cview.parentView;\n}\n\nif(nview && cview) {\n    \n    const appDataEntityId=cview.model.appDataEntityId;\n    if(appDataEntityId && appDataEntityId.indexOf(\".\")>0) {\n        uiLogic.aicontext._entity_tag=appDataEntityId.split(\".\")[1];\n        uiLogic.context._entity_tag=uiLogic.aicontext._entity_tag;\n        if(uiLogic.context[uiLogic.aicontext._entity_tag]) {\n            uiLogic.aicontext._entity_row_key = uiLogic.context[uiLogic.aicontext._entity_tag];\n        }\n    }\n    var contextObj = cview.state.srfactiveviewdata;\n    if((!contextObj) && nview.parentData && nview.parentData.length > 0) {\n        if (nview.parentData.length == 1) {\n            contextObj = nview.parentData[0];\n        }\n        else {\n            contextObj = nview.parentData;\n        }\n    }\n    else if((!contextObj) && cview.getController(\"form\")) {\n        contextObj = cview.getController(\"form\").data;\n    }\n    if(contextObj) {\n        // 使用Object.assign进行浅合并\n        if (!Array.isArray(contextObj)) {\n            Object.assign(uiLogic.aicontext, contextObj);\n            if(!uiLogic.aicontext._entity_row_key) {\n                uiLogic.aicontext._entity_row_key = contextObj.id;\n            }\n        }\n        else {\n            uiLogic.aicontext.list = contextObj;\n        }\n    }\n    if(!uiLogic.aicontext._entity_row_key && uiLogic.context.ai_knowledge_base) {\n        uiLogic.aicontext._entity_row_key = uiLogic.context.ai_knowledge_base;\n    }\n\n\n     \n    if(screenshot) {\n        try{\n\n            const viewDom = document.getElementById(cview.id);\n            if (viewDom) {\n                const fileName = cview.model.caption || cview.model.codeName;\n                const screenshotElement = document.querySelector('.priority-screenshot') || \n                          document.querySelector('.ibiz-bi-report-panel-content>.el-collapse') || \n                          document.querySelector('.ibiz-custom-dashboard-container') || \n                          viewDom;\n                \n                const canvas = await ibiz.util.html2canvas.getCanvas(screenshotElement, { fileName });\n\n                const blob = await new Promise((resolve) => {\n                    canvas.toBlob((b) => {\n                        if (b) {\n                             const file = new File([b], fileName + '.png', {\n                                type: 'image/png',\n                                lastModified: new Date().getTime()\n                            });\n                            resolve(file);\n                        } else {\n                            resolve(null);\n                        }\n                    }, 'image/png', 0.7);\n                });\n\n                const fileUrlObj = ibiz.util.file.calcFileUpDownUrl(cview.context,cview.params);\n                const fileobj = await ibiz.util.file.fileUpload(fileUrlObj.uploadUrl,blob,ibiz.util.file.getUploadHeaders());\n\n                uiLogic.aicontext.screenshot=\"![img](\"+fileUrlObj.downloadUrl.replace(\"%fileId%\",fileobj.id)+\")\";\n                \n                \n            }\n\n         } catch (error) {\n        }\n        \n    }\n}\n\n    var context_content = \"\\n* **执行任务**: \"+uiLogic.aicontext.agent_name +\"\\n\";\n    if(uiLogic.aicontext.agent_description) {\n        context_content = context_content+\"* **任务描述**: \" + uiLogic.aicontext.agent_description+\"\\n\";\n    }\n    if(uiLogic.aicontext._entity_tag) {\n        context_content = context_content+\"* **任务执行目录 * 数据目录 * 资料目录**:  `{工作目录}/\" + uiLogic.aicontext._entity_tag +\"/\" + (uiLogic.aicontext._entity_row_key || '')+\"`\\n\";\n    }\n    if(uiLogic.aicontext.input_extra_inst) {\n        context_content = context_content+\"* **输入目录说明（原始材料、配置文件、规则文件、脚本文件等）**: \" + uiLogic.aicontext.input_extra_inst+\"\\n\";\n    }\n    if(uiLogic.aicontext.output_extra_inst) {\n        context_content = context_content+\"* **输出目录说明（执行结果保存在输出目录中）**: \" + uiLogic.aicontext.output_extra_inst+\"\\n\";\n    }\n    if(uiLogic.aicontext.requirement) {\n        context_content = context_content+\"* **附加执行要求**: \" + uiLogic.aicontext.requirement+\"\\n\";\n    }\n    if(uiLogic.aicontext.spec_kb_id) {\n        context_content = context_content+\"* **参考资料（规格法规、规则）所在知识库**:  [\" + uiLogic.aicontext.spec_kb_name + '] `kb_tag` = `ibizaifactory-kb--' +uiLogic.aicontext.spec_kb_id+\"`\\n\";\n    }\n    if (uiLogic.aicontext.extra_oss_file) {\n        context_content = context_content+\"附加的参考资料（存储在oss中，使用需要下载到 任务执行目录，如果是压缩文件还需要解压）: \"  +uiLogic.aicontext.extra_oss_file +  \"\\n\";\n    }\n\n    uiLogic.aicontext.context_content=context_content;",
       "codeName" : "RAWJSCODE_01",
       "leftPos" : 220,
       "logicNodeType" : "RAWJSCODE",
@@ -2254,69 +3393,14 @@
       "getPSDEUILogicLinks" : [ {
         "getDstPSDEUILogicNode" : {
           "modelref" : true,
-          "id" : "DEUIACTION_02"
-        },
-        "linkMode" : 0,
-        "name" : "连接名称",
-        "getPSDEUILogicLinkGroupCond" : {
-          "groupOP" : "AND",
-          "logicType" : "GROUP",
-          "getPSDEUILogicLinkConds" : [ {
-            "condOP" : "EQ",
-            "dstFieldName" : "deep_research",
-            "getDstLogicParam" : {
-              "modelref" : true,
-              "id" : "Default"
-            },
-            "logicType" : "SINGLE",
-            "name" : "Default[deep_research] 等于(=) 1",
-            "paramValue" : "1",
-            "value" : "1"
-          } ]
-        },
-        "getSrcPSDEUILogicNode" : {
-          "modelref" : true,
-          "id" : "RAWJSCODE_01"
-        }
-      }, {
-        "getDstPSDEUILogicNode" : {
-          "modelref" : true,
-          "id" : "DEUIACTION_03"
-        },
-        "linkMode" : 0,
-        "name" : "连接名称",
-        "getPSDEUILogicLinkGroupCond" : {
-          "groupOP" : "AND",
-          "logicType" : "GROUP",
-          "getPSDEUILogicLinkConds" : [ {
-            "condOP" : "EQ",
-            "dstFieldName" : "use_fulltext",
-            "getDstLogicParam" : {
-              "modelref" : true,
-              "id" : "Default"
-            },
-            "logicType" : "SINGLE",
-            "name" : "Default[use_fulltext] 等于(=) 1",
-            "paramValue" : "1",
-            "value" : "1"
-          } ]
-        },
-        "getSrcPSDEUILogicNode" : {
-          "modelref" : true,
-          "id" : "RAWJSCODE_01"
-        }
-      }, {
-        "getDstPSDEUILogicNode" : {
-          "modelref" : true,
           "id" : "DEUIACTION_01"
         },
-        "linkMode" : 1,
+        "linkMode" : 0,
         "name" : "连接名称",
         "getSrcPSDEUILogicNode" : {
           "modelref" : true,
           "id" : "RAWJSCODE_01"
-        },
-        "defaultLink" : true
+        }
       } ],
       "topPos" : 370
     } ],
@@ -2336,6 +3420,11 @@
       "name" : "传入变量",
       "default" : true,
       "entityParam" : true
+    }, {
+      "codeName" : "parent",
+      "logicName" : "parent",
+      "name" : "parent",
+      "entityParam" : true
     } ],
     "getStartPSDEUILogicNode" : {
       "modelref" : true,
@@ -2348,8 +3437,20 @@
     "viewType" : "DEEDITVIEW"
   }, {
     "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_agent_assignment_compose.json",
+    "viewType" : "DEMEDITVIEW9"
+  }, {
+    "modelref" : true,
     "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_agent_assignment_selector.json",
     "viewType" : "DELISTVIEW"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_agent_assignment_list_edit.json",
+    "viewType" : "DEEDITVIEW9"
+  }, {
+    "modelref" : true,
+    "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_agent_assignment_compose_edit.json",
+    "viewType" : "DEEDITVIEW"
   } ],
   "getAllPSDEOPPrivs" : [ {
     "logicName" : "建立",
@@ -2401,6 +3502,9 @@
   "getQuickSearchPSAppDEFields" : [ {
     "name" : "NAME",
     "codeName" : "name"
+  }, {
+    "name" : "IDENTIFIER",
+    "codeName" : "identifier"
   }, {
     "name" : "CONTEXT_CODE_NAME",
     "codeName" : "context_code_name"

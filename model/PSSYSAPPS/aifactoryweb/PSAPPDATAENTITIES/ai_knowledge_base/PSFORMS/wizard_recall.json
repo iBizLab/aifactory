@@ -82,6 +82,7 @@
     "dataType" : 25
   }, {
     "id" : "use_kg",
+    "hidden" : true,
     "dataType" : 9,
     "getPSAppDEField" : {
       "name" : "USE_KG",
@@ -89,6 +90,7 @@
     }
   }, {
     "id" : "pageindex",
+    "hidden" : true,
     "dataType" : 9,
     "getPSAppDEField" : {
       "name" : "PAGEINDEX",
@@ -96,7 +98,10 @@
     }
   }, {
     "id" : "rerank",
+    "hidden" : true,
     "dataType" : 9,
+    "createDV" : "2",
+    "updateDV" : "2",
     "getPSAppDEField" : {
       "name" : "RERANK",
       "codeName" : "rerank"
@@ -110,6 +115,7 @@
     }
   }, {
     "id" : "rerank_model",
+    "hidden" : true,
     "dataType" : 25,
     "getPSAppDEField" : {
       "name" : "RERANK_MODEL",
@@ -247,7 +253,6 @@
         "detailType" : "FORMITEM",
         "enableCond" : 3,
         "ignoreInput" : 0,
-        "itemWidth" : 230.0,
         "labelPos" : "TOP",
         "labelWidth" : 130,
         "name" : "use_kg",
@@ -257,14 +262,8 @@
           "codeName" : "use_kg"
         },
         "getPSEditor" : {
-          "editorType" : "DROPDOWNLIST_100",
-          "editorWidth" : 100.0,
-          "name" : "use_kg",
-          "getPSAppCodeList" : {
-            "modelref" : true,
-            "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/YesNo.json"
-          },
-          "singleSelect" : true
+          "editorType" : "HIDDEN",
+          "name" : "use_kg"
         },
         "getPSLayoutPos" : {
           "colLG" : 12,
@@ -272,8 +271,7 @@
           "layout" : "TABLE_24COL"
         },
         "allowEmpty" : true,
-        "needCodeListConfig" : true,
-        "showCaption" : true
+        "hidden" : true
       }, {
         "caption" : "智能目录索引",
         "codeName" : "pageindex",
@@ -282,7 +280,6 @@
         "detailType" : "FORMITEM",
         "enableCond" : 3,
         "ignoreInput" : 0,
-        "itemWidth" : 230.0,
         "labelPos" : "TOP",
         "labelWidth" : 130,
         "name" : "pageindex",
@@ -292,14 +289,8 @@
           "codeName" : "pageindex"
         },
         "getPSEditor" : {
-          "editorType" : "DROPDOWNLIST_100",
-          "editorWidth" : 100.0,
-          "name" : "pageindex",
-          "getPSAppCodeList" : {
-            "modelref" : true,
-            "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/YesNo.json"
-          },
-          "singleSelect" : true
+          "editorType" : "HIDDEN",
+          "name" : "pageindex"
         },
         "getPSLayoutPos" : {
           "colLG" : 12,
@@ -307,11 +298,11 @@
           "layout" : "TABLE_24COL"
         },
         "allowEmpty" : true,
-        "needCodeListConfig" : true,
-        "showCaption" : true
+        "hidden" : true
       }, {
         "caption" : "召回重排",
         "codeName" : "rerank",
+        "createDV" : "2",
         "dataType" : 9,
         "detailStyle" : "DEFAULT",
         "detailType" : "FORMITEM",
@@ -326,22 +317,17 @@
           "codeName" : "rerank"
         },
         "getPSEditor" : {
-          "editorType" : "DROPDOWNLIST",
-          "name" : "rerank",
-          "getPSAppCodeList" : {
-            "modelref" : true,
-            "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/YesNoAuto.json"
-          },
-          "singleSelect" : true
+          "editorType" : "HIDDEN",
+          "name" : "rerank"
         },
         "getPSLayoutPos" : {
           "colLG" : 12,
           "colMD" : 12,
           "layout" : "TABLE_24COL"
         },
+        "updateDV" : "2",
         "allowEmpty" : true,
-        "needCodeListConfig" : true,
-        "showCaption" : true
+        "hidden" : true
       }, {
         "caption" : "最大召回数量",
         "codeName" : "top_k",
@@ -350,6 +336,7 @@
         "detailType" : "FORMITEM",
         "enableCond" : 3,
         "ignoreInput" : 0,
+        "itemWidth" : 430.0,
         "labelPos" : "TOP",
         "labelWidth" : 130,
         "name" : "top_k",
@@ -360,11 +347,12 @@
         },
         "getPSEditor" : {
           "editorType" : "NUMBER",
+          "editorWidth" : 300.0,
           "name" : "top_k"
         },
         "getPSLayoutPos" : {
-          "colLG" : 12,
-          "colMD" : 12,
+          "colLG" : 14,
+          "colMD" : 14,
           "layout" : "TABLE_24COL"
         },
         "allowEmpty" : true,
@@ -413,28 +401,24 @@
         } ],
         "getPSEditor" : {
           "editorParams" : {
-            "SRFNAVPARAM.n_model_category_eq" : "text_ranking",
-            "AC" : "TRUE",
-            "TRIGGER" : "TRUE",
-            "PICKUPVIEW" : "FALSE"
+            "SRFNAVPARAM.n_model_category_eq" : "text_ranking"
           },
-          "editorType" : "PICKEREX_TRIGGER",
-          "handlerType" : "PickupText",
+          "editorType" : "HIDDEN",
           "name" : "rerank_model",
-          "getPSAppDEACMode" : {
-            "modelref" : true,
-            "id" : "Default"
-          },
-          "getPSAppDEDataSet" : {
-            "modelref" : true,
-            "id" : "fetch_default"
-          },
-          "getPSAppDataEntity" : {
-            "modelref" : true,
-            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
-          },
           "getPSEditorItems" : [ {
-            "name" : "rerank_model_id"
+            "name" : "rerank_model_id",
+            "getPSAppDEACMode" : {
+              "modelref" : true,
+              "id" : "Default"
+            },
+            "getPSAppDEDataSet" : {
+              "modelref" : true,
+              "id" : "fetch_default"
+            },
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_model.json"
+            }
           } ],
           "getPSNavigateParams" : [ {
             "key" : "n_model_category_eq",
@@ -442,13 +426,7 @@
             "value" : "text_ranking",
             "rawValue" : true
           } ],
-          "placeHolder" : "未指定时使用全局默认",
-          "valueItemName" : "rerank_model_id",
-          "enableAC" : true,
-          "enablePickupView" : false,
-          "forceSelection" : true,
-          "showTrigger" : true,
-          "singleSelect" : true
+          "placeHolder" : "未指定时使用全局默认"
         },
         "getPSLayoutPos" : {
           "colMD" : 24,
@@ -458,7 +436,7 @@
         "resetItemNames" : [ "rerank" ],
         "valueItemName" : "rerank_model_id",
         "allowEmpty" : true,
-        "showCaption" : true
+        "hidden" : true
       }, {
         "caption" : "召回重排模型标识",
         "codeName" : "rerank_model_id",

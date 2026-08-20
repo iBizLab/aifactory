@@ -47,7 +47,7 @@
   "getPSControls" : [ {
     "codeName" : "tree_exp_view_treeexpbar",
     "controlType" : "TREEEXPBAR",
-    "name" : "treeexpbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent/PSTREEEXPBARS/tree_exp_view_treeexpbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent.json"
@@ -173,6 +173,14 @@
         "viewType" : "DETABEXPVIEW"
       }
     }, {
+      "name" : "EXPITEM:keyring",
+      "realTitle" : "密钥环管理",
+      "getRefPSAppView" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/keyring_shared_grid_view.json",
+        "viewType" : "DEGRIDVIEW"
+      }
+    }, {
       "name" : "EXPITEM:market",
       "realTitle" : "应用管理",
       "getRefPSAppView" : {
@@ -220,6 +228,14 @@
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/extend_scheduled_task_tab_exp_view.json",
         "viewType" : "DETABEXPVIEW"
+      }
+    }, {
+      "name" : "EXPITEM:skill_workspace",
+      "realTitle" : "工作空间",
+      "getRefPSAppView" : {
+        "modelref" : true,
+        "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_skill_workspace_grid_view.json",
+        "viewType" : "DEGRIDVIEW"
       }
     } ],
     "getPSControlHandler" : {
@@ -368,8 +384,8 @@
       "getPSControls" : [ {
         "codeName" : "tree_exp_view_node4_cm",
         "controlType" : "CONTEXTMENU",
+        "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent/PSCONTEXTMENUS/tree_exp_view_node4_cm.json",
         "logicName" : "知识库配置树节点菜单",
-        "name" : "node_4_cm",
         "getPSAppDataEntity" : {
           "modelref" : true,
           "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent.json"
@@ -377,6 +393,7 @@
         "getPSControlParam" : {
           "id" : "node_4_cm"
         },
+        "name" : "node_4_cm",
         "modelid" : "f9f4165bf4019e095e49f79bf5540237",
         "modeltype" : "PSDETOOLBAR"
       } ],
@@ -659,6 +676,30 @@
       }, {
         "getChildPSDETreeNode" : {
           "modelref" : true,
+          "id" : "skill_workspace"
+        },
+        "name" : "更多（node_3）-SKILL工作空间（skill_workspace）",
+        "getParentPSDETreeNode" : {
+          "modelref" : true,
+          "id" : "node_3"
+        },
+        "parentValueLevel" : 1,
+        "searchMode" : 3
+      }, {
+        "getChildPSDETreeNode" : {
+          "modelref" : true,
+          "id" : "keyring"
+        },
+        "name" : "更多（node_3）-密钥环（keyring）",
+        "getParentPSDETreeNode" : {
+          "modelref" : true,
+          "id" : "node_3"
+        },
+        "parentValueLevel" : 1,
+        "searchMode" : 3
+      }, {
+        "getChildPSDETreeNode" : {
+          "modelref" : true,
           "id" : "memory_task"
         },
         "name" : "更多（node_3）-智能体记忆任务实例（memory_task）",
@@ -704,6 +745,8 @@
         "selected" : false,
         "id" : "ROOT"
       }, {
+        "accUserMode" : 4,
+        "accessKey" : "AGENTMGR",
         "counterMode" : 0,
         "name" : "智能体模板",
         "getNavPSAppView" : {
@@ -800,6 +843,8 @@
         "selected" : false,
         "id" : "ai_agent_conversation"
       }, {
+        "accUserMode" : 4,
+        "accessKey" : "MODELMGR",
         "counterMode" : 0,
         "name" : "AI凭证",
         "getNavPSAppView" : {
@@ -832,6 +877,8 @@
         "selected" : false,
         "id" : "ai_credential"
       }, {
+        "accUserMode" : 4,
+        "accessKey" : "KBMGR",
         "counterMode" : 0,
         "name" : "标签集",
         "getNavPSAppView" : {
@@ -892,6 +939,8 @@
         "selected" : false,
         "id" : "ai_knowledge_base"
       }, {
+        "accUserMode" : 4,
+        "accessKey" : "KBMGR",
         "counterMode" : 0,
         "name" : "知识库源",
         "getNavPSAppView" : {
@@ -924,6 +973,8 @@
         "selected" : false,
         "id" : "ai_knowledge_source"
       }, {
+        "accUserMode" : 4,
+        "accessKey" : "MODELMGR",
         "counterMode" : 0,
         "name" : "已接入模型",
         "getNavPSAppView" : {
@@ -986,6 +1037,8 @@
         "selected" : false,
         "id" : "ai_review_report"
       }, {
+        "accUserMode" : 4,
+        "accessKey" : "AGENTMGR",
         "counterMode" : 0,
         "name" : "AI调用工具",
         "getNavPSAppView" : {
@@ -1018,6 +1071,8 @@
         "selected" : false,
         "id" : "ai_tool"
       }, {
+        "accUserMode" : 4,
+        "accessKey" : "BASE",
         "counterMode" : 0,
         "name" : "BI分析",
         "getNavPSAppView" : {
@@ -1110,6 +1165,8 @@
         "selected" : false,
         "id" : "client_credential"
       }, {
+        "accUserMode" : 4,
+        "accessKey" : "KBMGR",
         "counterMode" : 0,
         "name" : "数据资源",
         "getNavPSAppView" : {
@@ -1140,6 +1197,8 @@
         "selected" : false,
         "id" : "data_resource"
       }, {
+        "accUserMode" : 4,
+        "accessKey" : "AGENTMGR",
         "counterMode" : 0,
         "name" : "自动化",
         "getNavPSAppView" : {
@@ -1171,6 +1230,41 @@
         "selected" : false,
         "id" : "flow"
       }, {
+        "accUserMode" : 4,
+        "accessKey" : "BASE",
+        "counterMode" : 0,
+        "name" : "公共密钥环",
+        "getNavPSAppView" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/keyring_shared_grid_view.json",
+          "viewType" : "DEGRIDVIEW"
+        },
+        "nodeType" : "keyring",
+        "getPSSysImage" : {
+          "glyph" : "xf084@FontAwesome",
+          "cssClass" : "fa fa-key"
+        },
+        "text" : "公共密钥环",
+        "treeNodeType" : "STATIC",
+        "hasPSDETreeNodeRSs" : false,
+        "appendPNodeId" : false,
+        "disableSelect" : false,
+        "enableCheck" : false,
+        "enableEditData" : false,
+        "enableNewData" : false,
+        "enableQuickCreate" : false,
+        "enableQuickSearch" : false,
+        "enableRemoveData" : false,
+        "enableViewData" : false,
+        "expandFirstOnly" : false,
+        "expanded" : false,
+        "rootNode" : false,
+        "selectFirstOnly" : false,
+        "selected" : false,
+        "id" : "keyring"
+      }, {
+        "accUserMode" : 4,
+        "accessKey" : "BASE",
         "counterMode" : 0,
         "name" : "应用市场",
         "getNavPSAppView" : {
@@ -1201,6 +1295,8 @@
         "selected" : false,
         "id" : "market"
       }, {
+        "accUserMode" : 4,
+        "accessKey" : "AGENTMGR",
         "counterMode" : 0,
         "name" : "记忆任务",
         "getNavPSAppView" : {
@@ -1275,10 +1371,12 @@
         "selected" : false,
         "id" : "node_1"
       }, {
+        "accUserMode" : 4,
+        "accessKey" : "MODELMGR",
         "counterMode" : 0,
-        "name" : " AI大模型",
+        "name" : "AI大模型",
         "nodeType" : "node_2",
-        "text" : " AI大模型",
+        "text" : "AI大模型",
         "treeNodeType" : "STATIC",
         "hasPSDETreeNodeRSs" : true,
         "appendPNodeId" : false,
@@ -1325,8 +1423,8 @@
         "getPSDEContextMenu" : {
           "codeName" : "tree_exp_view_node4_cm",
           "controlType" : "CONTEXTMENU",
+          "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent/PSCONTEXTMENUS/tree_exp_view_node4_cm.json",
           "logicName" : "知识库配置树节点菜单",
-          "name" : "node_4_cm",
           "getPSAppDataEntity" : {
             "modelref" : true,
             "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent.json"
@@ -1334,6 +1432,7 @@
           "getPSControlParam" : {
             "id" : "node_4_cm"
           },
+          "name" : "node_4_cm",
           "modelid" : "f9f4165bf4019e095e49f79bf5540237",
           "modeltype" : "PSDETOOLBAR"
         },
@@ -1359,6 +1458,8 @@
         "selected" : false,
         "id" : "node_4"
       }, {
+        "accUserMode" : 4,
+        "accessKey" : "KBMGR",
         "counterMode" : 0,
         "name" : "实体类型",
         "getNavPSAppView" : {
@@ -1389,6 +1490,8 @@
         "selected" : false,
         "id" : "node_5"
       }, {
+        "accUserMode" : 4,
+        "accessKey" : "BASE",
         "counterMode" : 0,
         "name" : "成员管理",
         "getNavPSAppView" : {
@@ -1464,6 +1567,8 @@
         "selected" : false,
         "id" : "node_8"
       }, {
+        "accUserMode" : 4,
+        "accessKey" : "MODELMGR",
         "counterMode" : 0,
         "name" : "模型服务",
         "getNavPSAppView" : {
@@ -1495,6 +1600,8 @@
         "selected" : false,
         "id" : "node_9"
       }, {
+        "accUserMode" : 4,
+        "accessKey" : "AGENTMGR",
         "counterMode" : 0,
         "name" : "计划作业",
         "getNavPSAppView" : {
@@ -1525,6 +1632,38 @@
         "selectFirstOnly" : false,
         "selected" : false,
         "id" : "scheduled_task"
+      }, {
+        "accUserMode" : 4,
+        "accessKey" : "AGENTMGR",
+        "counterMode" : 0,
+        "name" : "SKILL工作空间",
+        "getNavPSAppView" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_skill_workspace_grid_view.json",
+          "viewType" : "DEGRIDVIEW"
+        },
+        "nodeType" : "skill_workspace",
+        "getPSSysImage" : {
+          "rawContent" : "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <title>瀑布项目</title>\n    <g id=\"页面-1\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">\n        <g id=\"画板\" transform=\"translate(-1200, -654)\">\n            <g id=\"瀑布项目\" transform=\"translate(1200, 654)\">\n                <rect id=\"矩形\" x=\"0\" y=\"0\" width=\"24\" height=\"24\"></rect>\n                <path d=\"M9.5619664,3.27273154 C9.86089285,3.27189848 10.1477249,3.39300127 10.3585301,3.60905148 L12.666129,5.96139483 C12.7082348,6.00466067 12.7656003,6.02891007 12.8253854,6.02871536 L21.7826087,6.02871536 C22.4044581,6.02942731 22.9083925,6.54313302 22.9090909,7.17704017 L22.9090909,19.5789479 C22.9083925,20.2128551 22.4044581,20.7265608 21.7826087,20.7272727 L3.30830039,20.7272727 C2.68645096,20.7265608 2.18251658,20.2128551 2.18181818,19.5789479 L2.18181818,4.42106066 C2.18251657,3.78715352 2.68645095,3.2734478 3.30830039,3.27273154 L9.5619664,3.27273154 Z M16.4659091,9.375 L8.625,9.375 C8.43643466,9.375 8.28409091,9.52734375 8.28409091,9.71590909 L8.28409091,17.5568182 C8.28409091,17.7453835 8.43643466,17.8977273 8.625,17.8977273 L16.4659091,17.8977273 C16.6544744,17.8977273 16.8068182,17.7453835 16.8068182,17.5568182 L16.8068182,9.71590909 C16.8068182,9.52734375 16.6544744,9.375 16.4659091,9.375 Z M16.0397727,10.1420455 L16.0397727,17.1306818 L9.05113636,17.1306818 L9.05113636,10.1420455 L16.0397727,10.1420455 Z M15.0170455,12.9640489 L14.1647727,12.9640489 C14.1178977,12.9640489 14.0795455,13.0024011 14.0795455,13.0492761 L14.0795455,15.7765489 C14.0795455,15.8234239 14.1178977,15.8617761 14.1647727,15.8617761 L15.0170455,15.8617761 C15.0639205,15.8617761 15.1022727,15.8234239 15.1022727,15.7765489 L15.1022727,13.0492761 C15.1022727,13.0024011 15.0639205,12.9640489 15.0170455,12.9640489 Z M12.9715909,12.2925909 L12.1193182,12.2925909 C12.0724432,12.2925909 12.0340909,12.3309432 12.0340909,12.3778182 L12.0340909,14.3380454 C12.0340909,14.3849204 12.0724432,14.4232727 12.1193182,14.4232727 L12.9715909,14.4232727 C13.0184659,14.4232727 13.0568182,14.3849204 13.0568182,14.3380454 L13.0568182,12.3778182 C13.0568182,12.3309432 13.0184659,12.2925909 12.9715909,12.2925909 Z M10.9261364,11.0795455 L10.0738636,11.0795455 C10.0269886,11.0795455 9.98863636,11.1178977 9.98863636,11.1647727 L9.98863636,12.9119335 C9.98863636,12.9588085 10.0269886,12.9971608 10.0738636,12.9971608 L10.9261364,12.9971608 C10.9730114,12.9971608 11.0113636,12.9588085 11.0113636,12.9119335 L11.0113636,11.1647727 C11.0113636,11.1178977 10.9730114,11.0795455 10.9261364,11.0795455 Z\" id=\"形状结合\" fill=\"#73D897\" fill-rule=\"nonzero\"></path>\n            </g>\n        </g>\n    </g>\n</svg>"
+        },
+        "text" : "SKILL工作空间",
+        "treeNodeType" : "STATIC",
+        "hasPSDETreeNodeRSs" : false,
+        "appendPNodeId" : false,
+        "disableSelect" : false,
+        "enableCheck" : false,
+        "enableEditData" : false,
+        "enableNewData" : false,
+        "enableQuickCreate" : false,
+        "enableQuickSearch" : false,
+        "enableRemoveData" : false,
+        "enableViewData" : false,
+        "expandFirstOnly" : false,
+        "expanded" : false,
+        "rootNode" : false,
+        "selectFirstOnly" : false,
+        "selected" : false,
+        "id" : "skill_workspace"
       } ],
       "getPSSysPFPlugin" : {
         "pluginType" : "TREE_RENDER",
@@ -1575,6 +1714,7 @@
     "enableCounter" : true,
     "enableSearch" : false,
     "showTitleBar" : true,
+    "name" : "treeexpbar",
     "modelid" : "467538c48b69ceff47381b2a2e9fa8ad_treeexpbar",
     "modeltype" : "PSEXPBAR"
   }, {
@@ -1601,12 +1741,13 @@
     "caption" : "智能体",
     "codeName" : "tree_exp_view_captionbar",
     "controlType" : "CAPTIONBAR",
-    "name" : "captionbar",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent/PSCAPTIONBARS/tree_exp_view_captionbar.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent.json"
     },
-    "getPSControlParam" : { }
+    "getPSControlParam" : { },
+    "name" : "captionbar"
   } ],
   "getPSDEViewCodeName" : "tree_exp_view",
   "getPSDEViewId" : "3f256c88c88229b54b91250436da7898",
@@ -1614,7 +1755,7 @@
     "codeName" : "layoutpanel",
     "controlStyle" : "APPDETREEEXPVIEW",
     "controlType" : "VIEWLAYOUTPANEL",
-    "name" : "layoutpanel",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent/PSVIEWLAYOUTPANELS/layoutpanel.json",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent.json"
@@ -1622,7 +1763,8 @@
     "getPSControlParam" : { },
     "layoutBodyOnly" : true,
     "layoutPanel" : true,
-    "useDefaultLayout" : true
+    "useDefaultLayout" : true,
+    "name" : "layoutpanel"
   },
   "title" : "智能体",
   "viewStyle" : "DEFAULT",

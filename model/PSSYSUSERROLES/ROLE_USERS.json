@@ -254,6 +254,16 @@
       "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
     }
   }, {
+    "name" : "默认用户权限-KEYRING[密钥环所有者]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/keyring/PSDEUSERROLES/KEYRING_OWNER.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/keyring.json"
+    }
+  }, {
     "name" : "默认用户权限-AI_MODEL[全部数据（读）]",
     "getPSDEUserRole" : {
       "modelref" : true,
@@ -362,6 +372,16 @@
     "getPSDataEntity" : {
       "modelref" : true,
       "path" : "PSMODULES/Wiki/PSDATAENTITIES/space.json"
+    }
+  }, {
+    "name" : "默认用户权限-AI_SKILL_WORKSPACE[我创建的（读写）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE/PSDEUSERROLES/CURDRAFTMAN_RW.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/AI_SKILL_WORKSPACE.json"
     }
   }, {
     "name" : "默认用户权限-AI_KB_CHUNK[操作用户(读写)]",
@@ -712,6 +732,16 @@
     "getPSDataEntity" : {
       "modelref" : true,
       "path" : "PSMODULES/ai/PSDATAENTITIES/ai_credential.json"
+    }
+  }, {
+    "name" : "默认用户权限-KEYRING[密钥环读取者]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/keyring/PSDEUSERROLES/KEYRING_READER.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/keyring.json"
     }
   }, {
     "name" : "默认用户权限-CATEGORY_SETTINGS[操作用户(读写)]",

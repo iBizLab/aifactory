@@ -24,7 +24,7 @@ package cn.ibizlab.ai.logic.ai_agent_sessionlogic.get_info;
             ruleflow-group "ai_agent_sessionget_infoprepareparam_01"
             when
             then
-                            ai_agent_sessionget_infodefault.set("name","调试数据");
+                            ai_agent_sessionget_infodefault.set("name","数据");
                         update(ai_agent_sessionget_infodefault);//更新fact中变量值
             end
 

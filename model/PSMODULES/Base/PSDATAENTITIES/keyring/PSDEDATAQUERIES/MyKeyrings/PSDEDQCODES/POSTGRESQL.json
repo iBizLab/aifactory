@@ -1,0 +1,39 @@
+{
+  "dBType" : "POSTGRESQL",
+  "name" : "PostgreSQL",
+  "getPSDEDataQueryCodeConds" : [ {
+    "condType" : "CUSTOM",
+    "customCond" : "( ( ( t1.\"scope_id\" = #{ctx.sessioncontext.srfpersonid}  AND  t1.\"scope_type\" = 'user' )  OR  t1.\"create_man\" = 'srfpersonid'  OR  t1.\"update_man\" = #{ctx.sessioncontext.srfpersonid} ) )",
+    "name" : "查询条件"
+  } ],
+  "getPSDEDataQueryCodeExps" : [ {
+    "expression" : "t1.\"description\"",
+    "name" : "DESCRIPTION"
+  }, {
+    "expression" : "t1.\"create_man\"",
+    "name" : "CREATE_MAN"
+  }, {
+    "expression" : "t1.\"create_time\"",
+    "name" : "CREATE_TIME"
+  }, {
+    "expression" : "t1.\"id\"",
+    "name" : "ID"
+  }, {
+    "expression" : "t1.\"name\"",
+    "name" : "NAME"
+  }, {
+    "expression" : "t1.\"scope_id\"",
+    "name" : "SCOPE_ID"
+  }, {
+    "expression" : "t1.\"scope_type\"",
+    "name" : "SCOPE_TYPE"
+  }, {
+    "expression" : "t1.\"update_man\"",
+    "name" : "UPDATE_MAN"
+  }, {
+    "expression" : "t1.\"update_time\"",
+    "name" : "UPDATE_TIME"
+  } ],
+  "queryCode" : "SELECT\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"id\",\nt1.\"name\",\nt1.\"scope_id\",\nt1.\"scope_type\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"keyrings\" t1 \n",
+  "id" : "PSMODULES/Base/PSDATAENTITIES/keyring/PSDEDATAQUERIES/MyKeyrings/PSDEDQCODES/POSTGRESQL.json"
+}

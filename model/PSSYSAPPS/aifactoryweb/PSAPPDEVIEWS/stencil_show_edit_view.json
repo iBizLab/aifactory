@@ -20,9 +20,9 @@
   "getPSViewLayoutPanel" : {
     "codeName" : "usr0313233960",
     "controlType" : "VIEWLAYOUTPANEL",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/stencil/PSVIEWLAYOUTPANELS/usr0313233960.json",
     "layoutMode" : "FLEX",
     "logicName" : "edit_view_show编辑视图布局面板",
-    "name" : "layoutpanel",
     "getPSAppDataEntity" : {
       "modelref" : true,
       "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/stencil.json"
@@ -157,6 +157,7 @@
     "layoutPanel" : true,
     "useDefaultLayout" : false,
     "viewProxyMode" : true,
+    "name" : "layoutpanel",
     "modelid" : "f3798ecb0d6d69efe50860bbde1ba853",
     "modeltype" : "PSSYSVIEWLAYOUTPANEL",
     "getPSAppViewEngines" : [ {
@@ -167,8 +168,8 @@
     "getPSControls" : [ {
       "codeName" : "show_edit_view_toolbar",
       "controlType" : "TOOLBAR",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/stencil/PSTOOLBARS/show_edit_view_toolbar.json",
       "logicName" : "页面模板编辑视图_展示_工具栏",
-      "name" : "toolbar",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/stencil.json"
@@ -177,6 +178,7 @@
         "id" : "TOOLBAR"
       },
       "getPSDEToolbarItems" : [ {
+        "accessKey" : "SPACE_M",
         "caption" : "编辑",
         "groupExtractMode" : "ITEM",
         "itemType" : "DEUIACTION",
@@ -229,6 +231,7 @@
         "showIcon" : true
       } ],
       "xDataControlName" : "form",
+      "name" : "toolbar",
       "modelid" : "e8a85c4c09137ffcba4e96de8b0b95ba",
       "modeltype" : "PSDETOOLBAR"
     }, {
@@ -824,24 +827,26 @@
     }, {
       "codeName" : "show_edit_view_datainfobar",
       "controlType" : "DATAINFOBAR",
-      "name" : "datainfobar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/stencil/PSDATAINFOBARS/show_edit_view_datainfobar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/stencil.json"
       },
       "getPSControlParam" : {
         "id" : "datainfobar"
-      }
+      },
+      "name" : "datainfobar"
     }, {
       "caption" : "页面模板",
       "codeName" : "show_edit_view_captionbar",
       "controlType" : "CAPTIONBAR",
-      "name" : "captionbar",
+      "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/stencil/PSCAPTIONBARS/show_edit_view_captionbar.json",
       "getPSAppDataEntity" : {
         "modelref" : true,
         "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/stencil.json"
       },
-      "getPSControlParam" : { }
+      "getPSControlParam" : { },
+      "name" : "captionbar"
     } ]
   },
   "title" : "页面模板编辑视图_展示",
