@@ -212,6 +212,13 @@
       "name" : "engine"
     } ],
     "getPSAppViewLogics" : [ {
+      "eventNames" : "onNotifyRefresh",
+      "logicTrigger" : "CTRLEVENT",
+      "logicType" : "SCRIPT",
+      "name" : "grid_notify_refresh",
+      "getPSViewCtrlName" : "grid",
+      "scriptCode" : "console.log(\"表格接受到数据变更通知\");\r\nconst grid = view.getCtrl('GRID', 'grid');\r\nif (grid) {\r\n  await grid.load({ silent: true });\r\n  // 阻止内置后续逻辑\r\n  args.allowNext = false;\r\n}"
+    }, {
       "logicTrigger" : "CUSTOM",
       "logicType" : "APPUILOGIC",
       "name" : "newdata",

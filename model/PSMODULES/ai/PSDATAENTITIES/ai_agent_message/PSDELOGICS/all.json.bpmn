@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+        <process id="cn.ibizlab.core.ai.service.logic.ai_agent_messageall" isClosed="false" isExecutable="true" name="ai_ai_agent_message_all_ruleFlow" processType="Private" tns:packageName="cn.ibizlab.core.ai.service.logic.ai_agent_messageall">
+            <extensionElements>
+                <tns:import name="java.util.Map" />
+                <tns:import name="org.springframework.util.StringUtils"/>
+                <tns:import name="cn.ibizlab.util.helper.RuleUtils"/>
+                                <tns:metaData express="" name="ai_agent_messagealldefault" type="entity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_agent_message()" name="ai_agent_messageallfilter" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_agent_message()" name="ai_agent_messageallmessages" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_agent_message()" name="ai_agent_messageallpage" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_messageallpageval" type="refentity"/>
+                                <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_agent_message()" name="ai_agent_messageallresult" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_agent_messageallsizeval" type="refentity"/>
+                                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_agent_messageService))" name="ai_agent_messageservice" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_agent_messageService))" name="iBzSysAi_agent_messageDefaultService" type="service"/>
+                    <tns:metaData express="T(cn.ibizlab.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
+                            <tns:global identifier="ai_agent_messagealldefault" type="cn.ibizlab.core.ai.domain.ai_agent_message" />
+                            <tns:global identifier="ai_agent_messageallfilter" type="cn.ibizlab.core.ai.domain.ai_agent_message" />
+                            <tns:global identifier="ai_agent_messageallmessages" type="cn.ibizlab.core.ai.domain.ai_agent_message" />
+                            <tns:global identifier="ai_agent_messageallpage" type="cn.ibizlab.core.ai.domain.ai_agent_message" />
+                            <tns:global identifier="ai_agent_messageallresult" type="cn.ibizlab.core.ai.domain.ai_agent_message" />
+            </extensionElements>
+                        <startEvent id="begin" isInterrupting="true"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_messagealldedataquery_01" id="dedataquery_01" implementation="http://www.jboss.org/drools/rule" name="实体数据查询"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_messageallsortparam_01" id="sortparam_01" implementation="http://www.jboss.org/drools/rule" name="按消息序号正序排序"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_messageallrawsfcode_02" id="rawsfcode_02" implementation="http://www.jboss.org/drools/rule" name="按传入size及page截取列表"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_messageallcopyparam_01" id="copyparam_01" implementation="http://www.jboss.org/drools/rule" name="拷贝Default过滤器属性到filter"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_messageallprepareparam_01" id="prepareparam_01" implementation="http://www.jboss.org/drools/rule" name="保存传入分页参数并设置查询条件"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_messageallend_01" id="end_01" implementation="http://www.jboss.org/drools/rule" name="结束"/>
+                        <endEvent id="end_01_end" name="end"/>
+                        <sequenceFlow id="end_01_end_line" sourceRef="end_01" targetRef="end_01_end"/>
+                    <sequenceFlow id="begin_copyparam_01" sourceRef="begin" targetRef="copyparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="dedataquery_01_sortparam_01" sourceRef="dedataquery_01" targetRef="sortparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="sortparam_01_rawsfcode_02" sourceRef="sortparam_01" targetRef="rawsfcode_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="rawsfcode_02_end_01" sourceRef="rawsfcode_02" targetRef="end_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="copyparam_01_prepareparam_01" sourceRef="copyparam_01" targetRef="prepareparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_01_dedataquery_01" sourceRef="prepareparam_01" targetRef="dedataquery_01">
+                    </sequenceFlow>
+        </process>
+    </definitions>

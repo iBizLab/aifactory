@@ -114,7 +114,7 @@
     "topPos" : 458,
     "parallelOutput" : true
   }, {
-    "code" : "def defaultEntity = logic.param(\"default\").getReal()\nif(!defaultEntity.get(\"page_index\")) {\n    defaultEntity.set(\"page_index\",0)\n}\ndef context_content = \"\\n---\\n\\n* **执行智能体**: \"+defaultEntity.get(\"name\") +\"\\n\"\nif(defaultEntity.get(\"description\")){\n    context_content = context_content+\"* **智能体描述**: \" + defaultEntity.get(\"description\") +\"\\n\"\n}\ncontext_content = context_content +\"\\n---\\n\"\ndefaultEntity.set(\"context_content\",context_content)",
+    "code" : "def defaultEntity = logic.param(\"default\").getReal()\nif(!defaultEntity.get(\"page_index\")) {\n    defaultEntity.set(\"page_index\",0)\n}\ndef context_content = \"\\n---\\n\\n* **执行任务**: \"+defaultEntity.get(\"name\") +\"\\n\"\nif(defaultEntity.get(\"description\")){\n    context_content = context_content+\"* **任务描述**: \" + defaultEntity.get(\"description\") +\"\\n\"\n}\ncontext_content = context_content +\"\\n---\\n\"\ndefaultEntity.set(\"context_content\",context_content)",
     "codeName" : "RAWSFCODE_01",
     "codeType" : "Groovy",
     "leftPos" : 230,

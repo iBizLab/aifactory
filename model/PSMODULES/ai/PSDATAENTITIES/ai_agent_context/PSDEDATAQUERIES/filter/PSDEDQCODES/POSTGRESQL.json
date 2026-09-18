@@ -3,7 +3,7 @@
   "name" : "PostgreSQL",
   "getPSDEDataQueryCodeConds" : [ {
     "condType" : "CUSTOM",
-    "customCond" : "( ( t1.\"scopes\" IS NULL ) )",
+    "customCond" : "( ( t1.\"scopes\" IS NULL  OR  <choose><when test=\"ctx.datacontext.srfaiagentscope !=null \">  t1.\"scopes\" LIKE '%' || #{ctx.datacontext.srfaiagentscope} || '%'  or  #{ctx.datacontext.srfaiagentscope} like '%ai_agent_context%' </when><otherwise>1<>1</otherwise></choose>  OR  t1.\"code_name\" = #{ctx.datacontext.srfaiagent} ) )",
     "name" : "查询条件"
   } ],
   "getPSDEDataQueryCodeExps" : [ {

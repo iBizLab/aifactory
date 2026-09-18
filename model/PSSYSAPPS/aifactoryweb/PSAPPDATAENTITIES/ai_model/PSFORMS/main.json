@@ -148,14 +148,11 @@
       "codeName" : "model_capability"
     }
   }, {
-    "id" : "desc_oss_image",
-    "hidden" : true,
+    "id" : "active",
     "dataType" : 9,
-    "createDV" : "1",
-    "updateDV" : "1",
     "getPSAppDEField" : {
-      "name" : "DESC_OSS_IMAGE",
-      "codeName" : "desc_oss_image"
+      "name" : "ACTIVE",
+      "codeName" : "active"
     }
   }, {
     "id" : "api_base_url",
@@ -186,11 +183,11 @@
       "codeName" : "max_context_tokens"
     }
   }, {
-    "id" : "active",
-    "dataType" : 9,
+    "id" : "ai_platform",
+    "dataType" : 25,
     "getPSAppDEField" : {
-      "name" : "ACTIVE",
-      "codeName" : "active"
+      "name" : "AI_PLATFORM",
+      "codeName" : "ai_platform"
     }
   }, {
     "id" : "extra_params",
@@ -198,6 +195,16 @@
     "getPSAppDEField" : {
       "name" : "EXTRA_PARAMS",
       "codeName" : "extra_params"
+    }
+  }, {
+    "id" : "desc_oss_image",
+    "hidden" : true,
+    "dataType" : 9,
+    "createDV" : "1",
+    "updateDV" : "1",
+    "getPSAppDEField" : {
+      "name" : "DESC_OSS_IMAGE",
+      "codeName" : "desc_oss_image"
     }
   }, {
     "id" : "provider",
@@ -482,9 +489,8 @@
         "needCodeListConfig" : true,
         "showCaption" : true
       }, {
-        "caption" : "多模态图片解析",
-        "codeName" : "desc_oss_image",
-        "createDV" : "1",
+        "caption" : "启用",
+        "codeName" : "active",
         "dataType" : 9,
         "detailStyle" : "DEFAULT",
         "detailType" : "FORMITEM",
@@ -492,24 +498,23 @@
         "ignoreInput" : 0,
         "labelPos" : "LEFT",
         "labelWidth" : 130,
-        "name" : "desc_oss_image",
+        "name" : "active",
         "noPrivDisplayMode" : 1,
         "getPSAppDEField" : {
-          "name" : "DESC_OSS_IMAGE",
-          "codeName" : "desc_oss_image"
+          "name" : "ACTIVE",
+          "codeName" : "active"
         },
         "getPSEditor" : {
-          "editorType" : "HIDDEN",
-          "name" : "desc_oss_image"
+          "editorType" : "CHECKBOX",
+          "name" : "active"
         },
         "getPSLayoutPos" : {
           "colLG" : 8,
           "colMD" : 12,
           "layout" : "TABLE_24COL"
         },
-        "updateDV" : "1",
-        "allowEmpty" : true,
-        "hidden" : true
+        "allowEmpty" : false,
+        "showCaption" : true
       }, {
         "caption" : "模型 API 地址",
         "codeName" : "api_base_url",
@@ -654,31 +659,32 @@
         "allowEmpty" : true,
         "showCaption" : true
       }, {
-        "caption" : "启用",
-        "codeName" : "active",
-        "dataType" : 9,
+        "caption" : "formatting/parser",
+        "codeName" : "ai_platform",
+        "dataType" : 25,
         "detailStyle" : "DEFAULT",
         "detailType" : "FORMITEM",
         "enableCond" : 3,
         "ignoreInput" : 0,
         "labelPos" : "LEFT",
-        "labelWidth" : 130,
-        "name" : "active",
+        "labelWidth" : 150,
+        "name" : "ai_platform",
         "noPrivDisplayMode" : 1,
         "getPSAppDEField" : {
-          "name" : "ACTIVE",
-          "codeName" : "active"
+          "name" : "AI_PLATFORM",
+          "codeName" : "ai_platform"
         },
         "getPSEditor" : {
-          "editorType" : "CHECKBOX",
-          "name" : "active"
+          "editorType" : "TEXTBOX",
+          "maxLength" : 100,
+          "name" : "ai_platform"
         },
         "getPSLayoutPos" : {
           "colLG" : 8,
-          "colMD" : 12,
+          "colMD" : 8,
           "layout" : "TABLE_24COL"
         },
-        "allowEmpty" : false,
+        "allowEmpty" : true,
         "showCaption" : true
       }, {
         "caption" : "模型额外参数",
@@ -711,6 +717,35 @@
         },
         "allowEmpty" : true,
         "showCaption" : true
+      }, {
+        "caption" : "多模态图片解析",
+        "codeName" : "desc_oss_image",
+        "createDV" : "1",
+        "dataType" : 9,
+        "detailStyle" : "DEFAULT",
+        "detailType" : "FORMITEM",
+        "enableCond" : 3,
+        "ignoreInput" : 0,
+        "labelPos" : "LEFT",
+        "labelWidth" : 130,
+        "name" : "desc_oss_image",
+        "noPrivDisplayMode" : 1,
+        "getPSAppDEField" : {
+          "name" : "DESC_OSS_IMAGE",
+          "codeName" : "desc_oss_image"
+        },
+        "getPSEditor" : {
+          "editorType" : "HIDDEN",
+          "name" : "desc_oss_image"
+        },
+        "getPSLayoutPos" : {
+          "colLG" : 8,
+          "colMD" : 12,
+          "layout" : "TABLE_24COL"
+        },
+        "updateDV" : "1",
+        "allowEmpty" : true,
+        "hidden" : true
       }, {
         "caption" : "模型提供商标识",
         "codeName" : "provider",
@@ -782,13 +817,25 @@
             "name" : "desc_oss_image等于(=) 1",
             "value" : "1"
           }, {
-            "condOP" : "EQ",
-            "dEFDName" : "model_category",
-            "logicType" : "SINGLE",
-            "name" : "model_category等于(=) vision",
-            "value" : "vision"
+            "groupOP" : "OR",
+            "logicType" : "GROUP",
+            "name" : "OR",
+            "getPSDEFDLogics" : [ {
+              "condOP" : "EQ",
+              "dEFDName" : "model_category",
+              "logicType" : "SINGLE",
+              "name" : "model_category等于(=) vision",
+              "value" : "vision"
+            }, {
+              "condOP" : "LIKE",
+              "dEFDName" : "model_capability",
+              "logicType" : "SINGLE",
+              "name" : "model_capability文本包含(%) img2text",
+              "value" : "img2text"
+            } ],
+            "notMode" : false
           } ],
-          "relatedDetailNames" : [ "desc_oss_image", "model_category" ],
+          "relatedDetailNames" : [ "desc_oss_image", "model_category", "model_capability" ],
           "notMode" : false
         } ],
         "getPSDEFormDetails" : [ {

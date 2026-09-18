@@ -230,6 +230,13 @@
         "codeName" : "show_name"
       }
     }, {
+      "id" : "user_id",
+      "dataType" : 25,
+      "getPSAppDEField" : {
+        "name" : "USER_ID",
+        "codeName" : "user_id"
+      }
+    }, {
       "id" : "status",
       "dataType" : 25,
       "getPSAppDEField" : {
@@ -256,6 +263,27 @@
       "getPSAppDEField" : {
         "name" : "LAST_ACTIVE_AT",
         "codeName" : "last_active_at"
+      }
+    }, {
+      "id" : "agent_context_name",
+      "dataType" : 25,
+      "getPSAppDEField" : {
+        "name" : "AGENT_CONTEXT_NAME",
+        "codeName" : "agent_context_name"
+      }
+    }, {
+      "id" : "context_code_name",
+      "dataType" : 25,
+      "getPSAppDEField" : {
+        "name" : "CONTEXT_CODE_NAME",
+        "codeName" : "context_code_name"
+      }
+    }, {
+      "id" : "scope",
+      "dataType" : 25,
+      "getPSAppDEField" : {
+        "name" : "SCOPE",
+        "codeName" : "scope"
       }
     }, {
       "id" : "id",
@@ -292,8 +320,8 @@
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 0,
-          "labelPos" : "NONE",
-          "labelWidth" : 0,
+          "labelPos" : "LEFT",
+          "labelWidth" : 130,
           "name" : "show_name",
           "noPrivDisplayMode" : 1,
           "getPSAppDEField" : {
@@ -306,11 +334,45 @@
             "enableLinkView" : false
           },
           "getPSLayoutPos" : {
-            "colLG" : 20,
-            "colMD" : 20,
+            "colLG" : 16,
+            "colMD" : 16,
             "layout" : "TABLE_24COL"
           },
-          "allowEmpty" : true
+          "allowEmpty" : true,
+          "showCaption" : true
+        }, {
+          "caption" : "用户",
+          "codeName" : "user_id",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 3,
+          "labelPos" : "LEFT",
+          "labelWidth" : 130,
+          "name" : "user_id",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "USER_ID",
+            "codeName" : "user_id"
+          },
+          "getPSEditor" : {
+            "editorType" : "SPAN",
+            "name" : "user_id",
+            "getPSAppCodeList" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/SysOperator.json"
+            },
+            "enableLinkView" : false
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 4,
+            "colMD" : 4,
+            "layout" : "TABLE_24COL"
+          },
+          "allowEmpty" : true,
+          "convertToCodeItemText" : true,
+          "showCaption" : true
         }, {
           "caption" : "会话状态",
           "codeName" : "status",
@@ -436,8 +498,92 @@
           "allowEmpty" : true,
           "showCaption" : true
         }, {
+          "caption" : "智能体",
+          "codeName" : "agent_context_name",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "labelPos" : "LEFT",
+          "labelWidth" : 130,
+          "name" : "agent_context_name",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "AGENT_CONTEXT_NAME",
+            "codeName" : "agent_context_name"
+          },
+          "getPSEditor" : {
+            "editorType" : "SPAN",
+            "name" : "agent_context_name",
+            "enableLinkView" : false
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 8,
+            "colMD" : 8,
+            "layout" : "TABLE_24COL"
+          },
+          "allowEmpty" : true,
+          "showCaption" : true
+        }, {
+          "caption" : "智能体标记",
+          "codeName" : "context_code_name",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "labelPos" : "LEFT",
+          "labelWidth" : 130,
+          "name" : "context_code_name",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "CONTEXT_CODE_NAME",
+            "codeName" : "context_code_name"
+          },
+          "getPSEditor" : {
+            "editorType" : "SPAN",
+            "name" : "context_code_name",
+            "enableLinkView" : false
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 8,
+            "colMD" : 8,
+            "layout" : "TABLE_24COL"
+          },
+          "allowEmpty" : true,
+          "showCaption" : true
+        }, {
+          "caption" : "业务范围",
+          "codeName" : "scope",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "labelPos" : "LEFT",
+          "labelWidth" : 130,
+          "name" : "scope",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "SCOPE",
+            "codeName" : "scope"
+          },
+          "getPSEditor" : {
+            "editorType" : "SPAN",
+            "name" : "scope",
+            "enableLinkView" : false
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 8,
+            "colMD" : 8,
+            "layout" : "TABLE_24COL"
+          },
+          "allowEmpty" : true,
+          "showCaption" : true
+        }, {
           "codeName" : "druipart1",
-          "dRItemTag" : "DRItem",
+          "dRItemTag" : "DRItem2",
           "detailStyle" : "DEFAULT",
           "detailType" : "DRUIPART",
           "name" : "druipart1",
@@ -555,7 +701,7 @@
                 "name" : "fetch",
                 "getPSAppDEMethod" : {
                   "modelref" : true,
-                  "id" : "fetch_all"
+                  "id" : "fetch_histories"
                 },
                 "getPSAppDataEntity" : {
                   "modelref" : true,
@@ -639,7 +785,7 @@
                   "name" : "fetch",
                   "getPSAppDEMethod" : {
                     "modelref" : true,
-                    "id" : "fetch_all"
+                    "id" : "fetch_histories"
                   },
                   "getPSAppDataEntity" : {
                     "modelref" : true,
@@ -815,7 +961,7 @@
                 "allowEmpty" : true
               } ],
               "pagingMode" : 1,
-              "pagingSize" : 20,
+              "pagingSize" : 100,
               "getRemovePSControlAction" : {
                 "actionName" : "Remove",
                 "actionType" : "DEACTION",
@@ -1077,8 +1223,11 @@
             "layout" : "TABLE_24COL"
           },
           "parentDataJO" : {
+            "SRFPARENTTYPE" : "DER1N",
             "srfparentdename" : "AI_AGENT_CONVERSATION",
-            "SRFPARENTTYPE" : "CUSTOM"
+            "srfparentmode" : "DER1N_AI_AGENT_MESSAGE_AI_AGENT_CONVERSATION_CONVERSATION_ID",
+            "srfparentdefname" : "CONVERSATION_ID",
+            "SRFDER1NID" : "DER1N_AI_AGENT_MESSAGE_AI_AGENT_CONVERSATION_CONVERSATION_ID"
           },
           "needSave" : false,
           "refreshItemsSetParamOnly" : false,

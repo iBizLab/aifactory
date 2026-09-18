@@ -318,6 +318,13 @@
         "codeName" : "model_capability"
       }
     }, {
+      "id" : "active",
+      "dataType" : 9,
+      "getPSAppDEField" : {
+        "name" : "ACTIVE",
+        "codeName" : "active"
+      }
+    }, {
       "id" : "api_base_url",
       "dataType" : 25,
       "getPSAppDEField" : {
@@ -346,11 +353,11 @@
         "codeName" : "max_context_tokens"
       }
     }, {
-      "id" : "active",
-      "dataType" : 9,
+      "id" : "ai_platform",
+      "dataType" : 25,
       "getPSAppDEField" : {
-        "name" : "ACTIVE",
-        "codeName" : "active"
+        "name" : "AI_PLATFORM",
+        "codeName" : "ai_platform"
       }
     }, {
       "id" : "provider",
@@ -645,6 +652,33 @@
           "needCodeListConfig" : true,
           "showCaption" : true
         }, {
+          "caption" : "启用",
+          "codeName" : "active",
+          "dataType" : 9,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "labelPos" : "TOP",
+          "labelWidth" : 130,
+          "name" : "active",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "ACTIVE",
+            "codeName" : "active"
+          },
+          "getPSEditor" : {
+            "editorType" : "CHECKBOX",
+            "name" : "active"
+          },
+          "getPSLayoutPos" : {
+            "colLG" : 8,
+            "colMD" : 12,
+            "layout" : "TABLE_24COL"
+          },
+          "allowEmpty" : false,
+          "showCaption" : true
+        }, {
           "caption" : "模型 API 地址",
           "codeName" : "api_base_url",
           "dataType" : 25,
@@ -788,31 +822,32 @@
           "allowEmpty" : true,
           "showCaption" : true
         }, {
-          "caption" : "启用",
-          "codeName" : "active",
-          "dataType" : 9,
+          "caption" : "formatting/parser",
+          "codeName" : "ai_platform",
+          "dataType" : 25,
           "detailStyle" : "DEFAULT",
           "detailType" : "FORMITEM",
           "enableCond" : 3,
           "ignoreInput" : 0,
           "labelPos" : "TOP",
           "labelWidth" : 130,
-          "name" : "active",
+          "name" : "ai_platform",
           "noPrivDisplayMode" : 1,
           "getPSAppDEField" : {
-            "name" : "ACTIVE",
-            "codeName" : "active"
+            "name" : "AI_PLATFORM",
+            "codeName" : "ai_platform"
           },
           "getPSEditor" : {
-            "editorType" : "CHECKBOX",
-            "name" : "active"
+            "editorType" : "TEXTBOX",
+            "maxLength" : 100,
+            "name" : "ai_platform"
           },
           "getPSLayoutPos" : {
             "colLG" : 8,
-            "colMD" : 12,
+            "colMD" : 8,
             "layout" : "TABLE_24COL"
           },
-          "allowEmpty" : false,
+          "allowEmpty" : true,
           "showCaption" : true
         }, {
           "caption" : "模型提供商标识",

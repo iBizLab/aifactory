@@ -53,8 +53,12 @@
     "name" : "update_method",
     "getPSDEFIUpdateDetails" : [ {
       "name" : "method"
+    }, {
+      "name" : "layout_recognize"
+    }, {
+      "name" : "use_pageindex"
     } ],
-    "scriptCode" : "console.log(\"update_metho\");\nconst chunk_method = data.chunk_method\ndata.parser_config.method = chunk_method\n",
+    "scriptCode" : "console.log(\"update_metho\");\nconst chunk_method = data.chunk_method;\ndata.parser_config.method = chunk_method;\nif('PICTURE' == chunk_method) {\n    data.parser_config.layout_recognize = 'VL';\n}\nif('LAWS' == chunk_method && data.parser_config && data.parser_config.pageindex) {\n    data.parser_config.pageindex.use_pageindex = 1;\n}",
     "customCode" : true
   } ],
   "getPSDEFormItems" : [ {
@@ -1969,7 +1973,7 @@
       "modelref" : true,
       "id" : "切片策略"
     },
-    "stepActions" : [ "PREV", "NEXT" ],
+    "stepActions" : [ "PREV", "FINISH" ],
     "stepTag" : "chunk",
     "firstForm" : false
   },

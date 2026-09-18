@@ -1210,11 +1210,26 @@
             "condOp" : "ISNULL",
             "condType" : "SINGLE",
             "fieldName" : "SCOPES",
-            "name" : "(SCOPES) 值为空(Nil)",
+            "name" : "(SCOPES) 值为空(Nil) ",
             "getPSDEField" : {
               "name" : "SCOPES",
               "codeName" : "scopes"
             }
+          }, {
+            "condType" : "CUSTOM",
+            "condition" : "<choose><when test=\"ctx.datacontext.srfaiagentscope !=null \">  t1.\"scopes\" LIKE '%' || #{ctx.datacontext.srfaiagentscope} || '%'  or  #{ctx.datacontext.srfaiagentscope} like '%ai_agent_context%' </when><otherwise>1<>1</otherwise></choose>",
+            "name" : "scope"
+          }, {
+            "condOp" : "EQ",
+            "condType" : "SINGLE",
+            "condValue" : "srfaiagent",
+            "fieldName" : "CODE_NAME",
+            "name" : "(CODE_NAME) 等于(=) 数据上下文 srfaiagent",
+            "getPSDEField" : {
+              "name" : "CODE_NAME",
+              "codeName" : "code_name"
+            },
+            "getPSVARTypeId" : "DATACONTEXT"
           } ]
         } ]
       }
@@ -1432,6 +1447,55 @@
       "type" : "DTOS"
     },
     "viewLevel" : 0
+  }, {
+    "getAllPSDEDataQueryCodes" : [ {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context/PSDEDATAQUERIES/my/PSDEDQCODES/POSTGRESQL.json"
+    } ],
+    "codeName" : "my",
+    "logicName" : "my",
+    "name" : "my",
+    "getPSDEDQMain" : {
+      "alias" : "main",
+      "getJoinPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+      },
+      "joinType" : "MAIN",
+      "name" : "AI_AGENT_CONTEXT",
+      "getPSDEDQGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "连接条件",
+        "getPSDEDQConditions" : [ {
+          "condOp" : "NOTIN",
+          "condType" : "SINGLE",
+          "condValue" : "kb_switch,delegate_flash_agent,delegate_default_agent",
+          "fieldName" : "CODE_NAME",
+          "name" : "(CODE_NAME) 值不在范围中(NotIn) kb_switch,delegate_flash_agent,delegate_default_agent",
+          "getPSDEField" : {
+            "name" : "CODE_NAME",
+            "codeName" : "code_name"
+          }
+        } ]
+      }
+    },
+    "getPSDEDataQueryInput" : {
+      "name" : "MyInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "ai_agent_context_filter_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataQueryReturn" : {
+      "name" : "MyResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_agent_context_dto"
+      },
+      "type" : "DTOS"
+    }
   }, {
     "getAllPSDEDataQueryCodes" : [ {
       "modelref" : true,
@@ -1822,6 +1886,32 @@
     },
     "pageSize" : 1000,
     "viewLevel" : 0,
+    "enableBackend" : true,
+    "enableFront" : true
+  }, {
+    "codeName" : "my",
+    "logicName" : "my",
+    "name" : "my",
+    "getPSDEDataQueries" : [ {
+      "modelref" : true,
+      "id" : "my"
+    } ],
+    "getPSDEDataSetInput" : {
+      "name" : "MyInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "ai_agent_context_filter_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataSetReturn" : {
+      "name" : "MyResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_agent_context_dto"
+      },
+      "type" : "PAGE"
+    },
     "enableBackend" : true,
     "enableFront" : true
   }, {
@@ -9918,6 +10008,28 @@
           "id" : "agent"
         },
         "srcValueType" : "SRCDLPARAM"
+      }, {
+        "dstFieldName" : "knowledgebasesbk",
+        "getDstPSDELogicParam" : {
+          "modelref" : true,
+          "id" : "chat_request"
+        },
+        "paramAction" : "SETPARAMVALUE",
+        "srcFieldName" : "ID",
+        "getSrcPSDELogicParam" : {
+          "modelref" : true,
+          "id" : "kb"
+        },
+        "srcValueType" : "SRCDLPARAM"
+      }, {
+        "dstFieldName" : "srfscope",
+        "getDstPSDELogicParam" : {
+          "modelref" : true,
+          "id" : "chat_request"
+        },
+        "expression" : "//Groovy\ndata.get(\"knowledgebasesbk\")?(\"AI_KNOWLEDGE_BASE=\"+data.get(\"knowledgebasesbk\")):null",
+        "paramAction" : "SETPARAMVALUE",
+        "srcValueType" : "EXPRESSION"
       } ],
       "topPos" : 338,
       "parallelOutput" : true
@@ -11239,6 +11351,28 @@
       "topPos" : -168,
       "parallelOutput" : true
     }, {
+      "codeName" : "DEBUGPARAM_01",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "leftPos" : -180,
+      "logicNodeType" : "DEBUGPARAM",
+      "name" : "输出default参数",
+      "getPSDELogicLinks" : [ {
+        "getDstPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "PREPAREPARAM_04"
+        },
+        "name" : "连接名称",
+        "getSrcPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "DEBUGPARAM_01"
+        }
+      } ],
+      "topPos" : -58,
+      "parallelOutput" : true
+    }, {
       "chatRequestAppendMode" : "USER",
       "codeName" : "SYSAICHATAGENT_APPENDCHATREQUEST_01",
       "getDstPSDELogicParam" : {
@@ -11675,6 +11809,29 @@
       "topPos" : 477,
       "parallelOutput" : true
     }, {
+      "codeName" : "SYSAICHATAGENT_CHATINPUT_02",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chat_response"
+      },
+      "leftPos" : -106,
+      "logicNodeType" : "SYSAICHATAGENT_CHATINPUT",
+      "message" : "**继续细化或确认生成**",
+      "name" : "下一步或重新生成",
+      "getPSDELogicLinks" : [ {
+        "getDstPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "SYSAICHATAGENT_CHATDECISION_01"
+        },
+        "name" : "连接名称",
+        "getSrcPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "SYSAICHATAGENT_CHATINPUT_02"
+        }
+      } ],
+      "subType" : "CHATINPUT",
+      "topPos" : 506
+    }, {
       "codeName" : "DEACTION_03",
       "getDstPSDEAction" : {
         "modelref" : true,
@@ -11719,51 +11876,6 @@
       },
       "topPos" : 600,
       "parallelOutput" : true
-    }, {
-      "codeName" : "DEBUGPARAM_01",
-      "getDstPSDELogicParam" : {
-        "modelref" : true,
-        "id" : "Default"
-      },
-      "leftPos" : -180,
-      "logicNodeType" : "DEBUGPARAM",
-      "name" : "输出default参数",
-      "getPSDELogicLinks" : [ {
-        "getDstPSDELogicNode" : {
-          "modelref" : true,
-          "id" : "PREPAREPARAM_04"
-        },
-        "name" : "连接名称",
-        "getSrcPSDELogicNode" : {
-          "modelref" : true,
-          "id" : "DEBUGPARAM_01"
-        }
-      } ],
-      "topPos" : -58,
-      "parallelOutput" : true
-    }, {
-      "codeName" : "SYSAICHATAGENT_CHATINPUT_02",
-      "getDstPSDELogicParam" : {
-        "modelref" : true,
-        "id" : "chat_response"
-      },
-      "leftPos" : -106,
-      "logicNodeType" : "SYSAICHATAGENT_CHATINPUT",
-      "message" : "**继续细化或确认生成**",
-      "name" : "下一步或重新生成",
-      "getPSDELogicLinks" : [ {
-        "getDstPSDELogicNode" : {
-          "modelref" : true,
-          "id" : "SYSAICHATAGENT_CHATDECISION_01"
-        },
-        "name" : "连接名称",
-        "getSrcPSDELogicNode" : {
-          "modelref" : true,
-          "id" : "SYSAICHATAGENT_CHATINPUT_02"
-        }
-      } ],
-      "subType" : "CHATINPUT",
-      "topPos" : 506
     }, {
       "codeName" : "PREPAREPARAM_02",
       "leftPos" : 910,
@@ -12430,6 +12542,15 @@
         },
         "srcValue" : "sjxf_lead",
         "srcValueType" : "SRCDLPARAM"
+      }, {
+        "dstFieldName" : "srfscope",
+        "getDstPSDELogicParam" : {
+          "modelref" : true,
+          "id" : "Default"
+        },
+        "expression" : "//Groovy\ndata.get(\"knowledgebases\")?(\"AI_KNOWLEDGE_BASE=\"+data.get(\"knowledgebases\")):null",
+        "paramAction" : "SETPARAMVALUE",
+        "srcValueType" : "EXPRESSION"
       } ],
       "topPos" : 410,
       "parallelOutput" : true
@@ -14149,7 +14270,7 @@
       "topPos" : 458,
       "parallelOutput" : true
     }, {
-      "code" : "def defaultEntity = logic.param(\"default\").getReal()\nif(!defaultEntity.get(\"page_index\")) {\n    defaultEntity.set(\"page_index\",0)\n}\ndef context_content = \"\\n---\\n\\n* **执行智能体**: \"+defaultEntity.get(\"name\") +\"\\n\"\nif(defaultEntity.get(\"description\")){\n    context_content = context_content+\"* **智能体描述**: \" + defaultEntity.get(\"description\") +\"\\n\"\n}\ncontext_content = context_content +\"\\n---\\n\"\ndefaultEntity.set(\"context_content\",context_content)",
+      "code" : "def defaultEntity = logic.param(\"default\").getReal()\nif(!defaultEntity.get(\"page_index\")) {\n    defaultEntity.set(\"page_index\",0)\n}\ndef context_content = \"\\n---\\n\\n* **执行任务**: \"+defaultEntity.get(\"name\") +\"\\n\"\nif(defaultEntity.get(\"description\")){\n    context_content = context_content+\"* **任务描述**: \" + defaultEntity.get(\"description\") +\"\\n\"\n}\ncontext_content = context_content +\"\\n---\\n\"\ndefaultEntity.set(\"context_content\",context_content)",
       "codeName" : "RAWSFCODE_01",
       "codeType" : "Groovy",
       "leftPos" : 230,
@@ -14925,7 +15046,7 @@
       "getPSDELogicLinks" : [ {
         "getDstPSDELogicNode" : {
           "modelref" : true,
-          "id" : "SYSAICHATAGENT_CHATOUTPUT_02"
+          "id" : "PREPAREPARAM_04"
         },
         "name" : "连接名称",
         "getSrcPSDELogicNode" : {
@@ -14934,7 +15055,35 @@
         }
       } ],
       "subType" : "APPENDCHATREQUEST",
-      "topPos" : 1393
+      "topPos" : 1283
+    }, {
+      "codeName" : "PREPAREPARAM_04",
+      "leftPos" : -6,
+      "logicNodeType" : "PREPAREPARAM",
+      "name" : "scope",
+      "getPSDELogicLinks" : [ {
+        "getDstPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "SYSAICHATAGENT_CHATOUTPUT_02"
+        },
+        "name" : "连接名称",
+        "getSrcPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "PREPAREPARAM_04"
+        }
+      } ],
+      "getPSDELogicNodeParams" : [ {
+        "dstFieldName" : "srfscope",
+        "getDstPSDELogicParam" : {
+          "modelref" : true,
+          "id" : "Default"
+        },
+        "expression" : "//Groovy\ndata.get(\"knowledgebases\")?(\"AI_KNOWLEDGE_BASE=\"+data.get(\"knowledgebases\")):null",
+        "paramAction" : "SETPARAMVALUE",
+        "srcValueType" : "EXPRESSION"
+      } ],
+      "topPos" : 1399,
+      "parallelOutput" : true
     }, {
       "codeName" : "SYSAICHATAGENT_CHATOUTPUT_02",
       "getDstPSDELogicParam" : {

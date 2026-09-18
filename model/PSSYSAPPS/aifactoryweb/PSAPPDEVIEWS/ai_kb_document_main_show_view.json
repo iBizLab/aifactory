@@ -628,12 +628,26 @@
       "name" : "engine"
     } ],
     "getPSAppViewLogics" : [ {
+      "eventNames" : "onNotifyRefresh",
+      "logicTrigger" : "CTRLEVENT",
+      "logicType" : "SCRIPT",
+      "name" : "ingore_form_notify_refresh",
+      "getPSViewCtrlName" : "form",
+      "scriptCode" : "console.log(\"form表单接受到数据变更通知\",data);\r\n// 阻止内置后续逻辑\r\nargs.allowNext = false;"
+    }, {
       "eventNames" : "onLoadSuccess",
       "logicTrigger" : "CTRLEVENT",
       "logicType" : "SCRIPT",
       "name" : "logic",
       "getPSViewCtrlName" : "toolbar",
       "scriptCode" : "ctrl.state.buttonsState.deuiaction1.selected = true"
+    }, {
+      "eventNames" : "onNotifyRefresh",
+      "logicTrigger" : "CTRLEVENT",
+      "logicType" : "SCRIPT",
+      "name" : "form_notify_refresh",
+      "getPSViewCtrlName" : "form1",
+      "scriptCode" : "console.log(\"form1表单接受到数据变更通知\",data);\r\nconst form1 = view.getCtrl('FORM', 'form1');\r\n// 临时仿真，后面需从data中获取数据设置\r\nawait form1.setDataValue(\"status\",99);\r\n// 阻止内置后续逻辑\r\nargs.allowNext = false;"
     } ],
     "getPSControls" : [ {
       "codeName" : "main_show_view_toolbar",

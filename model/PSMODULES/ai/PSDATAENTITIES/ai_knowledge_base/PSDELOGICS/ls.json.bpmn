@@ -8,6 +8,7 @@
                                 <tns:metaData express="" name="ai_knowledge_baselsdefault" type="entity"/>
                                 <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_kb_document()" name="ai_knowledge_baselsdocfilter" type="refentity"/>
                                 <tns:metaData express="new cn.ibizlab.core.ai.domain.ai_kb_document()" name="ai_knowledge_baselsdoclist" type="refentity"/>
+                                <tns:metaData express="new HashMap()" name="ai_knowledge_baselsquery" type="refentity"/>
                                 <tns:metaData express="new HashMap()" name="ai_knowledge_baselsresultjson" type="refentity"/>
                                     <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_kb_documentService))" name="ai_kb_documentservice" type="service"/>
                     <tns:metaData express="T(cn.ibizlab.util.security.SpringContextHolder).getBean(T(cn.ibizlab.core.ai.service.Iai_knowledge_baseService))" name="iBzSysAi_knowledge_baseDefaultService" type="service"/>
@@ -17,13 +18,19 @@
                             <tns:global identifier="ai_knowledge_baselsdoclist" type="cn.ibizlab.core.ai.domain.ai_kb_document" />
             </extensionElements>
                         <startEvent id="begin" isInterrupting="true"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baselsdebugparam_01" id="debugparam_01" implementation="http://www.jboss.org/drools/rule" name="调试逻辑参数Default"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baselsdebugparam_02" id="debugparam_02" implementation="http://www.jboss.org/drools/rule" name="调试逻辑参数query"/>
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baselsprepareparam_01" id="prepareparam_01" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baselsdedataquery_01" id="dedataquery_01" implementation="http://www.jboss.org/drools/rule" name="实体数据查询"/>
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baselsrawsfcode_01" id="rawsfcode_01" implementation="http://www.jboss.org/drools/rule" name="执行脚本代码"/>
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_knowledge_baselsend_01" id="end_01" implementation="http://www.jboss.org/drools/rule" name="结束"/>
                         <endEvent id="end_01_end" name="end"/>
                         <sequenceFlow id="end_01_end_line" sourceRef="end_01" targetRef="end_01_end"/>
-                    <sequenceFlow id="begin_prepareparam_01" sourceRef="begin" targetRef="prepareparam_01">
+                    <sequenceFlow id="begin_debugparam_01" sourceRef="begin" targetRef="debugparam_01">
+                    </sequenceFlow>
+                    <sequenceFlow id="debugparam_01_debugparam_02" sourceRef="debugparam_01" targetRef="debugparam_02">
+                    </sequenceFlow>
+                    <sequenceFlow id="debugparam_02_prepareparam_01" sourceRef="debugparam_02" targetRef="prepareparam_01">
                     </sequenceFlow>
                     <sequenceFlow id="prepareparam_01_dedataquery_01" sourceRef="prepareparam_01" targetRef="dedataquery_01">
                     </sequenceFlow>

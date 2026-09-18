@@ -144,6 +144,27 @@
     },
     "builtinAction" : true
   }, {
+    "actionMode" : "UNKNOWN",
+    "actionType" : "BUILTIN",
+    "codeName" : "InstallCustom",
+    "dataAccessAction" : "UPDATE",
+    "dynaModelFilePath" : "PSMODULES/extension/PSDATAENTITIES/PSCorePrdFunc/PSDEACTIONS/InstallCustom.json",
+    "logicName" : "安装自定义",
+    "name" : "INSTALLCUSTOM",
+    "getPSDEActionInput" : {
+      "name" : "InstallCustomInput",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "PSCorePrdFuncDTO"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEActionReturn" : {
+      "name" : "InstallCustomResult",
+      "type" : "VOID"
+    },
+    "builtinAction" : true
+  }, {
     "actionMode" : "CUSTOM",
     "actionType" : "USERCUSTOM",
     "codeName" : "InstallSpecVer",
@@ -2327,13 +2348,15 @@
       "columnName" : "FUNCSTATE",
       "dBType" : "MYSQL5",
       "name" : "FUNCSTATE",
-      "standardColumnName" : "`FUNCSTATE`"
+      "standardColumnName" : "`FUNCSTATE`",
+      "valueAutoGen" : true
     }, {
       "columnName" : "funcstate",
       "dBType" : "POSTGRESQL",
       "name" : "FUNCSTATE",
       "queryCodeExp" : "t1.\"funcstate\"",
-      "standardColumnName" : "\"funcstate\""
+      "standardColumnName" : "\"funcstate\"",
+      "valueAutoGen" : true
     } ],
     "getAllPSDEFSearchModes" : [ {
       "codeName" : "N_FUNCSTATE_EQ",
@@ -2398,6 +2421,7 @@
     "dEFType" : 1,
     "dEMSFieldMode" : "STATE1",
     "dataType" : "TEXT",
+    "defaultValue" : "0",
     "importOrder" : 1000,
     "length" : 100,
     "logicName" : "功能状态",
@@ -2801,6 +2825,7 @@
       "stringLength" : 100,
       "type" : "SIMPLE"
     }, {
+      "defaultValue" : "0",
       "logicName" : "功能状态",
       "name" : "FuncState",
       "getPSDEField" : {
@@ -2978,6 +3003,7 @@
   }, {
     "name" : "PSCorePrdFuncFilterDTO",
     "getPSDEFilterDTOFields" : [ {
+      "defaultValue" : "0",
       "logicName" : "功能状态",
       "name" : "N_FUNCSTATE_EQ",
       "getPSDEFSearchMode" : {
@@ -2993,6 +3019,7 @@
       "stdDataType" : 25,
       "type" : "SIMPLE"
     }, {
+      "defaultValue" : "0",
       "logicName" : "功能状态",
       "name" : "N_FUNCSTATE_NOTEQ",
       "getPSDEFSearchMode" : {

@@ -146,6 +146,13 @@
     "id" : "cust_default_branch",
     "dataType" : 25
   }, {
+    "id" : "settings",
+    "dataType" : 25,
+    "getPSAppDEField" : {
+      "name" : "SETTINGS",
+      "codeName" : "settings"
+    }
+  }, {
     "id" : "major_system_version",
     "hidden" : true,
     "dataType" : 25,
@@ -932,6 +939,7 @@
             "detailStyle" : "DEFAULT",
             "detailType" : "FORMITEM",
             "enableCond" : 3,
+            "fieldName" : "uploadflag",
             "ignoreInput" : 0,
             "labelPos" : "LEFT",
             "labelWidth" : 90,
@@ -1115,6 +1123,39 @@
             "colLG" : 4,
             "colMD" : 4,
             "colSM" : 4,
+            "layout" : "TABLE_24COL"
+          },
+          "allowEmpty" : true,
+          "showCaption" : true
+        }, {
+          "caption" : "设置",
+          "codeName" : "settings",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "itemHeight" : 200.0,
+          "labelPos" : "LEFT",
+          "labelWidth" : 90,
+          "name" : "settings",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "SETTINGS",
+            "codeName" : "settings"
+          },
+          "getPSEditor" : {
+            "editorHeight" : 200.0,
+            "editorParams" : {
+              "HEIGHT" : "200"
+            },
+            "editorType" : "TEXTAREA_10",
+            "maxLength" : 500,
+            "name" : "settings",
+            "showMaxLength" : true
+          },
+          "getPSLayoutPos" : {
+            "colMD" : 24,
             "layout" : "TABLE_24COL"
           },
           "allowEmpty" : true,

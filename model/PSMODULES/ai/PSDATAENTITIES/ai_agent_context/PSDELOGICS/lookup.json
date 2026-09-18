@@ -422,7 +422,7 @@
     "getPSDELogicLinks" : [ {
       "getDstPSDELogicNode" : {
         "modelref" : true,
-        "id" : "SYSAICHATAGENT_CHATOUTPUT_02"
+        "id" : "PREPAREPARAM_04"
       },
       "name" : "连接名称",
       "getSrcPSDELogicNode" : {
@@ -431,7 +431,35 @@
       }
     } ],
     "subType" : "APPENDCHATREQUEST",
-    "topPos" : 1393
+    "topPos" : 1283
+  }, {
+    "codeName" : "PREPAREPARAM_04",
+    "leftPos" : -6,
+    "logicNodeType" : "PREPAREPARAM",
+    "name" : "scope",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATOUTPUT_02"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_04"
+      }
+    } ],
+    "getPSDELogicNodeParams" : [ {
+      "dstFieldName" : "srfscope",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "expression" : "//Groovy\ndata.get(\"knowledgebases\")?(\"AI_KNOWLEDGE_BASE=\"+data.get(\"knowledgebases\")):null",
+      "paramAction" : "SETPARAMVALUE",
+      "srcValueType" : "EXPRESSION"
+    } ],
+    "topPos" : 1399,
+    "parallelOutput" : true
   }, {
     "codeName" : "SYSAICHATAGENT_CHATOUTPUT_02",
     "getDstPSDELogicParam" : {

@@ -9,6 +9,7 @@ from .qq_plugin import QqPlugin
 from .skill_runner import ToolCallHandler
 from .wecom_plugin import WecomPlugin
 from .main import main
+from .daemon import main as daemon_main
 
 __version__ = "1.0.0"
 __author__ = "iBizLab"
@@ -19,4 +20,5 @@ __all__ = [
     "ToolCallHandler",
     "WecomPlugin",
     "main",
+    "daemon_main",
 ]

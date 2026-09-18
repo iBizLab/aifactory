@@ -1,0 +1,117 @@
+package cn.ibizlab.ai.logic.ai_agent_messagelogic.all;
+        import java.util.Map;
+        import java.util.HashMap;
+        import com.alibaba.fastjson.JSONObject;
+        import org.springframework.util.StringUtils;
+        import org.springframework.util.ObjectUtils;
+        import cn.ibizlab.util.errors.BadRequestAlertException;
+                global cn.ibizlab.core.ai.domain.ai_agent_message ai_agent_messagealldefault;
+                global cn.ibizlab.core.ai.domain.ai_agent_message ai_agent_messageallfilter;
+                global cn.ibizlab.core.ai.domain.ai_agent_message ai_agent_messageallmessages;
+                global cn.ibizlab.core.ai.domain.ai_agent_message ai_agent_messageallpage;
+                global java.util.Map ai_agent_messageallpageval;
+                global cn.ibizlab.core.ai.domain.ai_agent_message ai_agent_messageallresult;
+                global java.util.Map ai_agent_messageallsizeval;
+                    global cn.ibizlab.core.ai.service.Iai_agent_messageService ai_agent_messageservice;
+        global cn.ibizlab.core.ai.service.Iai_agent_messageService iBzSysAi_agent_messageDefaultService;
+        global cn.ibizlab.util.security.AuthenticationUser curuser;
+
+
+    no-loop
+
+            //逻辑处理节点[开始]
+            rule "begin"
+            ruleflow-group "ai_agent_messageallbegin"
+            when
+            then
+            end
+
+            //逻辑处理节点[实体数据查询]
+            rule "dedataquery_01"
+            ruleflow-group "ai_agent_messagealldedataquery_01"
+            when
+            then
+                        update(ai_agent_messagealldefault);//更新fact中变量值
+                        update(ai_agent_messageallfilter);//更新fact中变量值
+                        update(ai_agent_messageallmessages);//更新fact中变量值
+                        update(ai_agent_messageallpage);//更新fact中变量值
+                        update(ai_agent_messageallpageval);//更新fact中变量值
+                        update(ai_agent_messageallresult);//更新fact中变量值
+                        update(ai_agent_messageallsizeval);//更新fact中变量值
+            end
+
+            //逻辑处理节点[按消息序号正序排序]
+            rule "sortparam_01"
+            ruleflow-group "ai_agent_messageallsortparam_01"
+            when
+            then
+                        update(ai_agent_messagealldefault);//更新fact中变量值
+                        update(ai_agent_messageallfilter);//更新fact中变量值
+                        update(ai_agent_messageallmessages);//更新fact中变量值
+                        update(ai_agent_messageallpage);//更新fact中变量值
+                        update(ai_agent_messageallpageval);//更新fact中变量值
+                        update(ai_agent_messageallresult);//更新fact中变量值
+                        update(ai_agent_messageallsizeval);//更新fact中变量值
+            end
+
+            //逻辑处理节点[按传入size及page截取列表]
+            rule "rawsfcode_02"
+            ruleflow-group "ai_agent_messageallrawsfcode_02"
+            when
+            then
+                        update(ai_agent_messagealldefault);//更新fact中变量值
+                        update(ai_agent_messageallfilter);//更新fact中变量值
+                        update(ai_agent_messageallmessages);//更新fact中变量值
+                        update(ai_agent_messageallpage);//更新fact中变量值
+                        update(ai_agent_messageallpageval);//更新fact中变量值
+                        update(ai_agent_messageallresult);//更新fact中变量值
+                        update(ai_agent_messageallsizeval);//更新fact中变量值
+            end
+
+            //逻辑处理节点[拷贝default过滤器属性到filter]
+            rule "copyparam_01"
+            ruleflow-group "ai_agent_messageallcopyparam_01"
+            when
+            then
+                        update(ai_agent_messagealldefault);//更新fact中变量值
+                        update(ai_agent_messageallfilter);//更新fact中变量值
+                        update(ai_agent_messageallmessages);//更新fact中变量值
+                        update(ai_agent_messageallpage);//更新fact中变量值
+                        update(ai_agent_messageallpageval);//更新fact中变量值
+                        update(ai_agent_messageallresult);//更新fact中变量值
+                        update(ai_agent_messageallsizeval);//更新fact中变量值
+            end
+
+            //逻辑处理节点[保存传入分页参数并设置查询条件]
+            rule "prepareparam_01"
+            ruleflow-group "ai_agent_messageallprepareparam_01"
+            when
+            then
+                            ai_agent_messageallsizeval.set("",ai_agent_messagealldefault.get("size"));
+                            ai_agent_messageallpageval.set("",ai_agent_messagealldefault.get("page"));
+                            ai_agent_messageallfilter.set("sort","sequence,desc");
+                            ai_agent_messageallfilter.set("size","1000");
+                            ai_agent_messageallfilter.set("page","0");
+                            ai_agent_messageallfilter.set("n_session_id_eq",ai_agent_messagealldefault.get("n_session_id_eq"));
+                        update(ai_agent_messagealldefault);//更新fact中变量值
+                        update(ai_agent_messageallfilter);//更新fact中变量值
+                        update(ai_agent_messageallmessages);//更新fact中变量值
+                        update(ai_agent_messageallpage);//更新fact中变量值
+                        update(ai_agent_messageallpageval);//更新fact中变量值
+                        update(ai_agent_messageallresult);//更新fact中变量值
+                        update(ai_agent_messageallsizeval);//更新fact中变量值
+            end
+
+            //逻辑处理节点[结束]
+            rule "end_01"
+            ruleflow-group "ai_agent_messageallend_01"
+            when
+            then
+                        update(ai_agent_messagealldefault);//更新fact中变量值
+                        update(ai_agent_messageallfilter);//更新fact中变量值
+                        update(ai_agent_messageallmessages);//更新fact中变量值
+                        update(ai_agent_messageallpage);//更新fact中变量值
+                        update(ai_agent_messageallpageval);//更新fact中变量值
+                        update(ai_agent_messageallresult);//更新fact中变量值
+                        update(ai_agent_messageallsizeval);//更新fact中变量值
+            end

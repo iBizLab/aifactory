@@ -1,12 +1,15 @@
 import os
 import logging
 from logging.handlers import RotatingFileHandler # 👈 引入按大小切分的 Handler
+from pathlib import Path
 
 pid = os.getpid()
+log_dir = Path("logs")
+log_dir.mkdir(parents=True, exist_ok=True)
 
 # 使用 RotatingFileHandler 替换普通的 FileHandler
 file_handler = RotatingFileHandler(
-    filename=f"afsr_{pid}.log",
+    filename=f"logs/afsr_{pid}.log",
     maxBytes=10 * 1024 * 1024,  # 单个文件最大 10 MB
     backupCount=5,               # 最多保留 5 个历史备份 (app.log.1, app.log.2 ...)
     encoding="utf-8"
@@ -520,6 +523,8 @@ def main():
 
     logger.info("=== 启动技能处理器 ===")
     handler = ToolCallHandler()
+    if args.env_file and args.env_file != '.env':
+        handler.heartbeat_file = Path.cwd() / f"{Path(args.env_file).name}_heartbeat"
     handler.start_listening()
 
 

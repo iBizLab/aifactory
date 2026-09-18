@@ -8,6 +8,7 @@ package cn.ibizlab.ai.logic.ai_knowledge_baselogic.ls;
                 global cn.ibizlab.core.ai.domain.ai_knowledge_base ai_knowledge_baselsdefault;
                 global cn.ibizlab.core.ai.domain.ai_kb_document ai_knowledge_baselsdocfilter;
                 global cn.ibizlab.core.ai.domain.ai_kb_document ai_knowledge_baselsdoclist;
+                global java.util.Map ai_knowledge_baselsquery;
                 global java.util.Map ai_knowledge_baselsresultjson;
                     global cn.ibizlab.core.ai.service.Iai_kb_documentService ai_kb_documentservice;
         global cn.ibizlab.core.ai.service.Iai_knowledge_baseService iBzSysAi_knowledge_baseDefaultService;
@@ -23,17 +24,42 @@ package cn.ibizlab.ai.logic.ai_knowledge_baselogic.ls;
             then
             end
 
+            //逻辑处理节点[调试逻辑参数default]
+            rule "debugparam_01"
+            ruleflow-group "ai_knowledge_baselsdebugparam_01"
+            when
+            then
+                        update(ai_knowledge_baselsdefault);//更新fact中变量值
+                        update(ai_knowledge_baselsdocfilter);//更新fact中变量值
+                        update(ai_knowledge_baselsdoclist);//更新fact中变量值
+                        update(ai_knowledge_baselsquery);//更新fact中变量值
+                        update(ai_knowledge_baselsresultjson);//更新fact中变量值
+            end
+
+            //逻辑处理节点[调试逻辑参数query]
+            rule "debugparam_02"
+            ruleflow-group "ai_knowledge_baselsdebugparam_02"
+            when
+            then
+                        update(ai_knowledge_baselsdefault);//更新fact中变量值
+                        update(ai_knowledge_baselsdocfilter);//更新fact中变量值
+                        update(ai_knowledge_baselsdoclist);//更新fact中变量值
+                        update(ai_knowledge_baselsquery);//更新fact中变量值
+                        update(ai_knowledge_baselsresultjson);//更新fact中变量值
+            end
+
             //逻辑处理节点[准备参数]
             rule "prepareparam_01"
             ruleflow-group "ai_knowledge_baselsprepareparam_01"
             when
             then
                             ai_knowledge_baselsdocfilter.set("kbid",ai_knowledge_baselsdefault.get("id"));
-                            ai_knowledge_baselsdocfilter.set("size","150");
+                            ai_knowledge_baselsdocfilter.set("size","1000");
                             ai_knowledge_baselsdocfilter.set("sort","sequence,asc");
                         update(ai_knowledge_baselsdefault);//更新fact中变量值
                         update(ai_knowledge_baselsdocfilter);//更新fact中变量值
                         update(ai_knowledge_baselsdoclist);//更新fact中变量值
+                        update(ai_knowledge_baselsquery);//更新fact中变量值
                         update(ai_knowledge_baselsresultjson);//更新fact中变量值
             end
 
@@ -45,6 +71,7 @@ package cn.ibizlab.ai.logic.ai_knowledge_baselogic.ls;
                         update(ai_knowledge_baselsdefault);//更新fact中变量值
                         update(ai_knowledge_baselsdocfilter);//更新fact中变量值
                         update(ai_knowledge_baselsdoclist);//更新fact中变量值
+                        update(ai_knowledge_baselsquery);//更新fact中变量值
                         update(ai_knowledge_baselsresultjson);//更新fact中变量值
             end
 
@@ -56,6 +83,7 @@ package cn.ibizlab.ai.logic.ai_knowledge_baselogic.ls;
                         update(ai_knowledge_baselsdefault);//更新fact中变量值
                         update(ai_knowledge_baselsdocfilter);//更新fact中变量值
                         update(ai_knowledge_baselsdoclist);//更新fact中变量值
+                        update(ai_knowledge_baselsquery);//更新fact中变量值
                         update(ai_knowledge_baselsresultjson);//更新fact中变量值
             end
 
@@ -67,5 +95,6 @@ package cn.ibizlab.ai.logic.ai_knowledge_baselogic.ls;
                         update(ai_knowledge_baselsdefault);//更新fact中变量值
                         update(ai_knowledge_baselsdocfilter);//更新fact中变量值
                         update(ai_knowledge_baselsdoclist);//更新fact中变量值
+                        update(ai_knowledge_baselsquery);//更新fact中变量值
                         update(ai_knowledge_baselsresultjson);//更新fact中变量值
             end

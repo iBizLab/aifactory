@@ -36,6 +36,7 @@
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextlookupsysaichatagent_chatstep_02" id="sysaichatagent_chatstep_02" implementation="http://www.jboss.org/drools/rule" name="提示参考资料"/>
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextlookupsysaichatagent_chatstep_03" id="sysaichatagent_chatstep_03" implementation="http://www.jboss.org/drools/rule" name="执行智能体"/>
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextlookupsysaichatagent_appendchatrequest_02" id="sysaichatagent_appendchatrequest_02" implementation="http://www.jboss.org/drools/rule" name="附加聊天请求"/>
+                        <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextlookupprepareparam_04" id="prepareparam_04" implementation="http://www.jboss.org/drools/rule" name="scope"/>
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextlookupsysaichatagent_chatoutput_02" id="sysaichatagent_chatoutput_02" implementation="http://www.jboss.org/drools/rule" name="交谈输出"/>
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextlookupsysaichatagent_chatstep_04" id="sysaichatagent_chatstep_04" implementation="http://www.jboss.org/drools/rule" name="审查完成"/>
                         <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ai_agent_contextlookupend_01" id="end_01" implementation="http://www.jboss.org/drools/rule" name="结束"/>
@@ -69,7 +70,9 @@
                     </sequenceFlow>
                     <sequenceFlow id="sysaichatagent_chatstep_03_sysaichatagent_appendchatrequest_02" sourceRef="sysaichatagent_chatstep_03" targetRef="sysaichatagent_appendchatrequest_02">
                     </sequenceFlow>
-                    <sequenceFlow id="sysaichatagent_appendchatrequest_02_sysaichatagent_chatoutput_02" sourceRef="sysaichatagent_appendchatrequest_02" targetRef="sysaichatagent_chatoutput_02">
+                    <sequenceFlow id="sysaichatagent_appendchatrequest_02_prepareparam_04" sourceRef="sysaichatagent_appendchatrequest_02" targetRef="prepareparam_04">
+                    </sequenceFlow>
+                    <sequenceFlow id="prepareparam_04_sysaichatagent_chatoutput_02" sourceRef="prepareparam_04" targetRef="sysaichatagent_chatoutput_02">
                     </sequenceFlow>
                     <sequenceFlow id="sysaichatagent_chatoutput_02_sysaichatagent_chatstep_04" sourceRef="sysaichatagent_chatoutput_02" targetRef="sysaichatagent_chatstep_04">
                     </sequenceFlow>

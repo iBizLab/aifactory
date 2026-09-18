@@ -3144,6 +3144,134 @@
     } ],
     "uniqueTag" : "ai_kb_chunk__card_group"
   }, {
+    "codeName" : "Auto16665225",
+    "name" : "配置行为组",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
+    },
+    "getPSUIActionGroupDetails" : [ {
+      "caption" : "提示词智能生成",
+      "detailType" : "DEUIACTION",
+      "name" : "u0940d71",
+      "getPSSysImage" : {
+        "glyph" : "xf19a@FontAwesome",
+        "cssClass" : "fa fa-wordpress"
+      },
+      "getPSUIAction" : {
+        "actionTarget" : "SINGLEDATA",
+        "caption" : "提示词智能生成",
+        "codeName" : "prompt",
+        "frontProcessType" : "CHAT",
+        "fullCodeName" : "ai_agent_context_prompt",
+        "name" : "提示词填充",
+        "getPSAppDEACMode" : {
+          "modelref" : true,
+          "id" : "agent_prompt"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
+        },
+        "getPSNavigateContexts" : [ {
+          "key" : "SRFAIAPPENDCURDATA",
+          "name" : "SRFAIAPPENDCURDATA",
+          "value" : "true",
+          "rawValue" : true
+        }, {
+          "key" : "AI_AGENT_CONTEXT",
+          "name" : "AI_AGENT_CONTEXT",
+          "value" : "id",
+          "rawValue" : false
+        } ],
+        "getPSNavigateParams" : [ {
+          "key" : "srfaichatcaption",
+          "name" : "srfaichatcaption",
+          "value" : "提示词智能生成",
+          "rawValue" : true
+        }, {
+          "key" : "srfenableaiagentchange",
+          "name" : "srfenableaiagentchange",
+          "value" : "false",
+          "rawValue" : true
+        }, {
+          "key" : "hidetopicsidebar",
+          "name" : "hidetopicsidebar",
+          "value" : "true",
+          "rawValue" : true
+        }, {
+          "key" : "disabletopicstorage",
+          "name" : "disabletopicstorage",
+          "value" : "true",
+          "rawValue" : true
+        }, {
+          "key" : "autoquestion",
+          "name" : "autoquestion",
+          "value" : "true",
+          "rawValue" : true
+        } ],
+        "getPSSysImage" : {
+          "glyph" : "xf19a@FontAwesome",
+          "cssClass" : "fa fa-wordpress"
+        },
+        "uIActionMode" : "FRONT",
+        "uIActionTag" : "prompt",
+        "uIActionType" : "DEUIACTION",
+        "id" : "prompt@ai_agent_context"
+      },
+      "addSeparator" : false,
+      "showCaption" : true,
+      "showIcon" : true
+    }, {
+      "caption" : "删除",
+      "detailType" : "DEUIACTION",
+      "name" : "ub290eb2",
+      "getPSSysImage" : {
+        "glyph" : "xf00d@FontAwesome",
+        "cssClass" : "fa fa-remove"
+      },
+      "getPSUIAction" : {
+        "actionTarget" : "SINGLEKEY",
+        "caption" : "删除",
+        "codeName" : "remove_agent",
+        "confirmMsg" : "确认删除该智能体？",
+        "dataAccessAction" : "DELETE",
+        "fullCodeName" : "ai_agent_context_remove_agent",
+        "name" : "删除配置",
+        "getNextPSUIAction" : {
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
+          },
+          "modelref" : true,
+          "id" : "back@ai_agent_context"
+        },
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "remove"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
+        },
+        "getPSDEOPPriv" : {
+          "modelref" : true,
+          "id" : "DELETE"
+        },
+        "successMsg" : "删除成功",
+        "timeout" : 60000,
+        "uIActionMode" : "BACKEND",
+        "uIActionTag" : "remove_agent",
+        "uIActionType" : "DEUIACTION",
+        "enableConfirm" : true,
+        "id" : "remove_agent@ai_agent_context"
+      },
+      "addSeparator" : false,
+      "showCaption" : true,
+      "showIcon" : true
+    } ],
+    "uniqueTag" : "ai_agent_context__Auto16665225"
+  }, {
     "codeName" : "Auto46490933",
     "name" : "编辑界面默认行为组",
     "getPSAppDataEntity" : {
@@ -5025,7 +5153,7 @@
     },
     "pluginType" : "CUSTOM",
     "rTObjectName" : "IBizAssistantButton",
-    "rTObjectRepo" : "@ibiz-template-ai/ai-assistant-button@0.1.8-alpha.372",
+    "rTObjectRepo" : "@ibiz-template-ai/ai-assistant-button@0.1.8-alpha.492",
     "refMode" : "CONTROLITEM",
     "refTag" : "VIEWLAYOUTPANEL",
     "refTag2" : "BUTTON",
@@ -5040,7 +5168,7 @@
     "pluginCode" : "AI_ASSISTANT_UI_ACTION",
     "pluginType" : "DEUIACTION",
     "rTObjectName" : "AI_ASSISTANT_UI_ACTION",
-    "rTObjectRepo" : "@ibiz-template-ai/ai_assistant_uiaction@0.1.8-alpha.453",
+    "rTObjectRepo" : "@ibiz-template-ai/ai_assistant_uiaction@0.1.8-alpha.491",
     "refMode" : "UIACTION",
     "refTag" : "FRONT",
     "runtimeObject" : true
@@ -5390,9 +5518,12 @@
   } ],
   "getUserParam" : {
     "globalConfig.grid.editShowMode" : "cell",
+    "globalConfig.common.aiMinimizeContainerId" : "ibiz-ai-assistant-button",
     "enableMqtt" : "true",
+    "globalConfig.common.aiInputPlaceholder" : "给AIFactory 发送消息",
     "globalConfig.grid.overflowMode" : "ellipsis",
     "globalConfig.theme" : "app_light",
+    "globalConfig.common.aiTopicStorageMode" : "REMOTESESSION",
     "globalConfig.common.aiUploadMaxSize" : "209715200",
     "globalConfig.common.aiChunkEntity" : "ai_kb_chunk",
     "globalConfig.common.aiChatTopicCaptionMode" : "summary",

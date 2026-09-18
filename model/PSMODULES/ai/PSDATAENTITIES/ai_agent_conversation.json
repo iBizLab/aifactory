@@ -327,6 +327,9 @@
       "name" : "SCOPE",
       "codeName" : "scope"
     }, {
+      "name" : "UI_META",
+      "codeName" : "ui_meta"
+    }, {
       "name" : "STATUS",
       "codeName" : "status"
     }, {
@@ -355,7 +358,7 @@
   } ],
   "getAllPSDEDRItems" : [ {
     "modelref" : true,
-    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation/PSDEDRITEMS/DRItem.json"
+    "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation/PSDEDRITEMS/DRItem2.json"
   } ],
   "getAllPSDEDataQueries" : [ {
     "getAllPSDEDataQueryCodes" : [ {
@@ -1775,6 +1778,86 @@
     "phisicalDEField" : false
   }, {
     "getAllPSDEFDTColumns" : [ {
+      "columnName" : "UI_META",
+      "dBType" : "MYSQL5",
+      "name" : "UI_META",
+      "standardColumnName" : "`UI_META`"
+    }, {
+      "columnName" : "ui_meta",
+      "dBType" : "POSTGRESQL",
+      "name" : "UI_META",
+      "queryCodeExp" : "t1.\"ui_meta\"",
+      "standardColumnName" : "\"ui_meta\""
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "name" : "默认",
+      "getPSDEFFormItem" : {
+        "editorType" : "TEXTAREA_10",
+        "name" : "默认",
+        "stringLength" : 1048576,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "name" : "移动端默认",
+      "getPSDEFFormItem" : {
+        "editorType" : "MOBTEXTAREA",
+        "name" : "移动端默认",
+        "stringLength" : 1048576,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "UI_META",
+          "maxValue" : 1048576,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[1048576]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[1048576]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[1048576]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "ui_meta",
+    "dEFType" : 1,
+    "dataType" : "LONGTEXT",
+    "fieldTag" : "UI_META",
+    "importOrder" : 1000,
+    "length" : 1048576,
+    "logicName" : "UI元数据",
+    "name" : "UI_META",
+    "orderValue" : 270,
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "UI_META"
+    },
+    "serviceCodeName" : "ui_meta",
+    "stdDataType" : 21,
+    "stringLength" : 1048576,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
       "columnName" : "SHOW_NAME",
       "dBType" : "MYSQL5",
       "formulaColumns" : "title;agent_context_name",
@@ -2903,6 +2986,17 @@
       "sourceType" : "DEFIELD",
       "stdDataType" : 25,
       "stringLength" : 30,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "UI元数据",
+      "name" : "ui_meta",
+      "getPSDEField" : {
+        "name" : "UI_META",
+        "codeName" : "ui_meta"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 21,
+      "stringLength" : 1048576,
       "type" : "SIMPLE"
     }, {
       "logicName" : "会话",

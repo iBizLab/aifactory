@@ -12,7 +12,7 @@
     "name" : "fetch",
     "getPSAppDEMethod" : {
       "modelref" : true,
-      "id" : "fetch_all"
+      "id" : "fetch_histories"
     },
     "getPSAppDataEntity" : {
       "modelref" : true,
@@ -185,7 +185,7 @@
     "allowEmpty" : true
   } ],
   "pagingMode" : 1,
-  "pagingSize" : 20,
+  "pagingSize" : 100,
   "getRemovePSControlAction" : {
     "actionName" : "Remove",
     "actionType" : "DEACTION",

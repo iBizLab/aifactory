@@ -327,6 +327,9 @@
       "name" : "LAST_MSG_TIME",
       "codeName" : "last_msg_time"
     }, {
+      "name" : "AI_AGENT_CONTEXT_ID",
+      "codeName" : "ai_agent_context_id"
+    }, {
       "name" : "CREATE_MAN",
       "codeName" : "create_man"
     }, {
@@ -2245,7 +2248,7 @@
       "columnName" : "ai_agent_context_id",
       "dBType" : "POSTGRESQL",
       "name" : "AI_AGENT_CONTEXT_ID",
-      "queryCodeExp" : "t11.\"ai_agent_context_id\"",
+      "queryCodeExp" : "t1.\"ai_agent_context_id\"",
       "standardColumnName" : "\"ai_agent_context_id\""
     } ],
     "getAllPSDEFUIModes" : [ {
@@ -2253,17 +2256,9 @@
       "name" : "[AI_AGENT_CONTEXT_ID][智能体业务上下文标识]",
       "getPSDEFFormItem" : {
         "codeName" : "Default",
-        "editorType" : "SPAN",
+        "editorType" : "TEXTBOX",
         "name" : "[AI_AGENT_CONTEXT_ID][智能体业务上下文标识]",
-        "getRefPSDEACMode" : {
-          "modelref" : true,
-          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation/PSDEACMODES/Default.json"
-        },
-        "getRefPSDataEntity" : {
-          "modelref" : true,
-          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation.json"
-        },
-        "stringLength" : 100,
+        "stringLength" : 200,
         "uIMode" : "DEFAULT"
       },
       "type" : "DEFAULT"
@@ -2272,17 +2267,9 @@
       "name" : "[AI_AGENT_CONTEXT_ID][智能体业务上下文标识]移动端默认",
       "getPSDEFFormItem" : {
         "codeName" : "MobileDefault",
-        "editorType" : "SPAN",
+        "editorType" : "MOBTEXT",
         "name" : "[AI_AGENT_CONTEXT_ID][智能体业务上下文标识]移动端默认",
-        "getRefPSDEACMode" : {
-          "modelref" : true,
-          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation/PSDEACMODES/Default.json"
-        },
-        "getRefPSDataEntity" : {
-          "modelref" : true,
-          "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation.json"
-        },
-        "stringLength" : 100,
+        "stringLength" : 200,
         "uIMode" : "MOBILEDEFAULT",
         "mobileMode" : true
       },
@@ -2299,56 +2286,41 @@
         "getPSDEFVRConditions" : [ {
           "condType" : "STRINGLENGTH",
           "dEFName" : "AI_AGENT_CONTEXT_ID",
-          "maxValue" : 100,
+          "maxValue" : 200,
           "name" : "默认字符串长度",
-          "ruleInfo" : "内容长度必须小于等于[100]",
+          "ruleInfo" : "内容长度必须小于等于[200]",
           "includeMaxValue" : true,
           "includeMinValue" : false,
           "keyCond" : true
         } ],
-        "ruleInfo" : "内容长度必须小于等于[100]"
+        "ruleInfo" : "内容长度必须小于等于[200]"
       },
-      "ruleInfo" : "内容长度必须小于等于[100]",
+      "ruleInfo" : "内容长度必须小于等于[200]",
       "checkDefault" : true,
       "defaultMode" : true,
       "enableBackend" : true,
       "enableFront" : true
     } ],
     "codeName" : "ai_agent_context_id",
-    "dEFType" : 3,
-    "dataType" : "PICKUPDATA",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
     "importOrder" : 1000,
-    "length" : 100,
+    "length" : 200,
     "logicName" : "智能体业务上下文标识",
     "name" : "AI_AGENT_CONTEXT_ID",
     "orderValue" : 330,
-    "getPSDER" : {
+    "getPSDEDBTable" : {
       "modelref" : true,
-      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task/PSDERS/DER1N_AI_AGENT_MEMORY_TASK_AI_AGENT_CONVERSATION_CONVERSATION_ID.json"
+      "id" : "Table"
     },
-    "getRealPSDEField" : {
-      "name" : "ID",
-      "codeName" : "id"
-    },
-    "getRealPSDataEntity" : {
+    "getPSSysDBColumn" : {
       "modelref" : true,
-      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
-    },
-    "getRelatedPSDEField" : {
-      "name" : "AI_AGENT_CONTEXT_ID",
-      "codeName" : "ai_agent_context_id"
-    },
-    "getRelatedPSDataEntity" : {
-      "modelref" : true,
-      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation.json"
+      "id" : "AI_AGENT_CONTEXT_ID"
     },
     "serviceCodeName" : "ai_agent_context_id",
     "stdDataType" : 25,
-    "stringLength" : 100,
-    "valueFormat" : "%1$s",
-    "viewLevel" : 0,
-    "linkDEField" : true,
-    "phisicalDEField" : false
+    "stringLength" : 200,
+    "valueFormat" : "%1$s"
   }, {
     "getAllPSDEFDTColumns" : [ {
       "columnName" : "CREATE_MAN",
@@ -4773,7 +4745,7 @@
       },
       "sourceType" : "DEFIELD",
       "stdDataType" : 25,
-      "stringLength" : 100,
+      "stringLength" : 200,
       "type" : "SIMPLE"
     }, {
       "logicName" : "创建人",

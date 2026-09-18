@@ -2338,6 +2338,19 @@
     "templCode" : "package cn.ibizlab.user.plugin.groovy.dataentity.ds\n\nimport net.ibizsys.central.database.IDBDialect\nimport net.ibizsys.central.database.postgresql.PostgreSQLDialect;\nimport net.ibizsys.central.plugin.util.dataentity.ds.DEDataSetRuntimeBase\nimport net.ibizsys.central.util.EntityDTO\nimport net.ibizsys.psmodel.core.util.DataTypes\nimport net.ibizsys.runtime.util.Conditions\nimport net.ibizsys.runtime.util.DataTypeUtils\nimport net.ibizsys.runtime.util.Entity\nimport net.ibizsys.runtime.util.ISearchCond\nimport net.ibizsys.runtime.util.ISearchFieldCond\nimport net.ibizsys.runtime.util.ISearchGroupCond\nimport net.ibizsys.runtime.util.ISearchItemsCond\nimport net.ibizsys.runtime.util.SearchCustomCond\nimport org.apache.commons.collections4.CollectionUtils\nimport org.springframework.data.domain.Page;\nimport net.ibizsys.central.util.ISearchContextDTO;\n\n\n/**\n * AI知识库查询(record)\n */\nclass AIKBWithRecordDataSetRuntime extends DEDataSetRuntimeBase {\n\n    @Override\n    protected Page<?> doFetchReal(ISearchContextDTO iSearchContextDTO) throws Throwable {\n        //自定义搜索组\n        ISearchCond cond = null\n        Iterator<ISearchCond> iterator = iSearchContextDTO.getSearchCondsIf().iterator()\n        while (iterator.hasNext()) {\n            ISearchCond searchCond = iterator.next()\n            if (ISearchGroupCond.CAT_SEARCHCONDS == searchCond.getCat()) {\n                cond = searchCond\n                iterator.remove()\n                break\n            }\n        }\n\n        if (iSearchContextDTO.get(\"resourceid\")) {\n            def data_resource = this.getSystemRuntime().getDataEntityRuntime(\"DATA_RESOURCE\").get(iSearchContextDTO.get(\"resourceid\"))\n            if (cond != null && data_resource) {\n                //解析SEARCHCONDS，形成jsonb的查询条件\n                IDBDialect dbDialect = this.getDataEntityRuntime().getSysDBSchemeRuntime().getDBDialect()\n                Entity definition = data_resource.get(\"schema\")?.get(\"definition\")\n                if (definition && dbDialect instanceof PostgreSQLDialect) {\n                    String jsonField = \"T11._metadata\"\n                    StringBuilder sb = new StringBuilder();\n                    parseSearchCond(jsonField, sb, dbDialect, definition, null, null, cond, iSearchContextDTO)\n                    iSearchContextDTO.getSearchCondsIf().add(SearchCustomCond.of(sb.toString()))\n                }\n            }\n        }\n\n        Object[] args = [iSearchContextDTO] as Object[]\n        return this.getDataEntityRuntime().fetchDataSet(\"DEFAULT\", null, args)\n    }\n\n    /**\n     *\n     * 解析jsonb条件\n     *\n     * @param jsonField\n     * @param sb\n     * @param dbDialect\n     * @param items\n     * @param searchCond\n     * @param iSearchContextDTO\n     */\n    private void parseSearchCond(String jsonField, StringBuilder sb, IDBDialect dbDialect, Entity definition, List<String> items, List<String> array_items, ISearchCond searchCond, ISearchContextDTO iSearchContextDTO) {\n        //  集合存在xxx条件\n        //  EXISTS (SELECT 1\n        //              FROM jsonb_array_elements(t11._metadata -> 'HFDF_LIST') AS elem\n        //              WHERE elem ->> 'AH' is not null)\n        //\n        //  集合存在\n        // jsonb_array_length(t11._metadata->'HFDF_LIST') > 0\n\n        if (searchCond instanceof ISearchItemsCond) {\n            //子对象条件\n            ISearchItemsCond searchGroupCond = (ISearchItemsCond) searchCond;\n            List<ISearchCond> conds = searchGroupCond.getSearchConds()\n            if (CollectionUtils.isNotEmpty(conds)) {\n                List<String> subItems = new ArrayList<>()\n                String subItem = searchGroupCond.getFieldName()\n                if (items) {\n                    subItems.addAll(items)\n                }\n                subItems.add(subItem)\n                def obj_property = definition\n                for (item in subItems) {\n                    if (\"object\" == obj_property.get(\"type\")) {\n                        obj_property = obj_property.get(\"properties\").get(item)\n                    } else if (\"array\" == obj_property.get(\"type\")) {\n                        obj_property = obj_property.get(\"items\").get(\"properties\").get(item)\n                    }\n                }\n                if (!obj_property) {\n                    throw new Exception(\"[{$subItem}]字段不存在\")\n                }\n\n                sb.append(\"(\")\n                if (\"object\" == obj_property.get(\"type\")) {\n                    for (i in 0..<conds.size()) {\n                        if (i > 0) {\n                            if (Conditions.OR == searchGroupCond.getCondOp()) {\n                                sb.append(\" \" + Conditions.OR + \" \")\n                            } else {\n                                sb.append(\" \" + Conditions.AND + \" \")\n                            }\n                        }\n                        parseSearchCond(jsonField, sb, dbDialect, definition, subItems, array_items, conds.get(i), iSearchContextDTO)\n                    }\n                } else if (\"array\" == obj_property.get(\"type\")) {\n                    String fieldName = jsonField\n                    List<String> subArrayItems = new ArrayList<>()\n                    if (array_items) {\n                        subArrayItems.addAll(array_items)\n                    }\n                    subArrayItems.add(subItem)\n                    if (jsonField == 'T11._metadata') {\n                        fieldName += \" -> '${subItem}'\"\n                    } else {\n                        if (subArrayItems && subArrayItems.size() > 1) {\n                            for (i in 1..<subArrayItems.size()) {\n                                fieldName += \" -> '${subArrayItems.get(i)}'\"\n                            }\n                        }\n                    }\n                    sb.append(\"\"\"\nEXISTS (SELECT 1\nFROM jsonb_array_elements(${fieldName}) AS ${subItem}\nWHERE\n\"\"\")\n                    StringBuilder arrayFieldConds = new StringBuilder();\n                    for (i in 0..<conds.size()) {\n                        if (i > 0) {\n                            if (Conditions.OR == searchGroupCond.getCondOp()) {\n                                arrayFieldConds.append(\" \" + Conditions.OR + \" \")\n                            } else {\n                                arrayFieldConds.append(\" \" + Conditions.AND + \" \")\n                            }\n                        }\n                        parseSearchCond(subItem, arrayFieldConds, dbDialect, definition, subItems, subArrayItems, conds.get(i), iSearchContextDTO)\n                    }\n                    sb.append(arrayFieldConds.toString())\n                    sb.append(\")\")\n                }\n                sb.append(\")\")\n            }\n        } else if (searchCond instanceof ISearchGroupCond) {\n            ISearchGroupCond searchGroupCond = (ISearchGroupCond) searchCond;\n            List<ISearchCond> conds = searchGroupCond.getSearchConds()\n            if (CollectionUtils.isNotEmpty(conds)) {\n                sb.append(\"(\")\n                for (i in 0..<conds.size()) {\n                    if (i > 0) {\n                        if (Conditions.OR == searchGroupCond.getCondOp()) {\n                            sb.append(\" \" + Conditions.OR + \" \")\n                        } else {\n                            sb.append(\" \" + Conditions.AND + \" \")\n                        }\n                    }\n                    parseSearchCond(jsonField, sb, dbDialect, definition, items, array_items, conds.get(i), iSearchContextDTO)\n                }\n                sb.append(\")\")\n            }\n        } else if (searchCond instanceof ISearchFieldCond) {\n            ISearchFieldCond iSearchFieldCond = (ISearchFieldCond) searchCond;\n            String fieldName = jsonField\n\n            def last_obj_property = definition\n            for (item in items) {\n                if (\"object\" == last_obj_property.get(\"type\")) {\n                    last_obj_property = last_obj_property.get(\"properties\").get(item)\n                } else if (\"array\" == last_obj_property.get(\"type\")) {\n                    last_obj_property = last_obj_property.get(\"items\").get(\"properties\").get(item)\n                }\n            }\n\n            if (last_obj_property == null || \"object\" == last_obj_property.get(\"type\")) {\n                if (items) {\n                    if(array_items) {\n                        for (i in array_items.size()..<items.size()) {\n                            fieldName += \" -> '${items.get(i)}'\"\n                        }\n                    } else {\n                        for (item in items) {\n                            fieldName += \" -> '${item}'\"\n                        }\n                    }\n                }\n            }\n            fieldName += \" ->> '\" + iSearchFieldCond.getFieldName() + \"'\"\n            int dataType = iSearchFieldCond.getDataType()\n            if (!DataTypeUtils.isStringDataType(dataType) && !DataTypeUtils.isIntDataType(dataType) && !DataTypeUtils.isDoubleDataType(dataType) && !DataTypeUtils.isDateTimeDataType(dataType)) {\n                dataType = DataTypes.VARCHAR\n            }\n            //数值\n            if (DataTypeUtils.isIntDataType(dataType) || DataTypeUtils.isDoubleDataType(dataType)) {\n                fieldName = \"(\" + fieldName + \")::NUMERIC\"\n            }\n            String sql = dbDialect.getConditionSQL(fieldName, dataType, iSearchFieldCond.getCondOp(), iSearchFieldCond.getValue(), false, iSearchContextDTO)\n            sb.append(sql)\n        }\n    }\n\n\n}\n",
     "runtimeObject" : true
   }, {
+    "codeName" : "AISkillRunnerWithStateDEDataSetRuntime",
+    "dynaModelFilePath" : "PSMODULES/ai/PSSYSSFPLUGINS/AISkillRunnerWithStateDEDataSetRuntime.json",
+    "name" : "AISkillRunnerWithStateDEDataSetRuntime",
+    "getPSSystemModule" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai.json"
+    },
+    "pluginCode" : "AISkillRunnerWithStateDEDataSetRuntime",
+    "pluginType" : "DEDATASET",
+    "rTObjectName" : "net.ibizsys.central.plugin.ai.dataentity.ds.AISkillRunnerWithStateDEDataSetRuntime",
+    "rTObjectSource" : 1,
+    "runtimeObject" : true
+  }, {
     "codeName" : "AISkillWorkspaceDESyncUtilRuntime",
     "dynaModelFilePath" : "PSMODULES/ai/PSSYSSFPLUGINS/AISkillWorkspaceDESyncUtilRuntime.json",
     "name" : "AISkillWorkspaceDESyncUtilRuntime",
@@ -2745,6 +2758,10 @@
     "resCode" : "EXTENSION__MANAGE_PSDENOTIFY",
     "id" : "extension__EXTENSION__MANAGE_PSDENOTIFY"
   }, {
+    "name" : "组织管理",
+    "resCode" : "ORG_M",
+    "id" : "ORG_M"
+  }, {
     "name" : "智能报表立方体维度模型扩展",
     "resCode" : "EXTENSION__MANAGE_PSSYSBICUBEDIMENSION",
     "id" : "EXTENSION__MANAGE_PSSYSBICUBEDIMENSION"
@@ -2986,6 +3003,16 @@
       "getPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Base/PSDATAENTITIES/role.json"
+      }
+    }, {
+      "name" : "系统管理员-EXTEND_SCHEDULED_TASK[全部数据（读）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/extend_scheduled_task/PSDEUSERROLES/ALL_R.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/extend_scheduled_task.json"
       }
     }, {
       "name" : "系统管理员-AI_KB_DOCUMENT_WIZARD[全部数据（读写）]",
@@ -3248,6 +3275,16 @@
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_graph_entity_type.json"
       }
     }, {
+      "name" : "系统管理员-EXTEND_TASK_TYPE[全部数据（读）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/extend_task_type/PSDEUSERROLES/ALL_R.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/extend_task_type.json"
+      }
+    }, {
       "name" : "系统管理员-AI_CREDENTIAL[全部数据（读写）]",
       "getPSDEUserRole" : {
         "modelref" : true,
@@ -3266,6 +3303,26 @@
       "getPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_conversation.json"
+      }
+    }, {
+      "name" : "系统管理员-EXTEND_SCHEDULE[全部数据（读）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/extend_schedule/PSDEUSERROLES/ALL_R.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/extend_schedule.json"
+      }
+    }, {
+      "name" : "系统管理员-EXTEND_SCHEDULED_TASK_HIS[全部数据（读）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/extend_scheduled_task_his/PSDEUSERROLES/ALL_R.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/extend_scheduled_task_his.json"
       }
     }, {
       "name" : "系统管理员-KEYRING[全部密钥环(RW)]",
@@ -3461,6 +3518,13 @@
       },
       "sysUniResCode" : "EXTENSION__MANAGE_PSSYSBIREPORT"
     }, {
+      "name" : "系统管理员-组织管理",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "ORG_M"
+      },
+      "sysUniResCode" : "ORG_M"
+    }, {
       "name" : "系统管理员-智能报表立方体模型扩展",
       "getPSSysUniRes" : {
         "modelref" : true,
@@ -3470,7 +3534,7 @@
     } ],
     "roleTag" : "AUTHOR_ADMIN",
     "roleType" : "CUSTOM",
-    "uniResTags" : [ "AGENTMGR", "KBMGR", "AI", "EXTENSION__MANAGE_PSDENOTIFY", "BASE", "EXTENSION__READ_PSDENOTIFY", "SPACE_M", "EXTENSION__READ_PSSYSBICUBE", "EXTENSION__MANAGE_PSSYSBICUBEMEASURE", "EXTENSION__READ_PSSYSBICUBEMEASURE", "EXTENSION__READ_PSSYSBIREPORT", "SPACE", "EXTENSION__READ_PSSYSBICUBEDIMENSION", "MODELMGR", "EXTENSION__MANAGE_PSSYSBICUBEDIMENSION", "EXTENSION__MANAGE_PSSYSBIREPORT", "EXTENSION__MANAGE_PSSYSBICUBE" ]
+    "uniResTags" : [ "AGENTMGR", "KBMGR", "AI", "EXTENSION__MANAGE_PSDENOTIFY", "BASE", "EXTENSION__READ_PSDENOTIFY", "SPACE_M", "EXTENSION__READ_PSSYSBICUBE", "EXTENSION__MANAGE_PSSYSBICUBEMEASURE", "EXTENSION__READ_PSSYSBICUBEMEASURE", "EXTENSION__READ_PSSYSBIREPORT", "SPACE", "EXTENSION__READ_PSSYSBICUBEDIMENSION", "MODELMGR", "EXTENSION__MANAGE_PSSYSBICUBEDIMENSION", "EXTENSION__MANAGE_PSSYSBIREPORT", "ORG_M", "EXTENSION__MANAGE_PSSYSBICUBE" ]
   }, {
     "codeName" : "ROLE_USERS",
     "defaultUser" : "USER",
@@ -3607,6 +3671,16 @@
         "path" : "PSMODULES/Base/PSDATAENTITIES/position.json"
       }
     }, {
+      "name" : "默认用户权限-EXTEND_SCHEDULE[全部数据（读）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/extend_schedule/PSDEUSERROLES/ALL_R.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/extend_schedule.json"
+      }
+    }, {
       "name" : "默认用户权限-AI_KB_DOCUMENT[操作用户(读)]",
       "getPSDEUserRole" : {
         "modelref" : true,
@@ -3655,6 +3729,16 @@
       "getPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/Base/PSDATAENTITIES/category.json"
+      }
+    }, {
+      "name" : "默认用户权限-EXTEND_SCHEDULED_TASK[全部数据（读）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/extend_scheduled_task/PSDEUSERROLES/ALL_R.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/extend_scheduled_task.json"
       }
     }, {
       "name" : "默认用户权限-SPACE[普通用户（读写）]",
@@ -4057,6 +4141,16 @@
         "path" : "PSSYSMODELGROUPS/ebsx/PSMODULES/ebsx/PSDATAENTITIES/SysEmployee.json"
       }
     }, {
+      "name" : "默认用户权限-EXTEND_TASK_TYPE[全部数据（读）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/extend_task_type/PSDEUSERROLES/ALL_R.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/extend_task_type.json"
+      }
+    }, {
       "name" : "默认用户权限-PAGE[与我共享(写)]",
       "getPSDEUserRole" : {
         "modelref" : true,
@@ -4155,6 +4249,16 @@
       "getPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+      }
+    }, {
+      "name" : "默认用户权限-EXTEND_SCHEDULED_TASK_HIS[全部数据（读）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/extend_scheduled_task_his/PSDEUSERROLES/ALL_R.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/extend_scheduled_task_his.json"
       }
     }, {
       "name" : "默认用户权限-AI_REVIEW_REPORT[操作用户(读)]",
@@ -4259,6 +4363,13 @@
       },
       "sysUniResCode" : "EXTENSION__MANAGE_PSSYSBICUBE"
     }, {
+      "name" : "默认用户权限-组织管理",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "ORG_M"
+      },
+      "sysUniResCode" : "ORG_M"
+    }, {
       "name" : "默认用户权限-智能报表模型扩展",
       "getPSSysUniRes" : {
         "modelref" : true,
@@ -4310,7 +4421,7 @@
     } ],
     "roleTag" : "ROLE_USERS",
     "roleType" : "CUSTOM",
-    "uniResTags" : [ "EXTENSION__READ_PSSYSBICUBEMEASURE", "EXTENSION__MANAGE_PSSYSBICUBEDIMENSION", "EXTENSION__MANAGE_PSSYSBICUBE", "EXTENSION__MANAGE_PSSYSBIREPORT", "SPACE_M", "EXTENSION__READ_PSSYSBIREPORT", "EXTENSION__READ_PSSYSBICUBEDIMENSION", "EXTENSION__READ_PSSYSBICUBE", "EXTENSION__MANAGE_PSSYSBICUBEMEASURE", "SPACE" ],
+    "uniResTags" : [ "EXTENSION__READ_PSSYSBICUBEMEASURE", "EXTENSION__MANAGE_PSSYSBICUBEDIMENSION", "EXTENSION__MANAGE_PSSYSBICUBE", "ORG_M", "EXTENSION__MANAGE_PSSYSBIREPORT", "SPACE_M", "EXTENSION__READ_PSSYSBIREPORT", "EXTENSION__READ_PSSYSBICUBEDIMENSION", "EXTENSION__READ_PSSYSBICUBE", "EXTENSION__MANAGE_PSSYSBICUBEMEASURE", "SPACE" ],
     "systemReserved" : true
   }, {
     "codeName" : "AIFACTORY_ACCESS",
@@ -4332,6 +4443,16 @@
       "getPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
+      }
+    }, {
+      "name" : "智能管理员-EXTEND_SCHEDULED_TASK[全部数据（读）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/extend_scheduled_task/PSDEUSERROLES/ALL_R.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/extend_scheduled_task.json"
       }
     }, {
       "name" : "智能管理员-AI_KB_DOCUMENT[全部数据（读写）]",
@@ -4384,6 +4505,16 @@
         "path" : "PSMODULES/meta/PSDATAENTITIES/data_resource.json"
       }
     }, {
+      "name" : "智能管理员-EXTEND_TASK_TYPE[全部数据（读）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/extend_task_type/PSDEUSERROLES/ALL_R.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/extend_task_type.json"
+      }
+    }, {
       "name" : "智能管理员-AI_KB_GRAPH_ENTITY_TYPE[全部数据（读写）]",
       "getPSDEUserRole" : {
         "modelref" : true,
@@ -4424,6 +4555,16 @@
         "path" : "PSMODULES/Base/PSDATAENTITIES/category_settings.json"
       }
     }, {
+      "name" : "智能管理员-EXTEND_SCHEDULE[全部数据（读）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/extend_schedule/PSDEUSERROLES/ALL_R.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/extend_schedule.json"
+      }
+    }, {
       "name" : "智能管理员-AI_AGENT_CONVERSATION[全部数据（读写）]",
       "getPSDEUserRole" : {
         "modelref" : true,
@@ -4462,6 +4603,16 @@
       "getPSDataEntity" : {
         "modelref" : true,
         "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report.json"
+      }
+    }, {
+      "name" : "智能管理员-EXTEND_SCHEDULED_TASK_HIS[全部数据（读）]",
+      "getPSDEUserRole" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/extend_scheduled_task_his/PSDEUSERROLES/ALL_R.json"
+      },
+      "getPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/Base/PSDATAENTITIES/extend_scheduled_task_his.json"
       }
     }, {
       "name" : "智能管理员-CATEGORY[全部数据（读写）]",
@@ -4675,10 +4826,17 @@
         "id" : "EXTENSION__READ_PSSYSBIREPORT"
       },
       "sysUniResCode" : "EXTENSION__READ_PSSYSBIREPORT"
+    }, {
+      "name" : "智能管理员-组织管理",
+      "getPSSysUniRes" : {
+        "modelref" : true,
+        "id" : "ORG_M"
+      },
+      "sysUniResCode" : "ORG_M"
     } ],
     "roleTag" : "AI_ADMIN",
     "roleType" : "CUSTOM",
-    "uniResTags" : [ "EXTENSION__READ_PSSYSBICUBEMEASURE", "EXTENSION__MANAGE_PSDENOTIFY", "EXTENSION__READ_PSDENOTIFY", "EXTENSION__MANAGE_PSSYSBICUBE", "EXTENSION__MANAGE_PSSYSBICUBEDIMENSION", "EXTENSION__MANAGE_PSSYSBICUBEMEASURE", "EXTENSION__READ_PSSYSBICUBE", "AGENTMGR", "EXTENSION__MANAGE_PSSYSBIREPORT", "MODELMGR", "KBMGR", "EXTENSION__READ_PSSYSBICUBEDIMENSION", "EXTENSION__READ_PSSYSBIREPORT" ]
+    "uniResTags" : [ "EXTENSION__READ_PSSYSBICUBEMEASURE", "EXTENSION__MANAGE_PSDENOTIFY", "EXTENSION__READ_PSDENOTIFY", "EXTENSION__MANAGE_PSSYSBICUBE", "EXTENSION__MANAGE_PSSYSBICUBEDIMENSION", "EXTENSION__MANAGE_PSSYSBICUBEMEASURE", "EXTENSION__READ_PSSYSBICUBE", "AGENTMGR", "EXTENSION__MANAGE_PSSYSBIREPORT", "MODELMGR", "KBMGR", "EXTENSION__READ_PSSYSBICUBEDIMENSION", "EXTENSION__READ_PSSYSBIREPORT", "ORG_M" ]
   } ],
   "getAllPSSysUtils" : [ {
     "codeName" : "AIClientCredentialSyncUtil",
@@ -5753,7 +5911,7 @@
   },
   "deploySysId" : "ibizaifactory",
   "deploySysType" : "MS_SERVICEHUB",
-  "engineVer" : 241,
+  "engineVer" : 242,
   "logicName" : "iBizAIFactory",
   "name" : "iBizAIFactory",
   "getPSDevSlnSysId" : "4e91923f01c7e0f5a86ff06e18c053cd",

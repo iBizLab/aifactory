@@ -82,7 +82,7 @@
       "srcValue" : "100",
       "srcValueType" : "SRCVALUE"
     }, {
-      "dstFieldName" : "n_id_noteq",
+      "dstFieldName" : "n_id_notin",
       "getDstPSDELogicParam" : {
         "modelref" : true,
         "id" : "mainfilter"
@@ -114,7 +114,7 @@
     "codeName" : "DEDATASET_01",
     "getDstPSDEDataSet" : {
       "modelref" : true,
-      "id" : "main"
+      "id" : "main_with_role"
     },
     "getDstPSDELogicParam" : {
       "modelref" : true,

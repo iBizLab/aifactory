@@ -787,9 +787,9 @@ font-size: 16px;
     margin-right: 5px;
 }
 
-:root.light .topic-list-style {
-    --ibiz-color-bg-2: #2e323721;
-    --ibiz-color-info-active: #D9ECFF;
+:root.app_light .topic-list-style {
+    --ibiz-color-bg-2: #2e323721 !important;
+    --ibiz-color-info-active: #D9ECFF !important;
 }
     :root .ibiz-flat-chat-container-main__spinner,
 :root .ibiz-simple-chat-container__loading--spinner {
@@ -995,7 +995,6 @@ font-size: 16px;
 .embed-ai-chat-view-content .ibiz-panel-container-image >.ibiz-row--flex >.ibiz-col--flex {
   height: 100%;
 }
-
     .embed-ai-chat-view-content .ibiz-form-group-content__row .ibiz-col.ibiz-col--flex {
   width: 100%;
   height: 100%;
@@ -1041,6 +1040,7 @@ font-size: 16px;
   left: 50%;
   font-size: 20px;
   font-weight: 600;
+  white-space: nowrap;
   color: var(--ibiz-color-text-2);
   content: "AI Factory 已就绪，随时开始";
   transform: translateX(-50%);
@@ -2078,6 +2078,10 @@ margin-bottom: 5px;
 }
 .document-list-style .ibiz-control-list-content.is-show-underLine .ibiz-control-list-scroll-item {
     border-bottom: 0px;
+}
+:root.app_light .document-list-style {
+    --ibiz-color-bg-2: #2e323721 !important;
+    --ibiz-color-info-active: #D9ECFF !important;
 }
     .document-list-style .ibiz-panel-exp-header--control_header{
     padding: 0;

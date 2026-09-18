@@ -244,6 +244,21 @@ package cn.ibizlab.ai.logic.ai_agent_contextlogic.lookup;
                         update(ai_agent_contextlookuprefrence_chat_response);//更新fact中变量值
             end
 
+            //逻辑处理节点[scope]
+            rule "prepareparam_04"
+            ruleflow-group "ai_agent_contextlookupprepareparam_04"
+            when
+            then
+                        update(ai_agent_contextlookupdefault);//更新fact中变量值
+                        update(ai_agent_contextlookupagententity);//更新fact中变量值
+                        update(ai_agent_contextlookupchat_response);//更新fact中变量值
+                        update(ai_agent_contextlookupdata);//更新fact中变量值
+                        update(ai_agent_contextlookupkb);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_request);//更新fact中变量值
+                        update(ai_agent_contextlookuprefrence_chat_response);//更新fact中变量值
+            end
+
             //逻辑处理节点[交谈输出]
             rule "sysaichatagent_chatoutput_02"
             ruleflow-group "ai_agent_contextlookupsysaichatagent_chatoutput_02"

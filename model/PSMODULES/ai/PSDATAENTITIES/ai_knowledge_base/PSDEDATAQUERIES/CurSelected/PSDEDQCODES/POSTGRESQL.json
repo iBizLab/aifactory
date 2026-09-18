@@ -3,7 +3,7 @@
   "name" : "PostgreSQL",
   "getPSDEDataQueryCodeConds" : [ {
     "condType" : "CUSTOM",
-    "customCond" : "( t1.\"id\" = #{ctx.datacontext.knowledgebases} )",
+    "customCond" : "( t1.\"id\" IN (#{ctx.datacontext.knowledgebases}) )",
     "name" : "查询条件"
   } ],
   "getPSDEDataQueryCodeExps" : [ {

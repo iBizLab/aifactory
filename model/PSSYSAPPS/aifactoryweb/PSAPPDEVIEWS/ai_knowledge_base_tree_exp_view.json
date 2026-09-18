@@ -21,6 +21,12 @@
     "name" : "engine"
   } ],
   "getPSAppViewLogics" : [ {
+    "eventNames" : "onMounted",
+    "logicTrigger" : "VIEWEVENT",
+    "logicType" : "SCRIPT",
+    "name" : "loaded",
+    "scriptCode" : "console.info(\"display global button\");\nview.parentView.layoutPanel.panelItems[\"button_calluilogic\"].state.visible=true;\n"
+  }, {
     "logicTrigger" : "CUSTOM",
     "logicType" : "APPUILOGIC",
     "name" : "newdata",

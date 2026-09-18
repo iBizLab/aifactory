@@ -23,7 +23,7 @@
     "topPos" : 80,
     "parallelOutput" : true
   }, {
-    "code" : "def defaultEntity = logic.param(\"default\").getReal();\r\nif(!defaultEntity.get(\"id\"))\r\n{\r\n    String unionId=\"\"\r\nif (defaultEntity.get(\"kb_id\"))\r\n    unionId+=defaultEntity.getString(\"kb_id\",\"\")\r\nif (defaultEntity.get(\"document_id\"))\r\n    unionId+=(\"||\"+defaultEntity.getString(\"document_id\",\"\"))\r\nif (defaultEntity.get(\"record_id\"))\r\n    unionId+=(\"||\"+defaultEntity.getString(\"record_id\",\"\"))\r\nif(!unionId)\r\n    org.springframework.util.Assert.hasLength(unionId,\"未传入审查对象\");\r\nif (defaultEntity.get(\"agent_tag\"))\r\n    unionId+=(\"||\"+defaultEntity.getString(\"agent_tag\",\"\"))\r\n    defaultEntity.set(\"id\",net.ibizsys.runtime.util.KeyValueUtils.genUniqueId(unionId))\r\n}",
+    "code" : "def defaultEntity = logic.param(\"default\").getReal();\r\nif(!defaultEntity.get(\"id\"))\r\n{\r\n    String unionId=\"\"\r\nif (defaultEntity.get(\"kb_id\"))\r\n    unionId+=defaultEntity.getString(\"kb_id\",\"\")\r\nif (defaultEntity.get(\"document_id\"))\r\n    unionId+=(\"||\"+defaultEntity.getString(\"document_id\",\"\"))\r\nif (defaultEntity.get(\"record_id\"))\r\n    unionId+=(\"||\"+defaultEntity.getString(\"record_id\",\"\"))\r\nif (defaultEntity.get(\"user_tag\"))\r\n    unionId+=(\"||\"+defaultEntity.getString(\"user_tag\",\"\"))\r\nif(!unionId)\r\n    org.springframework.util.Assert.hasLength(unionId,\"未传入审查对象\");\r\nif (defaultEntity.get(\"agent_tag\"))\r\n    unionId+=(\"||\"+defaultEntity.getString(\"agent_tag\",\"\"))\r\n    defaultEntity.set(\"id\",net.ibizsys.runtime.util.KeyValueUtils.genUniqueId(unionId))\r\n}",
     "codeName" : "RAWSFCODE_02",
     "codeType" : "Groovy",
     "leftPos" : -165,

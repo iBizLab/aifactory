@@ -367,6 +367,36 @@
     "defaultMode" : true,
     "enableBackend" : true,
     "enableFront" : true
+  }, {
+    "codeName" : "default_with_state",
+    "logicName" : "DEFAULT_WITH_STATE",
+    "name" : "DEFAULT_WITH_STATE",
+    "getPSDEDataQueries" : [ {
+      "modelref" : true,
+      "id" : "Default"
+    } ],
+    "getPSDEDataSetInput" : {
+      "name" : "Default_with_stateInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "ai_skill_workspace_filter_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataSetReturn" : {
+      "name" : "Default_with_stateResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_skill_workspace_dto"
+      },
+      "type" : "PAGE"
+    },
+    "getPSSysSFPlugin" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSSYSSFPLUGINS/AISkillRunnerWithStateDEDataSetRuntime.json"
+    },
+    "enableBackend" : true,
+    "enableFront" : true
   } ],
   "getAllPSDEFields" : [ {
     "getAllPSDEFDTColumns" : [ {

@@ -3319,7 +3319,7 @@
           "modelref" : true,
           "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
         },
-        "stringLength" : 500,
+        "stringLength" : 2000,
         "uIMode" : "MOBILEDEFAULT",
         "mobileMode" : true
       },
@@ -3340,7 +3340,7 @@
           "modelref" : true,
           "path" : "PSMODULES/ai/PSDATAENTITIES/ai_kb_document.json"
         },
-        "stringLength" : 500,
+        "stringLength" : 2000,
         "uIMode" : "DEFAULT"
       },
       "type" : "DEFAULT"
@@ -3355,16 +3355,16 @@
         "getPSDEFVRConditions" : [ {
           "condType" : "STRINGLENGTH",
           "dEFName" : "DOC_FILE",
-          "maxValue" : 500,
+          "maxValue" : 2000,
           "name" : "默认字符串长度",
-          "ruleInfo" : "内容长度必须小于等于[500]",
+          "ruleInfo" : "内容长度必须小于等于[2000]",
           "includeMaxValue" : true,
           "includeMinValue" : false,
           "keyCond" : true
         } ],
-        "ruleInfo" : "内容长度必须小于等于[500]"
+        "ruleInfo" : "内容长度必须小于等于[2000]"
       },
-      "ruleInfo" : "内容长度必须小于等于[500]",
+      "ruleInfo" : "内容长度必须小于等于[2000]",
       "checkDefault" : true,
       "defaultMode" : true,
       "enableBackend" : true,
@@ -3374,7 +3374,7 @@
     "dEFType" : 3,
     "dataType" : "PICKUPDATA",
     "importOrder" : 1000,
-    "length" : 500,
+    "length" : 2000,
     "logicName" : "file",
     "name" : "DOC_FILE",
     "orderValue" : 430,
@@ -3400,7 +3400,7 @@
     },
     "serviceCodeName" : "doc_file",
     "stdDataType" : 25,
-    "stringLength" : 500,
+    "stringLength" : 2000,
     "valueFormat" : "%1$s",
     "viewLevel" : 0,
     "linkDEField" : true,
@@ -4842,7 +4842,7 @@
       },
       "sourceType" : "DEFIELD",
       "stdDataType" : 25,
-      "stringLength" : 500,
+      "stringLength" : 2000,
       "type" : "SIMPLE"
     }, {
       "logicName" : "doc_name",

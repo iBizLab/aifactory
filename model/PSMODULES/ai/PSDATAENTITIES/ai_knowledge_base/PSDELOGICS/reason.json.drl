@@ -497,6 +497,7 @@ package cn.ibizlab.ai.logic.ai_knowledge_baselogic.reason;
                             ai_knowledge_basereasonreport.set("name",ai_knowledge_basereasondefault.get("name"));
                             ai_knowledge_basereasonreport.set("agenttag",ai_knowledge_basereasonagenttag.get(""));
                             ai_knowledge_basereasonreport.set("reviewreport",ai_knowledge_basereasonchat_response.get("content"));
+                            ai_knowledge_basereasonreport.set("usertag",ai_knowledge_basereasondefault_temp.get("user_tag"));
                         update(ai_knowledge_basereasondefault);//更新fact中变量值
                         update(ai_knowledge_basereasonagent);//更新fact中变量值
                         update(ai_knowledge_basereasonagenttag);//更新fact中变量值

@@ -1403,20 +1403,12 @@
       "text" : "按段落",
       "value" : "NAIVE"
     }, {
-      "codeName" : "QA",
-      "text" : "Q&A",
-      "value" : "QA"
-    }, {
-      "codeName" : "MANUAL",
-      "text" : "手册",
-      "value" : "MANUAL"
-    }, {
       "codeName" : "LAWS",
-      "text" : "法律",
+      "text" : "法律（法律文书/法规等）",
       "value" : "LAWS"
     }, {
       "codeName" : "ONE",
-      "text" : "单个",
+      "text" : "单个（完整文档不切分，适合小文件）",
       "value" : "ONE"
     }, {
       "codeName" : "PICTURE",
@@ -1424,20 +1416,12 @@
       "value" : "PICTURE"
     }, {
       "codeName" : "PRESENTATION",
-      "text" : "演示文稿",
+      "text" : "演示文稿（ppt）",
       "value" : "PRESENTATION"
     }, {
       "codeName" : "TABLE",
-      "text" : "表格",
+      "text" : "表格（标准excel/csv）",
       "value" : "TABLE"
-    }, {
-      "codeName" : "CHUNKS",
-      "text" : "预切片段",
-      "value" : "CHUNKS"
-    }, {
-      "codeName" : "RAW_CHUNKS",
-      "text" : "预切直接片段",
-      "value" : "RAW_CHUNKS"
     } ],
     "enableCache" : true
   }, {
@@ -1794,16 +1778,8 @@
       "value" : "OCR"
     }, {
       "codeName" : "vl",
-      "text" : "多模态解析",
+      "text" : "多模态解析（借助大模型识别，速度慢）",
       "value" : "VL"
-    }, {
-      "codeName" : "ppt",
-      "text" : "PPT",
-      "value" : "PPT"
-    }, {
-      "codeName" : "manual",
-      "text" : "MANUAL",
-      "value" : "MANUAL"
     } ],
     "enableCache" : true
   }, {
@@ -1883,6 +1859,10 @@
       "codeName" : "streaming",
       "text" : "流式输出",
       "value" : "streaming"
+    }, {
+      "codeName" : "img2text",
+      "text" : "图片多模态",
+      "value" : "img2text"
     }, {
       "codeName" : "long_context",
       "text" : "长上下文",
@@ -3045,8 +3025,16 @@
       "value" : "MERGENCE"
     }, {
       "codeName" : "component",
-      "text" : "组件",
+      "text" : "组件（前端）",
       "value" : "COMPONENT"
+    }, {
+      "codeName" : "hotcode",
+      "text" : "热代码（后台）",
+      "value" : "HOTCODE"
+    }, {
+      "codeName" : "hotapp",
+      "text" : "热应用（前端）",
+      "value" : "HOTAPP"
     } ],
     "enableCache" : true
   }, {
@@ -6541,7 +6529,7 @@
     },
     "pluginType" : "CUSTOM",
     "rTObjectName" : "IBizAssistantButton",
-    "rTObjectRepo" : "@ibiz-template-ai/ai-assistant-button@0.1.8-alpha.372",
+    "rTObjectRepo" : "@ibiz-template-ai/ai-assistant-button@0.1.8-alpha.492",
     "refMode" : "CONTROLITEM",
     "refTag" : "VIEWLAYOUTPANEL",
     "refTag2" : "BUTTON",
@@ -6556,7 +6544,7 @@
     "pluginCode" : "AI_ASSISTANT_UI_ACTION",
     "pluginType" : "DEUIACTION",
     "rTObjectName" : "AI_ASSISTANT_UI_ACTION",
-    "rTObjectRepo" : "@ibiz-template-ai/ai_assistant_uiaction@0.1.8-alpha.453",
+    "rTObjectRepo" : "@ibiz-template-ai/ai_assistant_uiaction@0.1.8-alpha.491",
     "refMode" : "UIACTION",
     "refTag" : "FRONT",
     "runtimeObject" : true
@@ -7278,7 +7266,7 @@
     "enableDEDashboard" : true
   } ],
   "getAllPSAppUIThemes" : [ {
-    "cssStyle" : ":root.app_light {\n  /* ========== App 全局 ========== */\n  --ibiz-font-size-regular: 14px;\n  --ibiz-font-weight-regular: 400;\n  \n  --ibiz-color-primary: rgba(10, 157, 230, 1);\n  --ibiz-color-primary-text: rgba(255, 255, 255, 1);\n  --ibiz-color-primary-hover: rgba(105, 148, 190, 1);\n  --ibiz-color-primary-hover-text: rgba(255, 255, 255, 1);\n  --ibiz-color-primary-active: rgba(70, 107, 144, 1);\n  --ibiz-color-primary-active-text: rgba(255, 255, 255, 1);\n  --ibiz-color-primary-disabled: rgba(131, 171, 212, 1);\n  --ibiz-color-primary-disabled-text: rgba(255, 255, 255, 1);\n  --ibiz-color-primary-light-default: rgba(217, 236, 255, 1);\n  --ibiz-color-primary-light-hover: rgba(164, 201, 238, 1);\n  --ibiz-color-primary-light-active: rgba(131, 171, 212, 1);\n\n  /* 文字颜色 */\n  --ibiz-color-text-0: rgba(29, 31, 35, 1);\n  --ibiz-color-text-1: rgba(65, 70, 76, 1);\n  --ibiz-color-text-2: rgba(85, 91, 97, 1);\n  --ibiz-color-text-3: rgba(136, 141, 145, 1);\n\n  /* 链接颜色 */\n  --ibiz-color-link: rgba(70, 107, 144, 1);\n  --ibiz-color-link-hover: rgba(85, 125, 165, 1);\n  --ibiz-color-link-active: rgba(48, 81, 115, 1);\n  --ibiz-color-link-visited: rgba(70, 107, 144, 1);\n\n  /* 背景色 */\n  --ibiz-color-bg-0: rgba(249, 249, 249, 1);\n  --ibiz-color-bg-1: rgba(255, 255, 255, 1);\n  --ibiz-color-bg-2: rgba(255, 255, 255, 1);\n  --ibiz-color-bg-3: rgba(255, 255, 255, 1);\n  --ibiz-color-bg-4: rgba(255, 255, 255, 1);\n\n  /* 填充色 */\n  --ibiz-color-fill-0: rgba(46, 50, 55, 0.05);\n  --ibiz-color-fill-1: rgba(46, 50, 55, 0.1);\n  --ibiz-color-fill-2: rgba(46, 50, 55, 0.13);\n\n  /* 边框 & 禁用 */\n  --ibiz-color-border: rgba(29, 31, 35, 0.1);\n  --ibiz-color-disabled-text: rgba(29, 31, 35, 0.35);\n  --ibiz-color-disabled-border: rgba(230, 232, 234, 1);\n  --ibiz-color-disabled-bg: rgba(230, 232, 234, 1);\n  --ibiz-color-disabled-fill: rgba(46, 50, 55, 0.04);\n\n  /* 间距 & 圆角 & 图标尺寸 */\n  --ibiz-spacing-base: 16px;\n  --ibiz-border-radius-medium: 8px;\n  --ibiz-width-icon-medium: 16px;\n \n}\n\n.ibiz-control-grid{--ibiz-control-grid-header-text-color: rgba(85,91,97, 1);\n--ibiz-control-grid-header-bg-color: rgba(46,50,55, 0.1);\n--ibiz-control-grid-row-bg-color: rgba(255,255,255, 1);\n--ibiz-control-grid-row-bg-color-2: rgba(249,249,249, 1);\n--ibiz-control-grid-row-hover-color: rgba(230,232,234, 1);\n--ibiz-control-grid-row-select-color: rgba(217,236,255, 1);\n}.ibiz-control-treeview{--ibiz-control-treeview-bg-color: #00000000;\n--ibiz-control-treeview-disabled-color: rgba(29,31,35, 0.35);\n--ibiz-control-treeview-row-hover-color: rgba(29,31,35, 1);\n--ibiz-control-treeview-row-hover-bg-color: rgba(46,50,55, 0.05);\n--ibiz-control-treeview-row-select-color: rgba(29,31,35, 1);\n--ibiz-control-treeview-row-select-bg-color: rgba(217,236,255, 1);\n}\n.ibiz-panel-app-header{--ibiz-panel-app-header-color: rgba(247, 247, 247, 1);\n--ibiz-panel-app-header-color-1: rgba(255,255,255,.8);\n--ibiz-panel-app-header-bg-color: #1c1c1c;\n--ibiz-panel-app-header-bg-color-1: rgba(204,204,204,.6);\n--ibiz-panel-app-header-color-icon-0: rgba(204,204,204,.6);\n--ibiz-panel-app-header-color-icon-1: #37373d;\n--ibiz-panel-app-header-menu-color: rgba(232, 232, 232, 1);\n--ibiz-panel-app-header-active-color: #fff;\n--ibiz-panel-app-header-active-bg-color: #37373d;\n--ibiz-panel-app-header-hover-color: #fff;\n--ibiz-panel-app-header-hover-bg-color: #2a2d2e;\n}",
+    "cssStyle" : ":root.app_light {\n    /* ========== 主题基础变量 ========== */\n    --ibiz-red-0: 254,242,237;\n    --ibiz-red-1: 254,221,210;\n    --ibiz-red-2: 253,183,164;\n    --ibiz-red-3: 251,144,120;\n    --ibiz-red-4: 250,102,75;\n    --ibiz-red-5: 249,57,31;\n    --ibiz-red-6: 213,37,20;\n    --ibiz-red-7: 177,20,13;\n    --ibiz-red-8: 142,7,5;\n    --ibiz-red-9: 106,2,3;\n    --ibiz-pink-0: 253,236,239;\n    --ibiz-pink-1: 251,207,216;\n    --ibiz-pink-2: 246,160,181;\n    --ibiz-pink-3: 242,115,150;\n    --ibiz-pink-4: 238,72,122;\n    --ibiz-pink-5: 233,31,99;\n    --ibiz-pink-6: 197,18,86;\n    --ibiz-pink-7: 162,11,72;\n    --ibiz-pink-8: 126,4,58;\n    --ibiz-pink-9: 90,1,44;\n    --ibiz-purple-0: 247,233,247;\n    --ibiz-purple-1: 239,202,239;\n    --ibiz-purple-2: 221,155,224;\n    --ibiz-purple-3: 201,112,209;\n    --ibiz-purple-4: 180,73,194;\n    --ibiz-purple-5: 158,40,179;\n    --ibiz-purple-6: 135,30,159;\n    --ibiz-purple-7: 112,23,138;\n    --ibiz-purple-8: 92,14,117;\n    --ibiz-purple-9: 72,11,97;\n    --ibiz-violet-0: 243,237,249;\n    --ibiz-violet-1: 226,209,244;\n    --ibiz-violet-2: 196,167,233;\n    --ibiz-violet-3: 166,126,221;\n    --ibiz-violet-4: 136,91,210;\n    --ibiz-violet-5: 106,58,199;\n    --ibiz-violet-6: 87,47,179;\n    --ibiz-violet-7: 70,36,158;\n    --ibiz-violet-8: 54,28,138;\n    --ibiz-violet-9: 40,20,117;\n    --ibiz-indigo-0: 237,239,248;\n    --ibiz-indigo-1: 209,216,240;\n    --ibiz-indigo-2: 167,179,225;\n    --ibiz-indigo-3: 128,144,211;\n    --ibiz-indigo-4: 94,111,196;\n    --ibiz-indigo-5: 63,81,181;\n    --ibiz-indigo-6: 51,66,161;\n    --ibiz-indigo-7: 41,52,140;\n    --ibiz-indigo-8: 31,40,120;\n    --ibiz-indigo-9: 23,29,99;\n    --ibiz-blue-0: 234,245,255;\n    --ibiz-blue-1: 203,231,254;\n    --ibiz-blue-2: 152,205,253;\n    --ibiz-blue-3: 101,179,252;\n    --ibiz-blue-4: 51,149,252;\n    --ibiz-blue-5: 3,118,250;\n    --ibiz-blue-6: 2,97,214;\n    --ibiz-blue-7: 2,79,179;\n    --ibiz-blue-8: 0,61,143;\n    --ibiz-blue-9: 0,44,107;\n    --ibiz-light-blue-0: 234,247,253;\n    --ibiz-light-blue-1: 202,236,252;\n    --ibiz-light-blue-2: 149,216,248;\n    --ibiz-light-blue-3: 97,195,245;\n    --ibiz-light-blue-4: 48,172,241;\n    --ibiz-light-blue-5: 0,149,238;\n    --ibiz-light-blue-6: 0,123,202;\n    --ibiz-light-blue-7: 0,99,167;\n    --ibiz-light-blue-8: 0,75,131;\n    --ibiz-light-blue-9: 0,53,95;\n    --ibiz-cyan-0: 229,247,248;\n    --ibiz-cyan-1: 194,239,240;\n    --ibiz-cyan-2: 138,221,225;\n    --ibiz-cyan-3: 87,203,211;\n    --ibiz-cyan-4: 44,184,197;\n    --ibiz-cyan-5: 6,164,182;\n    --ibiz-cyan-6: 3,134,152;\n    --ibiz-cyan-7: 2,105,121;\n    --ibiz-cyan-8: 0,77,91;\n    --ibiz-cyan-9: 1,50,61;\n    --ibiz-teal-0: 227,247,244;\n    --ibiz-teal-1: 192,240,232;\n    --ibiz-teal-2: 135,224,211;\n    --ibiz-teal-3: 84,209,193;\n    --ibiz-teal-4: 39,194,176;\n    --ibiz-teal-5: 5,179,161;\n    --ibiz-teal-6: 0,149,137;\n    --ibiz-teal-7: 0,119,111;\n    --ibiz-teal-8: 0,90,85;\n    --ibiz-teal-9: 1,60,58;\n    --ibiz-green-0: 236,246,236;\n    --ibiz-green-1: 208,240,208;\n    --ibiz-green-2: 164,224,167;\n    --ibiz-green-3: 126,209,130;\n    --ibiz-green-4: 90,194,98;\n    --ibiz-green-5: 59,179,70;\n    --ibiz-green-6: 49,149,58;\n    --ibiz-green-7: 37,119,47;\n    --ibiz-green-8: 26,89,36;\n    --ibiz-green-9: 18,60,24;\n    --ibiz-light-green-0: 243,248,236;\n    --ibiz-light-green-1: 226,240,208;\n    --ibiz-light-green-2: 200,225,165;\n    --ibiz-light-green-3: 173,211,127;\n    --ibiz-light-green-4: 147,197,91;\n    --ibiz-light-green-5: 123,182,60;\n    --ibiz-light-green-6: 100,152,47;\n    --ibiz-light-green-7: 79,121,38;\n    --ibiz-light-green-8: 57,91,27;\n    --ibiz-light-green-9: 36,61,18;\n    --ibiz-lime-0: 241,250,230;\n    --ibiz-lime-1: 227,246,197;\n    --ibiz-lime-2: 203,237,142;\n    --ibiz-lime-3: 183,226,91;\n    --ibiz-lime-4: 168,218,44;\n    --ibiz-lime-5: 154,209,0;\n    --ibiz-lime-6: 125,174,0;\n    --ibiz-lime-7: 99,139,2;\n    --ibiz-lime-8: 72,104,0;\n    --ibiz-lime-9: 47,70,0;\n    --ibiz-yellow-0: 255,253,234;\n    --ibiz-yellow-1: 255,250,203;\n    --ibiz-yellow-2: 253,243,152;\n    --ibiz-yellow-3: 252,231,101;\n    --ibiz-yellow-4: 251,218,49;\n    --ibiz-yellow-5: 249,200,0;\n    --ibiz-yellow-6: 208,170,0;\n    --ibiz-yellow-7: 167,139,0;\n    --ibiz-yellow-8: 125,106,0;\n    --ibiz-yellow-9: 83,72,0;\n    --ibiz-amber-0: 255,251,236;\n    --ibiz-amber-1: 252,245,206;\n    --ibiz-amber-2: 249,232,158;\n    --ibiz-amber-3: 246,216,110;\n    --ibiz-amber-4: 243,198,65;\n    --ibiz-amber-5: 240,177,20;\n    --ibiz-amber-6: 200,138,16;\n    --ibiz-amber-7: 160,102,10;\n    --ibiz-amber-8: 120,70,5;\n    --ibiz-amber-9: 80,43,3;\n    --ibiz-orange-0: 255,243,224;\n    --ibiz-orange-1: 255,223,177;\n    --ibiz-orange-2: 255,204,128;\n    --ibiz-orange-3: 254,183,77;\n    --ibiz-orange-4: 255,167,38;\n    --ibiz-orange-5: 255,152,0;\n    --ibiz-orange-6: 250,141,0;\n    --ibiz-orange-7: 245,124,2;\n    --ibiz-orange-8: 239,108,0;\n    --ibiz-orange-9: 230,81,0;\n    --ibiz-grey-0: 249,249,249;\n    --ibiz-grey-1: 230,232,234;\n    --ibiz-grey-2: 198,202,205;\n    --ibiz-grey-3: 167,171,175;\n    --ibiz-grey-4: 136,141,145;\n    --ibiz-grey-5: 107,102,116;\n    --ibiz-grey-6: 85,91,97;\n    --ibiz-grey-7: 65,70,76;\n    --ibiz-grey-8: 46,50,55;\n    --ibiz-grey-9: 29,31,35;\n    --ibiz-blue-cyan-0: 217,236,255;\n    --ibiz-blue-cyan-1: 164,201,238;\n    --ibiz-blue-cyan-2: 131,171,212;\n    --ibiz-blue-cyan-3: 105,148,190;\n    --ibiz-blue-cyan-4: 85,125,165;\n    --ibiz-blue-cyan-5: 70,107,144;\n    --ibiz-blue-cyan-6: 48,81,115;\n    --ibiz-blue-cyan-7: 36,65,96;\n    --ibiz-blue-cyan-8: 26,52,79;\n    --ibiz-blue-cyan-9: 16,41,68;\n    --ibiz-white: 255,255,255;\n    --ibiz-black: 0,0,0;\n  /* ========== App 全局 ========== */\n\n  /* 黑白功能色 */\n  --ibiz-color-white: rgba(255, 255, 255, 1);\n  --ibiz-color-black: rgba(0, 0, 0, 1);\n  \n  /* 主要功能色 */\n  --ibiz-color-primary: rgba(10, 157, 230, 1);\n  --ibiz-color-primary-text: rgba(255, 255, 255, 1);\n  --ibiz-color-primary-hover: rgba(105, 148, 190, 1);\n  --ibiz-color-primary-hover-text: rgba(255, 255, 255, 1);\n  --ibiz-color-primary-active: rgba(70, 107, 144, 1);\n  --ibiz-color-primary-active-text: rgba(255, 255, 255, 1);\n  --ibiz-color-primary-disabled: rgba(131, 171, 212, 1);\n  --ibiz-color-primary-disabled-text: rgba(255, 255, 255, 1);\n  --ibiz-color-primary-light-default: rgba(217, 236, 255, 1);\n  --ibiz-color-primary-light-hover: rgba(164, 201, 238, 1);\n  --ibiz-color-primary-light-active: rgba(131, 171, 212, 1);\n\n  /* 次要颜色 */\n  --ibiz-color-secondary: rgba(0, 149, 238, 1);\n  --ibiz-color-secondary-text: rgba(255, 255, 255, 1);\n  --ibiz-color-secondary-hover: rgba(0, 123, 202, 1);\n  --ibiz-color-secondary-hover-text: rgba(255, 255, 255, 1);\n  --ibiz-color-secondary-active: rgba(0, 99, 167, 1);\n  --ibiz-color-secondary-active-text: rgba(255, 255, 255, 1);\n  --ibiz-color-secondary-disabled: rgba(149, 216, 248, 1);\n  --ibiz-color-secondary-disabled-text: rgba(255, 255, 255, 1);\n  --ibiz-color-secondary-light-default: rgba(234, 247, 253, 1);\n  --ibiz-color-secondary-light-hover: rgba(202, 236, 252, 1);\n  --ibiz-color-secondary-light-active: rgba(149, 216, 248, 1);\n\n  /* 第三颜色 */\n  --ibiz-color-tertiary: rgba(107, 102, 116, 1);\n  --ibiz-color-tertiary-text: rgba(255, 255, 255, 1);\n  --ibiz-color-tertiary-hover: rgba(136, 141, 145, 1);\n  --ibiz-color-tertiary-hover-text: rgba(255, 255, 255, 1);\n  --ibiz-color-tertiary-active: rgba(85, 91, 97, 1);\n  --ibiz-color-tertiary-active-text: rgba(255, 255, 255, 1);\n  --ibiz-color-tertiary-light-default: rgba(249, 249, 249, 1);\n  --ibiz-color-tertiary-light-hover: rgba(230, 232, 234, 1);\n  --ibiz-color-tertiary-light-active: rgba(198, 202, 205, 1);\n\n  /* 信息色 */\n  --ibiz-color-info: rgba(85, 125, 165, 1);\n  --ibiz-color-info-text: rgba(255, 255, 255, 1);\n  --ibiz-color-info-hover: rgba(105, 148, 190, 1);\n  --ibiz-color-info-hover-text: rgba(255, 255, 255, 1);\n  --ibiz-color-info-active: rgba(70, 107, 144, 1);\n  --ibiz-color-info-active-text: rgba(255, 255, 255, 1);\n  --ibiz-color-info-disabled: rgba(131, 171, 212, 1);\n  --ibiz-color-info-disabled-text: rgba(255, 255, 255, 1);\n  --ibiz-color-info-light-default: rgba(217, 236, 255, 1);\n  --ibiz-color-info-light-hover: rgba(164, 201, 238, 1);\n  --ibiz-color-info-light-active: rgba(131, 171, 212, 1);\n\n  /* 成功色 */\n  --ibiz-color-success: rgba(59, 179, 70, 1);\n  --ibiz-color-success-text: rgba(255, 255, 255, 1);\n  --ibiz-color-success-hover: rgba(90, 194, 98, 1);\n  --ibiz-color-success-hover-text: rgba(255, 255, 255, 1);\n  --ibiz-color-success-active: rgba(49, 149, 58, 1);\n  --ibiz-color-success-active-text: rgba(255, 255, 255, 1);\n  --ibiz-color-success-disabled: rgba(164, 224, 167, 1);\n  --ibiz-color-success-disabled-text: rgba(255, 255, 255, 1);\n  --ibiz-color-success-light-default: rgba(236, 246, 236, 1);\n  --ibiz-color-success-light-hover: rgba(208, 240, 208, 1);\n  --ibiz-color-success-light-active: rgba(164, 224, 167, 1);\n\n  /* 警告色 */\n  --ibiz-color-warning: rgba(255, 152, 0, 1);\n  --ibiz-color-warning-text: rgba(255, 255, 255, 1);\n  --ibiz-color-warning-hover: rgba(255, 167, 38, 1);\n  --ibiz-color-warning-hover-text: rgba(255, 255, 255, 1);\n  --ibiz-color-warning-active: rgba(250, 141, 0, 1);\n  --ibiz-color-warning-active-text: rgba(255, 255, 255, 1);\n  --ibiz-color-warning-light-default: rgba(255, 243, 224, 1);\n  --ibiz-color-warning-light-hover: rgba(255, 223, 177, 1);\n  --ibiz-color-warning-light-active: rgba(255, 204, 128, 1);\n\n  /* 危险色 */\n  --ibiz-color-danger: rgba(249, 57, 31, 1);\n  --ibiz-color-danger-text: rgba(255, 255, 255, 1);\n  --ibiz-color-danger-hover: rgba(250, 102, 75, 1);\n  --ibiz-color-danger-hover-text: rgba(255, 255, 255, 1);\n  --ibiz-color-danger-active: rgba(213, 37, 20, 1);\n  --ibiz-color-danger-active-text: rgba(255, 255, 255, 1);\n  --ibiz-color-danger-light-default: rgba(254, 242, 237, 1);\n  --ibiz-color-danger-light-hover: rgba(254, 221, 210, 1);\n  --ibiz-color-danger-light-active: rgba(253, 183, 164, 1);\n\n  /* 文字颜色 */\n  --ibiz-color-text-0: rgba(29, 31, 35, 1);\n  --ibiz-color-text-1: rgba(65, 70, 76, 1);\n  --ibiz-color-text-2: rgba(85, 91, 97, 1);\n  --ibiz-color-text-3: rgba(136, 141, 145, 1);\n  --ibiz-color-text-5: rgb(219, 228, 236);\n  --ibiz-color-text-menu: rgb(219, 228, 236);\n\n  /* 图标颜色 */\n  --ibiz-color-icon-0: #65b3fc;\n  --ibiz-color-icon-1: #cbe7fe;\n\n  /* 链接颜色 */\n  --ibiz-color-link: rgba(70, 107, 144, 1);\n  --ibiz-color-link-hover: rgba(85, 125, 165, 1);\n  --ibiz-color-link-active: rgba(48, 81, 115, 1);\n  --ibiz-color-link-visited: rgba(70, 107, 144, 1);\n\n  /* 背景色 */\n  --ibiz-color-bg-0: rgba(249, 249, 249, 1);\n  --ibiz-color-bg-1: rgba(255, 255, 255, 1);\n  --ibiz-color-bg-2: rgba(255, 255, 255, 1);\n  --ibiz-color-bg-3: rgba(255, 255, 255, 1);\n  --ibiz-color-bg-4: rgba(255, 255, 255, 1);\n  --ibiz-color-bg-5: rgba(105, 148, 190, 0.6);\n  --ibiz-color-bg-overlay: rgba(0, 0, 0, 0.5);\n\n  /* 填充色 */\n  --ibiz-color-fill-0: rgba(46, 50, 55, 0.05);\n  --ibiz-color-fill-1: rgba(46, 50, 55, 0.1);\n  --ibiz-color-fill-2: rgba(46, 50, 55, 0.13);\n  --ibiz-color-scroll-menu: rgba(132, 165, 198, 0.4);\n\n  /* 边框 & 禁用 */\n  --ibiz-color-border: rgba(29, 31, 35, 0.1);\n  --ibiz-color-disabled-text: rgba(29, 31, 35, 0.35);\n  --ibiz-color-disabled-border: rgba(230, 232, 234, 1);\n  --ibiz-color-disabled-bg: rgba(230, 232, 234, 1);\n  --ibiz-color-disabled-fill: rgba(46, 50, 55, 0.04);\n\n  /* 阴影 */\n  --ibiz-color-shadow: rgba(0, 0, 0, 0.04);\n  --ibiz-shadow-elevated: 0 0 1px rgba(0,0,0,.3),0 4px 14px rgba(0,0,0,.1);\n}\n\n.ibiz-control-grid{--ibiz-control-grid-header-text-color: rgba(85,91,97, 1);\n--ibiz-control-grid-header-bg-color: rgba(46,50,55, 0.1);\n--ibiz-control-grid-row-bg-color: rgba(255,255,255, 1);\n--ibiz-control-grid-row-bg-color-2: rgba(249,249,249, 1);\n--ibiz-control-grid-row-hover-color: rgba(230,232,234, 1);\n--ibiz-control-grid-row-select-color: rgba(217,236,255, 1);\n}.ibiz-control-treeview{--ibiz-control-treeview-bg-color: #00000000;\n--ibiz-control-treeview-disabled-color: rgba(29,31,35, 0.35);\n--ibiz-control-treeview-row-hover-color: rgba(29,31,35, 1);\n--ibiz-control-treeview-row-hover-bg-color: rgba(46,50,55, 0.05);\n--ibiz-control-treeview-row-select-color: rgba(29,31,35, 1);\n--ibiz-control-treeview-row-select-bg-color: rgba(217,236,255, 1);\n}\n.ibiz-panel-app-header{--ibiz-panel-app-header-color: rgba(247, 247, 247, 1);\n--ibiz-panel-app-header-color-1: rgba(255,255,255,.8);\n--ibiz-panel-app-header-bg-color: #1c1c1c;\n--ibiz-panel-app-header-bg-color-1: rgba(204,204,204,.6);\n--ibiz-panel-app-header-color-icon-0: rgba(204,204,204,.6);\n--ibiz-panel-app-header-color-icon-1: #37373d;\n--ibiz-panel-app-header-menu-color: rgba(232, 232, 232, 1);\n--ibiz-panel-app-header-active-color: #fff;\n--ibiz-panel-app-header-active-bg-color: #37373d;\n--ibiz-panel-app-header-hover-color: #fff;\n--ibiz-panel-app-header-hover-bg-color: #2a2d2e;\n}",
     "name" : "app_light",
     "themeTag" : "app_light"
   } ],
@@ -7333,8 +7321,8 @@
     "utilPSDE2Name" : "AI_AGENT_MESSAGE",
     "utilPSDEName" : "AI_AGENT_CONVERSATION",
     "utilParams" : {
-      "sessionmodelMapping" : "realid:id|session_id:session_id|caption:title|sequence:sequence|is_top:is_top",
-      "messagemodelMapping" : "id:id|content:content|sequence:sequence|is_like:is_like|is_dislike:is_dislike|feedback_content:feedback_content|sender_type:sender_type|latency_ms:latency_ms|status:status|metadata:metadata",
+      "sessionmodelMapping" : "realid:id|session_id:session_id|caption:title|sequence:sequence|is_top:is_top|ui_meta:ui_meta",
+      "messagemodelMapping" : "id:id|content:content|sequence:sequence|is_like:is_like|is_dislike:is_dislike|feedback_content:feedback_content|sender_type:sender_type|latency_ms:latency_ms|status:status|metadata:metadata|agent_tag:agent_tag",
       "clearAllMessageSessionAppDEActionId" : "clear_message",
       "updateSessionAppDEActionId" : "update",
       "deleteMessageAppDEActionId" : "remove",
@@ -7728,7 +7716,7 @@
   },
   "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSSYSAPP.json",
   "dynaSysMode" : 1,
-  "engineVer" : 241,
+  "engineVer" : 242,
   "name" : "aifactoryweb",
   "pFStyle" : "VUE_R7_EMPTY",
   "pFType" : "VUE_R7",
@@ -9846,6 +9834,11 @@
                   "value" : "true",
                   "rawValue" : true
                 }, {
+                  "key" : "srfaiagentscope",
+                  "name" : "srfaiagentscope",
+                  "value" : "ai_agent_context",
+                  "rawValue" : true
+                }, {
                   "key" : "knowledgebases",
                   "name" : "knowledgebases",
                   "value" : "ai_knowledge_base",
@@ -10340,6 +10333,26 @@
           "engineType" : "EditView",
           "name" : "engine"
         } ],
+        "getPSAppViewLogics" : [ {
+          "eventNames" : "onMounted",
+          "logicTrigger" : "VIEWEVENT",
+          "logicType" : "SCRIPT",
+          "name" : "loaded",
+          "scriptCode" : "console.info(\"hidden global button\");\nview.parentView.layoutPanel.panelItems[\"button_calluilogic\"].state.visible=false;\n"
+        }, {
+          "eventNames" : "onBeforeRemove",
+          "logicTrigger" : "VIEWEVENT",
+          "logicType" : "SCRIPT",
+          "name" : "logic3",
+          "getPSViewCtrlName" : "form",
+          "scriptCode" : "console.info(\"display global button\");\nview.parentView.layoutPanel.panelItems[\"button_calluilogic\"].state.visible=true;\n"
+        }, {
+          "eventNames" : "onDestroyed",
+          "logicTrigger" : "VIEWEVENT",
+          "logicType" : "SCRIPT",
+          "name" : "logic2",
+          "scriptCode" : "console.info(\"display global button\");\nview.parentView.layoutPanel.panelItems[\"button_calluilogic\"].state.visible=true;\n"
+        } ],
         "getPSControls" : [ {
           "codeName" : "main5",
           "controlType" : "FORM",
@@ -10581,7 +10594,9 @@
                     "editorParams" : {
                       "srfainewtopic" : "true",
                       "ac" : "true",
-                      "srfaitopiccaption" : "开启会话",
+                      "srfaiagentscope" : "ai_agent_context",
+                      "srfaitopiccaption" : "新会话",
+                      "topiccaptioncomputedmode" : "history",
                       "srfaiagent" : "kb_switch"
                     },
                     "editorStyle" : "EMBED_AI_CHAT",
@@ -10772,6 +10787,12 @@
         "name" : "engine"
       } ],
       "getPSAppViewLogics" : [ {
+        "eventNames" : "onMounted",
+        "logicTrigger" : "VIEWEVENT",
+        "logicType" : "SCRIPT",
+        "name" : "loaded",
+        "scriptCode" : "console.info(\"display global button\");\nview.parentView.layoutPanel.panelItems[\"button_calluilogic\"].state.visible=true;\n"
+      }, {
         "logicTrigger" : "CUSTOM",
         "logicType" : "APPUILOGIC",
         "name" : "newdata",
@@ -10880,7 +10901,7 @@
           "name" : "fetch",
           "getPSAppDEMethod" : {
             "modelref" : true,
-            "id" : "fetch_default"
+            "id" : "fetch_my"
           },
           "getPSAppDataEntity" : {
             "modelref" : true,
@@ -11205,7 +11226,7 @@
             "name" : "fetch",
             "getPSAppDEMethod" : {
               "modelref" : true,
-              "id" : "fetch_default"
+              "id" : "fetch_my"
             },
             "getPSAppDataEntity" : {
               "modelref" : true,
@@ -11640,6 +11661,12 @@
         "name" : "engine"
       } ],
       "getPSAppViewLogics" : [ {
+        "eventNames" : "onMounted",
+        "logicTrigger" : "VIEWEVENT",
+        "logicType" : "SCRIPT",
+        "name" : "loaded",
+        "scriptCode" : "console.info(\"display global button\");\nview.parentView.layoutPanel.panelItems[\"button_calluilogic\"].state.visible=true;\n"
+      }, {
         "logicTrigger" : "CUSTOM",
         "logicType" : "APPUILOGIC",
         "name" : "newdata",
@@ -13029,6 +13056,12 @@
         "name" : "engine"
       } ],
       "getPSAppViewLogics" : [ {
+        "eventNames" : "onMounted",
+        "logicTrigger" : "VIEWEVENT",
+        "logicType" : "SCRIPT",
+        "name" : "loaded",
+        "scriptCode" : "console.info(\"display global button\");\nview.parentView.layoutPanel.panelItems[\"button_calluilogic\"].state.visible=true;\n"
+      }, {
         "logicTrigger" : "CUSTOM",
         "logicType" : "APPUILOGIC",
         "name" : "newdata",
@@ -16978,6 +17011,14 @@
         "requestPath" : "/fetch_dynamic_agent",
         "builtinMethod" : false
       }, {
+        "getADPSDEDQConditions" : [ {
+          "condOp" : "EQ",
+          "condType" : "SINGLE",
+          "condValue" : "srfaiagent",
+          "fieldName" : "CODE_NAME",
+          "name" : "(CODE_NAME) 等于(=) 数据上下文 srfaiagent",
+          "getPSVARTypeId" : "DATACONTEXT"
+        } ],
         "codeName" : "fetch_filter",
         "dataSetName" : "filter",
         "dataSetTag" : "filter",
@@ -17204,6 +17245,44 @@
         "requestMethod" : "POST",
         "requestParamType" : "ENTITY",
         "requestPath" : "/fetch_lookup_agent",
+        "builtinMethod" : false
+      }, {
+        "codeName" : "fetch_my",
+        "dataSetName" : "my",
+        "dataSetTag" : "my",
+        "methodType" : "FETCH",
+        "name" : "fetch_my",
+        "getPSAppDEMethodInput" : {
+          "name" : "输入对象",
+          "getPSAppDEMethodDTO" : {
+            "modelref" : true,
+            "id" : "ai_agent_context_filter_dto"
+          },
+          "type" : "DTO"
+        },
+        "getPSAppDEMethodReturn" : {
+          "name" : "返回对象",
+          "getPSAppDEMethodDTO" : {
+            "modelref" : true,
+            "id" : "ai_agent_context_dto"
+          },
+          "type" : "PAGE"
+        },
+        "getPSDEDataSet" : {
+          "modelref" : true,
+          "id" : "my"
+        },
+        "getPSDEOPPriv" : {
+          "modelref" : true,
+          "id" : "READ"
+        },
+        "getPSDEServiceAPIMethod" : {
+          "modelref" : true,
+          "id" : "fetch_my"
+        },
+        "requestMethod" : "POST",
+        "requestParamType" : "ENTITY",
+        "requestPath" : "/fetch_my",
         "builtinMethod" : false
       }, {
         "codeName" : "fetch_skill_agents",
@@ -21023,6 +21102,14 @@
         "requestPath" : "/fetch_dynamic_agent",
         "builtinMethod" : false
       }, {
+        "getADPSDEDQConditions" : [ {
+          "condOp" : "EQ",
+          "condType" : "SINGLE",
+          "condValue" : "srfaiagent",
+          "fieldName" : "CODE_NAME",
+          "name" : "(CODE_NAME) 等于(=) 数据上下文 srfaiagent",
+          "getPSVARTypeId" : "DATACONTEXT"
+        } ],
         "codeName" : "fetch_filter",
         "dataSetName" : "filter",
         "dataSetTag" : "filter",
@@ -21251,6 +21338,44 @@
         "requestPath" : "/fetch_lookup_agent",
         "builtinMethod" : false
       }, {
+        "codeName" : "fetch_my",
+        "dataSetName" : "my",
+        "dataSetTag" : "my",
+        "methodType" : "FETCH",
+        "name" : "fetch_my",
+        "getPSAppDEMethodInput" : {
+          "name" : "输入对象",
+          "getPSAppDEMethodDTO" : {
+            "modelref" : true,
+            "id" : "ai_agent_context_filter_dto"
+          },
+          "type" : "DTO"
+        },
+        "getPSAppDEMethodReturn" : {
+          "name" : "返回对象",
+          "getPSAppDEMethodDTO" : {
+            "modelref" : true,
+            "id" : "ai_agent_context_dto"
+          },
+          "type" : "PAGE"
+        },
+        "getPSDEDataSet" : {
+          "modelref" : true,
+          "id" : "my"
+        },
+        "getPSDEOPPriv" : {
+          "modelref" : true,
+          "id" : "READ"
+        },
+        "getPSDEServiceAPIMethod" : {
+          "modelref" : true,
+          "id" : "fetch_my"
+        },
+        "requestMethod" : "POST",
+        "requestParamType" : "ENTITY",
+        "requestPath" : "/fetch_my",
+        "builtinMethod" : false
+      }, {
         "codeName" : "fetch_skill_agents",
         "dataSetName" : "skill_agents",
         "dataSetTag" : "skill_agents",
@@ -21417,6 +21542,32 @@
         "uIActionType" : "DEUIACTION",
         "globalUIAction" : true,
         "id" : "ai_create@ai_agent_context"
+      }, {
+        "actionTarget" : "NONE",
+        "caption" : "删除配置后回到首页",
+        "codeName" : "back",
+        "getFrontPSAppView" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDEVIEWS/ai_agent_context_card_view.json",
+          "viewType" : "DEDATAVIEW"
+        },
+        "frontProcessType" : "TOP",
+        "fullCodeName" : "ai_agent_context_back",
+        "name" : "删除配置后回到首页",
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
+        },
+        "getPSNavigateContexts" : [ {
+          "key" : "SRFDEFAULTTOROUTEDEPTH",
+          "name" : "SRFDEFAULTTOROUTEDEPTH",
+          "value" : "2",
+          "rawValue" : true
+        } ],
+        "uIActionMode" : "FRONT",
+        "uIActionTag" : "back",
+        "uIActionType" : "DEUIACTION",
+        "id" : "back@ai_agent_context"
       }, {
         "actionTarget" : "SINGLEDATA",
         "caption" : "批量执行智能体",
@@ -22029,6 +22180,41 @@
         "globalUIAction" : true,
         "id" : "prompt_feedback@ai_agent_context"
       }, {
+        "actionTarget" : "SINGLEKEY",
+        "caption" : "删除",
+        "codeName" : "remove_agent",
+        "confirmMsg" : "确认删除该智能体？",
+        "dataAccessAction" : "DELETE",
+        "fullCodeName" : "ai_agent_context_remove_agent",
+        "name" : "删除配置",
+        "getNextPSUIAction" : {
+          "getPSAppDataEntity" : {
+            "modelref" : true,
+            "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
+          },
+          "modelref" : true,
+          "id" : "back@ai_agent_context"
+        },
+        "getPSAppDEMethod" : {
+          "modelref" : true,
+          "id" : "remove"
+        },
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
+        },
+        "getPSDEOPPriv" : {
+          "modelref" : true,
+          "id" : "DELETE"
+        },
+        "successMsg" : "删除成功",
+        "timeout" : 60000,
+        "uIActionMode" : "BACKEND",
+        "uIActionTag" : "remove_agent",
+        "uIActionType" : "DEUIACTION",
+        "enableConfirm" : true,
+        "id" : "remove_agent@ai_agent_context"
+      }, {
         "actionTarget" : "SINGLEDATA",
         "caption" : "上下文模版反馈",
         "codeName" : "template_feedback",
@@ -22293,7 +22479,7 @@
           "topPos" : 530,
           "parallelOutput" : true
         }, {
-          "code" : "console.log(\"执行智能体\");\n Object.assign(uiLogic.aicontext, uiLogic.default);\nuiLogic.aicontext._name=uiLogic.aicontext.name;\nuiLogic.aicontext.agent_name=uiLogic.aicontext.name;\nuiLogic.aicontext.agent_description=uiLogic.aicontext.description;\nuiLogic.aicontext.context_code_name = uiLogic.aicontext.code_name;\nuiLogic.aicontext.context_namee = uiLogic.aicontext.name;\nuiLogic.aicontext.context_id = uiLogic.aicontext.id;\nuiLogic.aicontext.srfmajortext = uiLogic.aicontext.agent_name;\nuiLogic.aicontext.name = null;\nuiLogic.aicontext.description = null;\n\n\n// if(!uiLogic.aicontext.page_index) {\n//     uiLogic.aicontext.page_index=0;\n// }\nconst screenshot = uiLogic.aicontext.agent_description && uiLogic.aicontext.agent_description.indexOf(\"截图\")>=0\nuiLogic.context.ai_agent_context=uiLogic.aicontext.context_id;\nuiLogic.context.ai_knowledge_base=uiLogic.aicontext.kb_id;\nif(view && view.parentView) {\n    \n    var appDataEntityId=view.parentView.model.appDataEntityId;\n    if(uiLogic.aicontext.kb_id && appDataEntityId.indexOf(\"ai_agent_context\")>=0) {\n        appDataEntityId=\"ai.ai_knowledge_base\";\n        uiLogic.aicontext.id = uiLogic.aicontext.kb_id;\n    }\n    else {\n        var contextObj = view.parentView.state.srfactiveviewdata;\n            if((!contextObj) && view.parentData && view.parentData.length > 0) {\n                if (view.parentData.length == 1) {\n                    contextObj = view.parentData[0];\n                }\n                else {\n                    contextObj = view.parentData;\n                }\n            }\n            else if((!contextObj) && view.parentView.getController(\"form\")) {\n                contextObj = view.parentView.getController(\"form\").data;\n            }\n            if(contextObj) {\n                // 使用Object.assign进行浅合并\n                if (!Array.isArray(contextObj)) {\n                    Object.assign(uiLogic.aicontext, contextObj);\n                }\n                else {\n                    uiLogic.aicontext.list = contextObj;\n                }\n            }\n    }\n\n\n    if(appDataEntityId && appDataEntityId.indexOf(\".\")>0) {\n        uiLogic.aicontext._entity_tag=appDataEntityId.split(\".\")[1];\n        uiLogic.context._entity_tag=uiLogic.aicontext._entity_tag;\n    }\n     \n    if(screenshot) {\n        try{\n\n            const viewDom = document.getElementById(view.parentView.id);\n            if (viewDom) {\n                const fileName = view.parentView.model.caption || view.parentView.model.codeName;\n                const screenshotElement = document.querySelector('.priority-screenshot') || \n                          document.querySelector('.ibiz-bi-report-panel-content>.el-collapse') || \n                          document.querySelector('.ibiz-custom-dashboard-container') || \n                          viewDom;\n                \n                const canvas = await ibiz.util.html2canvas.getCanvas(screenshotElement, { fileName });\n\n                const blob = await new Promise((resolve) => {\n                    canvas.toBlob((b) => {\n                        if (b) {\n                             const file = new File([b], fileName + '.png', {\n                                type: 'image/png',\n                                lastModified: new Date().getTime()\n                            });\n                            resolve(file);\n                        } else {\n                            resolve(null);\n                        }\n                    }, 'image/png', 0.7);\n                });\n\n                const fileUrlObj = ibiz.util.file.calcFileUpDownUrl(view.parentView.context,view.parentView.params);\n                const fileobj = await ibiz.util.file.fileUpload(fileUrlObj.uploadUrl,blob,ibiz.util.file.getUploadHeaders());\n\n                uiLogic.aicontext.screenshot=\"![img](\"+fileUrlObj.downloadUrl.replace(\"%fileId%\",fileobj.id)+\")\";\n                \n                \n            }\n\n         } catch (error) {\n        }\n        \n    }\n\n    var context_content = \"\\n---\\n\\n* **执行任务**: \"+uiLogic.aicontext.agent_name +\"\\n\";\n    if(uiLogic.aicontext.agent_description) {\n        context_content = context_content+\"* **任务描述**: \" + uiLogic.aicontext.agent_description+\"\\n\";\n    }\n    if(uiLogic.aicontext._entity_tag) {\n        context_content = context_content+\"* **任务执行目录 * 数据目录 * 资料目录**:  `{工作目录}/\" + uiLogic.aicontext._entity_tag +\"/\" + (uiLogic.aicontext.id || (uiLogic.context.ai_knowledge_base || ''))+\"`\";\n    }\n    if(uiLogic.aicontext.spec_kb_id) {\n        context_content = context_content+\"* **参考资料（规格法规、规则）所在知识库**:  [\" + uiLogic.aicontext.spec_kb_name + '] `kb_tag` = `ibizaifactory-kb--' +uiLogic.aicontext.spec_kb_id+\"`\\n\";\n    }\n    context_content = context_content +\"\\n---\\n\";\n    uiLogic.aicontext.context_content=context_content;\n}",
+          "code" : "console.log(\"执行智能体\");\n Object.assign(uiLogic.aicontext, uiLogic.default);\nuiLogic.aicontext._name=uiLogic.aicontext.name;\nuiLogic.aicontext.agent_name=uiLogic.aicontext.name;\nuiLogic.aicontext.agent_description=uiLogic.aicontext.description;\nuiLogic.aicontext.context_code_name = uiLogic.aicontext.code_name;\nuiLogic.aicontext.context_namee = uiLogic.aicontext.name;\nuiLogic.aicontext.context_id = uiLogic.aicontext.id;\nuiLogic.aicontext.srfmajortext = uiLogic.aicontext.agent_name;\nif(uiLogic.aicontext.kbselect) {\n    uiLogic.aicontext.name = uiLogic.aicontext.kbselect;\n}\nelse{\n    uiLogic.aicontext.name = null;\n}\nuiLogic.aicontext.description = null;\n\n\n// if(!uiLogic.aicontext.page_index) {\n//     uiLogic.aicontext.page_index=0;\n// }\nconst screenshot = uiLogic.aicontext.agent_description && uiLogic.aicontext.agent_description.indexOf(\"截图\")>=0\nuiLogic.context.ai_agent_context=uiLogic.aicontext.context_id;\nuiLogic.context.ai_knowledge_base=uiLogic.aicontext.kb_id;\n\nif(view && view.parentView) {\n    \n    var appDataEntityId=view.parentView.model.appDataEntityId;\n    if(uiLogic.aicontext.kb_id && appDataEntityId.indexOf(\"ai_agent_context\")>=0) {\n        appDataEntityId=\"ai.ai_knowledge_base\";\n        uiLogic.aicontext.id = uiLogic.aicontext.kb_id;\n    }\n    else {\n        var contextObj = view.parentView.state.srfactiveviewdata;\n            if((!contextObj) && view.parentData && view.parentData.length > 0) {\n                if (view.parentData.length == 1) {\n                    contextObj = view.parentData[0];\n                }\n                else {\n                    contextObj = view.parentData;\n                }\n            }\n            else if((!contextObj) && view.parentView.getController(\"form\")) {\n                contextObj = view.parentView.getController(\"form\").data;\n            }\n            if(contextObj) {\n                // 使用Object.assign进行浅合并\n                if (!Array.isArray(contextObj)) {\n                    Object.assign(uiLogic.aicontext, contextObj);\n                }\n                else {\n                    uiLogic.aicontext.list = contextObj;\n                }\n            }\n    }\n\n\n    if(appDataEntityId && appDataEntityId.indexOf(\".\")>0) {\n        uiLogic.aicontext._entity_tag=appDataEntityId.split(\".\")[1];\n        uiLogic.context._entity_tag=uiLogic.aicontext._entity_tag;\n    }\n     \n    if(screenshot) {\n        try{\n\n            const viewDom = document.getElementById(view.parentView.id);\n            if (viewDom) {\n                const fileName = view.parentView.model.caption || view.parentView.model.codeName;\n                const screenshotElement = document.querySelector('.priority-screenshot') || \n                          document.querySelector('.ibiz-bi-report-panel-content>.el-collapse') || \n                          document.querySelector('.ibiz-custom-dashboard-container') || \n                          viewDom;\n                \n                const canvas = await ibiz.util.html2canvas.getCanvas(screenshotElement, { fileName });\n\n                const blob = await new Promise((resolve) => {\n                    canvas.toBlob((b) => {\n                        if (b) {\n                             const file = new File([b], fileName + '.png', {\n                                type: 'image/png',\n                                lastModified: new Date().getTime()\n                            });\n                            resolve(file);\n                        } else {\n                            resolve(null);\n                        }\n                    }, 'image/png', 0.7);\n                });\n\n                const fileUrlObj = ibiz.util.file.calcFileUpDownUrl(view.parentView.context,view.parentView.params);\n                const fileobj = await ibiz.util.file.fileUpload(fileUrlObj.uploadUrl,blob,ibiz.util.file.getUploadHeaders());\n\n                uiLogic.aicontext.screenshot=\"![img](\"+fileUrlObj.downloadUrl.replace(\"%fileId%\",fileobj.id)+\")\";\n                \n                \n            }\n\n         } catch (error) {\n        }\n        \n    }\n\n    var context_content = \"\\n---\\n\\n* **执行任务**: \"+uiLogic.aicontext.agent_name +\"\\n\";\n    if(uiLogic.aicontext.agent_description) {\n        context_content = context_content+\"* **任务描述**: \" + uiLogic.aicontext.agent_description+\"\\n\";\n    }\n    if(uiLogic.aicontext._entity_tag) {\n        context_content = context_content+\"* **任务执行目录 * 数据目录 * 资料目录**:  `{skills_workspace}/\" + uiLogic.aicontext._entity_tag +\"/\" + (uiLogic.aicontext.id || (uiLogic.context.ai_knowledge_base || ''))+\"`\";\n    }\n    if(uiLogic.aicontext.spec_kb_id) {\n        context_content = context_content+\"* **参考资料（规格法规、规则）所在知识库**:  [\" + uiLogic.aicontext.spec_kb_name + '] `kb_tag` = `ibizaifactory-kb--' +uiLogic.aicontext.spec_kb_id+\"`\\n\";\n    }\n    context_content = context_content +\"\\n---\\n\";\n    uiLogic.aicontext.context_content=context_content;\n}",
           "codeName" : "RAWJSCODE_01",
           "leftPos" : 220,
           "logicNodeType" : "RAWJSCODE",
@@ -22565,6 +22751,53 @@
       "enableWFActions" : false,
       "major" : true,
       "getAllPSAppDEUIActionGroups" : [ {
+        "codeName" : "Auto16665225",
+        "name" : "配置行为组",
+        "getPSAppDataEntity" : {
+          "modelref" : true,
+          "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
+        },
+        "uniqueTag" : "ai_agent_context__Auto16665225",
+        "getPSUIActionGroupDetails" : [ {
+          "caption" : "提示词智能生成",
+          "detailType" : "DEUIACTION",
+          "name" : "u0940d71",
+          "getPSSysImage" : {
+            "glyph" : "xf19a@FontAwesome",
+            "cssClass" : "fa fa-wordpress"
+          },
+          "addSeparator" : false,
+          "showCaption" : true,
+          "showIcon" : true,
+          "getPSUIAction" : {
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
+            },
+            "modelref" : true,
+            "id" : "prompt@ai_agent_context"
+          }
+        }, {
+          "caption" : "删除",
+          "detailType" : "DEUIACTION",
+          "name" : "ub290eb2",
+          "getPSSysImage" : {
+            "glyph" : "xf00d@FontAwesome",
+            "cssClass" : "fa fa-remove"
+          },
+          "addSeparator" : false,
+          "showCaption" : true,
+          "showIcon" : true,
+          "getPSUIAction" : {
+            "getPSAppDataEntity" : {
+              "modelref" : true,
+              "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_agent_context.json"
+            },
+            "modelref" : true,
+            "id" : "remove_agent@ai_agent_context"
+          }
+        } ]
+      }, {
         "codeName" : "Auto46490933",
         "name" : "编辑界面默认行为组",
         "getPSAppDataEntity" : {
@@ -24591,6 +24824,44 @@
         "requestMethod" : "POST",
         "requestParamType" : "ENTITY",
         "requestPath" : "/fetch_main",
+        "builtinMethod" : false
+      }, {
+        "codeName" : "fetch_main_with_role",
+        "dataSetName" : "main_with_role",
+        "dataSetTag" : "main_with_role",
+        "methodType" : "FETCH",
+        "name" : "fetch_main_with_role",
+        "getPSAppDEMethodInput" : {
+          "name" : "输入对象",
+          "getPSAppDEMethodDTO" : {
+            "modelref" : true,
+            "id" : "ai_knowledge_base_filter_dto"
+          },
+          "type" : "DTO"
+        },
+        "getPSAppDEMethodReturn" : {
+          "name" : "返回对象",
+          "getPSAppDEMethodDTO" : {
+            "modelref" : true,
+            "id" : "ai_knowledge_base_dto"
+          },
+          "type" : "PAGE"
+        },
+        "getPSDEDataSet" : {
+          "modelref" : true,
+          "id" : "main_with_role"
+        },
+        "getPSDEOPPriv" : {
+          "modelref" : true,
+          "id" : "READ"
+        },
+        "getPSDEServiceAPIMethod" : {
+          "modelref" : true,
+          "id" : "fetch_main_with_role"
+        },
+        "requestMethod" : "POST",
+        "requestParamType" : "ENTITY",
+        "requestPath" : "/fetch_main_with_role",
         "builtinMethod" : false
       }, {
         "codeName" : "fetch_reader",
@@ -29385,6 +29656,44 @@
         "requestPath" : "/fetch_main",
         "builtinMethod" : false
       }, {
+        "codeName" : "fetch_main_with_role",
+        "dataSetName" : "main_with_role",
+        "dataSetTag" : "main_with_role",
+        "methodType" : "FETCH",
+        "name" : "fetch_main_with_role",
+        "getPSAppDEMethodInput" : {
+          "name" : "输入对象",
+          "getPSAppDEMethodDTO" : {
+            "modelref" : true,
+            "id" : "ai_knowledge_base_filter_dto"
+          },
+          "type" : "DTO"
+        },
+        "getPSAppDEMethodReturn" : {
+          "name" : "返回对象",
+          "getPSAppDEMethodDTO" : {
+            "modelref" : true,
+            "id" : "ai_knowledge_base_dto"
+          },
+          "type" : "PAGE"
+        },
+        "getPSDEDataSet" : {
+          "modelref" : true,
+          "id" : "main_with_role"
+        },
+        "getPSDEOPPriv" : {
+          "modelref" : true,
+          "id" : "READ"
+        },
+        "getPSDEServiceAPIMethod" : {
+          "modelref" : true,
+          "id" : "fetch_main_with_role"
+        },
+        "requestMethod" : "POST",
+        "requestParamType" : "ENTITY",
+        "requestPath" : "/fetch_main_with_role",
+        "builtinMethod" : false
+      }, {
         "codeName" : "fetch_reader",
         "dataSetName" : "reader",
         "dataSetTag" : "reader",
@@ -29968,6 +30277,83 @@
         "getPSDEDataSet" : {
           "modelref" : true,
           "id" : "main"
+        },
+        "tempDataMode" : 2,
+        "builtinMethod" : false
+      }, {
+        "codeName" : "FetchTempMain_with_role",
+        "dataSetTag" : "main_with_role",
+        "dataSetType" : "DATAQUERY",
+        "methodType" : "FETCHTEMP",
+        "name" : "main_with_role",
+        "getPSAppDEMethodInput" : {
+          "codeName" : "Main_with_roleInput",
+          "name" : "Main_with_roleInput",
+          "getPSAppDEMethodDTO" : {
+            "modelref" : true,
+            "id" : "ai_knowledge_base_filter_dto"
+          },
+          "type" : "DTO"
+        },
+        "getPSAppDEMethodReturn" : {
+          "codeName" : "Main_with_roleResult",
+          "name" : "Main_with_roleResult",
+          "getPSAppDEMethodDTO" : {
+            "modelref" : true,
+            "id" : "ai_knowledge_base_dto"
+          },
+          "type" : "PAGE"
+        },
+        "getPSDEDQGroupConditions" : [ {
+          "condOp" : "AND",
+          "condType" : "GROUP",
+          "name" : "连接条件",
+          "getPSDEDQConditions" : [ {
+            "condOp" : "EQ",
+            "condType" : "SINGLE",
+            "condValue" : "0",
+            "fieldName" : "IS_ARCHIVED",
+            "name" : "(IS_ARCHIVED) 等于(=) 0"
+          }, {
+            "condOp" : "EQ",
+            "condType" : "SINGLE",
+            "condValue" : "0",
+            "fieldName" : "IS_DELETED",
+            "name" : "(IS_DELETED) 等于(=) 0"
+          }, {
+            "condOp" : "EQ",
+            "condType" : "SINGLE",
+            "condValue" : "1",
+            "fieldName" : "IS_FAVORITE",
+            "name" : "(IS_FAVORITE) 等于(=) 1"
+          } ]
+        }, {
+          "condOp" : "AND",
+          "condType" : "GROUP",
+          "name" : "连接条件",
+          "getPSDEDQConditions" : [ {
+            "condOp" : "EQ",
+            "condType" : "SINGLE",
+            "condValue" : "0",
+            "fieldName" : "IS_FAVORITE",
+            "name" : "(IS_FAVORITE) 等于(=) 0"
+          }, {
+            "condOp" : "EQ",
+            "condType" : "SINGLE",
+            "condValue" : "0",
+            "fieldName" : "IS_DELETED",
+            "name" : "(IS_DELETED) 等于(=) 0"
+          }, {
+            "condOp" : "EQ",
+            "condType" : "SINGLE",
+            "condValue" : "0",
+            "fieldName" : "IS_ARCHIVED",
+            "name" : "(IS_ARCHIVED) 等于(=) 0"
+          } ]
+        } ],
+        "getPSDEDataSet" : {
+          "modelref" : true,
+          "id" : "main_with_role"
         },
         "tempDataMode" : 2,
         "builtinMethod" : false
@@ -46843,9 +47229,12 @@
   },
   "getUserParam" : {
     "globalConfig.grid.editShowMode" : "cell",
+    "globalConfig.common.aiMinimizeContainerId" : "ibiz-ai-assistant-button",
     "enableMqtt" : "true",
+    "globalConfig.common.aiInputPlaceholder" : "给AIFactory 发送消息",
     "globalConfig.grid.overflowMode" : "ellipsis",
     "globalConfig.theme" : "app_light",
+    "globalConfig.common.aiTopicStorageMode" : "REMOTESESSION",
     "globalConfig.common.aiUploadMaxSize" : "209715200",
     "globalConfig.common.aiChunkEntity" : "ai_kb_chunk",
     "globalConfig.common.aiChatTopicCaptionMode" : "summary",

@@ -91,6 +91,26 @@
       "engineType" : "EditView",
       "name" : "engine"
     } ],
+    "getPSAppViewLogics" : [ {
+      "eventNames" : "onMounted",
+      "logicTrigger" : "VIEWEVENT",
+      "logicType" : "SCRIPT",
+      "name" : "loaded",
+      "scriptCode" : "console.info(\"hidden global button\");\nview.parentView.layoutPanel.panelItems[\"button_calluilogic\"].state.visible=false;\n"
+    }, {
+      "eventNames" : "onBeforeRemove",
+      "logicTrigger" : "VIEWEVENT",
+      "logicType" : "SCRIPT",
+      "name" : "logic3",
+      "getPSViewCtrlName" : "form",
+      "scriptCode" : "console.info(\"display global button\");\nview.parentView.layoutPanel.panelItems[\"button_calluilogic\"].state.visible=true;\n"
+    }, {
+      "eventNames" : "onDestroyed",
+      "logicTrigger" : "VIEWEVENT",
+      "logicType" : "SCRIPT",
+      "name" : "logic2",
+      "scriptCode" : "console.info(\"display global button\");\nview.parentView.layoutPanel.panelItems[\"button_calluilogic\"].state.visible=true;\n"
+    } ],
     "getPSControls" : [ {
       "codeName" : "main5",
       "controlType" : "FORM",
@@ -332,7 +352,9 @@
                 "editorParams" : {
                   "srfainewtopic" : "true",
                   "ac" : "true",
-                  "srfaitopiccaption" : "开启会话",
+                  "srfaiagentscope" : "ai_agent_context",
+                  "srfaitopiccaption" : "新会话",
+                  "topiccaptioncomputedmode" : "history",
                   "srfaiagent" : "kb_switch"
                 },
                 "editorStyle" : "EMBED_AI_CHAT",

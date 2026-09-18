@@ -499,6 +499,15 @@
         "id" : "Default"
       },
       "srcValueType" : "SRCDLPARAM"
+    }, {
+      "dstFieldName" : "srfscope",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chat_request"
+      },
+      "expression" : "//Groovy\ndata.get(\"knowledgebases\")?(\"AI_KNOWLEDGE_BASE=\"+data.get(\"knowledgebases\")):null",
+      "paramAction" : "SETPARAMVALUE",
+      "srcValueType" : "EXPRESSION"
     } ],
     "topPos" : 430,
     "parallelOutput" : true

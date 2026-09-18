@@ -13,6 +13,16 @@
       "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_context.json"
     }
   }, {
+    "name" : "智能管理员-EXTEND_SCHEDULED_TASK[全部数据（读）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/extend_scheduled_task/PSDEUSERROLES/ALL_R.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/extend_scheduled_task.json"
+    }
+  }, {
     "name" : "智能管理员-AI_KB_DOCUMENT[全部数据（读写）]",
     "getPSDEUserRole" : {
       "modelref" : true,
@@ -63,6 +73,16 @@
       "path" : "PSMODULES/meta/PSDATAENTITIES/data_resource.json"
     }
   }, {
+    "name" : "智能管理员-EXTEND_TASK_TYPE[全部数据（读）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/extend_task_type/PSDEUSERROLES/ALL_R.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/extend_task_type.json"
+    }
+  }, {
     "name" : "智能管理员-AI_KB_GRAPH_ENTITY_TYPE[全部数据（读写）]",
     "getPSDEUserRole" : {
       "modelref" : true,
@@ -103,6 +123,16 @@
       "path" : "PSMODULES/Base/PSDATAENTITIES/category_settings.json"
     }
   }, {
+    "name" : "智能管理员-EXTEND_SCHEDULE[全部数据（读）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/extend_schedule/PSDEUSERROLES/ALL_R.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/extend_schedule.json"
+    }
+  }, {
     "name" : "智能管理员-AI_AGENT_CONVERSATION[全部数据（读写）]",
     "getPSDEUserRole" : {
       "modelref" : true,
@@ -141,6 +171,16 @@
     "getPSDataEntity" : {
       "modelref" : true,
       "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report.json"
+    }
+  }, {
+    "name" : "智能管理员-EXTEND_SCHEDULED_TASK_HIS[全部数据（读）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/extend_scheduled_task_his/PSDEUSERROLES/ALL_R.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/extend_scheduled_task_his.json"
     }
   }, {
     "name" : "智能管理员-CATEGORY[全部数据（读写）]",
@@ -354,8 +394,15 @@
       "id" : "EXTENSION__READ_PSSYSBIREPORT"
     },
     "sysUniResCode" : "EXTENSION__READ_PSSYSBIREPORT"
+  }, {
+    "name" : "智能管理员-组织管理",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "ORG_M"
+    },
+    "sysUniResCode" : "ORG_M"
   } ],
   "roleTag" : "AI_ADMIN",
   "roleType" : "CUSTOM",
-  "uniResTags" : [ "EXTENSION__READ_PSSYSBICUBEMEASURE", "EXTENSION__MANAGE_PSDENOTIFY", "EXTENSION__READ_PSDENOTIFY", "EXTENSION__MANAGE_PSSYSBICUBE", "EXTENSION__MANAGE_PSSYSBICUBEDIMENSION", "EXTENSION__MANAGE_PSSYSBICUBEMEASURE", "EXTENSION__READ_PSSYSBICUBE", "AGENTMGR", "EXTENSION__MANAGE_PSSYSBIREPORT", "MODELMGR", "KBMGR", "EXTENSION__READ_PSSYSBICUBEDIMENSION", "EXTENSION__READ_PSSYSBIREPORT" ]
+  "uniResTags" : [ "EXTENSION__READ_PSSYSBICUBEMEASURE", "EXTENSION__MANAGE_PSDENOTIFY", "EXTENSION__READ_PSDENOTIFY", "EXTENSION__MANAGE_PSSYSBICUBE", "EXTENSION__MANAGE_PSSYSBICUBEDIMENSION", "EXTENSION__MANAGE_PSSYSBICUBEMEASURE", "EXTENSION__READ_PSSYSBICUBE", "AGENTMGR", "EXTENSION__MANAGE_PSSYSBIREPORT", "MODELMGR", "KBMGR", "EXTENSION__READ_PSSYSBICUBEDIMENSION", "EXTENSION__READ_PSSYSBIREPORT", "ORG_M" ]
 }

@@ -46,7 +46,10 @@
   }, {
     "expression" : "t1.\"update_time\"",
     "name" : "UPDATE_TIME"
+  }, {
+    "expression" : "t1.\"user_tag\"",
+    "name" : "USER_TAG"
   } ],
-  "queryCode" : "SELECT\nt1.\"agent_tag\",\nt1.\"check_info\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"document_id\",\nt21.\"name\" AS \"document_name\",\nt1.\"id\",\nt1.\"kb_id\",\nt11.\"name\" AS \"kb_name\",\nt1.\"name\",\nt1.\"record_id\",\nt1.\"review_report\",\nt1.\"review_result\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"ai_review_report\" t1 \nLEFT JOIN \"ai_knowledge_base\" t11 ON t1.\"kb_id\" = t11.\"id\" \nLEFT JOIN \"ai_kb_document\" t21 ON t1.\"document_id\" = t21.\"id\" \n",
+  "queryCode" : "SELECT\nt1.\"agent_tag\",\nt1.\"check_info\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"document_id\",\nt21.\"name\" AS \"document_name\",\nt1.\"id\",\nt1.\"kb_id\",\nt11.\"name\" AS \"kb_name\",\nt1.\"name\",\nt1.\"record_id\",\nt1.\"review_report\",\nt1.\"review_result\",\nt1.\"update_man\",\nt1.\"update_time\",\nt1.\"user_tag\"\nFROM \"ai_review_report\" t1 \nLEFT JOIN \"ai_knowledge_base\" t11 ON t1.\"kb_id\" = t11.\"id\" \nLEFT JOIN \"ai_kb_document\" t21 ON t1.\"document_id\" = t21.\"id\" \n",
   "id" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
 }

@@ -1361,6 +1361,14 @@
       "stdDataType" : 25,
       "nullable" : true
     }, {
+      "codeName" : "UI_META",
+      "length" : 1048576,
+      "logicName" : "UI元数据",
+      "name" : "UI_META",
+      "scale" : 0,
+      "stdDataType" : 21,
+      "nullable" : true
+    }, {
       "codeName" : "UPDATE_MAN",
       "length" : 100,
       "logicName" : "更新人",
@@ -1619,6 +1627,14 @@
     "existingModel" : false
   }, {
     "getAllPSSysDBColumns" : [ {
+      "codeName" : "AI_AGENT_CONTEXT_ID",
+      "length" : 200,
+      "logicName" : "智能体业务上下文标识",
+      "name" : "AI_AGENT_CONTEXT_ID",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
       "codeName" : "CONVERSATION_ID",
       "length" : 100,
       "logicName" : "会话标识",
@@ -1808,6 +1824,14 @@
     "existingModel" : false
   }, {
     "getAllPSSysDBColumns" : [ {
+      "codeName" : "AGENT_TAG",
+      "length" : 200,
+      "logicName" : "智能体标识",
+      "name" : "AGENT_TAG",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
       "codeName" : "CONTENT",
       "length" : 1048576,
       "logicName" : "消息内容",
@@ -2690,7 +2714,7 @@
       "nullable" : true
     }, {
       "codeName" : "FILE",
-      "length" : 500,
+      "length" : 2000,
       "logicName" : "上传文件",
       "name" : "FILE",
       "scale" : 0,
@@ -4742,6 +4766,14 @@
       "stdDataType" : 25,
       "nullable" : true
     }, {
+      "codeName" : "AI_PLATFORM",
+      "length" : 100,
+      "logicName" : "formatting/parser",
+      "name" : "AI_PLATFORM",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
+    }, {
       "codeName" : "API_BASE_URL",
       "length" : 255,
       "logicName" : "模型 API 地址",
@@ -5052,6 +5084,14 @@
       "scale" : 0,
       "stdDataType" : 5,
       "nullable" : true
+    }, {
+      "codeName" : "USER_TAG",
+      "length" : 100,
+      "logicName" : "用户标签",
+      "name" : "USER_TAG",
+      "scale" : 0,
+      "stdDataType" : 25,
+      "nullable" : true
     } ],
     "getAllPSSysDBIndices" : [ {
       "getAllPSSysDBIndexColumns" : [ {
@@ -5076,18 +5116,6 @@
       "codeName" : "IF_FE7416EA434F3C7",
       "indexType" : "NORMAL",
       "name" : "DER1N_AI_REVIEW_REPORT_AI_KNOWLEDGE_BASE_KB_ID",
-      "sourceType" : "DER"
-    }, {
-      "getAllPSSysDBIndexColumns" : [ {
-        "name" : "RECORD_ID",
-        "getPSSysDBColumn" : {
-          "modelref" : true,
-          "id" : "RECORD_ID"
-        }
-      } ],
-      "codeName" : "IF_F9992C3F90C4F3E",
-      "indexType" : "NORMAL",
-      "name" : "DER1N_AI_REVIEW_REPORT_DATA_RECORD_RECORD_ID",
       "sourceType" : "DER"
     } ],
     "codeName" : "AI_REVIEW_REPORT",

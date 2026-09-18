@@ -1,0 +1,22 @@
+{
+  "actionMode" : "UNKNOWN",
+  "actionType" : "BUILTIN",
+  "codeName" : "InstallCustom",
+  "dataAccessAction" : "UPDATE",
+  "dynaModelFilePath" : "PSMODULES/extension/PSDATAENTITIES/PSCorePrdFunc/PSDEACTIONS/InstallCustom.json",
+  "logicName" : "安装自定义",
+  "name" : "INSTALLCUSTOM",
+  "getPSDEActionInput" : {
+    "name" : "InstallCustomInput",
+    "getPSDEMethodDTO" : {
+      "modelref" : true,
+      "id" : "PSCorePrdFuncDTO"
+    },
+    "type" : "DTO"
+  },
+  "getPSDEActionReturn" : {
+    "name" : "InstallCustomResult",
+    "type" : "VOID"
+  },
+  "builtinAction" : true
+}

@@ -283,6 +283,13 @@
         "codeName" : "Memo"
       }
     }, {
+      "id" : "settings",
+      "dataType" : 25,
+      "getPSAppDEField" : {
+        "name" : "SETTINGS",
+        "codeName" : "settings"
+      }
+    }, {
       "id" : "pscoreprdid",
       "hidden" : true,
       "dataType" : 25,
@@ -441,6 +448,7 @@
             "detailStyle" : "DEFAULT",
             "detailType" : "FORMITEM",
             "enableCond" : 3,
+            "fieldName" : "uploadflag",
             "ignoreInput" : 0,
             "labelPos" : "LEFT",
             "labelWidth" : 130,
@@ -585,6 +593,7 @@
           "detailStyle" : "DEFAULT",
           "detailType" : "FORMITEM",
           "enableCond" : 3,
+          "fieldName" : "default_branch",
           "ignoreInput" : 0,
           "labelPos" : "LEFT",
           "labelWidth" : 40,
@@ -651,6 +660,39 @@
           "allowEmpty" : true,
           "showCaption" : true
         }, {
+          "caption" : "设置",
+          "codeName" : "settings",
+          "dataType" : 25,
+          "detailStyle" : "DEFAULT",
+          "detailType" : "FORMITEM",
+          "enableCond" : 3,
+          "ignoreInput" : 0,
+          "itemHeight" : 200.0,
+          "labelPos" : "LEFT",
+          "labelWidth" : 130,
+          "name" : "settings",
+          "noPrivDisplayMode" : 1,
+          "getPSAppDEField" : {
+            "name" : "SETTINGS",
+            "codeName" : "settings"
+          },
+          "getPSEditor" : {
+            "editorHeight" : 200.0,
+            "editorParams" : {
+              "HEIGHT" : "200"
+            },
+            "editorType" : "TEXTAREA_10",
+            "maxLength" : 500,
+            "name" : "settings",
+            "showMaxLength" : true
+          },
+          "getPSLayoutPos" : {
+            "colMD" : 24,
+            "layout" : "TABLE_24COL"
+          },
+          "allowEmpty" : true,
+          "showCaption" : true
+        }, {
           "codeName" : "grouppanel2",
           "detailStyle" : "DEFAULT",
           "detailType" : "GROUPPANEL",
@@ -673,12 +715,12 @@
             "getPSUIAction" : {
               "actionTarget" : "SINGLEDATA",
               "caption" : "安装",
-              "codeName" : "install_spec_ver",
-              "fullCodeName" : "PSCorePrdFunc_install_spec_ver",
-              "name" : "指定版本安装",
+              "codeName" : "install_custom_ver",
+              "fullCodeName" : "PSCorePrdFunc_install_custom_ver",
+              "name" : "安装自定义插件包",
               "getPSAppDEMethod" : {
                 "modelref" : true,
-                "id" : "InstallSpecVer"
+                "id" : "InstallCustom"
               },
               "getPSAppDataEntity" : {
                 "modelref" : true,
@@ -704,10 +746,10 @@
               "successMsg" : "安装成功！",
               "timeout" : 60000,
               "uIActionMode" : "BACKEND",
-              "uIActionTag" : "install_spec_ver",
+              "uIActionTag" : "install_custom_ver",
               "uIActionType" : "DEUIACTION",
               "enableConfirm" : true,
-              "id" : "install_spec_ver@PSCorePrdFunc"
+              "id" : "install_custom_ver@PSCorePrdFunc"
             },
             "tooltip" : "安装",
             "uIActionTarget" : "SINGLEDATA",

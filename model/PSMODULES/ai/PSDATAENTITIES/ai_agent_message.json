@@ -310,6 +310,9 @@
       "name" : "TOOL_CALLS",
       "codeName" : "tool_calls"
     }, {
+      "name" : "AGENT_TAG",
+      "codeName" : "agent_tag"
+    }, {
       "name" : "INPUT_TOKENS",
       "codeName" : "input_tokens"
     }, {
@@ -452,7 +455,9 @@
     "enableBackend" : true,
     "enableFront" : true
   }, {
+    "actionHolder" : 1,
     "codeName" : "all",
+    "dataSetType" : "DELOGIC",
     "logicName" : "全部消息",
     "majorSortDir" : "ASC",
     "getMajorSortPSDEField" : {
@@ -480,9 +485,47 @@
       },
       "type" : "PAGE"
     },
+    "getPSDELogic" : {
+      "modelref" : true,
+      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_message/PSDELOGICS/all.json"
+    },
+    "predefinedType" : "DELOGIC",
     "viewLevel" : 0,
     "enableBackend" : true,
-    "enableFront" : true
+    "enableFront" : false
+  }, {
+    "codeName" : "histories",
+    "logicName" : "histories",
+    "majorSortDir" : "DESC",
+    "getMajorSortPSDEField" : {
+      "name" : "SEQUENCE",
+      "codeName" : "sequence"
+    },
+    "name" : "histories",
+    "getPSDEDataQueries" : [ {
+      "modelref" : true,
+      "id" : "View"
+    } ],
+    "getPSDEDataSetInput" : {
+      "name" : "HistoriesInput",
+      "getPSDEFilterDTO" : {
+        "modelref" : true,
+        "id" : "ai_agent_message_filter_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSDEDataSetReturn" : {
+      "name" : "HistoriesResult",
+      "getPSDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_agent_message_dto"
+      },
+      "type" : "PAGE"
+    },
+    "viewLevel" : 0,
+    "enableBackend" : true,
+    "enableFront" : true,
+    "enableUserDR" : true
   } ],
   "getAllPSDEFields" : [ {
     "getAllPSDEFDTColumns" : [ {
@@ -1844,6 +1887,85 @@
     "valueFormat" : "%1$s"
   }, {
     "getAllPSDEFDTColumns" : [ {
+      "columnName" : "agent_tag",
+      "dBType" : "POSTGRESQL",
+      "name" : "AGENT_TAG",
+      "queryCodeExp" : "t1.\"agent_tag\"",
+      "standardColumnName" : "\"agent_tag\""
+    }, {
+      "columnName" : "AGENT_TAG",
+      "dBType" : "MYSQL5",
+      "name" : "AGENT_TAG",
+      "standardColumnName" : "`AGENT_TAG`"
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "name" : "默认",
+      "getPSDEFFormItem" : {
+        "editorType" : "TEXTBOX",
+        "name" : "默认",
+        "stringLength" : 200,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "name" : "移动端默认",
+      "getPSDEFFormItem" : {
+        "editorType" : "MOBTEXT",
+        "name" : "移动端默认",
+        "stringLength" : 200,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "AGENT_TAG",
+          "maxValue" : 200,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[200]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[200]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[200]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "agent_tag",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 200,
+    "logicName" : "智能体标识",
+    "name" : "AGENT_TAG",
+    "orderValue" : 370,
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "AGENT_TAG"
+    },
+    "serviceCodeName" : "agent_tag",
+    "stdDataType" : 25,
+    "stringLength" : 200,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
       "columnName" : "input_tokens",
       "dBType" : "POSTGRESQL",
       "name" : "INPUT_TOKENS",
@@ -2738,6 +2860,300 @@
     "dynaStorageDEField" : true
   } ],
   "getAllPSDELogics" : [ {
+    "codeName" : "all",
+    "defaultParamName" : "Default",
+    "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_message/PSDELOGICS/all.json",
+    "logicName" : "获取消息记录",
+    "name" : "获取消息记录",
+    "getPSDELogicNodes" : [ {
+      "codeName" : "Begin",
+      "leftPos" : 100,
+      "logicNodeType" : "BEGIN",
+      "name" : "开始",
+      "getPSDELogicLinks" : [ {
+        "getDstPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "COPYPARAM_01"
+        },
+        "name" : "开始到拷贝参数",
+        "getSrcPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "Begin"
+        }
+      } ],
+      "topPos" : 200,
+      "parallelOutput" : true
+    }, {
+      "codeName" : "DEDATAQUERY_01",
+      "getDstPSDEDataQuery" : {
+        "modelref" : true,
+        "id" : "View"
+      },
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "filter"
+      },
+      "getDstPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_message.json"
+      },
+      "leftPos" : 1035,
+      "logicNodeType" : "DEDATAQUERY",
+      "name" : "实体数据查询",
+      "getPSDELogicLinks" : [ {
+        "getDstPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "SORTPARAM_01"
+        },
+        "name" : "连接名称",
+        "getSrcPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "DEDATAQUERY_01"
+        }
+      } ],
+      "getRetPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "messages"
+      },
+      "topPos" : 196,
+      "parallelOutput" : true
+    }, {
+      "codeName" : "SORTPARAM_01",
+      "dstFieldName" : "SEQUENCE",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "messages"
+      },
+      "dstSortDir" : "ASC",
+      "leftPos" : 1390,
+      "logicNodeType" : "SORTPARAM",
+      "name" : "按消息序号正序排序",
+      "getPSDELogicLinks" : [ {
+        "getDstPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "RAWSFCODE_02"
+        },
+        "name" : "排序后截取",
+        "getSrcPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "SORTPARAM_01"
+        }
+      } ],
+      "topPos" : 198,
+      "parallelOutput" : true
+    }, {
+      "code" : "def msgs = logic.param('messages').getReal()\ndef result = logic.param('result').getReal()\ndef sizeObj = logic.param('sizeVal').getReal()\ndef pageObj2 = logic.param('pageVal').getReal()\nint size = sizeObj instanceof Number ? ((Number)sizeObj).intValue() : 0\nint page = pageObj2 instanceof Number ? ((Number)pageObj2).intValue() : 0\nif (size > 0) {\n    def start = page * size\n    def end = Math.min(start + size, msgs.size())\n    if (start < msgs.size()) {\n        msgs.subList(start, end).each { result.add(it) }\n    }\n} else {\n    msgs.each { result.add(it) }\n}",
+      "codeName" : "RAWSFCODE_02",
+      "codeType" : "Groovy",
+      "leftPos" : 1680,
+      "logicNodeType" : "RAWSFCODE",
+      "name" : "按传入size及page截取列表",
+      "getPSDELogicLinks" : [ {
+        "getDstPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "END_01"
+        },
+        "name" : "截取后结束",
+        "getSrcPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "RAWSFCODE_02"
+        }
+      } ],
+      "topPos" : 198,
+      "parallelOutput" : true
+    }, {
+      "codeName" : "COPYPARAM_01",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "filter"
+      },
+      "leftPos" : 400,
+      "logicNodeType" : "COPYPARAM",
+      "name" : "拷贝Default过滤器属性到filter",
+      "getPSDELogicLinks" : [ {
+        "getDstPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "PREPAREPARAM_01"
+        },
+        "name" : "拷贝参数到准备参数",
+        "getSrcPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "COPYPARAM_01"
+        }
+      } ],
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "topPos" : 200,
+      "parallelOutput" : true
+    }, {
+      "codeName" : "PREPAREPARAM_01",
+      "leftPos" : 700,
+      "logicNodeType" : "PREPAREPARAM",
+      "name" : "保存传入分页参数并设置查询条件",
+      "getPSDELogicLinks" : [ {
+        "getDstPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "DEDATAQUERY_01"
+        },
+        "name" : "连接名称",
+        "getSrcPSDELogicNode" : {
+          "modelref" : true,
+          "id" : "PREPAREPARAM_01"
+        }
+      } ],
+      "getPSDELogicNodeParams" : [ {
+        "getDstPSDELogicParam" : {
+          "modelref" : true,
+          "id" : "sizeVal"
+        },
+        "name" : "保存传入的size到sizeVal",
+        "paramAction" : "SETPARAMVALUE",
+        "srcFieldName" : "size",
+        "getSrcPSDELogicParam" : {
+          "modelref" : true,
+          "id" : "Default"
+        },
+        "srcValueType" : "SRCDLPARAM"
+      }, {
+        "getDstPSDELogicParam" : {
+          "modelref" : true,
+          "id" : "pageVal"
+        },
+        "name" : "保存传入的page到pageVal",
+        "paramAction" : "SETPARAMVALUE",
+        "srcFieldName" : "page",
+        "getSrcPSDELogicParam" : {
+          "modelref" : true,
+          "id" : "Default"
+        },
+        "srcValueType" : "SRCDLPARAM"
+      }, {
+        "dstFieldName" : "sort",
+        "getDstPSDELogicParam" : {
+          "modelref" : true,
+          "id" : "filter"
+        },
+        "name" : "设置过滤器(filter)排序条件(sequence,desc)",
+        "paramAction" : "SETPARAMVALUE",
+        "srcValue" : "sequence,desc",
+        "srcValueType" : "SRCVALUE"
+      }, {
+        "dstFieldName" : "size",
+        "getDstPSDELogicParam" : {
+          "modelref" : true,
+          "id" : "filter"
+        },
+        "name" : "设置过滤器(filter)分页大小(1000)",
+        "paramAction" : "SETPARAMVALUE",
+        "srcValue" : "1000",
+        "srcValueType" : "SRCVALUE"
+      }, {
+        "dstFieldName" : "page",
+        "getDstPSDELogicParam" : {
+          "modelref" : true,
+          "id" : "filter"
+        },
+        "name" : "设置过滤器(filter)页码(0)",
+        "paramAction" : "SETPARAMVALUE",
+        "srcValue" : "0",
+        "srcValueType" : "SRCVALUE"
+      }, {
+        "dstFieldName" : "n_session_id_eq",
+        "getDstPSDELogicParam" : {
+          "modelref" : true,
+          "id" : "filter"
+        },
+        "paramAction" : "SETPARAMVALUE",
+        "srcFieldName" : "n_session_id_eq",
+        "getSrcPSDELogicParam" : {
+          "modelref" : true,
+          "id" : "Default"
+        },
+        "srcValueType" : "SRCDLPARAM"
+      } ],
+      "topPos" : 200,
+      "parallelOutput" : true
+    }, {
+      "codeName" : "END_01",
+      "leftPos" : 2200,
+      "logicNodeType" : "END",
+      "name" : "结束",
+      "getReturnParam" : {
+        "modelref" : true,
+        "id" : "result"
+      },
+      "returnType" : "LOGICPARAM",
+      "topPos" : 200,
+      "parallelOutput" : true
+    } ],
+    "getPSDELogicParams" : [ {
+      "codeName" : "Default",
+      "logicName" : "传入变量",
+      "name" : "传入变量",
+      "getParamPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_message.json"
+      },
+      "default" : true,
+      "filterParam" : true
+    }, {
+      "codeName" : "filter",
+      "logicName" : "查询过滤器",
+      "name" : "查询过滤器",
+      "getParamPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_message.json"
+      },
+      "filterParam" : true
+    }, {
+      "codeName" : "messages",
+      "logicName" : "消息列表",
+      "name" : "消息列表",
+      "getParamPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_message.json"
+      },
+      "entityListParam" : true
+    }, {
+      "codeName" : "page",
+      "logicName" : "分页查询结果",
+      "name" : "分页查询结果",
+      "getParamPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_message.json"
+      },
+      "entityPageParam" : true
+    }, {
+      "codeName" : "pageVal",
+      "logicName" : "传入页码",
+      "name" : "传入页码",
+      "stdDataType" : 9,
+      "simpleParam" : true
+    }, {
+      "codeName" : "result",
+      "logicName" : "最终结果列表",
+      "name" : "最终结果列表",
+      "getParamPSDataEntity" : {
+        "modelref" : true,
+        "path" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_message.json"
+      },
+      "entityListParam" : true
+    }, {
+      "codeName" : "sizeVal",
+      "logicName" : "传入分页大小",
+      "name" : "传入分页大小",
+      "stdDataType" : 9,
+      "simpleParam" : true
+    } ],
+    "getStartPSDELogicNode" : {
+      "modelref" : true,
+      "id" : "Begin"
+    },
+    "enableBackend" : true,
+    "enableFront" : false
+  }, {
     "codeName" : "cancel_feedback",
     "defaultParamName" : "Default",
     "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_message/PSDELOGICS/cancel_feedback.json",
@@ -3863,6 +4279,17 @@
       },
       "sourceType" : "DEFIELD",
       "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "logicName" : "智能体标识",
+      "name" : "agent_tag",
+      "getPSDEField" : {
+        "name" : "AGENT_TAG",
+        "codeName" : "agent_tag"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 200,
       "type" : "SIMPLE"
     }, {
       "defaultValue" : "(n/a)",

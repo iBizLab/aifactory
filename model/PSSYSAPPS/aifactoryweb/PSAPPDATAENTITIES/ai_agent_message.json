@@ -447,6 +447,44 @@
     "requestParamType" : "ENTITY",
     "requestPath" : "/fetch_default",
     "builtinMethod" : false
+  }, {
+    "codeName" : "fetch_histories",
+    "dataSetName" : "histories",
+    "dataSetTag" : "histories",
+    "methodType" : "FETCH",
+    "name" : "fetch_histories",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_agent_message_filter_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_agent_message_dto"
+      },
+      "type" : "PAGE"
+    },
+    "getPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "histories"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "READ"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "fetch_histories"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetch_histories",
+    "builtinMethod" : false
   } ],
   "getAllPSAppDEFields" : [ {
     "getAllPSAppDEFUIModes" : [ {
@@ -991,6 +1029,33 @@
       "getPSDEFFormItem" : {
         "editorType" : "TEXTBOX",
         "name" : "默认",
+        "stringLength" : 200,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "name" : "移动端默认",
+      "getPSDEFFormItem" : {
+        "editorType" : "MOBTEXT",
+        "name" : "移动端默认",
+        "stringLength" : 200,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "codeName" : "agent_tag",
+    "logicName" : "智能体标识",
+    "name" : "AGENT_TAG",
+    "stdDataType" : 25,
+    "stringLength" : 200
+  }, {
+    "getAllPSAppDEFUIModes" : [ {
+      "name" : "默认",
+      "getPSDEFFormItem" : {
+        "editorType" : "TEXTBOX",
+        "name" : "默认",
         "uIMode" : "DEFAULT"
       },
       "type" : "DEFAULT"
@@ -1480,6 +1545,17 @@
       },
       "sourceType" : "DEFIELD",
       "stdDataType" : 9,
+      "type" : "SIMPLE"
+    }, {
+      "codeName" : "agent_tag",
+      "logicName" : "智能体标识",
+      "name" : "agent_tag",
+      "getPSAppDEField" : {
+        "name" : "AGENT_TAG",
+        "codeName" : "agent_tag"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
       "type" : "SIMPLE"
     }, {
       "codeName" : "content",
@@ -2150,6 +2226,44 @@
     "requestMethod" : "POST",
     "requestParamType" : "ENTITY",
     "requestPath" : "/fetch_default",
+    "builtinMethod" : false
+  }, {
+    "codeName" : "fetch_histories",
+    "dataSetName" : "histories",
+    "dataSetTag" : "histories",
+    "methodType" : "FETCH",
+    "name" : "fetch_histories",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_agent_message_filter_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_agent_message_dto"
+      },
+      "type" : "PAGE"
+    },
+    "getPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "histories"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "READ"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "fetch_histories"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetch_histories",
     "builtinMethod" : false
   }, {
     "codeName" : "FilterCreate",

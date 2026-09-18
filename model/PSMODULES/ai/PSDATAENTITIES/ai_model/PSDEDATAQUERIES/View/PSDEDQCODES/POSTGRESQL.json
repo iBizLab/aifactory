@@ -14,6 +14,9 @@
     "expression" : "t21.\"name\"",
     "name" : "AI_CREDENTIAL_NAME"
   }, {
+    "expression" : "t1.\"ai_platform\"",
+    "name" : "AI_PLATFORM"
+  }, {
     "expression" : "t1.\"api_base_url\"",
     "name" : "API_BASE_URL"
   }, {
@@ -65,6 +68,6 @@
     "expression" : "t1.\"update_time\"",
     "name" : "UPDATE_TIME"
   } ],
-  "queryCode" : "SELECT\nt21.\"bearer_token\" AS \"access_token\",\nt1.\"active\",\nt1.\"ai_credential_id\",\nt21.\"name\" AS \"ai_credential_name\",\nt1.\"api_base_url\",\nt1.\"code_name\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"desc_oss_image\",\nt1.\"extra_params\",\nt1.\"id\",\nt1.\"max_context_tokens\",\nt1.\"max_output_tokens\",\nt1.\"model_capability\",\nt1.\"model_category\",\nt1.\"name\",\nt1.\"oss_image_vl_prompt\",\nt1.\"provider\",\nt11.\"name\" AS \"provider_name\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"ai_model\" t1 \nLEFT JOIN \"ai_model_provider\" t11 ON t1.\"provider\" = t11.\"id\" \nLEFT JOIN \"ai_credential\" t21 ON t1.\"ai_credential_id\" = t21.\"id\" \n",
+  "queryCode" : "SELECT\nt21.\"bearer_token\" AS \"access_token\",\nt1.\"active\",\nt1.\"ai_credential_id\",\nt21.\"name\" AS \"ai_credential_name\",\nt1.\"ai_platform\",\nt1.\"api_base_url\",\nt1.\"code_name\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"desc_oss_image\",\nt1.\"extra_params\",\nt1.\"id\",\nt1.\"max_context_tokens\",\nt1.\"max_output_tokens\",\nt1.\"model_capability\",\nt1.\"model_category\",\nt1.\"name\",\nt1.\"oss_image_vl_prompt\",\nt1.\"provider\",\nt11.\"name\" AS \"provider_name\",\nt1.\"update_man\",\nt1.\"update_time\"\nFROM \"ai_model\" t1 \nLEFT JOIN \"ai_model_provider\" t11 ON t1.\"provider\" = t11.\"id\" \nLEFT JOIN \"ai_credential\" t21 ON t1.\"ai_credential_id\" = t21.\"id\" \n",
   "id" : "PSMODULES/ai/PSDATAENTITIES/ai_model/PSDEDATAQUERIES/View/PSDEDQCODES/POSTGRESQL.json"
 }

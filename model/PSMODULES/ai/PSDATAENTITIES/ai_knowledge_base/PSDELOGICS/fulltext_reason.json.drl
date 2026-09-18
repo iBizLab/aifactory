@@ -862,6 +862,7 @@ package cn.ibizlab.ai.logic.ai_knowledge_baselogic.fulltext_reason;
             then
                                 ai_knowledge_basefulltext_reasonchat_request.set("knowledgebases",null);
                             ai_knowledge_basefulltext_reasonchat_request.set("srfaiagenttag",ai_knowledge_basefulltext_reasondefault_temp.get("agenttag"));
+                            ai_knowledge_basefulltext_reasonchat_request.set("knowledgebasesbk",ai_knowledge_basefulltext_reasonkb.get("id"));
                         update(ai_knowledge_basefulltext_reasondefault);//更新fact中变量值
                         update(ai_knowledge_basefulltext_reasonagent);//更新fact中变量值
                         update(ai_knowledge_basefulltext_reasonall_reason_content);//更新fact中变量值

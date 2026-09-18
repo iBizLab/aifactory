@@ -19,7 +19,7 @@
     "expression" : "t1.\"update_strategy\"",
     "name" : "UPDATE_STRATEGY"
   }, {
-    "expression" : "t11.\"ai_agent_context_id\"",
+    "expression" : "t1.\"ai_agent_context_id\"",
     "name" : "AI_AGENT_CONTEXT_ID"
   }, {
     "expression" : "t1.\"conversation_id\"",
@@ -79,6 +79,6 @@
     "expression" : "t11.\"user_id\"",
     "name" : "USER_ID"
   } ],
-  "queryCode" : "SELECT\nt11.\"ai_agent_context_id\",\nt1.\"conversation_id\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"doc_id\",\nt1.\"doc_path\",\nt1.\"end_at\",\nt1.\"executed_at\",\nt1.\"id\",\nt1.\"kb_tag\",\nt1.\"last_msg_time\",\nt1.\"memory_isolation_mode\",\nt1.\"name\",\nt1.\"scheduled_at\",\nt11.\"scope\",\nt1.\"status\",\nt1.\"trigger_type\",\nt1.\"update_man\",\nt1.\"update_time\",\nt11.\"user_id\"\nFROM \"ai_agent_memory_task\" t1 \nLEFT JOIN \"ai_agent_conversation\" t11 ON t1.\"conversation_id\" = t11.\"id\" \n",
+  "queryCode" : "SELECT\nt1.\"ai_agent_context_id\",\nt1.\"conversation_id\",\nt1.\"create_man\",\nt1.\"create_time\",\nt1.\"doc_id\",\nt1.\"doc_path\",\nt1.\"end_at\",\nt1.\"executed_at\",\nt1.\"id\",\nt1.\"kb_tag\",\nt1.\"last_msg_time\",\nt1.\"memory_isolation_mode\",\nt1.\"name\",\nt1.\"scheduled_at\",\nt11.\"scope\",\nt1.\"status\",\nt1.\"trigger_type\",\nt1.\"update_man\",\nt1.\"update_time\",\nt11.\"user_id\"\nFROM \"ai_agent_memory_task\" t1 \nLEFT JOIN \"ai_agent_conversation\" t11 ON t1.\"conversation_id\" = t11.\"id\" \n",
   "id" : "PSMODULES/ai/PSDATAENTITIES/ai_agent_memory_task/PSDEDATAQUERIES/pending_scheduled/PSDEDQCODES/POSTGRESQL.json"
 }

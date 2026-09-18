@@ -98,67 +98,6 @@
     }
   } ],
   "getPSControls" : [ {
-    "codeName" : "grid_view_toolbar",
-    "controlType" : "TOOLBAR",
-    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_skill_workspace/PSTOOLBARS/grid_view_toolbar.json",
-    "logicName" : "表格",
-    "getPSAppDataEntity" : {
-      "modelref" : true,
-      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_skill_workspace.json"
-    },
-    "getPSControlParam" : {
-      "id" : "TOOLBAR"
-    },
-    "getPSDEToolbarItems" : [ {
-      "getCapPSLanguageRes" : {
-        "lanResTag" : "TBB.TEXT.*.NEW"
-      },
-      "caption" : "新建",
-      "groupExtractMode" : "ITEM",
-      "itemType" : "DEUIACTION",
-      "name" : "deuiaction1",
-      "noPrivDisplayMode" : 2,
-      "getPSAppViewUIAction" : {
-        "modelref" : true,
-        "id" : "toolbar_deuiaction1"
-      },
-      "getPSSysImage" : {
-        "glyph" : "xf0f6@FontAwesome",
-        "cssClass" : "fa fa-file-text-o"
-      },
-      "getPSUIAction" : {
-        "getCapPSLanguageRes" : {
-          "lanResTag" : "TBB.TEXT.*.NEW"
-        },
-        "caption" : "新建",
-        "codeName" : "New",
-        "fullCodeName" : "New",
-        "name" : "表格界面_新建操作",
-        "getPSSysImage" : {
-          "glyph" : "xf0f6@FontAwesome",
-          "cssClass" : "fa fa-file-text-o"
-        },
-        "predefinedType" : "GRIDVIEW_NEWACTION",
-        "timeout" : 60000,
-        "getTooltipPSLanguageRes" : {
-          "lanResTag" : "TBB.TOOLTIP.*.NEW"
-        },
-        "uIActionMode" : "SYS",
-        "uIActionTag" : "New",
-        "uIActionType" : "DEUIACTION"
-      },
-      "tooltip" : "新建",
-      "getTooltipPSLanguageRes" : {
-        "lanResTag" : "TBB.TOOLTIP.*.NEW"
-      },
-      "showCaption" : true,
-      "showIcon" : true
-    } ],
-    "xDataControlName" : "grid",
-    "name" : "toolbar",
-    "modelid" : "208c976b3dd7e5724c69acc9e7264125",
-    "modeltype" : "PSDETOOLBAR"
-  }, {
     "aggMode" : "NONE",
     "codeName" : "main",
     "columnEnableFilter" : 2,
@@ -172,7 +111,7 @@
       "name" : "fetch",
       "getPSAppDEMethod" : {
         "modelref" : true,
-        "id" : "fetch_default"
+        "id" : "fetch_default_with_state"
       },
       "getPSAppDataEntity" : {
         "modelref" : true,
@@ -256,7 +195,7 @@
         "name" : "fetch",
         "getPSAppDEMethod" : {
           "modelref" : true,
-          "id" : "fetch_default"
+          "id" : "fetch_default_with_state"
         },
         "getPSAppDataEntity" : {
           "modelref" : true,
@@ -586,6 +525,67 @@
     "name" : "grid",
     "modelid" : "9183a9f10219037e8b86e32822507df5",
     "modeltype" : "PSDEGRID"
+  }, {
+    "codeName" : "grid_view_toolbar",
+    "controlType" : "TOOLBAR",
+    "dynaModelFilePath" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_skill_workspace/PSTOOLBARS/grid_view_toolbar.json",
+    "logicName" : "表格",
+    "getPSAppDataEntity" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPDATAENTITIES/ai_skill_workspace.json"
+    },
+    "getPSControlParam" : {
+      "id" : "TOOLBAR"
+    },
+    "getPSDEToolbarItems" : [ {
+      "getCapPSLanguageRes" : {
+        "lanResTag" : "TBB.TEXT.*.NEW"
+      },
+      "caption" : "新建",
+      "groupExtractMode" : "ITEM",
+      "itemType" : "DEUIACTION",
+      "name" : "deuiaction1",
+      "noPrivDisplayMode" : 2,
+      "getPSAppViewUIAction" : {
+        "modelref" : true,
+        "id" : "toolbar_deuiaction1"
+      },
+      "getPSSysImage" : {
+        "glyph" : "xf0f6@FontAwesome",
+        "cssClass" : "fa fa-file-text-o"
+      },
+      "getPSUIAction" : {
+        "getCapPSLanguageRes" : {
+          "lanResTag" : "TBB.TEXT.*.NEW"
+        },
+        "caption" : "新建",
+        "codeName" : "New",
+        "fullCodeName" : "New",
+        "name" : "表格界面_新建操作",
+        "getPSSysImage" : {
+          "glyph" : "xf0f6@FontAwesome",
+          "cssClass" : "fa fa-file-text-o"
+        },
+        "predefinedType" : "GRIDVIEW_NEWACTION",
+        "timeout" : 60000,
+        "getTooltipPSLanguageRes" : {
+          "lanResTag" : "TBB.TOOLTIP.*.NEW"
+        },
+        "uIActionMode" : "SYS",
+        "uIActionTag" : "New",
+        "uIActionType" : "DEUIACTION"
+      },
+      "tooltip" : "新建",
+      "getTooltipPSLanguageRes" : {
+        "lanResTag" : "TBB.TOOLTIP.*.NEW"
+      },
+      "showCaption" : true,
+      "showIcon" : true
+    } ],
+    "xDataControlName" : "grid",
+    "name" : "toolbar",
+    "modelid" : "208c976b3dd7e5724c69acc9e7264125",
+    "modeltype" : "PSDETOOLBAR"
   }, {
     "codeName" : "default",
     "controlType" : "SEARCHFORM",

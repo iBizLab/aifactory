@@ -1619,6 +1619,44 @@
     "requestPath" : "/fetch_main",
     "builtinMethod" : false
   }, {
+    "codeName" : "fetch_main_with_role",
+    "dataSetName" : "main_with_role",
+    "dataSetTag" : "main_with_role",
+    "methodType" : "FETCH",
+    "name" : "fetch_main_with_role",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_knowledge_base_filter_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_knowledge_base_dto"
+      },
+      "type" : "PAGE"
+    },
+    "getPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "main_with_role"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "READ"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "fetch_main_with_role"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetch_main_with_role",
+    "builtinMethod" : false
+  }, {
     "codeName" : "fetch_reader",
     "dataSetName" : "reader",
     "dataSetTag" : "reader",
@@ -6411,6 +6449,44 @@
     "requestPath" : "/fetch_main",
     "builtinMethod" : false
   }, {
+    "codeName" : "fetch_main_with_role",
+    "dataSetName" : "main_with_role",
+    "dataSetTag" : "main_with_role",
+    "methodType" : "FETCH",
+    "name" : "fetch_main_with_role",
+    "getPSAppDEMethodInput" : {
+      "name" : "输入对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_knowledge_base_filter_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "name" : "返回对象",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_knowledge_base_dto"
+      },
+      "type" : "PAGE"
+    },
+    "getPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "main_with_role"
+    },
+    "getPSDEOPPriv" : {
+      "modelref" : true,
+      "id" : "READ"
+    },
+    "getPSDEServiceAPIMethod" : {
+      "modelref" : true,
+      "id" : "fetch_main_with_role"
+    },
+    "requestMethod" : "POST",
+    "requestParamType" : "ENTITY",
+    "requestPath" : "/fetch_main_with_role",
+    "builtinMethod" : false
+  }, {
     "codeName" : "fetch_reader",
     "dataSetName" : "reader",
     "dataSetTag" : "reader",
@@ -6994,6 +7070,83 @@
     "getPSDEDataSet" : {
       "modelref" : true,
       "id" : "main"
+    },
+    "tempDataMode" : 2,
+    "builtinMethod" : false
+  }, {
+    "codeName" : "FetchTempMain_with_role",
+    "dataSetTag" : "main_with_role",
+    "dataSetType" : "DATAQUERY",
+    "methodType" : "FETCHTEMP",
+    "name" : "main_with_role",
+    "getPSAppDEMethodInput" : {
+      "codeName" : "Main_with_roleInput",
+      "name" : "Main_with_roleInput",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_knowledge_base_filter_dto"
+      },
+      "type" : "DTO"
+    },
+    "getPSAppDEMethodReturn" : {
+      "codeName" : "Main_with_roleResult",
+      "name" : "Main_with_roleResult",
+      "getPSAppDEMethodDTO" : {
+        "modelref" : true,
+        "id" : "ai_knowledge_base_dto"
+      },
+      "type" : "PAGE"
+    },
+    "getPSDEDQGroupConditions" : [ {
+      "condOp" : "AND",
+      "condType" : "GROUP",
+      "name" : "连接条件",
+      "getPSDEDQConditions" : [ {
+        "condOp" : "EQ",
+        "condType" : "SINGLE",
+        "condValue" : "0",
+        "fieldName" : "IS_ARCHIVED",
+        "name" : "(IS_ARCHIVED) 等于(=) 0"
+      }, {
+        "condOp" : "EQ",
+        "condType" : "SINGLE",
+        "condValue" : "0",
+        "fieldName" : "IS_DELETED",
+        "name" : "(IS_DELETED) 等于(=) 0"
+      }, {
+        "condOp" : "EQ",
+        "condType" : "SINGLE",
+        "condValue" : "1",
+        "fieldName" : "IS_FAVORITE",
+        "name" : "(IS_FAVORITE) 等于(=) 1"
+      } ]
+    }, {
+      "condOp" : "AND",
+      "condType" : "GROUP",
+      "name" : "连接条件",
+      "getPSDEDQConditions" : [ {
+        "condOp" : "EQ",
+        "condType" : "SINGLE",
+        "condValue" : "0",
+        "fieldName" : "IS_FAVORITE",
+        "name" : "(IS_FAVORITE) 等于(=) 0"
+      }, {
+        "condOp" : "EQ",
+        "condType" : "SINGLE",
+        "condValue" : "0",
+        "fieldName" : "IS_DELETED",
+        "name" : "(IS_DELETED) 等于(=) 0"
+      }, {
+        "condOp" : "EQ",
+        "condType" : "SINGLE",
+        "condValue" : "0",
+        "fieldName" : "IS_ARCHIVED",
+        "name" : "(IS_ARCHIVED) 等于(=) 0"
+      } ]
+    } ],
+    "getPSDEDataSet" : {
+      "modelref" : true,
+      "id" : "main_with_role"
     },
     "tempDataMode" : 2,
     "builtinMethod" : false

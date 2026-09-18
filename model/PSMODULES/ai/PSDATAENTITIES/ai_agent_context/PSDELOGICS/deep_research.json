@@ -213,6 +213,15 @@
       },
       "srcValue" : "sjxf_lead",
       "srcValueType" : "SRCDLPARAM"
+    }, {
+      "dstFieldName" : "srfscope",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "Default"
+      },
+      "expression" : "//Groovy\ndata.get(\"knowledgebases\")?(\"AI_KNOWLEDGE_BASE=\"+data.get(\"knowledgebases\")):null",
+      "paramAction" : "SETPARAMVALUE",
+      "srcValueType" : "EXPRESSION"
     } ],
     "topPos" : 410,
     "parallelOutput" : true

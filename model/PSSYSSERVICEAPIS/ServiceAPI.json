@@ -842,6 +842,39 @@
       "tempDataMode" : 0,
       "uniqueTag" : "AI_AGENT_MESSAGE__FETCH__DEFAULT",
       "enableTestMethod" : false
+    }, {
+      "actionType" : "FETCH",
+      "codeName" : "fetch_histories",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "fetch_histories",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "histories"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_message_filter_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_message_dto"
+        },
+        "type" : "PAGE"
+      },
+      "parentKeyMode" : "DEFAULT",
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_histories",
+      "tempDataMode" : 0,
+      "uniqueTag" : "AI_AGENT_MESSAGE__FETCH__HISTORIES",
+      "enableTestMethod" : false
     } ],
     "getParentIdPSDEField" : {
       "name" : "CONVERSATION_ID",
@@ -14613,6 +14646,31 @@
       "requestPath" : "/getdraft",
       "uniqueTag" : "PSCOREPRDFUNC__DEACTION__GETDRAFT"
     }, {
+      "codeName" : "InstallCustom",
+      "dataAccessAction" : "UPDATE",
+      "methodType" : "DEACTION",
+      "name" : "InstallCustom",
+      "getPSDEAction" : {
+        "modelref" : true,
+        "path" : "PSMODULES/extension/PSDATAENTITIES/PSCorePrdFunc/PSDEACTIONS/InstallCustom.json"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "PSCorePrdFuncDTO"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "type" : "VOID"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/installcustom",
+      "uniqueTag" : "PSCOREPRDFUNC__DEACTION__INSTALLCUSTOM"
+    }, {
       "codeName" : "InstallSpecVer",
       "dataAccessAction" : "UPDATE",
       "methodType" : "DEACTION",
@@ -26021,6 +26079,35 @@
       "requestPath" : "/fetch_lookup_agent",
       "uniqueTag" : "AI_AGENT_CONTEXT__FETCH__LOOKUP_AGENT"
     }, {
+      "codeName" : "fetch_my",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "fetch_my",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "my"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_context_filter_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_context_dto"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_my",
+      "uniqueTag" : "AI_AGENT_CONTEXT__FETCH__MY"
+    }, {
       "codeName" : "fetch_skill_agents",
       "dataAccessAction" : "READ",
       "methodType" : "FETCH",
@@ -26256,6 +26343,19 @@
       "orderValue" : 270,
       "stdDataType" : 25,
       "stringLength" : 30,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "ui_meta",
+      "codeName2" : "ui_meta",
+      "logicName" : "UI元数据",
+      "name" : "UI_META",
+      "orderValue" : 270,
+      "stdDataType" : 21,
+      "stringLength" : 1048576,
       "allowEmpty" : true,
       "enableCreate" : true,
       "enableModify" : true,
@@ -27538,7 +27638,7 @@
       "name" : "AI_AGENT_CONTEXT_ID",
       "orderValue" : 330,
       "stdDataType" : 25,
-      "stringLength" : 100,
+      "stringLength" : 200,
       "allowEmpty" : true,
       "enableCreate" : true,
       "enableModify" : true,
@@ -28140,6 +28240,19 @@
       "keyField" : false,
       "majorField" : false
     }, {
+      "codeName" : "agent_tag",
+      "codeName2" : "agent_tag",
+      "logicName" : "智能体标识",
+      "name" : "AGENT_TAG",
+      "orderValue" : 370,
+      "stdDataType" : 25,
+      "stringLength" : 200,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
       "codeName" : "input_tokens",
       "codeName2" : "input_tokens",
       "logicName" : "输入token数",
@@ -28611,6 +28724,35 @@
       "requestParamType" : "ENTITY",
       "requestPath" : "/fetch_default",
       "uniqueTag" : "AI_AGENT_MESSAGE__FETCH__DEFAULT"
+    }, {
+      "codeName" : "fetch_histories",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "fetch_histories",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "histories"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_message_filter_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_agent_message_dto"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_histories",
+      "uniqueTag" : "AI_AGENT_MESSAGE__FETCH__HISTORIES"
     } ],
     "getPSDataEntity" : {
       "modelref" : true,
@@ -30569,7 +30711,7 @@
       "name" : "DOC_FILE",
       "orderValue" : 430,
       "stdDataType" : 25,
-      "stringLength" : 500,
+      "stringLength" : 2000,
       "allowEmpty" : true,
       "enableCreate" : true,
       "enableModify" : true,
@@ -31667,7 +31809,7 @@
       "name" : "FILE",
       "orderValue" : 200,
       "stdDataType" : 25,
-      "stringLength" : 500,
+      "stringLength" : 2000,
       "allowEmpty" : true,
       "enableCreate" : true,
       "enableModify" : true,
@@ -40434,6 +40576,35 @@
       "requestPath" : "/fetch_main",
       "uniqueTag" : "AI_KNOWLEDGE_BASE__FETCH__MAIN"
     }, {
+      "codeName" : "fetch_main_with_role",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "fetch_main_with_role",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "main_with_role"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_knowledge_base_filter_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_knowledge_base_dto"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_main_with_role",
+      "uniqueTag" : "AI_KNOWLEDGE_BASE__FETCH__MAIN_WITH_ROLE"
+    }, {
       "codeName" : "fetch_reader",
       "dataAccessAction" : "READ",
       "methodType" : "FETCH",
@@ -41240,6 +41411,19 @@
       "orderValue" : 300,
       "stdDataType" : 21,
       "stringLength" : 1048576,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
+      "codeName" : "ai_platform",
+      "codeName2" : "ai_platform",
+      "logicName" : "formatting/parser",
+      "name" : "AI_PLATFORM",
+      "orderValue" : 310,
+      "stdDataType" : 25,
+      "stringLength" : 100,
       "allowEmpty" : true,
       "enableCreate" : true,
       "enableModify" : true,
@@ -42157,6 +42341,19 @@
       "keyField" : false,
       "majorField" : false
     }, {
+      "codeName" : "user_tag",
+      "codeName2" : "user_tag",
+      "logicName" : "用户标签",
+      "name" : "USER_TAG",
+      "orderValue" : 260,
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "allowEmpty" : true,
+      "enableCreate" : true,
+      "enableModify" : true,
+      "keyField" : false,
+      "majorField" : false
+    }, {
       "codeName" : "kb_id",
       "codeName2" : "kb_id",
       "logicName" : "知识库标识",
@@ -42176,7 +42373,7 @@
       "name" : "RECORD_ID",
       "orderValue" : 1000,
       "stdDataType" : 25,
-      "stringLength" : 60,
+      "stringLength" : 100,
       "allowEmpty" : true,
       "enableCreate" : true,
       "enableModify" : true,
@@ -42969,6 +43166,35 @@
       "requestParamType" : "ENTITY",
       "requestPath" : "/fetch_default",
       "uniqueTag" : "AI_SKILL_WORKSPACE__FETCH__DEFAULT"
+    }, {
+      "codeName" : "fetch_default_with_state",
+      "dataAccessAction" : "READ",
+      "methodType" : "FETCH",
+      "name" : "fetch_default_with_state",
+      "getPSDEDataSet" : {
+        "modelref" : true,
+        "id" : "default_with_state"
+      },
+      "getPSDEServiceAPIMethodInput" : {
+        "name" : "输入对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_skill_workspace_filter_dto"
+        },
+        "type" : "DTO"
+      },
+      "getPSDEServiceAPIMethodReturn" : {
+        "name" : "返回对象",
+        "getPSDEMethodDTO" : {
+          "modelref" : true,
+          "id" : "ai_skill_workspace_dto"
+        },
+        "type" : "PAGE"
+      },
+      "requestMethod" : "POST",
+      "requestParamType" : "ENTITY",
+      "requestPath" : "/fetch_default_with_state",
+      "uniqueTag" : "AI_SKILL_WORKSPACE__FETCH__DEFAULT_WITH_STATE"
     } ],
     "getPSDataEntity" : {
       "modelref" : true,

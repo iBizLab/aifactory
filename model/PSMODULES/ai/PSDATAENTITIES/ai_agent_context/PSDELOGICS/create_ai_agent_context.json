@@ -25,6 +25,28 @@
     "topPos" : -168,
     "parallelOutput" : true
   }, {
+    "codeName" : "DEBUGPARAM_01",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "Default"
+    },
+    "leftPos" : -180,
+    "logicNodeType" : "DEBUGPARAM",
+    "name" : "输出default参数",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "PREPAREPARAM_04"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "DEBUGPARAM_01"
+      }
+    } ],
+    "topPos" : -58,
+    "parallelOutput" : true
+  }, {
     "chatRequestAppendMode" : "USER",
     "codeName" : "SYSAICHATAGENT_APPENDCHATREQUEST_01",
     "getDstPSDELogicParam" : {
@@ -461,6 +483,29 @@
     "topPos" : 477,
     "parallelOutput" : true
   }, {
+    "codeName" : "SYSAICHATAGENT_CHATINPUT_02",
+    "getDstPSDELogicParam" : {
+      "modelref" : true,
+      "id" : "chat_response"
+    },
+    "leftPos" : -106,
+    "logicNodeType" : "SYSAICHATAGENT_CHATINPUT",
+    "message" : "**继续细化或确认生成**",
+    "name" : "下一步或重新生成",
+    "getPSDELogicLinks" : [ {
+      "getDstPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATDECISION_01"
+      },
+      "name" : "连接名称",
+      "getSrcPSDELogicNode" : {
+        "modelref" : true,
+        "id" : "SYSAICHATAGENT_CHATINPUT_02"
+      }
+    } ],
+    "subType" : "CHATINPUT",
+    "topPos" : 506
+  }, {
     "codeName" : "DEACTION_03",
     "getDstPSDEAction" : {
       "modelref" : true,
@@ -505,51 +550,6 @@
     },
     "topPos" : 600,
     "parallelOutput" : true
-  }, {
-    "codeName" : "DEBUGPARAM_01",
-    "getDstPSDELogicParam" : {
-      "modelref" : true,
-      "id" : "Default"
-    },
-    "leftPos" : -180,
-    "logicNodeType" : "DEBUGPARAM",
-    "name" : "输出default参数",
-    "getPSDELogicLinks" : [ {
-      "getDstPSDELogicNode" : {
-        "modelref" : true,
-        "id" : "PREPAREPARAM_04"
-      },
-      "name" : "连接名称",
-      "getSrcPSDELogicNode" : {
-        "modelref" : true,
-        "id" : "DEBUGPARAM_01"
-      }
-    } ],
-    "topPos" : -58,
-    "parallelOutput" : true
-  }, {
-    "codeName" : "SYSAICHATAGENT_CHATINPUT_02",
-    "getDstPSDELogicParam" : {
-      "modelref" : true,
-      "id" : "chat_response"
-    },
-    "leftPos" : -106,
-    "logicNodeType" : "SYSAICHATAGENT_CHATINPUT",
-    "message" : "**继续细化或确认生成**",
-    "name" : "下一步或重新生成",
-    "getPSDELogicLinks" : [ {
-      "getDstPSDELogicNode" : {
-        "modelref" : true,
-        "id" : "SYSAICHATAGENT_CHATDECISION_01"
-      },
-      "name" : "连接名称",
-      "getSrcPSDELogicNode" : {
-        "modelref" : true,
-        "id" : "SYSAICHATAGENT_CHATINPUT_02"
-      }
-    } ],
-    "subType" : "CHATINPUT",
-    "topPos" : 506
   }, {
     "codeName" : "PREPAREPARAM_02",
     "leftPos" : 910,

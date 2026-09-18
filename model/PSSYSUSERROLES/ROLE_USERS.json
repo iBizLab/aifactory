@@ -134,6 +134,16 @@
       "path" : "PSMODULES/Base/PSDATAENTITIES/position.json"
     }
   }, {
+    "name" : "默认用户权限-EXTEND_SCHEDULE[全部数据（读）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/extend_schedule/PSDEUSERROLES/ALL_R.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/extend_schedule.json"
+    }
+  }, {
     "name" : "默认用户权限-AI_KB_DOCUMENT[操作用户(读)]",
     "getPSDEUserRole" : {
       "modelref" : true,
@@ -182,6 +192,16 @@
     "getPSDataEntity" : {
       "modelref" : true,
       "path" : "PSMODULES/Base/PSDATAENTITIES/category.json"
+    }
+  }, {
+    "name" : "默认用户权限-EXTEND_SCHEDULED_TASK[全部数据（读）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/extend_scheduled_task/PSDEUSERROLES/ALL_R.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/extend_scheduled_task.json"
     }
   }, {
     "name" : "默认用户权限-SPACE[普通用户（读写）]",
@@ -584,6 +604,16 @@
       "path" : "PSSYSMODELGROUPS/ebsx/PSMODULES/ebsx/PSDATAENTITIES/SysEmployee.json"
     }
   }, {
+    "name" : "默认用户权限-EXTEND_TASK_TYPE[全部数据（读）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/extend_task_type/PSDEUSERROLES/ALL_R.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/extend_task_type.json"
+    }
+  }, {
     "name" : "默认用户权限-PAGE[与我共享(写)]",
     "getPSDEUserRole" : {
       "modelref" : true,
@@ -682,6 +712,16 @@
     "getPSDataEntity" : {
       "modelref" : true,
       "path" : "PSMODULES/ai/PSDATAENTITIES/ai_knowledge_base.json"
+    }
+  }, {
+    "name" : "默认用户权限-EXTEND_SCHEDULED_TASK_HIS[全部数据（读）]",
+    "getPSDEUserRole" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/extend_scheduled_task_his/PSDEUSERROLES/ALL_R.json"
+    },
+    "getPSDataEntity" : {
+      "modelref" : true,
+      "path" : "PSMODULES/Base/PSDATAENTITIES/extend_scheduled_task_his.json"
     }
   }, {
     "name" : "默认用户权限-AI_REVIEW_REPORT[操作用户(读)]",
@@ -786,6 +826,13 @@
     },
     "sysUniResCode" : "EXTENSION__MANAGE_PSSYSBICUBE"
   }, {
+    "name" : "默认用户权限-组织管理",
+    "getPSSysUniRes" : {
+      "modelref" : true,
+      "id" : "ORG_M"
+    },
+    "sysUniResCode" : "ORG_M"
+  }, {
     "name" : "默认用户权限-智能报表模型扩展",
     "getPSSysUniRes" : {
       "modelref" : true,
@@ -837,6 +884,6 @@
   } ],
   "roleTag" : "ROLE_USERS",
   "roleType" : "CUSTOM",
-  "uniResTags" : [ "EXTENSION__READ_PSSYSBICUBEMEASURE", "EXTENSION__MANAGE_PSSYSBICUBEDIMENSION", "EXTENSION__MANAGE_PSSYSBICUBE", "EXTENSION__MANAGE_PSSYSBIREPORT", "SPACE_M", "EXTENSION__READ_PSSYSBIREPORT", "EXTENSION__READ_PSSYSBICUBEDIMENSION", "EXTENSION__READ_PSSYSBICUBE", "EXTENSION__MANAGE_PSSYSBICUBEMEASURE", "SPACE" ],
+  "uniResTags" : [ "EXTENSION__READ_PSSYSBICUBEMEASURE", "EXTENSION__MANAGE_PSSYSBICUBEDIMENSION", "EXTENSION__MANAGE_PSSYSBICUBE", "ORG_M", "EXTENSION__MANAGE_PSSYSBIREPORT", "SPACE_M", "EXTENSION__READ_PSSYSBIREPORT", "EXTENSION__READ_PSSYSBICUBEDIMENSION", "EXTENSION__READ_PSSYSBICUBE", "EXTENSION__MANAGE_PSSYSBICUBEMEASURE", "SPACE" ],
   "systemReserved" : true
 }

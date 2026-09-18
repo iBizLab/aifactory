@@ -23,8 +23,8 @@
   "logicName" : "主表格",
   "minorSortDir" : "DESC",
   "getMinorSortPSAppDEField" : {
-    "name" : "CREATE_TIME",
-    "codeName" : "create_time"
+    "name" : "UPDATE_TIME",
+    "codeName" : "update_time"
   },
   "getPSAppDataEntity" : {
     "modelref" : true,
@@ -65,7 +65,7 @@
       "name" : "STATUS",
       "codeName" : "status"
     },
-    "width" : 250,
+    "width" : 150,
     "widthUnit" : "PX",
     "enableSort" : true
   }, {
@@ -89,11 +89,30 @@
   }, {
     "align" : "LEFT",
     "cLConvertMode" : "NONE",
+    "caption" : "更新时间",
+    "codeName" : "update_time",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "update_time",
+    "excelCaption" : "更新时间",
+    "name" : "update_time",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "UPDATE_TIME",
+      "codeName" : "update_time"
+    },
+    "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
     "caption" : "最后活跃时间",
     "codeName" : "last_active_at",
     "columnType" : "DEFGRIDCOLUMN",
     "dataItemName" : "last_active_at",
     "excelCaption" : "最后活跃时间",
+    "hideMode" : 1,
     "name" : "last_active_at",
     "noPrivDisplayMode" : 1,
     "getPSAppDEField" : {
@@ -101,6 +120,62 @@
       "codeName" : "last_active_at"
     },
     "valueFormat" : "YYYY-MM-DD HH:mm:ss",
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true,
+    "hideDefault" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "FRONT",
+    "caption" : "用户",
+    "codeName" : "user_id",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "user_id",
+    "excelCaption" : "用户",
+    "name" : "user_id",
+    "noPrivDisplayMode" : 1,
+    "getPSAppCodeList" : {
+      "modelref" : true,
+      "path" : "PSSYSAPPS/aifactoryweb/PSAPPCODELISTS/SysOperator.json"
+    },
+    "getPSAppDEField" : {
+      "name" : "USER_ID",
+      "codeName" : "user_id"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "智能体",
+    "codeName" : "agent_context_name",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "agent_context_name",
+    "excelCaption" : "智能体",
+    "name" : "agent_context_name",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "AGENT_CONTEXT_NAME",
+      "codeName" : "agent_context_name"
+    },
+    "width" : 200,
+    "widthUnit" : "PX",
+    "enableSort" : true
+  }, {
+    "align" : "LEFT",
+    "cLConvertMode" : "NONE",
+    "caption" : "智能体标记",
+    "codeName" : "context_code_name",
+    "columnType" : "DEFGRIDCOLUMN",
+    "dataItemName" : "context_code_name",
+    "excelCaption" : "智能体标记",
+    "name" : "context_code_name",
+    "noPrivDisplayMode" : 1,
+    "getPSAppDEField" : {
+      "name" : "CONTEXT_CODE_NAME",
+      "codeName" : "context_code_name"
+    },
     "width" : 200,
     "widthUnit" : "PX",
     "enableSort" : true
@@ -130,10 +205,39 @@
   }, {
     "format" : "YYYY-MM-DD HH:mm:ss",
     "dataType" : 5,
+    "name" : "update_time",
+    "getPSAppDEField" : {
+      "name" : "UPDATE_TIME",
+      "codeName" : "update_time"
+    }
+  }, {
+    "format" : "YYYY-MM-DD HH:mm:ss",
+    "dataType" : 5,
     "name" : "last_active_at",
     "getPSAppDEField" : {
       "name" : "LAST_ACTIVE_AT",
       "codeName" : "last_active_at"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "user_id",
+    "getPSAppDEField" : {
+      "name" : "USER_ID",
+      "codeName" : "user_id"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "agent_context_name",
+    "getPSAppDEField" : {
+      "name" : "AGENT_CONTEXT_NAME",
+      "codeName" : "agent_context_name"
+    }
+  }, {
+    "dataType" : 25,
+    "name" : "context_code_name",
+    "getPSAppDEField" : {
+      "name" : "CONTEXT_CODE_NAME",
+      "codeName" : "context_code_name"
     }
   }, {
     "dataType" : 25,

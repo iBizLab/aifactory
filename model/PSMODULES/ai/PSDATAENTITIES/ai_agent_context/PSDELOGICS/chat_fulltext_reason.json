@@ -180,6 +180,28 @@
         "id" : "agent"
       },
       "srcValueType" : "SRCDLPARAM"
+    }, {
+      "dstFieldName" : "knowledgebasesbk",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chat_request"
+      },
+      "paramAction" : "SETPARAMVALUE",
+      "srcFieldName" : "ID",
+      "getSrcPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "kb"
+      },
+      "srcValueType" : "SRCDLPARAM"
+    }, {
+      "dstFieldName" : "srfscope",
+      "getDstPSDELogicParam" : {
+        "modelref" : true,
+        "id" : "chat_request"
+      },
+      "expression" : "//Groovy\ndata.get(\"knowledgebasesbk\")?(\"AI_KNOWLEDGE_BASE=\"+data.get(\"knowledgebasesbk\")):null",
+      "paramAction" : "SETPARAMVALUE",
+      "srcValueType" : "EXPRESSION"
     } ],
     "topPos" : 338,
     "parallelOutput" : true

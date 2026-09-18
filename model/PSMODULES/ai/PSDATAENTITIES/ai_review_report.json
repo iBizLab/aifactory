@@ -275,6 +275,9 @@
       "name" : "CHECK_INFO",
       "codeName" : "check_info"
     }, {
+      "name" : "USER_TAG",
+      "codeName" : "user_tag"
+    }, {
       "name" : "KB_ID",
       "codeName" : "kb_id"
     }, {
@@ -1734,6 +1737,89 @@
     "uIAssistDEField" : true
   }, {
     "getAllPSDEFDTColumns" : [ {
+      "columnName" : "USER_TAG",
+      "dBType" : "MYSQL5",
+      "name" : "USER_TAG",
+      "standardColumnName" : "`USER_TAG`"
+    }, {
+      "columnName" : "user_tag",
+      "dBType" : "POSTGRESQL",
+      "name" : "USER_TAG",
+      "queryCodeExp" : "t1.\"user_tag\"",
+      "standardColumnName" : "\"user_tag\""
+    } ],
+    "getAllPSDEFUIModes" : [ {
+      "codeName" : "Default",
+      "name" : "[USER_TAG][用户标签]",
+      "getPSDEFFormItem" : {
+        "codeName" : "Default",
+        "editorType" : "TEXTBOX",
+        "name" : "[USER_TAG][用户标签]",
+        "stringLength" : 100,
+        "uIMode" : "DEFAULT"
+      },
+      "type" : "DEFAULT"
+    }, {
+      "codeName" : "MobileDefault",
+      "name" : "[USER_TAG][用户标签]移动端默认",
+      "getPSDEFFormItem" : {
+        "codeName" : "MobileDefault",
+        "editorType" : "MOBTEXT",
+        "name" : "[USER_TAG][用户标签]移动端默认",
+        "stringLength" : 100,
+        "uIMode" : "MOBILEDEFAULT",
+        "mobileMode" : true
+      },
+      "type" : "MOBILEDEFAULT",
+      "mobileMode" : true
+    } ],
+    "getAllPSDEFValueRules" : [ {
+      "codeName" : "Default",
+      "name" : "默认规则",
+      "getPSDEFVRGroupCondition" : {
+        "condOp" : "AND",
+        "condType" : "GROUP",
+        "name" : "默认组",
+        "getPSDEFVRConditions" : [ {
+          "condType" : "STRINGLENGTH",
+          "dEFName" : "USER_TAG",
+          "maxValue" : 100,
+          "name" : "默认字符串长度",
+          "ruleInfo" : "内容长度必须小于等于[100]",
+          "includeMaxValue" : true,
+          "includeMinValue" : false,
+          "keyCond" : true
+        } ],
+        "ruleInfo" : "内容长度必须小于等于[100]"
+      },
+      "ruleInfo" : "内容长度必须小于等于[100]",
+      "checkDefault" : true,
+      "defaultMode" : true,
+      "enableBackend" : true,
+      "enableFront" : true
+    } ],
+    "codeName" : "user_tag",
+    "dEFType" : 1,
+    "dataType" : "TEXT",
+    "importOrder" : 1000,
+    "length" : 100,
+    "logicName" : "用户标签",
+    "name" : "USER_TAG",
+    "orderValue" : 260,
+    "getPSDEDBTable" : {
+      "modelref" : true,
+      "id" : "Table"
+    },
+    "getPSSysDBColumn" : {
+      "modelref" : true,
+      "id" : "USER_TAG"
+    },
+    "serviceCodeName" : "user_tag",
+    "stdDataType" : 25,
+    "stringLength" : 100,
+    "valueFormat" : "%1$s"
+  }, {
+    "getAllPSDEFDTColumns" : [ {
       "columnName" : "KB_ID",
       "dBType" : "MYSQL5",
       "name" : "KB_ID",
@@ -1874,13 +1960,9 @@
       "name" : "[RECORD_ID][标识]",
       "getPSDEFFormItem" : {
         "codeName" : "Default",
-        "editorType" : "HIDDEN",
+        "editorType" : "TEXTBOX",
         "name" : "[RECORD_ID][标识]",
-        "getRefPSDataEntity" : {
-          "modelref" : true,
-          "path" : "PSMODULES/meta/PSDATAENTITIES/data_record.json"
-        },
-        "stringLength" : 60,
+        "stringLength" : 100,
         "uIMode" : "DEFAULT"
       },
       "type" : "DEFAULT"
@@ -1889,13 +1971,9 @@
       "name" : "[RECORD_ID][标识]移动端默认",
       "getPSDEFFormItem" : {
         "codeName" : "MobileDefault",
-        "editorType" : "HIDDEN",
+        "editorType" : "MOBTEXT",
         "name" : "[RECORD_ID][标识]移动端默认",
-        "getRefPSDataEntity" : {
-          "modelref" : true,
-          "path" : "PSMODULES/meta/PSDATAENTITIES/data_record.json"
-        },
-        "stringLength" : 60,
+        "stringLength" : 100,
         "uIMode" : "MOBILEDEFAULT",
         "mobileMode" : true
       },
@@ -1912,16 +1990,16 @@
         "getPSDEFVRConditions" : [ {
           "condType" : "STRINGLENGTH",
           "dEFName" : "RECORD_ID",
-          "maxValue" : 60,
+          "maxValue" : 100,
           "name" : "默认字符串长度",
-          "ruleInfo" : "内容长度必须小于等于[60]",
+          "ruleInfo" : "内容长度必须小于等于[100]",
           "includeMaxValue" : true,
           "includeMinValue" : false,
           "keyCond" : true
         } ],
-        "ruleInfo" : "内容长度必须小于等于[60]"
+        "ruleInfo" : "内容长度必须小于等于[100]"
       },
-      "ruleInfo" : "内容长度必须小于等于[60]",
+      "ruleInfo" : "内容长度必须小于等于[100]",
       "checkDefault" : true,
       "defaultMode" : true,
       "enableBackend" : true,
@@ -1929,9 +2007,9 @@
     } ],
     "codeName" : "record_id",
     "dEFType" : 1,
-    "dataType" : "PICKUP",
+    "dataType" : "TEXT",
     "importOrder" : 1000,
-    "length" : 60,
+    "length" : 100,
     "logicName" : "记录标识",
     "name" : "RECORD_ID",
     "orderValue" : 1000,
@@ -1939,35 +2017,14 @@
       "modelref" : true,
       "id" : "Table"
     },
-    "getPSDER" : {
-      "modelref" : true,
-      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDERS/DER1N_AI_REVIEW_REPORT_DATA_RECORD_RECORD_ID.json"
-    },
     "getPSSysDBColumn" : {
       "modelref" : true,
       "id" : "RECORD_ID"
     },
-    "getRealPSDEField" : {
-      "name" : "_ID",
-      "codeName" : "_id"
-    },
-    "getRealPSDataEntity" : {
-      "modelref" : true,
-      "path" : "PSMODULES/meta/PSDATAENTITIES/data_record.json"
-    },
-    "getRelatedPSDEField" : {
-      "name" : "_ID",
-      "codeName" : "_id"
-    },
-    "getRelatedPSDataEntity" : {
-      "modelref" : true,
-      "path" : "PSMODULES/meta/PSDATAENTITIES/data_record.json"
-    },
     "serviceCodeName" : "record_id",
     "stdDataType" : 25,
-    "stringLength" : 60,
-    "valueFormat" : "%1$s",
-    "linkDEField" : true
+    "stringLength" : 100,
+    "valueFormat" : "%1$s"
   }, {
     "getAllPSDEFDTColumns" : [ {
       "columnName" : "DOCUMENT_ID",
@@ -2306,7 +2363,7 @@
       "topPos" : 80,
       "parallelOutput" : true
     }, {
-      "code" : "def defaultEntity = logic.param(\"default\").getReal();\r\nif(!defaultEntity.get(\"id\"))\r\n{\r\n    String unionId=\"\"\r\nif (defaultEntity.get(\"kb_id\"))\r\n    unionId+=defaultEntity.getString(\"kb_id\",\"\")\r\nif (defaultEntity.get(\"document_id\"))\r\n    unionId+=(\"||\"+defaultEntity.getString(\"document_id\",\"\"))\r\nif (defaultEntity.get(\"record_id\"))\r\n    unionId+=(\"||\"+defaultEntity.getString(\"record_id\",\"\"))\r\nif(!unionId)\r\n    org.springframework.util.Assert.hasLength(unionId,\"未传入审查对象\");\r\nif (defaultEntity.get(\"agent_tag\"))\r\n    unionId+=(\"||\"+defaultEntity.getString(\"agent_tag\",\"\"))\r\n    defaultEntity.set(\"id\",net.ibizsys.runtime.util.KeyValueUtils.genUniqueId(unionId))\r\n}",
+      "code" : "def defaultEntity = logic.param(\"default\").getReal();\r\nif(!defaultEntity.get(\"id\"))\r\n{\r\n    String unionId=\"\"\r\nif (defaultEntity.get(\"kb_id\"))\r\n    unionId+=defaultEntity.getString(\"kb_id\",\"\")\r\nif (defaultEntity.get(\"document_id\"))\r\n    unionId+=(\"||\"+defaultEntity.getString(\"document_id\",\"\"))\r\nif (defaultEntity.get(\"record_id\"))\r\n    unionId+=(\"||\"+defaultEntity.getString(\"record_id\",\"\"))\r\nif (defaultEntity.get(\"user_tag\"))\r\n    unionId+=(\"||\"+defaultEntity.getString(\"user_tag\",\"\"))\r\nif(!unionId)\r\n    org.springframework.util.Assert.hasLength(unionId,\"未传入审查对象\");\r\nif (defaultEntity.get(\"agent_tag\"))\r\n    unionId+=(\"||\"+defaultEntity.getString(\"agent_tag\",\"\"))\r\n    defaultEntity.set(\"id\",net.ibizsys.runtime.util.KeyValueUtils.genUniqueId(unionId))\r\n}",
       "codeName" : "RAWSFCODE_02",
       "codeType" : "Groovy",
       "leftPos" : -165,
@@ -2776,6 +2833,17 @@
       "stringLength" : 1048576,
       "type" : "SIMPLE"
     }, {
+      "logicName" : "用户标签",
+      "name" : "user_tag",
+      "getPSDEField" : {
+        "name" : "USER_TAG",
+        "codeName" : "user_tag"
+      },
+      "sourceType" : "DEFIELD",
+      "stdDataType" : 25,
+      "stringLength" : 100,
+      "type" : "SIMPLE"
+    }, {
       "logicName" : "知识库文档标识",
       "name" : "document_id",
       "getPSDEField" : {
@@ -2817,7 +2885,7 @@
       },
       "sourceType" : "DEFIELD",
       "stdDataType" : 25,
-      "stringLength" : 60,
+      "stringLength" : 100,
       "type" : "SIMPLE"
     } ],
     "sourceType" : "DE",
@@ -3417,33 +3485,6 @@
     "removeActionType" : -1,
     "removeOrder" : 0,
     "serviceCodeName" : "kb",
-    "enableFKey" : true
-  }, {
-    "codeName" : "record",
-    "dERType" : "DER1N",
-    "dynaModelFilePath" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report/PSDERS/DER1N_AI_REVIEW_REPORT_DATA_RECORD_RECORD_ID.json",
-    "fKeyName" : "F9992C3F90C4F3ED74",
-    "logicName" : "记录",
-    "getMajorPSDataEntity" : {
-      "modelref" : true,
-      "path" : "PSMODULES/meta/PSDATAENTITIES/data_record.json"
-    },
-    "masterOrder" : -1,
-    "masterRS" : 0,
-    "getMinorPSDataEntity" : {
-      "modelref" : true,
-      "path" : "PSMODULES/ai/PSDATAENTITIES/ai_review_report.json"
-    },
-    "name" : "DER1N_AI_REVIEW_REPORT_DATA_RECORD_RECORD_ID",
-    "orderValue" : 100,
-    "getPSPickupDEField" : {
-      "name" : "RECORD_ID",
-      "codeName" : "record_id"
-    },
-    "pickupDEFName" : "RECORD_ID",
-    "removeActionType" : -1,
-    "removeOrder" : 0,
-    "serviceCodeName" : "record",
     "enableFKey" : true
   } ],
   "name" : "AI_REVIEW_REPORT",
